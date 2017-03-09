@@ -1,0 +1,279 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Rlaan.Toolkit.Web</name>
+    </assembly>
+    <members>
+        <member name="T:Rlaan.Toolkit.Web.App_GlobalResources.Resource">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Web.App_GlobalResources.Resource.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Web.App_GlobalResources.Resource.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Web.App_GlobalResources.Resource.FormatExceptionDateTime">
+            <summary>
+              Looks up a localized string similar to Cannot convert value: \&quot;{0}\&quot; to type DateTime..
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Web.App_GlobalResources.Resource.FormatExceptionDecimal">
+            <summary>
+              Looks up a localized string similar to Cannot convert value: \&quot;{0}\&quot; to type Decimal..
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Web.App_GlobalResources.Resource.FormatExceptionDouble">
+            <summary>
+              Looks up a localized string similar to Cannot convert value: \&quot;{0}\&quot; to type Double..
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Web.App_GlobalResources.Resource.FormatExceptionInt">
+            <summary>
+              Looks up a localized string similar to Cannot convert value: \&quot;{0}\&quot; to type Int32, it&apos;s either in a wrong format or out of range..
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Web.App_GlobalResources.Resource.FormatExceptionLong">
+            <summary>
+              Looks up a localized string similar to Cannot convert value: \&quot;{0}\&quot; to type long, it&apos;s either in a wrong format or out of range..
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Web.App_GlobalResources.Resource.FormatExceptionShort">
+            <summary>
+              Looks up a localized string similar to Cannot convert value: \&quot;{0}\&quot; to type short, it&apos;s either in a wrong format or out of range..
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Web.App_GlobalResources.Resource.QueryStringParserException">
+            <summary>
+              Looks up a localized string similar to {0} was not found in the query string..
+            </summary>
+        </member>
+        <member name="T:Rlaan.Toolkit.Web.AuthorAttribute">
+            <summary>
+            An internal class which provides an author attribute for both structs, interfaces, enums and methods.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Web.AuthorAttribute.#ctor(System.String)">
+            <summary>
+            The default Constructor.
+            </summary>
+        </member>
+        <member name="T:Rlaan.Toolkit.Web.Log">
+            <summary>
+            Class which contains methods to log certain objects or events.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Web.Log.Exception(System.Exception)">
+            <summary>
+            Logs the provided Exception, requires the "Log.Mail.To", "Log.Mail.Subject", "Log.Mail.Subject" and "Smtp.Host" WebConfig appSettings, the "Smtp.Port" is optional.
+            </summary>
+            <param name="exception">Provide the current exception.</param>
+        </member>
+        <member name="M:Rlaan.Toolkit.Web.Log.Object(System.Object,System.String)">
+            <summary>
+            Logs the current object with the provided message.
+            </summary>
+            <param name="obj">The current object.</param>
+            <param name="message">The message you want to log.</param>
+        </member>
+        <member name="T:Rlaan.Toolkit.Web.Mail">
+            <summary>
+            Defines a wrapper object to allow applications to send e-mails by using the "simple mail transfer protocol" (SMTP).
+            This class requires the "Smtp.Host" webconfig appSetting, the "Smtp.Port" is optional; its default value is 25.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Web.Mail.#ctor(System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Constructs a new Mail object.
+            </summary>
+            <param name="mailFrom">Provide where the mail's from.</param>
+            <param name="mailTo">Provide who the mail is for.</param>
+            <param name="subject">Provide the subject.</param>
+            <param name="body">Provide the body.</param>
+            <param name="isBodyHtml">Provide a bool value to tell whether your mail will contain html.</param>
+        </member>
+        <member name="M:Rlaan.Toolkit.Web.Mail.Send(System.IO.FileInfo,System.Boolean)">
+            <summary>
+            Sends the created mail.
+            </summary>
+            <param name="file">Provide the file name.</param>
+            <param name="enableSsl">Provide a boolean based on whether SSL should be enabled.</param>
+        </member>
+        <member name="M:Rlaan.Toolkit.Web.Mail.ReplaceDynamicallySetVariable(System.String,System.String)">
+            <summary>
+            Replaces a single dynamically set variable which is in your body.
+            </summary>
+            <param name="oldValue">Provide the dynamically set variable.</param>
+            <param name="newValue">Provide the new value which will replace preset one.</param>
+        </member>
+        <member name="M:Rlaan.Toolkit.Web.Mail.Dispose">
+            <summary>
+            Releases all resouces used by the current instance "Rlaan.Toolkit.Web".
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Web.Mail.Dispose(System.Boolean)">
+            <summary>
+            Releases all resouces used by the current instance "Rlaan.Toolkit.Web". 
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:Rlaan.Toolkit.Web.Mail.Finalize">
+            <summary>
+            Deconstructor of the Mail object.
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Web.Mail.Cc">
+            <summary>
+            Sets the cc e-mail address.
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Web.Mail.Bcc">
+            <summary>
+            Sets the bcc e-mail address.
+            </summary>
+        </member>
+        <member name="T:Rlaan.Toolkit.Web.NetworkInformation">
+            <summary>
+            Class which contains methods to provide network information.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Web.NetworkInformation.PingHost(System.String,System.Int32)">
+            <summary>
+            Sends a ping to the provided host and returns a boolean value based on if it gave a response.
+            </summary>
+            <param name="host">Provide the host.</param>
+            <param name="timeout">Provide the timeout duration in milliseconds.</param>
+            <returns>Boolean value.</returns>
+        </member>
+        <member name="M:Rlaan.Toolkit.Web.NetworkInformation.IsDatabaseConnectionAvailable(System.String)">
+            <summary>
+            Determines whether the database connection is open.
+            </summary>
+            <param name="connectionString">Provide the connection string.</param>
+            <returns>Boolean value.</returns>
+        </member>
+        <member name="M:Rlaan.Toolkit.Web.NetworkInformation.GetUsersIPAddress">
+            <summary>
+            Returns the users IP address.
+            </summary>
+            <returns>The users IP address.</returns>
+        </member>
+        <member name="T:Rlaan.Toolkit.Web.QueryStringParser">
+            <summary>
+            Class containing methods to parse query string values, this class cannot be inherited.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Web.QueryStringParser.HasParameter(System.String)">
+            <summary>
+            Checks if the query string contains the provided parameter.
+            </summary>
+            <param name="parameter">Parameter name.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Rlaan.Toolkit.Web.QueryStringParser.GetShort(System.String)">
+            <summary>
+            Returns a short value based on the provided parameter.
+            </summary>
+            <param name="parameter">Parameter name.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Rlaan.Toolkit.Web.QueryStringParser.GetInt(System.String)">
+            <summary>
+            Returns an Int32 value based on the provided parameter.
+            </summary>
+            <param name="parameter">Parameter name.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Rlaan.Toolkit.Web.QueryStringParser.GetLong(System.String)">
+            <summary>
+            Returns a long value based on the provided parameter.
+            </summary>
+            <param name="parameter">Parameter name.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Rlaan.Toolkit.Web.QueryStringParser.GetString(System.String)">
+            <summary>
+            Returns a string value based on the provided parameter.
+            </summary>
+            <param name="parameter">Parameter name.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Rlaan.Toolkit.Web.QueryStringParser.GetBool(System.String)">
+            <summary>
+            Returns a boolean value based on the provided parameter.
+            </summary>
+            <param name="parameter">Parameter name.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Rlaan.Toolkit.Web.QueryStringParser.GetDouble(System.String)">
+            <summary>
+            Returns a double value based on the provided parameter.
+            </summary>
+            <param name="parameter">Parameter name.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Rlaan.Toolkit.Web.QueryStringParser.GetDecimal(System.String)">
+            <summary>
+            Returns a decimal value based on the provided parameter.
+            </summary>
+            <param name="parameter">Parameter name.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Rlaan.Toolkit.Web.QueryStringParser.GetDateTime(System.String)">
+            <summary>
+            Returns a DateTime value based on the provided parameter.
+            </summary>
+            <param name="parameter">Parameter name.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Rlaan.Toolkit.Web.QueryStringParser.GetDynamic(System.Object)">
+            <summary>
+            Returns a representation of an object which will be resolved at runtime.
+            </summary>
+            <param name="parameter">Parameter name.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Rlaan.Toolkit.Web.SmtpUser">
+            <summary>
+            Class which contains properties which initialises a new instance of the System.Net.NetworkCredential class.
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Web.SmtpUser.User">
+            <summary>
+            Returns the NetworkCredentials, requires the "Smtp.Client.Account" and "Smtp.Client.Password" WebConfig settings.
+            </summary>
+        </member>
+        <member name="T:Rlaan.Toolkit.Web.Url">
+            <summary>
+            Contains methods and properties which are related to the url.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Web.Url.Refresh">
+            <summary>
+            Reloads the current web page.
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Web.Url.QueryStringParser">
+            <summary>
+            Property which returns a value based on the method used within.
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Web.Url.GetBaseUrl">
+            <summary>
+            Returns the base url.
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Web.Url.GetFullUrl">
+            <summary>
+            Returns the complete url of the current request.
+            </summary>
+        </member>
+    </members>
+</doc>

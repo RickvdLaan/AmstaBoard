@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Rlaan.Toolkit.Helper</name>
+    </assembly>
+    <members>
+        <member name="T:Rlaan.Toolkit.Helper.AuthorAttribute">
+            <summary>
+            An internal class which provides an author attribute for both structs, interfaces, enums and methods.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Helper.AuthorAttribute.#ctor(System.String)">
+            <summary>
+            The default Constructor.
+            </summary>
+        </member>
+        <member name="T:Rlaan.Toolkit.Helper.File.File">
+            <summary>
+            Class which contains methods to perform tasks with files.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Helper.File.File.SaveFileToVirtualDirectory(System.Web.UI.WebControls.FileUpload,System.String,System.Int32)">
+            <summary>
+            Saves the uploaded file to the provided virtual directory.
+            <para>&#160;</para>
+            Provide a unique id to make sure that the uploaded file doesn't conflict with another file.
+            </summary>
+            <param name="file">Provide the FileUpload control.</param>
+            <param name="virtualDirectory">Provide the path to the virtual directory.</param>
+            <param name="uniqueId">Provide the unique id.</param>
+            <returns>File path.</returns>
+        </member>
+        <member name="T:Rlaan.Toolkit.Helper.List">
+            <summary>
+            Class which contains several types of lists.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Helper.List.GetCountries">
+            <summary>
+            Returns a list of countries based on the ISO 3166 culture.
+            </summary>
+            <returns>Returns a list with countries.</returns>
+        </member>
+        <member name="T:Rlaan.Toolkit.Helper.JQuery">
+            <summary>
+            Class with JQuery methods.
+            </summary>   
+        </member>
+        <member name="M:Rlaan.Toolkit.Helper.JQuery.InitialiseJQuery">
+            <summary>
+            Initialises JQuery version 2.1.3.min.js.
+            </summary>
+        </member>
+    </members>
+</doc>

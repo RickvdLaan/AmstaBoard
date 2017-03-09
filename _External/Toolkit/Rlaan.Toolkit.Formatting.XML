@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Rlaan.Toolkit.Formatting</name>
+    </assembly>
+    <members>
+        <member name="T:Rlaan.Toolkit.Formatting.AuthorAttribute">
+            <summary>
+            An internal class which provides an author attribute for both structs, interfaces, enums and methods.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Formatting.AuthorAttribute.#ctor(System.String)">
+            <summary>
+            The default Constructor.
+            </summary>
+        </member>
+        <member name="T:Rlaan.Toolkit.Formatting.DateTimeFormatter">
+            <summary>
+            Class containing methods which formats DateTime objects to another format.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Formatting.DateTimeFormatter.FormatDateToString(System.DateTime)">
+            <summary>
+            Formats the provided DateTime to DD-MM-YYYY
+            </summary>
+            <param name="value">Provide the DateTime.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Rlaan.Toolkit.Formatting.DateTimeFormatter.FormatDateTimeToString(System.DateTime)">
+            <summary>
+            Formats the provided DateTime to DD-MM-YYYY HH:mm
+            </summary>
+            <param name="value">Provide the DateTime.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Rlaan.Toolkit.Formatting.DateTimeFormatter.FormatDateToStringISO(System.DateTime)">
+            <summary>
+            Formats the provided DateTime to YYYY-MM-DD
+            </summary>
+            <param name="value">Provide the DateTime.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Rlaan.Toolkit.Formatting.DecimalFormatter">
+            <summary>
+            Class containing methods which formats decimals to another format.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Formatting.DecimalFormatter.FormatPercentageForDisplay(System.Decimal)">
+            <summary>
+            Formats the decimal value to a displayable format.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Rlaan.Toolkit.Formatting.DecimalFormatter.FormatPriceForDisplay(System.Decimal,Rlaan.Toolkit.Enums.CurrencySignType)">
+            <summary>
+            Formats the decimal value to a displayable format.
+            </summary>
+            <param name="value"></param>
+            <param name="currencySign"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Rlaan.Toolkit.Formatting.DecimalFormatter.FormatPercentageForEdit(System.Decimal)">
+            <summary>
+            Formats the decimal value to a editable format.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Rlaan.Toolkit.Formatting.StringFormatter">
+            <summary>
+            Class containing methods which formats string into a different format.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Formatting.StringFormatter.PackH(System.String)">
+            <summary>
+            Packs data into binary string.
+            </summary>
+            <param name="value">The string value that has to get converted to a binary string.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

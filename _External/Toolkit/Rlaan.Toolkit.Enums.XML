@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Rlaan.Toolkit.Enums</name>
+    </assembly>
+    <members>
+        <member name="T:Rlaan.Toolkit.Enums.AuthorAttribute">
+            <summary>
+            An internal class which provides an author attribute for both structs, interfaces, enums and methods.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Enums.AuthorAttribute.#ctor(System.String)">
+            <summary>
+            The default Constructor.
+            </summary>
+        </member>
+        <member name="T:Rlaan.Toolkit.Enums.CultureType">
+            <summary>
+            Enum which contains all the cultures while representing both the short as the string value.
+            </summary>
+        </member>
+        <member name="F:Rlaan.Toolkit.Enums.CultureType.Dutch">
+            <summary>
+            Represents the Culture Code "0x0413"; the description contains the Language Culture Name "nl-NL".
+            </summary>
+        </member>
+        <member name="F:Rlaan.Toolkit.Enums.CultureType.Canada">
+            <summary>
+            Represents the Culture Code "0x1009"; the description contains the Language Culture Name "en-CA".
+            </summary>
+        </member>
+        <member name="F:Rlaan.Toolkit.Enums.CultureType.UnitedKingdom">
+            <summary>
+            Represents the Culture Code "0x0809"; the description contains the Language Culture Name "en-GB".
+            </summary>
+        </member>
+        <member name="F:Rlaan.Toolkit.Enums.CultureType.UnitedStates">
+            <summary>
+            Represents the Culture Code "0x0409"; the description contains the Language Culture Name "en-US".
+            </summary>
+        </member>
+        <member name="T:Rlaan.Toolkit.Enums.CurrencySignType">
+            <summary>
+            <para>Enum which contains several currencies, requires the "Description" extension method from "Rlaan.Toolkit.Extensions" if you want to show the valuta sign.</para>
+            <para>&#160;</para>
+            <para>Example:</para>
+            <para>CurrencySignEnum.Dollar.Description();</para>
+            <para>$</para>
+            <para>&#160;</para>
+            <para>Example:</para>
+            <para>CurrencySignEnum.Dollar;</para>
+            <para>Dollar</para>
+            </summary>
+        </member>
+        <member name="F:Rlaan.Toolkit.Enums.CurrencySignType.None">
+            <summary>
+            Represents an empty string, in case you don't want to show a currency sign.
+            </summary>
+        </member>
+        <member name="F:Rlaan.Toolkit.Enums.CurrencySignType.Dollar">
+            <summary>
+            Represents the dollar currency sign.
+            </summary>
+        </member>
+        <member name="F:Rlaan.Toolkit.Enums.CurrencySignType.Euro">
+            <summary>
+            Represents the euro currency sign.
+            </summary>
+        </member>
+        <member name="F:Rlaan.Toolkit.Enums.CurrencySignType.Pound">
+            <summary>
+            Represents the pound currency sign.
+            </summary>
+        </member>
+        <member name="F:Rlaan.Toolkit.Enums.CurrencySignType.Yen">
+            <summary>
+            Represents the yen currency sign.
+            </summary>
+        </member>
+        <member name="T:Rlaan.Toolkit.Enums.EnvironmentType">
+            <summary>
+            Enum which contains all the environments.
+            </summary>
+        </member>
+        <member name="F:Rlaan.Toolkit.Enums.EnvironmentType.Development">
+            <summary>
+            Represents the develop environment.
+            </summary>
+        </member>
+        <member name="F:Rlaan.Toolkit.Enums.EnvironmentType.Staging">
+            <summary>
+            Represents the staging environment.
+            </summary>
+        </member>
+        <member name="F:Rlaan.Toolkit.Enums.EnvironmentType.Live">
+            <summary>
+            Represents the live environment.
+            </summary>
+        </member>
+        <member name="T:Rlaan.Toolkit.Enums.GenderType">
+            <summary>
+            Enum which contains all the genders.
+            </summary>
+        </member>
+        <member name="F:Rlaan.Toolkit.Enums.GenderType.Male">
+            <summary>
+            Represents the male gender.
+            </summary>
+        </member>
+        <member name="F:Rlaan.Toolkit.Enums.GenderType.Female">
+            <summary>
+            Represents the frmale gender.
+            </summary>
+        </member>
+        <member name="F:Rlaan.Toolkit.Enums.GenderType.Other">
+            <summary>
+            Represents the other gender.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,246 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Rlaan.Toolkit.Extensions</name>
+    </assembly>
+    <members>
+        <member name="T:Rlaan.Toolkit.Extensions.App_GlobalResources.Resource">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Extensions.App_GlobalResources.Resource.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Extensions.App_GlobalResources.Resource.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Extensions.App_GlobalResources.Resource.FormatExceptionBool">
+            <summary>
+              Looks up a localized string similar to Cannot convert value: \&quot;{0}\&quot; to type bool..
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Extensions.App_GlobalResources.Resource.FormatExceptionDateTime">
+            <summary>
+              Looks up a localized string similar to Cannot convert value: \&quot;{0}\&quot; to type DateTime..
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Extensions.App_GlobalResources.Resource.FormatExceptionDecimal">
+            <summary>
+              Looks up a localized string similar to Cannot convert value: \&quot;{0}\&quot; to type Decimal..
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Extensions.App_GlobalResources.Resource.FormatExceptionDouble">
+            <summary>
+              Looks up a localized string similar to Cannot convert value: \&quot;{0}\&quot; to type Double..
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Extensions.App_GlobalResources.Resource.FormatExceptionInt">
+            <summary>
+              Looks up a localized string similar to Cannot convert value: \&quot;{0}\&quot; to type Int32, it&apos;s either in a wrong format or out of range..
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Extensions.App_GlobalResources.Resource.FormatExceptionLong">
+            <summary>
+              Looks up a localized string similar to Cannot convert value: \&quot;{0}\&quot; to type long, it&apos;s either in a wrong format or out of range..
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Extensions.App_GlobalResources.Resource.FormatExceptionShort">
+            <summary>
+              Looks up a localized string similar to Cannot convert value: \&quot;{0}\&quot; to type short, it&apos;s either in a wrong format or out of range..
+            </summary>
+        </member>
+        <member name="T:Rlaan.Toolkit.Extensions.AuthorAttribute">
+            <summary>
+            An internal class which provides an author attribute for both structs, interfaces, enums and methods.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Extensions.AuthorAttribute.#ctor(System.String)">
+            <summary>
+            The default Constructor.
+            </summary>
+        </member>
+        <member name="T:Rlaan.Toolkit.Extensions.BooleanExtensions">
+            <summary>
+            Class which contains several boolean extension methods.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Extensions.BooleanExtensions.IsEven(System.Int32)">
+            <summary>
+            Determines whether the number is odd or even.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Rlaan.Toolkit.Extensions.BooleanExtensions.HasValue(System.String)">
+            <summary>
+            Determines a boolean based on if the provided string value contains a value.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Rlaan.Toolkit.Extensions.BooleanExtensions.IsFilenameSafe(System.String)">
+            <summary>
+            Determines if the string can be used as a filename.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Rlaan.Toolkit.Extensions.BooleanExtensions.ToBoolean(System.Int16)">
+            <summary>
+            Returns a boolean value based on the MySql (short)TinyInt value.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Rlaan.Toolkit.Extensions.BooleanExtensions.ToBoolean(System.String)">
+            <summary>
+            Returns a boolean value based on the provided string value.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Rlaan.Toolkit.Extensions.DoubleExtensions">
+            <summary>
+            Class which contains several double extension methods.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Extensions.DoubleExtensions.ToDouble(System.String)">
+            <summary>
+            Converts the string to a double.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Rlaan.Toolkit.Extensions.EnumExtensions">
+            <summary>
+            Component class which holds the Enum extension methods.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Extensions.EnumExtensions.Description(System.Enum)">
+            <summary>
+            Returns the description attribute.
+            </summary>
+        </member>
+        <member name="T:Rlaan.Toolkit.Extensions.DescriptionAttributeNotImplementedException">
+            <summary>
+            The internal exception that is thrown when the description attribute is not implemented, this class cannot be inherited.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Extensions.DescriptionAttributeNotImplementedException.#ctor">
+            <summary>
+            Initialises a new instance of the DescriptionAttributeNotImplementedException class with its default properties.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Extensions.DescriptionAttributeNotImplementedException.#ctor(System.String)">
+            <summary>
+            Initialises a new instance of the DescriptionAttributeNotImplementedException class with its default properties.
+            </summary>
+            <param name="message">The error message that explains the reason for the execption.</param>
+        </member>
+        <member name="T:Rlaan.Toolkit.Extensions.IntegerExtensions">
+            <summary>
+            Class which contains several integer extension methods.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Extensions.IntegerExtensions.ToInt(System.String)">
+            <summary>
+            Converts the string to an Int32.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Rlaan.Toolkit.Extensions.LongExtensions">
+            <summary>
+            Class which contains several long extension methods.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Extensions.LongExtensions.ToLong(System.String)">
+            <summary>
+            Converts the string to a long.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Rlaan.Toolkit.Extensions.ObjectExtensions">
+            <summary>
+            Class which contains several object extension methods.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Extensions.ObjectExtensions.Safe``1(``0)">
+            <summary>
+            Attempts to initialise the object in-case it's not initialised.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Rlaan.Toolkit.Extensions.ShortExtensions">
+            <summary>
+            Class which contains several integer extension methods.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Extensions.ShortExtensions.ToShort(System.Boolean)">
+            <summary>
+            Returns the MySql (short)TinyInt value based on the provided boolean value.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Rlaan.Toolkit.Extensions.StringExtensions">
+            <summary>
+            Class which contains several string extension methods.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Extensions.StringExtensions.CapitalizeFirstLetter(System.String)">
+            <summary>
+            Returns a copy of the provided string, but sets the first character to its uppercase equivalent.
+            </summary>
+            <param name="value">Provide the string value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Rlaan.Toolkit.Extensions.StringExtensions.ToLower(System.String,System.Boolean)">
+            <summary>
+            Returns a copy of the provided string converted to lowercase. Furthermore, there is the possibility to change the first character to its uppercase equivalent.
+            </summary>
+            <param name="value">Provide the string value.</param>
+            <param name="isFirstCharacterUppercase">Provide a boolean value based on whether the first characters should be its uppercase equivalent.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Rlaan.Toolkit.Extensions.StringExtensions.Add(System.String,System.String)">
+            <summary>
+            Adds the provided value to the current string.
+            </summary>
+            <param name="value">Provide the string value.</param>
+            <param name="valueToAdd">Provide the value you want to add to the current string.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Rlaan.Toolkit.Extensions.StringExtensions.Reverse(System.String)">
+            <summary>
+            Reverses the string input.
+            </summary>
+            <param name="value">Provide the string value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Rlaan.Toolkit.Extensions.StringExtensions.GetNameWithoutExtension(System.String)">
+            <summary>
+            Returns the file name of the specified path string without extension.
+            </summary>
+            <param name="path">Provide the string value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Rlaan.Toolkit.Extensions.StringExtensions.FormatString(System.String,System.Object[])">
+            <summary>
+            Replaces the format item in a specified string with the string representation of a corresponding object in a specified array.
+            </summary>
+            <param name="value">Provide the string value.</param>
+            <param name="args">An object array that contains zero or more objects to format.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

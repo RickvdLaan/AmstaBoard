@@ -1,0 +1,193 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Rlaan.Toolkit.Security</name>
+    </assembly>
+    <members>
+        <member name="T:Rlaan.Toolkit.Security.AuthorAttribute">
+            <summary>
+            An internal class which provides an author attribute for both structs, interfaces, enums and methods.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Security.AuthorAttribute.#ctor(System.String)">
+            <summary>
+            The default Constructor.
+            </summary>
+        </member>
+        <member name="T:Rlaan.Toolkit.Security.TripleDES">
+            <summary>
+            Defines a wrapper object to access the cryptographic service provider (CSP) version of the System.Security.Cryptography.TripleDES algorithm.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Security.TripleDES.#ctor">
+            <summary>
+            Constructs a new TripleDES object.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Security.TripleDES.#ctor(System.String)">
+            <summary>
+            Constructs a new TripleDES object.
+            </summary>
+            <param name="encryptionKey">Provide a 24-byte encryption key to override the default encryption key.</param>
+        </member>
+        <member name="M:Rlaan.Toolkit.Security.TripleDES.#ctor(System.Byte[])">
+            <summary>
+            Constructs a new TripleDES object.
+            </summary>
+            <param name="encryptionKey">Provide a 24-byte encryption key to override the default encryption key.</param>
+        </member>
+        <member name="M:Rlaan.Toolkit.Security.TripleDES.Encrypt(System.String)">
+            <summary>
+            Encrypts the provided data.
+            </summary>
+            <param name="value">Provide the value that needs to be encrypted.</param>
+            <returns>Encrypted value.</returns>
+        </member>
+        <member name="M:Rlaan.Toolkit.Security.TripleDES.Decrypt(System.String)">
+            <summary>
+            Decrypts the provided encrypted data.
+            </summary>
+            <param name="encryptedValue">Provided the encrypted data.</param>
+            <returns>Decrypted value.</returns>
+        </member>
+        <member name="M:Rlaan.Toolkit.Security.TripleDES.InitialiseTripleDES">
+            <summary>
+            Initialises the TripleDES object and sets several data.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Security.TripleDES.Dispose">
+            <summary>
+            Releases all resouces used by the current instance "Rlaan.Toolkit.Security.TripleDES".
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Security.TripleDES.Dispose(System.Boolean)">
+            <summary>
+            Releases all resouces used by the current instance "Rlaan.Toolkit.Security.TripleDES". 
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:Rlaan.Toolkit.Security.TripleDES.Finalize">
+            <summary>
+            Deconstructor of the TripleDES object.
+            </summary>
+        </member>
+        <member name="T:Rlaan.Toolkit.Security.Salt">
+            <summary>
+            Class which contains methods to generate random values.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Security.Salt.Generate(System.Int32)">
+            <summary>
+            Generates a random string (AaZz09).
+            </summary>
+            <param name="length">Provide an int value to determine the length.</param>
+            <returns>Returns a randomly generated string based on the provided length.</returns>
+        </member>
+        <member name="T:Rlaan.Toolkit.Security.MD5">
+            <summary>
+            Class which contains security methods which uses the MD5 algorithm.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Security.MD5.HashValue(System.String)">
+            <summary>
+            Returns the hashsed value.
+            </summary>
+            <param name="value">Provide the value you want to hash.</param>
+            <returns>Hashed value.</returns>
+        </member>
+        <member name="M:Rlaan.Toolkit.Security.MD5.HashValue(System.String,System.String)">
+            <summary>
+            Returns the hashed value.
+            </summary>
+            <param name="value">Provide the value you want to hash.</param>
+            <param name="salt">Provide the unique salt.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Rlaan.Toolkit.Security.SHA256">
+            <summary>
+            Class which contains security methods which uses the SHA256 algorithm.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Security.SHA256.HashValue(System.String)">
+            <summary>
+            Returns the hashsed value.
+            </summary>
+            <param name="value">Provide the value you want to hash.</param>
+            <returns>Hashed value.</returns>
+        </member>
+        <member name="M:Rlaan.Toolkit.Security.SHA256.HashValue(System.String,System.String)">
+            <summary>
+            Returns the hashed value.
+            </summary>
+            <param name="value">Provide the value you want to hash.</param>
+            <param name="salt">Provide the unique salt.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Rlaan.Toolkit.Security.SHA384">
+            <summary>
+            Class which contains security methods which uses the SHA384 algorithm.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Security.SHA384.HashValue(System.String)">
+            <summary>
+            Returns the hashsed value.
+            </summary>
+            <param name="value">Provide the value you want to hash.</param>
+            <returns>Hashed value.</returns>
+        </member>
+        <member name="M:Rlaan.Toolkit.Security.SHA384.HashValue(System.String,System.String)">
+            <summary>
+            Returns the hashed value.
+            </summary>
+            <param name="value">Provide the value you want to hash.</param>
+            <param name="salt">Provide the unique salt.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Rlaan.Toolkit.Security.SHA512">
+            <summary>
+            Class which contains security methods which uses the SHA512 algorithm.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Security.SHA512.HashValue(System.String)">
+            <summary>
+            Returns the hashsed value.
+            </summary>
+            <param name="value">Provide the value you want to hash.</param>
+            <returns>Hashed value.</returns>
+        </member>
+        <member name="M:Rlaan.Toolkit.Security.SHA512.HashValue(System.String,System.String)">
+            <summary>
+            Returns the hashed value.
+            </summary>
+            <param name="value">Provide the value you want to hash.</param>
+            <param name="salt">Provide the unique salt.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Rlaan.Toolkit.Security.App_GlobalResources.Resource">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Security.App_GlobalResources.Resource.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Security.App_GlobalResources.Resource.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Security.App_GlobalResources.Resource.TripleDESInvalidKey">
+            <summary>
+              Looks up a localized string similar to Invalid Triple DES encryption key used..
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Security.App_GlobalResources.Resource.TripleDESKeyStructure">
+            <summary>
+              Looks up a localized string similar to The Triple DES encryption key uses a 24-byte structure..
+            </summary>
+        </member>
+    </members>
+</doc>

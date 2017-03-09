@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Rlaan.Toolkit.Configuration</name>
+    </assembly>
+    <members>
+        <member name="T:Rlaan.Toolkit.Configuration.AuthorAttribute">
+            <summary>
+            An internal class which provides an author attribute for both structs, interfaces, enums and methods.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Configuration.AuthorAttribute.#ctor(System.String)">
+            <summary>
+            The default Constructor.
+            </summary>
+        </member>
+        <member name="T:Rlaan.Toolkit.Configuration.App_GlobalResources.Resource">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Configuration.App_GlobalResources.Resource.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Configuration.App_GlobalResources.Resource.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Configuration.App_GlobalResources.Resource.AppSettingNotFound">
+            <summary>
+              Looks up a localized string similar to The appSetting {0} wasn&apos;t found in the WebConfig..
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Configuration.App_GlobalResources.Resource.EnvironmentNotFound">
+            <summary>
+              Looks up a localized string similar to Invalid environment; environment \&quot;{0}\&quot; wasn&apos;t found..
+            </summary>
+        </member>
+        <member name="T:Rlaan.Toolkit.Configuration.Project">
+            <summary>
+            Class which contains classes and methods regarding to a project.
+            </summary>
+        </member>
+        <member name="T:Rlaan.Toolkit.Configuration.Project.Environment">
+            <summary>
+            Class which has several properties to return values about the current environment.
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Configuration.Project.Environment.Current">
+            <summary>
+            Property which returns the current environment.
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Configuration.Project.Environment.IsDevelopEnvironment">
+            <summary>
+            Property which determines whether the current environment is the development environment.
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Configuration.Project.Environment.IsStagingEnvironment">
+            <summary>
+            Property which determines whether the current environment is the staging environment.
+            </summary>
+        </member>
+        <member name="P:Rlaan.Toolkit.Configuration.Project.Environment.IsLiveEnvironment">
+            <summary>
+            Property which determines whether the current environment is the live environment.
+            </summary>
+        </member>
+        <member name="T:Rlaan.Toolkit.Configuration.WebConfig">
+            <summary>
+            Contains methods to get and set appSetting data.
+            </summary>
+        </member>
+        <member name="M:Rlaan.Toolkit.Configuration.WebConfig.SetSetting(System.String,System.Object)">
+            <summary>
+            Updates an existing WebConfig appSetting.
+            </summary>
+            <param name="appSetting">Provide the appSetting name.</param>
+            <param name="value">Provide the new value for the appSetting.</param>
+        </member>
+        <member name="M:Rlaan.Toolkit.Configuration.WebConfig.GetSetting(System.String)">
+            <summary>
+            Gets the WebConfig appSetting based on the provided appSetting name.
+            </summary>
+            <param name="appSetting">Provide the name of the appSetting.</param>
+            <returns>WebConfig AppSetting value.</returns>
+        </member>
+        <member name="M:Rlaan.Toolkit.Configuration.WebConfig.GetSetting(System.String,System.Boolean)">
+            <summary>
+            Gets the WebConfig appSetting based on the provided appSetting name.
+            </summary>
+            <param name="appSetting">Provide the name of the appSetting.</param>
+            <param name="throwExceptionWhenNotFound">Bool value based on whether the application must throw an exception if the appSetting wasn't found.</param>
+            <returns>WebConfig AppSetting value.</returns>
+        </member>
+        <member name="M:Rlaan.Toolkit.Configuration.WebConfig.GetSetting(System.String,System.String)">
+            <summary>
+            Gets the WebConfig appSetting based on the provided appSetting name.
+            </summary>
+            <param name="appSetting">Provide the name of the appSetting.</param>
+            <param name="defaultValue">Default value in case the appSetting wasn't found.</param>
+            <returns>WebConfig AppSetting value.</returns>
+        </member>
+    </members>
+</doc>

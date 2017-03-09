@@ -1,0 +1,68 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="AmstaJanBonga.Web.MasterPage.Main" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head runat="server">
+        <title></title>
+        
+        <link href="~/Includes/Css/StyleSheet.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css" /> 
+
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+        <script type="text/javascript" src="../Includes/Js/jquery.notification.js"></script>
+
+        <asp:Literal runat="server" ID="_litHead" EnableViewState="false" Visible="false"></asp:Literal>    
+
+        <!-- ContentPlaceHolder Head -->
+        <asp:ContentPlaceHolder ID="_cphHead" runat="server">
+        </asp:ContentPlaceHolder>
+
+        <!-- Meta -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    </head>
+
+    <body>
+        <form id="form" runat="server">
+            <div class="container">
+                <!-- Top bar -->
+                <asp:ScriptManager runat="server"></asp:ScriptManager>
+                <asp:UpdatePanel runat="server" UpdateMode="Conditional">
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="_timer" EventName="Tick" />
+                    </Triggers>
+
+                    <ContentTemplate>
+                        <section class="information-bar">
+                            <div>
+                                <asp:Literal runat="server" ID="_litDay"></asp:Literal>
+                            </div>
+
+                            <div>
+                                <asp:Literal runat="server" ID="_litTime"></asp:Literal>
+                            </div>                 
+
+                            <div>
+                                <asp:Literal runat="server" ID="_litWeather"></asp:Literal>
+                            </div>                 
+                        </section>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+                
+                <!-- Update Timer -->
+                <asp:Timer runat="server" ID="_timer" Interval="60000" OnTick="_timer_Tick"></asp:Timer>
+
+                <!-- Content -->
+                <section class="content">
+                    <!-- ContentPlaceHolder Content -->
+                    <asp:ContentPlaceHolder ID="_cphContent" runat="server">
+        
+                    </asp:ContentPlaceHolder>
+                </section>
+            </div>
+        </form>
+
+        <asp:Literal runat="server" ID="_litNotificationMessage"></asp:Literal>   
+    </body>
+</html>

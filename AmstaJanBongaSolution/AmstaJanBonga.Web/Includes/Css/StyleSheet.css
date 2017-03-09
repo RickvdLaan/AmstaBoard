@@ -1,0 +1,351 @@
+﻿/*
+    Table of Contents
+
+    1. Default Html
+        - 1.1 Font
+        - 1.2 Html Tags
+        - 1.3 Html Fields
+    2. Classes
+        - 2.1 General
+        - 2.2 Common
+    3 Content
+        - 3.1 Todo
+    4. Keyframes
+        - 4.1 Animation Classes
+        - 4.2 Keyframes
+    5. Responsive
+        - Use the same Table of Contents markup for all @media sections.
+*/
+
+/*
+    1. Default Html
+
+    1.1 Font
+*/
+
+@font-face {
+    font-family: Arcon;
+    src: url(arcon.regular.otf);
+}
+
+/* 
+    1.2 Html tags
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body, form, .container {
+    height: 100%;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, a, p, span {
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #f4f4f4;
+}
+
+h1 {
+    font-size: 35px;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+h3 {
+    font-size: 22px;
+}
+
+h4 {
+    font-size: 21px;
+}
+
+h5 {
+    font-size: 20px;
+}
+
+h6 {
+    font-size: 19px;
+}
+
+a, p {
+    font-size: 14px;
+}
+
+a {
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: none;
+    }
+
+    a, a:hover, a:active, a:focus {
+        -moz-user-select: none;
+        outline: none;
+    }
+
+/*
+    1.3 Html fields
+*/
+
+/*
+    2. Classes
+
+    2.1 General
+*/
+
+.content,
+.information-bar {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE/Edge */
+    cursor: default;
+}
+
+/* JQuery Notification */
+.notification-container {
+    height: auto;
+    max-width: 260px;
+    opacity: 0.95;
+    padding: 15px;
+    background: none repeat scroll 0 0 #333c47;
+    border: 1px solid rgba(50, 150, 225, 0.5);
+    border-radius: 5px;
+
+    /* CSS3 Shadow */
+    -webkit-box-shadow: 1px 0 3px 1px #000000;
+    box-shadow: 0 0 5px 0 #000000;
+}
+
+.notification-position {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+}
+
+.notification-container {
+    cursor: default;
+
+    /* Ignore Text Highlight */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+section.content {
+    height: calc(100% - 100px);
+}
+
+/* Tile */
+
+.tile {
+    width: Calc(50% - 2px);
+    height: Calc(50% - 2px);
+    float: left;
+    border: 1px solid #202228;
+}
+
+.agenda {
+    background-color: #00e06e;
+}
+
+.staff {
+    background-color: #7a5195;
+}
+
+.general {
+    background-color: #ff9200;
+}
+
+.chores {
+    background-color: #00aaff;
+}
+
+.agenda h2, 
+.staff h2,
+.general h2,
+.chores h2 {
+    display: block;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    font-weight: 400;
+    font-size: 48px;
+}
+
+.agenda h2 {
+    background-color: #07bf62;
+}
+
+.agenda a {
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.staff h2 {
+    background-color: #683d84;
+}
+
+.general h2 {
+    background-color: #eb8700;
+}
+
+.chores h2 {
+    background-color: #009eed;
+}
+
+/*
+    2.2 Common
+*/
+
+/* Floating */
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+.clear {
+    clear: both;
+}
+
+.disabled {
+    cursor: not-allowed;
+    filter: grayscale(100%);
+}
+
+.no-select {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE/Edge */
+}
+
+/*
+    3. Content
+    
+    3.1 Information bar    
+*/
+
+.information-bar {
+    padding-left: 30px;
+    padding-right: 30px;
+    height: 97px;
+    background-color: #384c54;
+    border: 1px solid #202228;
+    border-top: 2px solid #202228;
+    color: #f4f4f4;
+}
+
+.information-bar div {
+    font-size: 40px;
+    line-height: 97px;
+    float: left;
+}
+
+.information-bar div:first-child {
+    width: 40%;
+    text-align: left;
+}
+
+.information-bar div:nth-child(2) {
+   width: 20%;  
+   text-align: center;
+}
+
+.information-bar div:nth-child(3) {
+    width: 40%;
+    text-align: right;
+}
+
+.information-bar div:nth-child(3)::after {
+    clear: both;
+}
+
+/* Staff */
+
+.tile-wrapper {
+    height: Calc(100% - 100px);
+    width: 100%;
+    display: table;
+}
+
+.tile-container-cell {
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.tile-container-row {
+    text-align: center;
+    vertical-align: middle;
+    display: table-row;
+}
+
+.tile-container-row h3 {
+    display: inline-block;
+    width: 116px;
+    margin: 0 60px;
+    font-weight: 400;
+    font-size: 30px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+}
+
+.image {
+    border: 15px solid #ffffff;
+    background-color: #f4f4f4;
+}
+
+.image-staff {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin: 0 20px;
+    border: 15px solid #683d84;
+}
+
+.image-chores {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin: 0 60px;
+    border: 8px solid #009eed;
+}
+
+/* Mobile */
+
+#mobile-container {
+    display: none;
+}
+
+/* 
+    4. Keyframes
+
+    4.1 Animation Classes
+*/
+
+/*
+    4.2 Keyframes
+*/
+
+/* 
+    5. Responsive 
+*/
