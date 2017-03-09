@@ -102,6 +102,12 @@ a {
     2.1 General
 */
 
+.container,
+.information-bar,
+.content {
+    overflow: hidden;
+}
+
 .content,
 .information-bar {
     -webkit-touch-callout: none; /* iOS Safari */
@@ -298,7 +304,23 @@ section.content {
     display: table-row;
 }
 
-.tile-container-row h3 {
+.staff .tile-container-row h3 {
+   display: inline-block;
+    font-weight: 400;
+    font-size: 30px;
+    width: 230px;
+    margin: 0px 20px;
+    margin-bottom: 20px;
+}
+
+.staff .tile-container-row h4 {
+    display: inline-block;
+    width: 230px;
+    margin: 0px 20px;
+    margin-top: 25px;
+}
+
+.chores .tile-container-row h3 {
     display: inline-block;
     width: 116px;
     margin: 0 60px;
@@ -306,7 +328,6 @@ section.content {
     font-size: 30px;
     margin-top: 20px;
     margin-bottom: 5px;
-}
 }
 
 .image {

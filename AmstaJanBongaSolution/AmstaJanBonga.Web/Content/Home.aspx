@@ -6,9 +6,7 @@
         <h2>Agenda bewoners</h2>
 
          <div class="tile-wrapper">
-            <div class="tile-container">
-                <a href="#">Druk hier om uw agenda te bekijken</a>
-            </div>
+            <a href="#" class="tile-container-cell">Druk hier om uw agenda te bekijken</a>
         </div>
     </div>
 
@@ -16,12 +14,40 @@
         <h2>Dag en avonddienst</h2>
 
         <div class="tile-wrapper">
+            <div class="tile-container-row">
+                <h4>
+                    Dag
+                </h4>
+
+                <h4>
+                    Dag
+                </h4>
+
+                <h4>
+                    Avond
+                </h4>
+            </div>
+
             <div class="tile-container-cell">
                 <img class="image image-staff" src="http://betterpropertiesauburn.com/wp-content/uploads/2015/11/ad516503a11cd5ca435acc9bb6523536-1.png" />
        
                 <img class="image image-staff" src="http://betterpropertiesauburn.com/wp-content/uploads/2015/11/ad516503a11cd5ca435acc9bb6523536-1.png" />
 
                 <img class="image image-staff" src="http://betterpropertiesauburn.com/wp-content/uploads/2015/11/ad516503a11cd5ca435acc9bb6523536-1.png" />
+            </div>
+
+            <div class="tile-container-row">
+                <h3>
+                    Voornaam
+                </h3>
+
+                <h3>
+                    Voornaam
+                </h3>
+
+                <h3>
+                    Voornaam
+                </h3>
             </div>
         </div>
     </div>
