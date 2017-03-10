@@ -3,7 +3,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="_cphContent" runat="server">
     <div class="tile agenda">
-        <h2>Agenda bewoners</h2>
+        <h2>
+            Agenda bewoners
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+        </h2>
 
          <div class="tile-wrapper">
             <a href="#" class="tile-container-cell">Druk hier om uw agenda te bekijken</a>
@@ -11,7 +14,10 @@
     </div>
 
     <div class="tile staff">
-        <h2>Dag en avonddienst</h2>
+        <h2>
+            Dag en avonddienst
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+        </h2>
 
         <div class="tile-wrapper">
             <div class="tile-container-row">
@@ -53,11 +59,17 @@
     </div>
 
     <div class="tile general">
-        <h2>Algemeen</h2>
+        <h2>
+            Algemeen
+            <i class="fa fa-coffee" aria-hidden="true"></i>
+        </h2>
     </div>
 
     <div class="tile chores">
-        <h2>Corvee</h2>
+        <h2>
+            Corvee
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+        </h2>
 
          <div class="tile-wrapper">
             <div class="tile-container-row">

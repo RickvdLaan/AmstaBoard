@@ -7,11 +7,13 @@
         <title></title>
         
         <link href="~/Includes/Css/StyleSheet.css" rel="stylesheet" />
+        <link href="~/Includes/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css" /> 
 
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
         <script type="text/javascript" src="../Includes/Js/jquery.notification.js"></script>
-
+        
         <asp:Literal runat="server" ID="_litHead" EnableViewState="false" Visible="false"></asp:Literal>    
 
         <!-- ContentPlaceHolder Head -->
