@@ -381,6 +381,7 @@ section.content {
     -webkit-box-sizing: border-box;
     vertical-align: middle;
     width: Calc(Calc(100% / 3) - 50px);
+    min-width: auto; /*IE fix */
     float: left;    
 }
 
