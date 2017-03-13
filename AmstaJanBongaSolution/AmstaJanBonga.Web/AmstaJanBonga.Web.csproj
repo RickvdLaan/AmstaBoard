@@ -222,6 +222,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Content\OccupantOverview\" />
     <Folder Include="Includes\Css\Images\" />
   </ItemGroup>
   <PropertyGroup>

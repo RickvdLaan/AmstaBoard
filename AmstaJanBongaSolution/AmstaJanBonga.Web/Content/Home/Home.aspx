@@ -31,7 +31,7 @@
         </h2>
 
          <div class="tile-wrapper">
-            <a href="#" class="tile-container-cell">Druk hier om uw agenda te bekijken</a>
+            <a href="#" class="tile-container-cell button-press">Druk hier om uw agenda te bekijken</a>
         </div>
     </div>
 
