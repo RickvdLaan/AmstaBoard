@@ -7,12 +7,30 @@
 
     <div class="livingroom">
         <h2>
-            Selecteer woonkamer
+            Woonkamer
         </h2>
 
-        <div class="tile-wrapper-livingroom">
+        <div class="tile-wrapper-livingroom red-bg">
             <asp:HyperLink runat="server" CssClass="tile-container-cell livingroom-tile" NavigateUrl="~/Content/Home/Home.aspx">       
                     Woonkamer Stimuleren
+            </asp:HyperLink>
+        </div>
+
+        <div class="tile-wrapper-livingroom purple-bg">
+            <asp:HyperLink runat="server" CssClass="tile-container-cell livingroom-tile" NavigateUrl="~/Content/Home/Home.aspx">       
+                    Woonkamer B
+            </asp:HyperLink>
+        </div>
+
+        <div class="tile-wrapper-livingroom orange-bg">
+            <asp:HyperLink runat="server" CssClass="tile-container-cell livingroom-tile" NavigateUrl="~/Content/Home/Home.aspx">       
+                    Woonkamer C
+            </asp:HyperLink>
+        </div>
+
+        <div class="tile-wrapper-livingroom green-bg">
+            <asp:HyperLink runat="server" CssClass="tile-container-cell livingroom-tile" NavigateUrl="~/Content/Home/Home.aspx">       
+                    Woonkamer D
             </asp:HyperLink>
         </div>
     </div>

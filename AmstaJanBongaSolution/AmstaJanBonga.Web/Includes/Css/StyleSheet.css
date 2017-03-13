@@ -154,7 +154,12 @@ a {
 
 section.content {
     height: calc(100% - 97px);
-    background-color: #f4f4f4;
+    
+    background: rgb(244,244,244);
+    background: -moz-linear-gradient(top, rgba(244,244,244,1) 0%, rgba(229,229,229,1) 100%);
+    background: -webkit-linear-gradient(top, rgba(244,244,244,1) 0%,rgba(229,229,229,1) 100%);
+    background: linear-gradient(to bottom, rgba(244,244,244,1) 0%,rgba(229,229,229,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f4', endColorstr='#e5e5e5',GradientType=0 );
 }
 
 /* Tile */
@@ -329,9 +334,10 @@ section.content {
 .amsta {
     position: absolute;
     right: 0;
+    bottom: 0;
     width: 150px;
-    margin-top: 15px;
-    margin-right: 15px;
+    margin-bottom: 20px;
+    margin-right: 25px;
 }
 
 .livingroom {
@@ -341,6 +347,8 @@ section.content {
 .livingroom h2 {
     color: #202228;
     text-align: center;
+    height: 50px;
+    line-height: 70px;
 }
 
 .tile-wrapper-livingroom {
@@ -357,6 +365,46 @@ section.content {
     vertical-align: middle;
     width: Calc(Calc(100% / 3) - 50px);
     float: left;    
+}
+
+.red-bg {
+    background: rgb(239,60,60);
+    background: -moz-linear-gradient(top, rgba(237,101,101,1) 0%, rgba(239,60,60,1) 100%);
+    background: -webkit-linear-gradient(top, rgba(237,101,101,1) 0%,rgba(239,60,60,1) 100%);
+    background: linear-gradient(to bottom, rgba(237,101,101,1) 0%,rgba(239,60,60,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ed6565', endColorstr='#ef3c3c',GradientType=0 );
+}
+
+.orange-bg {
+    background: rgb(255,146,0);
+    background: -moz-linear-gradient(top, rgba(255,167,53,1) 0%, rgba(255,146,0,1) 100%);
+    background: -webkit-linear-gradient(top, rgba(255,167,53,1) 0%,rgba(255,146,0,1) 100%);
+    background: linear-gradient(to bottom, rgba(255,167,53,1) 0%,rgba(255,146,0,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffa735', endColorstr='#ff9200',GradientType=0 );
+}
+
+.purple-bg {
+    background: rgb(122,81,149);
+    background: -moz-linear-gradient(top, rgba(130,105,147,1) 0%, rgba(122,81,149,1) 100%);
+    background: -webkit-linear-gradient(top, rgba(130,105,147,1) 0%,rgba(122,81,149,1) 100%);
+    background: linear-gradient(to bottom, rgba(130,105,147,1) 0%,rgba(122,81,149,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#826993', endColorstr='#7a5195',GradientType=0 );
+}
+
+.green-bg {
+    background: rgb(0,224,110);
+    background: -moz-linear-gradient(top, rgba(64,221,140,1) 0%, rgba(0,224,110,1) 100%);
+    background: -webkit-linear-gradient(top, rgba(64,221,140,1) 0%,rgba(0,224,110,1) 100%);
+    background: linear-gradient(to bottom, rgba(64,221,140,1) 0%,rgba(0,224,110,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#40dd8c', endColorstr='#00e06e',GradientType=0 );
+}
+
+.blue-bg {
+
+}
+
+.yellow-bg {
+
 }
 
 .livingroom-tile {
