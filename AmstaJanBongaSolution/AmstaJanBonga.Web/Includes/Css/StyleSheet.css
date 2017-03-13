@@ -9,7 +9,8 @@
         - 2.1 General
         - 2.2 Common
     3 Content
-        - 3.1 Todo
+        - 3.1 Information bar
+        - 3.2 Livingroom
     4. Keyframes
         - 4.1 Animation Classes
         - 4.2 Keyframes
@@ -153,6 +154,7 @@ a {
 
 section.content {
     height: calc(100% - 97px);
+    background-color: #f4f4f4;
 }
 
 /* Tile */
@@ -268,7 +270,6 @@ section.content {
 */
 
 .information-bar {
-    padding-left: 30px;
     padding-right: 30px;
     height: 97px;
     background-color: #384c54;
@@ -285,25 +286,88 @@ section.content {
     font-size: 2.085vw;
     line-height: 97px;
     float: left;
+    height: 100%;
 }
 
 .information-bar div:first-child {
-    width: 40%;
+    width: 4%;
     text-align: left;
+    display: block;
+}
+
+.information-bar div:first-child a {
+    display: block;
+    text-align: center;
+}
+
+.information-bar div:first-child i {
+    font-size: 2.5vw;
+    vertical-align: middle;
 }
 
 .information-bar div:nth-child(2) {
+    width: 36%;
+    text-align: left;
+}
+
+.information-bar div:nth-child(3) {
    width: 20%;  
    text-align: center;
 }
 
-.information-bar div:nth-child(3) {
+.information-bar div:nth-child(4) {
     width: 40%;
     text-align: right;
 }
 
 .information-bar div:nth-child(3)::after {
     clear: both;
+}
+
+/* 3.2 Livingroom */
+
+.amsta {
+    position: absolute;
+    right: 0;
+    width: 150px;
+    margin-top: 15px;
+    margin-right: 15px;
+}
+
+.livingroom {
+
+}
+
+.livingroom h2 {
+    color: #202228;
+    text-align: center;
+}
+
+.tile-wrapper-livingroom {
+    display: table;
+    margin: 25px;
+    -webkit-box-shadow: 0 0 10px -5px rgba(0,0,0,255);
+    box-shadow: 0 0 10px -5px rgba(0,0,0,255);
+    background-color: #ef3c3c;
+    height: 250px;
+    border: 2px solid #202228;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    vertical-align: middle;
+    width: Calc(Calc(100% / 3) - 50px);
+    float: left;    
+}
+
+.livingroom-tile {
+    color: #f4f4f4;
+    font-size: 30px;
+    font-size: 2em;
+
+}
+
+.livingroom .livingroom-tile {
+
 }
 
 /* Staff */

@@ -3,10 +3,13 @@
     <!-- Sets the width of the staff images based on the amount of staff members -->
     <script>
         $(function () {
+            SetStaffImageClasses();
+        });
+
+        function SetStaffImageClasses() {
             var images = $(".staff img").length;
 
-            if (images == 3)
-            {
+            if (images == 3) {
                 $('.staff').find('img').addClass('image-staff-3')
             }
             else if (images == 2) {
@@ -15,9 +18,10 @@
             else {
                 alert("There are less than two images or more than three, this shouldn't be possible.");
             }
-        });
+        }
         </script>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="_cphContent" runat="server">
     <!-- Agenda -->
     <div class="tile agenda">
@@ -41,19 +45,19 @@
         <div class="tile-wrapper">
             <div class="tile-container-cell">
                 <h4>Dag</h4>
-                <img class="image image-staff" src="http://betterpropertiesauburn.com/wp-content/uploads/2015/11/ad516503a11cd5ca435acc9bb6523536-1.png" />
+                <asp:Image runat="server" CssClass="image image-staff" ImageUrl="~/Includes/Css/Images/avatar.jpg" />
                 <h3>Voornaam</h3>
             </div>
 
             <div class="tile-container-cell">
                 <h4>Dag</h4>
-                <img class="image image-staff" src="http://betterpropertiesauburn.com/wp-content/uploads/2015/11/ad516503a11cd5ca435acc9bb6523536-1.png" />
+                <asp:Image runat="server" CssClass="image image-staff" ImageUrl="~/Includes/Css/Images/avatar.jpg" />
                 <h3>Voornaam</h3>
             </div>
 
             <div class="tile-container-cell">
                 <h4>Avond</h4>
-                <img class="image image-staff" src="http://betterpropertiesauburn.com/wp-content/uploads/2015/11/ad516503a11cd5ca435acc9bb6523536-1.png" />
+                <asp:Image runat="server" CssClass="image image-staff" ImageUrl="~/Includes/Css/Images/avatar.jpg" />
                 <h3>Voornaam</h3>
             </div>
         </div>
@@ -89,25 +93,22 @@
             <div class="tile-container-cell">
                 <h3>Ochtend</h3>
 
-                <img class="image image-chores" src="http://betterpropertiesauburn.com/wp-content/uploads/2015/11/ad516503a11cd5ca435acc9bb6523536-1.png" />
-
-                <img class="image image-chores" src="http://betterpropertiesauburn.com/wp-content/uploads/2015/11/ad516503a11cd5ca435acc9bb6523536-1.png" />
+                <asp:Image runat="server" CssClass="image image-chores" ImageUrl="~/Includes/Css/Images/avatar.jpg" />
+                <asp:Image runat="server" CssClass="image image-chores" ImageUrl="~/Includes/Css/Images/avatar.jpg" />
             </div>
 
             <div class="tile-container-cell">
                 <h3>Middag</h3>
 
-                <img class="image image-chores" src="http://betterpropertiesauburn.com/wp-content/uploads/2015/11/ad516503a11cd5ca435acc9bb6523536-1.png" />
-
-                <img class="image image-chores" src="http://betterpropertiesauburn.com/wp-content/uploads/2015/11/ad516503a11cd5ca435acc9bb6523536-1.png" />
+                <asp:Image runat="server" CssClass="image image-chores" ImageUrl="~/Includes/Css/Images/avatar.jpg" />
+                <asp:Image runat="server" CssClass="image image-chores" ImageUrl="~/Includes/Css/Images/avatar.jpg" />
             </div>
 
               <div class="tile-container-cell">
-                  <h3> Avond</h3>
+                <h3> Avond</h3>
 
-                <img class="image image-chores" src="http://betterpropertiesauburn.com/wp-content/uploads/2015/11/ad516503a11cd5ca435acc9bb6523536-1.png" />
-
-                <img class="image image-chores" src="http://betterpropertiesauburn.com/wp-content/uploads/2015/11/ad516503a11cd5ca435acc9bb6523536-1.png" />
+                <asp:Image runat="server" CssClass="image image-chores" ImageUrl="~/Includes/Css/Images/avatar.jpg" />
+                <asp:Image runat="server" CssClass="image image-chores" ImageUrl="~/Includes/Css/Images/avatar.jpg" />
             </div>
         </div>
     </div>

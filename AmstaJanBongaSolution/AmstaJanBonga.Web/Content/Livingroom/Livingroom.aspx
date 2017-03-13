@@ -2,5 +2,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="_cphHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="_cphContent" runat="server">
-    <asp:HyperLink runat="server" NavigateUrl="~/Content/Home/Home.aspx">Huiskamer Stimuleren</asp:HyperLink>
+
+    <asp:Image runat="server" CssClass="amsta" ImageUrl="~/Includes/Css/Images/Amsta.png" />
+
+    <div class="livingroom">
+        <h2>
+            Selecteer woonkamer
+        </h2>
+
+        <div class="tile-wrapper-livingroom">
+            <asp:HyperLink runat="server" CssClass="tile-container-cell livingroom-tile" NavigateUrl="~/Content/Home/Home.aspx">       
+                    Woonkamer Stimuleren
+            </asp:HyperLink>
+        </div>
+    </div>
 </asp:Content>
