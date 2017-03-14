@@ -19,8 +19,10 @@
 
                 <!-- Cell -->
                 <div class="tile-container-cell">
-                    <img class="image-patients" src="../../Includes/Css/Images/avatar.jpg">
-                    <h3 style="text-align: center;"><%# Eval("Name") %></h3>
+                    <asp:HyperLink runat="server" NavigateUrl="~/Content/PatientAgenda/PatientAgenda.aspx" style="display:block;">
+                        <img class="image-patients" src="../../Includes/Css/Images/avatar.jpg">
+                        <h3 style="text-align: center;"><%# Eval("Name") %></h3>
+                    </asp:HyperLink>
                 </div>
 
                  <%# (Container.ItemIndex + 5) % 5 == 4 ? "</div>" : string.Empty %>
@@ -28,8 +30,8 @@
         </asp:Repeater>
     </div>
 
-    <!-- Back: with ReturnUrl -->
+    <!-- Back: with ReturnUrl
     <asp:HyperLink runat="server" NavigateUrl="~/Content/Livingroom/Livingroom.aspx" CssClass="previous">       
         <i class="fa fa-arrow-left" aria-hidden="true"></i>
-    </asp:HyperLink>
+    </asp:HyperLink> -->
 </asp:Content>

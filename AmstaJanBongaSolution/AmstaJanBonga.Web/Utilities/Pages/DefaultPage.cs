@@ -12,7 +12,7 @@ namespace AmstaJanBonga.Web.Utilities
         #region Properties
 
         /// <summary>
-        /// Gets the master page that determines the overall look of the page.
+        /// Gets the main master page.
         /// </summary>
         public MasterPage.Main MasterPage { get { return (MasterPage.Main)this.Master; } }
 

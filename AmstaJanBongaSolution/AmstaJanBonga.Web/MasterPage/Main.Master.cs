@@ -1,4 +1,5 @@
 ﻿using Rlaan.Toolkit.Extensions;
+using Rlaan.Toolkit.Web;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -19,6 +20,12 @@ namespace AmstaJanBonga.Web.MasterPage
             if (!Page.IsPostBack)
             {
                 this.UpdateInformationBar();
+
+                // Setting the navigate url to the home button.
+                if (Url.GetFullUrl.Contains("/Livingroom/"))
+                    this._hlBtnHome.NavigateUrl = "~/Content/Livingroom/LivingroomOverview.aspx";
+                else
+                    this._hlBtnHome.NavigateUrl = "~/Content/Livingroom/Livingroom.aspx";
             }
         }
 

@@ -120,6 +120,7 @@
   <ItemGroup>
     <Content Include="Content\Livingroom\LivingroomOverview.aspx" />
     <Content Include="Content\PatientAgendaOverview\PatientAgendaOverview.aspx" />
+    <Content Include="Content\PatientAgenda\PatientAgenda.aspx" />
     <Content Include="Includes\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="Includes\font-awesome-4.7.0\css\font-awesome.min.css" />
     <Content Include="Includes\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
@@ -202,6 +203,13 @@
     </Compile>
     <Compile Include="Content\PatientAgendaOverview\PatientAgendaOverview.aspx.designer.cs">
       <DependentUpon>PatientAgendaOverview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Content\PatientAgenda\PatientAgenda.aspx.cs">
+      <DependentUpon>PatientAgenda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\PatientAgenda\PatientAgenda.aspx.designer.cs">
+      <DependentUpon>PatientAgenda.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
