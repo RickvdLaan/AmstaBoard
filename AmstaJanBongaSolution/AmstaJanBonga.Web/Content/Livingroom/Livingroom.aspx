@@ -10,16 +10,16 @@
             var images = $(".staff img").length;
 
             if (images == 3) {
-                $('.staff').find('img').addClass('image-staff-3')
+                $('.staff').find('img').addClass('image-staff-3');
             }
             else if (images == 2) {
-                $('.staff').find('img').addClass('image-staff-2')
+                $('.staff').find('img').addClass('image-staff-2');
             }
             else {
                 alert("There are less than two images or more than three, this shouldn't be possible.");
             }
         }
-        </script>
+    </script>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="_cphContent" runat="server">

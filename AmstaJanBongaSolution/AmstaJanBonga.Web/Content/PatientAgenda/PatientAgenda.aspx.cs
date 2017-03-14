@@ -69,6 +69,11 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
 
                 this._repAgendaDay.DataSource = agenda;
                 this._repAgendaDay.DataBind();
+
+                // Finding overlap: For each .appointment in appointments
+                // check x, y coordinates with each other.
+                // if overlap was found: correct overlap.
+                // if overlap was found: restart at step 1.
             }
         }
     }
