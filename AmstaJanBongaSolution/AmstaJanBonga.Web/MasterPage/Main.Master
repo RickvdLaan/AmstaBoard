@@ -41,7 +41,7 @@
                     <ContentTemplate>
                         <section class="information-bar">
                             <div>
-                                <asp:HyperLink runat="server" NavigateUrl="~/Content/Livingroom/Livingroom.aspx">
+                                <asp:HyperLink runat="server" NavigateUrl="~/Content/Livingroom/LivingroomOverview.aspx">
                                     <i class="material-icons dp48">view_module</i>
                                 </asp:HyperLink>
                             </div>
@@ -65,7 +65,7 @@
                 <asp:Timer runat="server" ID="_timer" Interval="600000" OnTick="_timer_Tick"></asp:Timer>
 
                 <!-- Content -->
-                <section class="content">
+                <section runat="server" id="_sectionContent" class="content">
                     <!-- ContentPlaceHolder Content -->
                     <asp:ContentPlaceHolder ID="_cphContent" runat="server">
         

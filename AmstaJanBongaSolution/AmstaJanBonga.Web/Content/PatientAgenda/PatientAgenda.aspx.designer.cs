@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AmstaJanBonga.Web.Content
+namespace AmstaJanBonga.Web.Content.PatientAgenda
 {
 
 
-    public partial class Home
+    public partial class PatientAgenda
     {
     }
 }

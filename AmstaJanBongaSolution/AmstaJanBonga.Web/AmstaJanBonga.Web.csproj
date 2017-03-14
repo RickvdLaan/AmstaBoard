@@ -118,7 +118,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Livingroom\Livingroom.aspx" />
+    <Content Include="Content\Livingroom\LivingroomOverview.aspx" />
+    <Content Include="Content\PatientAgendaOverview\PatientAgendaOverview.aspx" />
     <Content Include="Includes\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="Includes\font-awesome-4.7.0\css\font-awesome.min.css" />
     <Content Include="Includes\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
@@ -170,7 +171,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Home\Home.aspx" />
+    <Content Include="Content\Livingroom\Livingroom.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Includes\Css\StyleSheet.css" />
     <Content Include="Includes\Js\jquery.notification.js" />
@@ -181,19 +182,26 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Content\Home\Home.aspx.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Content\Home\Home.aspx.designer.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Content\Livingroom\Livingroom.aspx.cs">
       <DependentUpon>Livingroom.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Content\Livingroom\Livingroom.aspx.designer.cs">
       <DependentUpon>Livingroom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Content\Livingroom\LivingroomOverview.aspx.cs">
+      <DependentUpon>LivingroomOverview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\Livingroom\LivingroomOverview.aspx.designer.cs">
+      <DependentUpon>LivingroomOverview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Content\PatientAgendaOverview\PatientAgendaOverview.aspx.cs">
+      <DependentUpon>PatientAgendaOverview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\PatientAgendaOverview\PatientAgendaOverview.aspx.designer.cs">
+      <DependentUpon>PatientAgendaOverview.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -222,7 +230,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Content\OccupantOverview\" />
     <Folder Include="Includes\Css\Images\" />
   </ItemGroup>
   <PropertyGroup>

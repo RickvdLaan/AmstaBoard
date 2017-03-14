@@ -64,6 +64,12 @@ namespace AmstaJanBonga.Web.MasterPage
 
         #region Methods
 
+        public void ChangeBackgroundColour(string colourClass)
+        {
+            // Change to an enum later.
+            this._sectionContent.Attributes.Add("class", "content " + colourClass);
+        }
+
         private void UpdateInformationBar()
         {
             // Current day.

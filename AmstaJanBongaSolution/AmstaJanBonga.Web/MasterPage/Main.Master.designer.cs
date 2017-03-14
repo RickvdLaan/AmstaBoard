@@ -76,6 +76,15 @@ namespace AmstaJanBonga.Web.MasterPage {
         protected global::System.Web.UI.Timer _timer;
         
         /// <summary>
+        /// _sectionContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl _sectionContent;
+        
+        /// <summary>
         /// _cphContent control.
         /// </summary>
         /// <remarks>

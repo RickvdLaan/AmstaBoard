@@ -1,18 +1,17 @@
-﻿using AmstaJanBonga.Web.Utilities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace AmstaJanBonga.Web.Content
+namespace AmstaJanBonga.Web.Content.PatientAgenda
 {
-    public partial class Home : DefaultPage
+    public partial class PatientAgenda : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
         }
     }
 }
