@@ -1,8 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Main.Master" AutoEventWireup="true" CodeBehind="PatientAgenda.aspx.cs" Inherits="AmstaJanBonga.Web.Content.PatientAgenda.PatientAgenda" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="_cphHead" runat="server">
 
- <!-- Gets the width and heights of all appointments and checks if any are overlapping
-      and if they overlap, their width will be changed untill all collisions are resolved. -->
+ <!-- Gets all appointments and checks if any are overlapping. -->
     <script>
         $(function () {
             UpdateAllAppointments();
