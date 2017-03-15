@@ -48,42 +48,58 @@
     <!-- The photo of the patient. -->
     <asp:Image runat="server" CssClass="agenda-image" ImageUrl="~/Includes/Css/Images/avatar.jpg" />
 
-    <!-- The day agenda. -->
-    <asp:Panel runat="server" ID="_pnlAgendaDay" Visible="true">
-        <table class="agenda-day">
-            <thead>
-                <tr>
-                    <td>
-                        <!-- Purposely left blank without a colspan for design purposes. -->
-                    </td>
+    <asp:UpdatePanel runat="server" UpdateMode="Conditional">
+        <Triggers>
+            <asp:AsyncPostBackTrigger ControlID="_btnSelectDayAgenda" EventName="Click" />
+            <asp:AsyncPostBackTrigger ControlID="_btnSelectWeekAgenda" EventName="Click" />
+        </Triggers>
 
-                    <td class="blue-bg" style="font-size: 50px;">
-                        Vandaag
-                    </td>
-                </tr>
-            </thead>
-        
-            <tbody>
-                <!-- Repeating through the appointments. -->
-                <asp:Repeater runat="server" ID="_repAgendaDay">
-                    <ItemTemplate>
+        <ContentTemplate>
+            <!-- Agenda container -->
+            
+            <div id="agenda-button-container">
+                <asp:Button runat="server" Text="Dag" ID="_btnSelectDayAgenda" OnClick="_btnSelectDayAgenda_Click" />
+                <asp:Button runat="server" Text="Week" ID="_btnSelectWeekAgenda" OnClick="_btnSelectWeekAgenda_Click" />
+            </div>
+
+            <!-- The day agenda. -->
+            <asp:Panel runat="server" ID="_pnlAgendaDay" Visible="true">
+                <table class="agenda-day">
+                    <thead>
                         <tr>
                             <td>
-                                <%# Eval("Time") %>
+                                <!-- Purposely left blank without a colspan for design purposes. -->
                             </td>
 
-                            <td>
-                                <%# Eval("Appointment") %>
+                            <td class="blue-bg" style="font-size: 50px;">
+                                Vandaag
                             </td>
                         </tr>
-                    </ItemTemplate>
-                </asp:Repeater>
-            </tbody>
-        </table>
-    </asp:Panel>
+                    </thead>
+        
+                    <tbody>
+                        <!-- Repeating through the appointments. -->
+                        <asp:Repeater runat="server" ID="_repAgendaDay">
+                            <ItemTemplate>
+                                <tr>
+                                    <td>
+                                        <%# Eval("Time") %>
+                                    </td>
 
-    <!-- The week agenda. -->
-    <asp:Panel runat="server" ID="_pnlAgendaWeek" Visible="false">
+                                    <td>
+                                        <%# Eval("Appointment") %>
+                                    </td>
+                                </tr>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </tbody>
+                </table>
+            </asp:Panel>
 
-    </asp:Panel>
+            <!-- The week agenda. -->
+            <asp:Panel runat="server" ID="_pnlAgendaWeek" Visible="false">
+
+            </asp:Panel>
+        </ContentTemplate>
+    </asp:UpdatePanel>
 </asp:Content>

@@ -96,5 +96,21 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
         }
 
         #endregion
+
+        #region Events
+
+        protected void _btnSelectDayAgenda_Click(object sender, EventArgs e)
+        {
+            this._pnlAgendaDay.Visible = true;
+            this._pnlAgendaWeek.Visible = false;
+        }
+
+        protected void _btnSelectWeekAgenda_Click(object sender, EventArgs e)
+        {
+            this._pnlAgendaDay.Visible = false;
+            this._pnlAgendaWeek.Visible = true;
+        }
+
+        #endregion
     }
 }
