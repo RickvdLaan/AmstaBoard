@@ -250,6 +250,21 @@ table.agenda-day tbody tr td {
     border-top: none;
 }
 
+/* Agenda */
+
+.agenda-image:after {
+    clear: both;
+}
+
+.agenda-image {
+    float: left;
+    width: 200px;
+    border-radius: 50%;
+    margin-top: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
 /* Appointment */
 
 .appointment {
@@ -283,15 +298,6 @@ table.agenda-day tbody tr td {
     font-size: 16px;
 }
 
-.agenda-image {
-    float: left;
-    width: 200px;
-    border-radius: 50%;
-    margin-top: 50px;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
 .appointment-50-r {
     width: 50%;
     right: 0;
@@ -300,16 +306,6 @@ table.agenda-day tbody tr td {
 .appointment-50-l {
     width: 50%;
     left: 0;
-}
-
-.agenda-image:after {
-    clear: both;
-}
-
-/* Agenda week*/
-
-.agenda-week {
-
 }
 
 /* Tile */
@@ -512,6 +508,14 @@ table.agenda-day tbody tr td {
     float: left;    
 }
 
+.livingroom-tile {
+    color: #f4f4f4;
+    font-size: 30px;
+    font-size: 2em;
+}
+
+/* Colours */
+
 .grey-bg {
     background: rgb(244,244,244);
     background: -moz-linear-gradient(top, rgba(244,244,244,1) 0%, rgba(229,229,229,1) 100%);
@@ -577,13 +581,6 @@ table.agenda-day tbody tr td {
     color: #fff;
 }
 
-.livingroom-tile {
-    color: #f4f4f4;
-    font-size: 30px;
-    font-size: 2em;
-
-}
-
 /* Staff */
 
 .tile-wrapper {
@@ -606,13 +603,6 @@ table.agenda-day tbody tr td {
 
 .staff .tile-container-row h3,
 .staff .tile-container-cell h3 {
-    /*display: inline-block;
-    font-weight: 400;
-    font-size: 30px;
-    width: 230px;
-    margin: 0px 20px;
-    margin-bottom: 20px;*/
-
     display: inline-block;
     font-weight: 400;
     font-size: 30px;
@@ -623,11 +613,6 @@ table.agenda-day tbody tr td {
 
 .staff .tile-container-row h4,
 .staff .tile-container-cell h4 {
-    /*display: inline-block;
-    width: 230px;
-    margin: 0px 20px;
-    margin-top: 25px;*/
-
     display: inline-block;
     width: 100%;
     margin: 2.5% 0;
@@ -636,20 +621,11 @@ table.agenda-day tbody tr td {
 
 .chores .tile-container-row h3,
 .chores .tile-container-cell h3 {
-    /*display: inline-block;
-    width: 116px;
-    margin: 0 60px;
-    font-weight: 400;
-    font-size: 30px;
-    margin-top: 20px;
-    margin-bottom: 5px;*/
-
     display: inline-block;
     width: 100%;
     font-weight: 400;
     margin: 2.5% 0;
     font-size: 1.55vw;
-
 }
 
 .image {
@@ -658,12 +634,6 @@ table.agenda-day tbody tr td {
 }
 
 .image-staff {
-    /*border-radius: 50%;
-    width: 200px;
-    height: 200px;
-    margin: 0 20px;
-    border: 15px solid #683d84;*/
-
     border-radius: 50%;
     margin: 0 Calc(20% / 10);
     border: 15px solid #683d84;
@@ -691,12 +661,6 @@ table.agenda-day tbody tr td {
      box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-}
-
-/* Mobile */
-
-#mobile-container {
-    display: none;
 }
 
 /* 

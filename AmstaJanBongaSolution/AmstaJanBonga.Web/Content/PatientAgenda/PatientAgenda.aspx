@@ -28,7 +28,7 @@
             return true;
         }
 
-        // Gets all appointmen
+        // Updates all the appointmentsif they are overlapping with another appointment.
         function UpdateAllAppointments() {
             var appointments = $(".appointment");
 
@@ -45,8 +45,10 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="_cphContent" runat="server">
+    <!-- The photo of the patient. -->
     <asp:Image runat="server" CssClass="agenda-image" ImageUrl="~/Includes/Css/Images/avatar.jpg" />
 
+    <!-- The day agenda. -->
     <asp:Panel runat="server" ID="_pnlAgendaDay" Visible="true">
         <table class="agenda-day">
             <thead>
@@ -62,6 +64,7 @@
             </thead>
         
             <tbody>
+                <!-- Repeating through the appointments. -->
                 <asp:Repeater runat="server" ID="_repAgendaDay">
                     <ItemTemplate>
                         <tr>
@@ -79,6 +82,7 @@
         </table>
     </asp:Panel>
 
+    <!-- The week agenda. -->
     <asp:Panel runat="server" ID="_pnlAgendaWeek" Visible="false">
 
     </asp:Panel>
