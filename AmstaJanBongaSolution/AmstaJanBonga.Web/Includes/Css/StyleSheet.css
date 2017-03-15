@@ -122,7 +122,7 @@ a {
 }
 
 .content {
-    overflow: auto
+    overflow: hidden;
 }
 
 .content,
@@ -133,6 +133,10 @@ a {
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* IE/Edge */
     cursor: default;
+}
+
+.overflow-auto {
+    overflow: auto;
 }
 
 /* JQuery Notification */
@@ -196,7 +200,8 @@ section.content {
 
 table.agenda-day thead {
     text-align: center;
-    height: 250px;
+    /*height: 250px; /* Height glitches on other browsers, so using line-height instead. */
+    line-height: 125px; /* cross-platform bug fix table height */
 }
 
 table.agenda-day thead tr td:last-child {
@@ -283,7 +288,8 @@ table.agenda-day tbody tr td {
     width: 200px;
     border-radius: 50%;
     margin-top: 50px;
-    margin-left: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .appointment-50-r {
@@ -484,10 +490,6 @@ table.agenda-day tbody tr td {
     margin-right: 25px;
 }
 
-.livingroom {
-
-}
-
 .livingroom h2 {
     color: #202228;
     text-align: center;
@@ -506,8 +508,7 @@ table.agenda-day tbody tr td {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     vertical-align: middle;
-    width: Calc(Calc(100% / 3) - 50px);
-    min-width: auto; /*IE fix */
+    width: Calc((100% / 3) - 50px);
     float: left;    
 }
 
@@ -559,18 +560,27 @@ table.agenda-day tbody tr td {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#38bcff', endColorstr='#00aaff',GradientType=0 );
 }
 
-.yellow-bg {
+.pink-bg {
+    background: rgb(255,0,117);
+    background: -moz-linear-gradient(top, rgba(255,53,181,1) 0%, rgba(255,0,117,1) 100%);
+    background: -webkit-linear-gradient(top, rgba(255,53,181,1) 0%,rgba(255,0,117,1) 100%);
+    background: linear-gradient(to bottom, rgba(255,53,181,1) 0%,rgba(255,0,117,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff35b5', endColorstr='#ff0075',GradientType=0 );
+}
 
+.green-bg,
+.grey-bg,
+.orange-bg,
+.pink-bg,
+.purple-bg,
+.red-bg {
+    color: #fff;
 }
 
 .livingroom-tile {
     color: #f4f4f4;
     font-size: 30px;
     font-size: 2em;
-
-}
-
-.livingroom .livingroom-tile {
 
 }
 

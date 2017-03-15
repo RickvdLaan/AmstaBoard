@@ -34,7 +34,7 @@ namespace AmstaJanBonga.Web.Content.PatientAgendaOverview
 
         protected override void OnPreRender(EventArgs e)
         {
-            this.MasterPage.ChangeBackgroundColour("green-bg");
+            this.MasterPage.AddClassToContent("green-bg");
 
             base.OnPreRender(e);
         }

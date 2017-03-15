@@ -13,6 +13,15 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda {
     public partial class PatientAgenda {
         
         /// <summary>
+        /// _pnlAgendaDay control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel _pnlAgendaDay;
+        
+        /// <summary>
         /// _repAgendaDay control.
         /// </summary>
         /// <remarks>
@@ -20,5 +29,14 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater _repAgendaDay;
+        
+        /// <summary>
+        /// _pnlAgendaWeek control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel _pnlAgendaWeek;
     }
 }

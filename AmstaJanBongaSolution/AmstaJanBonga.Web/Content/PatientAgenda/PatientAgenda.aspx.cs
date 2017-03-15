@@ -30,7 +30,8 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
 
         protected override void OnPreRender(EventArgs e)
         {
-            this.MasterPage.ChangeBackgroundColour("grey-bg");
+            this.MasterPage.AddClassToContent("grey-bg");
+            this.MasterPage.AddClassToContent("overflow-auto");
 
             base.OnPreRender(e);
         }
@@ -55,7 +56,7 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
                 {
                     var height = (38 + (50 * (12 - 10)));
 
-                    workRow[1] = "<div class=\"appointment\" style=\"height: {0}px;\">".FormatString(height) +
+                    workRow[1] = "<div class=\"appointment red-bg\" style=\"height: {0}px;\">".FormatString(height) +
                         "<dl><dt>Afspraak fysio</dt><dd><p>Tijdstip: Van 10:00 tot 12:00 uur.</p></dd><dd><p>Waar: Ruimte A.<p></dd><dd><p>Omschrijving: Maecenas convallis nisi at turpis auctor, aliquet molestie felis blandit.<p></dd></dl>"
                         + "</div>";
                 }
@@ -64,7 +65,7 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
                 {
                     var height = (38 + (50 * (12 - 11)));
 
-                    workRow[1] = "<div class=\"appointment\" style=\"height: {0}px;\">".FormatString(height) +
+                    workRow[1] = "<div class=\"appointment red-bg\" style=\"height: {0}px;\">".FormatString(height) +
                         "<dl><dt>Activiteit</dt><dd><p>Tijdstip: Van 11:00 tot 12:00 uur.</p></dd><dd><p>Waar: De woonkamer.<p></dd><dd><p>Omschrijving: Nulla mattis tellus vel est pellentesque dapibus. Pellentesque ornare lobortis pellentesque.<p></dd></dl>"
                         + "</div>";
                 }
@@ -73,7 +74,7 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
                 {
                     var height = (38 + (50 * (17 - 14)));
 
-                    workRow[1] = "<div class=\"appointment\" style=\"height: {0}px;\">".FormatString(height) +
+                    workRow[1] = "<div class=\"appointment red-bg\" style=\"height: {0}px;\">".FormatString(height) +
                         "<dl><dt>Familiebezoek</dt><dd><p>Tijdstip: Van 14:00 tot 17:00 uur.</p></dd><dd><p>Waar: De woonkamer.<p></dd><dd><p>Omschrijving: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum porttitor sollicitudin volutpat. Nulla consectetur neque id nulla dignissim, ac faucibus velit posuere.<p></dd></dl>"
                         + "</div>";
                 }
@@ -82,7 +83,7 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
                 {
                     var height = (38 + (50 * (18 - 18)));
 
-                    workRow[1] = "<div class=\"appointment\" style=\"height: {0}px;\">".FormatString(height) +
+                    workRow[1] = "<div class=\"appointment red-bg\" style=\"height: {0}px;\">".FormatString(height) +
                         "<dl><dt>Familiebezoek</dt><dd><p>Tijdstip: Van 18:00 tot 19:00 uur.</p></dd><dd><p>Waar: De woonkamer.<p></dd><dd><p>Omschrijving: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum porttitor sollicitudin volutpat. Nulla consectetur neque id nulla dignissim, ac faucibus velit posuere.<p></dd></dl>"
                         + "</div>";
                 }

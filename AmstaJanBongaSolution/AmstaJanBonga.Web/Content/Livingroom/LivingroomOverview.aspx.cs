@@ -16,7 +16,7 @@ namespace AmstaJanBonga.Web.Content.Livingroom
 
         protected override void OnPreRender(EventArgs e)
         {
-            this.MasterPage.ChangeBackgroundColour("grey-bg");
+            this.MasterPage.AddClassToContent("grey-bg");
 
             base.OnPreRender(e);
         }

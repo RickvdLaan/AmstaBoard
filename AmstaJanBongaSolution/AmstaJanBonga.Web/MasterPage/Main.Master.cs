@@ -71,10 +71,13 @@ namespace AmstaJanBonga.Web.MasterPage
 
         #region Methods
 
-        public void ChangeBackgroundColour(string colourClass)
+        /// <summary>
+        /// Adds a css class to the content section.
+        /// </summary>
+        /// <param name="cssClass">The css class to add.</param>
+        public void AddClassToContent(string cssClass)
         {
-            // Change to an enum later.
-            this._sectionContent.Attributes.Add("class", "content " + colourClass);
+            this._sectionContent.Attributes.Add("class", "{0} {1}".FormatString(this._sectionContent.Attributes["class"], cssClass));
         }
 
         private void UpdateInformationBar()
