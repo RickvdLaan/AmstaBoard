@@ -125,6 +125,7 @@
     <Content Include="Includes\font-awesome-4.7.0\css\font-awesome.min.css" />
     <Content Include="Includes\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
     <Content Include="Includes\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="Includes\Js\calendar-appointments.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

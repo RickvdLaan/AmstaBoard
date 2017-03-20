@@ -15,8 +15,7 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /> 
         <!-- 33kb -->
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-        <script type="text/javascript" src="../Includes/Js/jquery.notification.js"></script>
-        
+
         <asp:Literal runat="server" ID="_litHead" EnableViewState="false" Visible="false"></asp:Literal>    
 
         <!-- ContentPlaceHolder Head -->
