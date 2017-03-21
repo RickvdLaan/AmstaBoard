@@ -18,6 +18,15 @@ function SetColumnDayWidth() {
     }
 }
 
+// Scrolls to the provided hash
+function ScrollToAnchor() {
+    var urlHash = window.location.hash;
+
+    if (urlHash) {
+        window.location.href = urlHash;
+    }
+}
+
 // Checks whether two BoundingClientRects are overlapping.
 function IsColliding(div1, div2) {
     var x1 = div1.getBoundingClientRect().left;

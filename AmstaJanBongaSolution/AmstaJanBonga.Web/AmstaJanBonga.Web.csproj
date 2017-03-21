@@ -121,11 +121,15 @@
     <Content Include="Content\Livingroom\LivingroomOverview.aspx" />
     <Content Include="Content\PatientAgendaOverview\PatientAgendaOverview.aspx" />
     <Content Include="Content\PatientAgenda\PatientAgenda.aspx" />
+    <Content Include="Includes\Css\Addons.css" />
     <Content Include="Includes\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="Includes\font-awesome-4.7.0\css\font-awesome.min.css" />
     <Content Include="Includes\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
     <Content Include="Includes\font-awesome-4.7.0\HELP-US-OUT.txt" />
     <Content Include="Includes\Js\calendar-appointments.js" />
+    <Content Include="Includes\remodal-1.1.1\dist\remodal-default-theme.css" />
+    <Content Include="Includes\remodal-1.1.1\dist\remodal.css" />
+    <Content Include="Includes\remodal-1.1.1\dist\remodal.min.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

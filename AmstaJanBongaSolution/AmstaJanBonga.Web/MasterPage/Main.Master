@@ -21,6 +21,9 @@
         <!-- ContentPlaceHolder Head -->
         <asp:ContentPlaceHolder ID="_cphHead" runat="server">
         </asp:ContentPlaceHolder>
+        
+        <!-- All CSS addons for plugins, libraries ect. -->
+        <link href="../Includes/Css/Addons.css" rel="stylesheet" />
 
         <!-- Meta -->
         <meta charset="UTF-8" />

@@ -20,6 +20,10 @@
             }
         }
     </script>
+
+    <link href="../../Includes/remodal-1.1.1/dist/remodal-default-theme.css" rel="stylesheet" />
+    <link href="../../Includes/remodal-1.1.1/dist/remodal.css" rel="stylesheet" />
+    <script src="../../Includes/remodal-1.1.1/dist/remodal.min.js"></script>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="_cphContent" runat="server">
@@ -45,19 +49,19 @@
         <div class="tile-wrapper">
             <div class="tile-container-cell">
                 <h4>Dag</h4>
-                <asp:Image runat="server" CssClass="image image-staff" ImageUrl="~/Includes/Css/Images/avatar.jpg" />
+                <asp:Image runat="server" CssClass="image image-staff" ImageUrl="~/Includes/Css/Images/avatar.jpg" data-remodal-target="employee-remodal" />
                 <h3>Voornaam</h3>
             </div>
 
             <div class="tile-container-cell">
                 <h4>Dag</h4>
-                <asp:Image runat="server" CssClass="image image-staff" ImageUrl="~/Includes/Css/Images/avatar.jpg" />
+                <asp:Image runat="server" CssClass="image image-staff" ImageUrl="~/Includes/Css/Images/avatar.jpg" data-remodal-target="employee-remodal" />
                 <h3>Voornaam</h3>
             </div>
 
             <div class="tile-container-cell">
                 <h4>Avond</h4>
-                <asp:Image runat="server" CssClass="image image-staff" ImageUrl="~/Includes/Css/Images/avatar.jpg" />
+                <asp:Image runat="server" CssClass="image image-staff" ImageUrl="~/Includes/Css/Images/avatar.jpg" data-remodal-target="employee-remodal" />
                 <h3>Voornaam</h3>
             </div>
         </div>
@@ -93,23 +97,33 @@
             <div class="tile-container-cell">
                 <h3>Ochtend</h3>
 
-                <asp:Image runat="server" CssClass="image image-chores" ImageUrl="~/Includes/Css/Images/avatar.jpg" />
-                <asp:Image runat="server" CssClass="image image-chores" ImageUrl="~/Includes/Css/Images/avatar.jpg" />
+                <asp:Image runat="server" CssClass="image image-chores" ImageUrl="~/Includes/Css/Images/avatar.jpg" data-remodal-target="chores-remodal" />
+                <asp:Image runat="server" CssClass="image image-chores" ImageUrl="~/Includes/Css/Images/avatar.jpg" data-remodal-target="chores-remodal" />
             </div>
 
             <div class="tile-container-cell">
                 <h3>Middag</h3>
 
-                <asp:Image runat="server" CssClass="image image-chores" ImageUrl="~/Includes/Css/Images/avatar.jpg" />
-                <asp:Image runat="server" CssClass="image image-chores" ImageUrl="~/Includes/Css/Images/avatar.jpg" />
+                <asp:Image runat="server" CssClass="image image-chores" ImageUrl="~/Includes/Css/Images/avatar.jpg" data-remodal-target="chores-remodal" />
+                <asp:Image runat="server" CssClass="image image-chores" ImageUrl="~/Includes/Css/Images/avatar.jpg" data-remodal-target="chores-remodal" />
             </div>
 
               <div class="tile-container-cell">
                 <h3> Avond</h3>
 
-                <asp:Image runat="server" CssClass="image image-chores" ImageUrl="~/Includes/Css/Images/avatar.jpg" />
-                <asp:Image runat="server" CssClass="image image-chores" ImageUrl="~/Includes/Css/Images/avatar.jpg" />
+                <asp:Image runat="server" CssClass="image image-chores" ImageUrl="~/Includes/Css/Images/avatar.jpg" data-remodal-target="chores-remodal" />
+                <asp:Image runat="server" CssClass="image image-chores" ImageUrl="~/Includes/Css/Images/avatar.jpg" data-remodal-target="chores-remodal" />
             </div>
         </div>
+    </div>
+
+    <!-- Select Employee -->
+    <div class="remodal purple-bg no-select" data-remodal-id="employee-remodal" data-remodal-options="hashTracking: false">
+        <button data-remodal-action="confirm" class="remodal-confirm">Oke</button>
+    </div>
+
+    <!-- Select Patient -->
+    <div class="remodal blue-bg no-select" data-remodal-id="chores-remodal" data-remodal-options="hashTracking: false">
+        <button data-remodal-action="confirm" class="remodal-confirm">Oke</button>
     </div>
 </asp:Content>
