@@ -45,9 +45,18 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
 
         #region Methods
 
+        /// <summary>
+        /// Generates an appointment and returns the generated html.
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="location"></param>
+        /// <param name="startTime"></param>
+        /// <param name="endTime"></param>
+        /// <param name="description"></param>
+        /// <returns></returns>
         public string GenerateAppointment(string title, string location, Time startTime, Time endTime, string description)
         {
-            // Generate unique id.
+            // Generate a unique id.
             var id = Guid.NewGuid();
 
             // Todo: Calculate minutes in it.
@@ -89,7 +98,7 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
 
             appointment[0] += this.GenerateAppointment("Afspraak fysio", "Ruimte A", new Time(10, 0), new Time(12, 0), "Een omschrijving.");
             appointment[0] += this.GenerateAppointment("Familiebezoek", "De woonkamer.", new Time(14, 0), new Time(17, 0), "Een omschrijving.");
-            appointment[0] += this.GenerateAppointment("Activiteit", "De woonkamer.", new Time(19, 0), new Time(19, 0), "Een omschrijving.");
+            appointment[0] += this.GenerateAppointment("Activiteit", "De woonkamer.", new Time(19, 0), new Time(19, 0), "Een omschrijving.");   
 
             this._agendaDay.Rows.Add(appointment);
 
