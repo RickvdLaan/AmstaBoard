@@ -129,6 +129,7 @@
     <Content Include="Includes\Js\calendar-appointments.js" />
     <Content Include="Includes\remodal-1.1.1\dist\remodal-default-theme.css" />
     <Content Include="Includes\remodal-1.1.1\dist\remodal.css" />
+    <Content Include="Includes\remodal-1.1.1\dist\remodal.js" />
     <Content Include="Includes\remodal-1.1.1\dist\remodal.min.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
@@ -235,6 +236,7 @@
     <Compile Include="Utilities\Pages\DefaultPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Utilities\Time\Time.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resource.resx">

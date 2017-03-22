@@ -4,7 +4,7 @@
 
     <link href="../../Includes/remodal-1.1.1/dist/remodal-default-theme.css" rel="stylesheet" />
     <link href="../../Includes/remodal-1.1.1/dist/remodal.css" rel="stylesheet" />
-    <script src="../../Includes/remodal-1.1.1/dist/remodal.min.js"></script>
+    <script src="../../Includes/remodal-1.1.1/dist/remodal.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="_cphContent" runat="server">
     <!-- The photo of the patient. -->
@@ -117,12 +117,12 @@
         </ContentTemplate>
     </asp:UpdatePanel>
     
-    <div class="remodal red-bg no-select" data-remodal-id="appointment-remodal" data-remodal-options="hashTracking: false">
+    <div id="appointment-dialog" class="remodal red-bg no-select" data-remodal-id="appointment-remodal" data-remodal-options="hashTracking: false">
         <table>
             <thead>
                 <tr>
                     <td colspan="2">
-                        <h2>Naam van de afspraak</h2>
+                        <h2>[TITLE]</h2>
                     </td>
                 </tr>
             </thead>
@@ -134,7 +134,7 @@
                     </td>
 
                     <td>
-                        De woonkamer.
+                        [LOCATION]
                     </td>
                 </tr>
 
@@ -144,7 +144,7 @@
                     </td>
 
                     <td>
-                        Van 14:00 tot 17:00 uur.
+                        [TIME]
                     </td>
                 </tr>
 
@@ -154,8 +154,7 @@
                     </td>
 
                     <td>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum porttitor sollicitudin volutpat. 
-                        Nulla consectetur neque id nulla dignissim, ac faucibus velit posuere.
+                        [DESCRIPTION]
                     </td>
                 </tr>
             </tbody>

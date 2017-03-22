@@ -72,6 +72,11 @@
 }
 
 /* Remodal plugin */
+
+div.remodal table {
+    width: 100%;
+}
+
 .remodal-close {
     left: auto;
     right: 0;
