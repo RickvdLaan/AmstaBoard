@@ -321,6 +321,11 @@ section.content {
     font-size: 21px;
     border-right: 2px solid #dadada;
     padding: 0 10px 20px 0;
+    line-height: 0;
+}
+
+td.times div:first-of-type {
+    line-height: 14px !important;
 }
 
 .calendar table tbody tr td.times div:last-of-type {

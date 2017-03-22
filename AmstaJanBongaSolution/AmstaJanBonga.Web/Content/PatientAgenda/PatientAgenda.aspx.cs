@@ -63,7 +63,7 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
             var hourLength = (endTime.Hour - startTime.Hour);
 
             // 58 and 59 are the default heights.
-            var height = 58 + (59 * (hourLength));
+            var height = ((hourLength > 1 ? 59 : 58) * (hourLength)) + (hourLength > 1 ? 1 : 0);
 
             // Start hour appointment - start hour of the agenda (which is 08:00) times the height + border.
             var top = (60 * (startTime.Hour - 8)); 
@@ -98,7 +98,7 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
 
             appointment[0] += this.GenerateAppointment("Afspraak fysio", "Ruimte A", new Time(10, 0), new Time(12, 0), "Een omschrijving.");
             appointment[0] += this.GenerateAppointment("Familiebezoek", "De woonkamer.", new Time(14, 0), new Time(17, 0), "Een omschrijving.");
-            appointment[0] += this.GenerateAppointment("Activiteit", "De woonkamer.", new Time(19, 0), new Time(19, 0), "Een omschrijving.");   
+            appointment[0] += this.GenerateAppointment("Activiteit", "De woonkamer.", new Time(19, 0), new Time(20, 0), "Een omschrijving.");   
 
             this._agendaDay.Rows.Add(appointment);
 
