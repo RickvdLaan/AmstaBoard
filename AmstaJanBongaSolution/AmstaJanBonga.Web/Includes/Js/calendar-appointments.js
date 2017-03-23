@@ -1,9 +1,15 @@
 ﻿$(function () {
-    UpdateAllAppointments();
-    //ResolveAppointments();
-    SetColumnDayWidth();
+    // Page load
 });
 
+// The scripts that are registered on the UpdatePanel.
+function RegisterStartupScript() {
+    ScrollToAnchor();
+    SetColumnDayWidth();
+    UpdateAllAppointments();
+}
+
+// Sets 
 function SetColumnDayWidth() {
     var days = $(".column-day").length;
 
@@ -12,6 +18,7 @@ function SetColumnDayWidth() {
     }
     else if (days == 7) {
         $(".column-day").addClass("column-day-week");
+        $("dd").addClass("hidden");
     }
     else {
         alert(".column-day should be either 1 or 7 and its " + days + ".");

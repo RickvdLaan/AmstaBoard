@@ -483,6 +483,16 @@ td.times div:first-of-type {
     filter: grayscale(100%);
 }
 
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+
+.label {
+    width: 150px;
+    display: inline-block;
+}
+
 .no-select {
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Chrome/Safari/Opera */

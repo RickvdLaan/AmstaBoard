@@ -11,6 +11,10 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
     {
         #region Variables & Objects
 
+        private const int AGENDA_START_HOUR = 8;
+
+        private Random _random = new Random();
+
         private DataTable _agendaTime = new DataTable("AgendaTime");
 
         private DataTable _agendaDay = new DataTable("AgendaDay");
@@ -56,7 +60,7 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
         /// <returns></returns>
         public string GenerateAppointment(string title, string location, Time startTime, Time endTime, string description)
         {
-            // Generate a unique id.
+            // Generates a unique id.
             var id = Guid.NewGuid();
 
             // Todo: Calculate minutes in it.
@@ -65,11 +69,11 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
             // 58 and 59 are the default heights.
             var height = ((hourLength > 1 ? 59 : 58) * (hourLength)) + (hourLength > 1 ? 1 : 0);
 
-            // Start hour appointment - start hour of the agenda (which is 08:00) times the height + border.
-            var top = (60 * (startTime.Hour - 8)); 
+            // Start hour appointment - start hour of the agenda times the height (which includes the border).
+            var top = (60 * (startTime.Hour - AGENDA_START_HOUR)); 
 
             // Html code.
-            return "<div id=\"{0}\" data-remodal-target=\"appointment-remodal\" class=\"appointment red-bg\" style=\"height: {1}px; top: {2}px;\"><dl><dt class=\"dialog-title\">{3}</dt><dd><p>Waar: <span class=\"dialog-location\">{4}</span></p></dd><dd><p>Tijdstip: <span class=\"dialog-time\">Van {5} tot {6} uur.</span></p></dd><dd><p>Omschrijving: <span class=\"dialog-description\">{7}</span></p></dd></dl></div>".FormatString(
+            return "<div id=\"{0}\" data-remodal-target=\"appointment-remodal\" class=\"appointment red-bg\" style=\"height: {1}px; top: {2}px;\"><dl><dt class=\"dialog-title\">{3}</dt><dd><p><span class=\"label\">Waar:</span><span class=\"dialog-location\">{4}</span></p></dd><dd><p><span class=\"label\">Tijdstip:</span><span class=\"dialog-time\">Van {5} tot {6} uur.</span></p></dd><dd><p><span class=\"label\">Omschrijving:</span><span class=\"dialog-description\">{7}</span></p></dd></dl></div>".FormatString(
                 id, height, top, title, location, startTime.ToString(), endTime.ToString(), description);
         }
 
@@ -96,9 +100,18 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
 
             var appointment = this._agendaDay.NewRow();
 
+            //appointment[0] += this.GenerateAppointment("Afspraak fysio", "Ruimte A", new Time(10, 0), new Time(12, 0), "Een omschrijving.");
+            //appointment[0] += this.GenerateAppointment("Familiebezoek", "De woonkamer.", new Time(14, 0), new Time(17, 0), "Een omschrijving.");
+            //appointment[0] += this.GenerateAppointment("Activiteit", "De woonkamer.", new Time(19, 0), new Time(20, 0), "Een omschrijving.");   
+
             appointment[0] += this.GenerateAppointment("Afspraak fysio", "Ruimte A", new Time(10, 0), new Time(12, 0), "Een omschrijving.");
+
             appointment[0] += this.GenerateAppointment("Familiebezoek", "De woonkamer.", new Time(14, 0), new Time(17, 0), "Een omschrijving.");
-            appointment[0] += this.GenerateAppointment("Activiteit", "De woonkamer.", new Time(19, 0), new Time(20, 0), "Een omschrijving.");   
+            appointment[0] += this.GenerateAppointment("Familiebezoek", "De woonkamer.", new Time(14, 0), new Time(17, 0), "Een omschrijving.");
+
+            appointment[0] += this.GenerateAppointment("Activiteit", "De woonkamer.", new Time(19, 0), new Time(20, 0), "Een omschrijving.");
+            appointment[0] += this.GenerateAppointment("Activiteit", "De woonkamer.", new Time(19, 0), new Time(20, 0), "Een omschrijving.");
+            appointment[0] += this.GenerateAppointment("Activiteit", "De woonkamer.", new Time(19, 0), new Time(20, 0), "Een omschrijving.");
 
             this._agendaDay.Rows.Add(appointment);
 
@@ -130,8 +143,6 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
 
             this._pnlWeekHeader.Visible = false;
             this._pnlWeek.Visible = false;
-
-            ScriptManager.RegisterStartupScript(this, GetType(), this.Page.UniqueID, "UpdateAllAppointments();SetColumnDayWidth();ScrollToAnchor();", true);
         }
 
         protected void _btnSelectWeekAgenda_Click(object sender, EventArgs e)
@@ -141,8 +152,6 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
 
             this._pnlWeekHeader.Visible = true;
             this._pnlWeek.Visible = true;
-
-            ScriptManager.RegisterStartupScript(this, GetType(), this.Page.UniqueID, "UpdateAllAppointments();SetColumnDayWidth();ScrollToAnchor();", true);
         }
 
         protected void _repAgendaWeek_ItemDataBound(object sender, RepeaterItemEventArgs args)
@@ -156,9 +165,16 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
 
                 var appointment = this._agendaWeekAppointments.NewRow();
 
-                appointment[0] += this.GenerateAppointment("Afspraak fysio", "Ruimte A", new Time(10, 0), new Time(12, 0), "Een omschrijving.");
-                appointment[0] += this.GenerateAppointment("Familiebezoek", "De woonkamer.", new Time(14, 0), new Time(17, 0), "Een omschrijving.");
-                appointment[0] += this.GenerateAppointment("Activiteit", "De woonkamer.", new Time(19, 0), new Time(19, 0), "Een omschrijving.");
+                var r1 = _random.Next(0, 101);
+                var r2 = _random.Next(0, 101);
+                var r3 = _random.Next(0, 101);
+
+                if (r1 > 75)
+                    appointment[0] += this.GenerateAppointment("Afspraak fysio", "Ruimte A", new Time(_random.Next(8, 11), 0), new Time(_random.Next(11, 14), 0), "Een omschrijving.");
+                if (r2 > 50)
+                    appointment[0] += this.GenerateAppointment("Familiebezoek", "De woonkamer.", new Time(_random.Next(14, 17), 0), new Time(_random.Next(17, 20), 0), "Een omschrijving.");
+                if (r3 > 75)
+                    appointment[0] += this.GenerateAppointment("Activiteit", "De woonkamer.", new Time(20, 0), new Time(21, 0), "Een omschrijving.");
 
                 this._agendaWeekAppointments.Rows.Add(appointment);
 
@@ -168,6 +184,11 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
 
                 this._agendaWeekAppointments.Clear();
             }
+        }
+
+        protected void _upAgenda_PreRender(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), Guid.NewGuid().ToString(), "RegisterStartupScript();", true);
         }
 
         #endregion

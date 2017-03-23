@@ -77,6 +77,10 @@ div.remodal table {
     width: 100%;
 }
 
+div.remodal table tbody tr td:last-child {
+    display: inline;
+}
+
 .remodal-close {
     left: auto;
     right: 0;

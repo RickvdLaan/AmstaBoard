@@ -17,18 +17,7 @@ namespace AmstaJanBonga.Web.Content.PatientAgendaOverview
         {
             if (!IsPostBack)
             {
-                patients.Columns.Add("Name");
-
-                for (int i = 0; i <= 9; i++)
-                {
-                    DataRow workRow;
-                    workRow = patients.NewRow();
-                    workRow[0] = "Voornaam-" + i;
-                    patients.Rows.Add(workRow);
-                }
-
-                this._repPatients.DataSource = patients;
-                this._repPatients.DataBind();
+                this.DatabindPatients();
             }
         }
 
@@ -38,5 +27,25 @@ namespace AmstaJanBonga.Web.Content.PatientAgendaOverview
 
             base.OnPreRender(e);
         }
+
+        #region Methods
+
+        private void DatabindPatients()
+        {
+            patients.Columns.Add("Name");
+
+            for (int i = 0; i <= 9; i++)
+            {
+                DataRow workRow;
+                workRow = patients.NewRow();
+                workRow[0] = "Voornaam-" + i;
+                patients.Rows.Add(workRow);
+            }
+
+            this._repPatients.DataSource = patients;
+            this._repPatients.DataBind();
+        }
+
+        #endregion
     }
 }

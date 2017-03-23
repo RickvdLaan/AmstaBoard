@@ -10,7 +10,7 @@
     <!-- The photo of the patient. -->
     <asp:Image runat="server" CssClass="agenda-image" ImageUrl="~/Includes/Css/Images/avatar.jpg" />
 
-    <asp:UpdatePanel runat="server" UpdateMode="Conditional" style="height: Calc(100% - 170px);">
+    <asp:UpdatePanel runat="server" ID="_upAgenda" UpdateMode="Conditional" style="height: Calc(100% - 170px);" OnPreRender="_upAgenda_PreRender">
         <Triggers>
             <asp:AsyncPostBackTrigger ControlID="_btnSelectDayAgenda" EventName="Click" />
             <asp:AsyncPostBackTrigger ControlID="_btnSelectWeekAgenda" EventName="Click" />
@@ -117,6 +117,7 @@
         </ContentTemplate>
     </asp:UpdatePanel>
     
+    <!-- Dialog -->
     <div id="appointment-dialog" class="remodal red-bg no-select" data-remodal-id="appointment-remodal" data-remodal-options="hashTracking: false">
         <table>
             <thead>
