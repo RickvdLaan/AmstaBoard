@@ -55,79 +55,47 @@ function IsColliding(div1, div2) {
     return true;
 }
 
-// Counts the amount of collisions for a specific appointment.
-function TotalCollisions(appointment)
-{
-    var appointments = $(".appointment");
-    var overlaps = 0;
-
-    for (var i = 0; i < appointments.length; i++) {
-        if (IsColliding(appointment, appointments[i])) {
-            overlaps++;
-        }
-    }
-
-    // correction for checking itself.
-    return overlaps - 1;
-}
-
-function ResolveAppointments() {
-    var appointments = $(".appointment");
-
-    var collisions = 0;
-
-    for (var i = 0; i < appointments.length; i++) {
-        for (var j = 0; j < appointments.length; j++) {
-            if (i == j) {
-                continue;
-            }
-
-            if (IsColliding(appointments[i], appointments[j])) {
-                collisions++;
-            }
-        }
-
-        // Collisions: 1 - 2 - 1 - 2 - 2 - 2
-        // Expected widths:
-        // 50
-        // 33.33 (but should be 50 in this case)
-        // 50
-        // 33.33
-        // 33.33
-        // 33.33
-
-        var width = 100 / (collisions + 1);
-                
-        // Expected margins:
-        // 0
-        // 50
-        // 0
-        // 0
-        // 33.33
-        // 66.66
-
-        collisions = 0;
-    }
-}
-
 // Updates all the appointmentsif they are overlapping with another appointment.
 function UpdateAllAppointments() {
+    // All div appointments.
     var appointments = $(".appointment");
 
+    // The amount of collisions object[i] had.
+    var collisionCounter = 0;
+
+    // The objects object[i] collided with.
+    var collisions = [];
+
+    // Going through all the objects.
     for (var i = 0; i < appointments.length; i++) {
-        for (var j = i + 1; j < appointments.length; j++) {
+        // Checking all objects with one-another.
+        for (var j = 0; j < appointments.length; j++) {
+            if (i == j)
+                continue;
+
             if (IsColliding(appointments[i], appointments[j])) {
-                //appointments[i].classList.add("appointment-position");
-                //appointments[j].classList.add("appointment-position");
-
-                appointments[i].style.cssText += "margin-left: 50%; width: 50%;";
-                appointments[j].style.cssText += "margin-left: 0%; width: 50%;";
-
-                if (IsColliding(appointments[j], appointments[j + 1])) {
-                    appointments[i].style.cssText += "margin-left: 0%; width: 50%;";
-                    appointments[j].style.cssText += "margin-left: 50%; width: 50%;";
-                }
+                collisionCounter++;
+                collisions.push(appointments[j]);
             }
         }
+
+        // Object[i] has currently been checked with all other objects and the 
+        // amount of collisions are recorded and the collided objects are stored.     
+
+        // Setting the style of object[i].
+        appointments[i].style.cssText += "margin-left: 0%; width: " + (100 / (collisionCounter + 1)) + "%;";
+
+        // Looping through the objects object[i] collided with and
+        // setting the appropriate widths and margins.
+        for (var k = 1; k < collisions.length + 1; k++) {
+            var margin = ((100 / (collisionCounter + 1)));
+            var width = (100 / (collisionCounter + 1));
+
+            collisions.pop().style.cssText += "margin-left: " + margin + "%; width: " + width + "%;";
+        }
+
+        // Resetting the counter and array for the next object.
+        collisionCounter = 0;
+        collisions = [];
     }
 }

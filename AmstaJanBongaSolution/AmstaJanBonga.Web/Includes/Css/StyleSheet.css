@@ -373,6 +373,7 @@ td.times div:first-of-type {
     font-size: 20px;
     padding-top: 10px;
     padding-bottom: 15px;
+    word-break: break-all;
 }
 
 .appointment dl dd {
