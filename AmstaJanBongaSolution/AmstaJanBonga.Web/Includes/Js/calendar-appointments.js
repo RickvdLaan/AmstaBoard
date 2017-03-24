@@ -82,20 +82,28 @@ function UpdateAllAppointments() {
         // Object[i] has currently been checked with all other objects and the 
         // amount of collisions are recorded and the collided objects are stored.     
 
-        // Setting the style of object[i].
-        appointments[i].style.cssText += "margin-left: 0%; width: " + (100 / (collisionCounter + 1)) + "%;";
+        if (collisionCounter > 0) {
 
-        // Looping through the objects object[i] collided with and
-        // setting the appropriate widths and margins.
-        for (var k = 1; k < collisions.length + 1; k++) {
-            var margin = ((100 / (collisionCounter + 1)));
+            // Width.
             var width = (100 / (collisionCounter + 1));
 
-            collisions.pop().style.cssText += "margin-left: " + margin + "%; width: " + width + "%;";
-        }
+            // Setting the style of object[i].
+            appointments[i].style.cssText += "margin-left: 0%; width: " + width + "%;";
 
-        // Resetting the counter and array for the next object.
-        collisionCounter = 0;
-        collisions = [];
+            // Looping through the objects object[i] collided with and
+            // setting the appropriate widths and margins.
+            for (var k = 1; k < collisions.length + 1; k++) {
+                var margin = width * k;
+
+                // The offset is needed so they don't collide.
+                var offset = 0.1 * k;
+
+                collisions[k - 1].style.cssText += "margin-left: Calc(" + margin + "% + " + offset + "px); width: " + width + "%;";
+            }
+
+            // Resetting the counter and array for the next object.
+            collisionCounter = 0;
+            collisions = [];
+        }
     }
 }

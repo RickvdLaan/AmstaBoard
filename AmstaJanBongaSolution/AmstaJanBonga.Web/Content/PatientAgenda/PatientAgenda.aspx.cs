@@ -101,16 +101,43 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
 
             var appointment = this._agendaDay.NewRow();
 
-            // Test case
+            // Test case #1 - Pass
+            //appointment[0] += this.GenerateAppointment("Activiteit", "De woonkamer.", new Time(8, 0), new Time(10, 0), "Een omschrijving.");
+
+            //appointment[0] += this.GenerateAppointment("Activiteit", "De woonkamer.", new Time(12, 0), new Time(14, 0), "Een omschrijving.");
+            //appointment[0] += this.GenerateAppointment("Activiteit", "De woonkamer.", new Time(12, 0), new Time(14, 0), "Een omschrijving.");
+
+            //appointment[0] += this.GenerateAppointment("Activiteit", "De woonkamer.", new Time(16, 0), new Time(18, 0), "Een omschrijving.");
+            //appointment[0] += this.GenerateAppointment("Activiteit", "De woonkamer.", new Time(16, 0), new Time(18, 0), "Een omschrijving.");
+            //appointment[0] += this.GenerateAppointment("Activiteit", "De woonkamer.", new Time(16, 0), new Time(18, 0), "Een omschrijving.");
+
+            //appointment[0] += this.GenerateAppointment("Activiteit", "De woonkamer.", new Time(20, 0), new Time(22, 0), "Een omschrijving.");
+            //appointment[0] += this.GenerateAppointment("Activiteit", "De woonkamer.", new Time(20, 0), new Time(22, 0), "Een omschrijving.");
+            //appointment[0] += this.GenerateAppointment("Activiteit", "De woonkamer.", new Time(20, 0), new Time(22, 0), "Een omschrijving.");
+            //appointment[0] += this.GenerateAppointment("Activiteit", "De woonkamer.", new Time(20, 0), new Time(22, 0), "Een omschrijving.");
+
+            // Test case #2 - Fail
             //appointment[0] += this.GenerateAppointment("Activiteit", "De woonkamer.", new Time(8, 0), new Time(10, 0), "Een omschrijving.");
             //appointment[0] += this.GenerateAppointment("Activiteit", "De woonkamer.", new Time(9, 0), new Time(13, 0), "Een omschrijving.");
             //appointment[0] += this.GenerateAppointment("Activiteit", "De woonkamer.", new Time(12, 0), new Time(14, 0), "Een omschrijving.");
-            
-            // Default
-            appointment[0] += this.GenerateAppointment("Afspraak fysio", "Ruimte A", new Time(12, 0), new Time(20, 0), "Een omschrijving.");
-            appointment[0] += this.GenerateAppointment("Familiebezoek", "De woonkamer.", new Time(9, 0), new Time(11, 0), "Een omschrijving.");
-            appointment[0] += this.GenerateAppointment("Activiteit", "De woonkamer.", new Time(16, 0), new Time(18, 0), "Een omschrijving.");
-            appointment[0] += this.GenerateAppointment("Activiteit", "De woonkamer.", new Time(19, 0), new Time(21, 0), "Een omschrijving.");
+
+            //appointment[0] += this.GenerateAppointment("Afspraak fysio", "Ruimte A", new Time(12, 0), new Time(20, 0), "Een omschrijving.");
+            //appointment[0] += this.GenerateAppointment("Familiebezoek", "De woonkamer.", new Time(9, 0), new Time(11, 0), "Een omschrijving.");
+            //appointment[0] += this.GenerateAppointment("Activiteit", "De woonkamer.", new Time(16, 0), new Time(18, 0), "Een omschrijving.");
+            //appointment[0] += this.GenerateAppointment("Activiteit", "De woonkamer.", new Time(19, 0), new Time(21, 0), "Een omschrijving.");
+
+            // Test case #3 - Pass
+            var r1 = _random.Next(0, 101);
+            var r2 = _random.Next(0, 101);
+            var r3 = _random.Next(0, 101);
+
+            if (r1 > 45)
+                appointment[0] += this.GenerateAppointment("Afspraak fysio", "Ruimte A", new Time(_random.Next(8, 10), 0), new Time(_random.Next(10, 12), 0), "Een omschrijving.");
+            if (r2 > 20)
+                appointment[0] += this.GenerateAppointment("Familiebezoek", "De woonkamer.", new Time(_random.Next(12, 15), 0), new Time(_random.Next(15, 17), 0), "Een omschrijving.");
+            if (r3 > 45)
+                appointment[0] += this.GenerateAppointment("Activiteit", "De woonkamer.", new Time(_random.Next(8, 10), 0), new Time(_random.Next(10, 20), 0), "Een omschrijving.");
+
 
             this._agendaDay.Rows.Add(appointment);
 
