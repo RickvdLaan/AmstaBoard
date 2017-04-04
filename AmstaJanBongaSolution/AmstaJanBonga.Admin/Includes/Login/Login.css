@@ -1,0 +1,155 @@
+﻿/* Default */
+
+* { 
+    margin: 0; 
+    padding: 0; 
+}
+
+body {
+    font-family: 'PT Sans', Arial;    
+    padding-top: 10%;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    color: inherit;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.15;
+}
+
+.h1, h1 {
+    font-size: 36px;
+}
+
+.h2, h2 {
+    font-size: 30px;
+}
+
+.h3, h3 {
+    font-size: 24px;
+}
+
+.h4, h4 {
+    font-size: 18px;
+}
+
+.h5, h5 {
+    font-size: 14px;
+}
+
+.h6, h6 {
+    font-size: 12px;
+}
+
+p {
+    margin: 0 0 10px;
+}
+
+a {
+    color: #3399e0;
+    text-decoration: none;
+}
+
+/* Login */
+
+#container #form-signin {
+    margin: 0 auto;
+    max-width: 300px;
+    padding: 15px;
+}
+
+#container #form-signin > h2 {
+    margin-bottom: 10px;
+}
+
+#container #form-signin .textbox {
+    border-radius: 4px;
+    position: relative;
+    box-sizing: border-box;
+    height: 44px;
+}
+
+#container #form-signin .button {
+    height: 44px;
+}
+
+#container #form-signin .textbox:focus {
+    z-index: 1;
+}
+
+#container #form-signin input[type="username"] {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-bottom: -1px;
+}
+
+#container #form-signin input[type="password"] {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+/* Button */
+
+.button { 
+    margin-top: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    height: 32px; 
+    width: 100%;
+}
+
+/* Default */
+
+.clear {
+    clear: both;
+}
+
+.right {
+    float: right;
+}
+
+.center {
+    text-align: center;
+}
+
+.error_detailed {
+    background-color: #ffbaba;
+    border: 1px solid;
+    border-radius: 4px;
+    color: #d8000c;
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+/* Footer */
+
+#footer {
+     position: fixed;
+     bottom: 3px;
+     left: 0;
+     width: 100%;
+}
+
+#footer span {
+    font-size: 12px;
+}
+
+/* Custom */
+
+.error {
+    color: #ff4040;
+    font-size: 15px;
+}
+
+/* Language Control */
+
+#language {
+    position: absolute;
+    right: 20px;
+    top: 22px;
+}
+
+.flag {
+    border: 1px solid #000000;
+}

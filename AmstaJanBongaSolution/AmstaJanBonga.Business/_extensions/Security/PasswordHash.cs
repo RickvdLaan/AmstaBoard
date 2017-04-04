@@ -1,6 +1,6 @@
-﻿using Rlaan.Toolkit.Extensions;
-using System;
+﻿using System;
 using System.Security.Cryptography;
+using System.Text;
 
 namespace AmstaJanBonga.Business.Security
 {
@@ -22,21 +22,28 @@ namespace AmstaJanBonga.Business.Security
         {
             var hash = GetPbkdf2Bytes(password, salt, Pbkdf2Iterations, HashByteSize);
 
-            return Convert.ToBase64String(hash);
-
-            //return "{0}:{1}:{2}".FormatString(Pbkdf2Iterations, Convert.ToBase64String(salt), Convert.ToBase64String(hash));
+            return GetString(hash);
         }
 
-        public static bool ValidatePassword(string password, string storedHash)
+        static byte[] GetBytes(string str)
         {
-            char[] delimiter = { ':' };
-            var split = storedHash.Split(delimiter);
-            var iterations = Int32.Parse(split[IterationIndex]);
-            var salt = Convert.FromBase64String(split[SaltIndex]);
-            var hash = Convert.FromBase64String(split[Pbkdf2Index]);
+            byte[] bytes = new byte[str.Length * sizeof(char)];
+            Buffer.BlockCopy(str.ToCharArray(), 0, bytes, 0, bytes.Length);
+            return bytes;
+        }
 
-            var testHash = GetPbkdf2Bytes(password, salt, iterations, hash.Length);
-            return SlowEquals(hash, testHash);
+        static string GetString(byte[] bytes)
+        {
+            char[] chars = new char[bytes.Length / sizeof(char)];
+            System.Buffer.BlockCopy(bytes, 0, chars, 0, bytes.Length);
+            return new string(chars);
+        }
+
+        public static bool ValidatePassword(string password, string salt, string storedHash)
+        {
+            var testHash = GetPbkdf2Bytes(password, GetBytes(salt), Pbkdf2Iterations, password.Length);
+
+            return SlowEquals(GetBytes(storedHash), testHash);
         }
 
         private static bool SlowEquals(byte[] a, byte[] b)

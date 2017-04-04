@@ -1,0 +1,170 @@
+﻿/* Default Rules */
+
+* { 
+    margin: 0; 
+    padding: 0; 
+}
+
+body {
+    font-family: 'PT Sans', Arial;
+}
+
+html, body, form, #wrapper, #sidebar {
+    height: 100%;  
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    color: inherit;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.h4, .h5, .h6, h4, h5, h6 {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.h1, h1 {
+    font-size: 36px;
+}
+
+.h2, h2 {
+    font-size: 30px;
+}
+
+.h3, h3 {
+    font-size: 24px;
+}
+
+.h4, h4 {
+    font-size: 18px;
+}
+
+.h5, h5 {
+    font-size: 14px;
+}
+
+.h6, h6 {
+    font-size: 12px;
+}
+
+p {
+    margin: 0 0 10px;
+}
+
+a {
+    font-size: 14px;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Default */
+
+.clear {
+    clear: both;
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+.center {
+    text-align: center;
+}
+
+.label {
+    width: 150px;
+}
+
+.required::after {
+    color: #D8000C;
+    content: "\002A";
+}
+
+/* Custom */
+
+.button {
+    /* Ignore Text Highlight */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.error {
+    color: #ff4040;
+    font-size: 15px;
+}
+
+.warning {
+    color: #9F6000;
+}
+
+.succes {
+    color: #4F8A10;
+}
+
+.error_detailed {
+    margin: 5px 5px;
+    border: 1px solid;
+    padding: 10px;
+    color: #D8000C;
+    background-color: #FFBABA;
+}
+
+.warning_detailed {
+    margin: 5px 5px;
+    border: 1px solid;
+    padding: 10px;
+    color: #9F6000;
+    background-color: #FEEFB3;
+}
+
+.succes_detailed {
+    margin: 5px 5px;
+    border: 1px solid;
+    padding: 10px;
+    color: #4F8A10;
+    background-color: #DFF2BF;
+}
+
+/* JQuery Notification */
+
+.notification_container {
+    height: auto;
+    max-width: 250px;
+    opacity: 0.9;
+    padding: 15px;
+}
+
+.notification_position {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+}
+
+.notification_container {
+    cursor: progress;
+
+    /* Ignore Text Highlight */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.notification_container > p {
+    margin-bottom: 0;
+}

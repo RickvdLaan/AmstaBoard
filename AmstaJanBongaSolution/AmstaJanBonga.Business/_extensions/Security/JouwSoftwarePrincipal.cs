@@ -1,4 +1,5 @@
-﻿using AmstaJanBonga.Business.EntityClasses;
+﻿using AmstaJanBonga.Business.Database.Readers;
+using AmstaJanBonga.Business.EntityClasses;
 using AmstaJanBonga.Business.Enums;
 using Rlaan.Toolkit.Extensions;
 using System;
@@ -10,7 +11,7 @@ namespace AmstaJanBonga.Business.Security
     /// Defines a principal class, this class cannot be inherited.
     /// </summary>
     [Serializable]
-    public sealed class RlaanPrincipal : IPrincipal
+    public sealed class JouwSoftwarePrincipal : IPrincipal
     {
         #region IPrincipal
 
@@ -19,7 +20,7 @@ namespace AmstaJanBonga.Business.Security
         public IIdentity Identity { get { return this.USER; } }
         public IIdentity User { get { return this.USER; } }
 
-        public RlaanPrincipal(IIdentity user)
+        public JouwSoftwarePrincipal(IIdentity user)
         {
             this.USER = user;
         }
@@ -33,7 +34,7 @@ namespace AmstaJanBonga.Business.Security
             catch
             {
                 throw new UnknownRoleTypeException(
-                    "Unknown role type detected: {0}".FormatString(roleType));
+                    "Unknown role type detected: {0}.".FormatString(roleType));
             }
         }
 

@@ -34,16 +34,17 @@
     <Reference Include="Rlaan.Toolkit.Extensions">
       <HintPath>..\..\_External\Toolkit\Rlaan.Toolkit.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="SD.LLBLGen.Pro.ORMSupportClasses, Version=5.1.0.0, Culture=neutral, PublicKeyToken=ca73b74ba4e3ff27, processorArchitecture=MSIL">
-      <SpecificVersion>True</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Solutions Design\LLBLGen Pro v5.1\Frameworks\LLBLGen Pro\RuntimeLibraries\CompiledRuntimeLibraries\NET4.5\SD.LLBLGen.Pro.ORMSupportClasses.dll</HintPath>
+    <Reference Include="SD.LLBLGen.Pro.DQE.SqlServer, Version=4.2.0.0, Culture=neutral, PublicKeyToken=ca73b74ba4e3ff27, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\_External\LLBLGen\SD.LLBLGen.Pro.DQE.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="SD.LLBLGen.Pro.DQE.SqlServer, Version=5.1.0.0, Culture=neutral, PublicKeyToken=ca73b74ba4e3ff27, processorArchitecture=MSIL">
-      <SpecificVersion>True</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Solutions Design\LLBLGen Pro v5.1\Frameworks\LLBLGen Pro\RuntimeLibraries\CompiledRuntimeLibraries\</HintPath>
+    <Reference Include="SD.LLBLGen.Pro.ORMSupportClasses, Version=4.2.0.0, Culture=neutral, PublicKeyToken=ca73b74ba4e3ff27, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\_External\LLBLGen\SD.LLBLGen.Pro.ORMSupportClasses.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -51,14 +52,15 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="_extensions\Database\EntityClasses\FormsAuthenticationTicket.cs" />
-    <Compile Include="_extensions\Database\EntityClasses\UserEntity.cs" />
-    <Compile Include="_extensions\Database\Managers\UserManager.cs" />
-    <Compile Include="_extensions\Database\Readers\UserReader.cs" />
-    <Compile Include="_extensions\Enums\RoleTypeEnum.cs" />
-    <Compile Include="_extensions\Security\JouwSoftwarePrincipal.cs" />
-    <Compile Include="_extensions\Security\RNGCSP.cs" />
-    <Compile Include="_extensions\Security\PasswordHash.cs" />
+    <Compile Include="_Extensions\Database\EntityClasses\UserEntity.cs" />
+    <Compile Include="_Extensions\Database\Managers\UserManager.cs" />
+    <Compile Include="_Extensions\Database\Readers\UserReader.cs" />
+    <Compile Include="_Extensions\Enums\RoleTypeEnum.cs" />
+    <Compile Include="_Extensions\Exceptions\UnknownRoleTypeException.cs" />
+    <Compile Include="_Extensions\Security\Authentication.cs" />
+    <Compile Include="_Extensions\Security\JouwSoftwarePrincipal.cs" />
+    <Compile Include="_Extensions\Security\RNGCSP.cs" />
+    <Compile Include="_Extensions\Security\PasswordHash.cs" />
     <AppDesigner Include="Properties\" />
     <None Include="App.config">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
@@ -213,8 +215,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
-    <Folder Include="_extensions\Exceptions\" />
-    <Folder Include="_extensions\Utilities\" />
+    <Folder Include="_Extensions\Utilities\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
 </Project>

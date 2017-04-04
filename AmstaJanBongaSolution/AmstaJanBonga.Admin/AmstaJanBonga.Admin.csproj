@@ -100,6 +100,10 @@
     <Reference Include="Rlaan.Toolkit.Web">
       <HintPath>..\..\_External\Toolkit\Rlaan.Toolkit.Web.dll</HintPath>
     </Reference>
+    <Reference Include="SD.LLBLGen.Pro.ORMSupportClasses, Version=4.2.0.0, Culture=neutral, PublicKeyToken=ca73b74ba4e3ff27, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\_External\LLBLGen\SD.LLBLGen.Pro.ORMSupportClasses.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -119,10 +123,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Unsecure\Login\Login.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Includes\Login\Login.css" />
+    <Content Include="Includes\StyleSheet.css" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="MasterPage\Main.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -138,9 +146,21 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Code\Utilities\DefaultPage.cs" />
+    <Compile Include="App_GlobalResources\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Exceptions\DefaultPageNotImplementedException.cs" />
+    <Compile Include="Code\Exceptions\SecurePageNotImplementedException.cs" />
+    <Compile Include="Code\Exceptions\SecurityException.cs" />
+    <Compile Include="Code\Utilities\DefaultPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Code\Utilities\Helper.cs" />
-    <Compile Include="Code\Utilities\SecurePage.cs" />
+    <Compile Include="Code\Utilities\SecurePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Content\Unsecure\Login\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -148,19 +168,34 @@
     <Compile Include="Content\Unsecure\Login\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage\Main.Master.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage\Main.Master.designer.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Code\Exceptions\" />
     <Folder Include="Content\Secure\" />
     <Folder Include="Controls\" />
-    <Folder Include="MasterPage\" />
+    <Folder Include="Includes\Images\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AmstaJanBonga.Business\AmstaJanBonga.Business.csproj">
       <Project>{7c0ffdae-4473-4897-8e2a-e073f721f0ae}</Project>
       <Name>AmstaJanBonga.Business</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Resource.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

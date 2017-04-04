@@ -1,4 +1,7 @@
-﻿using System.Linq;
+﻿using AmstaJanBonga.Business.CollectionClasses;
+using AmstaJanBonga.Business.EntityClasses;
+using AmstaJanBonga.Business.Enums;
+using System.Linq;
 
 namespace AmstaJanBonga.Business.Database.Readers
 {
@@ -83,10 +86,10 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <param name="user">Provide the user entity.</param>
         /// <param name="roleTypes">Provide the role type.</param>
         /// <returns></returns>
-        public static bool IsUserInRole(UserEntity user, params RoleType[] roleTypes)
+        public static bool IsUserInRole(UserEntity user, params RoleTypeEnum[] roleTypes)
         {
             // Checks if the user exists and if the user is equal to any of the provided roletypes.
-            return !user.IsNew && roleTypes.Any(roleType => user.RoleTypeEnum == (short)roleType);
+            return !user.IsNew && roleTypes.Any(roleType => user.UserRole.RoleTypeEnum == (short)roleType);
         }
 
         #endregion

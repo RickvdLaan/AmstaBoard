@@ -1,5 +1,8 @@
-﻿using AmstaJanBonga.Business.Database.EntityClasses;
+﻿using AmstaJanBonga.Business.Security;
+using Portfolio.Business.Security;
+using System;
 using System.Security.Principal;
+using System.Web.Security;
 
 namespace AmstaJanBonga.Business.EntityClasses
 {
@@ -41,7 +44,7 @@ namespace AmstaJanBonga.Business.EntityClasses
         /// <returns></returns>
         public bool IsValidPassword(string password)
         {
-            return this.Password.Equals(SHA512.HashValue(password, this.Salt));
+            return this.Password.Equals(PasswordHash.ValidatePassword(password, this.Salt, this.Password));
         }
 
         #endregion

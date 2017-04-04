@@ -4,15 +4,35 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Inloggen</title>
+
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-        <asp:Label runat="server" ID="_lblSalt">
+        <div id="container">
+            <div id="form-signin">
+                <h2>
+                    Inloggen
+                </h2>
 
-        </asp:Label>
-    </div>
+                <asp:Login runat="server" ID="_loginAuthentication" OnAuthenticate="_loginAuthentication_OnAuthenticate" RenderOuterTable="false">
+                    <LayoutTemplate>
+                        <asp:TextBox runat="server" ID="UserName" CssClass="textbox" MaxLength="20" ToolTip='<%$ Resources: Resource, EnterUsername %>'></asp:TextBox> 
+                        <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="textbox" MaxLength="20" ToolTip='<%$ Resources: Resource, EnterPassword %>'></asp:TextBox>
+                        <asp:Button runat="server" ID="_btnLogin" Text='<%$ Resources: Resource, SignIn %>' CommandName="Login" CssClass="button" ToolTip='<%$ Resources: Resource, SignIn %>' />   
+                            
+                        <asp:Label runat="server" ID="FailureText" CssClass="error_detailed" ToolTip='<%$ Resources: Resource, AnErrorOccured %>'></asp:Label>
+                    </LayoutTemplate>
+                </asp:Login>
+            </div>
+        </div>
+
+        <div id="footer" class="center">
+           
+        </div>
     </form>
 </body>
 </html>

@@ -1,11 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Rlaan.Toolkit.Web;
 
-namespace AmstaJanBonga.Admin.Classes.Utilities
+namespace AmstaJanBonga.Admin
 {
     public class Helper
     {
+        #region Properties
+
+        /// <summary>
+        /// Returns the query string ReturnUrl or null.
+        /// </summary>
+        public static string ReturnUrl
+        {
+            get { return Url.QueryStringParser.HasParameter("ReturnUrl") ? Url.QueryStringParser.GetString("ReturnUrl") : null; }
+        }
+
+        #endregion
     }
 }
