@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmstaJanBonga.Web", "AmstaJ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmstaJanBonga.Admin", "AmstaJanBonga.Admin\AmstaJanBonga.Admin.csproj", "{BAD6F49F-F5DE-4CFF-9E4E-0348D86E3F83}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmstaJanBonga.Business", "AmstaJanBonga.Business\AmstaJanBonga.Business.csproj", "{7C0FFDAE-4473-4897-8E2A-E073F721F0AE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{BAD6F49F-F5DE-4CFF-9E4E-0348D86E3F83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAD6F49F-F5DE-4CFF-9E4E-0348D86E3F83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BAD6F49F-F5DE-4CFF-9E4E-0348D86E3F83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C0FFDAE-4473-4897-8E2A-E073F721F0AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C0FFDAE-4473-4897-8E2A-E073F721F0AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C0FFDAE-4473-4897-8E2A-E073F721F0AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C0FFDAE-4473-4897-8E2A-E073F721F0AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

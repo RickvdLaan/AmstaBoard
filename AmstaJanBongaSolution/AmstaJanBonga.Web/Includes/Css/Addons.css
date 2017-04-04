@@ -93,7 +93,6 @@ div.remodal table tbody tr td:last-child {
     min-height: 30%;
     text-align: left;
     margin-bottom: 0;
-    padding-bottom: 5px;
 }
 
 .remodal h1,
@@ -101,6 +100,7 @@ div.remodal table tbody tr td:last-child {
 .remodal h3 {
     text-align: center;
     margin-bottom: 25px;
+    font-size: 2.5vw;
 }
 
 .remodal table tfoot tr td {
@@ -108,8 +108,11 @@ div.remodal table tbody tr td:last-child {
 }
 
 .remodal table tfoot tr td button {
-    width: 150px;
+    width: auto;
     margin-top: 15px;
+    font-size: 1vw;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 .remodal .remodal-confirm:hover {
@@ -118,4 +121,27 @@ div.remodal table tbody tr td:last-child {
 
 .no-select {
     cursor: default;
+}
+
+/* select staff */
+.select-staff {
+    height: auto;
+}
+
+.image-select-staff {
+    width: 90%;
+    border-radius: 50%;
+    border: 0.4vw solid #683d84;
+     box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.image-select-patient {
+    width: 90%;
+    border-radius: 50%;
+    border: 0.4vw solid #009eed;
+     box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }

@@ -118,6 +118,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Unsecure\Login\Login.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -132,10 +133,34 @@
   <ItemGroup>
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Code\Utilities\DefaultPage.cs" />
+    <Compile Include="Code\Utilities\Helper.cs" />
+    <Compile Include="Code\Utilities\SecurePage.cs" />
+    <Compile Include="Content\Unsecure\Login\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\Unsecure\Login\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Code\Exceptions\" />
+    <Folder Include="Content\Secure\" />
+    <Folder Include="Controls\" />
+    <Folder Include="MasterPage\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AmstaJanBonga.Business\AmstaJanBonga.Business.csproj">
+      <Project>{7c0ffdae-4473-4897-8e2a-e073f721f0ae}</Project>
+      <Name>AmstaJanBonga.Business</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

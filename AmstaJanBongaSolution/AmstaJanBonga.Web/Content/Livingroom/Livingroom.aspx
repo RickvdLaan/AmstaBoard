@@ -118,12 +118,92 @@
     </div>
 
     <!-- Select Employee -->
-    <div class="remodal purple-bg no-select" data-remodal-id="employee-remodal" data-remodal-options="hashTracking: false">
-        <button data-remodal-action="confirm" class="remodal-confirm">Oke</button>
+    <div class="remodal purple-bg no-select select-staff" data-remodal-id="employee-remodal" data-remodal-options="hashTracking: false">
+        <table>
+            <thead>
+                <tr>
+                    <td>
+                         <h2>Selecteer personeelslid</h2>
+                    </td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>
+                        <!-- Patients -->
+                        <div class="patient-overview">
+                            <asp:Repeater runat="server" ID="_repEmployees">
+                                <ItemTemplate>
+                                    <!-- Row -->
+                                    <%# (Container.ItemIndex + 5) % 5 == 0 ? "<div style=\"display: table-row\">" : string.Empty %>
+
+                                    <!-- Cell -->
+                                    <div class="tile-container-cell">                          
+                                        <img class="image-select-staff" data-remodal-action="confirm" src="../../Includes/Css/Images/avatar.jpg">
+                                        <%--<h3 style="text-align: center;"><%# Eval("Name") %></h3>--%>
+                                    </div>
+
+                                    <%# (Container.ItemIndex + 5) % 5 == 4 ? "</div>" : string.Empty %>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <td>
+                        <button data-remodal-action="cancel" class="remodal-cancel">Annuleren</button>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
     </div>
 
     <!-- Select Patient -->
     <div class="remodal blue-bg no-select" data-remodal-id="chores-remodal" data-remodal-options="hashTracking: false">
-        <button data-remodal-action="confirm" class="remodal-confirm">Oke</button>
+        <table>
+            <thead>
+                <tr>
+                    <td>
+                         <h2>Selecteer bewoner</h2>
+                    </td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>
+                        <!-- Patients -->
+                        <div class="patient-overview">
+                            <asp:Repeater runat="server" ID="_repPatients">
+                                <ItemTemplate>
+                                    <!-- Row -->
+                                    <%# (Container.ItemIndex + 5) % 5 == 0 ? "<div style=\"display: table-row\">" : string.Empty %>
+
+                                    <!-- Cell -->
+                                    <div class="tile-container-cell">                          
+                                        <img class="image-select-patient" data-remodal-action="confirm" src="../../Includes/Css/Images/avatar.jpg">
+                                        <%--<h3 style="text-align: center;"><%# Eval("Name") %></h3>--%>
+                                    </div>
+
+                                    <%# (Container.ItemIndex + 5) % 5 == 4 ? "</div>" : string.Empty %>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <td>
+                        <button data-remodal-action="cancel" class="remodal-cancel">Annuleren</button>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
     </div>
 </asp:Content>

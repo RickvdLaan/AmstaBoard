@@ -11,7 +11,7 @@
     </div>
 
     <!-- Patients -->
-    <div style="display: table; border-spacing: 1em; height: Calc(100% - 100px);">
+    <div class="patient-overview">
         <asp:Repeater runat="server" ID="_repPatients">
             <ItemTemplate>
                 <!-- Row -->

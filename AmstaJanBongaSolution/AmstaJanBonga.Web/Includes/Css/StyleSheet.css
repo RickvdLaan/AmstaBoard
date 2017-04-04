@@ -430,9 +430,10 @@ td.times div:first-of-type {
 .general h2,
 .chores h2 {
     display: block;
-    height: 100px;
+    /*height: 100px;*/
     text-align: center;
-    line-height: 100px;
+    /*line-height: 100px;*/
+    line-height: 5vw;
     font-weight: 400;
     font-size: 48px;
     font-size: 2.5vw; /* Scalable text */
@@ -605,7 +606,7 @@ td.times div:first-of-type {
 /* Staff */
 
 .tile-wrapper {
-    height: Calc(100% - 100px);
+    height: Calc(100% - (2.5vw * 2));
     width: 100%;
     display: table;
 }
@@ -657,7 +658,7 @@ td.times div:first-of-type {
 .image-staff {
     border-radius: 50%;
     margin: 0 Calc(20% / 10);
-    border: 15px solid #683d84;
+    border: 0.7vw solid #683d84;
 }
 
 .image-staff-2 {
@@ -672,13 +673,13 @@ td.times div:first-of-type {
     border-radius: 50%;
     width: 31%;
     margin: 2% 25%;
-    border: 8px solid #009eed;
+    border: 0.5vw solid #009eed;
 }
 
 .image-patients {
     width: 50%;
     border-radius: 50%;
-    border: 8px solid #07bf62;
+    border: 0.5vw solid #07bf62;
      box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -726,6 +727,19 @@ td.times div:first-of-type {
     background: -webkit-linear-gradient(top, rgba(209,209,209,1) 0%,rgba(199,199,199,1) 100%);
     background: linear-gradient(to bottom, rgba(209,209,209,1) 0%,rgba(199,199,199,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d1d1d1', endColorstr='#c7c7c7',GradientType=0 );
+}
+
+/* Patient overview */
+
+.patient-overview {
+    display: table; 
+    border-spacing: 1em; 
+    height: Calc(100% - 100px); 
+    width: 100%;
+}
+
+.patient-overview .tile-container-cell h3 {
+    font-size: 1.55vw;
 }
 
 /* 
