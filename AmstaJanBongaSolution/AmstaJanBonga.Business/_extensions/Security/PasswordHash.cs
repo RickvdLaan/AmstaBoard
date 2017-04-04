@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Security.Cryptography;
-using System.Text;
 
 namespace AmstaJanBonga.Business.Security
 {
@@ -8,42 +7,38 @@ namespace AmstaJanBonga.Business.Security
     {
         #region Constants
 
-        public const int HashByteSize = 24; // to match the size of the PBKDF2-HMAC-SHA-1 hash 
+        public const int HashByteSize = 24;         // To match the size of the PBKDF2-HMAC-SHA-1 hash 
         public const int Pbkdf2Iterations = 10000;
-        public const int IterationIndex = 0;
-        public const int SaltIndex = 1;
-        public const int Pbkdf2Index = 2;
 
         #endregion
 
         #region Methods
 
+        /// <summary>
+        /// Hashes the provided password and returns the hash value.
+        /// </summary>
+        /// <param name="password">Provide the password in plain text.</param>
+        /// <param name="salt">Provide a RNGCryptoServiceProvider generated salt.</param>
+        /// <returns>The hash value.</returns>
         public static string HashPassword(string password, byte[] salt)
         {
             var hash = GetPbkdf2Bytes(password, salt, Pbkdf2Iterations, HashByteSize);
 
-            return GetString(hash);
+            return Convert.ToBase64String(hash);
         }
 
-        static byte[] GetBytes(string str)
-        {
-            byte[] bytes = new byte[str.Length * sizeof(char)];
-            Buffer.BlockCopy(str.ToCharArray(), 0, bytes, 0, bytes.Length);
-            return bytes;
-        }
-
-        static string GetString(byte[] bytes)
-        {
-            char[] chars = new char[bytes.Length / sizeof(char)];
-            System.Buffer.BlockCopy(bytes, 0, chars, 0, bytes.Length);
-            return new string(chars);
-        }
-
+        /// <summary>
+        /// Validates whether the provided password and string are equal to the stored hash.
+        /// </summary>
+        /// <param name="password"></param>
+        /// <param name="salt"></param>
+        /// <param name="storedHash"></param>
+        /// <returns></returns>
         public static bool ValidatePassword(string password, string salt, string storedHash)
         {
-            var testHash = GetPbkdf2Bytes(password, GetBytes(salt), Pbkdf2Iterations, password.Length);
+            var hash = GetPbkdf2Bytes(password, Convert.FromBase64String(salt), Pbkdf2Iterations, HashByteSize);
 
-            return SlowEquals(GetBytes(storedHash), testHash);
+            return SlowEquals(Convert.FromBase64String(storedHash), hash);
         }
 
         private static bool SlowEquals(byte[] a, byte[] b)

@@ -23,7 +23,7 @@ namespace AmstaJanBonga.Admin.Content.Unsecure.Login
                 (_loginAuthentication.FindControl("Password") as TextBox).Attributes.Add("placeholder", Resource.Password);
             }
 
-            Business.Database.Managers.UserManager.InsertUser("Test", "password", RoleTypeEnum.Root);
+          //  Business.Database.Managers.UserManager.InsertUser("Test", "password", RoleTypeEnum.Root);
         }
 
         #region Overrides
