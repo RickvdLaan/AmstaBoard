@@ -13,7 +13,7 @@ namespace AmstaJanBonga.Admin.Content.Unsecure.Login
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //UserManager.InsertUser("Rick", "password", Business.Enums.RoleTypeEnum.Root);
+            UserManager.InsertUser("Rick", "password", Business.Enums.RoleTypeEnum.Root);
         }
     }
 }

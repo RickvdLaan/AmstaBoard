@@ -234,10 +234,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
-    <Compile Include="Classes\Utilities\DefaultPage.cs">
+    <Compile Include="Code\Utilities\DefaultPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Classes\Time\Time.cs" />
+    <Compile Include="Code\Time\Time.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resource.resx">
