@@ -62,10 +62,10 @@ namespace AmstaJanBonga.Business.HelperClasses
 		{
 			get { return (EntityField)EntityFieldFactory.Create(EmployeeFieldIndex.DateCreated);}
 		}
-		/// <summary>Creates a new EmployeeEntity.DateDeletion field instance</summary>
-		public static EntityField DateDeletion
+		/// <summary>Creates a new EmployeeEntity.DateDeleted field instance</summary>
+		public static EntityField DateDeleted
 		{
-			get { return (EntityField)EntityFieldFactory.Create(EmployeeFieldIndex.DateDeletion);}
+			get { return (EntityField)EntityFieldFactory.Create(EmployeeFieldIndex.DateDeleted);}
 		}
 		/// <summary>Creates a new EmployeeEntity.DateLastModified field instance</summary>
 		public static EntityField DateLastModified
@@ -137,10 +137,10 @@ namespace AmstaJanBonga.Business.HelperClasses
 		{
 			get { return (EntityField)EntityFieldFactory.Create(LivingroomFieldIndex.DateCreated);}
 		}
-		/// <summary>Creates a new LivingroomEntity.DateDeletion field instance</summary>
-		public static EntityField DateDeletion
+		/// <summary>Creates a new LivingroomEntity.DateDeleted field instance</summary>
+		public static EntityField DateDeleted
 		{
-			get { return (EntityField)EntityFieldFactory.Create(LivingroomFieldIndex.DateDeletion);}
+			get { return (EntityField)EntityFieldFactory.Create(LivingroomFieldIndex.DateDeleted);}
 		}
 		/// <summary>Creates a new LivingroomEntity.DateLastModified field instance</summary>
 		public static EntityField DateLastModified
@@ -182,10 +182,10 @@ namespace AmstaJanBonga.Business.HelperClasses
 		{
 			get { return (EntityField)EntityFieldFactory.Create(PatientFieldIndex.DateCreated);}
 		}
-		/// <summary>Creates a new PatientEntity.DateDeletion field instance</summary>
-		public static EntityField DateDeletion
+		/// <summary>Creates a new PatientEntity.DateDeleted field instance</summary>
+		public static EntityField DateDeleted
 		{
-			get { return (EntityField)EntityFieldFactory.Create(PatientFieldIndex.DateDeletion);}
+			get { return (EntityField)EntityFieldFactory.Create(PatientFieldIndex.DateDeleted);}
 		}
 		/// <summary>Creates a new PatientEntity.DateLastModified field instance</summary>
 		public static EntityField DateLastModified
@@ -237,10 +237,10 @@ namespace AmstaJanBonga.Business.HelperClasses
 		{
 			get { return (EntityField)EntityFieldFactory.Create(UserFieldIndex.DateCreated);}
 		}
-		/// <summary>Creates a new UserEntity.DateDeletion field instance</summary>
-		public static EntityField DateDeletion
+		/// <summary>Creates a new UserEntity.DateDeleted field instance</summary>
+		public static EntityField DateDeleted
 		{
-			get { return (EntityField)EntityFieldFactory.Create(UserFieldIndex.DateDeletion);}
+			get { return (EntityField)EntityFieldFactory.Create(UserFieldIndex.DateDeleted);}
 		}
 		/// <summary>Creates a new UserEntity.DateLastLogin field instance</summary>
 		public static EntityField DateLastLogin

@@ -59,7 +59,7 @@ namespace AmstaJanBonga.Business.HelperClasses
 		/// <summary>Inits ChoreEntity's mappings</summary>
 		private void InitChoreEntityMappings()
 		{
-			this.AddElementMapping("ChoreEntity", @"AmstaJanBonga", @"dbo", "Chores", 7, 0);
+			this.AddElementMapping("ChoreEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "Chores", 7, 0);
 			this.AddElementFieldMapping("ChoreEntity", "Date", "Date", false, "Date", 0, 0, 0, false, "", null, typeof(System.DateTime), 0);
 			this.AddElementFieldMapping("ChoreEntity", "DateCreated", "DateCreated", false, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 1);
 			this.AddElementFieldMapping("ChoreEntity", "DateLastModified", "DateLastModified", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 2);
@@ -72,14 +72,14 @@ namespace AmstaJanBonga.Business.HelperClasses
 		/// <summary>Inits EmployeeEntity's mappings</summary>
 		private void InitEmployeeEntityMappings()
 		{
-			this.AddElementMapping("EmployeeEntity", @"AmstaJanBonga", @"dbo", "Employee", 10, 0);
+			this.AddElementMapping("EmployeeEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "Employee", 10, 0);
 			this.AddElementFieldMapping("EmployeeEntity", "DateCreated", "DateCreated", false, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 0);
-			this.AddElementFieldMapping("EmployeeEntity", "DateDeletion", "DateDeletion", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 1);
+			this.AddElementFieldMapping("EmployeeEntity", "DateDeleted", "DateDeleted", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 1);
 			this.AddElementFieldMapping("EmployeeEntity", "DateLastModified", "DateLastModified", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 2);
 			this.AddElementFieldMapping("EmployeeEntity", "DateLastModifiedByUserId", "DateLastModifiedByUserId", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 3);
 			this.AddElementFieldMapping("EmployeeEntity", "FirstName", "FirstName", false, "VarChar", 50, 0, 0, false, "", null, typeof(System.String), 4);
 			this.AddElementFieldMapping("EmployeeEntity", "Id", "Id", false, "Int", 0, 10, 0, true, "SCOPE_IDENTITY()", null, typeof(System.Int32), 5);
-			this.AddElementFieldMapping("EmployeeEntity", "ImagePath", "ImagePath", false, "VarChar", 255, 0, 0, false, "", null, typeof(System.String), 6);
+			this.AddElementFieldMapping("EmployeeEntity", "ImagePath", "ImagePath", true, "VarChar", 250, 0, 0, false, "", null, typeof(System.String), 6);
 			this.AddElementFieldMapping("EmployeeEntity", "IsActive", "IsActive", false, "Bit", 0, 0, 0, false, "", null, typeof(System.Boolean), 7);
 			this.AddElementFieldMapping("EmployeeEntity", "IsMarkedAsDeleted", "IsMarkedAsDeleted", false, "Bit", 0, 0, 0, false, "", null, typeof(System.Boolean), 8);
 			this.AddElementFieldMapping("EmployeeEntity", "UserId", "UserId", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 9);
@@ -88,7 +88,7 @@ namespace AmstaJanBonga.Business.HelperClasses
 		/// <summary>Inits EmployeeLivingroomEntity's mappings</summary>
 		private void InitEmployeeLivingroomEntityMappings()
 		{
-			this.AddElementMapping("EmployeeLivingroomEntity", @"AmstaJanBonga", @"dbo", "EmployeeLivingroom", 2, 0);
+			this.AddElementMapping("EmployeeLivingroomEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "EmployeeLivingroom", 2, 0);
 			this.AddElementFieldMapping("EmployeeLivingroomEntity", "EmployeeId", "EmployeeId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 0);
 			this.AddElementFieldMapping("EmployeeLivingroomEntity", "LivingroomId", "LivingroomId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 1);
 		}
@@ -96,10 +96,10 @@ namespace AmstaJanBonga.Business.HelperClasses
 		/// <summary>Inits LivingroomEntity's mappings</summary>
 		private void InitLivingroomEntityMappings()
 		{
-			this.AddElementMapping("LivingroomEntity", @"AmstaJanBonga", @"dbo", "Livingroom", 9, 0);
+			this.AddElementMapping("LivingroomEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "Livingroom", 9, 0);
 			this.AddElementFieldMapping("LivingroomEntity", "ColourTypeEnum", "ColourTypeEnum", false, "TinyInt", 0, 3, 0, false, "", null, typeof(System.Byte), 0);
 			this.AddElementFieldMapping("LivingroomEntity", "DateCreated", "DateCreated", false, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 1);
-			this.AddElementFieldMapping("LivingroomEntity", "DateDeletion", "DateDeletion", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 2);
+			this.AddElementFieldMapping("LivingroomEntity", "DateDeleted", "DateDeleted", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 2);
 			this.AddElementFieldMapping("LivingroomEntity", "DateLastModified", "DateLastModified", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 3);
 			this.AddElementFieldMapping("LivingroomEntity", "DateLastModifiedByUserId", "DateLastModifiedByUserId", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 4);
 			this.AddElementFieldMapping("LivingroomEntity", "Id", "Id", false, "Int", 0, 10, 0, true, "SCOPE_IDENTITY()", null, typeof(System.Int32), 5);
@@ -111,14 +111,14 @@ namespace AmstaJanBonga.Business.HelperClasses
 		/// <summary>Inits PatientEntity's mappings</summary>
 		private void InitPatientEntityMappings()
 		{
-			this.AddElementMapping("PatientEntity", @"AmstaJanBonga", @"dbo", "Patient", 10, 0);
+			this.AddElementMapping("PatientEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "Patient", 10, 0);
 			this.AddElementFieldMapping("PatientEntity", "DateCreated", "DateCreated", false, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 0);
-			this.AddElementFieldMapping("PatientEntity", "DateDeletion", "DateDeletion", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 1);
+			this.AddElementFieldMapping("PatientEntity", "DateDeleted", "DateDeleted", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 1);
 			this.AddElementFieldMapping("PatientEntity", "DateLastModified", "DateLastModified", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 2);
 			this.AddElementFieldMapping("PatientEntity", "DateLastModifiedByUserId", "DateLastModifiedByUserId", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 3);
 			this.AddElementFieldMapping("PatientEntity", "FirstName", "FirstName", false, "VarChar", 50, 0, 0, false, "", null, typeof(System.String), 4);
 			this.AddElementFieldMapping("PatientEntity", "Id", "Id", false, "Int", 0, 10, 0, true, "SCOPE_IDENTITY()", null, typeof(System.Int32), 5);
-			this.AddElementFieldMapping("PatientEntity", "ImagePath", "ImagePath", false, "VarChar", 255, 0, 0, false, "", null, typeof(System.String), 6);
+			this.AddElementFieldMapping("PatientEntity", "ImagePath", "ImagePath", false, "VarChar", 250, 0, 0, false, "", null, typeof(System.String), 6);
 			this.AddElementFieldMapping("PatientEntity", "IsActive", "IsActive", false, "Bit", 0, 0, 0, false, "", null, typeof(System.Boolean), 7);
 			this.AddElementFieldMapping("PatientEntity", "IsMarkedAsDeleted", "IsMarkedAsDeleted", false, "Bit", 0, 0, 0, false, "", null, typeof(System.Boolean), 8);
 			this.AddElementFieldMapping("PatientEntity", "LivingroomId", "LivingroomId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 9);
@@ -127,24 +127,24 @@ namespace AmstaJanBonga.Business.HelperClasses
 		/// <summary>Inits UserEntity's mappings</summary>
 		private void InitUserEntityMappings()
 		{
-			this.AddElementMapping("UserEntity", @"AmstaJanBonga", @"dbo", "User", 11, 0);
+			this.AddElementMapping("UserEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "User", 11, 0);
 			this.AddElementFieldMapping("UserEntity", "DateCreated", "DateCreated", false, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 0);
-			this.AddElementFieldMapping("UserEntity", "DateDeletion", "DateDeletion", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 1);
+			this.AddElementFieldMapping("UserEntity", "DateDeleted", "DateDeleted", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 1);
 			this.AddElementFieldMapping("UserEntity", "DateLastLogin", "DateLastLogin", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 2);
 			this.AddElementFieldMapping("UserEntity", "DateLastModified", "DateLastModified", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 3);
 			this.AddElementFieldMapping("UserEntity", "DateLastModifiedByUserId", "DateLastModifiedByUserId", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 4);
 			this.AddElementFieldMapping("UserEntity", "Id", "Id", false, "Int", 0, 10, 0, true, "SCOPE_IDENTITY()", null, typeof(System.Int32), 5);
 			this.AddElementFieldMapping("UserEntity", "IsActive", "IsActive", false, "Bit", 0, 0, 0, false, "", null, typeof(System.Boolean), 6);
 			this.AddElementFieldMapping("UserEntity", "IsMarkedAsDeleted", "IsMarkedAsDeleted", false, "Bit", 0, 0, 0, false, "", null, typeof(System.Boolean), 7);
-			this.AddElementFieldMapping("UserEntity", "Password", "Password", false, "VarChar", 255, 0, 0, false, "", null, typeof(System.String), 8);
-			this.AddElementFieldMapping("UserEntity", "Salt", "Salt", false, "VarChar", 255, 0, 0, false, "", null, typeof(System.String), 9);
+			this.AddElementFieldMapping("UserEntity", "Password", "Password", false, "VarChar", 250, 0, 0, false, "", null, typeof(System.String), 8);
+			this.AddElementFieldMapping("UserEntity", "Salt", "Salt", false, "VarChar", 250, 0, 0, false, "", null, typeof(System.String), 9);
 			this.AddElementFieldMapping("UserEntity", "Username", "Username", false, "VarChar", 50, 0, 0, false, "", null, typeof(System.String), 10);
 		}
 
 		/// <summary>Inits UserRoleEntity's mappings</summary>
 		private void InitUserRoleEntityMappings()
 		{
-			this.AddElementMapping("UserRoleEntity", @"AmstaJanBonga", @"dbo", "UserRole", 2, 0);
+			this.AddElementMapping("UserRoleEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "UserRole", 2, 0);
 			this.AddElementFieldMapping("UserRoleEntity", "RoleTypeEnum", "RoleTypeEnum", false, "TinyInt", 0, 3, 0, false, "", null, typeof(System.Byte), 0);
 			this.AddElementFieldMapping("UserRoleEntity", "UserId", "UserId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 1);
 		}

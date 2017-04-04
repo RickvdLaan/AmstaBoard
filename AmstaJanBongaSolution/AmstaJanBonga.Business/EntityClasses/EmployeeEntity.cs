@@ -507,7 +507,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("DateCreated", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("DateDeletion", fieldHashtable);
+			_fieldsCustomProperties.Add("DateDeleted", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("DateLastModified", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
@@ -659,14 +659,14 @@ namespace AmstaJanBonga.Business.EntityClasses
 			set	{ SetValue((int)EmployeeFieldIndex.DateCreated, value, true); }
 		}
 
-		/// <summary> The DateDeletion property of the Entity Employee<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "Employee"."DateDeletion"<br/>
+		/// <summary> The DateDeleted property of the Entity Employee<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "Employee"."DateDeleted"<br/>
 		/// Table field type characteristics (type, precision, scale, length): DateTime, 0, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
-		public virtual Nullable<System.DateTime> DateDeletion
+		public virtual Nullable<System.DateTime> DateDeleted
 		{
-			get { return (Nullable<System.DateTime>)GetValue((int)EmployeeFieldIndex.DateDeletion, false); }
-			set	{ SetValue((int)EmployeeFieldIndex.DateDeletion, value, true); }
+			get { return (Nullable<System.DateTime>)GetValue((int)EmployeeFieldIndex.DateDeleted, false); }
+			set	{ SetValue((int)EmployeeFieldIndex.DateDeleted, value, true); }
 		}
 
 		/// <summary> The DateLastModified property of the Entity Employee<br/><br/></summary>
@@ -711,8 +711,8 @@ namespace AmstaJanBonga.Business.EntityClasses
 
 		/// <summary> The ImagePath property of the Entity Employee<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "Employee"."ImagePath"<br/>
-		/// Table field type characteristics (type, precision, scale, length): VarChar, 0, 0, 255<br/>
-		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		/// Table field type characteristics (type, precision, scale, length): VarChar, 0, 0, 250<br/>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
 		public virtual System.String ImagePath
 		{
 			get { return (System.String)GetValue((int)EmployeeFieldIndex.ImagePath, true); }

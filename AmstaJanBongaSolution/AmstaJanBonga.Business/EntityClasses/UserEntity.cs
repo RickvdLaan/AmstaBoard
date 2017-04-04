@@ -545,7 +545,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("DateCreated", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("DateDeletion", fieldHashtable);
+			_fieldsCustomProperties.Add("DateDeleted", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("DateLastLogin", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
@@ -699,14 +699,14 @@ namespace AmstaJanBonga.Business.EntityClasses
 			set	{ SetValue((int)UserFieldIndex.DateCreated, value, true); }
 		}
 
-		/// <summary> The DateDeletion property of the Entity User<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "User"."DateDeletion"<br/>
+		/// <summary> The DateDeleted property of the Entity User<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "User"."DateDeleted"<br/>
 		/// Table field type characteristics (type, precision, scale, length): DateTime, 0, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
-		public virtual Nullable<System.DateTime> DateDeletion
+		public virtual Nullable<System.DateTime> DateDeleted
 		{
-			get { return (Nullable<System.DateTime>)GetValue((int)UserFieldIndex.DateDeletion, false); }
-			set	{ SetValue((int)UserFieldIndex.DateDeletion, value, true); }
+			get { return (Nullable<System.DateTime>)GetValue((int)UserFieldIndex.DateDeleted, false); }
+			set	{ SetValue((int)UserFieldIndex.DateDeleted, value, true); }
 		}
 
 		/// <summary> The DateLastLogin property of the Entity User<br/><br/></summary>
@@ -771,7 +771,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 
 		/// <summary> The Password property of the Entity User<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "User"."Password"<br/>
-		/// Table field type characteristics (type, precision, scale, length): VarChar, 0, 0, 255<br/>
+		/// Table field type characteristics (type, precision, scale, length): VarChar, 0, 0, 250<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
 		public virtual System.String Password
 		{
@@ -781,7 +781,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 
 		/// <summary> The Salt property of the Entity User<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "User"."Salt"<br/>
-		/// Table field type characteristics (type, precision, scale, length): VarChar, 0, 0, 255<br/>
+		/// Table field type characteristics (type, precision, scale, length): VarChar, 0, 0, 250<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
 		public virtual System.String Salt
 		{

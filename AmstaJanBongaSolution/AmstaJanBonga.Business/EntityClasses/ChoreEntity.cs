@@ -144,6 +144,8 @@ namespace AmstaJanBonga.Business.EntityClasses
 				case ChoreFieldIndex.LivingroomId:
 					DesetupSyncLivingroom(true, false);
 					_alreadyFetchedLivingroom = false;
+					DesetupSyncPatient(true, false);
+					_alreadyFetchedPatient = false;
 					break;
 				case ChoreFieldIndex.PatientId:
 					DesetupSyncPatient(true, false);
@@ -182,7 +184,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 					toReturn.Add(Relations.LivingroomEntityUsingLivingroomId);
 					break;
 				case "Patient":
-					toReturn.Add(Relations.PatientEntityUsingPatientId);
+					toReturn.Add(Relations.PatientEntityUsingPatientIdLivingroomId);
 					break;
 				default:
 					break;				
@@ -432,13 +434,13 @@ namespace AmstaJanBonga.Business.EntityClasses
 		{
 			if( ( !_alreadyFetchedPatient || forceFetch || _alwaysFetchPatient) && !this.IsSerializing && !this.IsDeserializing  && !this.InDesignMode)			
 			{
-				bool performLazyLoading = this.CheckIfLazyLoadingShouldOccur(Relations.PatientEntityUsingPatientId);
+				bool performLazyLoading = this.CheckIfLazyLoadingShouldOccur(Relations.PatientEntityUsingPatientIdLivingroomId);
 				PatientEntity newEntity = new PatientEntity();
 				bool fetchResult = false;
 				if(performLazyLoading)
 				{
 					AddToTransactionIfNecessary(newEntity);
-					fetchResult = newEntity.FetchUsingPK(this.PatientId);
+					fetchResult = newEntity.FetchUsingPK(this.PatientId, this.LivingroomId);
 				}
 				if(fetchResult)
 				{
@@ -579,7 +581,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <param name="resetFKFields">if set to true it will also reset the FK fields pointing to the related entity</param>
 		private void DesetupSyncPatient(bool signalRelatedEntity, bool resetFKFields)
 		{
-			this.PerformDesetupSyncRelatedEntity( _patient, new PropertyChangedEventHandler( OnPatientPropertyChanged ), "Patient", AmstaJanBonga.Business.RelationClasses.StaticChoreRelations.PatientEntityUsingPatientIdStatic, true, signalRelatedEntity, "Chores", resetFKFields, new int[] { (int)ChoreFieldIndex.PatientId } );		
+			this.PerformDesetupSyncRelatedEntity( _patient, new PropertyChangedEventHandler( OnPatientPropertyChanged ), "Patient", AmstaJanBonga.Business.RelationClasses.StaticChoreRelations.PatientEntityUsingPatientIdLivingroomIdStatic, true, signalRelatedEntity, "Chores", resetFKFields, new int[] { (int)ChoreFieldIndex.PatientId, (int)ChoreFieldIndex.LivingroomId } );		
 			_patient = null;
 		}
 		
@@ -591,7 +593,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 			{		
 				DesetupSyncPatient(true, true);
 				_patient = (PatientEntity)relatedEntity;
-				this.PerformSetupSyncRelatedEntity( _patient, new PropertyChangedEventHandler( OnPatientPropertyChanged ), "Patient", AmstaJanBonga.Business.RelationClasses.StaticChoreRelations.PatientEntityUsingPatientIdStatic, true, ref _alreadyFetchedPatient, new string[] {  } );
+				this.PerformSetupSyncRelatedEntity( _patient, new PropertyChangedEventHandler( OnPatientPropertyChanged ), "Patient", AmstaJanBonga.Business.RelationClasses.StaticChoreRelations.PatientEntityUsingPatientIdLivingroomIdStatic, true, ref _alreadyFetchedPatient, new string[] {  } );
 			}
 		}
 

@@ -78,12 +78,12 @@ namespace AmstaJanBonga.Business.HelperClasses
 		{
 			this.AddFieldIndexEnumForElementName(typeof(EmployeeFieldIndex), "EmployeeEntity");
 			this.AddElementFieldInfo("EmployeeEntity", "DateCreated", typeof(System.DateTime), false, false, false, false,  (int)EmployeeFieldIndex.DateCreated, 0, 0, 0);
-			this.AddElementFieldInfo("EmployeeEntity", "DateDeletion", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)EmployeeFieldIndex.DateDeletion, 0, 0, 0);
+			this.AddElementFieldInfo("EmployeeEntity", "DateDeleted", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)EmployeeFieldIndex.DateDeleted, 0, 0, 0);
 			this.AddElementFieldInfo("EmployeeEntity", "DateLastModified", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)EmployeeFieldIndex.DateLastModified, 0, 0, 0);
 			this.AddElementFieldInfo("EmployeeEntity", "DateLastModifiedByUserId", typeof(Nullable<System.Int32>), false, false, false, true,  (int)EmployeeFieldIndex.DateLastModifiedByUserId, 0, 0, 10);
 			this.AddElementFieldInfo("EmployeeEntity", "FirstName", typeof(System.String), false, false, false, false,  (int)EmployeeFieldIndex.FirstName, 50, 0, 0);
 			this.AddElementFieldInfo("EmployeeEntity", "Id", typeof(System.Int32), true, false, true, false,  (int)EmployeeFieldIndex.Id, 0, 0, 10);
-			this.AddElementFieldInfo("EmployeeEntity", "ImagePath", typeof(System.String), false, false, false, false,  (int)EmployeeFieldIndex.ImagePath, 255, 0, 0);
+			this.AddElementFieldInfo("EmployeeEntity", "ImagePath", typeof(System.String), false, false, false, true,  (int)EmployeeFieldIndex.ImagePath, 250, 0, 0);
 			this.AddElementFieldInfo("EmployeeEntity", "IsActive", typeof(System.Boolean), false, false, false, false,  (int)EmployeeFieldIndex.IsActive, 0, 0, 0);
 			this.AddElementFieldInfo("EmployeeEntity", "IsMarkedAsDeleted", typeof(System.Boolean), false, false, false, false,  (int)EmployeeFieldIndex.IsMarkedAsDeleted, 0, 0, 0);
 			this.AddElementFieldInfo("EmployeeEntity", "UserId", typeof(Nullable<System.Int32>), false, true, false, true,  (int)EmployeeFieldIndex.UserId, 0, 0, 10);
@@ -101,7 +101,7 @@ namespace AmstaJanBonga.Business.HelperClasses
 			this.AddFieldIndexEnumForElementName(typeof(LivingroomFieldIndex), "LivingroomEntity");
 			this.AddElementFieldInfo("LivingroomEntity", "ColourTypeEnum", typeof(System.Byte), false, false, false, false,  (int)LivingroomFieldIndex.ColourTypeEnum, 0, 0, 3);
 			this.AddElementFieldInfo("LivingroomEntity", "DateCreated", typeof(System.DateTime), false, false, false, false,  (int)LivingroomFieldIndex.DateCreated, 0, 0, 0);
-			this.AddElementFieldInfo("LivingroomEntity", "DateDeletion", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)LivingroomFieldIndex.DateDeletion, 0, 0, 0);
+			this.AddElementFieldInfo("LivingroomEntity", "DateDeleted", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)LivingroomFieldIndex.DateDeleted, 0, 0, 0);
 			this.AddElementFieldInfo("LivingroomEntity", "DateLastModified", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)LivingroomFieldIndex.DateLastModified, 0, 0, 0);
 			this.AddElementFieldInfo("LivingroomEntity", "DateLastModifiedByUserId", typeof(Nullable<System.Int32>), false, false, false, true,  (int)LivingroomFieldIndex.DateLastModifiedByUserId, 0, 0, 10);
 			this.AddElementFieldInfo("LivingroomEntity", "Id", typeof(System.Int32), true, false, true, false,  (int)LivingroomFieldIndex.Id, 0, 0, 10);
@@ -114,30 +114,30 @@ namespace AmstaJanBonga.Business.HelperClasses
 		{
 			this.AddFieldIndexEnumForElementName(typeof(PatientFieldIndex), "PatientEntity");
 			this.AddElementFieldInfo("PatientEntity", "DateCreated", typeof(System.DateTime), false, false, false, false,  (int)PatientFieldIndex.DateCreated, 0, 0, 0);
-			this.AddElementFieldInfo("PatientEntity", "DateDeletion", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)PatientFieldIndex.DateDeletion, 0, 0, 0);
+			this.AddElementFieldInfo("PatientEntity", "DateDeleted", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)PatientFieldIndex.DateDeleted, 0, 0, 0);
 			this.AddElementFieldInfo("PatientEntity", "DateLastModified", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)PatientFieldIndex.DateLastModified, 0, 0, 0);
 			this.AddElementFieldInfo("PatientEntity", "DateLastModifiedByUserId", typeof(Nullable<System.Int32>), false, false, false, true,  (int)PatientFieldIndex.DateLastModifiedByUserId, 0, 0, 10);
 			this.AddElementFieldInfo("PatientEntity", "FirstName", typeof(System.String), false, false, false, false,  (int)PatientFieldIndex.FirstName, 50, 0, 0);
 			this.AddElementFieldInfo("PatientEntity", "Id", typeof(System.Int32), true, false, true, false,  (int)PatientFieldIndex.Id, 0, 0, 10);
-			this.AddElementFieldInfo("PatientEntity", "ImagePath", typeof(System.String), false, false, false, false,  (int)PatientFieldIndex.ImagePath, 255, 0, 0);
+			this.AddElementFieldInfo("PatientEntity", "ImagePath", typeof(System.String), false, false, false, false,  (int)PatientFieldIndex.ImagePath, 250, 0, 0);
 			this.AddElementFieldInfo("PatientEntity", "IsActive", typeof(System.Boolean), false, false, false, false,  (int)PatientFieldIndex.IsActive, 0, 0, 0);
 			this.AddElementFieldInfo("PatientEntity", "IsMarkedAsDeleted", typeof(System.Boolean), false, false, false, false,  (int)PatientFieldIndex.IsMarkedAsDeleted, 0, 0, 0);
-			this.AddElementFieldInfo("PatientEntity", "LivingroomId", typeof(System.Int32), false, true, false, false,  (int)PatientFieldIndex.LivingroomId, 0, 0, 10);
+			this.AddElementFieldInfo("PatientEntity", "LivingroomId", typeof(System.Int32), true, true, false, false,  (int)PatientFieldIndex.LivingroomId, 0, 0, 10);
 		}
 		/// <summary>Inits UserEntity's FieldInfo objects</summary>
 		private void InitUserEntityInfos()
 		{
 			this.AddFieldIndexEnumForElementName(typeof(UserFieldIndex), "UserEntity");
 			this.AddElementFieldInfo("UserEntity", "DateCreated", typeof(System.DateTime), false, false, false, false,  (int)UserFieldIndex.DateCreated, 0, 0, 0);
-			this.AddElementFieldInfo("UserEntity", "DateDeletion", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)UserFieldIndex.DateDeletion, 0, 0, 0);
+			this.AddElementFieldInfo("UserEntity", "DateDeleted", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)UserFieldIndex.DateDeleted, 0, 0, 0);
 			this.AddElementFieldInfo("UserEntity", "DateLastLogin", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)UserFieldIndex.DateLastLogin, 0, 0, 0);
 			this.AddElementFieldInfo("UserEntity", "DateLastModified", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)UserFieldIndex.DateLastModified, 0, 0, 0);
 			this.AddElementFieldInfo("UserEntity", "DateLastModifiedByUserId", typeof(Nullable<System.Int32>), false, false, false, true,  (int)UserFieldIndex.DateLastModifiedByUserId, 0, 0, 10);
 			this.AddElementFieldInfo("UserEntity", "Id", typeof(System.Int32), true, false, true, false,  (int)UserFieldIndex.Id, 0, 0, 10);
 			this.AddElementFieldInfo("UserEntity", "IsActive", typeof(System.Boolean), false, false, false, false,  (int)UserFieldIndex.IsActive, 0, 0, 0);
 			this.AddElementFieldInfo("UserEntity", "IsMarkedAsDeleted", typeof(System.Boolean), false, false, false, false,  (int)UserFieldIndex.IsMarkedAsDeleted, 0, 0, 0);
-			this.AddElementFieldInfo("UserEntity", "Password", typeof(System.String), false, false, false, false,  (int)UserFieldIndex.Password, 255, 0, 0);
-			this.AddElementFieldInfo("UserEntity", "Salt", typeof(System.String), false, false, false, false,  (int)UserFieldIndex.Salt, 255, 0, 0);
+			this.AddElementFieldInfo("UserEntity", "Password", typeof(System.String), false, false, false, false,  (int)UserFieldIndex.Password, 250, 0, 0);
+			this.AddElementFieldInfo("UserEntity", "Salt", typeof(System.String), false, false, false, false,  (int)UserFieldIndex.Salt, 250, 0, 0);
 			this.AddElementFieldInfo("UserEntity", "Username", typeof(System.String), false, false, false, false,  (int)UserFieldIndex.Username, 50, 0, 0);
 		}
 		/// <summary>Inits UserRoleEntity's FieldInfo objects</summary>

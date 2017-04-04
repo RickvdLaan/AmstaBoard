@@ -36,8 +36,8 @@ namespace AmstaJanBonga.Business
 	{
 		///<summary>DateCreated. </summary>
 		DateCreated,
-		///<summary>DateDeletion. </summary>
-		DateDeletion,
+		///<summary>DateDeleted. </summary>
+		DateDeleted,
 		///<summary>DateLastModified. </summary>
 		DateLastModified,
 		///<summary>DateLastModifiedByUserId. </summary>
@@ -74,8 +74,8 @@ namespace AmstaJanBonga.Business
 		ColourTypeEnum,
 		///<summary>DateCreated. </summary>
 		DateCreated,
-		///<summary>DateDeletion. </summary>
-		DateDeletion,
+		///<summary>DateDeleted. </summary>
+		DateDeleted,
 		///<summary>DateLastModified. </summary>
 		DateLastModified,
 		///<summary>DateLastModifiedByUserId. </summary>
@@ -96,8 +96,8 @@ namespace AmstaJanBonga.Business
 	{
 		///<summary>DateCreated. </summary>
 		DateCreated,
-		///<summary>DateDeletion. </summary>
-		DateDeletion,
+		///<summary>DateDeleted. </summary>
+		DateDeleted,
 		///<summary>DateLastModified. </summary>
 		DateLastModified,
 		///<summary>DateLastModifiedByUserId. </summary>
@@ -122,8 +122,8 @@ namespace AmstaJanBonga.Business
 	{
 		///<summary>DateCreated. </summary>
 		DateCreated,
-		///<summary>DateDeletion. </summary>
-		DateDeletion,
+		///<summary>DateDeleted. </summary>
+		DateDeleted,
 		///<summary>DateLastLogin. </summary>
 		DateLastLogin,
 		///<summary>DateLastModified. </summary>

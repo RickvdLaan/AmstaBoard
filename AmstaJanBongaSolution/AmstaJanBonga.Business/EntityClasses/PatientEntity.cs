@@ -77,25 +77,28 @@ namespace AmstaJanBonga.Business.EntityClasses
 		
 		/// <summary>CTor</summary>
 		/// <param name="id">PK value for Patient which data should be fetched into this Patient object</param>
-		public PatientEntity(System.Int32 id):base("PatientEntity")
+		/// <param name="livingroomId">PK value for Patient which data should be fetched into this Patient object</param>
+		public PatientEntity(System.Int32 id, System.Int32 livingroomId):base("PatientEntity")
 		{
-			InitClassFetch(id, null, null);
+			InitClassFetch(id, livingroomId, null, null);
 		}
 
 		/// <summary>CTor</summary>
 		/// <param name="id">PK value for Patient which data should be fetched into this Patient object</param>
+		/// <param name="livingroomId">PK value for Patient which data should be fetched into this Patient object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
-		public PatientEntity(System.Int32 id, IPrefetchPath prefetchPathToUse):base("PatientEntity")
+		public PatientEntity(System.Int32 id, System.Int32 livingroomId, IPrefetchPath prefetchPathToUse):base("PatientEntity")
 		{
-			InitClassFetch(id, null, prefetchPathToUse);
+			InitClassFetch(id, livingroomId, null, prefetchPathToUse);
 		}
 
 		/// <summary>CTor</summary>
 		/// <param name="id">PK value for Patient which data should be fetched into this Patient object</param>
+		/// <param name="livingroomId">PK value for Patient which data should be fetched into this Patient object</param>
 		/// <param name="validator">The custom validator object for this PatientEntity</param>
-		public PatientEntity(System.Int32 id, IValidator validator):base("PatientEntity")
+		public PatientEntity(System.Int32 id, System.Int32 livingroomId, IValidator validator):base("PatientEntity")
 		{
-			InitClassFetch(id, validator, null);
+			InitClassFetch(id, livingroomId, validator, null);
 		}
 
 		/// <summary>Private CTor for deserialization</summary>
@@ -163,7 +166,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 					toReturn.Add(Relations.LivingroomEntityUsingLivingroomId);
 					break;
 				case "Chores":
-					toReturn.Add(Relations.ChoreEntityUsingPatientId);
+					toReturn.Add(Relations.ChoreEntityUsingPatientIdLivingroomId);
 					break;
 				default:
 					break;				
@@ -290,49 +293,53 @@ namespace AmstaJanBonga.Business.EntityClasses
 
 		/// <summary> Fetches the contents of this entity from the persistent storage using the primary key.</summary>
 		/// <param name="id">PK value for Patient which data should be fetched into this Patient object</param>
+		/// <param name="livingroomId">PK value for Patient which data should be fetched into this Patient object</param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		public bool FetchUsingPK(System.Int32 id)
+		public bool FetchUsingPK(System.Int32 id, System.Int32 livingroomId)
 		{
-			return FetchUsingPK(id, null, null, null);
+			return FetchUsingPK(id, livingroomId, null, null, null);
 		}
 
 		/// <summary> Fetches the contents of this entity from the persistent storage using the primary key.</summary>
 		/// <param name="id">PK value for Patient which data should be fetched into this Patient object</param>
+		/// <param name="livingroomId">PK value for Patient which data should be fetched into this Patient object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		public bool FetchUsingPK(System.Int32 id, IPrefetchPath prefetchPathToUse)
+		public bool FetchUsingPK(System.Int32 id, System.Int32 livingroomId, IPrefetchPath prefetchPathToUse)
 		{
-			return FetchUsingPK(id, prefetchPathToUse, null, null);
+			return FetchUsingPK(id, livingroomId, prefetchPathToUse, null, null);
 		}
 
 		/// <summary> Fetches the contents of this entity from the persistent storage using the primary key.</summary>
 		/// <param name="id">PK value for Patient which data should be fetched into this Patient object</param>
+		/// <param name="livingroomId">PK value for Patient which data should be fetched into this Patient object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <param name="contextToUse">The context to add the entity to if the fetch was succesful. </param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		public bool FetchUsingPK(System.Int32 id, IPrefetchPath prefetchPathToUse, Context contextToUse)
+		public bool FetchUsingPK(System.Int32 id, System.Int32 livingroomId, IPrefetchPath prefetchPathToUse, Context contextToUse)
 		{
-			return FetchUsingPK(id, prefetchPathToUse, contextToUse, null);
+			return FetchUsingPK(id, livingroomId, prefetchPathToUse, contextToUse, null);
 		}
 
 		/// <summary> Fetches the contents of this entity from the persistent storage using the primary key.</summary>
 		/// <param name="id">PK value for Patient which data should be fetched into this Patient object</param>
+		/// <param name="livingroomId">PK value for Patient which data should be fetched into this Patient object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <param name="contextToUse">The context to add the entity to if the fetch was succesful. </param>
 		/// <param name="excludedIncludedFields">The list of IEntityField objects which have to be excluded or included for the fetch. 
 		/// If null or empty, all fields are fetched (default). If an instance of ExcludeIncludeFieldsList is passed in and its ExcludeContainedFields property
 		/// is set to false, the fields contained in excludedIncludedFields are kept in the query, the rest of the fields in the query are excluded.</param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		public bool FetchUsingPK(System.Int32 id, IPrefetchPath prefetchPathToUse, Context contextToUse, ExcludeIncludeFieldsList excludedIncludedFields)
+		public bool FetchUsingPK(System.Int32 id, System.Int32 livingroomId, IPrefetchPath prefetchPathToUse, Context contextToUse, ExcludeIncludeFieldsList excludedIncludedFields)
 		{
-			return Fetch(id, prefetchPathToUse, contextToUse, excludedIncludedFields);
+			return Fetch(id, livingroomId, prefetchPathToUse, contextToUse, excludedIncludedFields);
 		}
 
 		/// <summary> Refetches the Entity from the persistent storage. Refetch is used to re-load an Entity which is marked "Out-of-sync", due to a save action. Refetching an empty Entity has no effect. </summary>
 		/// <returns>true if Refetch succeeded, false otherwise</returns>
 		public override bool Refetch()
 		{
-			return Fetch(this.Id, null, null, null);
+			return Fetch(this.Id, this.LivingroomId, null, null, null);
 		}
 
 
@@ -467,15 +474,16 @@ namespace AmstaJanBonga.Business.EntityClasses
 
 		/// <summary> Initializes the the entity and fetches the data related to the entity in this entity.</summary>
 		/// <param name="id">PK value for Patient which data should be fetched into this Patient object</param>
+		/// <param name="livingroomId">PK value for Patient which data should be fetched into this Patient object</param>
 		/// <param name="validator">The validator object for this PatientEntity</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
-		private void InitClassFetch(System.Int32 id, IValidator validator, IPrefetchPath prefetchPathToUse)
+		private void InitClassFetch(System.Int32 id, System.Int32 livingroomId, IValidator validator, IPrefetchPath prefetchPathToUse)
 		{
 			OnInitializing();
 			this.Validator = validator;
 			this.Fields = CreateFields();
 			InitClassMembers();	
-			Fetch(id, prefetchPathToUse, null, null);
+			Fetch(id, livingroomId, prefetchPathToUse, null, null);
 
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassFetch
 			// __LLBLGENPRO_USER_CODE_REGION_END
@@ -507,7 +515,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("DateCreated", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("DateDeletion", fieldHashtable);
+			_fieldsCustomProperties.Add("DateDeleted", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("DateLastModified", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
@@ -562,18 +570,20 @@ namespace AmstaJanBonga.Business.EntityClasses
 
 		/// <summary> Fetches the entity from the persistent storage. Fetch simply reads the entity into an EntityFields object. </summary>
 		/// <param name="id">PK value for Patient which data should be fetched into this Patient object</param>
+		/// <param name="livingroomId">PK value for Patient which data should be fetched into this Patient object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <param name="contextToUse">The context to add the entity to if the fetch was succesful. </param>
 		/// <param name="excludedIncludedFields">The list of IEntityField objects which have to be excluded or included for the fetch. 
 		/// If null or empty, all fields are fetched (default). If an instance of ExcludeIncludeFieldsList is passed in and its ExcludeContainedFields property
 		/// is set to false, the fields contained in excludedIncludedFields are kept in the query, the rest of the fields in the query are excluded.</param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		private bool Fetch(System.Int32 id, IPrefetchPath prefetchPathToUse, Context contextToUse, ExcludeIncludeFieldsList excludedIncludedFields)
+		private bool Fetch(System.Int32 id, System.Int32 livingroomId, IPrefetchPath prefetchPathToUse, Context contextToUse, ExcludeIncludeFieldsList excludedIncludedFields)
 		{
 			try
 			{
 				OnFetch();
 				this.Fields[(int)PatientFieldIndex.Id].ForcedCurrentValueWrite(id);
+				this.Fields[(int)PatientFieldIndex.LivingroomId].ForcedCurrentValueWrite(livingroomId);
 				CreateDAOInstance().FetchExisting(this, this.Transaction, prefetchPathToUse, contextToUse, excludedIncludedFields);
 				return (this.Fields.State == EntityState.Fetched);
 			}
@@ -659,14 +669,14 @@ namespace AmstaJanBonga.Business.EntityClasses
 			set	{ SetValue((int)PatientFieldIndex.DateCreated, value, true); }
 		}
 
-		/// <summary> The DateDeletion property of the Entity Patient<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "Patient"."DateDeletion"<br/>
+		/// <summary> The DateDeleted property of the Entity Patient<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "Patient"."DateDeleted"<br/>
 		/// Table field type characteristics (type, precision, scale, length): DateTime, 0, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
-		public virtual Nullable<System.DateTime> DateDeletion
+		public virtual Nullable<System.DateTime> DateDeleted
 		{
-			get { return (Nullable<System.DateTime>)GetValue((int)PatientFieldIndex.DateDeletion, false); }
-			set	{ SetValue((int)PatientFieldIndex.DateDeletion, value, true); }
+			get { return (Nullable<System.DateTime>)GetValue((int)PatientFieldIndex.DateDeleted, false); }
+			set	{ SetValue((int)PatientFieldIndex.DateDeleted, value, true); }
 		}
 
 		/// <summary> The DateLastModified property of the Entity Patient<br/><br/></summary>
@@ -711,7 +721,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 
 		/// <summary> The ImagePath property of the Entity Patient<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "Patient"."ImagePath"<br/>
-		/// Table field type characteristics (type, precision, scale, length): VarChar, 0, 0, 255<br/>
+		/// Table field type characteristics (type, precision, scale, length): VarChar, 0, 0, 250<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
 		public virtual System.String ImagePath
 		{
@@ -742,7 +752,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <summary> The LivingroomId property of the Entity Patient<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "Patient"."LivingroomId"<br/>
 		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
-		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, false</remarks>
 		public virtual System.Int32 LivingroomId
 		{
 			get { return (System.Int32)GetValue((int)PatientFieldIndex.LivingroomId, true); }
