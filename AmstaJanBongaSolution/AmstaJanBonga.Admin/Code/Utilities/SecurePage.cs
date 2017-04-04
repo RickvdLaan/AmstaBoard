@@ -1,5 +1,5 @@
 ﻿using AmstaJanBonga.Business.EntityClasses;
-using Portfolio.Business.Security;
+using AmstaJanBonga.Business.Security;
 using System;
 
 namespace AmstaJanBonga.Admin

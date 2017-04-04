@@ -6,39 +6,22 @@
 }
 
 body {
-    font-family: 'PT Sans', Arial;    
-    padding-top: 10%;
+    font-family: "Lato", sans-serif;  
 }
 
-.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+h1, h2 {
     color: inherit;
     font-family: inherit;
     font-weight: 500;
     line-height: 1.15;
 }
 
-.h1, h1 {
+h1 {
     font-size: 36px;
 }
 
-.h2, h2 {
+h2 {
     font-size: 30px;
-}
-
-.h3, h3 {
-    font-size: 24px;
-}
-
-.h4, h4 {
-    font-size: 18px;
-}
-
-.h5, h5 {
-    font-size: 14px;
-}
-
-.h6, h6 {
-    font-size: 12px;
 }
 
 p {
@@ -53,9 +36,18 @@ a {
 /* Login */
 
 #container #form-signin {
+    background-color: #fff;
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.08);
     margin: 0 auto;
     max-width: 300px;
-    padding: 15px;
+    min-height: 300px;
+    padding: 50px;
+     border-color: #f08a00 #e5e2df #e5e2df;
+     border-image: none;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 4px 1px 1px;
+    margin: 10% auto 0;
 }
 
 #container #form-signin > h2 {
@@ -64,9 +56,12 @@ a {
 
 #container #form-signin .textbox {
     border-radius: 4px;
-    position: relative;
     box-sizing: border-box;
     height: 44px;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 #container #form-signin .button {
@@ -81,6 +76,7 @@ a {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     margin-bottom: -1px;
+
 }
 
 #container #form-signin input[type="password"] {
@@ -90,66 +86,30 @@ a {
 
 /* Button */
 
+.logo {
+    margin-bottom: 50px;
+}
+
 .button { 
-    margin-top: 10px;
-    border-radius: 4px;
-    font-size: 14px;
-    height: 32px; 
+    font-size: 18px;
     width: 100%;
-}
-
-/* Default */
-
-.clear {
-    clear: both;
-}
-
-.right {
-    float: right;
-}
-
-.center {
-    text-align: center;
-}
-
-.error_detailed {
-    background-color: #ffbaba;
-    border: 1px solid;
+    font-family: "Lato",sans-serif;
+    border-bottom: 3px solid #f08a00 !important;
+    background-color: #795094;
+    border: none;
+    color: #fff;
+    margin-top: 50px;
+    cursor: pointer;
     border-radius: 4px;
-    color: #d8000c;
-    display: block;
-    margin-top: 10px;
-    padding: 10px;
+
+    /* CSS3 Transition */
+    -webkit-transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
+    -o-transition: all 0.1s linear;
+    transition: all 0.1s linear;
 }
 
-/* Footer */
-
-#footer {
-     position: fixed;
-     bottom: 3px;
-     left: 0;
-     width: 100%;
-}
-
-#footer span {
-    font-size: 12px;
-}
-
-/* Custom */
-
-.error {
-    color: #ff4040;
-    font-size: 15px;
-}
-
-/* Language Control */
-
-#language {
-    position: absolute;
-    right: 20px;
-    top: 22px;
-}
-
-.flag {
-    border: 1px solid #000000;
+.button:hover {
+    background-color: #8255a0;
+    border-color: #faaa3f !important;
 }

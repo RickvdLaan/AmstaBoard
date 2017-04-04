@@ -1,16 +1,13 @@
 ﻿using AmstaJanBonga.Business.Database.Readers;
 using AmstaJanBonga.Business.Enums;
 using AmstaJanBonga.Business.Security;
-using Portfolio.Business.Security;
 using Rlaan.Toolkit.Configuration;
 using Rlaan.Toolkit.Web;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Web;
+using System.Web.Routing;
 using System.Web.Security;
-using System.Web.SessionState;
 
 namespace AmstaJanBonga.Admin
 {
@@ -19,7 +16,7 @@ namespace AmstaJanBonga.Admin
 
         protected void Application_Start(object sender, EventArgs e)
         {
-
+            InitialiseRoutes(RouteTable.Routes);
         }
 
         protected void Session_Start(object sender, EventArgs e)
@@ -117,6 +114,31 @@ namespace AmstaJanBonga.Admin
                     Response.Redirect(FormsAuthentication.LoginUrl);
                 }
             }
+        }
+
+        /// <summary>
+        /// Initialises the routes.
+        /// </summary>
+        /// <param name="routes">Provide an empty collection of routes.</param>
+        private void InitialiseRoutes(RouteCollection routes)
+        {
+            routes.Ignore("Images/");
+            routes.Ignore("Includes/");
+            routes.Ignore("Controls/");
+            routes.Ignore("Utilities/");
+            routes.Ignore("MasterPage/");
+            routes.Ignore("Service Reference/");
+            routes.Ignore("App_GlobalResources/");
+
+            /*
+             * The MapPageRoute asks for the following parameters: "Route name", "new url name", "physical url".
+            */
+
+            // Route for the home page, no query strings available.
+            routes.MapPageRoute("Login", "Login", "~/Content/Unsecure/Login/Login.aspx");
+
+            // Route for the home page, no query strings available.
+            routes.MapPageRoute("Dashboard", "Dashboard", "~/Content/Secure/Dashboard.aspx");
         }
     }
 }

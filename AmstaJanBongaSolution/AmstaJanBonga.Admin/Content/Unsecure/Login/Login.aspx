@@ -4,7 +4,11 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Inloggen</title>
+    <title>CMS - Login</title>
+
+    <link href="~/Includes/StyleSheet.css" rel="stylesheet" />
+    <link href="~/Includes/Login/Login.css" rel="stylesheet" />
+    <link href="~/Includes/Addons.css" rel="stylesheet" />
 
     <meta charset="UTF-8" />
     <meta name="robots" content="noindex, nofollow" />
@@ -14,9 +18,7 @@
     <form id="form1" runat="server">
         <div id="container">
             <div id="form-signin">
-                <h2>
-                    Inloggen
-                </h2>
+                <img class="logo" src="https://www.amsta.nl/themes/custom/amsta/images/logo.svg" alt="Amsta" />
 
                 <asp:Login runat="server" ID="_loginAuthentication" OnAuthenticate="_loginAuthentication_OnAuthenticate" RenderOuterTable="false">
                     <LayoutTemplate>
@@ -28,10 +30,6 @@
                     </LayoutTemplate>
                 </asp:Login>
             </div>
-        </div>
-
-        <div id="footer" class="center">
-           
         </div>
     </form>
 </body>

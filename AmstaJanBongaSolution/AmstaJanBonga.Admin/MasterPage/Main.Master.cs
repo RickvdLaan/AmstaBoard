@@ -1,4 +1,4 @@
-﻿using Portfolio.Business.Security;
+﻿using AmstaJanBonga.Business.Security;
 using Rlaan.Toolkit.Configuration;
 using Rlaan.Toolkit.Extensions;
 using System;
@@ -51,9 +51,9 @@ namespace AmstaJanBonga.Admin.MasterPage
                 // Checks if the page inherits at least from the DefaultPage class.
                 if (!this.Page.GetType().IsSubclassOf(typeof(DefaultPage)))
                     throw new DefaultPageNotImplementedException("The DefaultPage was not implemented on the current page.");
-
+               
                 // Checks if the current page is placed under the secure folder and if the page inherits at least from the SecurePage class.
-                if (System.Web.HttpContext.Current.Request.Url.AbsolutePath.Contains("Content/Secure") && !this.Page.GetType().IsSubclassOf(typeof(SecurePage)))
+                if (HttpContext.Current.Request.Url.AbsolutePath.Contains("Content/Secure") && !this.Page.GetType().IsSubclassOf(typeof(SecurePage)))
                     throw new SecurePageNotImplementedException("The current page was placed in the secure folder but does not implemented the SecurePage class.");
             }
 

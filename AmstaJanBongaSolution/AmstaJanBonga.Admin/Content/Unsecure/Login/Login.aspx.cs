@@ -1,6 +1,6 @@
 ﻿using AmstaJanBonga.Business.Database.Readers;
 using AmstaJanBonga.Business.Enums;
-using Portfolio.Business.Security;
+using AmstaJanBonga.Business.Security;
 using Resources;
 using Rlaan.Toolkit.Configuration;
 using Rlaan.Toolkit.Web;
@@ -22,8 +22,6 @@ namespace AmstaJanBonga.Admin.Content.Unsecure.Login
 
                 (_loginAuthentication.FindControl("Password") as TextBox).Attributes.Add("placeholder", Resource.Password);
             }
-
-          //  Business.Database.Managers.UserManager.InsertUser("Test", "password", RoleTypeEnum.Root);
         }
 
         #region Overrides
@@ -53,14 +51,14 @@ namespace AmstaJanBonga.Admin.Content.Unsecure.Login
                 return;
             }
 
-            //// Determines whether the database connection is available.
-            //if (!NetworkInformation.IsDatabaseConnectionAvailable(WebConfig.GetSetting("ConnectionString.SQL Server (SqlClient)")))
-            //{
-            //    _loginAuthentication.FailureText = Resource.ServerConncetionError;
+            // Determines whether the database connection is available.
+            if (!NetworkInformation.IsDatabaseConnectionAvailable(WebConfig.GetSetting("ConnectionString.SQL Server (SqlClient)")))
+            {
+                _loginAuthentication.FailureText = Resource.ServerConncetionError;
 
-            //    e.Authenticated = false;
-            //    return;
-            //}
+                e.Authenticated = false;
+                return;
+            }
 
             // Gets the user which corresponds with the username and password.
             var user = UserReader.GetUserByUsernameAndPassword(username, password);

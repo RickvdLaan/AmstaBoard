@@ -6,7 +6,7 @@ using System.Threading;
 using System.Web;
 using System.Web.Security;
 
-namespace Portfolio.Business.Security
+namespace AmstaJanBonga.Business.Security
 {
     /// <summary>
     /// Class which contains some addons for the security layer.

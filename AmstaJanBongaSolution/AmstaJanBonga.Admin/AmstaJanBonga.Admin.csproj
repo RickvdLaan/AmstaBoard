@@ -122,15 +122,57 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Secure\Dashboard.aspx" />
     <Content Include="Content\Unsecure\Login\Login.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Includes\Addons.css" />
+    <Content Include="Includes\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="Includes\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="Includes\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Includes\font-awesome-4.7.0\HELP-US-OUT.txt" />
     <Content Include="Includes\Login\Login.css" />
+    <Content Include="Includes\remodal-1.1.1\dist\remodal-default-theme.css" />
+    <Content Include="Includes\remodal-1.1.1\dist\remodal.css" />
+    <Content Include="Includes\remodal-1.1.1\dist\remodal.js" />
+    <Content Include="Includes\remodal-1.1.1\dist\remodal.min.js" />
     <Content Include="Includes\StyleSheet.css" />
     <Content Include="packages.config" />
-    <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="MasterPage\Main.Master" />
+    <Content Include="Includes\arcon.regular.otf" />
+    <Content Include="Includes\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Includes\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Includes\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Includes\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Includes\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="Includes\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="Includes\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="Includes\font-awesome-4.7.0\less\core.less" />
+    <Content Include="Includes\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="Includes\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="Includes\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="Includes\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="Includes\font-awesome-4.7.0\less\list.less" />
+    <Content Include="Includes\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="Includes\font-awesome-4.7.0\less\path.less" />
+    <Content Include="Includes\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="Includes\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="Includes\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="Includes\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="Includes\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="Includes\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="Includes\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="Includes\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="Includes\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="Includes\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="Includes\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="Includes\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="Includes\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="Includes\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="Includes\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="Includes\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="Includes\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="Includes\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="Includes\remodal-1.1.1\LICENSE" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -161,6 +203,13 @@
     <Compile Include="Code\Utilities\SecurePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Content\Secure\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\Secure\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Content\Unsecure\Login\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -181,7 +230,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Content\Secure\" />
     <Folder Include="Controls\" />
     <Folder Include="Includes\Images\" />
   </ItemGroup>
