@@ -64,20 +64,7 @@
     color: #fff;
 }
 
-/* Label */
-.label {
-    width: 150px;
-}
-
 /* Remodal plugin */
-
-div.remodal table {
-    width: 100%;
-}
-
-div.remodal table tbody tr td:last-child {
-    display: inline;
-}
 
 .remodal-close {
     left: auto;
@@ -101,22 +88,6 @@ div.remodal table tbody tr td:last-child {
     font-size: 2.5vw;
 }
 
-.remodal table tfoot tr td {
-    text-align: center;
-}
-
-.remodal table tfoot tr td button {
-    width: auto;
-    margin-top: 15px;
-    font-size: 1vw;
-    padding-left: 50px;
-    padding-right: 50px;
-}
-
 .remodal .remodal-confirm:hover {
     background-color: none;
-}
-
-.no-select {
-    cursor: default;
 }

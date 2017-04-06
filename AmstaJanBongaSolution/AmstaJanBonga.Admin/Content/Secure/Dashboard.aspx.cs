@@ -1,5 +1,4 @@
-﻿using AmstaJanBonga.Business.Security;
-using System;
+﻿using System;
 
 namespace AmstaJanBonga.Admin.Content.Secure
 {
@@ -8,11 +7,6 @@ namespace AmstaJanBonga.Admin.Content.Secure
         protected void Page_Load(object sender, EventArgs e)
         {
 
-        }
-
-        protected void _btnSignout_Click(object sender, EventArgs e)
-        {
-            Authentication.Utility.SignOut();
         }
     }
 }

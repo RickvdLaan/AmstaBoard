@@ -1,6 +1,8 @@
 ﻿using AmstaJanBonga.Business.CollectionClasses;
 using AmstaJanBonga.Business.EntityClasses;
 using AmstaJanBonga.Business.Enums;
+using Rlaan.Toolkit.Extensions;
+using System;
 using System.Linq;
 
 namespace AmstaJanBonga.Business.Database.Readers
@@ -13,13 +15,29 @@ namespace AmstaJanBonga.Business.Database.Readers
         #region Entities
 
         /// <summary>
-        /// Gets the asked user, if exists.
+        /// Gets the user with the corresponding user id or null. 
         /// </summary>
-        /// <param name="userId">Provide the unique user id.</param>
+        /// <param name="userId">The users unique id.</param>
         /// <returns></returns>
         public static UserEntity GetUserById(int userId)
         {
             return new UserEntity(userId);
+        }
+
+        /// <summary>
+        /// Gets the user with the corresponding user id or null. 
+        /// </summary>
+        /// <param name="userId">The users unique id.</param>
+        /// <param name="throwExceptionWhenNotFound"></param>
+        /// <returns></returns>
+        public static UserEntity GetUserById(int userId, bool throwExceptionWhenNotFound)
+        {
+            var user = GetUserById(userId);
+
+            if (user == null && throwExceptionWhenNotFound)
+                throw new Exception("User not found for id {0}.".FormatString(userId));
+
+            return user;
         }
 
         /// <summary>

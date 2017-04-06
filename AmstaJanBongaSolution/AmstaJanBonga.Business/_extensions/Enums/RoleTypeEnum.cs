@@ -6,11 +6,11 @@ namespace AmstaJanBonga.Business.Enums
     {
         [Description("Root")]
         Root = 0,
-        [Description("Manager")]
+        [Description("Afdelingshoofd")]
         Manager = 1,
-        [Description("Employee")]
+        [Description("Personeel")]
         Employee = 2,
-        [Description("Trainee")]
+        [Description("Stagiair")]
         Trainee = 3
     }
 }

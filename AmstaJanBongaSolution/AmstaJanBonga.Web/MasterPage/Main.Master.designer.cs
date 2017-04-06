@@ -13,15 +13,6 @@ namespace AmstaJanBonga.Web.MasterPage {
     public partial class Main {
         
         /// <summary>
-        /// _litHead control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal _litHead;
-        
-        /// <summary>
         /// _cphHead control.
         /// </summary>
         /// <remarks>
@@ -101,14 +92,5 @@ namespace AmstaJanBonga.Web.MasterPage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder _cphContent;
-        
-        /// <summary>
-        /// _litNotificationMessage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal _litNotificationMessage;
     }
 }

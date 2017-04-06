@@ -3,25 +3,94 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
+    <head runat="server">
+        <title></title>
 
-    <link href="~/Includes/StyleSheet.css" rel="stylesheet" />
-    <link href="~/Includes/Login/Login.css" rel="stylesheet" />
-    <link href="~/Includes/Addons.css" rel="stylesheet" />
+        <link href="~/Includes/Css/StyleSheet.css" rel="stylesheet" />
+        <link href="~/Includes/Css/Addons.css" rel="stylesheet" />
+        <link href="~/Includes/Css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 
-    <meta charset="UTF-8" />
-    <meta name="robots" content="noindex, nofollow" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,400italic,600' rel='stylesheet' type='text/css' />
 
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+        <script src="Includes/Js/mobile-navigation.js"></script>
 
-    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-            <asp:ContentPlaceHolder ID="_cphContent" runat="server"></asp:ContentPlaceHolder>
-        </div>
-    </form>
-</body>
+        <asp:ContentPlaceHolder ID="_cphHead" runat="server"></asp:ContentPlaceHolder>
+
+        <meta charset="UTF-8" />
+        <meta name="robots" content="noindex, nofollow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    </head>
+
+    <body>
+        <form id="form1" runat="server">
+            <!-- Header -->
+            <div id="header-container">
+                <div id="header">
+                     <!-- Logo -->
+                    <asp:LinkButton runat="server" ID="_lbDashboard" OnClick="_lbDashboard_Click">
+                        <asp:Image runat="server" ID="logo" ImageUrl="~/Includes/Css/Images/logo.svg" AlternateText="Amsta" />
+                    </asp:LinkButton>
+
+		            <h1>
+                        <asp:ContentPlaceHolder ID="_cphMainTitle" runat="server" />
+		            </h1>
+		            <h2>
+			            <asp:ContentPlaceHolder ID="_cphSubTitle" runat="server" />
+		            </h2>
+
+                    <div id="user" class="no-select right">           
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <span>
+                            <%= this.Username %>
+                        </span>
+
+                        <asp:LinkButton runat="server" ID="_lbSignOut" OnClick="_lbSignOut_Click">
+                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                            <span>Uitloggen</span>
+                        </asp:LinkButton>
+                    </div>
+
+                    <div class="clear"></div>
+                </div>       
+            </div>          
+
+            <!-- Sidebar -->
+            <div id="sidebar-container">
+                <!-- Mobile -->
+                <div id="navigation-container">
+                    <div id="mobile-menu">
+                        <div id="slicknav_menu">
+                            <%--<span class="slicknav_icon-bar"></span>
+                            <span class="slicknav_icon-bar"></span>
+                            <span class="slicknav_icon-bar"></span>
+                            <i class="fa fa-bars" aria-hidden="true"></i>--%>
+                        </div>
+                    </div>
+    
+                    <!-- Menu -->
+                    <asp:BulletedList runat="server" ID="nav" DisplayMode="HyperLink">
+                        <asp:ListItem runat="server" id="_liDashboard" Value="~/Dashboard">Dashboard</asp:ListItem>
+                        <asp:ListItem runat="server" id="_liUser" Value="~/Content/Secure/User/UserOverview.aspx">Gebruikers</asp:ListItem>
+                    </asp:BulletedList>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div id="content">    
+                <!-- Explanation -->
+                <div class="box">
+                    <h2>Uitleg over deze module</h2>
+
+                    <span>
+                        <asp:ContentPlaceHolder ID="_cphExplanation" runat="server"></asp:ContentPlaceHolder>
+                    </span>
+                </div>
+
+                <!-- Content -->
+                <asp:ScriptManager runat="server" />
+                <asp:ContentPlaceHolder ID="_cphContent" runat="server"></asp:ContentPlaceHolder>
+            </div>
+        </form>
+    </body>
 </html>

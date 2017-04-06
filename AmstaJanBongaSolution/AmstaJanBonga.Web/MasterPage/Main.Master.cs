@@ -1,20 +1,12 @@
 ﻿using Rlaan.Toolkit.Extensions;
 using Rlaan.Toolkit.Web;
 using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Web.UI.WebControls;
 
 namespace AmstaJanBonga.Web.MasterPage
 {
     public partial class Main : System.Web.UI.MasterPage
     {
-        #region Variables & Objects
-
-        private List<string> _notificationMessages = new List<string>();
-
-        #endregion
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -28,46 +20,6 @@ namespace AmstaJanBonga.Web.MasterPage
                     this._hlBtnHome.NavigateUrl = "~/Content/Livingroom/Livingroom.aspx";
             }
         }
-
-        #region Overrides
-
-        protected override void OnPreRender(EventArgs e)
-        {
-            if (this._notificationMessages.Count > 0)
-                this.RenderNotificationmessage();
-
-            base.OnPreRender(e);
-        }
-
-        #endregion
-
-        #region Notification Message
-
-        /// <summary>
-        /// Renders the JQuery notification message.
-        /// </summary>
-        private void RenderNotificationmessage()
-        {
-            var litNotificationMessage = this.Page.Master.FindControl("_litNotificationMessage") as Literal;
-            litNotificationMessage.Text = "<script type='text/javascript'>";
-
-            foreach (var message in this._notificationMessages)
-                // Make sure that the text you're about to load in doesn't contain any weird characters, else it won't load.
-                litNotificationMessage.Text += string.Format("$().renderMessage('showNotification', '{0}');", message);
-
-            litNotificationMessage.Text += "</script>";
-        }
-
-        /// <summary>
-        /// Renders the notification message that will be displayed.
-        /// </summary>
-        /// <param name="message">Provide the message that must be displayed.</param>
-        public void AddNotificationMessage(string message)
-        {
-            this._notificationMessages.Add(message);
-        }
-
-        #endregion
 
         #region Methods
 

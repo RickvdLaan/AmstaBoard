@@ -7,117 +7,108 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AmstaJanBonga.Admin.MasterPage {
+namespace AmstaJanBonga.Admin.Content.Secure.User {
     
     
-    public partial class Main {
+    public partial class UserAddEdit {
         
         /// <summary>
-        /// _cphHead control.
+        /// _txtUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder _cphHead;
+        protected global::System.Web.UI.WebControls.TextBox _txtUsername;
         
         /// <summary>
-        /// form1 control.
+        /// _cvUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.CustomValidator _cvUsername;
         
         /// <summary>
-        /// _lbDashboard control.
+        /// _trPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton _lbDashboard;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow _trPassword;
         
         /// <summary>
-        /// logo control.
+        /// _txtPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image logo;
+        protected global::System.Web.UI.WebControls.TextBox _txtPassword;
         
         /// <summary>
-        /// _cphMainTitle control.
+        /// _cvPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder _cphMainTitle;
+        protected global::System.Web.UI.WebControls.CustomValidator _cvPassword;
         
         /// <summary>
-        /// _cphSubTitle control.
+        /// _trVerifyPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder _cphSubTitle;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow _trVerifyPassword;
         
         /// <summary>
-        /// _lbSignOut control.
+        /// _txtVerifyPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton _lbSignOut;
+        protected global::System.Web.UI.WebControls.TextBox _txtVerifyPassword;
         
         /// <summary>
-        /// nav control.
+        /// _cbActive control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.BulletedList nav;
+        protected global::System.Web.UI.WebControls.CheckBox _cbActive;
         
         /// <summary>
-        /// _liDashboard control.
+        /// _lblError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListItem _liDashboard;
+        protected global::System.Web.UI.WebControls.Label _lblError;
         
         /// <summary>
-        /// _liUser control.
+        /// _btnSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListItem _liUser;
+        protected global::System.Web.UI.WebControls.Button _btnSave;
         
         /// <summary>
-        /// _cphExplanation control.
+        /// _btnCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder _cphExplanation;
-        
-        /// <summary>
-        /// _cphContent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder _cphContent;
+        protected global::System.Web.UI.WebControls.Button _btnCancel;
     }
 }

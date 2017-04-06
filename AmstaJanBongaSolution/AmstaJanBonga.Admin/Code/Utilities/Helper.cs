@@ -1,19 +1,21 @@
 ﻿using Rlaan.Toolkit.Web;
 
-namespace AmstaJanBonga.Admin
+public class Helper
 {
-    public class Helper
+    #region Properties
+
+    public static string SubTitleAddEdit
     {
-        #region Properties
-
-        /// <summary>
-        /// Returns the query string ReturnUrl or null.
-        /// </summary>
-        public static string ReturnUrl
-        {
-            get { return Url.QueryStringParser.HasParameter("ReturnUrl") ? Url.QueryStringParser.GetString("ReturnUrl") : null; }
-        }
-
-        #endregion
+        get { return Url.GetFullUrl.Contains("Id=") ? "Wijzigen" : "Toevoegen"; }
     }
+
+    /// <summary>
+    /// Returns the query string ReturnUrl or null.
+    /// </summary>
+    public static string ReturnUrl
+    {
+        get { return Url.QueryStringParser.HasParameter("ReturnUrl") ? Url.QueryStringParser.GetString("ReturnUrl") : null; }
+    }
+
+    #endregion
 }

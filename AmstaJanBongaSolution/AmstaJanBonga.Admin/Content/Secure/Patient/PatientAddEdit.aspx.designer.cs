@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AmstaJanBonga.Admin.Content.Secure
+namespace AmstaJanBonga.Admin.Content.Secure.Patient
 {
 
 
-    public partial class Dashboard
+    public partial class PatientAddEdit
     {
     }
 }

@@ -1,8 +1,4 @@
-﻿using Rlaan.Toolkit.Web;
-using System;
-
-
-namespace AmstaJanBonga.Web.Utilities
+﻿namespace AmstaJanBonga.Web
 {
     /// <summary>
     /// This class contains addons to the default System.Web.UI.Page; this class can only be inherited.
@@ -15,37 +11,6 @@ namespace AmstaJanBonga.Web.Utilities
         /// Gets the main master page.
         /// </summary>
         public MasterPage.Main MasterPage { get { return (MasterPage.Main)this.Master; } }
-
-        /// <summary>
-        /// Gets the notification message resource name if found in the querystring.
-        /// </summary>
-        private string NotificationMessage
-        {
-            get
-            {
-                return Url.QueryStringParser.HasParameter("NotificationMessage") ? Url.QueryStringParser.GetString("NotificationMessage") : null;
-            }
-        }
-
-        #endregion
-
-
-        #region Overrides
-
-        /// <summary>
-        /// Extends the base OnPreRender.
-        /// </summary>
-        /// <param name="e"></param>
-        protected override void OnPreRender(EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(this.NotificationMessage) && this.MasterPage != null)
-            {
-                this.MasterPage.AddNotificationMessage(Resource.ResourceManager.GetString(
-                    this.NotificationMessage) ?? string.Format(Resource.NotificationQueryStringNotFound, this.NotificationMessage));
-            }
-
-            base.OnPreRender(e);
-        }
 
         #endregion
     }

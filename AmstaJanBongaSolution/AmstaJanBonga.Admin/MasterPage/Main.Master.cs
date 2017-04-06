@@ -1,23 +1,14 @@
 ﻿using AmstaJanBonga.Business.Security;
 using Rlaan.Toolkit.Configuration;
-using Rlaan.Toolkit.Extensions;
+using Rlaan.Toolkit.Web;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace AmstaJanBonga.Admin.MasterPage
 {
     public partial class Main : System.Web.UI.MasterPage
     {
-        #region Variables & Objects
-
-        private List<string> _notificationMessages = new List<string>();
-
-        #endregion
-
         #region Properties
 
         /// <summary>
@@ -31,17 +22,21 @@ namespace AmstaJanBonga.Admin.MasterPage
         {
             if (!this.Page.IsPostBack && Authentication.IsAuthenticated)
                 this.Username = Authentication.AuthenticatedUser.Username ?? string.Empty;
+
+            foreach (ListItem item in nav.Items)
+            {
+                item.Attributes.Add("class", "nav-menu");
+            }
+
+            if (Url.GetFullUrl.Contains("Dashboard"))
+                _liDashboard.Attributes.Add("class", "nav-menu-active");
+            else if (Url.GetFullUrl.Contains("User"))
+                _liUser.Attributes.Add("class", "nav-menu-active");
+            else
+                throw new NotImplementedException();
         }
 
         #region Overrides
-
-        protected override void OnPreRender(EventArgs e)
-        {
-            if (this._notificationMessages.Count > 0)
-                this.RenderNotificationmessage();
-
-            base.OnPreRender(e);
-        }
 
         protected override void OnInit(EventArgs e)
         {
@@ -62,40 +57,16 @@ namespace AmstaJanBonga.Admin.MasterPage
 
         #endregion
 
-        #region Methods
+        #region Events
 
-        /// <summary>
-        /// Renders the JQuery notification message.
-        /// </summary>
-        private void RenderNotificationmessage()
+        protected void _lbDashboard_Click(object sender, EventArgs e)
         {
-            var litHead = this.Page.Master.FindControl("_litHead") as System.Web.UI.WebControls.Literal;
-            litHead.Visible = true;
-            litHead.Text += "<script src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js' type='text/javascript'></script>";
-            litHead.Text += "<script type='text/javascript' src='http://static.rickvanderlaan.nl/Js/jquery.notification.js'></script>";
-
-            var litNotificationMessage = this.Page.Master.FindControl("_litNotificationMessage") as System.Web.UI.WebControls.Literal;
-            litNotificationMessage.Text = "<script type='text/javascript'>";
-
-            foreach (var message in this._notificationMessages)
-                litNotificationMessage.Text += "$().renderMessage('showNotification', '{0}');".FormatString(message);
-
-            litNotificationMessage.Text += "</script>";
-
-            this._notificationMessages.Clear();
+            Response.Redirect("~/Dashboard");
         }
 
-        /// <summary>
-        /// Renders the notification message that will be displayed.
-        /// </summary>
-        /// <param name="message">Provide the message that must be displayed, accepted format: [Aa]-[Zz]-[09].</param>
-        public void AddNotificationMessage(string message)
+        protected void _lbSignOut_Click(object sender, EventArgs e)
         {
-            // FIXME: .?
-            //if (!Regex.IsMatch(message, "^[A-Za-z0-9]+$"))
-            //throw new Exception("Notification message contains illegal characters.");
-
-            this._notificationMessages.Add(message);
+            Authentication.Utility.SignOut();
         }
 
         #endregion

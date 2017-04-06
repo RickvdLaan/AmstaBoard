@@ -12,11 +12,9 @@
         <!-- 17kb -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css" />
         <!-- 50kb  -->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /> 
+        <%--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /> --%>
         <!-- 33kb -->
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-
-        <asp:Literal runat="server" ID="_litHead" EnableViewState="false" Visible="false"></asp:Literal>    
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>  
 
         <!-- ContentPlaceHolder Head -->
         <asp:ContentPlaceHolder ID="_cphHead" runat="server">
@@ -44,7 +42,7 @@
                         <section class="information-bar">
                             <div>
                                 <asp:HyperLink runat="server" ID="_hlBtnHome">
-                                    <i class="material-icons dp48">view_module</i>
+                                    <i class="fa fa-th-large" aria-hidden="true"></i>
                                 </asp:HyperLink>
                             </div>
 
@@ -74,8 +72,6 @@
                     </asp:ContentPlaceHolder>
                 </section>
             </div>
-        </form>
-
-        <asp:Literal runat="server" ID="_litNotificationMessage"></asp:Literal>   
+        </form> 
     </body>
 </html>
