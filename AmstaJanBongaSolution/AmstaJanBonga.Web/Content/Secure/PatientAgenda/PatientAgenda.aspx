@@ -1,10 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Main.Master" AutoEventWireup="true" CodeBehind="PatientAgenda.aspx.cs" Inherits="AmstaJanBonga.Web.Content.PatientAgenda.PatientAgenda" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="_cphHead" runat="server">
-    <script src="../../Includes/Js/calendar-appointments.js"></script>
+    <script src="/Includes/Js/calendar-appointments.js"></script>
 
-    <link href="../../Includes/remodal-1.1.1/dist/remodal-default-theme.css" rel="stylesheet" />
-    <link href="../../Includes/remodal-1.1.1/dist/remodal.css" rel="stylesheet" />
-    <script src="../../Includes/remodal-1.1.1/dist/remodal.js"></script>
+    <link href="/Includes/remodal-1.1.1/dist/remodal-default-theme.css" rel="stylesheet" />
+    <link href="/Includes/remodal-1.1.1/dist/remodal.css" rel="stylesheet" />
+    <script src="/Includes/remodal-1.1.1/dist/remodal.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="_cphContent" runat="server">
     <!-- The photo of the patient. -->

@@ -6,7 +6,7 @@ using System.Web.UI.WebControls;
 
 namespace AmstaJanBonga.Web.Content.PatientAgenda
 {
-    public partial class PatientAgenda : DefaultPage
+    public partial class PatientAgenda : SecurePage
     {
         #region Variables & Objects
 

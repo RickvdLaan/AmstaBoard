@@ -77,7 +77,7 @@ namespace AmstaJanBonga.Admin
                     user.AuthenticationTicket = formIdentity.Ticket;
 
                     // Initializes the custom principal class.
-                    var principle = new JouwSoftwarePrincipal(user);
+                    var principle = new CustomPrincipal(user);
 
                     // Re-sets the security information.
                     HttpContext.Current.User = principle;

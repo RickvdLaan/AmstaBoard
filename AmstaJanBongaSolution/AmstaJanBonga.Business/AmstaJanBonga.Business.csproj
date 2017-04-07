@@ -34,6 +34,9 @@
     <Reference Include="Rlaan.Toolkit.Extensions">
       <HintPath>..\..\_External\Toolkit\Rlaan.Toolkit.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="Rlaan.Toolkit.Web">
+      <HintPath>..\..\_External\Toolkit\Rlaan.Toolkit.Web.dll</HintPath>
+    </Reference>
     <Reference Include="SD.LLBLGen.Pro.DQE.SqlServer, Version=4.2.0.0, Culture=neutral, PublicKeyToken=ca73b74ba4e3ff27, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\_External\LLBLGen\SD.LLBLGen.Pro.DQE.SqlServer.dll</HintPath>
@@ -58,10 +61,11 @@
     <Compile Include="_Extensions\Enums\RoleTypeEnum.cs" />
     <Compile Include="_Extensions\Exceptions\UnknownRoleTypeException.cs" />
     <Compile Include="_Extensions\Security\Authentication.cs" />
-    <Compile Include="_Extensions\Security\JouwSoftwarePrincipal.cs" />
+    <Compile Include="_Extensions\Security\CustomPrincipal.cs" />
     <Compile Include="_Extensions\Security\RNGCSP.cs" />
     <Compile Include="_Extensions\Security\PasswordHash.cs" />
     <AppDesigner Include="Properties\" />
+    <Compile Include="_Extensions\Utilities\Helper.cs" />
     <None Include="App.config">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </None>
@@ -215,7 +219,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
-    <Folder Include="_Extensions\Utilities\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
 </Project>

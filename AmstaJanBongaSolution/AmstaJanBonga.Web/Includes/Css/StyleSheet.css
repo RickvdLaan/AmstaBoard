@@ -720,3 +720,17 @@ td.times div:first-of-type {
 /* 
     5. Responsive 
 */
+
+
+@media (max-width: 1920) {
+  #form {
+    display: none;
+  }
+}
+
+
+@media (max-height: 1080) {
+  #form {
+    display: none;
+  }
+}

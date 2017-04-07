@@ -19,8 +19,9 @@
 
                 <!-- Cell -->
                 <div class="tile-container-cell">
-                    <asp:HyperLink runat="server" NavigateUrl='<%# "~/Content/PatientAgenda/PatientAgenda.aspx#" + DateTime.Now.Hour.ToString() + ":00" %>' style="display:block;">
-                        <img class="image-patients" src="../../Includes/Css/Images/avatar.jpg">
+                    <asp:HyperLink runat="server" NavigateUrl='<%# "~/Content/Secure/PatientAgenda/PatientAgenda.aspx#" + DateTime.Now.Hour.ToString() + ":00" %>' style="display:block;">
+                        <asp:Image runat="server" CssClass="image-patients" ImageUrl="~/Includes/Css/Images/avatar.jpg" />
+
                         <h3 style="text-align: center;"><%# Eval("Name") %></h3>
                     </asp:HyperLink>
                 </div>
@@ -29,9 +30,4 @@
             </ItemTemplate>
         </asp:Repeater>
     </div>
-
-    <!-- Back: with ReturnUrl
-    <asp:HyperLink runat="server" NavigateUrl="~/Content/Livingroom/Livingroom.aspx" CssClass="previous">       
-        <i class="fa fa-arrow-left" aria-hidden="true"></i>
-    </asp:HyperLink> -->
 </asp:Content>

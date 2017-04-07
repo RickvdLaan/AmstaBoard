@@ -39,7 +39,7 @@ namespace AmstaJanBonga.Business.Security
             {
                 if (HttpContext.Current != null)
                 {
-                    var principle = HttpContext.Current.User as JouwSoftwarePrincipal;
+                    var principle = HttpContext.Current.User as CustomPrincipal;
 
                     if (principle != null && principle.User is UserEntity)
                         return principle.User as UserEntity;
@@ -75,7 +75,7 @@ namespace AmstaJanBonga.Business.Security
             /// <param name="user">Provide the user entity.</param>
             public static void AuthenticateUser(UserEntity user)
             {
-                var principle = new JouwSoftwarePrincipal(user);
+                var principle = new CustomPrincipal(user);
 
                 FormsAuthentication.SetAuthCookie(user.Id.ToString(), false);
                 HttpContext.Current.User = principle;

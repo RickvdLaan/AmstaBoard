@@ -3,7 +3,7 @@ using System.Data;
 
 namespace AmstaJanBonga.Web.Content
 {
-    public partial class Home : DefaultPage
+    public partial class Home : SecurePage
     {
         private DataTable employees = new DataTable("Employees");
         private DataTable patients = new DataTable("Patients");

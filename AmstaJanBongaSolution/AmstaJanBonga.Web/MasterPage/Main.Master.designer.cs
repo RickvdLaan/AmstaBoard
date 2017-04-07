@@ -31,13 +31,13 @@ namespace AmstaJanBonga.Web.MasterPage {
         protected global::System.Web.UI.HtmlControls.HtmlForm form;
         
         /// <summary>
-        /// _hlBtnHome control.
+        /// _lbHome control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink _hlBtnHome;
+        protected global::System.Web.UI.WebControls.LinkButton _lbHome;
         
         /// <summary>
         /// _litDay control.

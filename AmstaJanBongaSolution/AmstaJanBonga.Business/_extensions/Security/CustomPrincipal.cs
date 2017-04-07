@@ -11,7 +11,7 @@ namespace AmstaJanBonga.Business.Security
     /// Defines a principal class, this class cannot be inherited.
     /// </summary>
     [Serializable]
-    public sealed class JouwSoftwarePrincipal : IPrincipal
+    public sealed class CustomPrincipal : IPrincipal
     {
         #region IPrincipal
 
@@ -20,7 +20,7 @@ namespace AmstaJanBonga.Business.Security
         public IIdentity Identity { get { return this.USER; } }
         public IIdentity User { get { return this.USER; } }
 
-        public JouwSoftwarePrincipal(IIdentity user)
+        public CustomPrincipal(IIdentity user)
         {
             this.USER = user;
         }

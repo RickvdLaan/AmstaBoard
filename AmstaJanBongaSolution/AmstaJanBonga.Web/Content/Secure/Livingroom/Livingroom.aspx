@@ -21,9 +21,9 @@
         }
     </script>
 
-    <link href="../../Includes/remodal-1.1.1/dist/remodal-default-theme.css" rel="stylesheet" />
-    <link href="../../Includes/remodal-1.1.1/dist/remodal.css" rel="stylesheet" />
-    <script src="../../Includes/remodal-1.1.1/dist/remodal.min.js"></script>
+    <link href="/Includes/remodal-1.1.1/dist/remodal-default-theme.css" rel="stylesheet" />
+    <link href="/Includes/remodal-1.1.1/dist/remodal.css" rel="stylesheet" />
+    <script src="/Includes/remodal-1.1.1/dist/remodal.min.js"></script>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="_cphContent" runat="server">
@@ -35,7 +35,7 @@
         </h2>
 
          <div class="tile-wrapper">
-             <asp:HyperLink runat="server" CssClass="tile-container-cell button-press" NavigateUrl="~/Content/PatientAgendaOverview/PatientAgendaOverview.aspx">Druk hier om uw agenda te bekijken</asp:HyperLink>
+             <asp:HyperLink runat="server" CssClass="tile-container-cell button-press" NavigateUrl="~/Content/Secure/PatientAgendaOverview/PatientAgendaOverview.aspx">Druk hier om uw agenda te bekijken</asp:HyperLink>
         </div>
     </div>
 
@@ -140,7 +140,7 @@
 
                                     <!-- Cell -->
                                     <div class="tile-container-cell">                          
-                                        <img class="image-select-staff" data-remodal-action="confirm" src="../../Includes/Css/Images/avatar.jpg">
+                                        <asp:Image runat="server" CssClass="image-select-staff" data-remodal-action="confirm" ImageUrl="~/Includes/Css/Images/avatar.jpg" />
                                         <%--<h3 style="text-align: center;"><%# Eval("Name") %></h3>--%>
                                     </div>
 
@@ -185,7 +185,7 @@
 
                                     <!-- Cell -->
                                     <div class="tile-container-cell">                          
-                                        <img class="image-select-patient" data-remodal-action="confirm" src="../../Includes/Css/Images/avatar.jpg">
+                                        <asp:Image runat="server" CssClass="image-select-patient" data-remodal-action="confirm" ImageUrl="~/Includes/Css/Images/avatar.jpg" />
                                         <%--<h3 style="text-align: center;"><%# Eval("Name") %></h3>--%>
                                     </div>
 
