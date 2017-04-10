@@ -7,6 +7,14 @@ namespace AmstaJanBonga.Business.EntityClasses
 {
     public partial class UserEntity : IIdentity
     {
+        /// <summary>
+        /// ToString varient of the bool IsActive, translated to Dutch.
+        /// </summary>
+        public string IsActiveToString
+        {
+            get { return ((IsActive == true) ? "Ja" : "Nee"); }
+        }
+
         #region Security
 
         private FormsAuthenticationTicket _authenticationTicket;
@@ -54,6 +62,7 @@ namespace AmstaJanBonga.Business.EntityClasses
         {
             if (this.IsDirty && Authentication.IsAuthenticated)
             {
+                this.DateLastModifiedByUserId = Authentication.AuthenticatedUser.Id;
                 this.DateLastModified = DateTime.Now;
             }
 

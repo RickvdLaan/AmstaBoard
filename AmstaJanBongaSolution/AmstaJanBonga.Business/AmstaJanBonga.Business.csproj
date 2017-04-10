@@ -57,7 +57,10 @@
   <ItemGroup>
     <Compile Include="_Extensions\Database\EntityClasses\UserEntity.cs" />
     <Compile Include="_Extensions\Database\Managers\UserManager.cs" />
+    <Compile Include="_Extensions\Database\Readers\LivingroomReader.cs" />
+    <Compile Include="_Extensions\Database\Readers\PatientReader.cs" />
     <Compile Include="_Extensions\Database\Readers\UserReader.cs" />
+    <Compile Include="_Extensions\Enums\ColourTypeEnum.cs" />
     <Compile Include="_Extensions\Enums\RoleTypeEnum.cs" />
     <Compile Include="_Extensions\Exceptions\UnknownRoleTypeException.cs" />
     <Compile Include="_Extensions\Security\Authentication.cs" />

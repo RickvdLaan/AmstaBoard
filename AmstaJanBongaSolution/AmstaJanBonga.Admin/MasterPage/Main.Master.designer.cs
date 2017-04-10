@@ -103,6 +103,15 @@ namespace AmstaJanBonga.Admin.MasterPage {
         protected global::System.Web.UI.WebControls.ListItem _liUser;
         
         /// <summary>
+        /// _liPatient control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListItem _liPatient;
+        
+        /// <summary>
         /// _cphExplanation control.
         /// </summary>
         /// <remarks>

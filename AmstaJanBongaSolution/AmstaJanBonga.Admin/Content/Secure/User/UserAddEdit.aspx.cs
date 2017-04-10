@@ -1,7 +1,10 @@
-﻿using AmstaJanBonga.Business.Database.Readers;
+﻿using AmstaJanBonga.Business.Database.Managers;
+using AmstaJanBonga.Business.Database.Readers;
 using AmstaJanBonga.Business.EntityClasses;
+using AmstaJanBonga.Business.Enums;
 using Rlaan.Toolkit.Web;
 using System;
+using Rlaan.Toolkit.Extensions;
 using System.Web.UI.WebControls;
 
 namespace AmstaJanBonga.Admin.Content.Secure.User
@@ -45,12 +48,25 @@ namespace AmstaJanBonga.Admin.Content.Secure.User
             }
         }
 
+        #region Overrides
+
+        protected override void OnPreRenderComplete(EventArgs e)
+        {
+            this.PreFillRoles();
+
+            base.OnPreRenderComplete(e);
+        }
+
+        #endregion
+
         #region Render
 
         private void PreFillForm()
         {
             if (this.HasUserId)
             {
+                this._txtUsername.Enabled = false;
+
                 this._trPassword.Visible = false;
                 this._trVerifyPassword.Visible = false;
 
@@ -59,19 +75,41 @@ namespace AmstaJanBonga.Admin.Content.Secure.User
             }
         }
 
+        private void PreFillRoles()
+        {
+            var roleValues = (RoleTypeEnum[])Enum.GetValues(typeof(RoleTypeEnum));
+
+            for (int i = 0; i < roleValues.Length; i++)
+            {
+                this._ddlRoles.Items.Add(new ListItem(roleValues[i].Description(), roleValues[i].ToString()));
+            }
+
+            this._ddlRoles.ClearSelection();
+            this._ddlRoles.Items.FindByText(RoleTypeEnum.Employee.Description()).Selected = true;
+        }
+
         #endregion
 
         #region Save
 
         private void Save()
         {
+            // Edit
             if (this.HasUserId)
             {
-
+                UserManager.UpdateUser(
+                    this.User, 
+                    (RoleTypeEnum)Enum.Parse(typeof(RoleTypeEnum), this._ddlRoles.SelectedValue), 
+                    this._cbActive.Checked);
             }
+            // Add
             else
             {
-
+                UserManager.InsertUser(
+                    this._txtUsername.Text, 
+                    this._txtPassword.Text, 
+                    (RoleTypeEnum)Enum.Parse(typeof(RoleTypeEnum), this._ddlRoles.SelectedValue),
+                    this._cbActive.Checked);
             }
         }
 
@@ -85,7 +123,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.User
 
             if (this.Page.IsValid)
             {
-                Save();
+                this.Save();
 
                 Response.Redirect("~/Content/Secure/User/UserOverview.aspx");
             }

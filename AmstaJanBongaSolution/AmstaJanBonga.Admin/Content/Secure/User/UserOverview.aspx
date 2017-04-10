@@ -31,7 +31,7 @@
 
                         <ItemTemplate>
                             <asp:HyperLink runat="server" NavigateUrl='<%# Eval("Id","~/Content/Secure/User/UserDetails.aspx?UserId={0}") %>'>
-                                <%# Eval("Username") %>
+                                <%# Eval("Username").ToString().CapitalizeFirstLetter() %>
                             </asp:HyperLink>
                         </ItemTemplate>
                      </asp:TemplateField>
@@ -52,7 +52,7 @@
                         </HeaderTemplate>
 
                         <ItemTemplate>
-                            <%# (bool)Eval("IsActive") == true ? "Ja" : "Nee" %>
+                            <%# Eval("IsActiveToString") %>
                         </ItemTemplate>
                     </asp:TemplateField>
     

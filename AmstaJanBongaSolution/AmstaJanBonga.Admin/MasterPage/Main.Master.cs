@@ -32,8 +32,10 @@ namespace AmstaJanBonga.Admin.MasterPage
                 _liDashboard.Attributes.Add("class", "nav-menu-active");
             else if (Url.GetFullUrl.Contains("User"))
                 _liUser.Attributes.Add("class", "nav-menu-active");
+            else if (Url.GetFullUrl.Contains("Patient"))
+                _liPatient.Attributes.Add("class", "nav-menu-active");
             else
-                throw new NotImplementedException();
+                throw new NotImplementedException("Menu item is not yet implemented.");
         }
 
         #region Overrides

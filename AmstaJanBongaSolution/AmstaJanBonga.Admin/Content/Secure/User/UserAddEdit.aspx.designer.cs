@@ -76,6 +76,15 @@ namespace AmstaJanBonga.Admin.Content.Secure.User {
         protected global::System.Web.UI.WebControls.TextBox _txtVerifyPassword;
         
         /// <summary>
+        /// _ddlRoles control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList _ddlRoles;
+        
+        /// <summary>
         /// _cbActive control.
         /// </summary>
         /// <remarks>

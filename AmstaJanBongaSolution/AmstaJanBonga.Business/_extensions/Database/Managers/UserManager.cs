@@ -13,8 +13,9 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// <param name="username">The username.</param>
         /// <param name="password">The password in plain text.</param>
         /// <param name="roleType">The users role.</param>
+        /// <param name="isActive">Whether the users active, default value is true.</param>
         /// <returns></returns>
-        public static UserEntity InsertUser(string username, string password, RoleTypeEnum roleType)
+        public static UserEntity InsertUser(string username, string password, RoleTypeEnum roleType, bool isActive = true)
         {
             var salt = RNGCSP.GenerateRandomSalt();
 
@@ -23,7 +24,7 @@ namespace AmstaJanBonga.Business.Database.Managers
                 Username = username,
                 Password = PasswordHash.HashPassword(password, salt),
                 Salt = Convert.ToBase64String(salt),
-                IsActive = true,
+                IsActive = isActive,
                 IsMarkedAsDeleted = false,
                 DateCreated = DateTime.Now
             };
@@ -39,6 +40,32 @@ namespace AmstaJanBonga.Business.Database.Managers
             userRole.Save();
 
             return user;
+        }
+
+        /// <summary>
+        /// Updates the user.
+        /// </summary>
+        /// <param name="roleType">The users role.</param>
+        /// <param name="isActive">Whether the users active, default value is true.</param>
+        /// <returns></returns>
+        public static UserEntity UpdateUser(UserEntity user, RoleTypeEnum roleType, bool isActive = true)
+        {
+            if (user.UserRole.RoleTypeEnum != (byte)roleType)
+            {
+                user.UserRole.RoleTypeEnum = (byte)roleType;
+                user.UserRole.Save();
+            }
+
+            user.IsActive = isActive;
+            user.Save();
+
+            return user;
+        }
+
+        public static void MarkUserAsDeleted()
+        {
+            // Won't be implemented untill the entire database is done.
+            throw new NotImplementedException();
         }
     }
 }

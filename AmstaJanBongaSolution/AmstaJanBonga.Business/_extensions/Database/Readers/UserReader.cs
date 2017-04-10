@@ -95,7 +95,7 @@ namespace AmstaJanBonga.Business.Database.Readers
         public static bool IsAvailableUsername(string username)
         {
             // Attempts to fetch the user based on the provided username.
-            return new UserEntity().FetchUsingUCUsername(username);
+            return !(new UserEntity().FetchUsingUCUsername(username));
         }
 
         /// <summary>

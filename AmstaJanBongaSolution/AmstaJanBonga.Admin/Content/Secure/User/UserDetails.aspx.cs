@@ -1,5 +1,6 @@
 ﻿using AmstaJanBonga.Business.Database.Readers;
 using AmstaJanBonga.Business.EntityClasses;
+using AmstaJanBonga.Business.Enums;
 using Rlaan.Toolkit.Extensions;
 using Rlaan.Toolkit.Web;
 using System;
@@ -62,7 +63,9 @@ namespace AmstaJanBonga.Admin.Content.Secure.User
         {
             if (this.HasUserId)
             {
-                this._lblUsername.Text = this.User.Username;
+                this._lblUsername.Text = this.User.Username.CapitalizeFirstLetter();
+                this._lblActive.Text = this.User.IsActiveToString;
+                this._lblRoleType.Text = ((RoleTypeEnum)Enum.Parse(typeof(RoleTypeEnum), this.User.UserRole.RoleTypeEnum.ToString())).Description();
             }
         }
 

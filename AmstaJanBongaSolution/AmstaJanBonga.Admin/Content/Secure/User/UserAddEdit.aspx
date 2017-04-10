@@ -58,6 +58,15 @@
 
                 <tr>
                     <td class="label required">
+
+                    </td>
+                    <td>
+                        <asp:DropDownList runat="server" ID="_ddlRoles"></asp:DropDownList>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="label required">
                         Actief
                     </td>
                     <td>
@@ -70,8 +79,8 @@
         <asp:Label runat="server" ID="_lblError" CssClass="error"></asp:Label>
 
         <div class="buttons">
-            <asp:Button runat="server" ID="_btnSave" CssClass="button" Text="Opslaan" OnClick="_btnSave_Click" ValidateRequestMode="Enabled" ValidationGroup="Validate" CausesValidation="true" />
-            <asp:Button runat="server" ID="_btnCancel" CssClass="button" Text="Annuleren" OnClick="_btnCancel_Click" />
+            <asp:Button runat="server" ID="_btnSave" CssClass="button button-save" Text="Opslaan" OnClick="_btnSave_Click" ValidateRequestMode="Enabled" ValidationGroup="Validate" CausesValidation="true" />
+            <asp:Button runat="server" ID="_btnCancel" CssClass="button button-cancel" Text="Annuleren" OnClick="_btnCancel_Click" />
         </div>
     </div>
 </asp:Content>
