@@ -10,7 +10,7 @@ namespace AmstaJanBonga.Business.EntityClasses
         #region Properties
 
         /// <summary>
-        /// Gets the ToString varient of the bool IsActive, translated in Dutch.
+        /// Gets the ToString() varient of the bool IsActive, translated in Dutch.
         /// </summary>
         public string IsActiveToString
         {
