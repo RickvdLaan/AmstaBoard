@@ -103,13 +103,13 @@ namespace AmstaJanBonga.Admin.MasterPage {
         protected global::System.Web.UI.WebControls.ListItem _liUser;
         
         /// <summary>
-        /// _liPatient control.
+        /// _liStaff control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListItem _liPatient;
+        protected global::System.Web.UI.WebControls.ListItem _liStaff;
         
         /// <summary>
         /// _liLivingroom control.
@@ -119,6 +119,15 @@ namespace AmstaJanBonga.Admin.MasterPage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListItem _liLivingroom;
+        
+        /// <summary>
+        /// _liPatient control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListItem _liPatient;
         
         /// <summary>
         /// _cphExplanation control.

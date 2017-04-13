@@ -1,5 +1,7 @@
-﻿using Rlaan.Toolkit.Configuration;
+﻿using AmstaJanBonga.Business.Security;
+using Rlaan.Toolkit.Configuration;
 using Rlaan.Toolkit.Extensions;
+using Rlaan.Toolkit.Web;
 using System;
 using System.Globalization;
 using System.Web;
@@ -76,6 +78,44 @@ namespace AmstaJanBonga.Web.MasterPage
         protected void _lbHome_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Livingroom");
+        }
+
+        protected void _lbTime_Click(object sender, EventArgs e)
+        {
+            // A maybe functionality? Triple click on time for sign out?
+            // Could be turned on and off from the CMS?
+            var counter = 1;
+
+            // Checking whether a cookie already exists, if so. Nothing will be done.
+            if (Request.Cookies["SOCT"] == null)
+            {
+                // Creates a cookie which has an expire time of five minutes...
+                var cookie = new HttpCookie("SOCT");
+                cookie.Value = counter.ToString();
+                cookie.Expires = DateTime.Now.AddSeconds(10);
+                Response.Cookies.Add(cookie);
+            }
+            else
+            {
+                counter = int.Parse(Request.Cookies["SOCT"].Value);
+                counter++;
+
+                var cookie = new HttpCookie("SOCT");
+                cookie.Value = counter.ToString();
+                cookie.Expires = DateTime.Now.AddSeconds(10);
+                Response.Cookies.Add(cookie);
+            }
+
+            if (counter >= 3)
+            {
+                var cookie = new HttpCookie("SOCT");
+                cookie.Expires = DateTime.Now.AddSeconds(-1);
+                Response.Cookies.Add(cookie);
+
+                Authentication.Utility.SignOut();
+            }
+            else
+                Url.Refresh();
         }
 
         #endregion

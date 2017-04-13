@@ -34,6 +34,8 @@ namespace AmstaJanBonga.Admin.MasterPage
                 _liUser.Attributes.Add("class", "nav-menu-active");
             else if (Url.GetFullUrl.Contains("Patient"))
                 _liPatient.Attributes.Add("class", "nav-menu-active");
+            else if (Url.GetFullUrl.Contains("Staff"))
+                _liStaff.Attributes.Add("class", "nav-menu-active");
             else if (Url.GetFullUrl.Contains("Livingroom"))
                 _liLivingroom.Attributes.Add("class", "nav-menu-active");
             else

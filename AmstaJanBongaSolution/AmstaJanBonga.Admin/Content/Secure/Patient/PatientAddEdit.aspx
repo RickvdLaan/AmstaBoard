@@ -34,13 +34,22 @@
                 </tr>
 
                 <tr>
-                    <td class="label required">
+                    <td class="label">
                         Foto
                     </td>
                     <td>
                         <asp:FileUpload runat="server" ID="_fileUpload" />
                         <asp:RequiredFieldValidator runat="server" ID="_rfvFileUpload" ValidateRequestMode="Enabled" CssClass="error" ErrorMessage="Verplichte velden kunnen niet leeg blijven." Display="Dynamic" ControlToValidate="_fileUpload" ValidationGroup="Validate"></asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator runat="server" ErrorMessage="Alleen plaatjes van het type jpg, gif, en png zijn toegestaan." CssClass="error" ValidateRequestMode="Enabled" ValidationExpression="([a-zA-Z0-9\s_\\.\-:])+(.png|.jpg|.gif)$" ControlToValidate="_fileUpload" ValidationGroup="Validate" Display="Dynamic"></asp:RegularExpressionValidator>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="label">
+
+                    </td>
+                    <td>
+                        <asp:Button runat="server" ID="_btnDeleteExistingPicture" Text="Verwijder bestaande foto" Enabled="false" />
                     </td>
                 </tr>
 

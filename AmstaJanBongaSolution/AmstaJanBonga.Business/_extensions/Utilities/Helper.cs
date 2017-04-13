@@ -70,30 +70,6 @@ public abstract class Helper
         }
 
         /// <summary>
-        /// Validates the file and saves it to the virtual directory.
-        /// </summary>
-        /// <param name="fileUpload"></param>
-        /// <param name="patientId"></param>
-        /// <param name="uploadedFileState"></param>
-        public static void ValidateAndSavePatientImage(FileUpload fileUpload, int patientId, out UploadedFileStateTypeEnum uploadedFileState, out string path)
-        {
-            var filename = ReplaceIllegalChars(fileUpload.FileName);
-
-            if (!IsValidImage(filename))
-            {
-                uploadedFileState = UploadedFileStateTypeEnum.InvalidFormat;
-                path = null;
-            }
-            else
-            {
-                path = SaveFileToVirtualDirectory(fileUpload, WebConfig.GetSetting("Upload.PatientImage", true), patientId);
-
-                PatientManager.UpdatePatientImagePath(patientId, path);
-                uploadedFileState = UploadedFileStateTypeEnum.Succes;
-            }
-        }
-
-        /// <summary>
         /// Saves the uploaded file to the provided virtual directory.
         /// <para>&#160;</para>
         /// Provide a unique id to make sure that the uploaded file doesn't conflict with another file.

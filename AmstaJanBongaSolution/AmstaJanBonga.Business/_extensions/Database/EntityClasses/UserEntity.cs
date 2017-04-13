@@ -7,13 +7,17 @@ namespace AmstaJanBonga.Business.EntityClasses
 {
     public partial class UserEntity : IIdentity
     {
+        #region Properties
+
         /// <summary>
-        /// ToString varient of the bool IsActive, translated to Dutch.
+        /// Gets the ToString varient of the bool IsActive, translated in Dutch.
         /// </summary>
         public string IsActiveToString
         {
             get { return ((IsActive == true) ? "Ja" : "Nee"); }
         }
+
+        #endregion
 
         #region Security
 

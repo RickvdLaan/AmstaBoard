@@ -135,6 +135,7 @@
     <Content Include="Includes\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
     <Content Include="Includes\font-awesome-4.7.0\HELP-US-OUT.txt" />
     <Content Include="Includes\Js\calendar-appointments.js" />
+    <Content Include="Includes\Js\disable-right-click.js" />
     <Content Include="Includes\remodal-1.1.1\dist\remodal-default-theme.css" />
     <Content Include="Includes\remodal-1.1.1\dist\remodal.css" />
     <Content Include="Includes\remodal-1.1.1\dist\remodal.js" />

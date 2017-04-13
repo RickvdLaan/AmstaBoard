@@ -1,6 +1,4 @@
 ﻿using AmstaJanBonga.Business.EntityClasses;
-using AmstaJanBonga.Business.Enums;
-using AmstaJanBonga.Business.Security;
 using Rlaan.Toolkit.Configuration;
 using System;
 using System.IO;
@@ -75,44 +73,28 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// <returns></returns>
         public static PatientEntity UpdatePatient(PatientEntity patient, int livingroomId, string firstName, FileUpload fileUpload, bool isActive)
         {
-            throw new NotImplementedException();
-
-            if (fileUpload.HasFiles)
+            // Deleting the existing file.
+            if (File.Exists(patient.ImagePath) && fileUpload.HasFiles)
             {
-                // Setting variables.
-                var path = string.Empty;
+                File.Delete(patient.ImagePath);
+
+                // Setting variables
                 var virtualDirectory = WebConfig.GetSetting("Upload.PatientImage", false);
                 var filename = Helper.FileManager.ReplaceIllegalChars(fileUpload.FileName);
 
-                // Checks whether the filename or virtual directory is legal, if not: abort action and revert changes.
-                if (!Helper.FileManager.IsValidImage(filename) || string.IsNullOrEmpty(virtualDirectory))
-                {
-                    patient.Delete();
-                    patient = null;
-                }
-                // Filename and the virtual directory are valid, saving the image to the virtual directory.
-                else
-                {
-                    path = Helper.FileManager.SaveFileToVirtualDirectory(fileUpload, virtualDirectory, patient.Id);
-                    patient.ImagePath = path.Substring(path.IndexOf(@"\_uploads\"));
-
-                    if (File.Exists(path))
-                    {
-                        patient.Save();
-                    }
-                    // Image was not saved, abort action and revert changes.
-                    else
-                    {
-                        patient.Delete();
-                        patient = null;
-                    }
-                }
+                // Saving the file to the virtual directory and setting the path on the entity.
+                var path = Helper.FileManager.SaveFileToVirtualDirectory(fileUpload, virtualDirectory, patient.Id);
+                patient.ImagePath = path.Substring(path.IndexOf(@"\_uploads\"));
             }
-        }
 
-        public static void UpdatePatientImagePath(int patientId, string imagePath)
-        {
-            
+            patient.LivingroomId = livingroomId;
+            patient.FirstName = firstName;
+            patient.IsActive = isActive;
+
+            // Saving the patient.
+            patient.Save();
+
+            return patient;
         }
 
         public static void MarkUserAsDeleted()
