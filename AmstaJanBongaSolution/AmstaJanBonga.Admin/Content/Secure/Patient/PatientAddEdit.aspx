@@ -16,7 +16,7 @@
         </h2>
 
         <div class="return right">
-            <asp:HyperLink runat="server" CssClass="return fa fa-reply display-inline" ToolTip="Terug naar gebruikersoverzicht" NavigateUrl="~/Content/Secure/User/UserOverview.aspx"></asp:HyperLink>
+            <asp:HyperLink runat="server" CssClass="return fa fa-reply display-inline" ToolTip="Terug naar gebruikersoverzicht" NavigateUrl="~/Content/Secure/Patient/PatientOverview.aspx"></asp:HyperLink>
         </div>
 
         <div class="clear"></div>
@@ -25,12 +25,32 @@
             <tbody>
                 <tr>
                     <td class="label required">
-
+                        Voornaam
                     </td>
                     <td>
-                        <asp:DropDownList runat="server" ID="_ddlLivingrooms" AppendDataBoundItems="true">
-                            <asp:ListItem Text="Selecteer woonkamer" Value=""></asp:ListItem>
-                        </asp:DropDownList>
+                        <asp:TextBox runat="server" ID="_txtFirstName" CssClass="textbox" placeholder="Voornaam" MaxLength="20"></asp:TextBox>
+                        <asp:RequiredFieldValidator runat="server" ValidateRequestMode="Enabled" CssClass="error" ErrorMessage="Verplichte velden kunnen niet leeg blijven." Display="Dynamic" ControlToValidate="_txtFirstName" ValidationGroup="Validate"></asp:RequiredFieldValidator>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="label required">
+                        Foto
+                    </td>
+                    <td>
+                        <asp:FileUpload runat="server" ID="_fileUpload" />
+                        <asp:RequiredFieldValidator runat="server" ID="_rfvFileUpload" ValidateRequestMode="Enabled" CssClass="error" ErrorMessage="Verplichte velden kunnen niet leeg blijven." Display="Dynamic" ControlToValidate="_fileUpload" ValidationGroup="Validate"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator runat="server" ErrorMessage="Alleen plaatjes van het type jpg, gif, en png zijn toegestaan." CssClass="error" ValidateRequestMode="Enabled" ValidationExpression="([a-zA-Z0-9\s_\\.\-:])+(.png|.jpg|.gif)$" ControlToValidate="_fileUpload" ValidationGroup="Validate" Display="Dynamic"></asp:RegularExpressionValidator>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="label required">
+                        Woonkamer
+                    </td>
+                    <td>
+                        <asp:DropDownList runat="server" ID="_ddlLivingrooms" AppendDataBoundItems="false"></asp:DropDownList>
+                        <asp:RequiredFieldValidator runat="server" ValidateRequestMode="Enabled" CssClass="error" ErrorMessage="Verplichte velden kunnen niet leeg blijven." Display="Dynamic" ControlToValidate="_ddlLivingrooms" ValidationGroup="Validate"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
 

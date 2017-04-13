@@ -13,6 +13,33 @@ namespace AmstaJanBonga.Admin.Content.Secure.Patient {
     public partial class PatientAddEdit {
         
         /// <summary>
+        /// _txtFirstName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox _txtFirstName;
+        
+        /// <summary>
+        /// _fileUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload _fileUpload;
+        
+        /// <summary>
+        /// _rfvFileUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator _rfvFileUpload;
+        
+        /// <summary>
         /// _ddlLivingrooms control.
         /// </summary>
         /// <remarks>

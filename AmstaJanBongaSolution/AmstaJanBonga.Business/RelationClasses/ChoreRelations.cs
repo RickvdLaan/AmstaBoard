@@ -31,7 +31,7 @@ namespace AmstaJanBonga.Business.RelationClasses
 		{
 			List<IEntityRelation> toReturn = new List<IEntityRelation>();
 			toReturn.Add(this.LivingroomEntityUsingLivingroomId);
-			toReturn.Add(this.PatientEntityUsingPatientIdLivingroomId);
+			toReturn.Add(this.PatientEntityUsingPatientId);
 			return toReturn;
 		}
 
@@ -55,15 +55,13 @@ namespace AmstaJanBonga.Business.RelationClasses
 		}
 		/// <summary>Returns a new IEntityRelation object, between ChoreEntity and PatientEntity over the m:1 relation they have, using the relation between the fields:
 		/// Chore.PatientId - Patient.Id
-		/// Chore.LivingroomId - Patient.LivingroomId
 		/// </summary>
-		public virtual IEntityRelation PatientEntityUsingPatientIdLivingroomId
+		public virtual IEntityRelation PatientEntityUsingPatientId
 		{
 			get
 			{
 				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne, "Patient", false);
 				relation.AddEntityFieldPair(PatientFields.Id, ChoreFields.PatientId);
-				relation.AddEntityFieldPair(PatientFields.LivingroomId, ChoreFields.LivingroomId);
 				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("PatientEntity", false);
 				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("ChoreEntity", true);
 				return relation;
@@ -84,7 +82,7 @@ namespace AmstaJanBonga.Business.RelationClasses
 	internal static class StaticChoreRelations
 	{
 		internal static readonly IEntityRelation LivingroomEntityUsingLivingroomIdStatic = new ChoreRelations().LivingroomEntityUsingLivingroomId;
-		internal static readonly IEntityRelation PatientEntityUsingPatientIdLivingroomIdStatic = new ChoreRelations().PatientEntityUsingPatientIdLivingroomId;
+		internal static readonly IEntityRelation PatientEntityUsingPatientIdStatic = new ChoreRelations().PatientEntityUsingPatientId;
 
 		/// <summary>CTor</summary>
 		static StaticChoreRelations()

@@ -122,7 +122,7 @@ namespace AmstaJanBonga.Business.HelperClasses
 			this.AddElementFieldInfo("PatientEntity", "ImagePath", typeof(System.String), false, false, false, false,  (int)PatientFieldIndex.ImagePath, 250, 0, 0);
 			this.AddElementFieldInfo("PatientEntity", "IsActive", typeof(System.Boolean), false, false, false, false,  (int)PatientFieldIndex.IsActive, 0, 0, 0);
 			this.AddElementFieldInfo("PatientEntity", "IsMarkedAsDeleted", typeof(System.Boolean), false, false, false, false,  (int)PatientFieldIndex.IsMarkedAsDeleted, 0, 0, 0);
-			this.AddElementFieldInfo("PatientEntity", "LivingroomId", typeof(System.Int32), true, true, false, false,  (int)PatientFieldIndex.LivingroomId, 0, 0, 10);
+			this.AddElementFieldInfo("PatientEntity", "LivingroomId", typeof(System.Int32), false, true, false, false,  (int)PatientFieldIndex.LivingroomId, 0, 0, 10);
 		}
 		/// <summary>Inits UserEntity's FieldInfo objects</summary>
 		private void InitUserEntityInfos()

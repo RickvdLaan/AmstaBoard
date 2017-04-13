@@ -105,7 +105,6 @@ namespace AmstaJanBonga.Business.DaoClasses
 			if(patientInstance != null)
 			{
 				selectFilter.Add(new FieldCompareValuePredicate(fieldsToReturn[(int)ChoreFieldIndex.PatientId], ComparisonOperator.Equal, ((PatientEntity)patientInstance).Id));
-selectFilter.Add(new FieldCompareValuePredicate(fieldsToReturn[(int)ChoreFieldIndex.LivingroomId], ComparisonOperator.Equal, ((PatientEntity)patientInstance).LivingroomId));
 			}
 			return selectFilter;
 		}

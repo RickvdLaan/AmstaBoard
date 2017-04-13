@@ -112,6 +112,15 @@ namespace AmstaJanBonga.Admin.MasterPage {
         protected global::System.Web.UI.WebControls.ListItem _liPatient;
         
         /// <summary>
+        /// _liLivingroom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListItem _liLivingroom;
+        
+        /// <summary>
         /// _cphExplanation control.
         /// </summary>
         /// <remarks>

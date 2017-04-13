@@ -30,7 +30,7 @@ namespace AmstaJanBonga.Business.RelationClasses
 		public virtual List<IEntityRelation> GetAllRelations()
 		{
 			List<IEntityRelation> toReturn = new List<IEntityRelation>();
-			toReturn.Add(this.ChoreEntityUsingPatientIdLivingroomId);
+			toReturn.Add(this.ChoreEntityUsingPatientId);
 			toReturn.Add(this.LivingroomEntityUsingLivingroomId);
 			return toReturn;
 		}
@@ -39,15 +39,13 @@ namespace AmstaJanBonga.Business.RelationClasses
 
 		/// <summary>Returns a new IEntityRelation object, between PatientEntity and ChoreEntity over the 1:n relation they have, using the relation between the fields:
 		/// Patient.Id - Chore.PatientId
-		/// Patient.LivingroomId - Chore.LivingroomId
 		/// </summary>
-		public virtual IEntityRelation ChoreEntityUsingPatientIdLivingroomId
+		public virtual IEntityRelation ChoreEntityUsingPatientId
 		{
 			get
 			{
 				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany, "Chores" , true);
 				relation.AddEntityFieldPair(PatientFields.Id, ChoreFields.PatientId);
-				relation.AddEntityFieldPair(PatientFields.LivingroomId, ChoreFields.LivingroomId);
 				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("PatientEntity", true);
 				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("ChoreEntity", false);
 				return relation;
@@ -83,7 +81,7 @@ namespace AmstaJanBonga.Business.RelationClasses
 	/// <summary>Static class which is used for providing relationship instances which are re-used internally for syncing</summary>
 	internal static class StaticPatientRelations
 	{
-		internal static readonly IEntityRelation ChoreEntityUsingPatientIdLivingroomIdStatic = new PatientRelations().ChoreEntityUsingPatientIdLivingroomId;
+		internal static readonly IEntityRelation ChoreEntityUsingPatientIdStatic = new PatientRelations().ChoreEntityUsingPatientId;
 		internal static readonly IEntityRelation LivingroomEntityUsingLivingroomIdStatic = new PatientRelations().LivingroomEntityUsingLivingroomId;
 
 		/// <summary>CTor</summary>

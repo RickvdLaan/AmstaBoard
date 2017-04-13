@@ -44,22 +44,12 @@ namespace AmstaJanBonga.Admin.Content.Secure.User
         {
             if (!this.IsPostBack)
             {
+                this.PreFillRoles();
                 this.PreFillForm();
             }
         }
 
-        #region Overrides
-
-        protected override void OnPreRenderComplete(EventArgs e)
-        {
-            this.PreFillRoles();
-
-            base.OnPreRenderComplete(e);
-        }
-
-        #endregion
-
-        #region Render
+        #region PreFill
 
         private void PreFillForm()
         {

@@ -4,7 +4,7 @@ namespace AmstaJanBonga.Business.Enums
 {
     public enum ColourTypeEnum : byte
     {
-        [Description("Grijs")]
+        [Description("Grijs (Standaard)")]
         Default = 0,
         [Description("Rood")]
         Red = 1,

@@ -24,15 +24,17 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -43,33 +45,26 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.7\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AI.DependencyCollector, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.1.2.3\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.3.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.1.2.3\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.3.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.1.2.3\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.3.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AI.Web, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.1.2.3\lib\net45\Microsoft.AI.Web.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.AI.Web, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.3.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AI.WindowsServer, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.1.2.3\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.3.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ApplicationInsights, Version=1.2.3.490, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.1.2.3\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.3.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -104,25 +99,36 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\_External\LLBLGen\SD.LLBLGen.Pro.ORMSupportClasses.dll</HintPath>
     </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Secure\Dashboard.aspx" />
+    <Content Include="Content\Secure\Livingroom\Chores\ChoresAddEdit.aspx" />
+    <Content Include="Content\Secure\Livingroom\Chores\ChoresDetails.aspx" />
+    <Content Include="Content\Secure\Livingroom\Chores\ChoresOverview.aspx" />
+    <Content Include="Content\Secure\Livingroom\General\GeneralAddEdit.aspx" />
+    <Content Include="Content\Secure\Livingroom\General\GeneralDetails.aspx" />
+    <Content Include="Content\Secure\Livingroom\General\GeneralOverview.aspx" />
+    <Content Include="Content\Secure\Livingroom\LivingroomAddEdit.aspx" />
+    <Content Include="Content\Secure\Livingroom\LivingroomDetails.aspx" />
+    <Content Include="Content\Secure\Livingroom\LivingroomOverview.aspx" />
+    <Content Include="Content\Secure\Livingroom\Shifts\ShiftsAddEdit.aspx" />
+    <Content Include="Content\Secure\Livingroom\Shifts\ShiftsDetails.aspx" />
+    <Content Include="Content\Secure\Livingroom\Shifts\ShiftsOverview.aspx" />
     <Content Include="Content\Secure\Patient\PatientAddEdit.aspx" />
     <Content Include="Content\Secure\Patient\PatientDetails.aspx" />
     <Content Include="Content\Secure\Patient\PatientOverview.aspx" />
@@ -134,7 +140,9 @@
     <Content Include="Includes\Css\Addons.css" />
     <Content Include="Includes\Css\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="Includes\Css\font-awesome-4.7.0\css\font-awesome.min.css" />
-    <Content Include="Includes\Css\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Includes\Css\font-awesome-4.7.0\fonts\fontawesome-webfont.svg">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Includes\Css\font-awesome-4.7.0\HELP-US-OUT.txt" />
     <Content Include="Includes\Css\Images\logo.svg" />
     <Content Include="Includes\Js\mobile-navigation.js" />
@@ -181,6 +189,7 @@
     <Content Include="Includes\Css\font-awesome-4.7.0\scss\_stacked.scss" />
     <Content Include="Includes\Css\font-awesome-4.7.0\scss\_variables.scss" />
     <Content Include="Includes\Js\remodal-1.1.1\LICENSE" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -216,6 +225,90 @@
     </Compile>
     <Compile Include="Content\Secure\Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Content\Secure\Livingroom\Chores\ChoresAddEdit.aspx.cs">
+      <DependentUpon>ChoresAddEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\Secure\Livingroom\Chores\ChoresAddEdit.aspx.designer.cs">
+      <DependentUpon>ChoresAddEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Content\Secure\Livingroom\Chores\ChoresDetails.aspx.cs">
+      <DependentUpon>ChoresDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\Secure\Livingroom\Chores\ChoresDetails.aspx.designer.cs">
+      <DependentUpon>ChoresDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Content\Secure\Livingroom\Chores\ChoresOverview.aspx.cs">
+      <DependentUpon>ChoresOverview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\Secure\Livingroom\Chores\ChoresOverview.aspx.designer.cs">
+      <DependentUpon>ChoresOverview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Content\Secure\Livingroom\General\GeneralAddEdit.aspx.cs">
+      <DependentUpon>GeneralAddEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\Secure\Livingroom\General\GeneralAddEdit.aspx.designer.cs">
+      <DependentUpon>GeneralAddEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Content\Secure\Livingroom\General\GeneralDetails.aspx.cs">
+      <DependentUpon>GeneralDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\Secure\Livingroom\General\GeneralDetails.aspx.designer.cs">
+      <DependentUpon>GeneralDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Content\Secure\Livingroom\General\GeneralOverview.aspx.cs">
+      <DependentUpon>GeneralOverview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\Secure\Livingroom\General\GeneralOverview.aspx.designer.cs">
+      <DependentUpon>GeneralOverview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Content\Secure\Livingroom\LivingroomAddEdit.aspx.cs">
+      <DependentUpon>LivingroomAddEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\Secure\Livingroom\LivingroomAddEdit.aspx.designer.cs">
+      <DependentUpon>LivingroomAddEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Content\Secure\Livingroom\LivingroomDetails.aspx.cs">
+      <DependentUpon>LivingroomDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\Secure\Livingroom\LivingroomDetails.aspx.designer.cs">
+      <DependentUpon>LivingroomDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Content\Secure\Livingroom\LivingroomOverview.aspx.cs">
+      <DependentUpon>LivingroomOverview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\Secure\Livingroom\LivingroomOverview.aspx.designer.cs">
+      <DependentUpon>LivingroomOverview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Content\Secure\Livingroom\Shifts\ShiftsAddEdit.aspx.cs">
+      <DependentUpon>ShiftsAddEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\Secure\Livingroom\Shifts\ShiftsAddEdit.aspx.designer.cs">
+      <DependentUpon>ShiftsAddEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Content\Secure\Livingroom\Shifts\ShiftsDetails.aspx.cs">
+      <DependentUpon>ShiftsDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\Secure\Livingroom\Shifts\ShiftsDetails.aspx.designer.cs">
+      <DependentUpon>ShiftsDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Content\Secure\Livingroom\Shifts\ShiftsOverview.aspx.cs">
+      <DependentUpon>ShiftsOverview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\Secure\Livingroom\Shifts\ShiftsOverview.aspx.designer.cs">
+      <DependentUpon>ShiftsOverview.aspx</DependentUpon>
     </Compile>
     <Compile Include="Content\Secure\Patient\PatientAddEdit.aspx.cs">
       <DependentUpon>PatientAddEdit.aspx</DependentUpon>

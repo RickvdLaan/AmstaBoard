@@ -31,16 +31,16 @@
             <tbody>
                 <tr>
                     <td class="label">
-                        Gebruikersnaam:
+                        Gebruikersnaam
                     </td>
-                    <td class="label">
+                    <td>
                         <asp:Label runat="server" ID="_lblUsername"></asp:Label>
                     </td>
                 </tr>
 
                 <tr>
                     <td class="label">
-                        Actief:
+                        Actief
                     </td>
                     <td>
                         <asp:Label runat="server" ID="_lblActive"></asp:Label>
@@ -49,7 +49,7 @@
 
                 <tr>
                     <td class="label">
-                        Account type:
+                        Account type
                     </td>
                     <td>
                         <asp:Label runat="server" ID="_lblRoleType"></asp:Label>

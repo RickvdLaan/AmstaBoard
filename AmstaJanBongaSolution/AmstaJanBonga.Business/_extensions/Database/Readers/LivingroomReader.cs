@@ -34,7 +34,7 @@ namespace AmstaJanBonga.Business.Database.Readers
         {
             var livingroom = GetLivingroomById(livingroomId, name, colourType);
 
-            if (livingroom == null && throwExceptionWhenNotFound)
+            if (livingroom.IsNew && throwExceptionWhenNotFound)
                 throw new Exception("Livingroom not found for id {0}.".FormatString(livingroomId));
 
             return livingroom;

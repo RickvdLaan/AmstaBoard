@@ -73,6 +73,7 @@
                         <asp:ListItem runat="server" id="_liDashboard" Value="~/Dashboard">Dashboard</asp:ListItem>
                         <asp:ListItem runat="server" id="_liUser" Value="~/Content/Secure/User/UserOverview.aspx">Gebruikers</asp:ListItem>
                         <asp:ListItem runat="server" id="_liPatient" Value="~/Content/Secure/Patient/PatientOverview.aspx">Bewoners</asp:ListItem>
+                        <asp:ListItem runat="server" id="_liLivingroom" Value="~/Content/Secure/Livingroom/LivingroomOverview.aspx">Woonkamers</asp:ListItem>
                     </asp:BulletedList>
                 </div>
             </div>

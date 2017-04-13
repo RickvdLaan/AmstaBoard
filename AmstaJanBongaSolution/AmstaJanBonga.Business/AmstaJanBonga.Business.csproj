@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -12,6 +12,7 @@
     <AssemblyName>AmstaJanBonga.Business</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Rlaan.Toolkit.Configuration, Version=0.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\_External\Toolkit\Rlaan.Toolkit.Configuration.dll</HintPath>
+    </Reference>
     <Reference Include="Rlaan.Toolkit.Extensions">
       <HintPath>..\..\_External\Toolkit\Rlaan.Toolkit.Extensions.dll</HintPath>
     </Reference>
@@ -56,12 +61,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="_Extensions\Database\EntityClasses\UserEntity.cs" />
+    <Compile Include="_Extensions\Database\Managers\PatientManager.cs" />
     <Compile Include="_Extensions\Database\Managers\UserManager.cs" />
     <Compile Include="_Extensions\Database\Readers\LivingroomReader.cs" />
     <Compile Include="_Extensions\Database\Readers\PatientReader.cs" />
     <Compile Include="_Extensions\Database\Readers\UserReader.cs" />
     <Compile Include="_Extensions\Enums\ColourTypeEnum.cs" />
     <Compile Include="_Extensions\Enums\RoleTypeEnum.cs" />
+    <Compile Include="_Extensions\Enums\UploadedFileStateTypeEnum.cs" />
     <Compile Include="_Extensions\Exceptions\UnknownRoleTypeException.cs" />
     <Compile Include="_Extensions\Security\Authentication.cs" />
     <Compile Include="_Extensions\Security\CustomPrincipal.cs" />

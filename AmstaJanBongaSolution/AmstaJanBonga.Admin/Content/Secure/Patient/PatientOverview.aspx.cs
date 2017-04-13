@@ -2,6 +2,7 @@
 using AmstaJanBonga.Business.Database.Readers;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -13,8 +14,8 @@ namespace AmstaJanBonga.Admin.Content.Secure.Patient
     {
         #region Properties
 
-        private PatientCollection _patients = null;
-        public PatientCollection Patients
+        private DataTable _patients = null;
+        public DataTable Patients
         {
             get { return this._patients; }
             set { this._patients = value; }
@@ -31,7 +32,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Patient
 
         protected void _gvPatients_PreRender(object sender, EventArgs e)
         {
-            this.Patients = PatientReader.GetAllPatients();
+            this.Patients = PatientReader.GetAllPatientsJoinedWithLivingroom();
 
             this._gvPatients.DataSource = this.Patients;
             this._gvPatients.DataBind();

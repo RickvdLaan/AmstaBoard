@@ -42,7 +42,7 @@
                         </HeaderTemplate>
 
                         <ItemTemplate>
-
+                            <%# Eval("Name") %>
                         </ItemTemplate>
                     </asp:TemplateField>
 

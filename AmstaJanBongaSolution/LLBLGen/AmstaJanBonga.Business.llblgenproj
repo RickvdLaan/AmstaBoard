@@ -185,7 +185,7 @@
           <Field Name="ImagePath" Type="string" MaxLength="250" />
           <Field Name="IsActive" Type="bool" />
           <Field Name="IsMarkedAsDeleted" Type="bool" />
-          <Field Name="LivingroomId" Type="int" Precision="10" IsPrimaryKey="true" />
+          <Field Name="LivingroomId" Type="int" Precision="10" />
         </Fields>
       </EntityDefinition>
       <EntityDefinition Name="User" GroupName="Vanderlaan" ObjectID="8221d702-17cd-4646-b143-e86c83a082bb">
@@ -224,7 +224,6 @@
       <NormalRelationship Name="Vanderlaan.Chore.Patient-Vanderlaan.Patient.Chores" Start="Vanderlaan:Chore" End="Vanderlaan:Patient" StartNavigator="Patient" EndNavigator="Chores" Type="4">
         <FieldRelationships>
           <FieldFieldRelationship FkField="PatientId" PkField="Id" />
-          <FieldFieldRelationship FkField="LivingroomId" PkField="LivingroomId" />
         </FieldRelationships>
       </NormalRelationship>
       <NormalRelationship Name="Vanderlaan.Employee.User-Vanderlaan.User.Employees" Start="Vanderlaan:Employee" End="Vanderlaan:User" StartNavigator="User" EndNavigator="Employees" Type="4" EndIsOptional="true">
@@ -268,9 +267,9 @@
         <Sequence Name="@@IDENTITY" />
       </SystemSequences>
       <Catalogs>
-        <Catalog Name="Vanderlaan_jouwsoftware_janbonga_development" SyncSource="2">
+        <Catalog Name="Vanderlaan_jouwsoftware_janbonga_development">
           <Schemas>
-            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-04-04T09:39:09.7120222Z">
+            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-04-11T14:19:16.2794979Z">
               <StoredProcedures>
                 <StoredProcedure Name="sp_alterdiagram">
                   <Parameters>
@@ -338,7 +337,7 @@
                 </StoredProcedure>
               </StoredProcedures>
             </Schema>
-            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-04-04T09:39:09.832029Z">
+            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-04-11T14:19:16.4225061Z">
               <Tables>
                 <Table Name="Chores">
                   <PkConstraintName Name="PK_Chores_1" />
@@ -389,10 +388,10 @@
                   </Fields>
                 </Table>
                 <Table Name="Patient">
-                  <PkConstraintName Name="PK_Patient" />
+                  <PkConstraintName Name="PK_Patient_1" />
                   <Fields>
                     <Field Name="Id" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
-                    <Field Name="LivingroomId" Ordinal="2" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="LivingroomId" Ordinal="2" DbType="8" Precision="10" />
                     <Field Name="FirstName" Ordinal="3" DbType="24" Length="50" />
                     <Field Name="ImagePath" Ordinal="4" DbType="24" Length="250" />
                     <Field Name="IsActive" Ordinal="5" HasDefaultValue="true" DefaultValue="(1)" DbType="2" />
@@ -440,10 +439,9 @@
                 <FieldPair PkField="Vanderlaan:Livingroom:Id" FkField="Vanderlaan:Chores:LivingroomId" />
               </FieldPairs>
             </ForeignKeyConstraint>
-            <ForeignKeyConstraint Name="Vanderlaan:Chores:FK_Chores_Patient">
+            <ForeignKeyConstraint Name="Vanderlaan:Chores:FK_Chores_Patient1">
               <FieldPairs>
                 <FieldPair PkField="Vanderlaan:Patient:Id" FkField="Vanderlaan:Chores:PatientId" />
-                <FieldPair PkField="Vanderlaan:Patient:LivingroomId" FkField="Vanderlaan:Chores:LivingroomId" />
               </FieldPairs>
             </ForeignKeyConstraint>
             <ForeignKeyConstraint Name="Vanderlaan:Employee:FK_Employee_User">

@@ -34,7 +34,7 @@ namespace AmstaJanBonga.Business.Database.Readers
         {
             var user = GetUserById(userId);
 
-            if (user == null && throwExceptionWhenNotFound)
+            if (user.IsNew && throwExceptionWhenNotFound)
                 throw new Exception("User not found for id {0}.".FormatString(userId));
 
             return user;
@@ -50,7 +50,7 @@ namespace AmstaJanBonga.Business.Database.Readers
         {
             var user = new UserEntity();
             user.FetchUsingUCUsername(username);
-
+            
             if (!user.IsNew)
                 if (user.IsValidPassword(password))
                     return user;
