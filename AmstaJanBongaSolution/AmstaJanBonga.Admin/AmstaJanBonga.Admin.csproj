@@ -116,6 +116,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Controls\JsListBox\JsListBox.ascx" />
     <Content Include="Content\Secure\Dashboard.aspx" />
     <Content Include="Content\Secure\Livingroom\Chores\ChoresAddEdit.aspx" />
     <Content Include="Content\Secure\Livingroom\Chores\ChoresDetails.aspx" />
@@ -219,8 +220,16 @@
     <Compile Include="Code\Utilities\DefaultPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Code\Utilities\Extensions.cs" />
     <Compile Include="Code\Utilities\SecurePage.cs">
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\Controls\JsListBox\JsListBox.ascx.cs">
+      <DependentUpon>JsListBox.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\Controls\JsListBox\JsListBox.ascx.designer.cs">
+      <DependentUpon>JsListBox.ascx</DependentUpon>
     </Compile>
     <Compile Include="Content\Secure\Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>

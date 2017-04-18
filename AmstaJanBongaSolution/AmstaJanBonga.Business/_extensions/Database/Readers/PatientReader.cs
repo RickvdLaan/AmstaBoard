@@ -55,6 +55,26 @@ namespace AmstaJanBonga.Business.Database.Readers
             return patients;
         }
 
+        public static PatientCollection GetAllPatientsByLivingroomId(int livingroomId)
+        {
+            // Collection
+            var patients = new PatientCollection();
+
+            // Predicate
+            var predicate = new PredicateExpression();
+            predicate.Add(PatientFields.LivingroomId == livingroomId);
+
+            // Sorting
+            var sorter = new SortExpression();
+            sorter.Add(PatientFields.FirstName | SortOperator.Ascending);
+
+            // Get
+            patients.GetMulti(predicate, 0, sorter);
+
+            // Return
+            return patients;
+        }
+
         /// <summary>
         /// Returns a collection of all the patients joined with the livingroom relation.
         /// </summary>

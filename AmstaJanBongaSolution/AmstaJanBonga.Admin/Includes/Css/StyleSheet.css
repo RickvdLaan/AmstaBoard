@@ -382,6 +382,100 @@ td.label::after {
 
 
 
+ /* Jouw Software ASP ListBox */
+.js-listbox-container {
+    background-color: #f7f7f7;
+    border: 1px solid #e5e2df;
+    margin: 30px auto;
+    padding: 30px;
+    min-height: 100px;
+}
+
+.js-listbox-wrapper {
+    display: inline-block;
+}
+
+.js-listbox-button-area {
+    float: right;
+    width: 20%;
+}
+
+.js-listbox-button-area ul {
+    text-align: center;
+    list-style: none;
+}
+
+.js-listbox {
+    cursor: default;
+    display: inline-block;
+    min-width: 11.6667em;
+    position: relative;
+    text-align: left;
+    vertical-align: top;
+    white-space: nowrap;
+    color: #202228;
+}
+
+.js-listbox  {
+    height: 100%;
+}
+
+.js-listbox-source,
+.js-listbox-destination {
+    display: inline-block;
+    height: 150px;
+    width: 200px;
+}
+
+.js-listbox-source select {
+    width: 80%;
+}
+
+    .js-listbox-source select > option,
+    .js-listbox-destination select > option {
+        padding: 5px;
+    }
+
+    .js-listbox-source select > option:hover,
+    .js-listbox-destination select > option:hover {
+        background-color: #f08a00;
+        color: #ffffff;
+    }
+
+    .js-listbox-source select[multiple] option:checked,
+    .js-listbox-destination select[multiple] option:checked {
+        background: #795094 linear-gradient(#795094, #795094 0%, #795094 100%);
+        color: #ffffff;
+    }
+
+        .js-listbox-source select[multiple] option:checked:after,
+        .js-listbox-destination select[multiple] option:checked:after {
+            color: #ffffff;
+        }
+
+.js-listbox-destination select {
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

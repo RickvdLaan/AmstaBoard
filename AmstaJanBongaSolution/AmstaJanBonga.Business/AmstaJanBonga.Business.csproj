@@ -72,6 +72,7 @@
     <Compile Include="_Extensions\Database\Readers\UserReader.cs" />
     <Compile Include="_Extensions\Enums\ColourTypeEnum.cs" />
     <Compile Include="_Extensions\Enums\RoleTypeEnum.cs" />
+    <Compile Include="_Extensions\Enums\TimeOfDayTypeEnum.cs" />
     <Compile Include="_Extensions\Enums\UploadedFileStateTypeEnum.cs" />
     <Compile Include="_Extensions\Exceptions\UnknownRoleTypeException.cs" />
     <Compile Include="_Extensions\Security\Authentication.cs" />

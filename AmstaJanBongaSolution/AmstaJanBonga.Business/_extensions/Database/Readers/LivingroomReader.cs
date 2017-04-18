@@ -17,7 +17,7 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <param name="name">The name of the livingroom.</param>
         /// <param name="colourType">The colour of the livingroom, default is grey.</param>
         /// <returns></returns>
-        public static LivingroomEntity GetLivingroomById(int livingroomId, string name, ColourTypeEnum colourType = ColourTypeEnum.Default)
+        public static LivingroomEntity GetLivingroomById(int livingroomId)
         {
             return new LivingroomEntity(livingroomId);
         }
@@ -30,9 +30,9 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <param name="colourType">The colour of the livingroom, default is grey.</param>
         /// <param name="throwExceptionWhenNotFound"></param>
         /// <returns></returns>
-        public static LivingroomEntity GetLivingroomById(int livingroomId, string name, ColourTypeEnum colourType, bool throwExceptionWhenNotFound)
+        public static LivingroomEntity GetLivingroomById(int livingroomId, bool throwExceptionWhenNotFound)
         {
-            var livingroom = GetLivingroomById(livingroomId, name, colourType);
+            var livingroom = GetLivingroomById(livingroomId);
 
             if (livingroom.IsNew && throwExceptionWhenNotFound)
                 throw new Exception("Livingroom not found by id {0}.".FormatString(livingroomId));

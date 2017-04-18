@@ -1,0 +1,88 @@
+﻿using System;
+using System.Linq;
+using System.Web.UI.WebControls;
+
+namespace AmstaJanBonga.Admin.Content.Controls.JsListBox
+{
+    public partial class JsListBox : System.Web.UI.UserControl
+    {
+        #region Variables & Objects
+
+        private string _dataTextField, _dataValueField;
+
+        private object _dataSource = null;
+
+        #endregion
+
+        #region Properties
+
+        public object DataSource
+        {
+            get { return this._dataSource; }
+            set { this._dataSource = value; }
+        }
+
+        public string DataTextField
+        {
+            get { return this._dataTextField; }
+            set { this._dataTextField = value; }
+        }
+
+        public string DataValueField
+        {
+            get { return this._dataValueField; }
+            set { this._dataValueField = value; }
+        }
+
+        #endregion
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        #region Overrides
+
+        public override void DataBind()
+        {
+            this._lbSource.DataSource = this.DataSource;
+            this._lbSource.DataTextField = this.DataTextField;
+            this._lbSource.DataValueField = this.DataValueField;
+            this._lbSource.DataBind();
+
+            base.DataBind();
+        }
+
+        #endregion
+
+        #region Methods
+
+        private void MoveListBoxItems(ListBox source, ListBox destination)
+        {
+            foreach (var item in source.Items.GetSelectedItems().ToList())
+            {
+                destination.Items.Add(item);
+                source.Items.Remove(item);
+            }
+
+            source.ClearSelection();
+            destination.ClearSelection();
+        }
+
+        #endregion
+
+        #region Events
+
+        protected void _lbTransferToDestination_Click(object sender, EventArgs e)
+        {
+            MoveListBoxItems(this._lbSource, this._lbDestination);
+        }
+
+        protected void _lbTransferToSource_Click(object sender, EventArgs e)
+        {
+            MoveListBoxItems(this._lbDestination, this._lbSource);
+        }
+
+        #endregion
+    }
+}

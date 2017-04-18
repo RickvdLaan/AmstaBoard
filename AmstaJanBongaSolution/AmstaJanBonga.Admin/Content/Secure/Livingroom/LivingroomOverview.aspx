@@ -25,15 +25,15 @@
             <asp:GridView runat="server" ID="_gvLivingrooms" OnPreRender="_gvLivingrooms_PreRender" ShowHeaderWhenEmpty="true" AlternatingRowStyle-CssClass="alt" AllowPaging="false" AllowSorting="false" AutoGenerateColumns="false">
                 <Columns>          
                     <asp:TemplateField>
-                    <HeaderTemplate>
-                        Woonkamer
-                    </HeaderTemplate>
+                        <HeaderTemplate>
+                            Woonkamer
+                        </HeaderTemplate>
 
-                    <ItemTemplate>
-                        <asp:HyperLink runat="server" NavigateUrl='<%# Eval("Id","~/Content/Secure/Livingroom/LivingroomDetails.aspx?LivingroomId={0}") %>'>
-                            <%# Eval("Name").ToString().CapitalizeFirstLetter() %>
-                        </asp:HyperLink>
-                    </ItemTemplate>
+                        <ItemTemplate>
+                            <asp:HyperLink runat="server" NavigateUrl='<%# Eval("Id","~/Content/Secure/Livingroom/LivingroomDetails.aspx?LivingroomId={0}") %>'>
+                                <%# Eval("Name").ToString().CapitalizeFirstLetter() %>
+                            </asp:HyperLink>
+                        </ItemTemplate>
                     </asp:TemplateField>
 
                     <asp:TemplateField>
@@ -53,7 +53,7 @@
 
                         <ItemTemplate>
                             <asp:HyperLink runat="server" ToolTip="" CssClass="fa fa-clock-o" aria-hidden="true" NavigateUrl="~/Content/Secure/Livingroom/Shifts/ShiftsOverview.aspx"></asp:HyperLink>
-                            <asp:HyperLink runat="server" ToolTip="" CssClass="fa fa-trash-o" aria-hidden="true" NavigateUrl="~/Content/Secure/Livingroom/Chores/ChoresOverview.aspx"></asp:HyperLink>
+                            <asp:HyperLink runat="server" ToolTip="" CssClass="fa fa-trash-o" aria-hidden="true" NavigateUrl='<%# Eval("Id","~/Content/Secure/Livingroom/Chores/ChoresOverview.aspx?LivingroomId={0}") %>'></asp:HyperLink>
                             <asp:HyperLink runat="server" ToolTip="" CssClass="fa fa-coffee" aria-hidden="true" NavigateUrl="~/Content/Secure/Livingroom/General/GeneralOverview.aspx"></asp:HyperLink>
                             <asp:HyperLink runat="server" ToolTip="Bekijken" CssClass="details fa fa-search" NavigateUrl='<%# Eval("Id","~/Content/Secure/Livingroom/LivingroomDetails.aspx?LivingroomId={0}") %>'></asp:HyperLink>
                             <asp:HyperLink runat="server" ToolTip="Wijzigen" CssClass="edit fa fa-pencil" NavigateUrl='<%# Eval("Id","~/Content/Secure/Livingroom/LivingroomAddEdit.aspx?LivingroomId={0}") %>'></asp:HyperLink>
