@@ -97,7 +97,7 @@ namespace AmstaJanBonga.Business.Database.Readers
             var dt = new DataTable();
             var dao = new TypedListDAO();
             dao.GetMultiAsDataTable(fields, dt, 0, null, null, relations, false, null, null, 0, 0);
-
+            
             // Returns the dataset.
             return dt;
         }

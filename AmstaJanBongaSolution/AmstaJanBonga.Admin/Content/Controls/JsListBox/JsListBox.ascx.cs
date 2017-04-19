@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Linq;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace AmstaJanBonga.Admin.Content.Controls.JsListBox
 {
+    [ValidationProperty("DestinationCount")]
     public partial class JsListBox : System.Web.UI.UserControl
     {
         #region Variables & Objects
@@ -32,6 +34,25 @@ namespace AmstaJanBonga.Admin.Content.Controls.JsListBox
         {
             get { return this._dataValueField; }
             set { this._dataValueField = value; }
+        }
+
+        public ListBox ListBoxDestination
+        {
+            get { return this._lbDestination; }
+        }
+
+        /// <summary>
+        /// Gets the destination count, which is used for the RequiredFieldValidator.
+        /// </summary>
+        public string DestinationCount
+        {
+            get
+            {
+                if (this._lbDestination.Items.Count != 2)
+                    return string.Empty;
+                else
+                    return this._lbDestination.Items.Count.ToString();
+            }
         }
 
         #endregion

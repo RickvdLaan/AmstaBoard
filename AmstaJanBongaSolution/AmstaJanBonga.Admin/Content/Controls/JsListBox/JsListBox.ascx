@@ -19,9 +19,6 @@
                             </li>
                         </ul>
                     </div>
-
-
-
                 </div>
 
                 <div class="js-listbox-destination">

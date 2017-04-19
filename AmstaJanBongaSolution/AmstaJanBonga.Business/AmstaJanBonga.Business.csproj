@@ -64,8 +64,10 @@
     <Compile Include="_Extensions\Database\EntityClasses\LivingroomEntity.cs" />
     <Compile Include="_Extensions\Database\EntityClasses\PatientEntity.cs" />
     <Compile Include="_Extensions\Database\EntityClasses\UserEntity.cs" />
+    <Compile Include="_Extensions\Database\Managers\ChoreManager.cs" />
     <Compile Include="_Extensions\Database\Managers\PatientManager.cs" />
     <Compile Include="_Extensions\Database\Managers\UserManager.cs" />
+    <Compile Include="_Extensions\Database\Readers\ChoreReader.cs" />
     <Compile Include="_Extensions\Database\Readers\EmployeeReader.cs" />
     <Compile Include="_Extensions\Database\Readers\LivingroomReader.cs" />
     <Compile Include="_Extensions\Database\Readers\PatientReader.cs" />

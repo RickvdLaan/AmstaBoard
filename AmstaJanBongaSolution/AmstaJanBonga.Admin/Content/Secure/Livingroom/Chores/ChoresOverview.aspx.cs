@@ -1,7 +1,9 @@
-﻿using Rlaan.Toolkit.Extensions;
+﻿using AmstaJanBonga.Business.Database.Readers;
+using Rlaan.Toolkit.Extensions;
 using Rlaan.Toolkit.Web;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -14,6 +16,8 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
         #region Variables & Objects
 
         private int _livingroomId = -1;
+
+        private DataTable _chores = null;
 
         #endregion
 
@@ -37,6 +41,12 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
             }
         }
 
+        public DataTable Chores
+        {
+            get { return this._chores; }
+            set { this._chores = value; }
+        }
+
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
@@ -47,9 +57,32 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
             }
         }
 
+        #region PreRender
+
         protected void _gvChores_PreRender(object sender, EventArgs e)
         {
+            if (this.HasLivingroomId)
+            {
+                this.Chores = ChoreReader.GetAllChoresDistinctByLivingroomId(this.LivingroomId);
 
+                this._gvChores.DataSource = this.Chores;
+                this._gvChores.DataBind();
+
+                if (this._gvChores.Rows.Count > 0)
+                {
+                    //This replaces <td> with <th> and adds the scope attribute
+                    this._gvChores.UseAccessibleHeader = true;
+
+                    //This will add the <thead> and <tbody> elements
+                    this._gvChores.HeaderRow.TableSection = TableRowSection.TableHeader;
+
+                    //This adds the <tfoot> element. 
+                    //Remove if you don't have a footer row
+                    this._gvChores.FooterRow.TableSection = TableRowSection.TableFooter;
+                }
+            }
         }
+
+        #endregion
     }
 }

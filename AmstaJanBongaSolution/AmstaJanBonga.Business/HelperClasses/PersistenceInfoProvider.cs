@@ -59,7 +59,7 @@ namespace AmstaJanBonga.Business.HelperClasses
 		/// <summary>Inits ChoreEntity's mappings</summary>
 		private void InitChoreEntityMappings()
 		{
-			this.AddElementMapping("ChoreEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "Chores", 7, 0);
+			this.AddElementMapping("ChoreEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "Chore", 7, 0);
 			this.AddElementFieldMapping("ChoreEntity", "Date", "Date", false, "Date", 0, 0, 0, false, "", null, typeof(System.DateTime), 0);
 			this.AddElementFieldMapping("ChoreEntity", "DateCreated", "DateCreated", false, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 1);
 			this.AddElementFieldMapping("ChoreEntity", "DateLastModified", "DateLastModified", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 2);

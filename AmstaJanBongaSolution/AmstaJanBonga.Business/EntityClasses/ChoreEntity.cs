@@ -703,7 +703,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		}
 
 		/// <summary> The Date property of the Entity Chore<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "Chores"."Date"<br/>
+		/// <remarks>Mapped on  table field: "Chore"."Date"<br/>
 		/// Table field type characteristics (type, precision, scale, length): Date, 0, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, false</remarks>
 		public virtual System.DateTime Date
@@ -713,7 +713,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		}
 
 		/// <summary> The DateCreated property of the Entity Chore<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "Chores"."DateCreated"<br/>
+		/// <remarks>Mapped on  table field: "Chore"."DateCreated"<br/>
 		/// Table field type characteristics (type, precision, scale, length): DateTime, 0, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
 		public virtual System.DateTime DateCreated
@@ -723,7 +723,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		}
 
 		/// <summary> The DateLastModified property of the Entity Chore<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "Chores"."DateLastModified"<br/>
+		/// <remarks>Mapped on  table field: "Chore"."DateLastModified"<br/>
 		/// Table field type characteristics (type, precision, scale, length): DateTime, 0, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
 		public virtual Nullable<System.DateTime> DateLastModified
@@ -733,7 +733,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		}
 
 		/// <summary> The DateLastModifiedByUserId property of the Entity Chore<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "Chores"."DateLastModifiedByUserId"<br/>
+		/// <remarks>Mapped on  table field: "Chore"."DateLastModifiedByUserId"<br/>
 		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
 		public virtual Nullable<System.Int32> DateLastModifiedByUserId
@@ -743,7 +743,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		}
 
 		/// <summary> The LivingroomId property of the Entity Chore<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "Chores"."LivingroomId"<br/>
+		/// <remarks>Mapped on  table field: "Chore"."LivingroomId"<br/>
 		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, false</remarks>
 		public virtual System.Int32 LivingroomId
@@ -753,7 +753,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		}
 
 		/// <summary> The PatientId property of the Entity Chore<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "Chores"."PatientId"<br/>
+		/// <remarks>Mapped on  table field: "Chore"."PatientId"<br/>
 		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, false</remarks>
 		public virtual System.Int32 PatientId
@@ -763,7 +763,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		}
 
 		/// <summary> The TimeOfDayTypeEnum property of the Entity Chore<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "Chores"."TimeOfDayTypeEnum"<br/>
+		/// <remarks>Mapped on  table field: "Chore"."TimeOfDayTypeEnum"<br/>
 		/// Table field type characteristics (type, precision, scale, length): TinyInt, 3, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, false</remarks>
 		public virtual System.Byte TimeOfDayTypeEnum

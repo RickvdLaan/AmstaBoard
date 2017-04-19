@@ -130,7 +130,7 @@
   <EntityModel>
     <ValueTypeDefinitions />
     <EntityDefinitions>
-      <EntityDefinition Name="Chore" GroupName="Vanderlaan" ObjectID="7e9edd3b-57bb-494e-9422-28fd506dea2a">
+      <EntityDefinition Name="Chore" GroupName="Vanderlaan" ObjectID="651a71c3-61e4-48e5-8389-4eb203e79a52">
         <Fields>
           <Field Name="Date" Type="datetime" IsPrimaryKey="true" />
           <Field Name="DateCreated" Type="datetime" />
@@ -141,7 +141,7 @@
           <Field Name="TimeOfDayTypeEnum" Type="byte" Precision="3" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="Employee" GroupName="Vanderlaan" ObjectID="9344a4b8-d832-492e-be36-7fc62563df41">
+      <EntityDefinition Name="Employee" GroupName="Vanderlaan" ObjectID="412a0411-d809-44d8-a515-eea1f7269963">
         <Fields>
           <Field Name="DateCreated" Type="datetime" />
           <Field Name="DateDeleted" Type="datetime" IsOptional="true" />
@@ -155,13 +155,13 @@
           <Field Name="UserId" Type="int" IsOptional="true" Precision="10" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="EmployeeLivingroom" GroupName="Vanderlaan" ObjectID="342500d8-2df1-4c92-91c2-81e9a90892d2">
+      <EntityDefinition Name="EmployeeLivingroom" GroupName="Vanderlaan" ObjectID="56fd2932-aac4-4495-8f85-819668ae7c57">
         <Fields>
           <Field Name="EmployeeId" Type="int" Precision="10" IsPrimaryKey="true" />
           <Field Name="LivingroomId" Type="int" Precision="10" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="Livingroom" GroupName="Vanderlaan" ObjectID="20c8a841-ea25-48d7-b0ef-52c5e93f7d62">
+      <EntityDefinition Name="Livingroom" GroupName="Vanderlaan" ObjectID="19c689cc-9791-4c0d-bdd2-9d3f829b40cf">
         <Fields>
           <Field Name="ColourTypeEnum" Type="byte" Precision="3" />
           <Field Name="DateCreated" Type="datetime" />
@@ -174,7 +174,7 @@
           <Field Name="Name" Type="string" MaxLength="50" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="Patient" GroupName="Vanderlaan" ObjectID="9189f4ba-4365-4886-9245-059be10b9116">
+      <EntityDefinition Name="Patient" GroupName="Vanderlaan" ObjectID="a0a7f025-a3cf-4aa4-a1cf-1276d8276770">
         <Fields>
           <Field Name="DateCreated" Type="datetime" />
           <Field Name="DateDeleted" Type="datetime" IsOptional="true" />
@@ -188,7 +188,7 @@
           <Field Name="LivingroomId" Type="int" Precision="10" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="User" GroupName="Vanderlaan" ObjectID="0c1e2701-4fc7-4764-8d7f-c5f9f4a3d731">
+      <EntityDefinition Name="User" GroupName="Vanderlaan" ObjectID="8221d702-17cd-4646-b143-e86c83a082bb">
         <Fields>
           <Field Name="DateCreated" Type="datetime" />
           <Field Name="DateDeleted" Type="datetime" IsOptional="true" />
@@ -208,7 +208,7 @@
           </UniqueConstraint>
         </UniqueConstraints>
       </EntityDefinition>
-      <EntityDefinition Name="UserRole" GroupName="Vanderlaan" ObjectID="26cb0944-6441-4d7d-8419-20030a2f000a">
+      <EntityDefinition Name="UserRole" GroupName="Vanderlaan" ObjectID="c1a3c6ad-707f-4d43-9950-24121a13ffea">
         <Fields>
           <Field Name="RoleTypeEnum" Type="byte" Precision="3" />
           <Field Name="UserId" Type="int" Precision="10" IsPrimaryKey="true" />
@@ -269,7 +269,7 @@
       <Catalogs>
         <Catalog Name="Vanderlaan_jouwsoftware_janbonga_development">
           <Schemas>
-            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-04-19T08:31:17.2500806Z">
+            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-04-11T14:19:16.2794979Z">
               <StoredProcedures>
                 <StoredProcedure Name="sp_alterdiagram">
                   <Parameters>
@@ -337,9 +337,9 @@
                 </StoredProcedure>
               </StoredProcedures>
             </Schema>
-            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-04-19T08:31:17.2968806Z">
+            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-04-11T14:19:16.4225061Z">
               <Tables>
-                <Table Name="Chore">
+                <Table Name="Chores">
                   <PkConstraintName Name="PK_Chores_1" />
                   <Fields>
                     <Field Name="PatientId" Ordinal="1" IsPrimaryKey="true" DbType="8" Precision="10" />
@@ -434,14 +434,14 @@
             </Schema>
           </Schemas>
           <ForeignKeyConstraints>
-            <ForeignKeyConstraint Name="Vanderlaan:Chore:FK_Chores_Livingroom">
+            <ForeignKeyConstraint Name="Vanderlaan:Chores:FK_Chores_Livingroom">
               <FieldPairs>
-                <FieldPair PkField="Vanderlaan:Livingroom:Id" FkField="Vanderlaan:Chore:LivingroomId" />
+                <FieldPair PkField="Vanderlaan:Livingroom:Id" FkField="Vanderlaan:Chores:LivingroomId" />
               </FieldPairs>
             </ForeignKeyConstraint>
-            <ForeignKeyConstraint Name="Vanderlaan:Chore:FK_Chores_Patient1">
+            <ForeignKeyConstraint Name="Vanderlaan:Chores:FK_Chores_Patient1">
               <FieldPairs>
-                <FieldPair PkField="Vanderlaan:Patient:Id" FkField="Vanderlaan:Chore:PatientId" />
+                <FieldPair PkField="Vanderlaan:Patient:Id" FkField="Vanderlaan:Chores:PatientId" />
               </FieldPairs>
             </ForeignKeyConstraint>
             <ForeignKeyConstraint Name="Vanderlaan:Employee:FK_Employee_User">
@@ -477,7 +477,7 @@
   <MappingStores>
     <MappingStore Type="2D18D138-1DD2-467E-86CC-4838250611AE">
       <EntityMappings>
-        <EntityMapping EntityName="Vanderlaan:Chore" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:Chore">
+        <EntityMapping EntityName="Vanderlaan:Chore" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:Chores">
           <FieldMappings>
             <FieldMapping FieldName="Date" TargetFieldName="Date" />
             <FieldMapping FieldName="DateCreated" TargetFieldName="DateCreated" />

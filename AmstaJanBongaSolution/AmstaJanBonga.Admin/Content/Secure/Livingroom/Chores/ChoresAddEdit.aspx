@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Main.Master" AutoEventWireup="true" CodeBehind="ChoresAddEdit.aspx.cs" Inherits="AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores.ChoresAddEdit" %>
 
+<%@ Import namespace="Rlaan.Toolkit.Extensions" %>
 <%@ Register Src="~/Content/Controls/JsListBox/JsListBox.ascx" TagPrefix="jsListBoxMorning" TagName="JsListBox" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="_cphHead" runat="server">
@@ -19,7 +20,7 @@
         </h2>
 
         <div class="return right">
-            <asp:HyperLink runat="server" CssClass="return fa fa-reply display-inline" ToolTip="Terug naar woonkameroverzicht"></asp:HyperLink>
+            <asp:HyperLink runat="server" ID="_hlReturn" CssClass="return fa fa-reply display-inline" ToolTip="Terug naar corvee overzicht"></asp:HyperLink>
         </div>
 
         <div class="clear"></div>
@@ -31,7 +32,19 @@
                         Datum
                     </td>
                     <td>
-                        <asp:Calendar runat="server"></asp:Calendar>
+                        <div class="calendar-wrapper purple-bg">
+                            <asp:Calendar runat="server" ID="_calendar" CssClass="calendar" OnDayRender="_calendar_DayRender">
+                                <TitleStyle CssClass="calendar-title" />
+                                <SelectedDayStyle CssClass="calendar-selected-day" />
+                                <DayStyle CssClass="calendar-day orange-bg" />
+
+                                <DayHeaderStyle CssClass="calendar-day-header orange-bg" />
+
+                                <NextPrevStyle CssClass="calendar-next-prev" />
+                                
+                                <OtherMonthDayStyle CssClass="calendar-other-month-day red-bg" />
+                            </asp:Calendar>
+                        </div>
                     </td>
                 </tr>
 
@@ -50,6 +63,7 @@
                     </td>
                     <td>
                         <jsListBoxMorning:JsListBox runat="server" id="_jlbMorning" />
+                        <asp:RequiredFieldValidator runat="server" ValidateRequestMode="Enabled" CssClass="error" InitialValue="" ErrorMessage="Twee bewoners moeten worden geselecteerd." Display="Dynamic" ControlToValidate="_jlbMorning" ValidationGroup="Validate"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
 
@@ -59,6 +73,7 @@
                     </td>
                     <td>
                         <jsListBoxMorning:JsListBox runat="server" id="_jlbAfternoon" />
+                        <asp:RequiredFieldValidator runat="server" ValidateRequestMode="Enabled" CssClass="error" InitialValue="" ErrorMessage="Twee bewoners moeten worden geselecteerd." Display="Dynamic" ControlToValidate="_jlbAfternoon" ValidationGroup="Validate"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
 
@@ -68,6 +83,7 @@
                     </td>
                     <td>
                         <jsListBoxMorning:JsListBox runat="server" id="_jlbEvening" />
+                        <asp:RequiredFieldValidator runat="server" ValidateRequestMode="Enabled" CssClass="error" InitialValue="" ErrorMessage="Twee bewoners moeten worden geselecteerd." Display="Dynamic" ControlToValidate="_jlbEvening" ValidationGroup="Validate"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
             </tbody>

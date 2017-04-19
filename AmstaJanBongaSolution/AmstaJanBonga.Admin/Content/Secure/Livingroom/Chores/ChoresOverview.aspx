@@ -23,24 +23,26 @@
        
         <div class="gridview">
             <asp:GridView runat="server" ID="_gvChores" OnPreRender="_gvChores_PreRender" ShowHeaderWhenEmpty="true" AlternatingRowStyle-CssClass="alt" AllowPaging="false" AllowSorting="false" AutoGenerateColumns="false">
-                <Columns>          
+                <Columns>    
                     <asp:TemplateField>
                         <HeaderTemplate>
-                        
+                            Woonkamer
                         </HeaderTemplate>
 
                         <ItemTemplate>
-
+                            <asp:HyperLink runat="server" NavigateUrl='<%# "~/Content/Secure/Livingroom/Chores/ChoresDetails.aspx?LivingroomId={0}&Date={1}".FormatString(DataBinder.Eval(Container.DataItem, "LivingroomId"), DataBinder.Eval(Container.DataItem, "Date")) %>'>
+                                <%# Eval("Name").ToString().CapitalizeFirstLetter() %>
+                            </asp:HyperLink>
                         </ItemTemplate>
                     </asp:TemplateField>
 
                     <asp:TemplateField>
                         <HeaderTemplate>
-                            
+                            Datum
                         </HeaderTemplate>
 
                         <ItemTemplate>
-                            
+                            <%# Convert.ToDateTime(Eval("Date")).ToString("dd-MM-yyyy") %>
                         </ItemTemplate>
                     </asp:TemplateField>
 
@@ -50,7 +52,9 @@
                         </HeaderTemplate>
 
                         <ItemTemplate>
-    
+                            <asp:HyperLink runat="server" ToolTip="Bekijken" CssClass="details fa fa-search disabled"></asp:HyperLink>
+                            <asp:HyperLink runat="server" ToolTip="Wijzigen" CssClass="edit fa fa-pencil disabled"></asp:HyperLink>
+                            <asp:HyperLink runat="server" ToolTip="Verwijderen" CssClass="delete fa fa-times disabled"></asp:HyperLink>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
