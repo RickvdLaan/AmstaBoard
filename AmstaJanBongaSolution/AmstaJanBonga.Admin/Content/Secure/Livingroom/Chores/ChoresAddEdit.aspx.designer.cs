@@ -22,13 +22,22 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores {
         protected global::System.Web.UI.WebControls.HyperLink _hlReturn;
         
         /// <summary>
-        /// _calendar control.
+        /// ExtendedCalendar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar _calendar;
+        protected global::AmstaJanBonga.Admin.Content.Controls.ExtendedCalendar.ExtendedCalendar ExtendedCalendar;
+        
+        /// <summary>
+        /// _txtDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox _txtDate;
         
         /// <summary>
         /// _txtLivingroom control.

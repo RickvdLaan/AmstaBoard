@@ -4,7 +4,11 @@ using Rlaan.Toolkit.Extensions;
 using Rlaan.Toolkit.Web;
 using System;
 using System.Globalization;
+using System.Linq;
+using System.Net;
 using System.Web;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace AmstaJanBonga.Web.MasterPage
 {
@@ -63,7 +67,35 @@ namespace AmstaJanBonga.Web.MasterPage
             this._litTime.Text = "{0}".FormatString(DateTime.Now.ToString("HH:mm"));
 
             // Weather
-            this._litWeather.Text = "Het weer: 11 °C";
+            this._litWeather.Text = "Het weer: {0} °C".FormatString(GetTemperature());
+        }
+
+        public string GetTemperature()
+        {
+            // TODO: Create cookie to store the temperature with the datetime of its creation.
+            // Check whether a cookie exist, if so parse the date time and see if it's older than 30 minutes.
+            // If it's older than 30 minutes, get the data against and store this in the cookie and return the value.
+            // If the data is NOT older than 30 minutes, parse the data out the cookie and return it.
+
+            var temperature = string.Empty;
+
+            var locationId = 2759794;
+            var apiId = "84f3dec579b93e63775499eecfa68338";
+            var apiCall = @"http://api.openweathermap.org/data/2.5/weather?id={0}&units=metric&mode=xml&APPID={1}".FormatString(locationId, apiId);
+
+            using (var client = new WebClient())
+            {
+                var xdoc = XDocument.Parse(client.DownloadString(apiCall));
+
+                temperature = Math.Round(
+                                Convert.ToDecimal(
+                                    (from doc in xdoc.Descendants("temperature") select (string)doc.Attribute("value")).ToList()[0]
+                                        .Replace('.', ',')), 1)
+                                            .ToString()
+                                                .Replace(',', '.');
+            }
+
+            return temperature;
         }
 
         #endregion

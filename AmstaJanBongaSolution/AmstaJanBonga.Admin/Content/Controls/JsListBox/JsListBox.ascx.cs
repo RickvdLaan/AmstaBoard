@@ -12,7 +12,7 @@ namespace AmstaJanBonga.Admin.Content.Controls.JsListBox
 
         private string _dataTextField, _dataValueField;
 
-        private object _dataSource = null;
+        private object _dataSource = null, _dataDestination = null;
 
         #endregion
 
@@ -22,6 +22,12 @@ namespace AmstaJanBonga.Admin.Content.Controls.JsListBox
         {
             get { return this._dataSource; }
             set { this._dataSource = value; }
+        }
+
+        public object DataDestination
+        {
+            get { return this._dataDestination; }
+            set { this._dataDestination = value; }
         }
 
         public string DataTextField
@@ -48,7 +54,7 @@ namespace AmstaJanBonga.Admin.Content.Controls.JsListBox
         {
             get
             {
-                if (this._lbDestination.Items.Count != 2)
+                if (this._lbDestination.Items.Count != 1 && this._lbDestination.Items.Count != 2)
                     return string.Empty;
                 else
                     return this._lbDestination.Items.Count.ToString();
@@ -70,6 +76,11 @@ namespace AmstaJanBonga.Admin.Content.Controls.JsListBox
             this._lbSource.DataTextField = this.DataTextField;
             this._lbSource.DataValueField = this.DataValueField;
             this._lbSource.DataBind();
+
+            this._lbDestination.DataSource = this.DataDestination;
+            this._lbDestination.DataTextField = this.DataTextField;
+            this._lbDestination.DataValueField = this.DataValueField;
+            this._lbDestination.DataBind();
 
             base.DataBind();
         }

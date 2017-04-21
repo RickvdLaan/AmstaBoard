@@ -13,6 +13,33 @@ namespace AmstaJanBonga.Web.Content {
     public partial class Home {
         
         /// <summary>
+        /// _repChoreMorning control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater _repChoreMorning;
+        
+        /// <summary>
+        /// _repChoreAfternoon control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater _repChoreAfternoon;
+        
+        /// <summary>
+        /// _repChoreEvening control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater _repChoreEvening;
+        
+        /// <summary>
         /// _repEmployees control.
         /// </summary>
         /// <remarks>

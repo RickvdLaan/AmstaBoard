@@ -46,6 +46,8 @@ namespace AmstaJanBonga.Admin.MasterPage
 
         protected override void OnInit(EventArgs e)
         {
+            this.Page.MaintainScrollPositionOnPostBack = true;
+
             // Were one of these exceptions ever to occur on the live environment then give the developer a punch in the head for not testing his work!
             if (Project.Environment.IsDevelopEnvironment || Project.Environment.IsStagingEnvironment || Project.Environment.IsLiveEnvironment)
             {

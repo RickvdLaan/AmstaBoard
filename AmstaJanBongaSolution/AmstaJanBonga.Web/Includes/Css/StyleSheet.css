@@ -580,12 +580,22 @@ td.times div:first-of-type {
     text-align: center;
     vertical-align: middle;
     display: table-cell;
+   
 }
 
 .tile-container-row {
     text-align: center;
     vertical-align: middle;
     display: table-row;
+}
+
+.chores .tile-container-cell {
+    vertical-align: top;
+    width: 33.33333%
+}
+
+.chores ul {
+    list-style: none;
 }
 
 .staff .tile-container-row h3,
@@ -636,8 +646,8 @@ td.times div:first-of-type {
 
 .image-chores {
     border-radius: 50%;
-    width: 31%;
-    margin: 2% 25%;
+    margin: 5% 0;
+    width: 33.3333%;
     border: 0.5vw solid #009eed;
 }
 

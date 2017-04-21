@@ -5,6 +5,8 @@ using Rlaan.Toolkit.Web;
 using Rlaan.Toolkit.Extensions;
 using System;
 using AmstaJanBonga.Business.Enums;
+using AmstaJanBonga.Business.CollectionClasses;
+using AmstaJanBonga.Admin.Content.Controls.JsListBox;
 using System.Collections.Generic;
 
 namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
@@ -13,17 +15,32 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
     {
         #region Variables & Objects
 
-        private List<DateTime> _dates = null;
-
         private LivingroomEntity _livingroom = null;
+
+        private ChoreCollection _chores = null;
+
+        private DateTime _date = DateTime.MinValue;
 
         #endregion
 
         #region Properties
 
+        /// <summary>
+        /// Returns the Sub-title's value.
+        /// </summary>
+        protected string SubTitleAddEdit
+        {
+            get { return Url.GetFullUrl.Contains("&Date=") ? "Wijzigen" : "Toevoegen"; }
+        }
+
         private bool HasLivingroomId
         {
             get { return Url.QueryStringParser.HasParameter("LivingroomId"); }
+        }
+
+        private bool HasDate
+        {
+            get { return Url.QueryStringParser.HasParameter("Date"); }
         }
 
         private LivingroomEntity Livingroom
@@ -31,18 +48,39 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
             get
             {
                 if (this._livingroom == null && this.HasLivingroomId)
-                {
                     this._livingroom = LivingroomReader.GetLivingroomById(Url.QueryStringParser.GetInt("LivingroomId"), true);
-                }
 
                 return this._livingroom;
             }
         }
 
-        private List<DateTime> Dates
+        private DateTime QueryStringDate
         {
-            get { return this._dates; }
-            set { this._dates = value; }
+            get
+            {
+                if (this._date == DateTime.MinValue && this.HasDate)
+                    this._date = Url.QueryStringParser.GetDateTime("Date");
+
+                return this._date;
+            }
+        }
+
+        private ChoreCollection Chores
+        {
+            get
+            {
+                if (this._chores == null && this.HasLivingroomId && this.HasDate)
+                {
+                    // Gets all chores for a specific livingroom and date.
+                    this._chores = ChoreReader.GetAllChoresFilteredByLivingroomAndDate(this.Livingroom.Id, this.QueryStringDate.Date);
+                }
+
+                return this._chores;
+            }
+            set
+            {
+                this._chores = value;
+            }
         }
 
         #endregion
@@ -57,65 +95,134 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
             }
         }
 
-        #region Overrides
-
-        protected override void OnPreRenderComplete(EventArgs e)
-        {
-            this.Dates = ChoreReader.GetAllUsedDatesByLivingroomId(this.Livingroom.Id);
-
-            base.OnPreRenderComplete(e);
-        }
-
-        #endregion
-
         #region PreFill
 
         private void PreFill()
         {
-            if (HasLivingroomId)
+            if (this.HasLivingroomId)
             {
-                var dataSource = PatientReader.GetAllPatientsByLivingroomId(this.Livingroom.Id);
+                // Gets all the patients for a specific livingroom.
+                var patients = PatientReader.GetAllPatientsByLivingroomId(this.Livingroom.Id);
 
-                this._txtLivingroom.Text = Livingroom.Name;
+                // Edit
+                if (this.HasDate)
+                {
+                    // Sets the date.
+                    this.ExtendedCalendar.SelectedDate = this.QueryStringDate.Date;
+                    this.ExtendedCalendar.Visible = false;
 
-                // Morning
-                this._jlbMorning.DataSource = dataSource;
-                this._jlbMorning.DataTextField = "FirstName";
-                this._jlbMorning.DataValueField = "Id";
-                this._jlbMorning.DataBind();
+                    // Shows the date.
+                    this._txtDate.Text = this.ExtendedCalendar.SelectedDate.Date.ToString("dd-MM-yyyy");
+                    this._txtDate.Visible = true;
 
-                // Afternoon
-                this._jlbAfternoon.DataSource = dataSource;
-                this._jlbAfternoon.DataTextField = "FirstName";
-                this._jlbAfternoon.DataValueField = "Id";
-                this._jlbAfternoon.DataBind();
+                    // Sets the livingroom name.
+                    this._txtLivingroom.Text = this.Livingroom.Name;
 
-                // Evening
-                this._jlbEvening.DataSource = dataSource;
-                this._jlbEvening.DataTextField = "FirstName";
-                this._jlbEvening.DataValueField = "Id";
-                this._jlbEvening.DataBind();
+                    // Fills the list boxes.
+                    this.PreFillListBox(this.Chores, patients, this._jlbMorning,   TimeOfDayTypeEnum.Morning);
+                    this.PreFillListBox(this.Chores, patients, this._jlbAfternoon, TimeOfDayTypeEnum.Afternoon);
+                    this.PreFillListBox(this.Chores, patients, this._jlbEvening,   TimeOfDayTypeEnum.Evening);
+                }
+                // Add
+                else
+                {
+                    this._txtLivingroom.Text = Livingroom.Name;
+
+                    // Morning
+                    this._jlbMorning.DataSource = patients;
+                    this._jlbMorning.DataTextField = "FirstName";
+                    this._jlbMorning.DataValueField = "Id";
+                    this._jlbMorning.DataBind();
+
+                    // Afternoon
+                    this._jlbAfternoon.DataSource = patients;
+                    this._jlbAfternoon.DataTextField = "FirstName";
+                    this._jlbAfternoon.DataValueField = "Id";
+                    this._jlbAfternoon.DataBind();
+
+                    // Evening
+                    this._jlbEvening.DataSource = patients;
+                    this._jlbEvening.DataTextField = "FirstName";
+                    this._jlbEvening.DataValueField = "Id";
+                    this._jlbEvening.DataBind();
+                }
             }
+        }
+
+        private void PreFillListBox(ChoreCollection chores, PatientCollection patients, JsListBox listBox, TimeOfDayTypeEnum timeOfDayType)
+        {
+            // The chore source and destination data.
+            var choreSourceData = new PatientCollection();
+            var choreDestinationData = new PatientCollection(); ;
+
+            foreach (var chore in chores)
+            {
+                if (chore.TimeOfDayTypeEnum == (byte)timeOfDayType)
+                {
+                    foreach (var patient in patients)
+                    {
+                        if (chore.Patient.Id == patient.Id)
+                        {
+                            choreDestinationData.Add(patient);
+                        }
+                    }
+                }
+            }
+
+            // Adds the source data.
+            choreSourceData.AddRange(patients);
+            choreSourceData.RemoveRange(choreDestinationData);
+
+            // Binds the source and destination data with its value fields.
+            listBox.DataSource = choreSourceData;
+            listBox.DataDestination = choreDestinationData;
+            listBox.DataTextField = "FirstName";
+            listBox.DataValueField = "Id";
+
+            // Binds the data.
+            listBox.DataBind();
         }
 
         #endregion
 
-        #region Save
+        #region Methods
 
         private void Save()
         {
-            // Inserts multiple chores at once.
-            ChoreManager.InsertMulti(
-                // Morning
-                ChoreManager.CreateChoreEntity(this._jlbMorning.ListBoxDestination.Items[0].Value.ToInt(), Livingroom.Id, this._calendar.SelectedDate, TimeOfDayTypeEnum.MorningOne),
-                ChoreManager.CreateChoreEntity(this._jlbMorning.ListBoxDestination.Items[1].Value.ToInt(), Livingroom.Id, this._calendar.SelectedDate, TimeOfDayTypeEnum.MorningTwo),
-                // Afternoon
-                ChoreManager.CreateChoreEntity(this._jlbAfternoon.ListBoxDestination.Items[0].Value.ToInt(), Livingroom.Id, this._calendar.SelectedDate, TimeOfDayTypeEnum.AfternoonOne),
-                ChoreManager.CreateChoreEntity(this._jlbAfternoon.ListBoxDestination.Items[1].Value.ToInt(), Livingroom.Id, this._calendar.SelectedDate, TimeOfDayTypeEnum.AfternoonTwo),
-                // Evening
-                ChoreManager.CreateChoreEntity(this._jlbEvening.ListBoxDestination.Items[0].Value.ToInt(), Livingroom.Id, this._calendar.SelectedDate, TimeOfDayTypeEnum.EveningOne),
-                ChoreManager.CreateChoreEntity(this._jlbEvening.ListBoxDestination.Items[1].Value.ToInt(), Livingroom.Id, this._calendar.SelectedDate, TimeOfDayTypeEnum.EveningTwo)
-            );
+            if (this.HasLivingroomId)
+            {
+                // Edit
+                if (this.HasDate)
+                {
+                    // Updates multiple chores at once.
+                    ChoreManager.UpdateMulti(this.Chores, this.GetSelectedPatients());
+                }
+                // Add
+                else
+                {
+                    // Inserts multiple chores at once.
+                    ChoreManager.InsertMulti(this.GetSelectedPatients());
+                }
+            }
+        }
+
+        private List<ChoreEntity> GetSelectedPatients()
+        {
+            var chores = new List<ChoreEntity>();
+
+            // Morning
+            for (int i = 0; i < _jlbMorning.ListBoxDestination.Items.Count; i++)
+                chores.Add(ChoreManager.CreateChoreEntity(this._jlbMorning.ListBoxDestination.Items[i].Value.ToInt(), Livingroom.Id, this.ExtendedCalendar.SelectedDate, TimeOfDayTypeEnum.Morning));
+
+            // Afternoon
+            for (int i = 0; i < _jlbAfternoon.ListBoxDestination.Items.Count; i++)
+                chores.Add(ChoreManager.CreateChoreEntity(this._jlbAfternoon.ListBoxDestination.Items[i].Value.ToInt(), Livingroom.Id, this.ExtendedCalendar.SelectedDate, TimeOfDayTypeEnum.Afternoon));
+
+            // Evening
+            for (int i = 0; i < _jlbEvening.ListBoxDestination.Items.Count; i++)
+                chores.Add(ChoreManager.CreateChoreEntity(this._jlbEvening.ListBoxDestination.Items[i].Value.ToInt(), Livingroom.Id, this.ExtendedCalendar.SelectedDate, TimeOfDayTypeEnum.Evening));
+
+            return chores;
         }
 
         #endregion
@@ -136,25 +243,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
 
         protected void _btnCancel_Click(object sender, EventArgs e)
         {
-
-        }
-
-        protected void _calendar_DayRender(object sender, System.Web.UI.WebControls.DayRenderEventArgs e)
-        {
-            if (e.Day.IsOtherMonth)
-            {
-                e.Cell.Text = string.Empty;
-            }
-
-            foreach (var date in this.Dates)
-            {
-                if (e.Day.Date == date)
-                {
-                    e.Day.IsSelectable = false;
-                    e.Cell.CssClass = "calendar-unavailable";
-                    //this.Dates.Remove(date);
-                }
-            }
+            Response.Redirect("~/Content/Secure/Livingroom/Chores/ChoresOverview.aspx?LivingroomId={0}".FormatString(this.Livingroom.Id));
         }
 
         #endregion

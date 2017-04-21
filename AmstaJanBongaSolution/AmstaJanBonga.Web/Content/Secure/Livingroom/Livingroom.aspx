@@ -28,19 +28,19 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="_cphContent" runat="server">
     <!-- Agenda -->
-    <div class="tile agenda">
+    <div class="tile agenda disabled">
         <h2>
             Agenda bewoners
             <i class="fa fa-calendar" aria-hidden="true"></i>
         </h2>
 
          <div class="tile-wrapper">
-             <asp:HyperLink runat="server" CssClass="tile-container-cell button-press" NavigateUrl="~/Content/Secure/PatientAgendaOverview/PatientAgendaOverview.aspx">Druk hier om uw agenda te bekijken</asp:HyperLink>
+             <asp:HyperLink runat="server" Enabled="false" CssClass="tile-container-cell button-press" NavigateUrl="~/Content/Secure/PatientAgendaOverview/PatientAgendaOverview.aspx">Druk hier om uw agenda te bekijken</asp:HyperLink>
         </div>
     </div>
 
     <!-- Staff -->
-    <div class="tile staff">
+    <div class="tile staff disabled">
         <h2>
             Dag en avonddienst
             <i class="fa fa-clock-o" aria-hidden="true"></i>
@@ -49,19 +49,19 @@
         <div class="tile-wrapper">
             <div class="tile-container-cell">
                 <h4>Dag</h4>
-                <asp:Image runat="server" CssClass="image image-staff" ImageUrl="~/Includes/Css/Images/avatar.jpg" data-remodal-target="employee-remodal" />
+                <asp:Image runat="server" CssClass="image image-staff" ImageUrl="~/Includes/Css/Images/avatar.jpg" /> <%--data-remodal-target="employee-remodal"/>--%> 
                 <h3>Voornaam</h3>
             </div>
 
             <div class="tile-container-cell">
                 <h4>Dag</h4>
-                <asp:Image runat="server" CssClass="image image-staff" ImageUrl="~/Includes/Css/Images/avatar.jpg" data-remodal-target="employee-remodal" />
+                <asp:Image runat="server" CssClass="image image-staff" ImageUrl="~/Includes/Css/Images/avatar.jpg" /> <%--data-remodal-target="employee-remodal" />--%>
                 <h3>Voornaam</h3>
             </div>
 
             <div class="tile-container-cell">
                 <h4>Avond</h4>
-                <asp:Image runat="server" CssClass="image image-staff" ImageUrl="~/Includes/Css/Images/avatar.jpg" data-remodal-target="employee-remodal" />
+                <asp:Image runat="server" CssClass="image image-staff" ImageUrl="~/Includes/Css/Images/avatar.jpg" /> <%--data-remodal-target="employee-remodal" />--%>
                 <h3>Voornaam</h3>
             </div>
         </div>
@@ -95,24 +95,51 @@
 
          <div class="tile-wrapper">
             <div class="tile-container-cell">
-                <h3>Ochtend</h3>
-
-                <asp:Image runat="server" CssClass="image image-chores" ImageUrl="~/Includes/Css/Images/avatar.jpg" data-remodal-target="chores-remodal" />
-                <asp:Image runat="server" CssClass="image image-chores" ImageUrl="~/Includes/Css/Images/avatar.jpg" data-remodal-target="chores-remodal" />
+                <ul>
+                    <li>
+                        <h3>Ochtend</h3>
+                    </li>
+                    
+                     <asp:Repeater runat="server" ID="_repChoreMorning">
+                        <ItemTemplate>
+                            <li>
+                                <asp:Image runat="server" CssClass="image image-chores" ImageUrl='<%# Eval("Patient.ImagePath") %>' data-remodal-target="chores-remodal" />
+                            </li>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </ul>
             </div>
 
             <div class="tile-container-cell">
-                <h3>Middag</h3>
-
-                <asp:Image runat="server" CssClass="image image-chores" ImageUrl="~/Includes/Css/Images/avatar.jpg" data-remodal-target="chores-remodal" />
-                <asp:Image runat="server" CssClass="image image-chores" ImageUrl="~/Includes/Css/Images/avatar.jpg" data-remodal-target="chores-remodal" />
+                <ul>
+                    <li>
+                        <h3>Middag</h3>
+                    </li>
+                    
+                     <asp:Repeater runat="server" ID="_repChoreAfternoon">
+                        <ItemTemplate>
+                            <li>
+                                <asp:Image runat="server" CssClass="image image-chores" ImageUrl='<%# Eval("Patient.ImagePath") %>' data-remodal-target="chores-remodal" />
+                            </li>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </ul>
             </div>
 
               <div class="tile-container-cell">
-                <h3> Avond</h3>
-
-                <asp:Image runat="server" CssClass="image image-chores" ImageUrl="~/Includes/Css/Images/avatar.jpg" data-remodal-target="chores-remodal" />
-                <asp:Image runat="server" CssClass="image image-chores" ImageUrl="~/Includes/Css/Images/avatar.jpg" data-remodal-target="chores-remodal" />
+                <ul>
+                    <li>
+                        <h3>Avond</h3>
+                    </li>
+                    
+                     <asp:Repeater runat="server" ID="_repChoreEvening">
+                        <ItemTemplate>
+                            <li>
+                                <asp:Image runat="server" CssClass="image image-chores" ImageUrl='<%# Eval("Patient.ImagePath") %>' data-remodal-target="chores-remodal" />
+                            </li>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </ul>
             </div>
         </div>
     </div>

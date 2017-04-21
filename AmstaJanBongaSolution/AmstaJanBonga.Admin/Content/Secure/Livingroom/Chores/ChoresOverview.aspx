@@ -52,8 +52,8 @@
                         </HeaderTemplate>
 
                         <ItemTemplate>
-                            <asp:HyperLink runat="server" ToolTip="Bekijken" CssClass="details fa fa-search disabled"></asp:HyperLink>
-                            <asp:HyperLink runat="server" ToolTip="Wijzigen" CssClass="edit fa fa-pencil disabled"></asp:HyperLink>
+                            <asp:HyperLink runat="server" ID="_hlDetails" NavigateUrl='<%# "~/Content/Secure/Livingroom/Chores/ChoresDetails.aspx?LivingroomId={0}&Date={1}".FormatString(DataBinder.Eval(Container.DataItem, "LivingroomId"), DataBinder.Eval(Container.DataItem, "Date")) %>' ToolTip="Bekijken" CssClass="details fa fa-search"></asp:HyperLink>
+                            <asp:HyperLink runat="server" ID="_hlEdit" NavigateUrl='<%# "~/Content/Secure/Livingroom/Chores/ChoresAddEdit.aspx?LivingroomId={0}&Date={1}".FormatString(DataBinder.Eval(Container.DataItem, "LivingroomId"), DataBinder.Eval(Container.DataItem, "Date")) %>' ToolTip="Wijzigen" CssClass="edit fa fa-pencil"></asp:HyperLink>
                             <asp:HyperLink runat="server" ToolTip="Verwijderen" CssClass="delete fa fa-times disabled"></asp:HyperLink>
                         </ItemTemplate>
                     </asp:TemplateField>

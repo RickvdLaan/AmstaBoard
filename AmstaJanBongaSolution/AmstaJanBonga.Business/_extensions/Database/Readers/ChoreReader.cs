@@ -11,6 +11,24 @@ namespace AmstaJanBonga.Business.Database.Readers
 {
     public abstract class ChoreReader
     {
+        public static ChoreCollection GetAllChoresFilteredByLivingroomAndDate(int livingroomId, DateTime date)
+        {
+            var chores = new ChoreCollection();
+
+            // Sorter
+            var sorter = new SortExpression();
+            sorter.Add(ChoreFields.Date | SortOperator.Ascending);
+
+            // Predicate
+            var predicate = new PredicateExpression();
+            predicate.Add(ChoreFields.LivingroomId == livingroomId);
+            predicate.Add(ChoreFields.Date == date);
+
+            chores.GetMulti(predicate, 0, sorter);
+
+            return chores;
+        }
+
         public static DataTable GetAllChoresDistinctByLivingroomId(int livingroomId)
         {
             // Result fields.
@@ -21,7 +39,7 @@ namespace AmstaJanBonga.Business.Database.Readers
                 ChoreFields.Date
             };
 
-            // Sorting
+            // Sorter
             var sorter = new SortExpression();
             sorter.Add(ChoreFields.Date | SortOperator.Ascending);
 
@@ -34,6 +52,7 @@ namespace AmstaJanBonga.Business.Database.Readers
             // Predicate
             var predicate = new PredicateExpression();
             predicate.Add(ChoreFields.LivingroomId == livingroomId);
+            predicate.Add(ChoreFields.Date >= DateTime.Now);
 
             // Create the DataTable, DAO and fill the DataTable with the above query definition/parameters.
             var dt = new DataTable();

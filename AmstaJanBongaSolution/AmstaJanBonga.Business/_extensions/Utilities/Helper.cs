@@ -8,6 +8,12 @@ using System.Web.UI.WebControls;
 
 public abstract class Helper
 {
+    #region Temp code Sprint 1
+
+    public const int LIVINGROOM_STIMULATE = 2;
+
+    #endregion
+
     #region Properties
 
     /// <summary>

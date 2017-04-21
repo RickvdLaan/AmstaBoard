@@ -1,7 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Main.Master" AutoEventWireup="true" CodeBehind="ChoresAddEdit.aspx.cs" Inherits="AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores.ChoresAddEdit" %>
 
 <%@ Import namespace="Rlaan.Toolkit.Extensions" %>
-<%@ Register Src="~/Content/Controls/JsListBox/JsListBox.ascx" TagPrefix="jsListBoxMorning" TagName="JsListBox" %>
+<%@ Register Src="~/Content/Controls/JsListBox/JsListBox.ascx" TagPrefix="CustomControl" TagName="JsListBox" %>
+<%@ Register Src="~/Content/Controls/ExtendedCalendar/ExtendedCalendar.ascx" TagPrefix="CustomControl" TagName="ExtendedCalendar" %>
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="_cphHead" runat="server">
 </asp:Content>
@@ -9,14 +11,14 @@
     Corvee
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="_cphSubTitle" runat="server">
-     ...
+     <%= this.SubTitleAddEdit %>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="_cphExplanation" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="_cphContent" runat="server">
     <div class="box">
         <h2 class="display-inline">
-             Corvee ...
+             Corvee <%= this.SubTitleAddEdit %>
         </h2>
 
         <div class="return right">
@@ -32,19 +34,12 @@
                         Datum
                     </td>
                     <td>
-                        <div class="calendar-wrapper purple-bg">
-                            <asp:Calendar runat="server" ID="_calendar" CssClass="calendar" OnDayRender="_calendar_DayRender">
-                                <TitleStyle CssClass="calendar-title" />
-                                <SelectedDayStyle CssClass="calendar-selected-day" />
-                                <DayStyle CssClass="calendar-day orange-bg" />
-
-                                <DayHeaderStyle CssClass="calendar-day-header orange-bg" />
-
-                                <NextPrevStyle CssClass="calendar-next-prev" />
-                                
-                                <OtherMonthDayStyle CssClass="calendar-other-month-day red-bg" />
-                            </asp:Calendar>
-                        </div>
+                        <CustomControl:ExtendedCalendar runat="server" ID="ExtendedCalendar" />
+                        <asp:TextBox runat="server" ID="_txtDate" Visible="false" Enabled="false"></asp:TextBox>
+                    </td>
+                    <td class="error">
+                        <asp:RequiredFieldValidator runat="server" ValidateRequestMode="Enabled" CssClass="error" InitialValue="" ErrorMessage="Geen dag geselecteerd." Display="Dynamic" ControlToValidate="ExtendedCalendar" ValidationGroup="Validate"></asp:RequiredFieldValidator>
+                        <asp:CustomValidator runat="server" ControlToValidate=""></asp:CustomValidator>
                     </td>
                 </tr>
 
@@ -52,7 +47,7 @@
                     <td class="label">
                         Woonkamer
                     </td>
-                    <td>
+                    <td colspan="2" class="error">
                         <asp:TextBox runat="server" ID="_txtLivingroom" Enabled="false"></asp:TextBox>
                     </td>
                 </tr>
@@ -62,8 +57,10 @@
                         Ochtend
                     </td>
                     <td>
-                        <jsListBoxMorning:JsListBox runat="server" id="_jlbMorning" />
-                        <asp:RequiredFieldValidator runat="server" ValidateRequestMode="Enabled" CssClass="error" InitialValue="" ErrorMessage="Twee bewoners moeten worden geselecteerd." Display="Dynamic" ControlToValidate="_jlbMorning" ValidationGroup="Validate"></asp:RequiredFieldValidator>
+                        <CustomControl:JsListBox runat="server" id="_jlbMorning" />
+                    </td>
+                    <td class="error">
+                        <asp:RequiredFieldValidator runat="server" ValidateRequestMode="Enabled" CssClass="error" InitialValue="" ErrorMessage="Selecteer minimaal één, of maximaal twee bewoners." Display="Dynamic" ControlToValidate="_jlbMorning" ValidationGroup="Validate"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
 
@@ -72,8 +69,10 @@
                         Middag
                     </td>
                     <td>
-                        <jsListBoxMorning:JsListBox runat="server" id="_jlbAfternoon" />
-                        <asp:RequiredFieldValidator runat="server" ValidateRequestMode="Enabled" CssClass="error" InitialValue="" ErrorMessage="Twee bewoners moeten worden geselecteerd." Display="Dynamic" ControlToValidate="_jlbAfternoon" ValidationGroup="Validate"></asp:RequiredFieldValidator>
+                        <CustomControl:JsListBox runat="server" id="_jlbAfternoon" />
+                    </td>
+                    <td class="error">
+                        <asp:RequiredFieldValidator runat="server" ValidateRequestMode="Enabled" CssClass="error" InitialValue="" ErrorMessage="Selecteer minimaal één, of maximaal twee bewoners." Display="Dynamic" ControlToValidate="_jlbAfternoon" ValidationGroup="Validate"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
 
@@ -82,8 +81,10 @@
                         Avond
                     </td>
                     <td>
-                        <jsListBoxMorning:JsListBox runat="server" id="_jlbEvening" />
-                        <asp:RequiredFieldValidator runat="server" ValidateRequestMode="Enabled" CssClass="error" InitialValue="" ErrorMessage="Twee bewoners moeten worden geselecteerd." Display="Dynamic" ControlToValidate="_jlbEvening" ValidationGroup="Validate"></asp:RequiredFieldValidator>
+                        <CustomControl:JsListBox runat="server" id="_jlbEvening" />                     
+                    </td>
+                    <td class="error">
+                         <asp:RequiredFieldValidator runat="server" ValidateRequestMode="Enabled" CssClass="error" InitialValue="" ErrorMessage="Selecteer minimaal één, of maximaal twee bewoners." Display="Dynamic" ControlToValidate="_jlbEvening" ValidationGroup="Validate"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
             </tbody>
@@ -92,8 +93,8 @@
         <asp:Label runat="server" ID="_lblError" CssClass="error"></asp:Label>
 
         <div class="buttons">
-            <asp:Button runat="server" ID="_btnSave" CssClass="button button-save" Text="Opslaan" OnClick="_btnSave_Click" ValidateRequestMode="Enabled" ValidationGroup="Validate" CausesValidation="true" />
-            <asp:Button runat="server" ID="_btnCancel" CssClass="button button-cancel" Text="Annuleren" OnClick="_btnCancel_Click" />
+            <asp:Button runat="server" ID="_btnSave" CssClass="button button-save green-bg" Text="Opslaan" OnClick="_btnSave_Click" ValidateRequestMode="Enabled" ValidationGroup="Validate" CausesValidation="true" />
+            <asp:Button runat="server" ID="_btnCancel" CssClass="button button-cancel red-bg" Text="Annuleren" OnClick="_btnCancel_Click" />
         </div>
     </div>
 </asp:Content>

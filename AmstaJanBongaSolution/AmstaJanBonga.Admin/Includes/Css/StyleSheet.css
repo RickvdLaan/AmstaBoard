@@ -119,14 +119,39 @@ a {
     -ms-user-select: none; /* IE/Edge */
 }
 
-.label {
-    width: 150px;
+
+.box:first-of-type {
+    margin-top: 0;
+}
+.box {
+    background-color: #fff;
+    border-color: #f08a00 #e5e2df #e5e2df;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 4px 1px 1px;
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.08);
+    margin-top: 20px;
+    overflow: auto;
+    padding: 15px;
+}
+* {
+    font-family: "Lato","Open Sans",sans-serif;
+    margin: 0;
+    padding: 0;
+}
+* {
+    font-family: "Lato","Open Sans",sans-serif;
+}
+* {
+    font-family: "Lato","Open Sans",sans-serif;
+}
+* {
+    font-family: "Lato","Open Sans",sans-serif;
+}
+* {
+    font-family: "Lato","Open Sans",sans-serif;
 }
 
-td.label::after {
-    content: ":";
-    margin-left: -3px;
-}
 
 /* Sidebar */
 
@@ -236,6 +261,36 @@ td.label::after {
 #content span,
 #content p {
     color: #202228;
+}
+
+.button {
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    height: 44px;
+    padding: 5px 15px;
+    border-radius: 3px;
+    border: none;
+    border: 1px solid #e5e2df
+}
+
+.button-save {
+    margin-right: 15px;
+   
+}
+
+.button-cancel {
+
+}
+
+.buttons {
+    border-color: #e5e2df;
+    background-color: #f7f7f7;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 2px;
+    padding: 15px 10px;
+    margin-top: 30px;
 }
 
 /* Content Boxes */
@@ -385,10 +440,13 @@ td.label::after {
  /* Jouw Software ASP ListBox */
 .js-listbox-container {
     background-color: #f7f7f7;
-    border: 1px solid #e5e2df;
-    margin: 30px auto;
     padding: 30px;
-    min-height: 100px;
+    min-height: 170px;
+    border-color: #f08a00 #e5e2df #e5e2df;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 4px 1px 1px;
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.08);
 }
 
 .js-listbox-wrapper {
@@ -396,8 +454,8 @@ td.label::after {
 }
 
 .js-listbox-button-area {
-    float: right;
-    width: 20%;
+    display: inline-table;
+    padding-left: 2px;
 }
 
 .js-listbox-button-area ul {
@@ -427,9 +485,9 @@ td.label::after {
     width: 200px;
 }
 
-.js-listbox-source select {
+/*.js-listbox-source select {
     width: 80%;
-}
+}*/
 
     .js-listbox-source select > option,
     .js-listbox-destination select > option {
@@ -453,27 +511,29 @@ td.label::after {
             color: #ffffff;
         }
 
-.js-listbox-destination select {
+/*.js-listbox-destination select {
     width: 100%;
+}*/
+
+.js-listbox-button {
+    border-radius: 3px;
+    font-weight: lighter;
+    padding: 6px;
+    margin-bottom: 10px;
 }
 
 
-
-
-
-
-
-
-
 /* Calendar */
-
-
 .calendar-wrapper {
     background-color: #f08a00;
     border: 1px solid #e5e2df;
-    margin: 30px 0;
     padding: 30px;
-    width: 72%;
+    width: 330px;
+    border-color: #f08a00 #e5e2df #e5e2df;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 4px 1px 1px;
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.08);
 }
 
 .calendar {
@@ -488,7 +548,7 @@ td.label::after {
 
 .calendar-next-prev a  {
     color: #f4f4f4 !important;
-    font-size: 14px;
+    font-size: 42px;
 }
 .calendar .calendar-title {
     font-weight: bold;
@@ -510,6 +570,13 @@ td.label::after {
     .calendar .calendar-selected-day a {
     
     }
+
+.calendar-unavailable {
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    font-size: 22px;
+    cursor: not-allowed !important;
+}
 
 .calendar {
     border-collapse: unset !important;
@@ -574,10 +641,41 @@ td.label::after {
 
 
 
+/* Table add edit */
+
+table.table-add-edit tbody tr td input,
+table.table-add-edit tbody tr td .calendar-wrapper,
+table.table-add-edit tbody tr td .js-listbox-container {
+    margin-bottom: 30px;
+}
+
+table .aspNetDisabled {
+    padding: 5px 10px;
+    cursor: not-allowed;
+}
 
 
 
+td.label {
+    line-height: 2em;
+    text-align: left;
+    vertical-align: top;
+    width: 250px;
+}
 
+td.required::after {
+    color: #fa010f;
+    content: "*";
+    font-size: 20px;
+}
+
+td.error span {
+    color: #fa010f !important;
+    margin-left: 15px;
+    background-color: #ffd8d8;
+    padding: 10px;
+    border: 1px solid #fa010f;
+}
 
 
 

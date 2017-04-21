@@ -60,6 +60,7 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="_Extensions\Database\EntityClasses\ChoreEntity.cs" />
     <Compile Include="_Extensions\Database\EntityClasses\EmployeeEntity.cs" />
     <Compile Include="_Extensions\Database\EntityClasses\LivingroomEntity.cs" />
     <Compile Include="_Extensions\Database\EntityClasses\PatientEntity.cs" />
