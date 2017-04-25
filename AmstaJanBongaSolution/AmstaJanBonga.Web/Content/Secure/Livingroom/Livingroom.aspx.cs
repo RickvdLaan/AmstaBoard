@@ -1,16 +1,49 @@
 ﻿using AmstaJanBonga.Business.CollectionClasses;
+using AmstaJanBonga.Business.Database.Managers;
 using AmstaJanBonga.Business.Database.Readers;
 using AmstaJanBonga.Business.Enums;
 using Rlaan.Toolkit.Extensions;
+using Rlaan.Toolkit.Web;
 using System;
+using System.ComponentModel;
 using System.Data;
+using System.Threading;
+using System.Web;
+using System.Web.Script.Services;
+using System.Web.Services;
+using System.Web.UI.WebControls;
 
 namespace AmstaJanBonga.Web.Content
 {
     public partial class Home : SecurePage
     {
-        private DataTable employees = new DataTable("Employees");
-        private DataTable patients = new DataTable("Patients");
+        #region Variables & Objects
+
+        private PatientCollection _patients = null;
+
+        #endregion
+
+        #region Properties
+
+        private PatientCollection Patients
+        {
+            get
+            {
+                if (this._patients == null)
+                {   
+                    this._patients = new PatientCollection();
+                    this._patients = PatientReader.GetAllPatientsByLivingroomId(Helper.LIVINGROOM_STIMULATE);
+                }
+
+                return this._patients;
+            }
+            set
+            {
+                this._patients = value;
+            }
+        }
+
+        #endregion
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,34 +59,23 @@ namespace AmstaJanBonga.Web.Content
 
         private void DatabindEmployees()
         {
-            employees.Columns.Add("Name");
 
-            for (int i = 0; i <= 4; i++)
-            {
-                DataRow workRow;
-                workRow = employees.NewRow();
-                workRow[0] = "Voornaam-" + i;
-                employees.Rows.Add(workRow);
-            }
-
-            this._repEmployees.DataSource = employees;
-            this._repEmployees.DataBind();
         }
 
-        private void DatabindPatients()
+        public void DatabindPatients()
         {
-            patients.Columns.Add("Name");
-
-            for (int i = 0; i <= 9; i++)
-            {
-                DataRow workRow;
-                workRow = patients.NewRow();
-                workRow[0] = "Voornaam-" + i;
-                patients.Rows.Add(workRow);
-            }
-
-            this._repPatients.DataSource = patients;
+            this._repPatients.DataSource = this.Patients;
             this._repPatients.DataBind();
+
+            // Excluding a patient
+            //for (int i = 0; i < source.Count; i++)
+            //{
+            //    if (source[i].Id == patientIdToExclude)
+            //    {
+            //        source.Remove(source[i]);
+            //        break;
+            //    }
+            //}
         }
 
         private void DatabindChores()
@@ -80,7 +102,7 @@ namespace AmstaJanBonga.Web.Content
                 }
                 else
                 {
-                    throw new NotImplementedException("Nothing for for {0} in TimeOfDayTypeEnum.".FormatString(chore.TimeOfDayTypeEnum));
+                    throw new NotImplementedException("Nothing found for {0} in TimeOfDayTypeEnum.".FormatString(chore.TimeOfDayTypeEnum));
                 }
             }
 
@@ -95,5 +117,19 @@ namespace AmstaJanBonga.Web.Content
         }
 
         #endregion
+
+        protected void _lbPatient_Click(object sender, EventArgs e)
+        {
+            var linkButton = (LinkButton)sender;
+
+            var values = this._hfPatient.Value.Split('-');
+
+            var timeOfDay = (TimeOfDayTypeEnum)Enum.Parse(typeof(TimeOfDayTypeEnum), values[1]);
+
+            var oldChore = ChoreManager.CreateChoreEntity(values[0].ToInt(), Helper.LIVINGROOM_STIMULATE, DateTime.Now, timeOfDay);
+            var newChore = ChoreManager.CreateChoreEntity(linkButton.CommandArgument.ToInt(), Helper.LIVINGROOM_STIMULATE, DateTime.Now, timeOfDay);
+
+            ChoreManager.UpdateChore(oldChore, newChore);
+        }
     }
 }

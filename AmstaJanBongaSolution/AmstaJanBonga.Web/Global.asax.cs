@@ -134,15 +134,6 @@ namespace AmstaJanBonga.Web
             routes.Ignore("MasterPage/");
             routes.Ignore("Service Reference/");
             routes.Ignore("App_GlobalResources/");
-
-            /*
-             * The MapPageRoute asks for the following parameters: "Route name", "new url name", "physical url".
-            */
-
-            // Route for the home page, no query strings available.
-            routes.MapPageRoute("Login", "Login", "~/Content/Unsecure/Login/Login.aspx");
-
-            routes.MapPageRoute("Livingroom", "Livingroom", "~/Content/Secure/Livingroom/Livingroom.aspx");
         }
     }
 }

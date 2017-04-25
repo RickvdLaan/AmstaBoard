@@ -1,6 +1,7 @@
 ﻿using AmstaJanBonga.Business.CollectionClasses;
 using AmstaJanBonga.Business.EntityClasses;
 using AmstaJanBonga.Business.Enums;
+using Rlaan.Toolkit.Extensions;
 using System;
 using System.Collections.Generic;
 
@@ -8,6 +9,15 @@ namespace AmstaJanBonga.Business.Database.Managers
 {
     public abstract class ChoreManager
     {
+        public static void UpdateChore(ChoreEntity oldChore, ChoreEntity newChore)
+        {
+            if (oldChore == newChore)
+                return;
+
+            oldChore.Delete();
+            newChore.Save();
+        }
+
         /// <summary>
         /// Creates a ChoreEntity and returns it.
         /// </summary>

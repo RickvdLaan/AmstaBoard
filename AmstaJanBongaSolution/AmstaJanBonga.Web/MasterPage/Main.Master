@@ -18,6 +18,8 @@
         <!-- ContentPlaceHolder Head -->
         <asp:ContentPlaceHolder ID="_cphHead" runat="server">
         </asp:ContentPlaceHolder>
+
+        <link href="~/Includes/Css/Publish.css" rel="stylesheet" />
         
         <!-- All CSS addons for plugins, libraries ect. -->
         <link href="~/Includes/Css/Addons.css" rel="stylesheet" />
@@ -31,7 +33,7 @@
         <form id="form" runat="server">
             <div class="container">
                 <!-- Top bar -->
-                <asp:ScriptManager runat="server"></asp:ScriptManager>
+                <asp:ScriptManager runat="server" EnablePageMethods="true"></asp:ScriptManager>
                 <asp:UpdatePanel runat="server" UpdateMode="Conditional">
                     <Triggers>
                         <asp:AsyncPostBackTrigger ControlID="_timer" EventName="Tick" />
@@ -63,7 +65,7 @@
                 </asp:UpdatePanel>
                 
                 <!-- Update Timer -->
-                <asp:Timer runat="server" ID="_timer" Interval="600000" OnTick="_timer_Tick"></asp:Timer>
+                <asp:Timer runat="server" ID="_timer" Interval="15000" OnTick="_timer_Tick"></asp:Timer>
 
                 <!-- Content -->
                 <section runat="server" id="_sectionContent" class="content">

@@ -645,9 +645,19 @@ td.times div:first-of-type {
 }
 
 .image-chores {
+    /*border-radius: 50%;
+    margin: 4% 0;
+    width: 31%;
+    border: 0.5vw solid #009eed;*/
+    display: inline-block;
+    width: 6.5vw;
+    height: 6.5vw;
+    margin: 5px;
+    border: 3px solid #c99;
+    background-position: center center;
+    background-size: cover;
     border-radius: 50%;
-    margin: 5% 0;
-    width: 33.3333%;
+    margin: 2% 0;
     border: 0.5vw solid #009eed;
 }
 
@@ -717,6 +727,11 @@ td.times div:first-of-type {
     font-size: 1.55vw;
 }
 
+.patient-select {
+    display: block; border-radius: 50%;
+   
+}
+
 /* 
     4. Keyframes
 
@@ -730,6 +745,9 @@ td.times div:first-of-type {
 /* 
     5. Responsive 
 */
+
+
+
 
 
 @media (max-width: 1920) {

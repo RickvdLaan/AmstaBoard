@@ -70,29 +70,47 @@ namespace AmstaJanBonga.Web.MasterPage
             this._litWeather.Text = "Het weer: {0} °C".FormatString(GetTemperature());
         }
 
+        /// <summary>
+        /// Gets the temperature in Amsterdam, and generates a cookie called: "Temperature" and saves it, with an expire time of 30 mintues.
+        /// </summary>
+        /// <returns></returns>
         public string GetTemperature()
         {
-            // TODO: Create cookie to store the temperature with the datetime of its creation.
-            // Check whether a cookie exist, if so parse the date time and see if it's older than 30 minutes.
-            // If it's older than 30 minutes, get the data against and store this in the cookie and return the value.
-            // If the data is NOT older than 30 minutes, parse the data out the cookie and return it.
-
             var temperature = string.Empty;
 
-            var locationId = 2759794;
-            var apiId = "84f3dec579b93e63775499eecfa68338";
-            var apiCall = @"http://api.openweathermap.org/data/2.5/weather?id={0}&units=metric&mode=xml&APPID={1}".FormatString(locationId, apiId);
-
-            using (var client = new WebClient())
+            // Checking whether the cookie exists, if not, gets the temperature and saves the cookie with its value.
+            if (Request.Cookies["Temperature"] == null)
             {
-                var xdoc = XDocument.Parse(client.DownloadString(apiCall));
+                var locationId = 2759794;
+                var apiId = "84f3dec579b93e63775499eecfa68338";
+                var apiCall = @"http://api.openweathermap.org/data/2.5/weather?id={0}&units=metric&mode=xml&APPID={1}".FormatString(locationId, apiId);
 
-                temperature = Math.Round(
-                                Convert.ToDecimal(
-                                    (from doc in xdoc.Descendants("temperature") select (string)doc.Attribute("value")).ToList()[0]
-                                        .Replace('.', ',')), 1)
-                                            .ToString()
-                                                .Replace(',', '.');
+                //@Fixme: Turn on when deploying to live.
+                //if (Project.Environment.IsLiveEnvironment)
+                //{
+                    using (var client = new WebClient())
+                    {
+                        var xdoc = XDocument.Parse(client.DownloadString(apiCall));
+
+                        temperature = Math.Round(
+                                        Convert.ToDecimal(
+                                            (from doc in xdoc.Descendants("temperature") select (string)doc.Attribute("value")).ToList()[0]
+                                                .Replace('.', ',')), 1)
+                                                    .ToString()
+                                                        .Replace(',', '.');
+                    }
+                //}
+
+                // Creates a cookie which has an expire time of 60 minutes.
+                var cookie = new HttpCookie("Temperature");
+                cookie.Value = temperature;
+                cookie.Expires = DateTime.Now.AddMinutes(60);
+                Response.Cookies.Add(cookie);
+            }
+            // Cookie exists, getting the value and returning it.
+            else
+            {
+                temperature = Request.Cookies["Temperature"].Value;
             }
 
             return temperature;
