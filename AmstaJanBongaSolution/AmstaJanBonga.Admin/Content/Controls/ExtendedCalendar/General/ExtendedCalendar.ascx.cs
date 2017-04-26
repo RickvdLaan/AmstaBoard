@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Web.UI;
 
-namespace AmstaJanBonga.Admin.Content.Controls.ExtendedCalendar
+namespace AmstaJanBonga.Admin.Content.Controls.ExtendedCalendar.General
 {
     [ValidationProperty("Text")]
     public partial class ExtendedCalendar : System.Web.UI.UserControl
@@ -57,7 +57,7 @@ namespace AmstaJanBonga.Admin.Content.Controls.ExtendedCalendar
             {
                 // The QueryStringParser validation check should already be done on the page this is used
                 // to catch any possible exceptions. So we're assuming everything is right.
-                this.Dates = LivingroomChoreEventReader.GetAllUsedDatesByLivingroomId(Url.QueryStringParser.GetInt("LivingroomId"));
+                this.Dates = LivingroomGeneralEventReader.GetAllUsedDatesByLivingroomId(Url.QueryStringParser.GetInt("LivingroomId"));
             }
 
             if (e.Day.IsOtherMonth)

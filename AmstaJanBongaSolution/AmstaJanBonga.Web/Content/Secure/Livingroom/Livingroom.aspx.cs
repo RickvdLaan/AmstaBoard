@@ -80,7 +80,7 @@ namespace AmstaJanBonga.Web.Content
 
         private void DatabindChores()
         {
-            var chores = ChoreReader.GetAllChoresFilteredByLivingroomAndDate(Helper.LIVINGROOM_STIMULATE, DateTime.Now);
+            var chores = LivingroomChoreEventReader.GetAllChoresFilteredByLivingroomAndDate(Helper.LIVINGROOM_STIMULATE, DateTime.Now);
 
             var morning = new LivingroomChoreEventCollection();
             var afternoon = new LivingroomChoreEventCollection();
@@ -126,8 +126,8 @@ namespace AmstaJanBonga.Web.Content
 
             var timeOfDay = (TimeOfDayTypeEnum)Enum.Parse(typeof(TimeOfDayTypeEnum), values[1]);
 
-            var oldChore = ChoreReader.GetChoreByIds(values[0].ToInt(), Helper.LIVINGROOM_STIMULATE, DateTime.Now, timeOfDay, true);
-            var newChore = ChoreReader.GetChoreByIds(linkButton.CommandArgument.ToInt(), Helper.LIVINGROOM_STIMULATE, DateTime.Now, timeOfDay, false);
+            var oldChore = LivingroomChoreEventReader.GetChoreByIds(values[0].ToInt(), Helper.LIVINGROOM_STIMULATE, DateTime.Now, timeOfDay, true);
+            var newChore = LivingroomChoreEventReader.GetChoreByIds(linkButton.CommandArgument.ToInt(), Helper.LIVINGROOM_STIMULATE, DateTime.Now, timeOfDay, false);
 
             LivingroomChoreEventManager.UpdateChore(oldChore, newChore);
 

@@ -72,7 +72,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
                 if (this._chores == null && this.HasLivingroomId && this.HasDate)
                 {
                     // Gets all chores for a specific livingroom and date.
-                    this._chores = ChoreReader.GetAllChoresFilteredByLivingroomAndDate(this.Livingroom.Id, this.QueryStringDate.Date);
+                    this._chores = LivingroomChoreEventReader.GetAllChoresFilteredByLivingroomAndDate(this.Livingroom.Id, this.QueryStringDate.Date);
                 }
 
                 return this._chores;

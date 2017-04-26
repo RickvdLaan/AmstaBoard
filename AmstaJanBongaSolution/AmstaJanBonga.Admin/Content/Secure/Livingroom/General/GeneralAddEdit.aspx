@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Main.Master" AutoEventWireup="true" CodeBehind="GeneralAddEdit.aspx.cs" Inherits="AmstaJanBonga.Admin.Content.Secure.Livingroom.General.GeneralAddEdit" %>
 
 <%@ Import namespace="Rlaan.Toolkit.Extensions" %>
-<%@ Register Src="~/Content/Controls/ExtendedCalendar/ExtendedCalendar.ascx" TagPrefix="CustomControl" TagName="ExtendedCalendar" %>
+<%@ Register Src="~/Content/Controls/ExtendedCalendar/General/ExtendedCalendar.ascx" TagPrefix="CustomControl" TagName="ExtendedCalendar" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="_cphHead" runat="server">
 </asp:Content>
@@ -43,7 +43,7 @@
 
                 <tr>
                     <td class="label">
-                        General
+                        Herhalend
                     </td>
                     <td colspan="2">
                         <asp:TextBox runat="server" ID="_txtGeneral" TextMode="MultiLine"></asp:TextBox>
@@ -52,7 +52,7 @@
 
                 <tr>
                     <td class="label required">
-                        General Information
+                        Toevoeging
                     </td>
                     <td colspan="2">
                         <asp:TextBox runat="server" ID="_txtGeneralInformation" TextMode="MultiLine"></asp:TextBox>

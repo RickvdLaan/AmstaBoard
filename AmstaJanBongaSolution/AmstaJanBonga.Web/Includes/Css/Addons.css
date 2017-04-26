@@ -89,10 +89,10 @@ div.remodal table tbody tr td:last-child {
 }
 
 .remodal {
-    max-width: 45%;
-    min-height: 30%;
-    text-align: left;
     margin-bottom: 0;
+    max-width: 100%;
+    text-align: left;
+    width: auto;
 }
 
 .remodal h1,

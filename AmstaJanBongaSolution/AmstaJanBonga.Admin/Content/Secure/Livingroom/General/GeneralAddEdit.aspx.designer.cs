@@ -28,7 +28,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AmstaJanBonga.Admin.Content.Controls.ExtendedCalendar.ExtendedCalendar ExtendedCalendar;
+        protected global::AmstaJanBonga.Admin.Content.Controls.ExtendedCalendar.General.ExtendedCalendar ExtendedCalendar;
         
         /// <summary>
         /// _txtDate control.

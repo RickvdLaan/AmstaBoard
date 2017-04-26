@@ -11,7 +11,7 @@ using System.Data;
 
 namespace AmstaJanBonga.Business.Database.Readers
 {
-    public abstract class ChoreReader
+    public abstract class LivingroomChoreEventReader
     {
         public static LivingroomChoreEventEntity GetChoreByIds(int patientId, int livingroomId, DateTime date, TimeOfDayTypeEnum timeOfDay, bool throwExceptionWhenNotFound)
         {

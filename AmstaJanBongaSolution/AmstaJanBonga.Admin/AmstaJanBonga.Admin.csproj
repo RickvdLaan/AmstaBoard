@@ -116,7 +116,9 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Controls\ExtendedCalendar\ExtendedCalendar.ascx" />
+    <Content Include="Content\Controls\ExtendedCalendar\Chores\ExtendedCalendar.ascx" />
+    <Content Include="Content\Controls\ExtendedCalendar\General\ExtendedCalendar.ascx" />
+    <Content Include="Content\Controls\ExtendedCalendar\Shifts\ExtendedCalendar.ascx" />
     <Content Include="Content\Controls\JsListBox\JsListBox.ascx" />
     <Content Include="Content\Secure\Dashboard.aspx" />
     <Content Include="Content\Secure\Livingroom\Chores\ChoresAddEdit.aspx" />
@@ -225,11 +227,25 @@
     <Compile Include="Code\Utilities\SecurePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Content\Controls\ExtendedCalendar\ExtendedCalendar.ascx.cs">
+    <Compile Include="Content\Controls\ExtendedCalendar\Chores\ExtendedCalendar.ascx.cs">
       <DependentUpon>ExtendedCalendar.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Content\Controls\ExtendedCalendar\ExtendedCalendar.ascx.designer.cs">
+    <Compile Include="Content\Controls\ExtendedCalendar\Chores\ExtendedCalendar.ascx.designer.cs">
+      <DependentUpon>ExtendedCalendar.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Content\Controls\ExtendedCalendar\General\ExtendedCalendar.ascx.cs">
+      <DependentUpon>ExtendedCalendar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\Controls\ExtendedCalendar\General\ExtendedCalendar.ascx.designer.cs">
+      <DependentUpon>ExtendedCalendar.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Content\Controls\ExtendedCalendar\Shifts\ExtendedCalendar.ascx.cs">
+      <DependentUpon>ExtendedCalendar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\Controls\ExtendedCalendar\Shifts\ExtendedCalendar.ascx.designer.cs">
       <DependentUpon>ExtendedCalendar.ascx</DependentUpon>
     </Compile>
     <Compile Include="Content\Controls\JsListBox\JsListBox.ascx.cs">

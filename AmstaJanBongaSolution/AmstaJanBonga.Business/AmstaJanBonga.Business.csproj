@@ -65,11 +65,14 @@
     <Compile Include="_Extensions\Database\EntityClasses\LivingroomEntity.cs" />
     <Compile Include="_Extensions\Database\EntityClasses\PatientEntity.cs" />
     <Compile Include="_Extensions\Database\EntityClasses\UserEntity.cs" />
-    <Compile Include="_Extensions\Database\Managers\ChoreManager.cs" />
+    <Compile Include="_Extensions\Database\Managers\LivingroomChoreEventManager.cs" />
+    <Compile Include="_Extensions\Database\Managers\LivingroomGeneralEventReader.cs" />
+    <Compile Include="_Extensions\Database\Managers\LivingroomGeneralReader.cs" />
     <Compile Include="_Extensions\Database\Managers\PatientManager.cs" />
     <Compile Include="_Extensions\Database\Managers\UserManager.cs" />
-    <Compile Include="_Extensions\Database\Readers\ChoreReader.cs" />
+    <Compile Include="_Extensions\Database\Readers\LivingroomChoreEventReader.cs" />
     <Compile Include="_Extensions\Database\Readers\EmployeeReader.cs" />
+    <Compile Include="_Extensions\Database\Readers\LivingroomGeneralEventReader.cs" />
     <Compile Include="_Extensions\Database\Readers\LivingroomReader.cs" />
     <Compile Include="_Extensions\Database\Readers\PatientReader.cs" />
     <Compile Include="_Extensions\Database\Readers\UserReader.cs" />

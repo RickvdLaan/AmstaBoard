@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ExtendedCalendar.ascx.cs" Inherits="AmstaJanBonga.Admin.Content.Controls.ExtendedCalendar.ExtendedCalendar" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ExtendedCalendar.ascx.cs" Inherits="AmstaJanBonga.Admin.Content.Controls.ExtendedCalendar.Chores.ExtendedCalendar" %>
 
 <asp:UpdatePanel runat="server" UpdateMode="Conditional">
     <ContentTemplate>

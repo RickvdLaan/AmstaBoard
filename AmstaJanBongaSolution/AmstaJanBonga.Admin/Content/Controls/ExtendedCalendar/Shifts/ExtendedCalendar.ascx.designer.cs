@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AmstaJanBonga.Admin.Content.Controls.ExtendedCalendar {
+namespace AmstaJanBonga.Admin.Content.Controls.ExtendedCalendar.Shifts {
     
     
     public partial class ExtendedCalendar {

@@ -2,7 +2,7 @@
 
 <%@ Import namespace="Rlaan.Toolkit.Extensions" %>
 <%@ Register Src="~/Content/Controls/JsListBox/JsListBox.ascx" TagPrefix="CustomControl" TagName="JsListBox" %>
-<%@ Register Src="~/Content/Controls/ExtendedCalendar/ExtendedCalendar.ascx" TagPrefix="CustomControl" TagName="ExtendedCalendar" %>
+<%@ Register Src="~/Content/Controls/ExtendedCalendar/Chores/ExtendedCalendar.ascx" TagPrefix="CustomControl" TagName="ExtendedCalendar" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="_cphHead" runat="server">
