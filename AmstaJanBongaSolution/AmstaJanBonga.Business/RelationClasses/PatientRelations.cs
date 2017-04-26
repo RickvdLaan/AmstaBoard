@@ -30,24 +30,24 @@ namespace AmstaJanBonga.Business.RelationClasses
 		public virtual List<IEntityRelation> GetAllRelations()
 		{
 			List<IEntityRelation> toReturn = new List<IEntityRelation>();
-			toReturn.Add(this.ChoreEntityUsingPatientId);
+			toReturn.Add(this.LivingroomChoreEventEntityUsingPatientId);
 			toReturn.Add(this.LivingroomEntityUsingLivingroomId);
 			return toReturn;
 		}
 
 		#region Class Property Declarations
 
-		/// <summary>Returns a new IEntityRelation object, between PatientEntity and ChoreEntity over the 1:n relation they have, using the relation between the fields:
-		/// Patient.Id - Chore.PatientId
+		/// <summary>Returns a new IEntityRelation object, between PatientEntity and LivingroomChoreEventEntity over the 1:n relation they have, using the relation between the fields:
+		/// Patient.Id - LivingroomChoreEvent.PatientId
 		/// </summary>
-		public virtual IEntityRelation ChoreEntityUsingPatientId
+		public virtual IEntityRelation LivingroomChoreEventEntityUsingPatientId
 		{
 			get
 			{
-				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany, "Chores" , true);
-				relation.AddEntityFieldPair(PatientFields.Id, ChoreFields.PatientId);
+				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany, "LivingroomChoreEvents" , true);
+				relation.AddEntityFieldPair(PatientFields.Id, LivingroomChoreEventFields.PatientId);
 				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("PatientEntity", true);
-				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("ChoreEntity", false);
+				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("LivingroomChoreEventEntity", false);
 				return relation;
 			}
 		}
@@ -81,7 +81,7 @@ namespace AmstaJanBonga.Business.RelationClasses
 	/// <summary>Static class which is used for providing relationship instances which are re-used internally for syncing</summary>
 	internal static class StaticPatientRelations
 	{
-		internal static readonly IEntityRelation ChoreEntityUsingPatientIdStatic = new PatientRelations().ChoreEntityUsingPatientId;
+		internal static readonly IEntityRelation LivingroomChoreEventEntityUsingPatientIdStatic = new PatientRelations().LivingroomChoreEventEntityUsingPatientId;
 		internal static readonly IEntityRelation LivingroomEntityUsingLivingroomIdStatic = new PatientRelations().LivingroomEntityUsingLivingroomId;
 
 		/// <summary>CTor</summary>

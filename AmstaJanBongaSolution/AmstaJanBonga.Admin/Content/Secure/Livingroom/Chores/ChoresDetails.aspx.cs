@@ -16,7 +16,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
 
         private LivingroomEntity _livingroom = null;
 
-        private ChoreCollection _chores = null;
+        private LivingroomChoreEventCollection _chores = null;
 
         #endregion
 
@@ -54,12 +54,12 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
             }
         }
 
-        private ChoreCollection Chores
+        private LivingroomChoreEventCollection Chores
         {
             get
             {
                 if (this._chores == null)
-                    this._chores = ChoreReader.GetAllChoresFilteredByLivingroomAndDate(this.Livingroom.Id, this.QueryStringDate.Date);
+                    this._chores = LivingroomChoreEventReader.GetAllChoresFilteredByLivingroomAndDate(this.Livingroom.Id, this.QueryStringDate.Date);
 
                 return this._chores;
             }

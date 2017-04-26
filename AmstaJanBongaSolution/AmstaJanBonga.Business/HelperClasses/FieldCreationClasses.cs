@@ -14,46 +14,6 @@ using AmstaJanBonga.Business;
 
 namespace AmstaJanBonga.Business.HelperClasses
 {
-	/// <summary>Field Creation Class for entity ChoreEntity</summary>
-	public partial class ChoreFields
-	{
-		/// <summary>Creates a new ChoreEntity.Date field instance</summary>
-		public static EntityField Date
-		{
-			get { return (EntityField)EntityFieldFactory.Create(ChoreFieldIndex.Date);}
-		}
-		/// <summary>Creates a new ChoreEntity.DateCreated field instance</summary>
-		public static EntityField DateCreated
-		{
-			get { return (EntityField)EntityFieldFactory.Create(ChoreFieldIndex.DateCreated);}
-		}
-		/// <summary>Creates a new ChoreEntity.DateLastModified field instance</summary>
-		public static EntityField DateLastModified
-		{
-			get { return (EntityField)EntityFieldFactory.Create(ChoreFieldIndex.DateLastModified);}
-		}
-		/// <summary>Creates a new ChoreEntity.DateLastModifiedByUserId field instance</summary>
-		public static EntityField DateLastModifiedByUserId
-		{
-			get { return (EntityField)EntityFieldFactory.Create(ChoreFieldIndex.DateLastModifiedByUserId);}
-		}
-		/// <summary>Creates a new ChoreEntity.LivingroomId field instance</summary>
-		public static EntityField LivingroomId
-		{
-			get { return (EntityField)EntityFieldFactory.Create(ChoreFieldIndex.LivingroomId);}
-		}
-		/// <summary>Creates a new ChoreEntity.PatientId field instance</summary>
-		public static EntityField PatientId
-		{
-			get { return (EntityField)EntityFieldFactory.Create(ChoreFieldIndex.PatientId);}
-		}
-		/// <summary>Creates a new ChoreEntity.TimeOfDayTypeEnum field instance</summary>
-		public static EntityField TimeOfDayTypeEnum
-		{
-			get { return (EntityField)EntityFieldFactory.Create(ChoreFieldIndex.TimeOfDayTypeEnum);}
-		}
-	}
-
 	/// <summary>Field Creation Class for entity EmployeeEntity</summary>
 	public partial class EmployeeFields
 	{
@@ -171,6 +131,111 @@ namespace AmstaJanBonga.Business.HelperClasses
 		public static EntityField Name
 		{
 			get { return (EntityField)EntityFieldFactory.Create(LivingroomFieldIndex.Name);}
+		}
+	}
+
+	/// <summary>Field Creation Class for entity LivingroomChoreEventEntity</summary>
+	public partial class LivingroomChoreEventFields
+	{
+		/// <summary>Creates a new LivingroomChoreEventEntity.Date field instance</summary>
+		public static EntityField Date
+		{
+			get { return (EntityField)EntityFieldFactory.Create(LivingroomChoreEventFieldIndex.Date);}
+		}
+		/// <summary>Creates a new LivingroomChoreEventEntity.DateCreated field instance</summary>
+		public static EntityField DateCreated
+		{
+			get { return (EntityField)EntityFieldFactory.Create(LivingroomChoreEventFieldIndex.DateCreated);}
+		}
+		/// <summary>Creates a new LivingroomChoreEventEntity.DateLastModified field instance</summary>
+		public static EntityField DateLastModified
+		{
+			get { return (EntityField)EntityFieldFactory.Create(LivingroomChoreEventFieldIndex.DateLastModified);}
+		}
+		/// <summary>Creates a new LivingroomChoreEventEntity.DateLastModifiedByUserId field instance</summary>
+		public static EntityField DateLastModifiedByUserId
+		{
+			get { return (EntityField)EntityFieldFactory.Create(LivingroomChoreEventFieldIndex.DateLastModifiedByUserId);}
+		}
+		/// <summary>Creates a new LivingroomChoreEventEntity.LivingroomId field instance</summary>
+		public static EntityField LivingroomId
+		{
+			get { return (EntityField)EntityFieldFactory.Create(LivingroomChoreEventFieldIndex.LivingroomId);}
+		}
+		/// <summary>Creates a new LivingroomChoreEventEntity.PatientId field instance</summary>
+		public static EntityField PatientId
+		{
+			get { return (EntityField)EntityFieldFactory.Create(LivingroomChoreEventFieldIndex.PatientId);}
+		}
+		/// <summary>Creates a new LivingroomChoreEventEntity.TimeOfDayTypeEnum field instance</summary>
+		public static EntityField TimeOfDayTypeEnum
+		{
+			get { return (EntityField)EntityFieldFactory.Create(LivingroomChoreEventFieldIndex.TimeOfDayTypeEnum);}
+		}
+	}
+
+	/// <summary>Field Creation Class for entity LivingroomGeneralEntity</summary>
+	public partial class LivingroomGeneralFields
+	{
+		/// <summary>Creates a new LivingroomGeneralEntity.DateCreated field instance</summary>
+		public static EntityField DateCreated
+		{
+			get { return (EntityField)EntityFieldFactory.Create(LivingroomGeneralFieldIndex.DateCreated);}
+		}
+		/// <summary>Creates a new LivingroomGeneralEntity.DateLastModified field instance</summary>
+		public static EntityField DateLastModified
+		{
+			get { return (EntityField)EntityFieldFactory.Create(LivingroomGeneralFieldIndex.DateLastModified);}
+		}
+		/// <summary>Creates a new LivingroomGeneralEntity.DateLastModifiedByUserId field instance</summary>
+		public static EntityField DateLastModifiedByUserId
+		{
+			get { return (EntityField)EntityFieldFactory.Create(LivingroomGeneralFieldIndex.DateLastModifiedByUserId);}
+		}
+		/// <summary>Creates a new LivingroomGeneralEntity.Description field instance</summary>
+		public static EntityField Description
+		{
+			get { return (EntityField)EntityFieldFactory.Create(LivingroomGeneralFieldIndex.Description);}
+		}
+		/// <summary>Creates a new LivingroomGeneralEntity.LivingroomId field instance</summary>
+		public static EntityField LivingroomId
+		{
+			get { return (EntityField)EntityFieldFactory.Create(LivingroomGeneralFieldIndex.LivingroomId);}
+		}
+	}
+
+	/// <summary>Field Creation Class for entity LivingroomGeneralEventEntity</summary>
+	public partial class LivingroomGeneralEventFields
+	{
+		/// <summary>Creates a new LivingroomGeneralEventEntity.Date field instance</summary>
+		public static EntityField Date
+		{
+			get { return (EntityField)EntityFieldFactory.Create(LivingroomGeneralEventFieldIndex.Date);}
+		}
+		/// <summary>Creates a new LivingroomGeneralEventEntity.DateCreated field instance</summary>
+		public static EntityField DateCreated
+		{
+			get { return (EntityField)EntityFieldFactory.Create(LivingroomGeneralEventFieldIndex.DateCreated);}
+		}
+		/// <summary>Creates a new LivingroomGeneralEventEntity.DateLastModified field instance</summary>
+		public static EntityField DateLastModified
+		{
+			get { return (EntityField)EntityFieldFactory.Create(LivingroomGeneralEventFieldIndex.DateLastModified);}
+		}
+		/// <summary>Creates a new LivingroomGeneralEventEntity.DateLastModifiedByUserId field instance</summary>
+		public static EntityField DateLastModifiedByUserId
+		{
+			get { return (EntityField)EntityFieldFactory.Create(LivingroomGeneralEventFieldIndex.DateLastModifiedByUserId);}
+		}
+		/// <summary>Creates a new LivingroomGeneralEventEntity.Description field instance</summary>
+		public static EntityField Description
+		{
+			get { return (EntityField)EntityFieldFactory.Create(LivingroomGeneralEventFieldIndex.Description);}
+		}
+		/// <summary>Creates a new LivingroomGeneralEventEntity.LivingroomId field instance</summary>
+		public static EntityField LivingroomId
+		{
+			get { return (EntityField)EntityFieldFactory.Create(LivingroomGeneralEventFieldIndex.LivingroomId);}
 		}
 	}
 

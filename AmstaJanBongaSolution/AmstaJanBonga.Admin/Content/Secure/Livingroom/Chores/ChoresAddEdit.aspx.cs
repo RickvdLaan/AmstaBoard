@@ -17,7 +17,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
 
         private LivingroomEntity _livingroom = null;
 
-        private ChoreCollection _chores = null;
+        private LivingroomChoreEventCollection _chores = null;
 
         private DateTime _date = DateTime.MinValue;
 
@@ -65,7 +65,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
             }
         }
 
-        private ChoreCollection Chores
+        private LivingroomChoreEventCollection Chores
         {
             get
             {
@@ -149,7 +149,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
             }
         }
 
-        private void PreFillListBox(ChoreCollection chores, PatientCollection patients, JsListBox listBox, TimeOfDayTypeEnum timeOfDayType)
+        private void PreFillListBox(LivingroomChoreEventCollection chores, PatientCollection patients, JsListBox listBox, TimeOfDayTypeEnum timeOfDayType)
         {
             // The chore source and destination data.
             var choreSourceData = new PatientCollection();
@@ -195,32 +195,32 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
                 if (this.HasDate)
                 {
                     // Updates multiple chores at once.
-                    ChoreManager.UpdateMulti(this.Chores, this.GetSelectedPatients());
+                    LivingroomChoreEventManager.UpdateMulti(this.Chores, this.GetSelectedPatients());
                 }
                 // Add
                 else
                 {
                     // Inserts multiple chores at once.
-                    ChoreManager.InsertMulti(this.GetSelectedPatients());
+                    LivingroomChoreEventManager.InsertMulti(this.GetSelectedPatients());
                 }
             }
         }
 
-        private List<ChoreEntity> GetSelectedPatients()
+        private List<LivingroomChoreEventEntity> GetSelectedPatients()
         {
-            var chores = new List<ChoreEntity>();
+            var chores = new List<LivingroomChoreEventEntity>();
 
             // Morning
             for (int i = 0; i < _jlbMorning.ListBoxDestination.Items.Count; i++)
-                chores.Add(ChoreManager.CreateChoreEntity(this._jlbMorning.ListBoxDestination.Items[i].Value.ToInt(), Livingroom.Id, this.ExtendedCalendar.SelectedDate, TimeOfDayTypeEnum.Morning));
+                chores.Add(LivingroomChoreEventManager.CreateLivingroomChoreEventEntity(this._jlbMorning.ListBoxDestination.Items[i].Value.ToInt(), Livingroom.Id, this.ExtendedCalendar.SelectedDate, TimeOfDayTypeEnum.Morning));
 
             // Afternoon
             for (int i = 0; i < _jlbAfternoon.ListBoxDestination.Items.Count; i++)
-                chores.Add(ChoreManager.CreateChoreEntity(this._jlbAfternoon.ListBoxDestination.Items[i].Value.ToInt(), Livingroom.Id, this.ExtendedCalendar.SelectedDate, TimeOfDayTypeEnum.Afternoon));
+                chores.Add(LivingroomChoreEventManager.CreateLivingroomChoreEventEntity(this._jlbAfternoon.ListBoxDestination.Items[i].Value.ToInt(), Livingroom.Id, this.ExtendedCalendar.SelectedDate, TimeOfDayTypeEnum.Afternoon));
 
             // Evening
             for (int i = 0; i < _jlbEvening.ListBoxDestination.Items.Count; i++)
-                chores.Add(ChoreManager.CreateChoreEntity(this._jlbEvening.ListBoxDestination.Items[i].Value.ToInt(), Livingroom.Id, this.ExtendedCalendar.SelectedDate, TimeOfDayTypeEnum.Evening));
+                chores.Add(LivingroomChoreEventManager.CreateLivingroomChoreEventEntity(this._jlbEvening.ListBoxDestination.Items[i].Value.ToInt(), Livingroom.Id, this.ExtendedCalendar.SelectedDate, TimeOfDayTypeEnum.Evening));
 
             return chores;
         }

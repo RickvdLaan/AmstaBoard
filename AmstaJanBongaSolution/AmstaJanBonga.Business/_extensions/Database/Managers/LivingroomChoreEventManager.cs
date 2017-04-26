@@ -1,34 +1,42 @@
 ﻿using AmstaJanBonga.Business.CollectionClasses;
 using AmstaJanBonga.Business.EntityClasses;
 using AmstaJanBonga.Business.Enums;
-using Rlaan.Toolkit.Extensions;
 using System;
 using System.Collections.Generic;
 
 namespace AmstaJanBonga.Business.Database.Managers
 {
-    public abstract class ChoreManager
+    public abstract class LivingroomChoreEventManager
     {
-        public static void UpdateChore(ChoreEntity oldChore, ChoreEntity newChore)
+        public static void UpdateChore(LivingroomChoreEventEntity oldChore, LivingroomChoreEventEntity newChore)
         {
-            if (oldChore == newChore)
+            if (oldChore == newChore || !newChore.IsNew)
                 return;
 
+            var chore = new LivingroomChoreEventEntity()
+            {
+                PatientId = newChore.PatientId,
+                LivingroomId = newChore.LivingroomId,
+                Date = newChore.Date,
+                TimeOfDayTypeEnum = newChore.TimeOfDayTypeEnum,
+                DateCreated = DateTime.Now
+            }.Save();
+
             oldChore.Delete();
-            newChore.Save();
+
         }
 
         /// <summary>
-        /// Creates a ChoreEntity and returns it.
+        /// Creates a LivingroomChoreEventEntity and returns it.
         /// </summary>
         /// <param name="patientId"></param>
         /// <param name="livingroomId"></param>
         /// <param name="date"></param>
         /// <param name="timeOfDay"></param>
         /// <returns></returns>
-        public static ChoreEntity CreateChoreEntity(int patientId, int livingroomId, DateTime date, TimeOfDayTypeEnum timeOfDay)
+        public static LivingroomChoreEventEntity CreateLivingroomChoreEventEntity(int patientId, int livingroomId, DateTime date, TimeOfDayTypeEnum timeOfDay)
         {
-            var chore = new ChoreEntity()
+            var chore = new LivingroomChoreEventEntity()
             {
                 PatientId = patientId,
                 LivingroomId = livingroomId,
@@ -44,34 +52,34 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// Inserts multiple 
         /// </summary>
         /// <param name="chore"></param>
-        public static void InsertMulti(List<ChoreEntity> chores)
+        public static void InsertMulti(List<LivingroomChoreEventEntity> chores)
         {
-            var choreCollection = new ChoreCollection();
-            choreCollection.AddRange(chores);
+            var LivingroomChoreEventCollection = new LivingroomChoreEventCollection();
+            LivingroomChoreEventCollection.AddRange(chores);
 
-            choreCollection.SaveMulti();
+            LivingroomChoreEventCollection.SaveMulti();
         }
 
         /// <summary>
         /// Inserts multiple 
         /// </summary>
         /// <param name="chore"></param>
-        public static void InsertMulti(params ChoreEntity[] chore)
+        public static void InsertMulti(params LivingroomChoreEventEntity[] chore)
         {
-            var choreCollection = new ChoreCollection();
-            choreCollection.AddRange(chore);
+            var LivingroomChoreEventCollection = new LivingroomChoreEventCollection();
+            LivingroomChoreEventCollection.AddRange(chore);
 
-            choreCollection.SaveMulti();
+            LivingroomChoreEventCollection.SaveMulti();
         }
 
-        public static void UpdateMulti(ChoreCollection originalCollection, List<ChoreEntity> chores)
+        public static void UpdateMulti(LivingroomChoreEventCollection originalCollection, List<LivingroomChoreEventEntity> chores)
         {
             // The new chore collection, could be identical to the existing originalCollection,
             // but could also be completely different.
-            var newCollection = new ChoreCollection();
+            var newCollection = new LivingroomChoreEventCollection();
             newCollection.AddRange(chores);
 
-            var choresToDelete = new ChoreCollection();
+            var choresToDelete = new LivingroomChoreEventCollection();
 
             foreach (var chore in originalCollection)
             {
@@ -95,15 +103,6 @@ namespace AmstaJanBonga.Business.Database.Managers
             {
                 chore.Delete();
             }
-
-            // @Fix-me: Temp code, needs to be done properly!
-            //originalCollection.DeleteMulti();
-            //newCollection.SaveMulti();
-        }
-
-        public static void UpdateMulti(params ChoreEntity[] chore)
-        {
-            throw new NotImplementedException();
         }
     }
 }

@@ -57,7 +57,7 @@ namespace AmstaJanBonga.Admin.Content.Controls.ExtendedCalendar
             {
                 // The QueryStringParser validation check should already be done on the page this is used
                 // to catch any possible exceptions. So we're assuming everything is right.
-                this.Dates = ChoreReader.GetAllUsedDatesByLivingroomId(Url.QueryStringParser.GetInt("LivingroomId"));
+                this.Dates = LivingroomChoreEventReader.GetAllUsedDatesByLivingroomId(Url.QueryStringParser.GetInt("LivingroomId"));
             }
 
             if (e.Day.IsOtherMonth)

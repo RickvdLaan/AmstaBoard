@@ -130,6 +130,17 @@
   <EntityModel>
     <ValueTypeDefinitions />
     <EntityDefinitions>
+      <EntityDefinition Name="Chore" GroupName="Vanderlaan" ObjectID="7e9edd3b-57bb-494e-9422-28fd506dea2a">
+        <Fields>
+          <Field Name="Date" Type="datetime" IsPrimaryKey="true" />
+          <Field Name="DateCreated" Type="datetime" />
+          <Field Name="DateLastModified" Type="datetime" IsOptional="true" />
+          <Field Name="DateLastModifiedByUserId" Type="int" IsOptional="true" Precision="10" />
+          <Field Name="LivingroomId" Type="int" Precision="10" IsPrimaryKey="true" />
+          <Field Name="PatientId" Type="int" Precision="10" IsPrimaryKey="true" />
+          <Field Name="TimeOfDayTypeEnum" Type="byte" Precision="3" IsPrimaryKey="true" />
+        </Fields>
+      </EntityDefinition>
       <EntityDefinition Name="Employee" GroupName="Vanderlaan" ObjectID="9344a4b8-d832-492e-be36-7fc62563df41">
         <Fields>
           <Field Name="DateCreated" Type="datetime" />
@@ -150,6 +161,31 @@
           <Field Name="LivingroomId" Type="int" Precision="10" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
+      <EntityDefinition Name="General" GroupName="Vanderlaan" ObjectID="86a4059e-8453-4933-a5cc-70fe19a64719">
+        <Fields>
+          <Field Name="DateCreated" Type="datetime" />
+          <Field Name="DateDeleted" Type="datetime" IsOptional="true" />
+          <Field Name="DateLastModified" Type="datetime" IsOptional="true" />
+          <Field Name="DateLastModifiedByUserId" Type="int" IsOptional="true" Precision="10" />
+          <Field Name="Description" Type="string" IsOptional="true" MaxLength="50" />
+          <Field Name="IsActive" Type="bool" />
+          <Field Name="IsMarkedAsDeleted" Type="bool" />
+          <Field Name="LivingroomId" Type="int" Precision="10" IsPrimaryKey="true" />
+        </Fields>
+      </EntityDefinition>
+      <EntityDefinition Name="GeneralInformation" GroupName="Vanderlaan" ObjectID="8dc362dc-3a76-499f-9ea1-a790a14331ac">
+        <Fields>
+          <Field Name="Date" Type="datetime" IsPrimaryKey="true" />
+          <Field Name="DateCreated" Type="datetime" />
+          <Field Name="DateDeleted" Type="datetime" IsOptional="true" />
+          <Field Name="DateLastModified" Type="datetime" IsOptional="true" />
+          <Field Name="DateLastModifiedByUserId" Type="int" IsOptional="true" Precision="10" />
+          <Field Name="Description" Type="string" MaxLength="250" />
+          <Field Name="IsActive" Type="bool" />
+          <Field Name="IsMarkedAsDeleted" Type="bool" />
+          <Field Name="LivingroomId" Type="int" Precision="10" IsPrimaryKey="true" />
+        </Fields>
+      </EntityDefinition>
       <EntityDefinition Name="Livingroom" GroupName="Vanderlaan" ObjectID="20c8a841-ea25-48d7-b0ef-52c5e93f7d62">
         <Fields>
           <Field Name="ColourTypeEnum" Type="byte" Precision="3" />
@@ -161,36 +197,6 @@
           <Field Name="IsActive" Type="bool" />
           <Field Name="IsMarkedAsDeleted" Type="bool" />
           <Field Name="Name" Type="string" MaxLength="50" />
-        </Fields>
-      </EntityDefinition>
-      <EntityDefinition Name="LivingroomChoreEvent" GroupName="Vanderlaan" ObjectID="04cea51f-6e94-41dd-858c-a3285b6ba142">
-        <Fields>
-          <Field Name="Date" Type="datetime" IsPrimaryKey="true" />
-          <Field Name="DateCreated" Type="datetime" />
-          <Field Name="DateLastModified" Type="datetime" IsOptional="true" />
-          <Field Name="DateLastModifiedByUserId" Type="int" IsOptional="true" Precision="10" />
-          <Field Name="LivingroomId" Type="int" Precision="10" IsPrimaryKey="true" />
-          <Field Name="PatientId" Type="int" Precision="10" IsPrimaryKey="true" />
-          <Field Name="TimeOfDayTypeEnum" Type="byte" Precision="3" IsPrimaryKey="true" />
-        </Fields>
-      </EntityDefinition>
-      <EntityDefinition Name="LivingroomGeneral" GroupName="Vanderlaan" ObjectID="61b4a33f-1dcf-426a-9862-eafb358aca30">
-        <Fields>
-          <Field Name="DateCreated" Type="datetime" />
-          <Field Name="DateLastModified" Type="datetime" IsOptional="true" />
-          <Field Name="DateLastModifiedByUserId" Type="int" IsOptional="true" Precision="10" />
-          <Field Name="Description" Type="string" IsOptional="true" MaxLength="50" />
-          <Field Name="LivingroomId" Type="int" Precision="10" IsPrimaryKey="true" />
-        </Fields>
-      </EntityDefinition>
-      <EntityDefinition Name="LivingroomGeneralEvent" GroupName="Vanderlaan" ObjectID="ec157c59-203c-437d-89a3-566a17196512">
-        <Fields>
-          <Field Name="Date" Type="datetime" IsPrimaryKey="true" />
-          <Field Name="DateCreated" Type="datetime" />
-          <Field Name="DateLastModified" Type="datetime" IsOptional="true" />
-          <Field Name="DateLastModifiedByUserId" Type="int" IsOptional="true" Precision="10" />
-          <Field Name="Description" Type="string" MaxLength="250" />
-          <Field Name="LivingroomId" Type="int" Precision="10" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
       <EntityDefinition Name="Patient" GroupName="Vanderlaan" ObjectID="9189f4ba-4365-4886-9245-059be10b9116">
@@ -235,6 +241,16 @@
       </EntityDefinition>
     </EntityDefinitions>
     <Relationships>
+      <NormalRelationship Name="Vanderlaan.Chore.Livingroom-Vanderlaan.Livingroom.Chores" Start="Vanderlaan:Chore" End="Vanderlaan:Livingroom" StartNavigator="Livingroom" EndNavigator="Chores" Type="4">
+        <FieldRelationships>
+          <FieldFieldRelationship FkField="LivingroomId" PkField="Id" />
+        </FieldRelationships>
+      </NormalRelationship>
+      <NormalRelationship Name="Vanderlaan.Chore.Patient-Vanderlaan.Patient.Chores" Start="Vanderlaan:Chore" End="Vanderlaan:Patient" StartNavigator="Patient" EndNavigator="Chores" Type="4">
+        <FieldRelationships>
+          <FieldFieldRelationship FkField="PatientId" PkField="Id" />
+        </FieldRelationships>
+      </NormalRelationship>
       <NormalRelationship Name="Vanderlaan.Employee.User-Vanderlaan.User.Employees" Start="Vanderlaan:Employee" End="Vanderlaan:User" StartNavigator="User" EndNavigator="Employees" Type="4" EndIsOptional="true">
         <FieldRelationships>
           <FieldFieldRelationship FkField="UserId" PkField="Id" />
@@ -250,22 +266,12 @@
           <FieldFieldRelationship FkField="LivingroomId" PkField="Id" />
         </FieldRelationships>
       </NormalRelationship>
-      <NormalRelationship Name="Vanderlaan.LivingroomChoreEvent.Livingroom-Vanderlaan.Livingroom.LivingroomChoreEvents" Start="Vanderlaan:LivingroomChoreEvent" End="Vanderlaan:Livingroom" StartNavigator="Livingroom" EndNavigator="LivingroomChoreEvents" Type="4">
+      <NormalRelationship Name="Vanderlaan.General.Livingroom-Vanderlaan.Livingroom.General" Start="Vanderlaan:General" End="Vanderlaan:Livingroom" StartNavigator="Livingroom" EndNavigator="General" Type="1" StartIsOptional="true">
         <FieldRelationships>
           <FieldFieldRelationship FkField="LivingroomId" PkField="Id" />
         </FieldRelationships>
       </NormalRelationship>
-      <NormalRelationship Name="Vanderlaan.LivingroomChoreEvent.Patient-Vanderlaan.Patient.LivingroomChoreEvents" Start="Vanderlaan:LivingroomChoreEvent" End="Vanderlaan:Patient" StartNavigator="Patient" EndNavigator="LivingroomChoreEvents" Type="4">
-        <FieldRelationships>
-          <FieldFieldRelationship FkField="PatientId" PkField="Id" />
-        </FieldRelationships>
-      </NormalRelationship>
-      <NormalRelationship Name="Vanderlaan.LivingroomGeneral.Livingroom-Vanderlaan.Livingroom.LivingroomGeneral" Start="Vanderlaan:LivingroomGeneral" End="Vanderlaan:Livingroom" StartNavigator="Livingroom" EndNavigator="LivingroomGeneral" Type="1" StartIsOptional="true">
-        <FieldRelationships>
-          <FieldFieldRelationship FkField="LivingroomId" PkField="Id" />
-        </FieldRelationships>
-      </NormalRelationship>
-      <NormalRelationship Name="Vanderlaan.LivingroomGeneralEvent.LivingroomGeneral-Vanderlaan.LivingroomGeneral.LivingroomGeneralEvents" Start="Vanderlaan:LivingroomGeneralEvent" End="Vanderlaan:LivingroomGeneral" StartNavigator="LivingroomGeneral" EndNavigator="LivingroomGeneralEvents" Type="4">
+      <NormalRelationship Name="Vanderlaan.GeneralInformation.General-Vanderlaan.General.GeneralInformations" Start="Vanderlaan:GeneralInformation" End="Vanderlaan:General" StartNavigator="General" EndNavigator="GeneralInformations" Type="4">
         <FieldRelationships>
           <FieldFieldRelationship FkField="LivingroomId" PkField="LivingroomId" />
         </FieldRelationships>
@@ -298,7 +304,7 @@
       <Catalogs>
         <Catalog Name="Vanderlaan_jouwsoftware_janbonga_development">
           <Schemas>
-            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-04-26T13:50:11.492019Z">
+            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-04-26T10:27:13.9041271Z">
               <StoredProcedures>
                 <StoredProcedure Name="sp_alterdiagram">
                   <Parameters>
@@ -366,8 +372,20 @@
                 </StoredProcedure>
               </StoredProcedures>
             </Schema>
-            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-04-26T13:50:11.528021Z">
+            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-04-26T10:27:14.007133Z">
               <Tables>
+                <Table Name="Chore">
+                  <PkConstraintName Name="PK_Chores_1" />
+                  <Fields>
+                    <Field Name="PatientId" Ordinal="1" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="LivingroomId" Ordinal="2" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="Date" Ordinal="3" IsPrimaryKey="true" DbType="28" />
+                    <Field Name="TimeOfDayTypeEnum" Ordinal="4" IsPrimaryKey="true" DbType="22" Precision="3" />
+                    <Field Name="DateCreated" Ordinal="5" DbType="4" />
+                    <Field Name="DateLastModified" Ordinal="6" IsOptional="true" DbType="4" />
+                    <Field Name="DateLastModifiedByUserId" Ordinal="7" IsOptional="true" DbType="8" Precision="10" />
+                  </Fields>
+                </Table>
                 <Table Name="Employee">
                   <PkConstraintName Name="PK_Employee" />
                   <Fields>
@@ -390,6 +408,33 @@
                     <Field Name="LivingroomId" Ordinal="2" IsPrimaryKey="true" DbType="8" Precision="10" />
                   </Fields>
                 </Table>
+                <Table Name="General">
+                  <PkConstraintName Name="PK_General" />
+                  <Fields>
+                    <Field Name="LivingroomId" Ordinal="1" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="Description" Ordinal="2" IsOptional="true" DbType="24" Length="50" />
+                    <Field Name="DateDeleted" Ordinal="3" IsOptional="true" DbType="4" />
+                    <Field Name="IsActive" Ordinal="4" HasDefaultValue="true" DefaultValue="(1)" DbType="2" />
+                    <Field Name="IsMarkedAsDeleted" Ordinal="5" HasDefaultValue="true" DefaultValue="(0)" DbType="2" />
+                    <Field Name="DateCreated" Ordinal="6" DbType="4" />
+                    <Field Name="DateLastModified" Ordinal="7" IsOptional="true" DbType="4" />
+                    <Field Name="DateLastModifiedByUserId" Ordinal="8" IsOptional="true" DbType="8" Precision="10" />
+                  </Fields>
+                </Table>
+                <Table Name="GeneralInformation">
+                  <PkConstraintName Name="PK_GeneralInformation" />
+                  <Fields>
+                    <Field Name="LivingroomId" Ordinal="1" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="Date" Ordinal="2" IsPrimaryKey="true" DbType="28" />
+                    <Field Name="Description" Ordinal="3" DbType="24" Length="250" />
+                    <Field Name="DateDeleted" Ordinal="4" IsOptional="true" DbType="4" />
+                    <Field Name="IsActive" Ordinal="5" HasDefaultValue="true" DefaultValue="(1)" DbType="2" />
+                    <Field Name="IsMarkedAsDeleted" Ordinal="6" HasDefaultValue="true" DefaultValue="(0)" DbType="2" />
+                    <Field Name="DateCreated" Ordinal="7" DbType="4" />
+                    <Field Name="DateLastModified" Ordinal="8" IsOptional="true" DbType="4" />
+                    <Field Name="DateLastModifiedByUserId" Ordinal="9" IsOptional="true" DbType="8" Precision="10" />
+                  </Fields>
+                </Table>
                 <Table Name="Livingroom">
                   <PkConstraintName Name="PK_Livingroom" />
                   <Fields>
@@ -402,39 +447,6 @@
                     <Field Name="DateLastModified" Ordinal="7" IsOptional="true" DbType="4" />
                     <Field Name="DateLastModifiedByUserId" Ordinal="8" IsOptional="true" DbType="8" Precision="10" />
                     <Field Name="DateDeleted" Ordinal="9" IsOptional="true" DbType="4" />
-                  </Fields>
-                </Table>
-                <Table Name="LivingroomChoreEvent">
-                  <PkConstraintName Name="PK_Chores_1" />
-                  <Fields>
-                    <Field Name="PatientId" Ordinal="1" IsPrimaryKey="true" DbType="8" Precision="10" />
-                    <Field Name="LivingroomId" Ordinal="2" IsPrimaryKey="true" DbType="8" Precision="10" />
-                    <Field Name="Date" Ordinal="3" IsPrimaryKey="true" DbType="28" />
-                    <Field Name="TimeOfDayTypeEnum" Ordinal="4" IsPrimaryKey="true" DbType="22" Precision="3" />
-                    <Field Name="DateCreated" Ordinal="5" DbType="4" />
-                    <Field Name="DateLastModified" Ordinal="6" IsOptional="true" DbType="4" />
-                    <Field Name="DateLastModifiedByUserId" Ordinal="7" IsOptional="true" DbType="8" Precision="10" />
-                  </Fields>
-                </Table>
-                <Table Name="LivingroomGeneral">
-                  <PkConstraintName Name="PK_General" />
-                  <Fields>
-                    <Field Name="LivingroomId" Ordinal="1" IsPrimaryKey="true" DbType="8" Precision="10" />
-                    <Field Name="Description" Ordinal="2" IsOptional="true" DbType="24" Length="50" />
-                    <Field Name="DateCreated" Ordinal="3" DbType="4" />
-                    <Field Name="DateLastModified" Ordinal="4" IsOptional="true" DbType="4" />
-                    <Field Name="DateLastModifiedByUserId" Ordinal="5" IsOptional="true" DbType="8" Precision="10" />
-                  </Fields>
-                </Table>
-                <Table Name="LivingroomGeneralEvent">
-                  <PkConstraintName Name="PK_GeneralInformation" />
-                  <Fields>
-                    <Field Name="LivingroomId" Ordinal="1" IsPrimaryKey="true" DbType="8" Precision="10" />
-                    <Field Name="Date" Ordinal="2" IsPrimaryKey="true" DbType="28" />
-                    <Field Name="Description" Ordinal="3" DbType="24" Length="250" />
-                    <Field Name="DateCreated" Ordinal="4" DbType="4" />
-                    <Field Name="DateLastModified" Ordinal="5" IsOptional="true" DbType="4" />
-                    <Field Name="DateLastModifiedByUserId" Ordinal="6" IsOptional="true" DbType="8" Precision="10" />
                   </Fields>
                 </Table>
                 <Table Name="Patient">
@@ -484,6 +496,16 @@
             </Schema>
           </Schemas>
           <ForeignKeyConstraints>
+            <ForeignKeyConstraint Name="Vanderlaan:Chore:FK_Chores_Livingroom">
+              <FieldPairs>
+                <FieldPair PkField="Vanderlaan:Livingroom:Id" FkField="Vanderlaan:Chore:LivingroomId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="Vanderlaan:Chore:FK_Chores_Patient1">
+              <FieldPairs>
+                <FieldPair PkField="Vanderlaan:Patient:Id" FkField="Vanderlaan:Chore:PatientId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
             <ForeignKeyConstraint Name="Vanderlaan:Employee:FK_Employee_User">
               <FieldPairs>
                 <FieldPair PkField="Vanderlaan:User:Id" FkField="Vanderlaan:Employee:UserId" />
@@ -499,24 +521,14 @@
                 <FieldPair PkField="Vanderlaan:Livingroom:Id" FkField="Vanderlaan:EmployeeLivingroom:LivingroomId" />
               </FieldPairs>
             </ForeignKeyConstraint>
-            <ForeignKeyConstraint Name="Vanderlaan:LivingroomChoreEvent:FK_Chores_Livingroom">
+            <ForeignKeyConstraint Name="Vanderlaan:General:FK_General_Livingroom">
               <FieldPairs>
-                <FieldPair PkField="Vanderlaan:Livingroom:Id" FkField="Vanderlaan:LivingroomChoreEvent:LivingroomId" />
+                <FieldPair PkField="Vanderlaan:Livingroom:Id" FkField="Vanderlaan:General:LivingroomId" />
               </FieldPairs>
             </ForeignKeyConstraint>
-            <ForeignKeyConstraint Name="Vanderlaan:LivingroomChoreEvent:FK_Chores_Patient1">
+            <ForeignKeyConstraint Name="Vanderlaan:GeneralInformation:FK_GeneralInformation_General">
               <FieldPairs>
-                <FieldPair PkField="Vanderlaan:Patient:Id" FkField="Vanderlaan:LivingroomChoreEvent:PatientId" />
-              </FieldPairs>
-            </ForeignKeyConstraint>
-            <ForeignKeyConstraint Name="Vanderlaan:LivingroomGeneral:FK_General_Livingroom">
-              <FieldPairs>
-                <FieldPair PkField="Vanderlaan:Livingroom:Id" FkField="Vanderlaan:LivingroomGeneral:LivingroomId" />
-              </FieldPairs>
-            </ForeignKeyConstraint>
-            <ForeignKeyConstraint Name="Vanderlaan:LivingroomGeneralEvent:FK_GeneralInformation_General">
-              <FieldPairs>
-                <FieldPair PkField="Vanderlaan:LivingroomGeneral:LivingroomId" FkField="Vanderlaan:LivingroomGeneralEvent:LivingroomId" />
+                <FieldPair PkField="Vanderlaan:General:LivingroomId" FkField="Vanderlaan:GeneralInformation:LivingroomId" />
               </FieldPairs>
             </ForeignKeyConstraint>
             <ForeignKeyConstraint Name="Vanderlaan:Patient:FK_Patient_Livingroom">
@@ -537,6 +549,17 @@
   <MappingStores>
     <MappingStore Type="2D18D138-1DD2-467E-86CC-4838250611AE">
       <EntityMappings>
+        <EntityMapping EntityName="Vanderlaan:Chore" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:Chore">
+          <FieldMappings>
+            <FieldMapping FieldName="Date" TargetFieldName="Date" />
+            <FieldMapping FieldName="DateCreated" TargetFieldName="DateCreated" />
+            <FieldMapping FieldName="DateLastModified" TargetFieldName="DateLastModified" />
+            <FieldMapping FieldName="DateLastModifiedByUserId" TargetFieldName="DateLastModifiedByUserId" />
+            <FieldMapping FieldName="LivingroomId" TargetFieldName="LivingroomId" />
+            <FieldMapping FieldName="PatientId" TargetFieldName="PatientId" />
+            <FieldMapping FieldName="TimeOfDayTypeEnum" TargetFieldName="TimeOfDayTypeEnum" />
+          </FieldMappings>
+        </EntityMapping>
         <EntityMapping EntityName="Vanderlaan:Employee" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:Employee">
           <FieldMappings>
             <FieldMapping FieldName="DateCreated" TargetFieldName="DateCreated" />
@@ -557,6 +580,31 @@
             <FieldMapping FieldName="LivingroomId" TargetFieldName="LivingroomId" />
           </FieldMappings>
         </EntityMapping>
+        <EntityMapping EntityName="Vanderlaan:General" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:General">
+          <FieldMappings>
+            <FieldMapping FieldName="DateCreated" TargetFieldName="DateCreated" />
+            <FieldMapping FieldName="DateDeleted" TargetFieldName="DateDeleted" />
+            <FieldMapping FieldName="DateLastModified" TargetFieldName="DateLastModified" />
+            <FieldMapping FieldName="DateLastModifiedByUserId" TargetFieldName="DateLastModifiedByUserId" />
+            <FieldMapping FieldName="Description" TargetFieldName="Description" />
+            <FieldMapping FieldName="IsActive" TargetFieldName="IsActive" />
+            <FieldMapping FieldName="IsMarkedAsDeleted" TargetFieldName="IsMarkedAsDeleted" />
+            <FieldMapping FieldName="LivingroomId" TargetFieldName="LivingroomId" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName="Vanderlaan:GeneralInformation" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:GeneralInformation">
+          <FieldMappings>
+            <FieldMapping FieldName="Date" TargetFieldName="Date" />
+            <FieldMapping FieldName="DateCreated" TargetFieldName="DateCreated" />
+            <FieldMapping FieldName="DateDeleted" TargetFieldName="DateDeleted" />
+            <FieldMapping FieldName="DateLastModified" TargetFieldName="DateLastModified" />
+            <FieldMapping FieldName="DateLastModifiedByUserId" TargetFieldName="DateLastModifiedByUserId" />
+            <FieldMapping FieldName="Description" TargetFieldName="Description" />
+            <FieldMapping FieldName="IsActive" TargetFieldName="IsActive" />
+            <FieldMapping FieldName="IsMarkedAsDeleted" TargetFieldName="IsMarkedAsDeleted" />
+            <FieldMapping FieldName="LivingroomId" TargetFieldName="LivingroomId" />
+          </FieldMappings>
+        </EntityMapping>
         <EntityMapping EntityName="Vanderlaan:Livingroom" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:Livingroom">
           <FieldMappings>
             <FieldMapping FieldName="ColourTypeEnum" TargetFieldName="ColourTypeEnum" />
@@ -568,36 +616,6 @@
             <FieldMapping FieldName="IsActive" TargetFieldName="IsActive" />
             <FieldMapping FieldName="IsMarkedAsDeleted" TargetFieldName="IsMarkedAsDeleted" />
             <FieldMapping FieldName="Name" TargetFieldName="Name" />
-          </FieldMappings>
-        </EntityMapping>
-        <EntityMapping EntityName="Vanderlaan:LivingroomChoreEvent" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:LivingroomChoreEvent">
-          <FieldMappings>
-            <FieldMapping FieldName="Date" TargetFieldName="Date" />
-            <FieldMapping FieldName="DateCreated" TargetFieldName="DateCreated" />
-            <FieldMapping FieldName="DateLastModified" TargetFieldName="DateLastModified" />
-            <FieldMapping FieldName="DateLastModifiedByUserId" TargetFieldName="DateLastModifiedByUserId" />
-            <FieldMapping FieldName="LivingroomId" TargetFieldName="LivingroomId" />
-            <FieldMapping FieldName="PatientId" TargetFieldName="PatientId" />
-            <FieldMapping FieldName="TimeOfDayTypeEnum" TargetFieldName="TimeOfDayTypeEnum" />
-          </FieldMappings>
-        </EntityMapping>
-        <EntityMapping EntityName="Vanderlaan:LivingroomGeneral" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:LivingroomGeneral">
-          <FieldMappings>
-            <FieldMapping FieldName="DateCreated" TargetFieldName="DateCreated" />
-            <FieldMapping FieldName="DateLastModified" TargetFieldName="DateLastModified" />
-            <FieldMapping FieldName="DateLastModifiedByUserId" TargetFieldName="DateLastModifiedByUserId" />
-            <FieldMapping FieldName="Description" TargetFieldName="Description" />
-            <FieldMapping FieldName="LivingroomId" TargetFieldName="LivingroomId" />
-          </FieldMappings>
-        </EntityMapping>
-        <EntityMapping EntityName="Vanderlaan:LivingroomGeneralEvent" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:LivingroomGeneralEvent">
-          <FieldMappings>
-            <FieldMapping FieldName="Date" TargetFieldName="Date" />
-            <FieldMapping FieldName="DateCreated" TargetFieldName="DateCreated" />
-            <FieldMapping FieldName="DateLastModified" TargetFieldName="DateLastModified" />
-            <FieldMapping FieldName="DateLastModifiedByUserId" TargetFieldName="DateLastModifiedByUserId" />
-            <FieldMapping FieldName="Description" TargetFieldName="Description" />
-            <FieldMapping FieldName="LivingroomId" TargetFieldName="LivingroomId" />
           </FieldMappings>
         </EntityMapping>
         <EntityMapping EntityName="Vanderlaan:Patient" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:Patient">

@@ -134,6 +134,9 @@ namespace AmstaJanBonga.Web
             routes.Ignore("MasterPage/");
             routes.Ignore("Service Reference/");
             routes.Ignore("App_GlobalResources/");
+
+            routes.MapPageRoute("Login", "Login", "~/Content/Unsecure/Login/Login.aspx");
+            routes.MapPageRoute("Livingroom", "Livingroom", "~/Content/Secure/Livingroom/Livingroom.aspx");
         }
     }
 }

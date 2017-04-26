@@ -40,12 +40,14 @@ namespace AmstaJanBonga.Business.EntityClasses
 		// __LLBLGENPRO_USER_CODE_REGION_END	
 	{
 		#region Class Member Declarations
-		private AmstaJanBonga.Business.CollectionClasses.ChoreCollection	_chores;
-		private bool	_alwaysFetchChores, _alreadyFetchedChores;
 		private AmstaJanBonga.Business.CollectionClasses.EmployeeLivingroomCollection	_employeeLivingrooms;
 		private bool	_alwaysFetchEmployeeLivingrooms, _alreadyFetchedEmployeeLivingrooms;
+		private AmstaJanBonga.Business.CollectionClasses.LivingroomChoreEventCollection	_livingroomChoreEvents;
+		private bool	_alwaysFetchLivingroomChoreEvents, _alreadyFetchedLivingroomChoreEvents;
 		private AmstaJanBonga.Business.CollectionClasses.PatientCollection	_patients;
 		private bool	_alwaysFetchPatients, _alreadyFetchedPatients;
+		private LivingroomGeneralEntity _livingroomGeneral;
+		private bool	_alwaysFetchLivingroomGeneral, _alreadyFetchedLivingroomGeneral, _livingroomGeneralReturnsNewIfNotFound;
 
 		// __LLBLGENPRO_USER_CODE_REGION_START PrivateMembers
 		// __LLBLGENPRO_USER_CODE_REGION_END
@@ -58,12 +60,14 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <summary>All names of fields mapped onto a relation. Usable for in-memory filtering</summary>
 		public static partial class MemberNames
 		{
-			/// <summary>Member name Chores</summary>
-			public static readonly string Chores = "Chores";
 			/// <summary>Member name EmployeeLivingrooms</summary>
 			public static readonly string EmployeeLivingrooms = "EmployeeLivingrooms";
+			/// <summary>Member name LivingroomChoreEvents</summary>
+			public static readonly string LivingroomChoreEvents = "LivingroomChoreEvents";
 			/// <summary>Member name Patients</summary>
 			public static readonly string Patients = "Patients";
+			/// <summary>Member name LivingroomGeneral</summary>
+			public static readonly string LivingroomGeneral = "LivingroomGeneral";
 		}
 		#endregion
 		
@@ -107,17 +111,25 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <param name="context"></param>
 		protected LivingroomEntity(SerializationInfo info, StreamingContext context) : base(info, context)
 		{
-			_chores = (AmstaJanBonga.Business.CollectionClasses.ChoreCollection)info.GetValue("_chores", typeof(AmstaJanBonga.Business.CollectionClasses.ChoreCollection));
-			_alwaysFetchChores = info.GetBoolean("_alwaysFetchChores");
-			_alreadyFetchedChores = info.GetBoolean("_alreadyFetchedChores");
-
 			_employeeLivingrooms = (AmstaJanBonga.Business.CollectionClasses.EmployeeLivingroomCollection)info.GetValue("_employeeLivingrooms", typeof(AmstaJanBonga.Business.CollectionClasses.EmployeeLivingroomCollection));
 			_alwaysFetchEmployeeLivingrooms = info.GetBoolean("_alwaysFetchEmployeeLivingrooms");
 			_alreadyFetchedEmployeeLivingrooms = info.GetBoolean("_alreadyFetchedEmployeeLivingrooms");
 
+			_livingroomChoreEvents = (AmstaJanBonga.Business.CollectionClasses.LivingroomChoreEventCollection)info.GetValue("_livingroomChoreEvents", typeof(AmstaJanBonga.Business.CollectionClasses.LivingroomChoreEventCollection));
+			_alwaysFetchLivingroomChoreEvents = info.GetBoolean("_alwaysFetchLivingroomChoreEvents");
+			_alreadyFetchedLivingroomChoreEvents = info.GetBoolean("_alreadyFetchedLivingroomChoreEvents");
+
 			_patients = (AmstaJanBonga.Business.CollectionClasses.PatientCollection)info.GetValue("_patients", typeof(AmstaJanBonga.Business.CollectionClasses.PatientCollection));
 			_alwaysFetchPatients = info.GetBoolean("_alwaysFetchPatients");
 			_alreadyFetchedPatients = info.GetBoolean("_alreadyFetchedPatients");
+			_livingroomGeneral = (LivingroomGeneralEntity)info.GetValue("_livingroomGeneral", typeof(LivingroomGeneralEntity));
+			if(_livingroomGeneral!=null)
+			{
+				_livingroomGeneral.AfterSave+=new EventHandler(OnEntityAfterSave);
+			}
+			_livingroomGeneralReturnsNewIfNotFound = info.GetBoolean("_livingroomGeneralReturnsNewIfNotFound");
+			_alwaysFetchLivingroomGeneral = info.GetBoolean("_alwaysFetchLivingroomGeneral");
+			_alreadyFetchedLivingroomGeneral = info.GetBoolean("_alreadyFetchedLivingroomGeneral");
 			this.FixupDeserialization(FieldInfoProviderSingleton.GetInstance(), PersistenceInfoProviderSingleton.GetInstance());
 			// __LLBLGENPRO_USER_CODE_REGION_START DeserializationConstructor
 			// __LLBLGENPRO_USER_CODE_REGION_END
@@ -127,9 +139,10 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <summary> Will perform post-ReadXml actions</summary>
 		protected override void PerformPostReadXmlFixups()
 		{
-			_alreadyFetchedChores = (_chores.Count > 0);
 			_alreadyFetchedEmployeeLivingrooms = (_employeeLivingrooms.Count > 0);
+			_alreadyFetchedLivingroomChoreEvents = (_livingroomChoreEvents.Count > 0);
 			_alreadyFetchedPatients = (_patients.Count > 0);
+			_alreadyFetchedLivingroomGeneral = (_livingroomGeneral != null);
 		}
 				
 		/// <summary>Gets the relation objects which represent the relation the fieldName specified is mapped on. </summary>
@@ -148,14 +161,17 @@ namespace AmstaJanBonga.Business.EntityClasses
 			RelationCollection toReturn = new RelationCollection();
 			switch(fieldName)
 			{
-				case "Chores":
-					toReturn.Add(Relations.ChoreEntityUsingLivingroomId);
-					break;
 				case "EmployeeLivingrooms":
 					toReturn.Add(Relations.EmployeeLivingroomEntityUsingLivingroomId);
 					break;
+				case "LivingroomChoreEvents":
+					toReturn.Add(Relations.LivingroomChoreEventEntityUsingLivingroomId);
+					break;
 				case "Patients":
 					toReturn.Add(Relations.PatientEntityUsingLivingroomId);
+					break;
+				case "LivingroomGeneral":
+					toReturn.Add(Relations.LivingroomGeneralEntityUsingLivingroomId);
 					break;
 				default:
 					break;				
@@ -171,15 +187,20 @@ namespace AmstaJanBonga.Business.EntityClasses
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		protected override void GetObjectData(SerializationInfo info, StreamingContext context)
 		{
-			info.AddValue("_chores", (!this.MarkedForDeletion?_chores:null));
-			info.AddValue("_alwaysFetchChores", _alwaysFetchChores);
-			info.AddValue("_alreadyFetchedChores", _alreadyFetchedChores);
 			info.AddValue("_employeeLivingrooms", (!this.MarkedForDeletion?_employeeLivingrooms:null));
 			info.AddValue("_alwaysFetchEmployeeLivingrooms", _alwaysFetchEmployeeLivingrooms);
 			info.AddValue("_alreadyFetchedEmployeeLivingrooms", _alreadyFetchedEmployeeLivingrooms);
+			info.AddValue("_livingroomChoreEvents", (!this.MarkedForDeletion?_livingroomChoreEvents:null));
+			info.AddValue("_alwaysFetchLivingroomChoreEvents", _alwaysFetchLivingroomChoreEvents);
+			info.AddValue("_alreadyFetchedLivingroomChoreEvents", _alreadyFetchedLivingroomChoreEvents);
 			info.AddValue("_patients", (!this.MarkedForDeletion?_patients:null));
 			info.AddValue("_alwaysFetchPatients", _alwaysFetchPatients);
 			info.AddValue("_alreadyFetchedPatients", _alreadyFetchedPatients);
+
+			info.AddValue("_livingroomGeneral", (!this.MarkedForDeletion?_livingroomGeneral:null));
+			info.AddValue("_livingroomGeneralReturnsNewIfNotFound", _livingroomGeneralReturnsNewIfNotFound);
+			info.AddValue("_alwaysFetchLivingroomGeneral", _alwaysFetchLivingroomGeneral);
+			info.AddValue("_alreadyFetchedLivingroomGeneral", _alreadyFetchedLivingroomGeneral);
 
 			// __LLBLGENPRO_USER_CODE_REGION_START GetObjectInfo
 			// __LLBLGENPRO_USER_CODE_REGION_END
@@ -195,18 +216,18 @@ namespace AmstaJanBonga.Business.EntityClasses
 		{
 			switch(propertyName)
 			{
-				case "Chores":
-					_alreadyFetchedChores = true;
-					if(entity!=null)
-					{
-						this.Chores.Add((ChoreEntity)entity);
-					}
-					break;
 				case "EmployeeLivingrooms":
 					_alreadyFetchedEmployeeLivingrooms = true;
 					if(entity!=null)
 					{
 						this.EmployeeLivingrooms.Add((EmployeeLivingroomEntity)entity);
+					}
+					break;
+				case "LivingroomChoreEvents":
+					_alreadyFetchedLivingroomChoreEvents = true;
+					if(entity!=null)
+					{
+						this.LivingroomChoreEvents.Add((LivingroomChoreEventEntity)entity);
 					}
 					break;
 				case "Patients":
@@ -215,6 +236,10 @@ namespace AmstaJanBonga.Business.EntityClasses
 					{
 						this.Patients.Add((PatientEntity)entity);
 					}
+					break;
+				case "LivingroomGeneral":
+					_alreadyFetchedLivingroomGeneral = true;
+					this.LivingroomGeneral = (LivingroomGeneralEntity)entity;
 					break;
 				default:
 					this.OnSetRelatedEntityProperty(propertyName, entity);
@@ -230,14 +255,17 @@ namespace AmstaJanBonga.Business.EntityClasses
 		{
 			switch(fieldName)
 			{
-				case "Chores":
-					_chores.Add((ChoreEntity)relatedEntity);
-					break;
 				case "EmployeeLivingrooms":
 					_employeeLivingrooms.Add((EmployeeLivingroomEntity)relatedEntity);
 					break;
+				case "LivingroomChoreEvents":
+					_livingroomChoreEvents.Add((LivingroomChoreEventEntity)relatedEntity);
+					break;
 				case "Patients":
 					_patients.Add((PatientEntity)relatedEntity);
+					break;
+				case "LivingroomGeneral":
+					SetupSyncLivingroomGeneral(relatedEntity);
 					break;
 				default:
 					break;
@@ -253,14 +281,17 @@ namespace AmstaJanBonga.Business.EntityClasses
 		{
 			switch(fieldName)
 			{
-				case "Chores":
-					this.PerformRelatedEntityRemoval(_chores, relatedEntity, signalRelatedEntityManyToOne);
-					break;
 				case "EmployeeLivingrooms":
 					this.PerformRelatedEntityRemoval(_employeeLivingrooms, relatedEntity, signalRelatedEntityManyToOne);
 					break;
+				case "LivingroomChoreEvents":
+					this.PerformRelatedEntityRemoval(_livingroomChoreEvents, relatedEntity, signalRelatedEntityManyToOne);
+					break;
 				case "Patients":
 					this.PerformRelatedEntityRemoval(_patients, relatedEntity, signalRelatedEntityManyToOne);
+					break;
+				case "LivingroomGeneral":
+					DesetupSyncLivingroomGeneral(false, true);
 					break;
 				default:
 					break;
@@ -272,6 +303,10 @@ namespace AmstaJanBonga.Business.EntityClasses
 		protected override List<IEntity> GetDependingRelatedEntities()
 		{
 			List<IEntity> toReturn = new List<IEntity>();
+			if(_livingroomGeneral!=null)
+			{
+				toReturn.Add(_livingroomGeneral);
+			}
 			return toReturn;
 		}
 		
@@ -288,8 +323,8 @@ namespace AmstaJanBonga.Business.EntityClasses
 		protected override List<IEntityCollection> GetMemberEntityCollections()
 		{
 			List<IEntityCollection> toReturn = new List<IEntityCollection>();
-			toReturn.Add(_chores);
 			toReturn.Add(_employeeLivingrooms);
+			toReturn.Add(_livingroomChoreEvents);
 			toReturn.Add(_patients);
 
 			return toReturn;
@@ -352,61 +387,6 @@ namespace AmstaJanBonga.Business.EntityClasses
 			return new LivingroomRelations().GetAllRelations();
 		}
 
-		/// <summary> Retrieves all related entities of type 'ChoreEntity' using a relation of type '1:n'.</summary>
-		/// <param name="forceFetch">if true, it will discard any changes currently in the collection and will rerun the complete query instead</param>
-		/// <returns>Filled collection with all related entities of type 'ChoreEntity'</returns>
-		public AmstaJanBonga.Business.CollectionClasses.ChoreCollection GetMultiChores(bool forceFetch)
-		{
-			return GetMultiChores(forceFetch, _chores.EntityFactoryToUse, null);
-		}
-
-		/// <summary> Retrieves all related entities of type 'ChoreEntity' using a relation of type '1:n'.</summary>
-		/// <param name="forceFetch">if true, it will discard any changes currently in the collection and will rerun the complete query instead</param>
-		/// <param name="filter">Extra filter to limit the resultset.</param>
-		/// <returns>Filled collection with all related entities of type 'ChoreEntity'</returns>
-		public AmstaJanBonga.Business.CollectionClasses.ChoreCollection GetMultiChores(bool forceFetch, IPredicateExpression filter)
-		{
-			return GetMultiChores(forceFetch, _chores.EntityFactoryToUse, filter);
-		}
-
-		/// <summary> Retrieves all related entities of type 'ChoreEntity' using a relation of type '1:n'.</summary>
-		/// <param name="forceFetch">if true, it will discard any changes currently in the collection and will rerun the complete query instead</param>
-		/// <param name="entityFactoryToUse">The entity factory to use for the GetMultiManyToOne() routine.</param>
-		/// <returns>Filled collection with all related entities of the type constructed by the passed in entity factory</returns>
-		public AmstaJanBonga.Business.CollectionClasses.ChoreCollection GetMultiChores(bool forceFetch, IEntityFactory entityFactoryToUse)
-		{
-			return GetMultiChores(forceFetch, entityFactoryToUse, null);
-		}
-
-		/// <summary> Retrieves all related entities of type 'ChoreEntity' using a relation of type '1:n'.</summary>
-		/// <param name="forceFetch">if true, it will discard any changes currently in the collection and will rerun the complete query instead</param>
-		/// <param name="entityFactoryToUse">The entity factory to use for the GetMultiManyToOne() routine.</param>
-		/// <param name="filter">Extra filter to limit the resultset.</param>
-		/// <returns>Filled collection with all related entities of the type constructed by the passed in entity factory</returns>
-		public virtual AmstaJanBonga.Business.CollectionClasses.ChoreCollection GetMultiChores(bool forceFetch, IEntityFactory entityFactoryToUse, IPredicateExpression filter)
-		{
- 			if( ( !_alreadyFetchedChores || forceFetch || _alwaysFetchChores) && !this.IsSerializing && !this.IsDeserializing && !this.InDesignMode)
-			{
-				AddToTransactionIfNecessary(_chores);
-				_chores.SuppressClearInGetMulti=!forceFetch;
-				_chores.EntityFactoryToUse = entityFactoryToUse;
-				_chores.GetMultiManyToOne(this, null, filter);
-				_chores.SuppressClearInGetMulti=false;
-				_alreadyFetchedChores = true;
-			}
-			return _chores;
-		}
-
-		/// <summary> Sets the collection parameters for the collection for 'Chores'. These settings will be taken into account
-		/// when the property Chores is requested or GetMultiChores is called.</summary>
-		/// <param name="maxNumberOfItemsToReturn"> The maximum number of items to return. When set to 0, this parameter is ignored</param>
-		/// <param name="sortClauses">The order by specifications for the sorting of the resultset. When not specified (null), no sorting is applied.</param>
-		public virtual void SetCollectionParametersChores(long maxNumberOfItemsToReturn, ISortExpression sortClauses)
-		{
-			_chores.SortClauses=sortClauses;
-			_chores.MaxNumberOfItemsToReturn=maxNumberOfItemsToReturn;
-		}
-
 		/// <summary> Retrieves all related entities of type 'EmployeeLivingroomEntity' using a relation of type '1:n'.</summary>
 		/// <param name="forceFetch">if true, it will discard any changes currently in the collection and will rerun the complete query instead</param>
 		/// <returns>Filled collection with all related entities of type 'EmployeeLivingroomEntity'</returns>
@@ -460,6 +440,61 @@ namespace AmstaJanBonga.Business.EntityClasses
 		{
 			_employeeLivingrooms.SortClauses=sortClauses;
 			_employeeLivingrooms.MaxNumberOfItemsToReturn=maxNumberOfItemsToReturn;
+		}
+
+		/// <summary> Retrieves all related entities of type 'LivingroomChoreEventEntity' using a relation of type '1:n'.</summary>
+		/// <param name="forceFetch">if true, it will discard any changes currently in the collection and will rerun the complete query instead</param>
+		/// <returns>Filled collection with all related entities of type 'LivingroomChoreEventEntity'</returns>
+		public AmstaJanBonga.Business.CollectionClasses.LivingroomChoreEventCollection GetMultiLivingroomChoreEvents(bool forceFetch)
+		{
+			return GetMultiLivingroomChoreEvents(forceFetch, _livingroomChoreEvents.EntityFactoryToUse, null);
+		}
+
+		/// <summary> Retrieves all related entities of type 'LivingroomChoreEventEntity' using a relation of type '1:n'.</summary>
+		/// <param name="forceFetch">if true, it will discard any changes currently in the collection and will rerun the complete query instead</param>
+		/// <param name="filter">Extra filter to limit the resultset.</param>
+		/// <returns>Filled collection with all related entities of type 'LivingroomChoreEventEntity'</returns>
+		public AmstaJanBonga.Business.CollectionClasses.LivingroomChoreEventCollection GetMultiLivingroomChoreEvents(bool forceFetch, IPredicateExpression filter)
+		{
+			return GetMultiLivingroomChoreEvents(forceFetch, _livingroomChoreEvents.EntityFactoryToUse, filter);
+		}
+
+		/// <summary> Retrieves all related entities of type 'LivingroomChoreEventEntity' using a relation of type '1:n'.</summary>
+		/// <param name="forceFetch">if true, it will discard any changes currently in the collection and will rerun the complete query instead</param>
+		/// <param name="entityFactoryToUse">The entity factory to use for the GetMultiManyToOne() routine.</param>
+		/// <returns>Filled collection with all related entities of the type constructed by the passed in entity factory</returns>
+		public AmstaJanBonga.Business.CollectionClasses.LivingroomChoreEventCollection GetMultiLivingroomChoreEvents(bool forceFetch, IEntityFactory entityFactoryToUse)
+		{
+			return GetMultiLivingroomChoreEvents(forceFetch, entityFactoryToUse, null);
+		}
+
+		/// <summary> Retrieves all related entities of type 'LivingroomChoreEventEntity' using a relation of type '1:n'.</summary>
+		/// <param name="forceFetch">if true, it will discard any changes currently in the collection and will rerun the complete query instead</param>
+		/// <param name="entityFactoryToUse">The entity factory to use for the GetMultiManyToOne() routine.</param>
+		/// <param name="filter">Extra filter to limit the resultset.</param>
+		/// <returns>Filled collection with all related entities of the type constructed by the passed in entity factory</returns>
+		public virtual AmstaJanBonga.Business.CollectionClasses.LivingroomChoreEventCollection GetMultiLivingroomChoreEvents(bool forceFetch, IEntityFactory entityFactoryToUse, IPredicateExpression filter)
+		{
+ 			if( ( !_alreadyFetchedLivingroomChoreEvents || forceFetch || _alwaysFetchLivingroomChoreEvents) && !this.IsSerializing && !this.IsDeserializing && !this.InDesignMode)
+			{
+				AddToTransactionIfNecessary(_livingroomChoreEvents);
+				_livingroomChoreEvents.SuppressClearInGetMulti=!forceFetch;
+				_livingroomChoreEvents.EntityFactoryToUse = entityFactoryToUse;
+				_livingroomChoreEvents.GetMultiManyToOne(this, null, filter);
+				_livingroomChoreEvents.SuppressClearInGetMulti=false;
+				_alreadyFetchedLivingroomChoreEvents = true;
+			}
+			return _livingroomChoreEvents;
+		}
+
+		/// <summary> Sets the collection parameters for the collection for 'LivingroomChoreEvents'. These settings will be taken into account
+		/// when the property LivingroomChoreEvents is requested or GetMultiLivingroomChoreEvents is called.</summary>
+		/// <param name="maxNumberOfItemsToReturn"> The maximum number of items to return. When set to 0, this parameter is ignored</param>
+		/// <param name="sortClauses">The order by specifications for the sorting of the resultset. When not specified (null), no sorting is applied.</param>
+		public virtual void SetCollectionParametersLivingroomChoreEvents(long maxNumberOfItemsToReturn, ISortExpression sortClauses)
+		{
+			_livingroomChoreEvents.SortClauses=sortClauses;
+			_livingroomChoreEvents.MaxNumberOfItemsToReturn=maxNumberOfItemsToReturn;
 		}
 
 		/// <summary> Retrieves all related entities of type 'PatientEntity' using a relation of type '1:n'.</summary>
@@ -517,15 +552,56 @@ namespace AmstaJanBonga.Business.EntityClasses
 			_patients.MaxNumberOfItemsToReturn=maxNumberOfItemsToReturn;
 		}
 
+		/// <summary> Retrieves the related entity of type 'LivingroomGeneralEntity', using a relation of type '1:1'</summary>
+		/// <returns>A fetched entity of type 'LivingroomGeneralEntity' which is related to this entity.</returns>
+		public LivingroomGeneralEntity GetSingleLivingroomGeneral()
+		{
+			return GetSingleLivingroomGeneral(false);
+		}
+		
+		/// <summary> Retrieves the related entity of type 'LivingroomGeneralEntity', using a relation of type '1:1'</summary>
+		/// <param name="forceFetch">if true, it will discard any changes currently in the currently loaded related entity and will refetch the entity from the persistent storage</param>
+		/// <returns>A fetched entity of type 'LivingroomGeneralEntity' which is related to this entity.</returns>
+		public virtual LivingroomGeneralEntity GetSingleLivingroomGeneral(bool forceFetch)
+		{
+			if( ( !_alreadyFetchedLivingroomGeneral || forceFetch || _alwaysFetchLivingroomGeneral) && !this.IsSerializing && !this.IsDeserializing && !this.InDesignMode )
+			{
+				bool performLazyLoading = this.CheckIfLazyLoadingShouldOccur(Relations.LivingroomGeneralEntityUsingLivingroomId);
+				LivingroomGeneralEntity newEntity = new LivingroomGeneralEntity();
+				bool fetchResult = false;
+				if(performLazyLoading)
+				{
+					AddToTransactionIfNecessary(newEntity);
+					fetchResult = newEntity.FetchUsingPK(this.Id);
+				}
+				if(fetchResult)
+				{
+					newEntity = (LivingroomGeneralEntity)GetFromActiveContext(newEntity);
+				}
+				else
+				{
+					if(!_livingroomGeneralReturnsNewIfNotFound)
+					{
+						RemoveFromTransactionIfNecessary(newEntity);
+						newEntity = null;
+					}
+				}
+				this.LivingroomGeneral = newEntity;
+				_alreadyFetchedLivingroomGeneral = fetchResult;
+			}
+			return _livingroomGeneral;
+		}
+
 
 		/// <summary>Gets all related data objects, stored by name. The name is the field name mapped onto the relation for that particular data element.</summary>
 		/// <returns>Dictionary with per name the related referenced data element, which can be an entity collection or an entity or null</returns>
 		protected override Dictionary<string, object> GetRelatedData()
 		{
 			Dictionary<string, object> toReturn = new Dictionary<string, object>();
-			toReturn.Add("Chores", _chores);
 			toReturn.Add("EmployeeLivingrooms", _employeeLivingrooms);
+			toReturn.Add("LivingroomChoreEvents", _livingroomChoreEvents);
 			toReturn.Add("Patients", _patients);
+			toReturn.Add("LivingroomGeneral", _livingroomGeneral);
 			return toReturn;
 		}
 	
@@ -566,14 +642,15 @@ namespace AmstaJanBonga.Business.EntityClasses
 		private void InitClassMembers()
 		{
 
-			_chores = new AmstaJanBonga.Business.CollectionClasses.ChoreCollection();
-			_chores.SetContainingEntityInfo(this, "Livingroom");
-
 			_employeeLivingrooms = new AmstaJanBonga.Business.CollectionClasses.EmployeeLivingroomCollection();
 			_employeeLivingrooms.SetContainingEntityInfo(this, "Livingroom");
 
+			_livingroomChoreEvents = new AmstaJanBonga.Business.CollectionClasses.LivingroomChoreEventCollection();
+			_livingroomChoreEvents.SetContainingEntityInfo(this, "Livingroom");
+
 			_patients = new AmstaJanBonga.Business.CollectionClasses.PatientCollection();
 			_patients.SetContainingEntityInfo(this, "Livingroom");
+			_livingroomGeneralReturnsNewIfNotFound = false;
 			PerformDependencyInjection();
 
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassMembers
@@ -608,6 +685,39 @@ namespace AmstaJanBonga.Business.EntityClasses
 			_fieldsCustomProperties.Add("Name", fieldHashtable);
 		}
 		#endregion
+
+		/// <summary> Removes the sync logic for member _livingroomGeneral</summary>
+		/// <param name="signalRelatedEntity">If set to true, it will call the related entity's UnsetRelatedEntity method</param>
+		/// <param name="resetFKFields">if set to true it will also reset the FK fields pointing to the related entity</param>
+		private void DesetupSyncLivingroomGeneral(bool signalRelatedEntity, bool resetFKFields)
+		{
+			this.PerformDesetupSyncRelatedEntity( _livingroomGeneral, new PropertyChangedEventHandler( OnLivingroomGeneralPropertyChanged ), "LivingroomGeneral", AmstaJanBonga.Business.RelationClasses.StaticLivingroomRelations.LivingroomGeneralEntityUsingLivingroomIdStatic, false, signalRelatedEntity, "Livingroom", false, new int[] { (int)LivingroomFieldIndex.Id } );
+			_livingroomGeneral = null;
+		}
+	
+		/// <summary> setups the sync logic for member _livingroomGeneral</summary>
+		/// <param name="relatedEntity">Instance to set as the related entity of type entityType</param>
+		private void SetupSyncLivingroomGeneral(IEntityCore relatedEntity)
+		{
+			if(_livingroomGeneral!=relatedEntity)
+			{
+				DesetupSyncLivingroomGeneral(true, true);
+				_livingroomGeneral = (LivingroomGeneralEntity)relatedEntity;
+				this.PerformSetupSyncRelatedEntity( _livingroomGeneral, new PropertyChangedEventHandler( OnLivingroomGeneralPropertyChanged ), "LivingroomGeneral", AmstaJanBonga.Business.RelationClasses.StaticLivingroomRelations.LivingroomGeneralEntityUsingLivingroomIdStatic, false, ref _alreadyFetchedLivingroomGeneral, new string[] {  } );
+			}
+		}
+		
+		/// <summary>Handles property change events of properties in a related entity.</summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void OnLivingroomGeneralPropertyChanged( object sender, PropertyChangedEventArgs e )
+		{
+			switch( e.PropertyName )
+			{
+				default:
+					break;
+			}
+		}
 
 		/// <summary> Fetches the entity from the persistent storage. Fetch simply reads the entity into an EntityFields object. </summary>
 		/// <param name="id">PK value for Livingroom which data should be fetched into this Livingroom object</param>
@@ -660,13 +770,6 @@ namespace AmstaJanBonga.Business.EntityClasses
 			get { return _customProperties;}
 		}
 
-		/// <summary> Creates a new PrefetchPathElement object which contains all the information to prefetch the related entities of type 'Chore' for this entity.</summary>
-		/// <returns>Ready to use IPrefetchPathElement implementation.</returns>
-		public static IPrefetchPathElement PrefetchPathChores
-		{
-			get { return new PrefetchPathElement(new AmstaJanBonga.Business.CollectionClasses.ChoreCollection(), (IEntityRelation)GetRelationsForField("Chores")[0], (int)AmstaJanBonga.Business.EntityType.LivingroomEntity, (int)AmstaJanBonga.Business.EntityType.ChoreEntity, 0, null, null, null, "Chores", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany); }
-		}
-
 		/// <summary> Creates a new PrefetchPathElement object which contains all the information to prefetch the related entities of type 'EmployeeLivingroom' for this entity.</summary>
 		/// <returns>Ready to use IPrefetchPathElement implementation.</returns>
 		public static IPrefetchPathElement PrefetchPathEmployeeLivingrooms
@@ -674,11 +777,25 @@ namespace AmstaJanBonga.Business.EntityClasses
 			get { return new PrefetchPathElement(new AmstaJanBonga.Business.CollectionClasses.EmployeeLivingroomCollection(), (IEntityRelation)GetRelationsForField("EmployeeLivingrooms")[0], (int)AmstaJanBonga.Business.EntityType.LivingroomEntity, (int)AmstaJanBonga.Business.EntityType.EmployeeLivingroomEntity, 0, null, null, null, "EmployeeLivingrooms", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany); }
 		}
 
+		/// <summary> Creates a new PrefetchPathElement object which contains all the information to prefetch the related entities of type 'LivingroomChoreEvent' for this entity.</summary>
+		/// <returns>Ready to use IPrefetchPathElement implementation.</returns>
+		public static IPrefetchPathElement PrefetchPathLivingroomChoreEvents
+		{
+			get { return new PrefetchPathElement(new AmstaJanBonga.Business.CollectionClasses.LivingroomChoreEventCollection(), (IEntityRelation)GetRelationsForField("LivingroomChoreEvents")[0], (int)AmstaJanBonga.Business.EntityType.LivingroomEntity, (int)AmstaJanBonga.Business.EntityType.LivingroomChoreEventEntity, 0, null, null, null, "LivingroomChoreEvents", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany); }
+		}
+
 		/// <summary> Creates a new PrefetchPathElement object which contains all the information to prefetch the related entities of type 'Patient' for this entity.</summary>
 		/// <returns>Ready to use IPrefetchPathElement implementation.</returns>
 		public static IPrefetchPathElement PrefetchPathPatients
 		{
 			get { return new PrefetchPathElement(new AmstaJanBonga.Business.CollectionClasses.PatientCollection(), (IEntityRelation)GetRelationsForField("Patients")[0], (int)AmstaJanBonga.Business.EntityType.LivingroomEntity, (int)AmstaJanBonga.Business.EntityType.PatientEntity, 0, null, null, null, "Patients", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany); }
+		}
+
+		/// <summary> Creates a new PrefetchPathElement object which contains all the information to prefetch the related entities of type 'LivingroomGeneral'  for this entity.</summary>
+		/// <returns>Ready to use IPrefetchPathElement implementation.</returns>
+		public static IPrefetchPathElement PrefetchPathLivingroomGeneral
+		{
+			get	{ return new PrefetchPathElement(new AmstaJanBonga.Business.CollectionClasses.LivingroomGeneralCollection(), (IEntityRelation)GetRelationsForField("LivingroomGeneral")[0], (int)AmstaJanBonga.Business.EntityType.LivingroomEntity, (int)AmstaJanBonga.Business.EntityType.LivingroomGeneralEntity, 0, null, null, null, "LivingroomGeneral", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToOne);	}
 		}
 
 
@@ -795,39 +912,6 @@ namespace AmstaJanBonga.Business.EntityClasses
 			set	{ SetValue((int)LivingroomFieldIndex.Name, value, true); }
 		}
 
-		/// <summary> Retrieves all related entities of type 'ChoreEntity' using a relation of type '1:n'.<br/><br/>
-		/// </summary>
-		/// <remarks>This property is added for databinding conveniance, however it is recommeded to use the method 'GetMultiChores()', because 
-		/// this property is rather expensive and a method tells the user to cache the result when it has to be used more than once in the same scope.</remarks>
-		public virtual AmstaJanBonga.Business.CollectionClasses.ChoreCollection Chores
-		{
-			get	{ return GetMultiChores(false); }
-		}
-
-		/// <summary> Gets / sets the lazy loading flag for Chores. When set to true, Chores is always refetched from the 
-		/// persistent storage. When set to false, the data is only fetched the first time Chores is accessed. You can always execute/ a forced fetch by calling GetMultiChores(true).</summary>
-		[Browsable(false)]
-		public bool AlwaysFetchChores
-		{
-			get	{ return _alwaysFetchChores; }
-			set	{ _alwaysFetchChores = value; }	
-		}		
-				
-		/// <summary>Gets / Sets the lazy loading flag if the property Chores already has been fetched. Setting this property to false when Chores has been fetched
-		/// will clear the Chores collection well. Setting this property to true while Chores hasn't been fetched disables lazy loading for Chores</summary>
-		[Browsable(false)]
-		public bool AlreadyFetchedChores
-		{
-			get { return _alreadyFetchedChores;}
-			set 
-			{
-				if(_alreadyFetchedChores && !value && (_chores != null))
-				{
-					_chores.Clear();
-				}
-				_alreadyFetchedChores = value;
-			}
-		}
 		/// <summary> Retrieves all related entities of type 'EmployeeLivingroomEntity' using a relation of type '1:n'.<br/><br/>
 		/// </summary>
 		/// <remarks>This property is added for databinding conveniance, however it is recommeded to use the method 'GetMultiEmployeeLivingrooms()', because 
@@ -859,6 +943,39 @@ namespace AmstaJanBonga.Business.EntityClasses
 					_employeeLivingrooms.Clear();
 				}
 				_alreadyFetchedEmployeeLivingrooms = value;
+			}
+		}
+		/// <summary> Retrieves all related entities of type 'LivingroomChoreEventEntity' using a relation of type '1:n'.<br/><br/>
+		/// </summary>
+		/// <remarks>This property is added for databinding conveniance, however it is recommeded to use the method 'GetMultiLivingroomChoreEvents()', because 
+		/// this property is rather expensive and a method tells the user to cache the result when it has to be used more than once in the same scope.</remarks>
+		public virtual AmstaJanBonga.Business.CollectionClasses.LivingroomChoreEventCollection LivingroomChoreEvents
+		{
+			get	{ return GetMultiLivingroomChoreEvents(false); }
+		}
+
+		/// <summary> Gets / sets the lazy loading flag for LivingroomChoreEvents. When set to true, LivingroomChoreEvents is always refetched from the 
+		/// persistent storage. When set to false, the data is only fetched the first time LivingroomChoreEvents is accessed. You can always execute/ a forced fetch by calling GetMultiLivingroomChoreEvents(true).</summary>
+		[Browsable(false)]
+		public bool AlwaysFetchLivingroomChoreEvents
+		{
+			get	{ return _alwaysFetchLivingroomChoreEvents; }
+			set	{ _alwaysFetchLivingroomChoreEvents = value; }	
+		}		
+				
+		/// <summary>Gets / Sets the lazy loading flag if the property LivingroomChoreEvents already has been fetched. Setting this property to false when LivingroomChoreEvents has been fetched
+		/// will clear the LivingroomChoreEvents collection well. Setting this property to true while LivingroomChoreEvents hasn't been fetched disables lazy loading for LivingroomChoreEvents</summary>
+		[Browsable(false)]
+		public bool AlreadyFetchedLivingroomChoreEvents
+		{
+			get { return _alreadyFetchedLivingroomChoreEvents;}
+			set 
+			{
+				if(_alreadyFetchedLivingroomChoreEvents && !value && (_livingroomChoreEvents != null))
+				{
+					_livingroomChoreEvents.Clear();
+				}
+				_alreadyFetchedLivingroomChoreEvents = value;
 			}
 		}
 		/// <summary> Retrieves all related entities of type 'PatientEntity' using a relation of type '1:n'.<br/><br/>
@@ -895,6 +1012,79 @@ namespace AmstaJanBonga.Business.EntityClasses
 			}
 		}
 
+		/// <summary> Gets / sets related entity of type 'LivingroomGeneralEntity'. This property is not visible in databound grids.
+		/// Setting this property to a new object will make the load-on-demand feature to stop fetching data from the database, until you set this
+		/// property to null. Setting this property to an entity will make sure that FK-PK relations are synchronized when appropriate.<br/><br/></summary>
+		/// <remarks>This property is added for conveniance, however it is recommeded to use the method 'GetSingleLivingroomGeneral()', because 
+		/// this property is rather expensive and a method tells the user to cache the result when it has to be used more than once in the
+		/// same scope. The property is marked non-browsable to make it hidden in bound controls, f.e. datagrids.</remarks>
+		[Browsable(false)]
+		public virtual LivingroomGeneralEntity LivingroomGeneral
+		{
+			get	{ return GetSingleLivingroomGeneral(false); }
+			set
+			{
+				if(this.IsDeserializing)
+				{
+					SetupSyncLivingroomGeneral(value);
+				}
+				else
+				{
+					if(value==null)
+					{
+						bool raisePropertyChanged = (_livingroomGeneral !=null);
+						DesetupSyncLivingroomGeneral(true, true);
+						if(raisePropertyChanged)
+						{
+							OnPropertyChanged("LivingroomGeneral");
+						}
+					}
+					else
+					{
+						if(_livingroomGeneral!=value)
+						{
+							((IEntity)value).SetRelatedEntity(this, "Livingroom");
+							SetupSyncLivingroomGeneral(value);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary> Gets / sets the lazy loading flag for LivingroomGeneral. When set to true, LivingroomGeneral is always refetched from the 
+		/// persistent storage. When set to false, the data is only fetched the first time LivingroomGeneral is accessed. You can always execute a forced fetch by calling GetSingleLivingroomGeneral(true).</summary>
+		[Browsable(false)]
+		public bool AlwaysFetchLivingroomGeneral
+		{
+			get	{ return _alwaysFetchLivingroomGeneral; }
+			set	{ _alwaysFetchLivingroomGeneral = value; }	
+		}
+		
+		/// <summary>Gets / Sets the lazy loading flag if the property LivingroomGeneral already has been fetched. Setting this property to false when LivingroomGeneral has been fetched
+		/// will set LivingroomGeneral to null as well. Setting this property to true while LivingroomGeneral hasn't been fetched disables lazy loading for LivingroomGeneral</summary>
+		[Browsable(false)]
+		public bool AlreadyFetchedLivingroomGeneral
+		{
+			get { return _alreadyFetchedLivingroomGeneral;}
+			set 
+			{
+				if(_alreadyFetchedLivingroomGeneral && !value)
+				{
+					this.LivingroomGeneral = null;
+				}
+				_alreadyFetchedLivingroomGeneral = value;
+			}
+		}
+		
+		/// <summary> Gets / sets the flag for what to do if the related entity available through the property LivingroomGeneral is not found
+		/// in the database. When set to true, LivingroomGeneral will return a new entity instance if the related entity is not found, otherwise 
+		/// null be returned if the related entity is not found. Default: false.</summary>
+		[Browsable(false)]
+		public bool LivingroomGeneralReturnsNewIfNotFound
+		{
+			get	{ return _livingroomGeneralReturnsNewIfNotFound; }
+			set	{ _livingroomGeneralReturnsNewIfNotFound = value; }	
+		}
 
 		/// <summary> Gets or sets a value indicating whether this entity is a subtype</summary>
 		protected override bool LLBLGenProIsSubType

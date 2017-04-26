@@ -11,26 +11,6 @@ using System;
 
 namespace AmstaJanBonga.Business
 {
-	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: Chore.</summary>
-	public enum ChoreFieldIndex
-	{
-		///<summary>Date. </summary>
-		Date,
-		///<summary>DateCreated. </summary>
-		DateCreated,
-		///<summary>DateLastModified. </summary>
-		DateLastModified,
-		///<summary>DateLastModifiedByUserId. </summary>
-		DateLastModifiedByUserId,
-		///<summary>LivingroomId. </summary>
-		LivingroomId,
-		///<summary>PatientId. </summary>
-		PatientId,
-		///<summary>TimeOfDayTypeEnum. </summary>
-		TimeOfDayTypeEnum,
-		/// <summary></summary>
-		AmountOfFields
-	}
 	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: Employee.</summary>
 	public enum EmployeeFieldIndex
 	{
@@ -88,6 +68,60 @@ namespace AmstaJanBonga.Business
 		IsMarkedAsDeleted,
 		///<summary>Name. </summary>
 		Name,
+		/// <summary></summary>
+		AmountOfFields
+	}
+	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: LivingroomChoreEvent.</summary>
+	public enum LivingroomChoreEventFieldIndex
+	{
+		///<summary>Date. </summary>
+		Date,
+		///<summary>DateCreated. </summary>
+		DateCreated,
+		///<summary>DateLastModified. </summary>
+		DateLastModified,
+		///<summary>DateLastModifiedByUserId. </summary>
+		DateLastModifiedByUserId,
+		///<summary>LivingroomId. </summary>
+		LivingroomId,
+		///<summary>PatientId. </summary>
+		PatientId,
+		///<summary>TimeOfDayTypeEnum. </summary>
+		TimeOfDayTypeEnum,
+		/// <summary></summary>
+		AmountOfFields
+	}
+	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: LivingroomGeneral.</summary>
+	public enum LivingroomGeneralFieldIndex
+	{
+		///<summary>DateCreated. </summary>
+		DateCreated,
+		///<summary>DateLastModified. </summary>
+		DateLastModified,
+		///<summary>DateLastModifiedByUserId. </summary>
+		DateLastModifiedByUserId,
+		///<summary>Description. </summary>
+		Description,
+		///<summary>LivingroomId. </summary>
+		LivingroomId,
+		/// <summary></summary>
+		AmountOfFields
+	}
+	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: LivingroomGeneralEvent.</summary>
+	public enum LivingroomGeneralEventFieldIndex
+	{
+		///<summary>Date. </summary>
+		Date,
+		///<summary>DateCreated. </summary>
+		DateCreated,
+		///<summary>DateLastModified. </summary>
+		DateLastModified,
+		///<summary>DateLastModifiedByUserId. </summary>
+		DateLastModifiedByUserId,
+		///<summary>Description. </summary>
+		Description,
+		///<summary>LivingroomId. </summary>
+		LivingroomId,
 		/// <summary></summary>
 		AmountOfFields
 	}
@@ -161,14 +195,18 @@ namespace AmstaJanBonga.Business
 	/// <summary>Enum definition for all the entity types defined in this namespace. Used by the entityfields factory.</summary>
 	public enum EntityType
 	{
-		///<summary>Chore</summary>
-		ChoreEntity,
 		///<summary>Employee</summary>
 		EmployeeEntity,
 		///<summary>EmployeeLivingroom</summary>
 		EmployeeLivingroomEntity,
 		///<summary>Livingroom</summary>
 		LivingroomEntity,
+		///<summary>LivingroomChoreEvent</summary>
+		LivingroomChoreEventEntity,
+		///<summary>LivingroomGeneral</summary>
+		LivingroomGeneralEntity,
+		///<summary>LivingroomGeneralEvent</summary>
+		LivingroomGeneralEventEntity,
 		///<summary>Patient</summary>
 		PatientEntity,
 		///<summary>User</summary>

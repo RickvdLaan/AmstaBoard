@@ -3,21 +3,26 @@ using System;
 
 namespace AmstaJanBonga.Business.EntityClasses
 {
-    public partial class ChoreEntity
+    public partial class LivingroomChoreEventEntity
     {
         #region Properties
 
         public override bool Equals(object obj)
         {
-            if (this.PatientId == (obj as ChoreEntity).PatientId &&
-                this.LivingroomId == (obj as ChoreEntity).LivingroomId &&
-                this.Date == (obj as ChoreEntity).Date &&
-                this.TimeOfDayTypeEnum == (obj as ChoreEntity).TimeOfDayTypeEnum)
+            if (this.PatientId == (obj as LivingroomChoreEventEntity).PatientId &&
+                this.LivingroomId == (obj as LivingroomChoreEventEntity).LivingroomId &&
+                this.Date == (obj as LivingroomChoreEventEntity).Date &&
+                this.TimeOfDayTypeEnum == (obj as LivingroomChoreEventEntity).TimeOfDayTypeEnum)
             {
                 return true;
             }
 
             return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
 
         #endregion

@@ -11,6 +11,20 @@
     Bepaalde uitleg hier.
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="_cphContent" runat="server">
+    <div class="warning">
+        <h2>
+            Let op!
+        </h2>
+        <p>
+            Dit is een product in ontwikkeling en onderdelen in deze versie kunnen anders werken dan wellicht wordt verwacht. 
+            
+            Het uiterlijk is ook niet definitief en alles m.b.t. het uiterlijk wordt in de loop van het project veranderd. 
+            
+            Bepaalde onderdelen werken wel en andere nog niet en de functionaliteiten en bereikbaarheid van de software kan niet gegarrandeerd worden gedurende deze fase. 
+        </p>
+    </div>
+
+
      <div class="box">
         <h2>
             Snelkoppelingen

@@ -75,28 +75,6 @@ namespace AmstaJanBonga.Business.FactoryClasses
 		}
 	}
 	
-	/// <summary>Factory to create new, empty ChoreEntity objects.</summary>
-	[Serializable]
-	public partial class ChoreEntityFactory : EntityFactoryBase {
-		/// <summary>CTor</summary>
-		public ChoreEntityFactory() : base("ChoreEntity", AmstaJanBonga.Business.EntityType.ChoreEntity) { }
-
-		/// <summary>Creates a new, empty ChoreEntity object.</summary>
-		/// <returns>A new, empty ChoreEntity object.</returns>
-		public override IEntity Create() {
-			IEntity toReturn = new ChoreEntity();
-			
-			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewChore
-			// __LLBLGENPRO_USER_CODE_REGION_END
-			return toReturn;
-		}
-
-
-		#region Included Code
-
-		#endregion
-	}
-	
 	/// <summary>Factory to create new, empty EmployeeEntity objects.</summary>
 	[Serializable]
 	public partial class EmployeeEntityFactory : EntityFactoryBase {
@@ -154,6 +132,75 @@ namespace AmstaJanBonga.Business.FactoryClasses
 			
 			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewLivingroom
 			// __LLBLGENPRO_USER_CODE_REGION_END
+			return toReturn;
+		}
+
+
+		#region Included Code
+
+		#endregion
+	}
+	
+	/// <summary>Factory to create new, empty LivingroomChoreEventEntity objects.</summary>
+	[Serializable]
+	public partial class LivingroomChoreEventEntityFactory : EntityFactoryBase {
+		/// <summary>CTor</summary>
+		public LivingroomChoreEventEntityFactory() : base("LivingroomChoreEventEntity", AmstaJanBonga.Business.EntityType.LivingroomChoreEventEntity) { }
+
+		/// <summary>Creates a new, empty LivingroomChoreEventEntity object.</summary>
+		/// <returns>A new, empty LivingroomChoreEventEntity object.</returns>
+		public override IEntity Create() {
+			IEntity toReturn = new LivingroomChoreEventEntity();
+			
+			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewLivingroomChoreEvent
+			// __LLBLGENPRO_USER_CODE_REGION_END
+			
+			return toReturn;
+		}
+
+
+		#region Included Code
+
+		#endregion
+	}
+	
+	/// <summary>Factory to create new, empty LivingroomGeneralEntity objects.</summary>
+	[Serializable]
+	public partial class LivingroomGeneralEntityFactory : EntityFactoryBase {
+		/// <summary>CTor</summary>
+		public LivingroomGeneralEntityFactory() : base("LivingroomGeneralEntity", AmstaJanBonga.Business.EntityType.LivingroomGeneralEntity) { }
+
+		/// <summary>Creates a new, empty LivingroomGeneralEntity object.</summary>
+		/// <returns>A new, empty LivingroomGeneralEntity object.</returns>
+		public override IEntity Create() {
+			IEntity toReturn = new LivingroomGeneralEntity();
+			
+			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewLivingroomGeneral
+			// __LLBLGENPRO_USER_CODE_REGION_END
+			
+			return toReturn;
+		}
+
+
+		#region Included Code
+
+		#endregion
+	}
+	
+	/// <summary>Factory to create new, empty LivingroomGeneralEventEntity objects.</summary>
+	[Serializable]
+	public partial class LivingroomGeneralEventEntityFactory : EntityFactoryBase {
+		/// <summary>CTor</summary>
+		public LivingroomGeneralEventEntityFactory() : base("LivingroomGeneralEventEntity", AmstaJanBonga.Business.EntityType.LivingroomGeneralEventEntity) { }
+
+		/// <summary>Creates a new, empty LivingroomGeneralEventEntity object.</summary>
+		/// <returns>A new, empty LivingroomGeneralEventEntity object.</returns>
+		public override IEntity Create() {
+			IEntity toReturn = new LivingroomGeneralEventEntity();
+			
+			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewLivingroomGeneralEvent
+			// __LLBLGENPRO_USER_CODE_REGION_END
+			
 			return toReturn;
 		}
 
@@ -240,14 +287,18 @@ namespace AmstaJanBonga.Business.FactoryClasses
 		{
 			switch(typeToUse)
 			{
-				case AmstaJanBonga.Business.EntityType.ChoreEntity:
-					return new ChoreCollection();
 				case AmstaJanBonga.Business.EntityType.EmployeeEntity:
 					return new EmployeeCollection();
 				case AmstaJanBonga.Business.EntityType.EmployeeLivingroomEntity:
 					return new EmployeeLivingroomCollection();
 				case AmstaJanBonga.Business.EntityType.LivingroomEntity:
 					return new LivingroomCollection();
+				case AmstaJanBonga.Business.EntityType.LivingroomChoreEventEntity:
+					return new LivingroomChoreEventCollection();
+				case AmstaJanBonga.Business.EntityType.LivingroomGeneralEntity:
+					return new LivingroomGeneralCollection();
+				case AmstaJanBonga.Business.EntityType.LivingroomGeneralEventEntity:
+					return new LivingroomGeneralEventCollection();
 				case AmstaJanBonga.Business.EntityType.PatientEntity:
 					return new PatientCollection();
 				case AmstaJanBonga.Business.EntityType.UserEntity:
@@ -272,9 +323,6 @@ namespace AmstaJanBonga.Business.FactoryClasses
 			IEntityFactory factoryToUse = null;
 			switch(entityTypeToCreate)
 			{
-				case AmstaJanBonga.Business.EntityType.ChoreEntity:
-					factoryToUse = new ChoreEntityFactory();
-					break;
 				case AmstaJanBonga.Business.EntityType.EmployeeEntity:
 					factoryToUse = new EmployeeEntityFactory();
 					break;
@@ -283,6 +331,15 @@ namespace AmstaJanBonga.Business.FactoryClasses
 					break;
 				case AmstaJanBonga.Business.EntityType.LivingroomEntity:
 					factoryToUse = new LivingroomEntityFactory();
+					break;
+				case AmstaJanBonga.Business.EntityType.LivingroomChoreEventEntity:
+					factoryToUse = new LivingroomChoreEventEntityFactory();
+					break;
+				case AmstaJanBonga.Business.EntityType.LivingroomGeneralEntity:
+					factoryToUse = new LivingroomGeneralEntityFactory();
+					break;
+				case AmstaJanBonga.Business.EntityType.LivingroomGeneralEventEntity:
+					factoryToUse = new LivingroomGeneralEventEntityFactory();
 					break;
 				case AmstaJanBonga.Business.EntityType.PatientEntity:
 					factoryToUse = new PatientEntityFactory();

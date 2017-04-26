@@ -64,9 +64,6 @@ namespace AmstaJanBonga.Business.Linq
 			IDataSource toReturn = null;
 			switch((AmstaJanBonga.Business.EntityType)typeOfEntity)
 			{
-				case AmstaJanBonga.Business.EntityType.ChoreEntity:
-					toReturn = this.Chore;
-					break;
 				case AmstaJanBonga.Business.EntityType.EmployeeEntity:
 					toReturn = this.Employee;
 					break;
@@ -75,6 +72,15 @@ namespace AmstaJanBonga.Business.Linq
 					break;
 				case AmstaJanBonga.Business.EntityType.LivingroomEntity:
 					toReturn = this.Livingroom;
+					break;
+				case AmstaJanBonga.Business.EntityType.LivingroomChoreEventEntity:
+					toReturn = this.LivingroomChoreEvent;
+					break;
+				case AmstaJanBonga.Business.EntityType.LivingroomGeneralEntity:
+					toReturn = this.LivingroomGeneral;
+					break;
+				case AmstaJanBonga.Business.EntityType.LivingroomGeneralEventEntity:
+					toReturn = this.LivingroomGeneralEvent;
 					break;
 				case AmstaJanBonga.Business.EntityType.PatientEntity:
 					toReturn = this.Patient;
@@ -101,11 +107,6 @@ namespace AmstaJanBonga.Business.Linq
     		return new DataSource<TEntity>(_transactionToUse, new ElementCreator(), _customFunctionMappings, _contextToUse);
 		}
 
-		/// <summary>returns the datasource to use in a Linq query when targeting ChoreEntity instances in the database.</summary>
-		public DataSource<ChoreEntity> Chore
-		{
-			get { return new DataSource<ChoreEntity>(_transactionToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
-		}
 		/// <summary>returns the datasource to use in a Linq query when targeting EmployeeEntity instances in the database.</summary>
 		public DataSource<EmployeeEntity> Employee
 		{
@@ -120,6 +121,21 @@ namespace AmstaJanBonga.Business.Linq
 		public DataSource<LivingroomEntity> Livingroom
 		{
 			get { return new DataSource<LivingroomEntity>(_transactionToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
+		}
+		/// <summary>returns the datasource to use in a Linq query when targeting LivingroomChoreEventEntity instances in the database.</summary>
+		public DataSource<LivingroomChoreEventEntity> LivingroomChoreEvent
+		{
+			get { return new DataSource<LivingroomChoreEventEntity>(_transactionToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
+		}
+		/// <summary>returns the datasource to use in a Linq query when targeting LivingroomGeneralEntity instances in the database.</summary>
+		public DataSource<LivingroomGeneralEntity> LivingroomGeneral
+		{
+			get { return new DataSource<LivingroomGeneralEntity>(_transactionToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
+		}
+		/// <summary>returns the datasource to use in a Linq query when targeting LivingroomGeneralEventEntity instances in the database.</summary>
+		public DataSource<LivingroomGeneralEventEntity> LivingroomGeneralEvent
+		{
+			get { return new DataSource<LivingroomGeneralEventEntity>(_transactionToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
 		}
 		/// <summary>returns the datasource to use in a Linq query when targeting PatientEntity instances in the database.</summary>
 		public DataSource<PatientEntity> Patient

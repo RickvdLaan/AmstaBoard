@@ -106,12 +106,6 @@ namespace AmstaJanBonga.Business.FactoryClasses
 		}
 		
 
-		/// <summary>Creates and returns a new EntityQuery for the Chore entity</summary>
-		public EntityQuery<ChoreEntity> Chore
-		{
-			get { return Create<ChoreEntity>(); }
-		}
-
 		/// <summary>Creates and returns a new EntityQuery for the Employee entity</summary>
 		public EntityQuery<EmployeeEntity> Employee
 		{
@@ -128,6 +122,24 @@ namespace AmstaJanBonga.Business.FactoryClasses
 		public EntityQuery<LivingroomEntity> Livingroom
 		{
 			get { return Create<LivingroomEntity>(); }
+		}
+
+		/// <summary>Creates and returns a new EntityQuery for the LivingroomChoreEvent entity</summary>
+		public EntityQuery<LivingroomChoreEventEntity> LivingroomChoreEvent
+		{
+			get { return Create<LivingroomChoreEventEntity>(); }
+		}
+
+		/// <summary>Creates and returns a new EntityQuery for the LivingroomGeneral entity</summary>
+		public EntityQuery<LivingroomGeneralEntity> LivingroomGeneral
+		{
+			get { return Create<LivingroomGeneralEntity>(); }
+		}
+
+		/// <summary>Creates and returns a new EntityQuery for the LivingroomGeneralEvent entity</summary>
+		public EntityQuery<LivingroomGeneralEventEntity> LivingroomGeneralEvent
+		{
+			get { return Create<LivingroomGeneralEventEntity>(); }
 		}
 
 		/// <summary>Creates and returns a new EntityQuery for the Patient entity</summary>

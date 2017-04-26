@@ -49,11 +49,13 @@ namespace AmstaJanBonga.Business.HelperClasses
 		/// <summary>Method which initializes the internal datastores.</summary>
 		private void Init()
 		{
-			this.InitClass( (7 + 0));
-			InitChoreEntityInfos();
+			this.InitClass( (9 + 0));
 			InitEmployeeEntityInfos();
 			InitEmployeeLivingroomEntityInfos();
 			InitLivingroomEntityInfos();
+			InitLivingroomChoreEventEntityInfos();
+			InitLivingroomGeneralEntityInfos();
+			InitLivingroomGeneralEventEntityInfos();
 			InitPatientEntityInfos();
 			InitUserEntityInfos();
 			InitUserRoleEntityInfos();
@@ -61,18 +63,6 @@ namespace AmstaJanBonga.Business.HelperClasses
 			this.ConstructElementFieldStructures(InheritanceInfoProviderSingleton.GetInstance());
 		}
 
-		/// <summary>Inits ChoreEntity's FieldInfo objects</summary>
-		private void InitChoreEntityInfos()
-		{
-			this.AddFieldIndexEnumForElementName(typeof(ChoreFieldIndex), "ChoreEntity");
-			this.AddElementFieldInfo("ChoreEntity", "Date", typeof(System.DateTime), true, false, false, false,  (int)ChoreFieldIndex.Date, 0, 0, 0);
-			this.AddElementFieldInfo("ChoreEntity", "DateCreated", typeof(System.DateTime), false, false, false, false,  (int)ChoreFieldIndex.DateCreated, 0, 0, 0);
-			this.AddElementFieldInfo("ChoreEntity", "DateLastModified", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)ChoreFieldIndex.DateLastModified, 0, 0, 0);
-			this.AddElementFieldInfo("ChoreEntity", "DateLastModifiedByUserId", typeof(Nullable<System.Int32>), false, false, false, true,  (int)ChoreFieldIndex.DateLastModifiedByUserId, 0, 0, 10);
-			this.AddElementFieldInfo("ChoreEntity", "LivingroomId", typeof(System.Int32), true, true, false, false,  (int)ChoreFieldIndex.LivingroomId, 0, 0, 10);
-			this.AddElementFieldInfo("ChoreEntity", "PatientId", typeof(System.Int32), true, true, false, false,  (int)ChoreFieldIndex.PatientId, 0, 0, 10);
-			this.AddElementFieldInfo("ChoreEntity", "TimeOfDayTypeEnum", typeof(System.Byte), true, false, false, false,  (int)ChoreFieldIndex.TimeOfDayTypeEnum, 0, 0, 3);
-		}
 		/// <summary>Inits EmployeeEntity's FieldInfo objects</summary>
 		private void InitEmployeeEntityInfos()
 		{
@@ -108,6 +98,39 @@ namespace AmstaJanBonga.Business.HelperClasses
 			this.AddElementFieldInfo("LivingroomEntity", "IsActive", typeof(System.Boolean), false, false, false, false,  (int)LivingroomFieldIndex.IsActive, 0, 0, 0);
 			this.AddElementFieldInfo("LivingroomEntity", "IsMarkedAsDeleted", typeof(System.Boolean), false, false, false, false,  (int)LivingroomFieldIndex.IsMarkedAsDeleted, 0, 0, 0);
 			this.AddElementFieldInfo("LivingroomEntity", "Name", typeof(System.String), false, false, false, false,  (int)LivingroomFieldIndex.Name, 50, 0, 0);
+		}
+		/// <summary>Inits LivingroomChoreEventEntity's FieldInfo objects</summary>
+		private void InitLivingroomChoreEventEntityInfos()
+		{
+			this.AddFieldIndexEnumForElementName(typeof(LivingroomChoreEventFieldIndex), "LivingroomChoreEventEntity");
+			this.AddElementFieldInfo("LivingroomChoreEventEntity", "Date", typeof(System.DateTime), true, false, false, false,  (int)LivingroomChoreEventFieldIndex.Date, 0, 0, 0);
+			this.AddElementFieldInfo("LivingroomChoreEventEntity", "DateCreated", typeof(System.DateTime), false, false, false, false,  (int)LivingroomChoreEventFieldIndex.DateCreated, 0, 0, 0);
+			this.AddElementFieldInfo("LivingroomChoreEventEntity", "DateLastModified", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)LivingroomChoreEventFieldIndex.DateLastModified, 0, 0, 0);
+			this.AddElementFieldInfo("LivingroomChoreEventEntity", "DateLastModifiedByUserId", typeof(Nullable<System.Int32>), false, false, false, true,  (int)LivingroomChoreEventFieldIndex.DateLastModifiedByUserId, 0, 0, 10);
+			this.AddElementFieldInfo("LivingroomChoreEventEntity", "LivingroomId", typeof(System.Int32), true, true, false, false,  (int)LivingroomChoreEventFieldIndex.LivingroomId, 0, 0, 10);
+			this.AddElementFieldInfo("LivingroomChoreEventEntity", "PatientId", typeof(System.Int32), true, true, false, false,  (int)LivingroomChoreEventFieldIndex.PatientId, 0, 0, 10);
+			this.AddElementFieldInfo("LivingroomChoreEventEntity", "TimeOfDayTypeEnum", typeof(System.Byte), true, false, false, false,  (int)LivingroomChoreEventFieldIndex.TimeOfDayTypeEnum, 0, 0, 3);
+		}
+		/// <summary>Inits LivingroomGeneralEntity's FieldInfo objects</summary>
+		private void InitLivingroomGeneralEntityInfos()
+		{
+			this.AddFieldIndexEnumForElementName(typeof(LivingroomGeneralFieldIndex), "LivingroomGeneralEntity");
+			this.AddElementFieldInfo("LivingroomGeneralEntity", "DateCreated", typeof(System.DateTime), false, false, false, false,  (int)LivingroomGeneralFieldIndex.DateCreated, 0, 0, 0);
+			this.AddElementFieldInfo("LivingroomGeneralEntity", "DateLastModified", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)LivingroomGeneralFieldIndex.DateLastModified, 0, 0, 0);
+			this.AddElementFieldInfo("LivingroomGeneralEntity", "DateLastModifiedByUserId", typeof(Nullable<System.Int32>), false, false, false, true,  (int)LivingroomGeneralFieldIndex.DateLastModifiedByUserId, 0, 0, 10);
+			this.AddElementFieldInfo("LivingroomGeneralEntity", "Description", typeof(System.String), false, false, false, true,  (int)LivingroomGeneralFieldIndex.Description, 50, 0, 0);
+			this.AddElementFieldInfo("LivingroomGeneralEntity", "LivingroomId", typeof(System.Int32), true, true, false, false,  (int)LivingroomGeneralFieldIndex.LivingroomId, 0, 0, 10);
+		}
+		/// <summary>Inits LivingroomGeneralEventEntity's FieldInfo objects</summary>
+		private void InitLivingroomGeneralEventEntityInfos()
+		{
+			this.AddFieldIndexEnumForElementName(typeof(LivingroomGeneralEventFieldIndex), "LivingroomGeneralEventEntity");
+			this.AddElementFieldInfo("LivingroomGeneralEventEntity", "Date", typeof(System.DateTime), true, false, false, false,  (int)LivingroomGeneralEventFieldIndex.Date, 0, 0, 0);
+			this.AddElementFieldInfo("LivingroomGeneralEventEntity", "DateCreated", typeof(System.DateTime), false, false, false, false,  (int)LivingroomGeneralEventFieldIndex.DateCreated, 0, 0, 0);
+			this.AddElementFieldInfo("LivingroomGeneralEventEntity", "DateLastModified", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)LivingroomGeneralEventFieldIndex.DateLastModified, 0, 0, 0);
+			this.AddElementFieldInfo("LivingroomGeneralEventEntity", "DateLastModifiedByUserId", typeof(Nullable<System.Int32>), false, false, false, true,  (int)LivingroomGeneralEventFieldIndex.DateLastModifiedByUserId, 0, 0, 10);
+			this.AddElementFieldInfo("LivingroomGeneralEventEntity", "Description", typeof(System.String), false, false, false, false,  (int)LivingroomGeneralEventFieldIndex.Description, 250, 0, 0);
+			this.AddElementFieldInfo("LivingroomGeneralEventEntity", "LivingroomId", typeof(System.Int32), true, true, false, false,  (int)LivingroomGeneralEventFieldIndex.LivingroomId, 0, 0, 10);
 		}
 		/// <summary>Inits PatientEntity's FieldInfo objects</summary>
 		private void InitPatientEntityInfos()

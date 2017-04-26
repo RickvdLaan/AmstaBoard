@@ -102,9 +102,12 @@ namespace AmstaJanBonga.Web.MasterPage
                 //}
 
                 // Creates a cookie which has an expire time of 60 minutes.
-                var cookie = new HttpCookie("Temperature");
-                cookie.Value = temperature;
-                cookie.Expires = DateTime.Now.AddMinutes(60);
+                var cookie = new HttpCookie("Temperature")
+                {
+                    Value = temperature,
+                    Expires = DateTime.Now.AddMinutes(60)
+                };
+
                 Response.Cookies.Add(cookie);
             }
             // Cookie exists, getting the value and returning it.

@@ -163,17 +163,6 @@
           <Field Name="Name" Type="string" MaxLength="50" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="LivingroomChoreEvent" GroupName="Vanderlaan" ObjectID="04cea51f-6e94-41dd-858c-a3285b6ba142">
-        <Fields>
-          <Field Name="Date" Type="datetime" IsPrimaryKey="true" />
-          <Field Name="DateCreated" Type="datetime" />
-          <Field Name="DateLastModified" Type="datetime" IsOptional="true" />
-          <Field Name="DateLastModifiedByUserId" Type="int" IsOptional="true" Precision="10" />
-          <Field Name="LivingroomId" Type="int" Precision="10" IsPrimaryKey="true" />
-          <Field Name="PatientId" Type="int" Precision="10" IsPrimaryKey="true" />
-          <Field Name="TimeOfDayTypeEnum" Type="byte" Precision="3" IsPrimaryKey="true" />
-        </Fields>
-      </EntityDefinition>
       <EntityDefinition Name="LivingroomGeneral" GroupName="Vanderlaan" ObjectID="61b4a33f-1dcf-426a-9862-eafb358aca30">
         <Fields>
           <Field Name="DateCreated" Type="datetime" />
@@ -248,16 +237,6 @@
       <NormalRelationship Name="Vanderlaan.EmployeeLivingroom.Livingroom-Vanderlaan.Livingroom.EmployeeLivingrooms" Start="Vanderlaan:EmployeeLivingroom" End="Vanderlaan:Livingroom" StartNavigator="Livingroom" EndNavigator="EmployeeLivingrooms" Type="4">
         <FieldRelationships>
           <FieldFieldRelationship FkField="LivingroomId" PkField="Id" />
-        </FieldRelationships>
-      </NormalRelationship>
-      <NormalRelationship Name="Vanderlaan.LivingroomChoreEvent.Livingroom-Vanderlaan.Livingroom.LivingroomChoreEvents" Start="Vanderlaan:LivingroomChoreEvent" End="Vanderlaan:Livingroom" StartNavigator="Livingroom" EndNavigator="LivingroomChoreEvents" Type="4">
-        <FieldRelationships>
-          <FieldFieldRelationship FkField="LivingroomId" PkField="Id" />
-        </FieldRelationships>
-      </NormalRelationship>
-      <NormalRelationship Name="Vanderlaan.LivingroomChoreEvent.Patient-Vanderlaan.Patient.LivingroomChoreEvents" Start="Vanderlaan:LivingroomChoreEvent" End="Vanderlaan:Patient" StartNavigator="Patient" EndNavigator="LivingroomChoreEvents" Type="4">
-        <FieldRelationships>
-          <FieldFieldRelationship FkField="PatientId" PkField="Id" />
         </FieldRelationships>
       </NormalRelationship>
       <NormalRelationship Name="Vanderlaan.LivingroomGeneral.Livingroom-Vanderlaan.Livingroom.LivingroomGeneral" Start="Vanderlaan:LivingroomGeneral" End="Vanderlaan:Livingroom" StartNavigator="Livingroom" EndNavigator="LivingroomGeneral" Type="1" StartIsOptional="true">
@@ -568,17 +547,6 @@
             <FieldMapping FieldName="IsActive" TargetFieldName="IsActive" />
             <FieldMapping FieldName="IsMarkedAsDeleted" TargetFieldName="IsMarkedAsDeleted" />
             <FieldMapping FieldName="Name" TargetFieldName="Name" />
-          </FieldMappings>
-        </EntityMapping>
-        <EntityMapping EntityName="Vanderlaan:LivingroomChoreEvent" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:LivingroomChoreEvent">
-          <FieldMappings>
-            <FieldMapping FieldName="Date" TargetFieldName="Date" />
-            <FieldMapping FieldName="DateCreated" TargetFieldName="DateCreated" />
-            <FieldMapping FieldName="DateLastModified" TargetFieldName="DateLastModified" />
-            <FieldMapping FieldName="DateLastModifiedByUserId" TargetFieldName="DateLastModifiedByUserId" />
-            <FieldMapping FieldName="LivingroomId" TargetFieldName="LivingroomId" />
-            <FieldMapping FieldName="PatientId" TargetFieldName="PatientId" />
-            <FieldMapping FieldName="TimeOfDayTypeEnum" TargetFieldName="TimeOfDayTypeEnum" />
           </FieldMappings>
         </EntityMapping>
         <EntityMapping EntityName="Vanderlaan:LivingroomGeneral" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:LivingroomGeneral">

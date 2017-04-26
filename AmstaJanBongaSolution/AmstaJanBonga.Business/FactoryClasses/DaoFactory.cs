@@ -28,13 +28,6 @@ namespace AmstaJanBonga.Business.FactoryClasses
 		{
 		}
 
-		/// <summary>Creates a new ChoreDAO object</summary>
-		/// <returns>the new DAO object ready to use for Chore Entities</returns>
-		public static ChoreDAO CreateChoreDAO()
-		{
-			return new ChoreDAO();
-		}
-
 		/// <summary>Creates a new EmployeeDAO object</summary>
 		/// <returns>the new DAO object ready to use for Employee Entities</returns>
 		public static EmployeeDAO CreateEmployeeDAO()
@@ -54,6 +47,27 @@ namespace AmstaJanBonga.Business.FactoryClasses
 		public static LivingroomDAO CreateLivingroomDAO()
 		{
 			return new LivingroomDAO();
+		}
+
+		/// <summary>Creates a new LivingroomChoreEventDAO object</summary>
+		/// <returns>the new DAO object ready to use for LivingroomChoreEvent Entities</returns>
+		public static LivingroomChoreEventDAO CreateLivingroomChoreEventDAO()
+		{
+			return new LivingroomChoreEventDAO();
+		}
+
+		/// <summary>Creates a new LivingroomGeneralDAO object</summary>
+		/// <returns>the new DAO object ready to use for LivingroomGeneral Entities</returns>
+		public static LivingroomGeneralDAO CreateLivingroomGeneralDAO()
+		{
+			return new LivingroomGeneralDAO();
+		}
+
+		/// <summary>Creates a new LivingroomGeneralEventDAO object</summary>
+		/// <returns>the new DAO object ready to use for LivingroomGeneralEvent Entities</returns>
+		public static LivingroomGeneralEventDAO CreateLivingroomGeneralEventDAO()
+		{
+			return new LivingroomGeneralEventDAO();
 		}
 
 		/// <summary>Creates a new PatientDAO object</summary>

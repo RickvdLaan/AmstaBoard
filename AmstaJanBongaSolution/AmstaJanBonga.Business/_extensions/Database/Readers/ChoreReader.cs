@@ -1,7 +1,9 @@
 ﻿using AmstaJanBonga.Business.CollectionClasses;
 using AmstaJanBonga.Business.DaoClasses;
 using AmstaJanBonga.Business.EntityClasses;
+using AmstaJanBonga.Business.Enums;
 using AmstaJanBonga.Business.HelperClasses;
+using Rlaan.Toolkit.Extensions;
 using SD.LLBLGen.Pro.ORMSupportClasses;
 using System;
 using System.Collections.Generic;
@@ -11,18 +13,38 @@ namespace AmstaJanBonga.Business.Database.Readers
 {
     public abstract class ChoreReader
     {
-        public static ChoreCollection GetAllChoresFilteredByLivingroomAndDate(int livingroomId, DateTime date)
+        public static LivingroomChoreEventEntity GetChoreByIds(int patientId, int livingroomId, DateTime date, TimeOfDayTypeEnum timeOfDay, bool throwExceptionWhenNotFound)
         {
-            var chores = new ChoreCollection();
+            var chore = new LivingroomChoreEventEntity(date, livingroomId, patientId, (byte)timeOfDay);
+
+            if (chore.IsNew && throwExceptionWhenNotFound)
+            {
+                throw new Exception("Chore not found by PatientId: {0}, LivingroomId: {1}, Date: {2} and TimeOfDay: {3}.".FormatString(patientId, livingroomId, date, timeOfDay));
+            }
+            else if (chore.IsNew)
+            {
+                chore.DateCreated = DateTime.Now;
+            }
+
+            return chore;
+        }
+
+        public static LivingroomChoreEventCollection GetAllChoresFilteredByLivingroomAndDate(int livingroomId, DateTime date)
+        {
+            var chores = new LivingroomChoreEventCollection();
 
             // Sorter
-            var sorter = new SortExpression();
-            sorter.Add(ChoreFields.Date | SortOperator.Ascending);
+            var sorter = new SortExpression
+            {
+                LivingroomChoreEventFields.Date | SortOperator.Ascending
+            };
 
             // Predicate
-            var predicate = new PredicateExpression();
-            predicate.Add(ChoreFields.LivingroomId == livingroomId);
-            predicate.Add(ChoreFields.Date == date);
+            var predicate = new PredicateExpression
+            {
+                LivingroomChoreEventFields.LivingroomId == livingroomId,
+                LivingroomChoreEventFields.Date == date
+            };
 
             chores.GetMulti(predicate, 0, sorter);
 
@@ -34,25 +56,29 @@ namespace AmstaJanBonga.Business.Database.Readers
             // Result fields.
             var fields = new ResultsetFields(3)
             {
-                ChoreFields.LivingroomId,
+                LivingroomChoreEventFields.LivingroomId,
                 LivingroomFields.Name,
-                ChoreFields.Date
+                LivingroomChoreEventFields.Date
             };
 
             // Sorter
-            var sorter = new SortExpression();
-            sorter.Add(ChoreFields.Date | SortOperator.Ascending);
+            var sorter = new SortExpression
+            {
+                LivingroomChoreEventFields.Date | SortOperator.Ascending
+            };
 
             // Adds the JOIN clause from the relation collection.
             var relations = new RelationCollection
             {
-                ChoreEntity.Relations.LivingroomEntityUsingLivingroomId
+                LivingroomChoreEventEntity.Relations.LivingroomEntityUsingLivingroomId
             };
 
             // Predicate
-            var predicate = new PredicateExpression();
-            predicate.Add(ChoreFields.LivingroomId == livingroomId);
-            predicate.Add(ChoreFields.Date >= DateTime.Now);
+            var predicate = new PredicateExpression
+            {
+                LivingroomChoreEventFields.LivingroomId == livingroomId,
+                LivingroomChoreEventFields.Date >= DateTime.Now
+            };
 
             // Create the DataTable, DAO and fill the DataTable with the above query definition/parameters.
             var dt = new DataTable();
@@ -68,23 +94,27 @@ namespace AmstaJanBonga.Business.Database.Readers
             // Result fields.
             var fields = new ResultsetFields(1)
             {
-                ChoreFields.Date
+                LivingroomChoreEventFields.Date
             };
 
             // Sorting
-            var sorter = new SortExpression();
-            sorter.Add(ChoreFields.Date | SortOperator.Ascending);
+            var sorter = new SortExpression
+            {
+                LivingroomChoreEventFields.Date | SortOperator.Ascending
+            };
 
             // Predicate
-            var predicate = new PredicateExpression();
-            predicate.Add(ChoreFields.LivingroomId == livingroomId);
+            var predicate = new PredicateExpression
+            {
+                LivingroomChoreEventFields.LivingroomId == livingroomId
+            };
 
             // Create the DataTable, DAO and fill the DataTable with the above query definition/parameters.
             var dt = new DataTable();
             var dao = new TypedListDAO();
             dao.GetMultiAsDataTable(fields, dt, 0, sorter, predicate, null, false, null, null, 0, 0);
 
-            List<DateTime> dates = new List<DateTime>();
+            var dates = new List<DateTime>();
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {

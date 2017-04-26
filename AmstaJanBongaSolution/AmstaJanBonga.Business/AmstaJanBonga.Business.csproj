@@ -60,7 +60,7 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="_Extensions\Database\EntityClasses\ChoreEntity.cs" />
+    <Compile Include="_Extensions\Database\EntityClasses\LivingroomChoreEventEntity.cs" />
     <Compile Include="_Extensions\Database\EntityClasses\EmployeeEntity.cs" />
     <Compile Include="_Extensions\Database\EntityClasses\LivingroomEntity.cs" />
     <Compile Include="_Extensions\Database\EntityClasses\PatientEntity.cs" />
@@ -90,16 +90,22 @@
     <Compile Include="AssemblyInfo.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
-    <Compile Include="CollectionClasses\ChoreCollection.cs">
-      <GeneratedBy>LLBLGen Pro</GeneratedBy>
-    </Compile>
     <Compile Include="CollectionClasses\EmployeeCollection.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
     <Compile Include="CollectionClasses\EmployeeLivingroomCollection.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
+    <Compile Include="CollectionClasses\LivingroomChoreEventCollection.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
     <Compile Include="CollectionClasses\LivingroomCollection.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
+    <Compile Include="CollectionClasses\LivingroomGeneralCollection.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
+    <Compile Include="CollectionClasses\LivingroomGeneralEventCollection.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
     <Compile Include="CollectionClasses\PatientCollection.cs">
@@ -114,9 +120,6 @@
     <Compile Include="ConstantsEnums.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
-    <Compile Include="DaoClasses\ChoreDAO.cs">
-      <GeneratedBy>LLBLGen Pro</GeneratedBy>
-    </Compile>
     <Compile Include="DaoClasses\CommonDaoBase.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
@@ -126,7 +129,16 @@
     <Compile Include="DaoClasses\EmployeeLivingroomDAO.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
+    <Compile Include="DaoClasses\LivingroomChoreEventDAO.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
     <Compile Include="DaoClasses\LivingroomDAO.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
+    <Compile Include="DaoClasses\LivingroomGeneralDAO.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
+    <Compile Include="DaoClasses\LivingroomGeneralEventDAO.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
     <Compile Include="DaoClasses\PatientDAO.cs">
@@ -141,9 +153,6 @@
     <Compile Include="DaoClasses\UserRoleDAO.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
-    <Compile Include="EntityClasses\ChoreEntity.cs">
-      <GeneratedBy>LLBLGen Pro</GeneratedBy>
-    </Compile>
     <Compile Include="EntityClasses\CommonEntityBase.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
@@ -153,7 +162,16 @@
     <Compile Include="EntityClasses\EmployeeLivingroomEntity.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
+    <Compile Include="EntityClasses\LivingroomChoreEventEntity.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
     <Compile Include="EntityClasses\LivingroomEntity.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
+    <Compile Include="EntityClasses\LivingroomGeneralEntity.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
+    <Compile Include="EntityClasses\LivingroomGeneralEventEntity.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
     <Compile Include="EntityClasses\PatientEntity.cs">
@@ -204,9 +222,6 @@
     <Compile Include="Linq\LinqMetaData.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
-    <Compile Include="RelationClasses\ChoreRelations.cs">
-      <GeneratedBy>LLBLGen Pro</GeneratedBy>
-    </Compile>
     <Compile Include="RelationClasses\DynamicRelation.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
@@ -214,6 +229,15 @@
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
     <Compile Include="RelationClasses\EmployeeRelations.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
+    <Compile Include="RelationClasses\LivingroomChoreEventRelations.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
+    <Compile Include="RelationClasses\LivingroomGeneralEventRelations.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
+    <Compile Include="RelationClasses\LivingroomGeneralRelations.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
     <Compile Include="RelationClasses\LivingroomRelations.cs">

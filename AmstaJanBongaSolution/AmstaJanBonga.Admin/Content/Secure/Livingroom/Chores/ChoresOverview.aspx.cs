@@ -63,7 +63,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
         {
             if (this.HasLivingroomId)
             {
-                this.Chores = ChoreReader.GetAllChoresDistinctByLivingroomId(this.LivingroomId);
+                this.Chores = LivingroomChoreEventReader.GetAllChoresDistinctByLivingroomId(this.LivingroomId);
 
                 this._gvChores.DataSource = this.Chores;
                 this._gvChores.DataBind();

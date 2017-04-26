@@ -91,3 +91,18 @@
 .remodal .remodal-confirm:hover {
     background-color: none;
 }
+
+
+
+/* Warning */
+
+.warning {
+    border: 1px solid;
+    margin: 10px 0px;
+    padding: 15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-color: #feefb3;
+    background-image: url("warning.png");
+    color: #9f6000;
+}
