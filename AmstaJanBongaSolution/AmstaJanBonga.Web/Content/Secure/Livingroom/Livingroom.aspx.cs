@@ -3,14 +3,7 @@ using AmstaJanBonga.Business.Database.Managers;
 using AmstaJanBonga.Business.Database.Readers;
 using AmstaJanBonga.Business.Enums;
 using Rlaan.Toolkit.Extensions;
-using Rlaan.Toolkit.Web;
 using System;
-using System.ComponentModel;
-using System.Data;
-using System.Threading;
-using System.Web;
-using System.Web.Script.Services;
-using System.Web.Services;
 using System.Web.UI.WebControls;
 
 namespace AmstaJanBonga.Web.Content
@@ -18,6 +11,8 @@ namespace AmstaJanBonga.Web.Content
     public partial class Home : SecurePage
     {
         #region Variables & Objects
+
+        private string _emptyPatientDiv = "<li><div style='display: inline-table; background-color: #f4f4f4; opacity: 0.75;' class='image image-chores' data-remodal-target='chores-remodal' onclick='HiddenFieldPatient(-1, {0})'><i class='fa fa-plus' style='color: #009eed; display: table-cell; font-size: 52px; text-align: center; vertical-align: middle;' aria-hidden='true'></i></div></li>";
 
         private PatientCollection _patients = null;
 
@@ -49,7 +44,6 @@ namespace AmstaJanBonga.Web.Content
         {
             if (!IsPostBack)
             {
-                this.DatabindEmployees();
                 this.DatabindPatients();
                 this.DatabindChores();
                 this.DatabindGeneral();
@@ -58,25 +52,10 @@ namespace AmstaJanBonga.Web.Content
 
         #region Methods
 
-        private void DatabindEmployees()
-        {
-
-        }
-
         public void DatabindPatients()
         {
             this._repPatients.DataSource = this.Patients;
             this._repPatients.DataBind();
-
-            // Excluding a patient
-            //for (int i = 0; i < source.Count; i++)
-            //{
-            //    if (source[i].Id == patientIdToExclude)
-            //    {
-            //        source.Remove(source[i]);
-            //        break;
-            //    }
-            //}
         }
 
         private void DatabindGeneral()
@@ -135,7 +114,7 @@ namespace AmstaJanBonga.Web.Content
 
         #endregion
 
-        private string _addDiv = "<li><div style='display: inline-table; background-color: #f4f4f4;' class='image image-chores' data-remodal-target='chores-remodal' onclick='HiddenFieldPatient(-1, {0})'><i class='fa fa-plus' style='color: rgb(19, 212, 113); display: table-cell; font-size: 52px; text-align: center; vertical-align: middle;' aria-hidden='true'></i></div></li>";
+        #region Events
 
         protected void _lbPatient_Click(object sender, EventArgs e)
         {
@@ -163,12 +142,12 @@ namespace AmstaJanBonga.Web.Content
                 switch (count)
                 {
                     case 0:
-                        _litChoreMorning.Text = this._addDiv.FormatString((byte)TimeOfDayTypeEnum.Morning);
-                        _litChoreMorning.Text += this._addDiv.FormatString((byte)TimeOfDayTypeEnum.Morning);
+                        _litChoreMorning.Text = this._emptyPatientDiv.FormatString((byte)TimeOfDayTypeEnum.Morning);
+                        _litChoreMorning.Text += this._emptyPatientDiv.FormatString((byte)TimeOfDayTypeEnum.Morning);
                         _litChoreMorning.Visible = true;
                         break;
                     case 1:
-                        _litChoreMorning.Text = this._addDiv.FormatString((byte)TimeOfDayTypeEnum.Morning);
+                        _litChoreMorning.Text = this._emptyPatientDiv.FormatString((byte)TimeOfDayTypeEnum.Morning);
                         _litChoreMorning.Visible = true;
                         break;
                     default:
@@ -191,12 +170,12 @@ namespace AmstaJanBonga.Web.Content
                 switch (count)
                 {
                     case 0:
-                        _litChoreAfternoon.Text = this._addDiv.FormatString((byte)TimeOfDayTypeEnum.Afternoon);
-                        _litChoreAfternoon.Text += this._addDiv.FormatString((byte)TimeOfDayTypeEnum.Afternoon);
+                        _litChoreAfternoon.Text = this._emptyPatientDiv.FormatString((byte)TimeOfDayTypeEnum.Afternoon);
+                        _litChoreAfternoon.Text += this._emptyPatientDiv.FormatString((byte)TimeOfDayTypeEnum.Afternoon);
                         _litChoreAfternoon.Visible = true;
                         break;
                     case 1:
-                        _litChoreAfternoon.Text = this._addDiv.FormatString((byte)TimeOfDayTypeEnum.Afternoon);
+                        _litChoreAfternoon.Text = this._emptyPatientDiv.FormatString((byte)TimeOfDayTypeEnum.Afternoon);
                         _litChoreAfternoon.Visible = true;
                         break;
                     default:
@@ -219,12 +198,12 @@ namespace AmstaJanBonga.Web.Content
                 switch (count)
                 {
                     case 0:
-                        _litChoreEvening.Text = this._addDiv.FormatString((byte)TimeOfDayTypeEnum.Evening);
-                        _litChoreEvening.Text += this._addDiv.FormatString((byte)TimeOfDayTypeEnum.Evening);
+                        _litChoreEvening.Text = this._emptyPatientDiv.FormatString((byte)TimeOfDayTypeEnum.Evening);
+                        _litChoreEvening.Text += this._emptyPatientDiv.FormatString((byte)TimeOfDayTypeEnum.Evening);
                         _litChoreEvening.Visible = true;
                         break;
                     case 1:
-                        _litChoreEvening.Text = this._addDiv.FormatString((byte)TimeOfDayTypeEnum.Evening);
+                        _litChoreEvening.Text = this._emptyPatientDiv.FormatString((byte)TimeOfDayTypeEnum.Evening);
                         _litChoreEvening.Visible = true;
                         break;
                     default:
@@ -236,5 +215,7 @@ namespace AmstaJanBonga.Web.Content
                 _litChoreEvening.Visible = false;
             }
         }
+
+        #endregion
     }
 }
