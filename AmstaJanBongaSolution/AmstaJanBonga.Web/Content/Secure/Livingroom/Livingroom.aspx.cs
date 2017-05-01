@@ -12,7 +12,7 @@ namespace AmstaJanBonga.Web.Content
     {
         #region Variables & Objects
 
-        private string _emptyPatientDiv = "<li><div style='display: inline-table; background-color: #f4f4f4; opacity: 0.75;' class='image image-chores' data-remodal-target='chores-remodal' onclick='HiddenFieldPatient(-1, {0})'><i class='fa fa-plus' style='color: #009eed; display: table-cell; font-size: 52px; text-align: center; vertical-align: middle;' aria-hidden='true'></i></div></li>";
+        private string _emptyPatientDiv = "<li><div style='display: inline-table; background-color: #f4f4f4; opacity: 0.75;' class='image image-chores' data-remodal-target='chores-remodal' onclick='HiddenFieldPatient(-1, {0})'><i class='fa fa-plus' style='color: #009eed; display: table-cell; font-size: 3vw; text-align: center; vertical-align: middle;' aria-hidden='true'></i></div></li>";
 
         private PatientCollection _patients = null;
 

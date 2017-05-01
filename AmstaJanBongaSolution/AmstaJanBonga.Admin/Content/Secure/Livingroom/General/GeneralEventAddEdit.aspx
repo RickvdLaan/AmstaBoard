@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Main.Master" AutoEventWireup="true" CodeBehind="GeneralInformationAddEdit.aspx.cs" Inherits="AmstaJanBonga.Admin.Content.Secure.Livingroom.General.GeneralInformationAddEdit" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Main.Master" AutoEventWireup="true" CodeBehind="GeneralEventAddEdit.aspx.cs" Inherits="AmstaJanBonga.Admin.Content.Secure.Livingroom.General.GeneralEventAddEdit" %>
 
 <%@ Import namespace="Rlaan.Toolkit.Extensions" %>
 <%@ Register Src="~/Content/Controls/ExtendedCalendar/General/ExtendedCalendar.ascx" TagPrefix="CustomControl" TagName="ExtendedCalendar" %>
@@ -46,7 +46,7 @@
                         Herhalend
                     </td>
                     <td colspan="2">
-                        <asp:TextBox runat="server" ID="_txtGeneral" TextMode="MultiLine" MaxLength="50"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="_txtGeneral" CssClass="no-resize" TextMode="MultiLine" MaxLength="50" Width="320" Height="50"></asp:TextBox>
                     </td>
                 </tr>
 
@@ -55,8 +55,8 @@
                         Toevoeging
                     </td>
                     <td colspan="2">
-                        <asp:TextBox runat="server" ID="_txtGeneralInformation" TextMode="MultiLine" MaxLength="250"></asp:TextBox>
-                        <asp:RequiredFieldValidator runat="server" ValidateRequestMode="Enabled" CssClass="error" InitialValue="" ErrorMessage="Verplichte velden kunnen niet leeg blijven." Display="Dynamic" ControlToValidate="_txtGeneralInformation" ValidationGroup="Validate"></asp:RequiredFieldValidator>
+                        <asp:TextBox runat="server" ID="_txtGeneralEvent" CssClass="no-resize" TextMode="MultiLine" MaxLength="250" Width="320" Height="85"></asp:TextBox>
+                        <asp:RequiredFieldValidator runat="server" ValidateRequestMode="Enabled" CssClass="error" InitialValue="" ErrorMessage="Verplichte velden kunnen niet leeg blijven." Display="Dynamic" ControlToValidate="_txtGeneralEvent" ValidationGroup="Validate"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
             </tbody>

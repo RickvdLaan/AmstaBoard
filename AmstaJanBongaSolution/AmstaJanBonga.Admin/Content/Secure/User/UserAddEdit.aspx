@@ -58,7 +58,7 @@
 
                 <tr>
                     <td class="label required">
-
+                        Functie
                     </td>
                     <td>
                         <asp:DropDownList runat="server" ID="_ddlRoles"></asp:DropDownList>
@@ -79,8 +79,8 @@
         <asp:Label runat="server" ID="_lblError" CssClass="error"></asp:Label>
 
         <div class="buttons">
-            <asp:Button runat="server" ID="_btnSave" CssClass="button button-save" Text="Opslaan" OnClick="_btnSave_Click" ValidateRequestMode="Enabled" ValidationGroup="Validate" CausesValidation="true" />
-            <asp:Button runat="server" ID="_btnCancel" CssClass="button button-cancel" Text="Annuleren" OnClick="_btnCancel_Click" />
+            <asp:Button runat="server" ID="_btnSave" CssClass="button button-save green-bg" Text="Opslaan" OnClick="_btnSave_Click" ValidateRequestMode="Enabled" ValidationGroup="Validate" CausesValidation="true" />
+            <asp:Button runat="server" ID="_btnCancel" CssClass="button button-cancel red-bg" Text="Annuleren" OnClick="_btnCancel_Click" />
         </div>
     </div>
 </asp:Content>

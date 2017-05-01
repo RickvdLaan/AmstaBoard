@@ -372,6 +372,7 @@ td.times div:first-of-type {
 .staff {
     background-color: #7a5195;
     color: #f4f4f4;
+    overflow: hidden;
 }
 
 .general {

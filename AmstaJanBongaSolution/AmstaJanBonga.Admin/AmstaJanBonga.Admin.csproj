@@ -125,7 +125,7 @@
     <Content Include="Content\Secure\Livingroom\Chores\ChoresDetails.aspx" />
     <Content Include="Content\Secure\Livingroom\Chores\ChoresOverview.aspx" />
     <Content Include="Content\Secure\Livingroom\General\GeneralAddEdit.aspx" />
-    <Content Include="Content\Secure\Livingroom\General\GeneralInformationAddEdit.aspx" />
+    <Content Include="Content\Secure\Livingroom\General\GeneralEventAddEdit.aspx" />
     <Content Include="Content\Secure\Livingroom\General\GeneralDetails.aspx" />
     <Content Include="Content\Secure\Livingroom\General\GeneralOverview.aspx" />
     <Content Include="Content\Secure\Livingroom\LivingroomAddEdit.aspx" />
@@ -291,12 +291,12 @@
     <Compile Include="Content\Secure\Livingroom\General\GeneralAddEdit.aspx.designer.cs">
       <DependentUpon>GeneralAddEdit.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Content\Secure\Livingroom\General\GeneralInformationAddEdit.aspx.cs">
-      <DependentUpon>GeneralInformationAddEdit.aspx</DependentUpon>
+    <Compile Include="Content\Secure\Livingroom\General\GeneralEventAddEdit.aspx.cs">
+      <DependentUpon>GeneralEventAddEdit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Content\Secure\Livingroom\General\GeneralInformationAddEdit.aspx.designer.cs">
-      <DependentUpon>GeneralInformationAddEdit.aspx</DependentUpon>
+    <Compile Include="Content\Secure\Livingroom\General\GeneralEventAddEdit.aspx.designer.cs">
+      <DependentUpon>GeneralEventAddEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Content\Secure\Livingroom\General\GeneralDetails.aspx.cs">
       <DependentUpon>GeneralDetails.aspx</DependentUpon>

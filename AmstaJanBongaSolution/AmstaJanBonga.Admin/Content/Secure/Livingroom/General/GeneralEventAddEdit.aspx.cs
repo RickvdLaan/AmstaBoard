@@ -6,7 +6,7 @@ using System;
 
 namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
 {
-    public partial class GeneralInformationAddEdit : SecurePage
+    public partial class GeneralEventAddEdit : SecurePage
     {
         #region Variables & Objects
 
@@ -81,6 +81,8 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
                 // Edit
                 if (this.HasDate)
                 {
+                    var livingroomGeneralEvent = LivingroomGeneralEventReader.GetLivingroomGeneralByIdAndDate(this.LivingroomId, this.QueryStringDate.Date, true);
+
                     // Sets the date.
                     this.ExtendedCalendar.SelectedDate = this.QueryStringDate.Date;
                     this.ExtendedCalendar.Visible = false;
@@ -89,12 +91,14 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
                     this._txtDate.Text = this.ExtendedCalendar.SelectedDate.Date.ToString("dd-MM-yyyy");
                     this._txtDate.Visible = true;
 
-                    this._txtGeneral.Text = livingroomGeneral.Description;
+                    // Sets the descriptions.
+                    this._txtGeneral.Text = livingroomGeneral.Description.Replace("<br />", Environment.NewLine);
+                    this._txtGeneralEvent.Text = livingroomGeneralEvent.Description.Replace("<br />", Environment.NewLine);
                 }
                 // Add
                 else
                 {
-                    this._txtGeneral.Text = livingroomGeneral.Description;
+                    this._txtGeneral.Text = livingroomGeneral.Description.Replace("<br />", Environment.NewLine);
                 }
             }
         }
@@ -108,17 +112,17 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
             if (this.HasLivingroomId)
             {
                 var general = Server.HtmlEncode(this._txtGeneral.Text).Replace(Environment.NewLine, "<br />");
-                var generalInformation = Server.HtmlEncode(this._txtGeneralInformation.Text).Replace(Environment.NewLine, "<br />");
+                var generalEvent = Server.HtmlEncode(this._txtGeneralEvent.Text).Replace(Environment.NewLine, "<br />");
 
                 // Edit (Update)
                 if (this.HasDate)
                 {
-                    LivingroomGeneralEventManager.Update(this.LivingroomId, this.ExtendedCalendar.SelectedDate.Date, generalInformation);
+                    LivingroomGeneralEventManager.Update(this.LivingroomId, this.ExtendedCalendar.SelectedDate.Date, generalEvent);
                 }
                 // Add (Insert)
                 else
                 {
-                    LivingroomGeneralEventManager.Insert(this.LivingroomId, this.ExtendedCalendar.SelectedDate.Date, generalInformation);
+                    LivingroomGeneralEventManager.Insert(this.LivingroomId, this.ExtendedCalendar.SelectedDate.Date, generalEvent);
                 }
 
                 // This one needs to be updated/inserted regardless.

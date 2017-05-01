@@ -40,7 +40,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
         {
             if (!this.IsPostBack)
             {
-                this._hlAddEditGeneral.NavigateUrl = "~/Content/Secure/Livingroom/General/GeneralInformationAddEdit.aspx?LivingroomId={0}".FormatString(this.LivingroomId);
+                this._hlAddEditGeneral.NavigateUrl = "~/Content/Secure/Livingroom/General/GeneralEventAddEdit.aspx?LivingroomId={0}".FormatString(this.LivingroomId);
             }
         }
 

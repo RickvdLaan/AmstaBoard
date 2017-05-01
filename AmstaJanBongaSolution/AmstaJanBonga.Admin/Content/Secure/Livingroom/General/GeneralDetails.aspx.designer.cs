@@ -38,5 +38,23 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label _lblDate;
+        
+        /// <summary>
+        /// _lblLivingroom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label _lblLivingroom;
+        
+        /// <summary>
+        /// _lblDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label _lblDescription;
     }
 }

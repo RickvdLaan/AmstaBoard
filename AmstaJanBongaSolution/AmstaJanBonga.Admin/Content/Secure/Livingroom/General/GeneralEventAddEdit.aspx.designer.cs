@@ -10,7 +10,7 @@
 namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General {
     
     
-    public partial class GeneralInformationAddEdit {
+    public partial class GeneralEventAddEdit {
         
         /// <summary>
         /// _hlReturn control.
@@ -49,13 +49,13 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General {
         protected global::System.Web.UI.WebControls.TextBox _txtGeneral;
         
         /// <summary>
-        /// _txtGeneralInformation control.
+        /// _txtGeneralEvent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox _txtGeneralInformation;
+        protected global::System.Web.UI.WebControls.TextBox _txtGeneralEvent;
         
         /// <summary>
         /// _lblError control.

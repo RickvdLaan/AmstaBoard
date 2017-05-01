@@ -35,6 +35,24 @@
                         <asp:Label runat="server" ID="_lblDate"></asp:Label>
                     </td>
                 </tr>
+
+                 <tr>
+                    <td class="label">
+                        Woonkamer
+                    </td>
+                    <td>
+                        <asp:Label runat="server" ID="_lblLivingroom"></asp:Label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="label">
+                        Bericht
+                    </td>
+                    <td>
+                        <asp:Label runat="server" ID="_lblDescription"></asp:Label>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>
