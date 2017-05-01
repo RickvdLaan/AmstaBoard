@@ -1,4 +1,5 @@
-﻿using Rlaan.Toolkit.Extensions;
+﻿using AmstaJanBonga.Business.Database.Readers;
+using Rlaan.Toolkit.Extensions;
 using Rlaan.Toolkit.Web;
 using System;
 using System.Web.UI.WebControls;
@@ -39,7 +40,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
         {
             if (!this.IsPostBack)
             {
-                this._hlAddEditGeneral.NavigateUrl = "~/Content/Secure/Livingroom/General/GeneralAddEdit.aspx?LivingroomId={0}".FormatString(this.LivingroomId);
+                this._hlAddEditGeneral.NavigateUrl = "~/Content/Secure/Livingroom/General/GeneralInformationAddEdit.aspx?LivingroomId={0}".FormatString(this.LivingroomId);
             }
         }
 
@@ -49,11 +50,8 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
         {
             if (this.HasLivingroomId)
             {
-                // Fixme: Implement GeneralReader and GetAllGeneralInformationByLivingroomId
-                //this.General = GeneralReader.GetAllGeneralInformationByLivingroomId(this.LivingroomId);
-
-                //this._gvGeneral.DataSource = this.Chores;
-                //this._gvGeneral.DataBind();
+                this._gvGeneral.DataSource = LivingroomGeneralEventReader.GetAllLivingroomGeneralEventsByLivingroomId(this.LivingroomId);
+                this._gvGeneral.DataBind();
 
                 if (this._gvGeneral.Rows.Count > 0)
                 {

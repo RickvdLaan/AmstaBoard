@@ -52,6 +52,7 @@ namespace AmstaJanBonga.Web.Content
                 this.DatabindEmployees();
                 this.DatabindPatients();
                 this.DatabindChores();
+                this.DatabindGeneral();
             }
         }
 
@@ -76,6 +77,22 @@ namespace AmstaJanBonga.Web.Content
             //        break;
             //    }
             //}
+        }
+
+        private void DatabindGeneral()
+        {
+            var general = LivingroomGeneralEventReader.GetLivingroomGeneralByIdAndDate(Helper.LIVINGROOM_STIMULATE, DateTime.Now, false);
+
+            if (general != null)
+            {
+                if (!string.IsNullOrWhiteSpace(general.LivingroomGeneral.Description))
+                {
+                    this._litGeneral.Text += general.LivingroomGeneral.Description;
+                    this._litGeneral.Text += "<br /><br />";
+                }
+
+                this._litGeneral.Text += general.Description;
+            }
         }
 
         private void DatabindChores()
@@ -118,11 +135,13 @@ namespace AmstaJanBonga.Web.Content
 
         #endregion
 
+        private string _addDiv = "<li><div style='display: inline-table; background-color: #f4f4f4;' class='image image-chores' data-remodal-target='chores-remodal' onclick='HiddenFieldPatient(-1, {0})'><i class='fa fa-plus' style='color: rgb(19, 212, 113); display: table-cell; font-size: 52px; text-align: center; vertical-align: middle;' aria-hidden='true'></i></div></li>";
+
         protected void _lbPatient_Click(object sender, EventArgs e)
         {
             var linkButton = (LinkButton)sender;
 
-            var values = this._hfPatient.Value.Split('-');
+            var values = this._hfPatient.Value.Split('_');
 
             var timeOfDay = (TimeOfDayTypeEnum)Enum.Parse(typeof(TimeOfDayTypeEnum), values[1]);
 
@@ -132,6 +151,90 @@ namespace AmstaJanBonga.Web.Content
             LivingroomChoreEventManager.UpdateChore(oldChore, newChore);
 
             this.DatabindChores();
+        }
+
+        protected void _repChoreMorning_DataBinding(object sender, EventArgs e)
+        {
+            var dataSource = ((Repeater)sender).DataSource as LivingroomChoreEventCollection;
+            var count = dataSource.Count;
+
+            if (count < 2)
+            {
+                switch (count)
+                {
+                    case 0:
+                        _litChoreMorning.Text = this._addDiv.FormatString((byte)TimeOfDayTypeEnum.Morning);
+                        _litChoreMorning.Text += this._addDiv.FormatString((byte)TimeOfDayTypeEnum.Morning);
+                        _litChoreMorning.Visible = true;
+                        break;
+                    case 1:
+                        _litChoreMorning.Text = this._addDiv.FormatString((byte)TimeOfDayTypeEnum.Morning);
+                        _litChoreMorning.Visible = true;
+                        break;
+                    default:
+                        throw new NotImplementedException();
+                }
+            }
+            else
+            {
+                _litChoreMorning.Visible = false;
+            }
+        }
+
+        protected void _repChoreAfternoon_DataBinding(object sender, EventArgs e)
+        {
+            var dataSource = ((Repeater)sender).DataSource as LivingroomChoreEventCollection;
+            var count = dataSource.Count;
+
+            if (count < 2)
+            {
+                switch (count)
+                {
+                    case 0:
+                        _litChoreAfternoon.Text = this._addDiv.FormatString((byte)TimeOfDayTypeEnum.Afternoon);
+                        _litChoreAfternoon.Text += this._addDiv.FormatString((byte)TimeOfDayTypeEnum.Afternoon);
+                        _litChoreAfternoon.Visible = true;
+                        break;
+                    case 1:
+                        _litChoreAfternoon.Text = this._addDiv.FormatString((byte)TimeOfDayTypeEnum.Afternoon);
+                        _litChoreAfternoon.Visible = true;
+                        break;
+                    default:
+                        throw new NotImplementedException();
+                }
+            }
+            else
+            {
+                _litChoreAfternoon.Visible = false;
+            }
+        }
+
+        protected void _repChoreEvening_DataBinding(object sender, EventArgs e)
+        {
+            var dataSource = ((Repeater)sender).DataSource as LivingroomChoreEventCollection;
+            var count = dataSource.Count;
+
+            if (count < 2)
+            {
+                switch (count)
+                {
+                    case 0:
+                        _litChoreEvening.Text = this._addDiv.FormatString((byte)TimeOfDayTypeEnum.Evening);
+                        _litChoreEvening.Text += this._addDiv.FormatString((byte)TimeOfDayTypeEnum.Evening);
+                        _litChoreEvening.Visible = true;
+                        break;
+                    case 1:
+                        _litChoreEvening.Text = this._addDiv.FormatString((byte)TimeOfDayTypeEnum.Evening);
+                        _litChoreEvening.Visible = true;
+                        break;
+                    default:
+                        throw new NotImplementedException();
+                }
+            }
+            else
+            {
+                _litChoreEvening.Visible = false;
+            }
         }
     }
 }

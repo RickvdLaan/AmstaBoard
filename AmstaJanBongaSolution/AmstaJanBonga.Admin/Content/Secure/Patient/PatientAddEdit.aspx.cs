@@ -43,11 +43,23 @@ namespace AmstaJanBonga.Admin.Content.Secure.Patient
         {
             if (!this.IsPostBack)
             {
+                this.PreFillForm();
                 this.PreFillLivingrooms();
             }
         }
 
         #region PreFill
+
+        private void PreFillForm()
+        {
+            // Edit
+            if (this.HasPatientId)
+            {
+                this._txtFirstName.Text = this.Patient.FirstName;
+                this._rfvFileUpload.Enabled = false;
+                this._cbActive.Checked = this.Patient.IsActive;
+            }
+        }
 
         private void PreFillLivingrooms()
         {
@@ -59,6 +71,12 @@ namespace AmstaJanBonga.Admin.Content.Secure.Patient
             }
 
             this._ddlLivingrooms.Items.Insert(0, new ListItem("Selecteer woonkamer", string.Empty));
+
+            // Edit
+            if (this.HasPatientId)
+            {
+                this._ddlLivingrooms.SelectedValue = this.Patient.LivingroomId.ToString();
+            }
         }
 
         #endregion

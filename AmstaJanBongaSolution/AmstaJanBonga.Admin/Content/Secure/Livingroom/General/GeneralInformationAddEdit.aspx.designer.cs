@@ -7,99 +7,81 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AmstaJanBonga.Web.Content {
+namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General {
     
     
-    public partial class Home {
+    public partial class GeneralInformationAddEdit {
         
         /// <summary>
-        /// _litGeneral control.
+        /// _hlReturn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal _litGeneral;
+        protected global::System.Web.UI.WebControls.HyperLink _hlReturn;
         
         /// <summary>
-        /// _hfPatient control.
+        /// ExtendedCalendar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField _hfPatient;
+        protected global::AmstaJanBonga.Admin.Content.Controls.ExtendedCalendar.General.ExtendedCalendar ExtendedCalendar;
         
         /// <summary>
-        /// _repChoreMorning control.
+        /// _txtDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater _repChoreMorning;
+        protected global::System.Web.UI.WebControls.TextBox _txtDate;
         
         /// <summary>
-        /// _litChoreMorning control.
+        /// _txtGeneral control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal _litChoreMorning;
+        protected global::System.Web.UI.WebControls.TextBox _txtGeneral;
         
         /// <summary>
-        /// _repChoreAfternoon control.
+        /// _txtGeneralInformation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater _repChoreAfternoon;
+        protected global::System.Web.UI.WebControls.TextBox _txtGeneralInformation;
         
         /// <summary>
-        /// _litChoreAfternoon control.
+        /// _lblError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal _litChoreAfternoon;
+        protected global::System.Web.UI.WebControls.Label _lblError;
         
         /// <summary>
-        /// _repChoreEvening control.
+        /// _btnSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater _repChoreEvening;
+        protected global::System.Web.UI.WebControls.Button _btnSave;
         
         /// <summary>
-        /// _litChoreEvening control.
+        /// _btnCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal _litChoreEvening;
-        
-        /// <summary>
-        /// _repEmployees control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater _repEmployees;
-        
-        /// <summary>
-        /// _repPatients control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater _repPatients;
+        protected global::System.Web.UI.WebControls.Button _btnCancel;
     }
 }

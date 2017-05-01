@@ -630,6 +630,17 @@ td.times div:first-of-type {
     background-color: #f4f4f4;
 }
 
+.image-empty {
+    background-image: url('Images/avatar.jpg');
+    background-position: center center;
+    background-size: cover;
+    border: 0.5vw solid #009eed;
+    border-radius: 50%;
+    display: inline-block;
+    height: 8.5vw;
+    width: 8.5vw;
+}
+
 .image-staff {
     border-radius: 50%;
     margin: 0 Calc(20% / 10);
@@ -637,11 +648,11 @@ td.times div:first-of-type {
 }
 
 .image-staff-2 {
-    width: 32%;
+    width: 50%;
 }
 
 .image-staff-3 {
-    width: 50%;
+    width: 32%;
 }
 
 .image-chores {

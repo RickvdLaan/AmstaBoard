@@ -17,7 +17,8 @@ namespace AmstaJanBonga.Business.Database.Readers
         {
             var chore = new LivingroomChoreEventEntity(date, livingroomId, patientId, (byte)timeOfDay);
 
-            if (chore.IsNew && throwExceptionWhenNotFound)
+            // The hidden field is set to -1 if a '+' was clicked.
+            if (patientId != -1 && chore.IsNew && throwExceptionWhenNotFound)
             {
                 throw new Exception("Chore not found by PatientId: {0}, LivingroomId: {1}, Date: {2} and TimeOfDay: {3}.".FormatString(patientId, livingroomId, date, timeOfDay));
             }

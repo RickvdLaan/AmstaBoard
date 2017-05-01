@@ -10,13 +10,14 @@
         });
 
         function SetStaffImageClasses() {
-            var images = $(".staff img").length;
+            return;
+            var images = $(".staff div.image").length;
 
             if (images == 3) {
-                $('.staff').find('img').addClass('image-staff-3');
+                $('.staff').find('div.image').addClass('image-staff-3');
             }
             else if (images == 2) {
-                $('.staff').find('img').addClass('image-staff-2');
+                $('.staff').find('div.image').addClass('image-staff-2');
             }
             else {
                 alert("There are less than two images or more than three, this shouldn't be possible.");
@@ -27,7 +28,7 @@
             var hiddenFieldPatient = document.getElementById('<%= _hfPatient.ClientID %>');
 
             if (hiddenFieldPatient) {
-                hiddenFieldPatient.value = patientId + "-" + timeOfDay;
+                hiddenFieldPatient.value = patientId + "_" + timeOfDay;
             }
         }
     </script>
@@ -60,19 +61,19 @@
         <div class="tile-wrapper">
             <div class="tile-container-cell">
                 <h4>Dag</h4>
-                <asp:Image runat="server" CssClass="image image-staff" ImageUrl="~/Includes/Css/Images/avatar.jpg" /><%-- data-remodal-target="employee-remodal" />--%>
+                <div class="image image-staff image-empty"></div> <%-- data-remodal-target="employee-remodal" />--%>
                 <h3>Voornaam</h3>
             </div>
 
             <div class="tile-container-cell">
                 <h4>Dag</h4>
-                <asp:Image runat="server" CssClass="image image-staff" ImageUrl="~/Includes/Css/Images/avatar.jpg" /><%-- data-remodal-target="employee-remodal" />--%>
+                <div class="image image-staff image-empty"></div> <%-- data-remodal-target="employee-remodal" />--%>
                 <h3>Voornaam</h3>
             </div>
 
             <div class="tile-container-cell">
                 <h4>Avond</h4>
-                <asp:Image runat="server" CssClass="image image-staff" ImageUrl="~/Includes/Css/Images/avatar.jpg" /><%-- data-remodal-target="employee-remodal" />--%>
+                <div class="image image-staff image-empty"></div> <%-- data-remodal-target="employee-remodal" />--%>
                 <h3>Voornaam</h3>
             </div>
         </div>
@@ -87,12 +88,7 @@
 
         <div class="tile-wrapper">
             <div class="tile-container-cell">
-                <asp:Literal runat="server">           
-                    Koffietijden: 11:00 & 15:00 uur
-                    <br />
-                    <br />
-                     Maaltijden: Lasagne of spaghetti
-                </asp:Literal>
+                <asp:Literal runat="server" ID="_litGeneral"></asp:Literal>
             </div>
         </div>
     </div>
@@ -113,13 +109,15 @@
                         <h3>Ochtend</h3>
                     </li>
                     
-                     <asp:Repeater runat="server" ID="_repChoreMorning">
+                     <asp:Repeater runat="server" ID="_repChoreMorning" OnDataBinding="_repChoreMorning_DataBinding">
                         <ItemTemplate>
                             <li>
                                 <div id='<%# Eval("Patient.Id") %>' class="image image-chores" style='background-image: url(<%# Eval("Patient.ImagePath").ToString().Replace('\\', '/')%>);' data-remodal-target="chores-remodal" onclick='HiddenFieldPatient(<%# Eval("Patient.Id") %>, 0)'></div>
                             </li>
                         </ItemTemplate>
                     </asp:Repeater> 
+
+                    <asp:Literal runat="server" ID="_litChoreMorning" Visible="false"></asp:Literal>
                 </ul>
             </div>
 
@@ -129,13 +127,15 @@
                         <h3>Middag</h3>
                     </li>
                     
-                     <asp:Repeater runat="server" ID="_repChoreAfternoon">
+                     <asp:Repeater runat="server" ID="_repChoreAfternoon" OnDataBinding="_repChoreAfternoon_DataBinding">
                         <ItemTemplate>
                             <li>
                                 <div id='<%# Eval("Patient.Id") %>' class="image image-chores" style='background-image: url(<%# Eval("Patient.ImagePath").ToString().Replace('\\', '/')%>);' data-remodal-target="chores-remodal" onclick='HiddenFieldPatient(<%# Eval("Patient.Id") %>, 1)'></div>
                             </li>
                         </ItemTemplate>
                     </asp:Repeater>
+
+                     <asp:Literal runat="server" ID="_litChoreAfternoon" Visible="false"></asp:Literal>
                 </ul>
             </div>
 
@@ -145,13 +145,15 @@
                         <h3>Avond</h3>
                     </li>
                     
-                     <asp:Repeater runat="server" ID="_repChoreEvening">
+                     <asp:Repeater runat="server" ID="_repChoreEvening" OnDataBinding="_repChoreEvening_DataBinding">
                         <ItemTemplate>
                             <li>
                                 <div id='<%# Eval("Patient.Id") %>' class="image image-chores" style='background-image: url(<%# Eval("Patient.ImagePath").ToString().Replace('\\', '/')%>);' data-remodal-target="chores-remodal" onclick='HiddenFieldPatient(<%# Eval("Patient.Id") %>, 2)'></div>
                             </li>
                         </ItemTemplate>
                     </asp:Repeater>
+
+                     <asp:Literal runat="server" ID="_litChoreEvening" Visible="false"></asp:Literal>
                 </ul>
             </div>
         </div>

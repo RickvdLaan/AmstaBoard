@@ -2,6 +2,7 @@
 using Rlaan.Toolkit.Configuration;
 using System;
 using System.IO;
+using System.Web;
 using System.Web.UI.WebControls;
 
 namespace AmstaJanBonga.Business.Database.Managers
@@ -45,7 +46,7 @@ namespace AmstaJanBonga.Business.Database.Managers
             // Filename and the virtual directory are valid, saving the image to the virtual directory.
             else
             {
-                path = Helper.FileManager.SaveFileToVirtualDirectory(fileUpload, virtualDirectory, patient.Id);
+                path = Helper.FileManager.SaveImageToVirtualDirectory(fileUpload, virtualDirectory, patient.Id);
                 patient.ImagePath = path.Substring(path.IndexOf(@"\_uploads\"));
 
                 if (File.Exists(path))
@@ -73,18 +74,25 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// <returns></returns>
         public static PatientEntity UpdatePatient(PatientEntity patient, int livingroomId, string firstName, FileUpload fileUpload, bool isActive)
         {
+            // The path without the filename
+            var path = HttpContext.Current.Server.MapPath(
+                   string.Format("{0}{1}",
+                   HttpContext.Current.Request.ApplicationPath,
+                   patient.ImagePath));
+
             // Deleting the existing file.
-            if (File.Exists(patient.ImagePath) && fileUpload.HasFiles)
+            if (fileUpload.HasFiles)
             {
-                File.Delete(patient.ImagePath);
+                if (File.Exists(path))
+                    File.Delete(path);
 
                 // Setting variables
                 var virtualDirectory = WebConfig.GetSetting("Upload.PatientImage", false);
                 var filename = Helper.FileManager.ReplaceIllegalChars(fileUpload.FileName);
 
                 // Saving the file to the virtual directory and setting the path on the entity.
-                var path = Helper.FileManager.SaveFileToVirtualDirectory(fileUpload, virtualDirectory, patient.Id);
-                patient.ImagePath = path.Substring(path.IndexOf(@"\_uploads\"));
+                var newPath = Helper.FileManager.SaveImageToVirtualDirectory(fileUpload, virtualDirectory, patient.Id);
+                patient.ImagePath = newPath.Substring(path.IndexOf(@"\_uploads\"));
             }
 
             patient.LivingroomId = livingroomId;

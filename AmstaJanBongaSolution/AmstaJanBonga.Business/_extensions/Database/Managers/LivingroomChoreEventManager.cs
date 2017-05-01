@@ -13,6 +13,7 @@ namespace AmstaJanBonga.Business.Database.Managers
             if (oldChore == newChore || !newChore.IsNew)
                 return;
 
+            // This code has to be done this way.
             var chore = new LivingroomChoreEventEntity()
             {
                 PatientId = newChore.PatientId,
@@ -22,8 +23,8 @@ namespace AmstaJanBonga.Business.Database.Managers
                 DateCreated = DateTime.Now
             }.Save();
 
-            oldChore.Delete();
-
+            if (!oldChore.IsNew)
+                oldChore.Delete();
         }
 
         /// <summary>
