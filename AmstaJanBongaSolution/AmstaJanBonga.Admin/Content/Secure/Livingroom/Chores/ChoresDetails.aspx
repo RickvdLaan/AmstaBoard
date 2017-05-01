@@ -2,8 +2,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="_cphHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="_cphMainTitle" runat="server">
+    Corvee
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="_cphSubTitle" runat="server">
+    Bekijken
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="_cphExplanation" runat="server">
 </asp:Content>

@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="_cphHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="_cphMainTitle" runat="server">
-    Bewoners
+    Bewoner
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="_cphSubTitle" runat="server">
     Bekijken
