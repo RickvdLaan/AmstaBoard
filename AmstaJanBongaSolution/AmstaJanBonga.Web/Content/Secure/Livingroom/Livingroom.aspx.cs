@@ -32,10 +32,7 @@ namespace AmstaJanBonga.Web.Content
 
                 return this._patients;
             }
-            set
-            {
-                this._patients = value;
-            }
+            set { this._patients = value; }
         }
 
         #endregion
@@ -60,17 +57,25 @@ namespace AmstaJanBonga.Web.Content
 
         private void DatabindGeneral()
         {
-            var general = LivingroomGeneralEventReader.GetLivingroomGeneralByIdAndDate(Helper.LIVINGROOM_STIMULATE, DateTime.Now, false);
+            var generalEvent = LivingroomGeneralEventReader.GetLivingroomGeneralByIdAndDate(Helper.LIVINGROOM_STIMULATE, DateTime.Now, false);
 
-            if (general != null)
+            if (generalEvent != null)
             {
-                if (!string.IsNullOrWhiteSpace(general.LivingroomGeneral.Description))
+                if (!string.IsNullOrWhiteSpace(generalEvent.LivingroomGeneral.Description))
                 {
-                    this._litGeneral.Text += general.LivingroomGeneral.Description;
+                    this._litGeneral.Text += generalEvent.LivingroomGeneral.Description;
                     this._litGeneral.Text += "<br /><br />";
                 }
 
-                this._litGeneral.Text += general.Description;
+                this._litGeneral.Text += generalEvent.Description;
+            }
+            // No date was added, so trying again.
+            else
+            {
+                var general = LivingroomGeneralReader.GetLivingroomGeneralById(Helper.LIVINGROOM_STIMULATE, false);
+
+                if (general != null && !string.IsNullOrWhiteSpace(general.Description))
+                    this._litGeneral.Text += general.Description;
             }
         }
 

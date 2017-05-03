@@ -56,7 +56,7 @@
                         </ItemTemplate>
                     </asp:TemplateField>
     
-                    <asp:TemplateField ItemStyle-CssClass="center" HeaderStyle-CssClass="center details-width">
+                    <asp:TemplateField ItemStyle-CssClass="options" HeaderStyle-CssClass="center details-width">
                         <HeaderTemplate>
                             Opties
                         </HeaderTemplate>
@@ -64,7 +64,7 @@
                         <ItemTemplate>
                             <asp:HyperLink runat="server" ToolTip="Bekijken" CssClass="details fa fa-search" NavigateUrl='<%# Eval("Id","~/Content/Secure/User/UserDetails.aspx?UserId={0}") %>'></asp:HyperLink>
                             <asp:HyperLink runat="server" ToolTip="Wijzigen" CssClass="edit fa fa-pencil" NavigateUrl='<%# Eval("Id","~/Content/Secure/User/UserAddEdit.aspx?UserId={0}") %>'></asp:HyperLink>
-                            <asp:HyperLink runat="server" ToolTip="Verwijderen" CssClass="delete fa fa-times disabled"></asp:HyperLink>
+                            <asp:HyperLink runat="server" ToolTip="Verwijderen" CssClass="delete fa fa-times"></asp:HyperLink>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

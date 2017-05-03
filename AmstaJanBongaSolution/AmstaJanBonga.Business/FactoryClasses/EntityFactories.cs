@@ -119,6 +119,29 @@ namespace AmstaJanBonga.Business.FactoryClasses
 		#endregion
 	}
 	
+	/// <summary>Factory to create new, empty IpEntity objects.</summary>
+	[Serializable]
+	public partial class IpEntityFactory : EntityFactoryBase {
+		/// <summary>CTor</summary>
+		public IpEntityFactory() : base("IpEntity", AmstaJanBonga.Business.EntityType.IpEntity) { }
+
+		/// <summary>Creates a new, empty IpEntity object.</summary>
+		/// <returns>A new, empty IpEntity object.</returns>
+		public override IEntity Create() {
+			IEntity toReturn = new IpEntity();
+			
+			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewIp
+			// __LLBLGENPRO_USER_CODE_REGION_END
+			
+			return toReturn;
+		}
+
+
+		#region Included Code
+
+		#endregion
+	}
+	
 	/// <summary>Factory to create new, empty LivingroomEntity objects.</summary>
 	[Serializable]
 	public partial class LivingroomEntityFactory : EntityFactoryBase {
@@ -154,7 +177,6 @@ namespace AmstaJanBonga.Business.FactoryClasses
 			
 			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewLivingroomChoreEvent
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 			return toReturn;
 		}
 
@@ -177,7 +199,6 @@ namespace AmstaJanBonga.Business.FactoryClasses
 			
 			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewLivingroomGeneral
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 			return toReturn;
 		}
 
@@ -200,7 +221,6 @@ namespace AmstaJanBonga.Business.FactoryClasses
 			
 			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewLivingroomGeneralEvent
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 			return toReturn;
 		}
 
@@ -291,6 +311,8 @@ namespace AmstaJanBonga.Business.FactoryClasses
 					return new EmployeeCollection();
 				case AmstaJanBonga.Business.EntityType.EmployeeLivingroomEntity:
 					return new EmployeeLivingroomCollection();
+				case AmstaJanBonga.Business.EntityType.IpEntity:
+					return new IpCollection();
 				case AmstaJanBonga.Business.EntityType.LivingroomEntity:
 					return new LivingroomCollection();
 				case AmstaJanBonga.Business.EntityType.LivingroomChoreEventEntity:
@@ -328,6 +350,9 @@ namespace AmstaJanBonga.Business.FactoryClasses
 					break;
 				case AmstaJanBonga.Business.EntityType.EmployeeLivingroomEntity:
 					factoryToUse = new EmployeeLivingroomEntityFactory();
+					break;
+				case AmstaJanBonga.Business.EntityType.IpEntity:
+					factoryToUse = new IpEntityFactory();
 					break;
 				case AmstaJanBonga.Business.EntityType.LivingroomEntity:
 					factoryToUse = new LivingroomEntityFactory();

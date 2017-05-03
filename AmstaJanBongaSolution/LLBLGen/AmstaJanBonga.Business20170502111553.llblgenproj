@@ -150,15 +150,6 @@
           <Field Name="LivingroomId" Type="int" Precision="10" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="Ip" GroupName="Vanderlaan" ObjectID="9c37c137-a55a-4d60-9c26-3b7b0730e7ac">
-        <Fields>
-          <Field Name="DateCreated" Type="datetime" />
-          <Field Name="DateLastModified" Type="datetime" IsOptional="true" />
-          <Field Name="DateLastModifiedByUserId" Type="int" IsOptional="true" Precision="10" />
-          <Field Name="Description" Type="string" MaxLength="250" />
-          <Field Name="Ipaddress" Type="string" MaxLength="20" IsPrimaryKey="true" />
-        </Fields>
-      </EntityDefinition>
       <EntityDefinition Name="Livingroom" GroupName="Vanderlaan" ObjectID="20c8a841-ea25-48d7-b0ef-52c5e93f7d62">
         <Fields>
           <Field Name="ColourTypeEnum" Type="byte" Precision="3" />
@@ -307,7 +298,7 @@
       <Catalogs>
         <Catalog Name="Vanderlaan_jouwsoftware_janbonga_development">
           <Schemas>
-            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-05-02T09:16:04.915155Z">
+            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-04-26T13:50:11.492019Z">
               <StoredProcedures>
                 <StoredProcedure Name="sp_alterdiagram">
                   <Parameters>
@@ -375,7 +366,7 @@
                 </StoredProcedure>
               </StoredProcedures>
             </Schema>
-            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-05-02T09:16:05.0271614Z">
+            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-04-26T13:50:11.528021Z">
               <Tables>
                 <Table Name="Employee">
                   <PkConstraintName Name="PK_Employee" />
@@ -397,16 +388,6 @@
                   <Fields>
                     <Field Name="EmployeeId" Ordinal="1" IsPrimaryKey="true" DbType="8" Precision="10" />
                     <Field Name="LivingroomId" Ordinal="2" IsPrimaryKey="true" DbType="8" Precision="10" />
-                  </Fields>
-                </Table>
-                <Table Name="IP">
-                  <PkConstraintName Name="PK_IP" />
-                  <Fields>
-                    <Field Name="IPAddress" Ordinal="1" IsPrimaryKey="true" DbType="24" Length="20" />
-                    <Field Name="Description" Ordinal="2" DbType="24" Length="250" />
-                    <Field Name="DateCreated" Ordinal="3" DbType="4" />
-                    <Field Name="DateLastModified" Ordinal="4" IsOptional="true" DbType="4" />
-                    <Field Name="DateLastModifiedByUserId" Ordinal="5" IsOptional="true" DbType="8" Precision="10" />
                   </Fields>
                 </Table>
                 <Table Name="Livingroom">
@@ -574,15 +555,6 @@
           <FieldMappings>
             <FieldMapping FieldName="EmployeeId" TargetFieldName="EmployeeId" />
             <FieldMapping FieldName="LivingroomId" TargetFieldName="LivingroomId" />
-          </FieldMappings>
-        </EntityMapping>
-        <EntityMapping EntityName="Vanderlaan:Ip" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:IP">
-          <FieldMappings>
-            <FieldMapping FieldName="DateCreated" TargetFieldName="DateCreated" />
-            <FieldMapping FieldName="DateLastModified" TargetFieldName="DateLastModified" />
-            <FieldMapping FieldName="DateLastModifiedByUserId" TargetFieldName="DateLastModifiedByUserId" />
-            <FieldMapping FieldName="Description" TargetFieldName="Description" />
-            <FieldMapping FieldName="Ipaddress" TargetFieldName="IPAddress" />
           </FieldMappings>
         </EntityMapping>
         <EntityMapping EntityName="Vanderlaan:Livingroom" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:Livingroom">

@@ -29,12 +29,20 @@ namespace AmstaJanBonga.Web
             // Checking whether the environment is live or staging.
             if (Project.Environment.IsLiveEnvironment || Project.Environment.IsStagingEnvironment)
             {
-                // Checking if the connect is secure and if it's not a local connection.
-                if (HttpContext.Current.Request.IsSecureConnection.Equals(false) && HttpContext.Current.Request.IsLocal.Equals(false))
+                if (!IpReader.IsIpAllowed(NetworkInformation.GetUsersIPAddress()))
                 {
-                    // The connection wasn't secure and it wasn't a local connection, redirecting to a secure connection.
-                    Response.Redirect("https://{0}{1}".FormatString(Request.ServerVariables["HTTP_HOST"], HttpContext.Current.Request.RawUrl));
+                    if (Authentication.IsAuthenticated)
+                        Authentication.Utility.SignOut();
+
+                    Response.Redirect("https://www.google.nl/");
                 }
+
+                //// Checking if the connect is secure and if it's not a local connection.
+                //if (HttpContext.Current.Request.IsSecureConnection.Equals(false) && HttpContext.Current.Request.IsLocal.Equals(false))
+                //{
+                //    // The connection wasn't secure and it wasn't a local connection, redirecting to a secure connection.
+                //    Response.Redirect("https://{0}{1}".FormatString(Request.ServerVariables["HTTP_HOST"], HttpContext.Current.Request.RawUrl));
+                //}
             }
         }
 

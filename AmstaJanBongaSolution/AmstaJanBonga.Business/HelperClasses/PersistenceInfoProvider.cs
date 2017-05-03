@@ -46,9 +46,10 @@ namespace AmstaJanBonga.Business.HelperClasses
 		/// <summary>Method which initializes the internal datastores with the structure of hierarchical types.</summary>
 		private void Init()
 		{
-			this.InitClass(9);
+			this.InitClass(10);
 			InitEmployeeEntityMappings();
 			InitEmployeeLivingroomEntityMappings();
+			InitIpEntityMappings();
 			InitLivingroomEntityMappings();
 			InitLivingroomChoreEventEntityMappings();
 			InitLivingroomGeneralEntityMappings();
@@ -80,6 +81,17 @@ namespace AmstaJanBonga.Business.HelperClasses
 			this.AddElementMapping("EmployeeLivingroomEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "EmployeeLivingroom", 2, 0);
 			this.AddElementFieldMapping("EmployeeLivingroomEntity", "EmployeeId", "EmployeeId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 0);
 			this.AddElementFieldMapping("EmployeeLivingroomEntity", "LivingroomId", "LivingroomId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 1);
+		}
+
+		/// <summary>Inits IpEntity's mappings</summary>
+		private void InitIpEntityMappings()
+		{
+			this.AddElementMapping("IpEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "IP", 5, 0);
+			this.AddElementFieldMapping("IpEntity", "DateCreated", "DateCreated", false, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 0);
+			this.AddElementFieldMapping("IpEntity", "DateLastModified", "DateLastModified", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 1);
+			this.AddElementFieldMapping("IpEntity", "DateLastModifiedByUserId", "DateLastModifiedByUserId", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 2);
+			this.AddElementFieldMapping("IpEntity", "Description", "Description", false, "VarChar", 250, 0, 0, false, "", null, typeof(System.String), 3);
+			this.AddElementFieldMapping("IpEntity", "Ipaddress", "IPAddress", false, "VarChar", 20, 0, 0, false, "", null, typeof(System.String), 4);
 		}
 
 		/// <summary>Inits LivingroomEntity's mappings</summary>

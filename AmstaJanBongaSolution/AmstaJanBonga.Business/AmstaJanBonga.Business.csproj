@@ -73,6 +73,7 @@
     <Compile Include="_Extensions\Database\Managers\LivingroomGeneralManager.cs" />
     <Compile Include="_Extensions\Database\Managers\PatientManager.cs" />
     <Compile Include="_Extensions\Database\Managers\UserManager.cs" />
+    <Compile Include="_Extensions\Database\Readers\IpReader.cs" />
     <Compile Include="_Extensions\Database\Readers\LivingroomChoreEventReader.cs" />
     <Compile Include="_Extensions\Database\Readers\EmployeeReader.cs" />
     <Compile Include="_Extensions\Database\Readers\LivingroomGeneralEventReader.cs" />
@@ -101,6 +102,9 @@
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
     <Compile Include="CollectionClasses\EmployeeLivingroomCollection.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
+    <Compile Include="CollectionClasses\IpCollection.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
     <Compile Include="CollectionClasses\LivingroomChoreEventCollection.cs">
@@ -136,6 +140,9 @@
     <Compile Include="DaoClasses\EmployeeLivingroomDAO.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
+    <Compile Include="DaoClasses\IpDAO.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
     <Compile Include="DaoClasses\LivingroomChoreEventDAO.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
@@ -167,6 +174,9 @@
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
     <Compile Include="EntityClasses\EmployeeLivingroomEntity.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
+    <Compile Include="EntityClasses\IpEntity.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
     <Compile Include="EntityClasses\LivingroomChoreEventEntity.cs">
@@ -236,6 +246,9 @@
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
     <Compile Include="RelationClasses\EmployeeRelations.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
+    <Compile Include="RelationClasses\IpRelations.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
     <Compile Include="RelationClasses\LivingroomChoreEventRelations.cs">

@@ -118,6 +118,12 @@ namespace AmstaJanBonga.Business.FactoryClasses
 			get { return Create<EmployeeLivingroomEntity>(); }
 		}
 
+		/// <summary>Creates and returns a new EntityQuery for the Ip entity</summary>
+		public EntityQuery<IpEntity> Ip
+		{
+			get { return Create<IpEntity>(); }
+		}
+
 		/// <summary>Creates and returns a new EntityQuery for the Livingroom entity</summary>
 		public EntityQuery<LivingroomEntity> Livingroom
 		{

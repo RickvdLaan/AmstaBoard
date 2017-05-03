@@ -25,7 +25,6 @@ namespace AmstaJanBonga.Business.DaoClasses
 	
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces
 	// __LLBLGENPRO_USER_CODE_REGION_END
-	
 
 	/// <summary>General DAO class for the LivingroomChoreEvent Entity. It will perform database oriented actions for a entity of type 'LivingroomChoreEventEntity'.</summary>
 	public partial class LivingroomChoreEventDAO : CommonDaoBase
@@ -114,7 +113,6 @@ namespace AmstaJanBonga.Business.DaoClasses
 		
 		// __LLBLGENPRO_USER_CODE_REGION_START CustomDAOCode
 		// __LLBLGENPRO_USER_CODE_REGION_END
-		
 		#endregion
 		
 		#region Included Code

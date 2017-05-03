@@ -70,6 +70,9 @@ namespace AmstaJanBonga.Business.Linq
 				case AmstaJanBonga.Business.EntityType.EmployeeLivingroomEntity:
 					toReturn = this.EmployeeLivingroom;
 					break;
+				case AmstaJanBonga.Business.EntityType.IpEntity:
+					toReturn = this.Ip;
+					break;
 				case AmstaJanBonga.Business.EntityType.LivingroomEntity:
 					toReturn = this.Livingroom;
 					break;
@@ -116,6 +119,11 @@ namespace AmstaJanBonga.Business.Linq
 		public DataSource<EmployeeLivingroomEntity> EmployeeLivingroom
 		{
 			get { return new DataSource<EmployeeLivingroomEntity>(_transactionToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
+		}
+		/// <summary>returns the datasource to use in a Linq query when targeting IpEntity instances in the database.</summary>
+		public DataSource<IpEntity> Ip
+		{
+			get { return new DataSource<IpEntity>(_transactionToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
 		}
 		/// <summary>returns the datasource to use in a Linq query when targeting LivingroomEntity instances in the database.</summary>
 		public DataSource<LivingroomEntity> Livingroom

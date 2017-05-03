@@ -46,18 +46,18 @@
                         </ItemTemplate>
                     </asp:TemplateField>
 
-                    <asp:TemplateField ItemStyle-CssClass="center" HeaderStyle-CssClass="center details-width">
+                    <asp:TemplateField ItemStyle-CssClass="options" HeaderStyle-CssClass="center details-width">
                         <HeaderTemplate>
                             Opties
                         </HeaderTemplate>
 
                         <ItemTemplate>
-                            <asp:HyperLink runat="server" ToolTip="" CssClass="fa fa-clock-o" aria-hidden="true" NavigateUrl="~/Content/Secure/Livingroom/Shifts/ShiftsOverview.aspx"></asp:HyperLink>
-                            <asp:HyperLink runat="server" ToolTip="" CssClass="fa fa-trash-o" aria-hidden="true" NavigateUrl='<%# Eval("Id","~/Content/Secure/Livingroom/Chores/ChoresOverview.aspx?LivingroomId={0}") %>'></asp:HyperLink>
-                            <asp:HyperLink runat="server" ToolTip="" CssClass="fa fa-coffee" aria-hidden="true" NavigateUrl='<%# Eval("Id","~/Content/Secure/Livingroom/General/GeneralOverview.aspx?LivingroomId={0}") %>'></asp:HyperLink>
+                            <asp:HyperLink runat="server" ToolTip="Diensten" CssClass="fa fa-clock-o" aria-hidden="true" NavigateUrl="~/Content/Secure/Livingroom/Shifts/ShiftsOverview.aspx"></asp:HyperLink>
+                            <asp:HyperLink runat="server" ToolTip="Algemeen" CssClass="fa fa-coffee" aria-hidden="true" NavigateUrl='<%# Eval("Id","~/Content/Secure/Livingroom/General/GeneralOverview.aspx?LivingroomId={0}") %>'></asp:HyperLink>
+                            <asp:HyperLink runat="server" ToolTip="Corvee" CssClass="fa fa-trash-o" aria-hidden="true" NavigateUrl='<%# Eval("Id","~/Content/Secure/Livingroom/Chores/ChoresOverview.aspx?LivingroomId={0}") %>'></asp:HyperLink>
                             <asp:HyperLink runat="server" ToolTip="Bekijken" CssClass="details fa fa-search" NavigateUrl='<%# Eval("Id","~/Content/Secure/Livingroom/LivingroomDetails.aspx?LivingroomId={0}") %>'></asp:HyperLink>
                             <asp:HyperLink runat="server" ToolTip="Wijzigen" CssClass="edit fa fa-pencil" NavigateUrl='<%# Eval("Id","~/Content/Secure/Livingroom/LivingroomAddEdit.aspx?LivingroomId={0}") %>'></asp:HyperLink>
-                            <asp:HyperLink runat="server" ToolTip="Verwijderen" CssClass="delete fa fa-times disabled"></asp:HyperLink>
+                            <asp:HyperLink runat="server" ToolTip="Verwijderen" CssClass="delete fa fa-times"></asp:HyperLink>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

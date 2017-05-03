@@ -16,6 +16,8 @@ namespace AmstaJanBonga.Business.Database.Readers
 
             if (throwExceptionWhenNotFound && livingroomGeneral.IsNew)
                 throw new Exception("Nothing found for livingroom {0}.".FormatString(livingroomId));
+            else if (!throwExceptionWhenNotFound && livingroomGeneral.IsNew)
+                return null;
 
             return livingroomGeneral;
         }

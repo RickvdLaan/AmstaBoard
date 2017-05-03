@@ -84,6 +84,36 @@ namespace AmstaJanBonga.Business.HelperClasses
 		}
 	}
 
+	/// <summary>Field Creation Class for entity IpEntity</summary>
+	public partial class IpFields
+	{
+		/// <summary>Creates a new IpEntity.DateCreated field instance</summary>
+		public static EntityField DateCreated
+		{
+			get { return (EntityField)EntityFieldFactory.Create(IpFieldIndex.DateCreated);}
+		}
+		/// <summary>Creates a new IpEntity.DateLastModified field instance</summary>
+		public static EntityField DateLastModified
+		{
+			get { return (EntityField)EntityFieldFactory.Create(IpFieldIndex.DateLastModified);}
+		}
+		/// <summary>Creates a new IpEntity.DateLastModifiedByUserId field instance</summary>
+		public static EntityField DateLastModifiedByUserId
+		{
+			get { return (EntityField)EntityFieldFactory.Create(IpFieldIndex.DateLastModifiedByUserId);}
+		}
+		/// <summary>Creates a new IpEntity.Description field instance</summary>
+		public static EntityField Description
+		{
+			get { return (EntityField)EntityFieldFactory.Create(IpFieldIndex.Description);}
+		}
+		/// <summary>Creates a new IpEntity.Ipaddress field instance</summary>
+		public static EntityField Ipaddress
+		{
+			get { return (EntityField)EntityFieldFactory.Create(IpFieldIndex.Ipaddress);}
+		}
+	}
+
 	/// <summary>Field Creation Class for entity LivingroomEntity</summary>
 	public partial class LivingroomFields
 	{

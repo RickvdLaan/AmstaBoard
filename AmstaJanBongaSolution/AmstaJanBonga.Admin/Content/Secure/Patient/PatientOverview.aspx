@@ -46,7 +46,7 @@
                         </ItemTemplate>
                     </asp:TemplateField>
 
-                    <asp:TemplateField ItemStyle-CssClass="center" HeaderStyle-CssClass="center details-width">
+                    <asp:TemplateField ItemStyle-CssClass="options" HeaderStyle-CssClass="center details-width">
                         <HeaderTemplate>
                             Opties
                         </HeaderTemplate>

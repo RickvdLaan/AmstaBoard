@@ -47,6 +47,22 @@ namespace AmstaJanBonga.Business
 		/// <summary></summary>
 		AmountOfFields
 	}
+	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: Ip.</summary>
+	public enum IpFieldIndex
+	{
+		///<summary>DateCreated. </summary>
+		DateCreated,
+		///<summary>DateLastModified. </summary>
+		DateLastModified,
+		///<summary>DateLastModifiedByUserId. </summary>
+		DateLastModifiedByUserId,
+		///<summary>Description. </summary>
+		Description,
+		///<summary>Ipaddress. </summary>
+		Ipaddress,
+		/// <summary></summary>
+		AmountOfFields
+	}
 	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: Livingroom.</summary>
 	public enum LivingroomFieldIndex
 	{
@@ -199,6 +215,8 @@ namespace AmstaJanBonga.Business
 		EmployeeEntity,
 		///<summary>EmployeeLivingroom</summary>
 		EmployeeLivingroomEntity,
+		///<summary>Ip</summary>
+		IpEntity,
 		///<summary>Livingroom</summary>
 		LivingroomEntity,
 		///<summary>LivingroomChoreEvent</summary>

@@ -18,6 +18,7 @@ namespace AmstaJanBonga.Business.Database.Readers
 
             var predicate = new PredicateExpression();
             predicate.Add(LivingroomGeneralEventFields.LivingroomId == livingroomId);
+            predicate.Add(LivingroomGeneralEventFields.Date >= DateTime.Now);
 
             livingroomGeneralEvents.GetMulti(predicate, -1);
 

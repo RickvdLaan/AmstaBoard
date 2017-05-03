@@ -49,9 +49,10 @@ namespace AmstaJanBonga.Business.HelperClasses
 		/// <summary>Method which initializes the internal datastores.</summary>
 		private void Init()
 		{
-			this.InitClass( (9 + 0));
+			this.InitClass( (10 + 0));
 			InitEmployeeEntityInfos();
 			InitEmployeeLivingroomEntityInfos();
+			InitIpEntityInfos();
 			InitLivingroomEntityInfos();
 			InitLivingroomChoreEventEntityInfos();
 			InitLivingroomGeneralEntityInfos();
@@ -84,6 +85,16 @@ namespace AmstaJanBonga.Business.HelperClasses
 			this.AddFieldIndexEnumForElementName(typeof(EmployeeLivingroomFieldIndex), "EmployeeLivingroomEntity");
 			this.AddElementFieldInfo("EmployeeLivingroomEntity", "EmployeeId", typeof(System.Int32), true, true, false, false,  (int)EmployeeLivingroomFieldIndex.EmployeeId, 0, 0, 10);
 			this.AddElementFieldInfo("EmployeeLivingroomEntity", "LivingroomId", typeof(System.Int32), true, true, false, false,  (int)EmployeeLivingroomFieldIndex.LivingroomId, 0, 0, 10);
+		}
+		/// <summary>Inits IpEntity's FieldInfo objects</summary>
+		private void InitIpEntityInfos()
+		{
+			this.AddFieldIndexEnumForElementName(typeof(IpFieldIndex), "IpEntity");
+			this.AddElementFieldInfo("IpEntity", "DateCreated", typeof(System.DateTime), false, false, false, false,  (int)IpFieldIndex.DateCreated, 0, 0, 0);
+			this.AddElementFieldInfo("IpEntity", "DateLastModified", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)IpFieldIndex.DateLastModified, 0, 0, 0);
+			this.AddElementFieldInfo("IpEntity", "DateLastModifiedByUserId", typeof(Nullable<System.Int32>), false, false, false, true,  (int)IpFieldIndex.DateLastModifiedByUserId, 0, 0, 10);
+			this.AddElementFieldInfo("IpEntity", "Description", typeof(System.String), false, false, false, false,  (int)IpFieldIndex.Description, 250, 0, 0);
+			this.AddElementFieldInfo("IpEntity", "Ipaddress", typeof(System.String), true, false, false, false,  (int)IpFieldIndex.Ipaddress, 20, 0, 0);
 		}
 		/// <summary>Inits LivingroomEntity's FieldInfo objects</summary>
 		private void InitLivingroomEntityInfos()
