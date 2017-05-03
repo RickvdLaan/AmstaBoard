@@ -49,7 +49,7 @@ namespace AmstaJanBonga.Business.HelperClasses
 		/// <summary>Method which initializes the internal datastores.</summary>
 		private void Init()
 		{
-			this.InitClass( (10 + 0));
+			this.InitClass( (11 + 0));
 			InitEmployeeEntityInfos();
 			InitEmployeeLivingroomEntityInfos();
 			InitIpEntityInfos();
@@ -57,6 +57,7 @@ namespace AmstaJanBonga.Business.HelperClasses
 			InitLivingroomChoreEventEntityInfos();
 			InitLivingroomGeneralEntityInfos();
 			InitLivingroomGeneralEventEntityInfos();
+			InitLivingroomShiftEventEntityInfos();
 			InitPatientEntityInfos();
 			InitUserEntityInfos();
 			InitUserRoleEntityInfos();
@@ -142,6 +143,18 @@ namespace AmstaJanBonga.Business.HelperClasses
 			this.AddElementFieldInfo("LivingroomGeneralEventEntity", "DateLastModifiedByUserId", typeof(Nullable<System.Int32>), false, false, false, true,  (int)LivingroomGeneralEventFieldIndex.DateLastModifiedByUserId, 0, 0, 10);
 			this.AddElementFieldInfo("LivingroomGeneralEventEntity", "Description", typeof(System.String), false, false, false, false,  (int)LivingroomGeneralEventFieldIndex.Description, 250, 0, 0);
 			this.AddElementFieldInfo("LivingroomGeneralEventEntity", "LivingroomId", typeof(System.Int32), true, true, false, false,  (int)LivingroomGeneralEventFieldIndex.LivingroomId, 0, 0, 10);
+		}
+		/// <summary>Inits LivingroomShiftEventEntity's FieldInfo objects</summary>
+		private void InitLivingroomShiftEventEntityInfos()
+		{
+			this.AddFieldIndexEnumForElementName(typeof(LivingroomShiftEventFieldIndex), "LivingroomShiftEventEntity");
+			this.AddElementFieldInfo("LivingroomShiftEventEntity", "Date", typeof(System.Int32), true, false, false, false,  (int)LivingroomShiftEventFieldIndex.Date, 0, 0, 10);
+			this.AddElementFieldInfo("LivingroomShiftEventEntity", "DateCreated", typeof(System.DateTime), false, false, false, false,  (int)LivingroomShiftEventFieldIndex.DateCreated, 0, 0, 0);
+			this.AddElementFieldInfo("LivingroomShiftEventEntity", "DateLastModified", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)LivingroomShiftEventFieldIndex.DateLastModified, 0, 0, 0);
+			this.AddElementFieldInfo("LivingroomShiftEventEntity", "DateLastModifiedByUserId", typeof(Nullable<System.Int32>), false, false, false, true,  (int)LivingroomShiftEventFieldIndex.DateLastModifiedByUserId, 0, 0, 10);
+			this.AddElementFieldInfo("LivingroomShiftEventEntity", "EmployeeId", typeof(System.Int32), true, true, false, false,  (int)LivingroomShiftEventFieldIndex.EmployeeId, 0, 0, 10);
+			this.AddElementFieldInfo("LivingroomShiftEventEntity", "LivingroomId", typeof(System.Int32), true, true, false, false,  (int)LivingroomShiftEventFieldIndex.LivingroomId, 0, 0, 10);
+			this.AddElementFieldInfo("LivingroomShiftEventEntity", "ShiftTimeEnum", typeof(System.Byte), true, false, false, false,  (int)LivingroomShiftEventFieldIndex.ShiftTimeEnum, 0, 0, 3);
 		}
 		/// <summary>Inits PatientEntity's FieldInfo objects</summary>
 		private void InitPatientEntityInfos()

@@ -39,7 +39,7 @@
                     </td>
                     <td class="error">
                         <asp:RequiredFieldValidator runat="server" ValidateRequestMode="Enabled" CssClass="error" InitialValue="" ErrorMessage="Geen dag geselecteerd." Display="Dynamic" ControlToValidate="ExtendedCalendar" ValidationGroup="Validate"></asp:RequiredFieldValidator>
-                        <asp:CustomValidator runat="server" ControlToValidate=""></asp:CustomValidator>
+                        <asp:CustomValidator runat="server" ControlToValidate="ExtendedCalendar" CssClass="error" OnServerValidate="Calendar_ServerValidate" Display="Dynamic" ErrorMessage="Datums in het verleden zijn ongeldig." ValidationGroup="Validate"></asp:CustomValidator>
                     </td>
                 </tr>
 

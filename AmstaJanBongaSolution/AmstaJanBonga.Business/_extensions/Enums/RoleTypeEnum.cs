@@ -8,7 +8,7 @@ namespace AmstaJanBonga.Business.Enums
         Root = 0,
         [Description("Afdelingshoofd")]
         Manager = 1,
-        [Description("Personeel")]
+        [Description("Medewerker")]
         Employee = 2,
         [Description("Stagiair")]
         Trainee = 3

@@ -148,6 +148,12 @@ namespace AmstaJanBonga.Business.FactoryClasses
 			get { return Create<LivingroomGeneralEventEntity>(); }
 		}
 
+		/// <summary>Creates and returns a new EntityQuery for the LivingroomShiftEvent entity</summary>
+		public EntityQuery<LivingroomShiftEventEntity> LivingroomShiftEvent
+		{
+			get { return Create<LivingroomShiftEventEntity>(); }
+		}
+
 		/// <summary>Creates and returns a new EntityQuery for the Patient entity</summary>
 		public EntityQuery<PatientEntity> Patient
 		{

@@ -85,6 +85,9 @@ namespace AmstaJanBonga.Business.Linq
 				case AmstaJanBonga.Business.EntityType.LivingroomGeneralEventEntity:
 					toReturn = this.LivingroomGeneralEvent;
 					break;
+				case AmstaJanBonga.Business.EntityType.LivingroomShiftEventEntity:
+					toReturn = this.LivingroomShiftEvent;
+					break;
 				case AmstaJanBonga.Business.EntityType.PatientEntity:
 					toReturn = this.Patient;
 					break;
@@ -144,6 +147,11 @@ namespace AmstaJanBonga.Business.Linq
 		public DataSource<LivingroomGeneralEventEntity> LivingroomGeneralEvent
 		{
 			get { return new DataSource<LivingroomGeneralEventEntity>(_transactionToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
+		}
+		/// <summary>returns the datasource to use in a Linq query when targeting LivingroomShiftEventEntity instances in the database.</summary>
+		public DataSource<LivingroomShiftEventEntity> LivingroomShiftEvent
+		{
+			get { return new DataSource<LivingroomShiftEventEntity>(_transactionToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
 		}
 		/// <summary>returns the datasource to use in a Linq query when targeting PatientEntity instances in the database.</summary>
 		public DataSource<PatientEntity> Patient

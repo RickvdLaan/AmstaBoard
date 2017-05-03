@@ -132,7 +132,6 @@ namespace AmstaJanBonga.Business.FactoryClasses
 			
 			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewIp
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 			return toReturn;
 		}
 
@@ -221,6 +220,29 @@ namespace AmstaJanBonga.Business.FactoryClasses
 			
 			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewLivingroomGeneralEvent
 			// __LLBLGENPRO_USER_CODE_REGION_END
+			return toReturn;
+		}
+
+
+		#region Included Code
+
+		#endregion
+	}
+	
+	/// <summary>Factory to create new, empty LivingroomShiftEventEntity objects.</summary>
+	[Serializable]
+	public partial class LivingroomShiftEventEntityFactory : EntityFactoryBase {
+		/// <summary>CTor</summary>
+		public LivingroomShiftEventEntityFactory() : base("LivingroomShiftEventEntity", AmstaJanBonga.Business.EntityType.LivingroomShiftEventEntity) { }
+
+		/// <summary>Creates a new, empty LivingroomShiftEventEntity object.</summary>
+		/// <returns>A new, empty LivingroomShiftEventEntity object.</returns>
+		public override IEntity Create() {
+			IEntity toReturn = new LivingroomShiftEventEntity();
+			
+			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewLivingroomShiftEvent
+			// __LLBLGENPRO_USER_CODE_REGION_END
+			
 			return toReturn;
 		}
 
@@ -321,6 +343,8 @@ namespace AmstaJanBonga.Business.FactoryClasses
 					return new LivingroomGeneralCollection();
 				case AmstaJanBonga.Business.EntityType.LivingroomGeneralEventEntity:
 					return new LivingroomGeneralEventCollection();
+				case AmstaJanBonga.Business.EntityType.LivingroomShiftEventEntity:
+					return new LivingroomShiftEventCollection();
 				case AmstaJanBonga.Business.EntityType.PatientEntity:
 					return new PatientCollection();
 				case AmstaJanBonga.Business.EntityType.UserEntity:
@@ -365,6 +389,9 @@ namespace AmstaJanBonga.Business.FactoryClasses
 					break;
 				case AmstaJanBonga.Business.EntityType.LivingroomGeneralEventEntity:
 					factoryToUse = new LivingroomGeneralEventEntityFactory();
+					break;
+				case AmstaJanBonga.Business.EntityType.LivingroomShiftEventEntity:
+					factoryToUse = new LivingroomShiftEventEntityFactory();
 					break;
 				case AmstaJanBonga.Business.EntityType.PatientEntity:
 					factoryToUse = new PatientEntityFactory();

@@ -46,7 +46,7 @@ namespace AmstaJanBonga.Business.HelperClasses
 		/// <summary>Method which initializes the internal datastores with the structure of hierarchical types.</summary>
 		private void Init()
 		{
-			this.InitClass(10);
+			this.InitClass(11);
 			InitEmployeeEntityMappings();
 			InitEmployeeLivingroomEntityMappings();
 			InitIpEntityMappings();
@@ -54,6 +54,7 @@ namespace AmstaJanBonga.Business.HelperClasses
 			InitLivingroomChoreEventEntityMappings();
 			InitLivingroomGeneralEntityMappings();
 			InitLivingroomGeneralEventEntityMappings();
+			InitLivingroomShiftEventEntityMappings();
 			InitPatientEntityMappings();
 			InitUserEntityMappings();
 			InitUserRoleEntityMappings();
@@ -143,6 +144,19 @@ namespace AmstaJanBonga.Business.HelperClasses
 			this.AddElementFieldMapping("LivingroomGeneralEventEntity", "DateLastModifiedByUserId", "DateLastModifiedByUserId", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 3);
 			this.AddElementFieldMapping("LivingroomGeneralEventEntity", "Description", "Description", false, "VarChar", 250, 0, 0, false, "", null, typeof(System.String), 4);
 			this.AddElementFieldMapping("LivingroomGeneralEventEntity", "LivingroomId", "LivingroomId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 5);
+		}
+
+		/// <summary>Inits LivingroomShiftEventEntity's mappings</summary>
+		private void InitLivingroomShiftEventEntityMappings()
+		{
+			this.AddElementMapping("LivingroomShiftEventEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "LivingroomShiftEvent", 7, 0);
+			this.AddElementFieldMapping("LivingroomShiftEventEntity", "Date", "Date", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 0);
+			this.AddElementFieldMapping("LivingroomShiftEventEntity", "DateCreated", "DateCreated", false, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 1);
+			this.AddElementFieldMapping("LivingroomShiftEventEntity", "DateLastModified", "DateLastModified", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 2);
+			this.AddElementFieldMapping("LivingroomShiftEventEntity", "DateLastModifiedByUserId", "DateLastModifiedByUserId", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 3);
+			this.AddElementFieldMapping("LivingroomShiftEventEntity", "EmployeeId", "EmployeeId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 4);
+			this.AddElementFieldMapping("LivingroomShiftEventEntity", "LivingroomId", "LivingroomId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 5);
+			this.AddElementFieldMapping("LivingroomShiftEventEntity", "ShiftTimeEnum", "ShiftTimeEnum", false, "TinyInt", 0, 3, 0, false, "", null, typeof(System.Byte), 6);
 		}
 
 		/// <summary>Inits PatientEntity's mappings</summary>

@@ -132,6 +132,15 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
 
         #endregion
 
+        #region Custom Validator
+
+        protected void Calendar_ServerValidate(object source, System.Web.UI.WebControls.ServerValidateEventArgs args)
+        {
+            args.IsValid = this.ExtendedCalendar.SelectedDate.Date >= DateTime.Now.Date;
+        }
+
+        #endregion
+
         #region Events
 
         protected void _btnSave_Click(object sender, EventArgs e)

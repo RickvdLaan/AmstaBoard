@@ -2,7 +2,6 @@
 using AmstaJanBonga.Business.Enums;
 using AmstaJanBonga.Business.Security;
 using Rlaan.Toolkit.Configuration;
-using Rlaan.Toolkit.Extensions;
 using Rlaan.Toolkit.Web;
 using System;
 using System.Threading;
@@ -14,7 +13,6 @@ namespace AmstaJanBonga.Admin
 {
     public class Global : System.Web.HttpApplication
     {
-
         protected void Application_Start(object sender, EventArgs e)
         {
             InitialiseRoutes(RouteTable.Routes);
@@ -27,16 +25,16 @@ namespace AmstaJanBonga.Admin
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-            // Checking whether the environment is live or staging.
-            if (Project.Environment.IsLiveEnvironment || Project.Environment.IsStagingEnvironment)
-            {
-                // Checking if the connect is secure and if it's not a local connection.
-                if (HttpContext.Current.Request.IsSecureConnection.Equals(false) && HttpContext.Current.Request.IsLocal.Equals(false))
-                {
-                    // The connection wasn't secure and it wasn't a local connection, redirecting to a secure connection.
-                    Response.Redirect("https://{0}{1}".FormatString(Request.ServerVariables["HTTP_HOST"], HttpContext.Current.Request.RawUrl));
-                }
-            }
+            //// Checking whether the environment is live or staging.
+            //if (Project.Environment.IsLiveEnvironment || Project.Environment.IsStagingEnvironment)
+            //{
+            //    // Checking if the connect is secure and if it's not a local connection.
+            //    if (HttpContext.Current.Request.IsSecureConnection.Equals(false) && HttpContext.Current.Request.IsLocal.Equals(false))
+            //    {
+            //        // The connection wasn't secure and it wasn't a local connection, redirecting to a secure connection.
+            //        Response.Redirect("https://{0}{1}".FormatString(Request.ServerVariables["HTTP_HOST"], HttpContext.Current.Request.RawUrl));
+            //    }
+            //}
         }
 
         /// <summary>
@@ -101,7 +99,6 @@ namespace AmstaJanBonga.Admin
                 }
                 catch { }
             }
-
         }
 
         protected void Session_End(object sender, EventArgs e)

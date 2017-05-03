@@ -508,6 +508,26 @@ a {
         border-bottom: none;
     }
 
+    #content .gridview .gridview-header {
+        background-color: #f4f4f4;
+    }
+
+    #content .gridview .fa-coffee {
+        color: #f08a00;
+    }
+
+    #content .gridview .fa-trash-o {
+        color: #00aaff;
+    }
+
+    #content .gridview .fa-clock-o {
+        color: #7a5195;
+    }
+
+    #content .gridview a {
+        color: #40464b;
+    }
+
 .options {
     text-align: center;
     width: 150px;
@@ -518,7 +538,7 @@ a {
         padding: 0 1px;
     }
 
-    .delete {
+    #content .gridview a.delete {
         color: #fa010f;
     }
 

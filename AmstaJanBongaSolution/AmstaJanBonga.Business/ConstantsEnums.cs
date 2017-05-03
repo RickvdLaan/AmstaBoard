@@ -141,6 +141,26 @@ namespace AmstaJanBonga.Business
 		/// <summary></summary>
 		AmountOfFields
 	}
+	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: LivingroomShiftEvent.</summary>
+	public enum LivingroomShiftEventFieldIndex
+	{
+		///<summary>Date. </summary>
+		Date,
+		///<summary>DateCreated. </summary>
+		DateCreated,
+		///<summary>DateLastModified. </summary>
+		DateLastModified,
+		///<summary>DateLastModifiedByUserId. </summary>
+		DateLastModifiedByUserId,
+		///<summary>EmployeeId. </summary>
+		EmployeeId,
+		///<summary>LivingroomId. </summary>
+		LivingroomId,
+		///<summary>ShiftTimeEnum. </summary>
+		ShiftTimeEnum,
+		/// <summary></summary>
+		AmountOfFields
+	}
 	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: Patient.</summary>
 	public enum PatientFieldIndex
 	{
@@ -225,6 +245,8 @@ namespace AmstaJanBonga.Business
 		LivingroomGeneralEntity,
 		///<summary>LivingroomGeneralEvent</summary>
 		LivingroomGeneralEventEntity,
+		///<summary>LivingroomShiftEvent</summary>
+		LivingroomShiftEventEntity,
 		///<summary>Patient</summary>
 		PatientEntity,
 		///<summary>User</summary>

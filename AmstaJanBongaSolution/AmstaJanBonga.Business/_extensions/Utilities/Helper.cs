@@ -1,10 +1,6 @@
-﻿using AmstaJanBonga.Business.Database.Managers;
-using AmstaJanBonga.Business.Enums;
-using Rlaan.Toolkit.Configuration;
-using Rlaan.Toolkit.Web;
+﻿using Rlaan.Toolkit.Web;
 using System;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Web;

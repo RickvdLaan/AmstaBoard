@@ -269,6 +269,46 @@ namespace AmstaJanBonga.Business.HelperClasses
 		}
 	}
 
+	/// <summary>Field Creation Class for entity LivingroomShiftEventEntity</summary>
+	public partial class LivingroomShiftEventFields
+	{
+		/// <summary>Creates a new LivingroomShiftEventEntity.Date field instance</summary>
+		public static EntityField Date
+		{
+			get { return (EntityField)EntityFieldFactory.Create(LivingroomShiftEventFieldIndex.Date);}
+		}
+		/// <summary>Creates a new LivingroomShiftEventEntity.DateCreated field instance</summary>
+		public static EntityField DateCreated
+		{
+			get { return (EntityField)EntityFieldFactory.Create(LivingroomShiftEventFieldIndex.DateCreated);}
+		}
+		/// <summary>Creates a new LivingroomShiftEventEntity.DateLastModified field instance</summary>
+		public static EntityField DateLastModified
+		{
+			get { return (EntityField)EntityFieldFactory.Create(LivingroomShiftEventFieldIndex.DateLastModified);}
+		}
+		/// <summary>Creates a new LivingroomShiftEventEntity.DateLastModifiedByUserId field instance</summary>
+		public static EntityField DateLastModifiedByUserId
+		{
+			get { return (EntityField)EntityFieldFactory.Create(LivingroomShiftEventFieldIndex.DateLastModifiedByUserId);}
+		}
+		/// <summary>Creates a new LivingroomShiftEventEntity.EmployeeId field instance</summary>
+		public static EntityField EmployeeId
+		{
+			get { return (EntityField)EntityFieldFactory.Create(LivingroomShiftEventFieldIndex.EmployeeId);}
+		}
+		/// <summary>Creates a new LivingroomShiftEventEntity.LivingroomId field instance</summary>
+		public static EntityField LivingroomId
+		{
+			get { return (EntityField)EntityFieldFactory.Create(LivingroomShiftEventFieldIndex.LivingroomId);}
+		}
+		/// <summary>Creates a new LivingroomShiftEventEntity.ShiftTimeEnum field instance</summary>
+		public static EntityField ShiftTimeEnum
+		{
+			get { return (EntityField)EntityFieldFactory.Create(LivingroomShiftEventFieldIndex.ShiftTimeEnum);}
+		}
+	}
+
 	/// <summary>Field Creation Class for entity PatientEntity</summary>
 	public partial class PatientFields
 	{

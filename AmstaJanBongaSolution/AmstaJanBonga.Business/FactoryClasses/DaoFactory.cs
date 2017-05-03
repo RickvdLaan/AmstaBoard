@@ -77,6 +77,13 @@ namespace AmstaJanBonga.Business.FactoryClasses
 			return new LivingroomGeneralEventDAO();
 		}
 
+		/// <summary>Creates a new LivingroomShiftEventDAO object</summary>
+		/// <returns>the new DAO object ready to use for LivingroomShiftEvent Entities</returns>
+		public static LivingroomShiftEventDAO CreateLivingroomShiftEventDAO()
+		{
+			return new LivingroomShiftEventDAO();
+		}
+
 		/// <summary>Creates a new PatientDAO object</summary>
 		/// <returns>the new DAO object ready to use for Patient Entities</returns>
 		public static PatientDAO CreatePatientDAO()

@@ -44,6 +44,8 @@ namespace AmstaJanBonga.Business.EntityClasses
 		private bool	_alwaysFetchEmployeeLivingrooms, _alreadyFetchedEmployeeLivingrooms;
 		private AmstaJanBonga.Business.CollectionClasses.LivingroomChoreEventCollection	_livingroomChoreEvents;
 		private bool	_alwaysFetchLivingroomChoreEvents, _alreadyFetchedLivingroomChoreEvents;
+		private AmstaJanBonga.Business.CollectionClasses.LivingroomShiftEventCollection	_livingroomShiftEvents;
+		private bool	_alwaysFetchLivingroomShiftEvents, _alreadyFetchedLivingroomShiftEvents;
 		private AmstaJanBonga.Business.CollectionClasses.PatientCollection	_patients;
 		private bool	_alwaysFetchPatients, _alreadyFetchedPatients;
 		private LivingroomGeneralEntity _livingroomGeneral;
@@ -64,6 +66,8 @@ namespace AmstaJanBonga.Business.EntityClasses
 			public static readonly string EmployeeLivingrooms = "EmployeeLivingrooms";
 			/// <summary>Member name LivingroomChoreEvents</summary>
 			public static readonly string LivingroomChoreEvents = "LivingroomChoreEvents";
+			/// <summary>Member name LivingroomShiftEvents</summary>
+			public static readonly string LivingroomShiftEvents = "LivingroomShiftEvents";
 			/// <summary>Member name Patients</summary>
 			public static readonly string Patients = "Patients";
 			/// <summary>Member name LivingroomGeneral</summary>
@@ -119,6 +123,10 @@ namespace AmstaJanBonga.Business.EntityClasses
 			_alwaysFetchLivingroomChoreEvents = info.GetBoolean("_alwaysFetchLivingroomChoreEvents");
 			_alreadyFetchedLivingroomChoreEvents = info.GetBoolean("_alreadyFetchedLivingroomChoreEvents");
 
+			_livingroomShiftEvents = (AmstaJanBonga.Business.CollectionClasses.LivingroomShiftEventCollection)info.GetValue("_livingroomShiftEvents", typeof(AmstaJanBonga.Business.CollectionClasses.LivingroomShiftEventCollection));
+			_alwaysFetchLivingroomShiftEvents = info.GetBoolean("_alwaysFetchLivingroomShiftEvents");
+			_alreadyFetchedLivingroomShiftEvents = info.GetBoolean("_alreadyFetchedLivingroomShiftEvents");
+
 			_patients = (AmstaJanBonga.Business.CollectionClasses.PatientCollection)info.GetValue("_patients", typeof(AmstaJanBonga.Business.CollectionClasses.PatientCollection));
 			_alwaysFetchPatients = info.GetBoolean("_alwaysFetchPatients");
 			_alreadyFetchedPatients = info.GetBoolean("_alreadyFetchedPatients");
@@ -141,6 +149,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		{
 			_alreadyFetchedEmployeeLivingrooms = (_employeeLivingrooms.Count > 0);
 			_alreadyFetchedLivingroomChoreEvents = (_livingroomChoreEvents.Count > 0);
+			_alreadyFetchedLivingroomShiftEvents = (_livingroomShiftEvents.Count > 0);
 			_alreadyFetchedPatients = (_patients.Count > 0);
 			_alreadyFetchedLivingroomGeneral = (_livingroomGeneral != null);
 		}
@@ -166,6 +175,9 @@ namespace AmstaJanBonga.Business.EntityClasses
 					break;
 				case "LivingroomChoreEvents":
 					toReturn.Add(Relations.LivingroomChoreEventEntityUsingLivingroomId);
+					break;
+				case "LivingroomShiftEvents":
+					toReturn.Add(Relations.LivingroomShiftEventEntityUsingLivingroomId);
 					break;
 				case "Patients":
 					toReturn.Add(Relations.PatientEntityUsingLivingroomId);
@@ -193,6 +205,9 @@ namespace AmstaJanBonga.Business.EntityClasses
 			info.AddValue("_livingroomChoreEvents", (!this.MarkedForDeletion?_livingroomChoreEvents:null));
 			info.AddValue("_alwaysFetchLivingroomChoreEvents", _alwaysFetchLivingroomChoreEvents);
 			info.AddValue("_alreadyFetchedLivingroomChoreEvents", _alreadyFetchedLivingroomChoreEvents);
+			info.AddValue("_livingroomShiftEvents", (!this.MarkedForDeletion?_livingroomShiftEvents:null));
+			info.AddValue("_alwaysFetchLivingroomShiftEvents", _alwaysFetchLivingroomShiftEvents);
+			info.AddValue("_alreadyFetchedLivingroomShiftEvents", _alreadyFetchedLivingroomShiftEvents);
 			info.AddValue("_patients", (!this.MarkedForDeletion?_patients:null));
 			info.AddValue("_alwaysFetchPatients", _alwaysFetchPatients);
 			info.AddValue("_alreadyFetchedPatients", _alreadyFetchedPatients);
@@ -230,6 +245,13 @@ namespace AmstaJanBonga.Business.EntityClasses
 						this.LivingroomChoreEvents.Add((LivingroomChoreEventEntity)entity);
 					}
 					break;
+				case "LivingroomShiftEvents":
+					_alreadyFetchedLivingroomShiftEvents = true;
+					if(entity!=null)
+					{
+						this.LivingroomShiftEvents.Add((LivingroomShiftEventEntity)entity);
+					}
+					break;
 				case "Patients":
 					_alreadyFetchedPatients = true;
 					if(entity!=null)
@@ -261,6 +283,9 @@ namespace AmstaJanBonga.Business.EntityClasses
 				case "LivingroomChoreEvents":
 					_livingroomChoreEvents.Add((LivingroomChoreEventEntity)relatedEntity);
 					break;
+				case "LivingroomShiftEvents":
+					_livingroomShiftEvents.Add((LivingroomShiftEventEntity)relatedEntity);
+					break;
 				case "Patients":
 					_patients.Add((PatientEntity)relatedEntity);
 					break;
@@ -286,6 +311,9 @@ namespace AmstaJanBonga.Business.EntityClasses
 					break;
 				case "LivingroomChoreEvents":
 					this.PerformRelatedEntityRemoval(_livingroomChoreEvents, relatedEntity, signalRelatedEntityManyToOne);
+					break;
+				case "LivingroomShiftEvents":
+					this.PerformRelatedEntityRemoval(_livingroomShiftEvents, relatedEntity, signalRelatedEntityManyToOne);
 					break;
 				case "Patients":
 					this.PerformRelatedEntityRemoval(_patients, relatedEntity, signalRelatedEntityManyToOne);
@@ -325,6 +353,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 			List<IEntityCollection> toReturn = new List<IEntityCollection>();
 			toReturn.Add(_employeeLivingrooms);
 			toReturn.Add(_livingroomChoreEvents);
+			toReturn.Add(_livingroomShiftEvents);
 			toReturn.Add(_patients);
 
 			return toReturn;
@@ -497,6 +526,61 @@ namespace AmstaJanBonga.Business.EntityClasses
 			_livingroomChoreEvents.MaxNumberOfItemsToReturn=maxNumberOfItemsToReturn;
 		}
 
+		/// <summary> Retrieves all related entities of type 'LivingroomShiftEventEntity' using a relation of type '1:n'.</summary>
+		/// <param name="forceFetch">if true, it will discard any changes currently in the collection and will rerun the complete query instead</param>
+		/// <returns>Filled collection with all related entities of type 'LivingroomShiftEventEntity'</returns>
+		public AmstaJanBonga.Business.CollectionClasses.LivingroomShiftEventCollection GetMultiLivingroomShiftEvents(bool forceFetch)
+		{
+			return GetMultiLivingroomShiftEvents(forceFetch, _livingroomShiftEvents.EntityFactoryToUse, null);
+		}
+
+		/// <summary> Retrieves all related entities of type 'LivingroomShiftEventEntity' using a relation of type '1:n'.</summary>
+		/// <param name="forceFetch">if true, it will discard any changes currently in the collection and will rerun the complete query instead</param>
+		/// <param name="filter">Extra filter to limit the resultset.</param>
+		/// <returns>Filled collection with all related entities of type 'LivingroomShiftEventEntity'</returns>
+		public AmstaJanBonga.Business.CollectionClasses.LivingroomShiftEventCollection GetMultiLivingroomShiftEvents(bool forceFetch, IPredicateExpression filter)
+		{
+			return GetMultiLivingroomShiftEvents(forceFetch, _livingroomShiftEvents.EntityFactoryToUse, filter);
+		}
+
+		/// <summary> Retrieves all related entities of type 'LivingroomShiftEventEntity' using a relation of type '1:n'.</summary>
+		/// <param name="forceFetch">if true, it will discard any changes currently in the collection and will rerun the complete query instead</param>
+		/// <param name="entityFactoryToUse">The entity factory to use for the GetMultiManyToOne() routine.</param>
+		/// <returns>Filled collection with all related entities of the type constructed by the passed in entity factory</returns>
+		public AmstaJanBonga.Business.CollectionClasses.LivingroomShiftEventCollection GetMultiLivingroomShiftEvents(bool forceFetch, IEntityFactory entityFactoryToUse)
+		{
+			return GetMultiLivingroomShiftEvents(forceFetch, entityFactoryToUse, null);
+		}
+
+		/// <summary> Retrieves all related entities of type 'LivingroomShiftEventEntity' using a relation of type '1:n'.</summary>
+		/// <param name="forceFetch">if true, it will discard any changes currently in the collection and will rerun the complete query instead</param>
+		/// <param name="entityFactoryToUse">The entity factory to use for the GetMultiManyToOne() routine.</param>
+		/// <param name="filter">Extra filter to limit the resultset.</param>
+		/// <returns>Filled collection with all related entities of the type constructed by the passed in entity factory</returns>
+		public virtual AmstaJanBonga.Business.CollectionClasses.LivingroomShiftEventCollection GetMultiLivingroomShiftEvents(bool forceFetch, IEntityFactory entityFactoryToUse, IPredicateExpression filter)
+		{
+ 			if( ( !_alreadyFetchedLivingroomShiftEvents || forceFetch || _alwaysFetchLivingroomShiftEvents) && !this.IsSerializing && !this.IsDeserializing && !this.InDesignMode)
+			{
+				AddToTransactionIfNecessary(_livingroomShiftEvents);
+				_livingroomShiftEvents.SuppressClearInGetMulti=!forceFetch;
+				_livingroomShiftEvents.EntityFactoryToUse = entityFactoryToUse;
+				_livingroomShiftEvents.GetMultiManyToOne(null, this, filter);
+				_livingroomShiftEvents.SuppressClearInGetMulti=false;
+				_alreadyFetchedLivingroomShiftEvents = true;
+			}
+			return _livingroomShiftEvents;
+		}
+
+		/// <summary> Sets the collection parameters for the collection for 'LivingroomShiftEvents'. These settings will be taken into account
+		/// when the property LivingroomShiftEvents is requested or GetMultiLivingroomShiftEvents is called.</summary>
+		/// <param name="maxNumberOfItemsToReturn"> The maximum number of items to return. When set to 0, this parameter is ignored</param>
+		/// <param name="sortClauses">The order by specifications for the sorting of the resultset. When not specified (null), no sorting is applied.</param>
+		public virtual void SetCollectionParametersLivingroomShiftEvents(long maxNumberOfItemsToReturn, ISortExpression sortClauses)
+		{
+			_livingroomShiftEvents.SortClauses=sortClauses;
+			_livingroomShiftEvents.MaxNumberOfItemsToReturn=maxNumberOfItemsToReturn;
+		}
+
 		/// <summary> Retrieves all related entities of type 'PatientEntity' using a relation of type '1:n'.</summary>
 		/// <param name="forceFetch">if true, it will discard any changes currently in the collection and will rerun the complete query instead</param>
 		/// <returns>Filled collection with all related entities of type 'PatientEntity'</returns>
@@ -600,6 +684,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 			Dictionary<string, object> toReturn = new Dictionary<string, object>();
 			toReturn.Add("EmployeeLivingrooms", _employeeLivingrooms);
 			toReturn.Add("LivingroomChoreEvents", _livingroomChoreEvents);
+			toReturn.Add("LivingroomShiftEvents", _livingroomShiftEvents);
 			toReturn.Add("Patients", _patients);
 			toReturn.Add("LivingroomGeneral", _livingroomGeneral);
 			return toReturn;
@@ -647,6 +732,9 @@ namespace AmstaJanBonga.Business.EntityClasses
 
 			_livingroomChoreEvents = new AmstaJanBonga.Business.CollectionClasses.LivingroomChoreEventCollection();
 			_livingroomChoreEvents.SetContainingEntityInfo(this, "Livingroom");
+
+			_livingroomShiftEvents = new AmstaJanBonga.Business.CollectionClasses.LivingroomShiftEventCollection();
+			_livingroomShiftEvents.SetContainingEntityInfo(this, "Livingroom");
 
 			_patients = new AmstaJanBonga.Business.CollectionClasses.PatientCollection();
 			_patients.SetContainingEntityInfo(this, "Livingroom");
@@ -782,6 +870,13 @@ namespace AmstaJanBonga.Business.EntityClasses
 		public static IPrefetchPathElement PrefetchPathLivingroomChoreEvents
 		{
 			get { return new PrefetchPathElement(new AmstaJanBonga.Business.CollectionClasses.LivingroomChoreEventCollection(), (IEntityRelation)GetRelationsForField("LivingroomChoreEvents")[0], (int)AmstaJanBonga.Business.EntityType.LivingroomEntity, (int)AmstaJanBonga.Business.EntityType.LivingroomChoreEventEntity, 0, null, null, null, "LivingroomChoreEvents", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany); }
+		}
+
+		/// <summary> Creates a new PrefetchPathElement object which contains all the information to prefetch the related entities of type 'LivingroomShiftEvent' for this entity.</summary>
+		/// <returns>Ready to use IPrefetchPathElement implementation.</returns>
+		public static IPrefetchPathElement PrefetchPathLivingroomShiftEvents
+		{
+			get { return new PrefetchPathElement(new AmstaJanBonga.Business.CollectionClasses.LivingroomShiftEventCollection(), (IEntityRelation)GetRelationsForField("LivingroomShiftEvents")[0], (int)AmstaJanBonga.Business.EntityType.LivingroomEntity, (int)AmstaJanBonga.Business.EntityType.LivingroomShiftEventEntity, 0, null, null, null, "LivingroomShiftEvents", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany); }
 		}
 
 		/// <summary> Creates a new PrefetchPathElement object which contains all the information to prefetch the related entities of type 'Patient' for this entity.</summary>
@@ -976,6 +1071,39 @@ namespace AmstaJanBonga.Business.EntityClasses
 					_livingroomChoreEvents.Clear();
 				}
 				_alreadyFetchedLivingroomChoreEvents = value;
+			}
+		}
+		/// <summary> Retrieves all related entities of type 'LivingroomShiftEventEntity' using a relation of type '1:n'.<br/><br/>
+		/// </summary>
+		/// <remarks>This property is added for databinding conveniance, however it is recommeded to use the method 'GetMultiLivingroomShiftEvents()', because 
+		/// this property is rather expensive and a method tells the user to cache the result when it has to be used more than once in the same scope.</remarks>
+		public virtual AmstaJanBonga.Business.CollectionClasses.LivingroomShiftEventCollection LivingroomShiftEvents
+		{
+			get	{ return GetMultiLivingroomShiftEvents(false); }
+		}
+
+		/// <summary> Gets / sets the lazy loading flag for LivingroomShiftEvents. When set to true, LivingroomShiftEvents is always refetched from the 
+		/// persistent storage. When set to false, the data is only fetched the first time LivingroomShiftEvents is accessed. You can always execute/ a forced fetch by calling GetMultiLivingroomShiftEvents(true).</summary>
+		[Browsable(false)]
+		public bool AlwaysFetchLivingroomShiftEvents
+		{
+			get	{ return _alwaysFetchLivingroomShiftEvents; }
+			set	{ _alwaysFetchLivingroomShiftEvents = value; }	
+		}		
+				
+		/// <summary>Gets / Sets the lazy loading flag if the property LivingroomShiftEvents already has been fetched. Setting this property to false when LivingroomShiftEvents has been fetched
+		/// will clear the LivingroomShiftEvents collection well. Setting this property to true while LivingroomShiftEvents hasn't been fetched disables lazy loading for LivingroomShiftEvents</summary>
+		[Browsable(false)]
+		public bool AlreadyFetchedLivingroomShiftEvents
+		{
+			get { return _alreadyFetchedLivingroomShiftEvents;}
+			set 
+			{
+				if(_alreadyFetchedLivingroomShiftEvents && !value && (_livingroomShiftEvents != null))
+				{
+					_livingroomShiftEvents.Clear();
+				}
+				_alreadyFetchedLivingroomShiftEvents = value;
 			}
 		}
 		/// <summary> Retrieves all related entities of type 'PatientEntity' using a relation of type '1:n'.<br/><br/>

@@ -31,6 +31,7 @@ namespace AmstaJanBonga.Business.RelationClasses
 		{
 			List<IEntityRelation> toReturn = new List<IEntityRelation>();
 			toReturn.Add(this.EmployeeLivingroomEntityUsingEmployeeId);
+			toReturn.Add(this.LivingroomShiftEventEntityUsingEmployeeId);
 			toReturn.Add(this.UserEntityUsingUserId);
 			return toReturn;
 		}
@@ -48,6 +49,21 @@ namespace AmstaJanBonga.Business.RelationClasses
 				relation.AddEntityFieldPair(EmployeeFields.Id, EmployeeLivingroomFields.EmployeeId);
 				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("EmployeeEntity", true);
 				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("EmployeeLivingroomEntity", false);
+				return relation;
+			}
+		}
+
+		/// <summary>Returns a new IEntityRelation object, between EmployeeEntity and LivingroomShiftEventEntity over the 1:n relation they have, using the relation between the fields:
+		/// Employee.Id - LivingroomShiftEvent.EmployeeId
+		/// </summary>
+		public virtual IEntityRelation LivingroomShiftEventEntityUsingEmployeeId
+		{
+			get
+			{
+				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany, "LivingroomShiftEvents" , true);
+				relation.AddEntityFieldPair(EmployeeFields.Id, LivingroomShiftEventFields.EmployeeId);
+				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("EmployeeEntity", true);
+				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("LivingroomShiftEventEntity", false);
 				return relation;
 			}
 		}
@@ -82,6 +98,7 @@ namespace AmstaJanBonga.Business.RelationClasses
 	internal static class StaticEmployeeRelations
 	{
 		internal static readonly IEntityRelation EmployeeLivingroomEntityUsingEmployeeIdStatic = new EmployeeRelations().EmployeeLivingroomEntityUsingEmployeeId;
+		internal static readonly IEntityRelation LivingroomShiftEventEntityUsingEmployeeIdStatic = new EmployeeRelations().LivingroomShiftEventEntityUsingEmployeeId;
 		internal static readonly IEntityRelation UserEntityUsingUserIdStatic = new EmployeeRelations().UserEntityUsingUserId;
 
 		/// <summary>CTor</summary>

@@ -22,7 +22,7 @@
         </div>
        
         <div class="gridview">
-            <asp:GridView runat="server" ID="_gvLivingrooms" OnPreRender="_gvLivingrooms_PreRender" ShowHeaderWhenEmpty="true" AlternatingRowStyle-CssClass="alt" AllowPaging="false" AllowSorting="false" AutoGenerateColumns="false">
+            <asp:GridView runat="server" ID="_gvLivingrooms" HeaderStyle-CssClass="gridview-header" OnPreRender="_gvLivingrooms_PreRender" ShowHeaderWhenEmpty="true" AlternatingRowStyle-CssClass="alt" AllowPaging="false" AllowSorting="false" AutoGenerateColumns="false">
                 <Columns>          
                     <asp:TemplateField>
                         <HeaderTemplate>
