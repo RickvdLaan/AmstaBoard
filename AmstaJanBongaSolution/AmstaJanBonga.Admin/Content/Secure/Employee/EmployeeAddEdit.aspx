@@ -1,16 +1,16 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Main.Master" AutoEventWireup="true" CodeBehind="PatientAddEdit.aspx.cs" Inherits="AmstaJanBonga.Admin.Content.Secure.Patient.PatientAddEdit" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Main.Master" AutoEventWireup="true" CodeBehind="EmployeeAddEdit.aspx.cs" Inherits="AmstaJanBonga.Admin.Content.Secure.Employee.EmployeeAddEdit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="_cphHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="_cphMainTitle" runat="server">
-    Bewoners
+    Medewerkers
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="_cphSubTitle" runat="server">
-     <%= Helper.SubTitleAddEdit %>
+    <%= Helper.SubTitleAddEdit %>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="_cphExplanation" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="_cphContent" runat="server">
-     <div class="box">
+    <div class="box">
         <h2 class="display-inline">
              Gebruiker <%= Helper.SubTitleAddEdit %>
         </h2>
@@ -39,8 +39,26 @@
                     </td>
                     <td>
                         <asp:FileUpload runat="server" ID="_fileUpload" />
-                        <asp:RequiredFieldValidator runat="server" ID="_rfvFileUpload" ValidateRequestMode="Enabled" CssClass="error" ErrorMessage="Verplichte velden kunnen niet leeg blijven." Display="Dynamic" ControlToValidate="_fileUpload" ValidationGroup="Validate"></asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator runat="server" ErrorMessage="Alleen plaatjes van het type jpg, gif, en png zijn toegestaan." CssClass="error" ValidateRequestMode="Enabled" ValidationExpression="([a-zA-Z0-9\s_\\.\-:])+(.png|.jpg|.gif)$" ControlToValidate="_fileUpload" ValidationGroup="Validate" Display="Dynamic"></asp:RegularExpressionValidator>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="label">
+
+                    </td>
+                    <td>
+                        <asp:Button runat="server" ID="_btnDeleteExistingPicture" Text="Verwijder bestaande foto" Enabled="false" />
+                    </td>
+                </tr>
+
+                
+                <tr>
+                    <td class="label">
+                        Gebruiker
+                    </td>
+                    <td>
+                        <asp:DropDownList runat="server" ID="_ddlUser" AppendDataBoundItems="false"></asp:DropDownList>
                     </td>
                 </tr>
 

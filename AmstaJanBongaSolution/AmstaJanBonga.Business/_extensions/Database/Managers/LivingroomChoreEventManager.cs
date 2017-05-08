@@ -55,10 +55,10 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// <param name="chore"></param>
         public static void InsertMulti(List<LivingroomChoreEventEntity> chores)
         {
-            var LivingroomChoreEventCollection = new LivingroomChoreEventCollection();
-            LivingroomChoreEventCollection.AddRange(chores);
+            var livingroomChoreEventCollection = new LivingroomChoreEventCollection();
+            livingroomChoreEventCollection.AddRange(chores);
 
-            LivingroomChoreEventCollection.SaveMulti();
+            livingroomChoreEventCollection.SaveMulti();
         }
 
         /// <summary>
@@ -67,10 +67,10 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// <param name="chore"></param>
         public static void InsertMulti(params LivingroomChoreEventEntity[] chore)
         {
-            var LivingroomChoreEventCollection = new LivingroomChoreEventCollection();
-            LivingroomChoreEventCollection.AddRange(chore);
+            var livingroomChoreEventCollection = new LivingroomChoreEventCollection();
+            livingroomChoreEventCollection.AddRange(chore);
 
-            LivingroomChoreEventCollection.SaveMulti();
+            livingroomChoreEventCollection.SaveMulti();
         }
 
         public static void UpdateMulti(LivingroomChoreEventCollection originalCollection, List<LivingroomChoreEventEntity> chores)

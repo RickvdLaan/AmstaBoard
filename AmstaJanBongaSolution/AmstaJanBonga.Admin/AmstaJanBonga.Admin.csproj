@@ -137,9 +137,9 @@
     <Content Include="Content\Secure\Patient\PatientAddEdit.aspx" />
     <Content Include="Content\Secure\Patient\PatientDetails.aspx" />
     <Content Include="Content\Secure\Patient\PatientOverview.aspx" />
-    <Content Include="Content\Secure\Staff\StaffAddEdit.aspx" />
-    <Content Include="Content\Secure\Staff\StaffDetails.aspx" />
-    <Content Include="Content\Secure\Staff\StaffOverview.aspx" />
+    <Content Include="Content\Secure\Employee\EmployeeAddEdit.aspx" />
+    <Content Include="Content\Secure\Employee\EmployeeDetails.aspx" />
+    <Content Include="Content\Secure\Employee\EmployeeOverview.aspx" />
     <Content Include="Content\Secure\User\UserAddEdit.aspx" />
     <Content Include="Content\Secure\User\UserDetails.aspx" />
     <Content Include="Content\Secure\User\UserOverview.aspx" />
@@ -375,26 +375,26 @@
     <Compile Include="Content\Secure\Patient\PatientOverview.aspx.designer.cs">
       <DependentUpon>PatientOverview.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Content\Secure\Staff\StaffAddEdit.aspx.cs">
-      <DependentUpon>StaffAddEdit.aspx</DependentUpon>
+    <Compile Include="Content\Secure\Employee\EmployeeAddEdit.aspx.cs">
+      <DependentUpon>EmployeeAddEdit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Content\Secure\Staff\StaffAddEdit.aspx.designer.cs">
-      <DependentUpon>StaffAddEdit.aspx</DependentUpon>
+    <Compile Include="Content\Secure\Employee\EmployeeAddEdit.aspx.designer.cs">
+      <DependentUpon>EmployeeAddEdit.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Content\Secure\Staff\StaffDetails.aspx.cs">
-      <DependentUpon>StaffDetails.aspx</DependentUpon>
+    <Compile Include="Content\Secure\Employee\EmployeeDetails.aspx.cs">
+      <DependentUpon>EmployeeDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Content\Secure\Staff\StaffDetails.aspx.designer.cs">
-      <DependentUpon>StaffDetails.aspx</DependentUpon>
+    <Compile Include="Content\Secure\Employee\EmployeeDetails.aspx.designer.cs">
+      <DependentUpon>EmployeeDetails.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Content\Secure\Staff\StaffOverview.aspx.cs">
-      <DependentUpon>StaffOverview.aspx</DependentUpon>
+    <Compile Include="Content\Secure\Employee\EmployeeOverview.aspx.cs">
+      <DependentUpon>EmployeeOverview.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Content\Secure\Staff\StaffOverview.aspx.designer.cs">
-      <DependentUpon>StaffOverview.aspx</DependentUpon>
+    <Compile Include="Content\Secure\Employee\EmployeeOverview.aspx.designer.cs">
+      <DependentUpon>EmployeeOverview.aspx</DependentUpon>
     </Compile>
     <Compile Include="Content\Secure\User\UserAddEdit.aspx.cs">
       <DependentUpon>UserAddEdit.aspx</DependentUpon>

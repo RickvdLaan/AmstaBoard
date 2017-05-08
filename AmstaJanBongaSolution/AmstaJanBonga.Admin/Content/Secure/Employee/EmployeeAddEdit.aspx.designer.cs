@@ -7,64 +7,64 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Shifts {
+namespace AmstaJanBonga.Admin.Content.Secure.Employee {
     
     
-    public partial class ShiftsAddEdit {
+    public partial class EmployeeAddEdit {
         
         /// <summary>
-        /// _hlReturn control.
+        /// _txtFirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink _hlReturn;
+        protected global::System.Web.UI.WebControls.TextBox _txtFirstName;
         
         /// <summary>
-        /// ExtendedCalendar control.
+        /// _fileUpload control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AmstaJanBonga.Admin.Content.Controls.ExtendedCalendar.Shifts.ExtendedCalendar ExtendedCalendar;
+        protected global::System.Web.UI.WebControls.FileUpload _fileUpload;
         
         /// <summary>
-        /// _txtDate control.
+        /// _btnDeleteExistingPicture control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox _txtDate;
+        protected global::System.Web.UI.WebControls.Button _btnDeleteExistingPicture;
         
         /// <summary>
-        /// _txtLivingroom control.
+        /// _ddlUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox _txtLivingroom;
+        protected global::System.Web.UI.WebControls.DropDownList _ddlUser;
         
         /// <summary>
-        /// _jlbDay control.
+        /// _ddlLivingrooms control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AmstaJanBonga.Admin.Content.Controls.JsListBox.JsListBox _jlbDay;
+        protected global::System.Web.UI.WebControls.DropDownList _ddlLivingrooms;
         
         /// <summary>
-        /// _jlbEvening control.
+        /// _cbActive control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AmstaJanBonga.Admin.Content.Controls.JsListBox.JsListBox _jlbEvening;
+        protected global::System.Web.UI.WebControls.CheckBox _cbActive;
         
         /// <summary>
         /// _lblError control.

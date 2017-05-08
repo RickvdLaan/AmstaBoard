@@ -420,7 +420,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 				AddToTransactionIfNecessary(_employees);
 				_employees.SuppressClearInGetMulti=!forceFetch;
 				_employees.EntityFactoryToUse = entityFactoryToUse;
-				_employees.GetMultiManyToOne(this, filter);
+				_employees.GetMultiManyToOne(null, this, filter);
 				_employees.SuppressClearInGetMulti=false;
 				_alreadyFetchedEmployees = true;
 			}

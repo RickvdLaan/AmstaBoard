@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace AmstaJanBonga.Admin.Content.Secure.Staff
+namespace AmstaJanBonga.Admin.Content.Secure.Employee
 {
-    public partial class StaffOverview : SecurePage
+    public partial class EmployeefDetails : SecurePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

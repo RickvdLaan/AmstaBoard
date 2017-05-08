@@ -4,7 +4,6 @@
 <%@ Register Src="~/Content/Controls/JsListBox/JsListBox.ascx" TagPrefix="CustomControl" TagName="JsListBox" %>
 <%@ Register Src="~/Content/Controls/ExtendedCalendar/Chores/ExtendedCalendar.ascx" TagPrefix="CustomControl" TagName="ExtendedCalendar" %>
 
-
 <asp:Content ID="Content1" ContentPlaceHolderID="_cphHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="_cphMainTitle" runat="server">

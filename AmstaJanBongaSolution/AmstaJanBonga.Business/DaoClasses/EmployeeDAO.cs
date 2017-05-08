@@ -43,14 +43,15 @@ namespace AmstaJanBonga.Business.DaoClasses
 		/// <param name="sortClauses">The order by specifications for the sorting of the resultset. When not specified, no sorting is applied.</param>
 		/// <param name="entityFactoryToUse">The EntityFactory to use when creating entity objects during a GetMulti() call.</param>
 		/// <param name="filter">Extra filter to limit the resultset. Predicate expression can be null, in which case it will be ignored.</param>
+		/// <param name="livingroomInstance">LivingroomEntity instance to use as a filter for the EmployeeEntity objects to return</param>
 		/// <param name="userInstance">UserEntity instance to use as a filter for the EmployeeEntity objects to return</param>
 		/// <param name="pageNumber">The page number to retrieve.</param>
 		/// <param name="pageSize">The page size of the page to retrieve.</param>
-		public bool GetMulti(ITransaction containingTransaction, IEntityCollection collectionToFill, long maxNumberOfItemsToReturn, ISortExpression sortClauses, IEntityFactory entityFactoryToUse, IPredicateExpression filter, IEntity userInstance, int pageNumber, int pageSize)
+		public bool GetMulti(ITransaction containingTransaction, IEntityCollection collectionToFill, long maxNumberOfItemsToReturn, ISortExpression sortClauses, IEntityFactory entityFactoryToUse, IPredicateExpression filter, IEntity livingroomInstance, IEntity userInstance, int pageNumber, int pageSize)
 		{
 			this.EntityFactoryToUse = entityFactoryToUse;
 			IEntityFields fieldsToReturn = EntityFieldsFactory.CreateEntityFieldsObject(AmstaJanBonga.Business.EntityType.EmployeeEntity);
-			IPredicateExpression selectFilter = CreateFilterUsingForeignKeys(userInstance, fieldsToReturn);
+			IPredicateExpression selectFilter = CreateFilterUsingForeignKeys(livingroomInstance, userInstance, fieldsToReturn);
 			if(filter!=null)
 			{
 				selectFilter.AddWithAnd(filter);
@@ -63,12 +64,13 @@ namespace AmstaJanBonga.Business.DaoClasses
 
 		/// <summary>Deletes from the persistent storage all 'Employee' entities which have data in common with the specified related Entities. If one is omitted, that entity is not used as a filter.</summary>
 		/// <param name="containingTransaction">A containing transaction, if caller is added to a transaction, or null if not.</param>
+		/// <param name="livingroomInstance">LivingroomEntity instance to use as a filter for the EmployeeEntity objects to delete</param>
 		/// <param name="userInstance">UserEntity instance to use as a filter for the EmployeeEntity objects to delete</param>
 		/// <returns>Amount of entities affected, if the used persistent storage has rowcounting enabled.</returns>
-		public int DeleteMulti(ITransaction containingTransaction, IEntity userInstance)
+		public int DeleteMulti(ITransaction containingTransaction, IEntity livingroomInstance, IEntity userInstance)
 		{
 			IEntityFields fields = EntityFieldsFactory.CreateEntityFieldsObject(AmstaJanBonga.Business.EntityType.EmployeeEntity);
-			IPredicateExpression deleteFilter = CreateFilterUsingForeignKeys(userInstance, fields);
+			IPredicateExpression deleteFilter = CreateFilterUsingForeignKeys(livingroomInstance, userInstance, fields);
 			return this.DeleteMulti(containingTransaction, deleteFilter);
 		}
 
@@ -77,23 +79,29 @@ namespace AmstaJanBonga.Business.DaoClasses
 		/// of <i>entityWithNewValues</i> which are affected by the filterBucket's filter will thus also be updated.</summary>
 		/// <param name="entityWithNewValues">IEntity instance which holds the new values for the matching entities to update. Only changed fields are taken into account</param>
 		/// <param name="containingTransaction">A containing transaction, if caller is added to a transaction, or null if not.</param>
+		/// <param name="livingroomInstance">LivingroomEntity instance to use as a filter for the EmployeeEntity objects to update</param>
 		/// <param name="userInstance">UserEntity instance to use as a filter for the EmployeeEntity objects to update</param>
 		/// <returns>Amount of entities affected, if the used persistent storage has rowcounting enabled.</returns>
-		public int UpdateMulti(IEntity entityWithNewValues, ITransaction containingTransaction, IEntity userInstance)
+		public int UpdateMulti(IEntity entityWithNewValues, ITransaction containingTransaction, IEntity livingroomInstance, IEntity userInstance)
 		{
 			IEntityFields fields = EntityFieldsFactory.CreateEntityFieldsObject(AmstaJanBonga.Business.EntityType.EmployeeEntity);
-			IPredicateExpression updateFilter = CreateFilterUsingForeignKeys(userInstance, fields);
+			IPredicateExpression updateFilter = CreateFilterUsingForeignKeys(livingroomInstance, userInstance, fields);
 			return this.UpdateMulti(entityWithNewValues, containingTransaction, updateFilter);
 		}
 
 		/// <summary>Creates a PredicateExpression which should be used as a filter when any combination of available foreign keys is specified.</summary>
+		/// <param name="livingroomInstance">LivingroomEntity instance to use as a filter for the EmployeeEntity objects</param>
 		/// <param name="userInstance">UserEntity instance to use as a filter for the EmployeeEntity objects</param>
 		/// <param name="fieldsToReturn">IEntityFields implementation which forms the definition of the fieldset of the target entity.</param>
 		/// <returns>A ready to use PredicateExpression based on the passed in foreign key value holders.</returns>
-		private IPredicateExpression CreateFilterUsingForeignKeys(IEntity userInstance, IEntityFields fieldsToReturn)
+		private IPredicateExpression CreateFilterUsingForeignKeys(IEntity livingroomInstance, IEntity userInstance, IEntityFields fieldsToReturn)
 		{
 			IPredicateExpression selectFilter = new PredicateExpression();
 			
+			if(livingroomInstance != null)
+			{
+				selectFilter.Add(new FieldCompareValuePredicate(fieldsToReturn[(int)EmployeeFieldIndex.LivingroomId], ComparisonOperator.Equal, ((LivingroomEntity)livingroomInstance).Id));
+			}
 			if(userInstance != null)
 			{
 				selectFilter.Add(new FieldCompareValuePredicate(fieldsToReturn[(int)EmployeeFieldIndex.UserId], ComparisonOperator.Equal, ((UserEntity)userInstance).Id));

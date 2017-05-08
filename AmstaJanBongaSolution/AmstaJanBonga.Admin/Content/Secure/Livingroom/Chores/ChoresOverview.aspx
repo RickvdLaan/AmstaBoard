@@ -58,6 +58,10 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
+
+                <EmptyDataTemplate>
+                    Er zijn nog geen gegevens ingevoerd.
+                </EmptyDataTemplate>
             </asp:GridView>
         </div>
     </div>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Main.Master" AutoEventWireup="true" CodeBehind="StaffAddEdit.aspx.cs" Inherits="AmstaJanBonga.Admin.Content.Secure.Staff.StaffAddEdit" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Main.Master" AutoEventWireup="true" CodeBehind="EmployeeDetails.aspx.cs" Inherits="AmstaJanBonga.Admin.Content.Secure.Employee.EmployeeDetails" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="_cphHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="_cphMainTitle" runat="server">

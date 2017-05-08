@@ -27,7 +27,6 @@ namespace AmstaJanBonga.Business.CollectionClasses
 	
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces
 	// __LLBLGENPRO_USER_CODE_REGION_END
-	
 
 	/// <summary>Collection class for storing and retrieving collections of LivingroomShiftEventEntity objects. </summary>
 	[Serializable]
@@ -261,7 +260,6 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		
 		// __LLBLGENPRO_USER_CODE_REGION_START CustomEntityCollectionCode
 		// __LLBLGENPRO_USER_CODE_REGION_END
-		
 		#endregion
 		
 		#region Included Code

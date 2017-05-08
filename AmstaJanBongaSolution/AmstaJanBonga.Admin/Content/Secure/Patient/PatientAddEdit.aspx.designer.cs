@@ -40,15 +40,6 @@ namespace AmstaJanBonga.Admin.Content.Secure.Patient {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator _rfvFileUpload;
         
         /// <summary>
-        /// _btnDeleteExistingPicture control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button _btnDeleteExistingPicture;
-        
-        /// <summary>
         /// _ddlLivingrooms control.
         /// </summary>
         /// <remarks>

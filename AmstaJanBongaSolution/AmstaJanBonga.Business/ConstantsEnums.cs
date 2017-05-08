@@ -32,18 +32,10 @@ namespace AmstaJanBonga.Business
 		IsActive,
 		///<summary>IsMarkedAsDeleted. </summary>
 		IsMarkedAsDeleted,
-		///<summary>UserId. </summary>
-		UserId,
-		/// <summary></summary>
-		AmountOfFields
-	}
-	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: EmployeeLivingroom.</summary>
-	public enum EmployeeLivingroomFieldIndex
-	{
-		///<summary>EmployeeId. </summary>
-		EmployeeId,
 		///<summary>LivingroomId. </summary>
 		LivingroomId,
+		///<summary>UserId. </summary>
+		UserId,
 		/// <summary></summary>
 		AmountOfFields
 	}
@@ -156,8 +148,8 @@ namespace AmstaJanBonga.Business
 		EmployeeId,
 		///<summary>LivingroomId. </summary>
 		LivingroomId,
-		///<summary>ShiftTimeEnum. </summary>
-		ShiftTimeEnum,
+		///<summary>ShiftTypeEnum. </summary>
+		ShiftTypeEnum,
 		/// <summary></summary>
 		AmountOfFields
 	}
@@ -233,8 +225,6 @@ namespace AmstaJanBonga.Business
 	{
 		///<summary>Employee</summary>
 		EmployeeEntity,
-		///<summary>EmployeeLivingroom</summary>
-		EmployeeLivingroomEntity,
 		///<summary>Ip</summary>
 		IpEntity,
 		///<summary>Livingroom</summary>

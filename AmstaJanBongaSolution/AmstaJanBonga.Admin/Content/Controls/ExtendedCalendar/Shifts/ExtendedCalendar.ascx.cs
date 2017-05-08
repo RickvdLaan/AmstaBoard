@@ -57,8 +57,7 @@ namespace AmstaJanBonga.Admin.Content.Controls.ExtendedCalendar.Shifts
             {
                 // The QueryStringParser validation check should already be done on the page this is used
                 // to catch any possible exceptions. So we're assuming everything is right.
-                //this.Dates = LivingroomChoreEventReader.GetAllUsedDatesByLivingroomId(Url.QueryStringParser.GetInt("LivingroomId"));
-                throw new NotImplementedException();
+                this.Dates = LivingroomShiftEventReader.GetAllUsedDatesByLivingroomId(Url.QueryStringParser.GetInt("LivingroomId"));
             }
 
             if (e.Day.IsOtherMonth)

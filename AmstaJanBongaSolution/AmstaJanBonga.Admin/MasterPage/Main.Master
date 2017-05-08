@@ -12,7 +12,7 @@
 
         <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,400italic,600' rel='stylesheet' type='text/css' />
 
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
         <script src="Includes/Js/mobile-navigation.js"></script>
 
         <asp:ContentPlaceHolder ID="_cphHead" runat="server"></asp:ContentPlaceHolder>
@@ -72,7 +72,7 @@
                     <asp:BulletedList runat="server" ID="nav" DisplayMode="HyperLink">
                         <asp:ListItem runat="server" id="_liDashboard" Value="~/Dashboard">Dashboard</asp:ListItem>
                         <asp:ListItem runat="server" id="_liUser" Value="~/Content/Secure/User/UserOverview.aspx">Gebruikers</asp:ListItem>
-                        <asp:ListItem runat="server" id="_liStaff" Value="~/Content/Secure/Staff/StaffOverview.aspx">Personeel</asp:ListItem>
+                        <asp:ListItem runat="server" id="_liStaff" Value="~/Content/Secure/Employee/EmployeeOverview.aspx">Medewerkers</asp:ListItem>
                         <asp:ListItem runat="server" id="_liLivingroom" Value="~/Content/Secure/Livingroom/LivingroomOverview.aspx">Woonkamers</asp:ListItem>
                         <asp:ListItem runat="server" id="_liPatient" Value="~/Content/Secure/Patient/PatientOverview.aspx">Bewoners</asp:ListItem>
                     </asp:BulletedList>

@@ -62,25 +62,15 @@ namespace AmstaJanBonga.Business.HelperClasses
 		{
 			get { return (EntityField)EntityFieldFactory.Create(EmployeeFieldIndex.IsMarkedAsDeleted);}
 		}
+		/// <summary>Creates a new EmployeeEntity.LivingroomId field instance</summary>
+		public static EntityField LivingroomId
+		{
+			get { return (EntityField)EntityFieldFactory.Create(EmployeeFieldIndex.LivingroomId);}
+		}
 		/// <summary>Creates a new EmployeeEntity.UserId field instance</summary>
 		public static EntityField UserId
 		{
 			get { return (EntityField)EntityFieldFactory.Create(EmployeeFieldIndex.UserId);}
-		}
-	}
-
-	/// <summary>Field Creation Class for entity EmployeeLivingroomEntity</summary>
-	public partial class EmployeeLivingroomFields
-	{
-		/// <summary>Creates a new EmployeeLivingroomEntity.EmployeeId field instance</summary>
-		public static EntityField EmployeeId
-		{
-			get { return (EntityField)EntityFieldFactory.Create(EmployeeLivingroomFieldIndex.EmployeeId);}
-		}
-		/// <summary>Creates a new EmployeeLivingroomEntity.LivingroomId field instance</summary>
-		public static EntityField LivingroomId
-		{
-			get { return (EntityField)EntityFieldFactory.Create(EmployeeLivingroomFieldIndex.LivingroomId);}
 		}
 	}
 
@@ -302,10 +292,10 @@ namespace AmstaJanBonga.Business.HelperClasses
 		{
 			get { return (EntityField)EntityFieldFactory.Create(LivingroomShiftEventFieldIndex.LivingroomId);}
 		}
-		/// <summary>Creates a new LivingroomShiftEventEntity.ShiftTimeEnum field instance</summary>
-		public static EntityField ShiftTimeEnum
+		/// <summary>Creates a new LivingroomShiftEventEntity.ShiftTypeEnum field instance</summary>
+		public static EntityField ShiftTypeEnum
 		{
-			get { return (EntityField)EntityFieldFactory.Create(LivingroomShiftEventFieldIndex.ShiftTimeEnum);}
+			get { return (EntityField)EntityFieldFactory.Create(LivingroomShiftEventFieldIndex.ShiftTypeEnum);}
 		}
 	}
 

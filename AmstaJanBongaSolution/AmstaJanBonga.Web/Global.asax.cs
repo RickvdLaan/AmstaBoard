@@ -2,7 +2,6 @@
 using AmstaJanBonga.Business.Enums;
 using AmstaJanBonga.Business.Security;
 using Rlaan.Toolkit.Configuration;
-using Rlaan.Toolkit.Extensions;
 using Rlaan.Toolkit.Web;
 using System;
 using System.Threading;
@@ -34,15 +33,8 @@ namespace AmstaJanBonga.Web
                     if (Authentication.IsAuthenticated)
                         Authentication.Utility.SignOut();
 
-                    Response.Redirect("https://www.google.nl/");
+                    Response.Redirect("https://www.jouwsoftware.nl/");
                 }
-
-                //// Checking if the connect is secure and if it's not a local connection.
-                //if (HttpContext.Current.Request.IsSecureConnection.Equals(false) && HttpContext.Current.Request.IsLocal.Equals(false))
-                //{
-                //    // The connection wasn't secure and it wasn't a local connection, redirecting to a secure connection.
-                //    Response.Redirect("https://{0}{1}".FormatString(Request.ServerVariables["HTTP_HOST"], HttpContext.Current.Request.RawUrl));
-                //}
             }
         }
 

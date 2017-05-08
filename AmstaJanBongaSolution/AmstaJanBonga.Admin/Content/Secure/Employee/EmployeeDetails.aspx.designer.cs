@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AmstaJanBonga.Admin.Content.Secure.Staff
+namespace AmstaJanBonga.Admin.Content.Secure.Employee
 {
 
 
-    public partial class StaffOverview
+    public partial class EmployeeDetails
     {
     }
 }

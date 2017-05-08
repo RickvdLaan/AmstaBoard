@@ -35,13 +35,6 @@ namespace AmstaJanBonga.Business.FactoryClasses
 			return new EmployeeDAO();
 		}
 
-		/// <summary>Creates a new EmployeeLivingroomDAO object</summary>
-		/// <returns>the new DAO object ready to use for EmployeeLivingroom Entities</returns>
-		public static EmployeeLivingroomDAO CreateEmployeeLivingroomDAO()
-		{
-			return new EmployeeLivingroomDAO();
-		}
-
 		/// <summary>Creates a new IpDAO object</summary>
 		/// <returns>the new DAO object ready to use for Ip Entities</returns>
 		public static IpDAO CreateIpDAO()

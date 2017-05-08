@@ -7,27 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Shifts {
+namespace AmstaJanBonga.Admin.Content.Secure.Employee
+{
     
     
-    public partial class ShiftsOverview {
+    public partial class EmployeeOverview
+    {
         
         /// <summary>
-        /// _hlAddEditShifts control.
+        /// _gvEmployee control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink _hlAddEditShifts;
-        
-        /// <summary>
-        /// _gvShifts control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView _gvShifts;
+        protected global::System.Web.UI.WebControls.GridView _gvEmployee;
     }
 }

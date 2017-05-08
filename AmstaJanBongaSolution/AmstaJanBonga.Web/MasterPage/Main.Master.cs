@@ -86,21 +86,17 @@ namespace AmstaJanBonga.Web.MasterPage
                 var apiId = "84f3dec579b93e63775499eecfa68338";
                 var apiCall = @"http://api.openweathermap.org/data/2.5/weather?id={0}&units=metric&mode=xml&APPID={1}".FormatString(locationId, apiId);
 
-                //@Fixme: Turn on when deploying to live.
-                //if (Project.Environment.IsLiveEnvironment)
-                //{
-                    using (var client = new WebClient())
-                    {
-                        var xdoc = XDocument.Parse(client.DownloadString(apiCall));
+                using (var client = new WebClient())
+                {
+                    var xdoc = XDocument.Parse(client.DownloadString(apiCall));
 
-                        temperature = Math.Round(
-                                        Convert.ToDecimal(
-                                            (from doc in xdoc.Descendants("temperature") select (string)doc.Attribute("value")).ToList()[0]
-                                                .Replace('.', ',')), 1)
-                                                    .ToString()
-                                                        .Replace(',', '.');
-                    }
-                //}
+                    temperature = Math.Round(
+                                    Convert.ToDecimal(
+                                        (from doc in xdoc.Descendants("temperature") select (string)doc.Attribute("value")).ToList()[0]
+                                            .Replace('.', ',')), 1)
+                                                .ToString()
+                                                    .Replace(',', '.');
+                }
 
                 // Creates a cookie which has an expire time of 60 minutes.
                 var cookie = new HttpCookie("Temperature")

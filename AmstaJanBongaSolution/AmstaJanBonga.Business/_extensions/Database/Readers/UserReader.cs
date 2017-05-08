@@ -1,7 +1,9 @@
 ﻿using AmstaJanBonga.Business.CollectionClasses;
 using AmstaJanBonga.Business.EntityClasses;
 using AmstaJanBonga.Business.Enums;
+using AmstaJanBonga.Business.HelperClasses;
 using Rlaan.Toolkit.Extensions;
+using SD.LLBLGen.Pro.ORMSupportClasses;
 using System;
 using System.Linq;
 
@@ -70,6 +72,60 @@ namespace AmstaJanBonga.Business.Database.Readers
         {
             var users = new UserCollection();
             users.GetMulti(null, 0);
+
+            return users;
+        }
+
+        /// <summary>
+        /// Returns a collection of all the users that are not linked to any employee.
+        /// </summary>
+        /// <returns></returns>
+        public static UserCollection GetAllUnlinkedUsers()
+        {
+            var users = new UserCollection();
+            var bucket = new RelationPredicateBucket() as IRelationPredicateBucket;
+            
+            // Relations
+            bucket.Relations.Add(UserEntity.Relations.EmployeeEntityUsingUserId, JoinHint.Left)
+                .CustomFilter = new PredicateExpression { EmployeeFields.UserId == UserFields.Id };
+            // Predicate
+            bucket.PredicateExpression.Add(EmployeeFields.UserId == DBNull.Value);
+
+            // Sorting
+            var sorter = new SortExpression
+            {
+                UserFields.Username | SortOperator.Ascending
+            };
+
+            users.GetMulti(bucket.PredicateExpression, -1, sorter, bucket.Relations);
+
+            return users;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="includeUserId"></param>
+        /// <returns></returns>
+        public static UserCollection GetAllUnlinkedUsers(int includeUserId)
+        {
+            var users = new UserCollection();
+            var bucket = new RelationPredicateBucket() as IRelationPredicateBucket;
+
+            // Relations
+            bucket.Relations.Add(UserEntity.Relations.EmployeeEntityUsingUserId, JoinHint.Left)
+                .CustomFilter = new PredicateExpression { EmployeeFields.UserId == UserFields.Id };
+            // Predicate
+            bucket.PredicateExpression.Add(EmployeeFields.UserId == DBNull.Value);
+            bucket.PredicateExpression.AddWithOr(EmployeeFields.UserId == includeUserId);
+
+            // Sorting
+            var sorter = new SortExpression
+            {
+                UserFields.Username | SortOperator.Ascending
+            };
+
+            users.GetMulti(bucket.PredicateExpression, -1, sorter, bucket.Relations);
 
             return users;
         }

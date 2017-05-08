@@ -30,7 +30,6 @@ namespace AmstaJanBonga.Business.EntityClasses
 	
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces
 	// __LLBLGENPRO_USER_CODE_REGION_END
-	
 
 	/// <summary>Entity class which represents the entity 'LivingroomShiftEvent'. <br/><br/>
 	/// 
@@ -38,8 +37,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 	[Serializable]
 	public partial class LivingroomShiftEventEntity : CommonEntityBase
 		// __LLBLGENPRO_USER_CODE_REGION_START AdditionalInterfaces
-		// __LLBLGENPRO_USER_CODE_REGION_END
-			
+		// __LLBLGENPRO_USER_CODE_REGION_END	
 	{
 		#region Class Member Declarations
 		private EmployeeEntity _employee;
@@ -49,7 +47,6 @@ namespace AmstaJanBonga.Business.EntityClasses
 
 		// __LLBLGENPRO_USER_CODE_REGION_START PrivateMembers
 		// __LLBLGENPRO_USER_CODE_REGION_END
-		
 		#endregion
 
 		#region Statics
@@ -82,32 +79,32 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <param name="date">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
 		/// <param name="employeeId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
 		/// <param name="livingroomId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="shiftTimeEnum">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		public LivingroomShiftEventEntity(System.Int32 date, System.Int32 employeeId, System.Int32 livingroomId, System.Byte shiftTimeEnum):base("LivingroomShiftEventEntity")
+		/// <param name="shiftTypeEnum">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
+		public LivingroomShiftEventEntity(System.DateTime date, System.Int32 employeeId, System.Int32 livingroomId, System.Byte shiftTypeEnum):base("LivingroomShiftEventEntity")
 		{
-			InitClassFetch(date, employeeId, livingroomId, shiftTimeEnum, null, null);
+			InitClassFetch(date, employeeId, livingroomId, shiftTypeEnum, null, null);
 		}
 
 		/// <summary>CTor</summary>
 		/// <param name="date">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
 		/// <param name="employeeId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
 		/// <param name="livingroomId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="shiftTimeEnum">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
+		/// <param name="shiftTypeEnum">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
-		public LivingroomShiftEventEntity(System.Int32 date, System.Int32 employeeId, System.Int32 livingroomId, System.Byte shiftTimeEnum, IPrefetchPath prefetchPathToUse):base("LivingroomShiftEventEntity")
+		public LivingroomShiftEventEntity(System.DateTime date, System.Int32 employeeId, System.Int32 livingroomId, System.Byte shiftTypeEnum, IPrefetchPath prefetchPathToUse):base("LivingroomShiftEventEntity")
 		{
-			InitClassFetch(date, employeeId, livingroomId, shiftTimeEnum, null, prefetchPathToUse);
+			InitClassFetch(date, employeeId, livingroomId, shiftTypeEnum, null, prefetchPathToUse);
 		}
 
 		/// <summary>CTor</summary>
 		/// <param name="date">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
 		/// <param name="employeeId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
 		/// <param name="livingroomId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="shiftTimeEnum">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
+		/// <param name="shiftTypeEnum">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
 		/// <param name="validator">The custom validator object for this LivingroomShiftEventEntity</param>
-		public LivingroomShiftEventEntity(System.Int32 date, System.Int32 employeeId, System.Int32 livingroomId, System.Byte shiftTimeEnum, IValidator validator):base("LivingroomShiftEventEntity")
+		public LivingroomShiftEventEntity(System.DateTime date, System.Int32 employeeId, System.Int32 livingroomId, System.Byte shiftTypeEnum, IValidator validator):base("LivingroomShiftEventEntity")
 		{
-			InitClassFetch(date, employeeId, livingroomId, shiftTimeEnum, validator, null);
+			InitClassFetch(date, employeeId, livingroomId, shiftTypeEnum, validator, null);
 		}
 
 		/// <summary>Private CTor for deserialization</summary>
@@ -135,7 +132,6 @@ namespace AmstaJanBonga.Business.EntityClasses
 			this.FixupDeserialization(FieldInfoProviderSingleton.GetInstance(), PersistenceInfoProviderSingleton.GetInstance());
 			// __LLBLGENPRO_USER_CODE_REGION_START DeserializationConstructor
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 		}
 		
 		
@@ -213,7 +209,6 @@ namespace AmstaJanBonga.Business.EntityClasses
 
 			// __LLBLGENPRO_USER_CODE_REGION_START GetObjectInfo
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 			base.GetObjectData(info, context);
 		}
 		
@@ -318,59 +313,59 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <param name="date">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
 		/// <param name="employeeId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
 		/// <param name="livingroomId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="shiftTimeEnum">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
+		/// <param name="shiftTypeEnum">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		public bool FetchUsingPK(System.Int32 date, System.Int32 employeeId, System.Int32 livingroomId, System.Byte shiftTimeEnum)
+		public bool FetchUsingPK(System.DateTime date, System.Int32 employeeId, System.Int32 livingroomId, System.Byte shiftTypeEnum)
 		{
-			return FetchUsingPK(date, employeeId, livingroomId, shiftTimeEnum, null, null, null);
+			return FetchUsingPK(date, employeeId, livingroomId, shiftTypeEnum, null, null, null);
 		}
 
 		/// <summary> Fetches the contents of this entity from the persistent storage using the primary key.</summary>
 		/// <param name="date">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
 		/// <param name="employeeId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
 		/// <param name="livingroomId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="shiftTimeEnum">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
+		/// <param name="shiftTypeEnum">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		public bool FetchUsingPK(System.Int32 date, System.Int32 employeeId, System.Int32 livingroomId, System.Byte shiftTimeEnum, IPrefetchPath prefetchPathToUse)
+		public bool FetchUsingPK(System.DateTime date, System.Int32 employeeId, System.Int32 livingroomId, System.Byte shiftTypeEnum, IPrefetchPath prefetchPathToUse)
 		{
-			return FetchUsingPK(date, employeeId, livingroomId, shiftTimeEnum, prefetchPathToUse, null, null);
+			return FetchUsingPK(date, employeeId, livingroomId, shiftTypeEnum, prefetchPathToUse, null, null);
 		}
 
 		/// <summary> Fetches the contents of this entity from the persistent storage using the primary key.</summary>
 		/// <param name="date">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
 		/// <param name="employeeId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
 		/// <param name="livingroomId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="shiftTimeEnum">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
+		/// <param name="shiftTypeEnum">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <param name="contextToUse">The context to add the entity to if the fetch was succesful. </param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		public bool FetchUsingPK(System.Int32 date, System.Int32 employeeId, System.Int32 livingroomId, System.Byte shiftTimeEnum, IPrefetchPath prefetchPathToUse, Context contextToUse)
+		public bool FetchUsingPK(System.DateTime date, System.Int32 employeeId, System.Int32 livingroomId, System.Byte shiftTypeEnum, IPrefetchPath prefetchPathToUse, Context contextToUse)
 		{
-			return FetchUsingPK(date, employeeId, livingroomId, shiftTimeEnum, prefetchPathToUse, contextToUse, null);
+			return FetchUsingPK(date, employeeId, livingroomId, shiftTypeEnum, prefetchPathToUse, contextToUse, null);
 		}
 
 		/// <summary> Fetches the contents of this entity from the persistent storage using the primary key.</summary>
 		/// <param name="date">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
 		/// <param name="employeeId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
 		/// <param name="livingroomId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="shiftTimeEnum">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
+		/// <param name="shiftTypeEnum">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <param name="contextToUse">The context to add the entity to if the fetch was succesful. </param>
 		/// <param name="excludedIncludedFields">The list of IEntityField objects which have to be excluded or included for the fetch. 
 		/// If null or empty, all fields are fetched (default). If an instance of ExcludeIncludeFieldsList is passed in and its ExcludeContainedFields property
 		/// is set to false, the fields contained in excludedIncludedFields are kept in the query, the rest of the fields in the query are excluded.</param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		public bool FetchUsingPK(System.Int32 date, System.Int32 employeeId, System.Int32 livingroomId, System.Byte shiftTimeEnum, IPrefetchPath prefetchPathToUse, Context contextToUse, ExcludeIncludeFieldsList excludedIncludedFields)
+		public bool FetchUsingPK(System.DateTime date, System.Int32 employeeId, System.Int32 livingroomId, System.Byte shiftTypeEnum, IPrefetchPath prefetchPathToUse, Context contextToUse, ExcludeIncludeFieldsList excludedIncludedFields)
 		{
-			return Fetch(date, employeeId, livingroomId, shiftTimeEnum, prefetchPathToUse, contextToUse, excludedIncludedFields);
+			return Fetch(date, employeeId, livingroomId, shiftTypeEnum, prefetchPathToUse, contextToUse, excludedIncludedFields);
 		}
 
 		/// <summary> Refetches the Entity from the persistent storage. Refetch is used to re-load an Entity which is marked "Out-of-sync", due to a save action. Refetching an empty Entity has no effect. </summary>
 		/// <returns>true if Refetch succeeded, false otherwise</returns>
 		public override bool Refetch()
 		{
-			return Fetch(this.Date, this.EmployeeId, this.LivingroomId, this.ShiftTimeEnum, null, null, null);
+			return Fetch(this.Date, this.EmployeeId, this.LivingroomId, this.ShiftTypeEnum, null, null, null);
 		}
 
 
@@ -485,7 +480,6 @@ namespace AmstaJanBonga.Business.EntityClasses
 
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassEmpty
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 
 			OnInitialized();
 		}		
@@ -494,20 +488,19 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <param name="date">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
 		/// <param name="employeeId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
 		/// <param name="livingroomId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="shiftTimeEnum">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
+		/// <param name="shiftTypeEnum">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
 		/// <param name="validator">The validator object for this LivingroomShiftEventEntity</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
-		private void InitClassFetch(System.Int32 date, System.Int32 employeeId, System.Int32 livingroomId, System.Byte shiftTimeEnum, IValidator validator, IPrefetchPath prefetchPathToUse)
+		private void InitClassFetch(System.DateTime date, System.Int32 employeeId, System.Int32 livingroomId, System.Byte shiftTypeEnum, IValidator validator, IPrefetchPath prefetchPathToUse)
 		{
 			OnInitializing();
 			this.Validator = validator;
 			this.Fields = CreateFields();
 			InitClassMembers();	
-			Fetch(date, employeeId, livingroomId, shiftTimeEnum, prefetchPathToUse, null, null);
+			Fetch(date, employeeId, livingroomId, shiftTypeEnum, prefetchPathToUse, null, null);
 
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassFetch
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 
 			OnInitialized();
 		}
@@ -521,7 +514,6 @@ namespace AmstaJanBonga.Business.EntityClasses
 
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassMembers
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 			OnInitClassMembersComplete();
 		}
 
@@ -545,7 +537,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("LivingroomId", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("ShiftTimeEnum", fieldHashtable);
+			_fieldsCustomProperties.Add("ShiftTypeEnum", fieldHashtable);
 		}
 		#endregion
 
@@ -619,14 +611,14 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <param name="date">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
 		/// <param name="employeeId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
 		/// <param name="livingroomId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="shiftTimeEnum">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
+		/// <param name="shiftTypeEnum">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <param name="contextToUse">The context to add the entity to if the fetch was succesful. </param>
 		/// <param name="excludedIncludedFields">The list of IEntityField objects which have to be excluded or included for the fetch. 
 		/// If null or empty, all fields are fetched (default). If an instance of ExcludeIncludeFieldsList is passed in and its ExcludeContainedFields property
 		/// is set to false, the fields contained in excludedIncludedFields are kept in the query, the rest of the fields in the query are excluded.</param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		private bool Fetch(System.Int32 date, System.Int32 employeeId, System.Int32 livingroomId, System.Byte shiftTimeEnum, IPrefetchPath prefetchPathToUse, Context contextToUse, ExcludeIncludeFieldsList excludedIncludedFields)
+		private bool Fetch(System.DateTime date, System.Int32 employeeId, System.Int32 livingroomId, System.Byte shiftTypeEnum, IPrefetchPath prefetchPathToUse, Context contextToUse, ExcludeIncludeFieldsList excludedIncludedFields)
 		{
 			try
 			{
@@ -634,7 +626,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 				this.Fields[(int)LivingroomShiftEventFieldIndex.Date].ForcedCurrentValueWrite(date);
 				this.Fields[(int)LivingroomShiftEventFieldIndex.EmployeeId].ForcedCurrentValueWrite(employeeId);
 				this.Fields[(int)LivingroomShiftEventFieldIndex.LivingroomId].ForcedCurrentValueWrite(livingroomId);
-				this.Fields[(int)LivingroomShiftEventFieldIndex.ShiftTimeEnum].ForcedCurrentValueWrite(shiftTimeEnum);
+				this.Fields[(int)LivingroomShiftEventFieldIndex.ShiftTypeEnum].ForcedCurrentValueWrite(shiftTypeEnum);
 				CreateDAOInstance().FetchExisting(this, this.Transaction, prefetchPathToUse, contextToUse, excludedIncludedFields);
 				return (this.Fields.State == EntityState.Fetched);
 			}
@@ -712,11 +704,11 @@ namespace AmstaJanBonga.Business.EntityClasses
 
 		/// <summary> The Date property of the Entity LivingroomShiftEvent<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "LivingroomShiftEvent"."Date"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
+		/// Table field type characteristics (type, precision, scale, length): Date, 0, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, false</remarks>
-		public virtual System.Int32 Date
+		public virtual System.DateTime Date
 		{
-			get { return (System.Int32)GetValue((int)LivingroomShiftEventFieldIndex.Date, true); }
+			get { return (System.DateTime)GetValue((int)LivingroomShiftEventFieldIndex.Date, true); }
 			set	{ SetValue((int)LivingroomShiftEventFieldIndex.Date, value, true); }
 		}
 
@@ -770,14 +762,14 @@ namespace AmstaJanBonga.Business.EntityClasses
 			set	{ SetValue((int)LivingroomShiftEventFieldIndex.LivingroomId, value, true); }
 		}
 
-		/// <summary> The ShiftTimeEnum property of the Entity LivingroomShiftEvent<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "LivingroomShiftEvent"."ShiftTimeEnum"<br/>
+		/// <summary> The ShiftTypeEnum property of the Entity LivingroomShiftEvent<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "LivingroomShiftEvent"."ShiftTypeEnum"<br/>
 		/// Table field type characteristics (type, precision, scale, length): TinyInt, 3, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, false</remarks>
-		public virtual System.Byte ShiftTimeEnum
+		public virtual System.Byte ShiftTypeEnum
 		{
-			get { return (System.Byte)GetValue((int)LivingroomShiftEventFieldIndex.ShiftTimeEnum, true); }
-			set	{ SetValue((int)LivingroomShiftEventFieldIndex.ShiftTimeEnum, value, true); }
+			get { return (System.Byte)GetValue((int)LivingroomShiftEventFieldIndex.ShiftTypeEnum, true); }
+			set	{ SetValue((int)LivingroomShiftEventFieldIndex.ShiftTypeEnum, value, true); }
 		}
 
 
@@ -927,7 +919,6 @@ namespace AmstaJanBonga.Business.EntityClasses
 		
 		// __LLBLGENPRO_USER_CODE_REGION_START CustomEntityCode
 		// __LLBLGENPRO_USER_CODE_REGION_END
-		
 		#endregion
 
 		#region Included code

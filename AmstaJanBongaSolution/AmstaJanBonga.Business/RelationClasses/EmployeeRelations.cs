@@ -30,28 +30,13 @@ namespace AmstaJanBonga.Business.RelationClasses
 		public virtual List<IEntityRelation> GetAllRelations()
 		{
 			List<IEntityRelation> toReturn = new List<IEntityRelation>();
-			toReturn.Add(this.EmployeeLivingroomEntityUsingEmployeeId);
 			toReturn.Add(this.LivingroomShiftEventEntityUsingEmployeeId);
+			toReturn.Add(this.LivingroomEntityUsingLivingroomId);
 			toReturn.Add(this.UserEntityUsingUserId);
 			return toReturn;
 		}
 
 		#region Class Property Declarations
-
-		/// <summary>Returns a new IEntityRelation object, between EmployeeEntity and EmployeeLivingroomEntity over the 1:n relation they have, using the relation between the fields:
-		/// Employee.Id - EmployeeLivingroom.EmployeeId
-		/// </summary>
-		public virtual IEntityRelation EmployeeLivingroomEntityUsingEmployeeId
-		{
-			get
-			{
-				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany, "EmployeeLivingrooms" , true);
-				relation.AddEntityFieldPair(EmployeeFields.Id, EmployeeLivingroomFields.EmployeeId);
-				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("EmployeeEntity", true);
-				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("EmployeeLivingroomEntity", false);
-				return relation;
-			}
-		}
 
 		/// <summary>Returns a new IEntityRelation object, between EmployeeEntity and LivingroomShiftEventEntity over the 1:n relation they have, using the relation between the fields:
 		/// Employee.Id - LivingroomShiftEvent.EmployeeId
@@ -69,6 +54,20 @@ namespace AmstaJanBonga.Business.RelationClasses
 		}
 
 
+		/// <summary>Returns a new IEntityRelation object, between EmployeeEntity and LivingroomEntity over the m:1 relation they have, using the relation between the fields:
+		/// Employee.LivingroomId - Livingroom.Id
+		/// </summary>
+		public virtual IEntityRelation LivingroomEntityUsingLivingroomId
+		{
+			get
+			{
+				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne, "Livingroom", false);
+				relation.AddEntityFieldPair(LivingroomFields.Id, EmployeeFields.LivingroomId);
+				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("LivingroomEntity", false);
+				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("EmployeeEntity", true);
+				return relation;
+			}
+		}
 		/// <summary>Returns a new IEntityRelation object, between EmployeeEntity and UserEntity over the m:1 relation they have, using the relation between the fields:
 		/// Employee.UserId - User.Id
 		/// </summary>
@@ -97,8 +96,8 @@ namespace AmstaJanBonga.Business.RelationClasses
 	/// <summary>Static class which is used for providing relationship instances which are re-used internally for syncing</summary>
 	internal static class StaticEmployeeRelations
 	{
-		internal static readonly IEntityRelation EmployeeLivingroomEntityUsingEmployeeIdStatic = new EmployeeRelations().EmployeeLivingroomEntityUsingEmployeeId;
 		internal static readonly IEntityRelation LivingroomShiftEventEntityUsingEmployeeIdStatic = new EmployeeRelations().LivingroomShiftEventEntityUsingEmployeeId;
+		internal static readonly IEntityRelation LivingroomEntityUsingLivingroomIdStatic = new EmployeeRelations().LivingroomEntityUsingLivingroomId;
 		internal static readonly IEntityRelation UserEntityUsingUserIdStatic = new EmployeeRelations().UserEntityUsingUserId;
 
 		/// <summary>CTor</summary>

@@ -97,28 +97,6 @@ namespace AmstaJanBonga.Business.FactoryClasses
 		#endregion
 	}
 	
-	/// <summary>Factory to create new, empty EmployeeLivingroomEntity objects.</summary>
-	[Serializable]
-	public partial class EmployeeLivingroomEntityFactory : EntityFactoryBase {
-		/// <summary>CTor</summary>
-		public EmployeeLivingroomEntityFactory() : base("EmployeeLivingroomEntity", AmstaJanBonga.Business.EntityType.EmployeeLivingroomEntity) { }
-
-		/// <summary>Creates a new, empty EmployeeLivingroomEntity object.</summary>
-		/// <returns>A new, empty EmployeeLivingroomEntity object.</returns>
-		public override IEntity Create() {
-			IEntity toReturn = new EmployeeLivingroomEntity();
-			
-			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewEmployeeLivingroom
-			// __LLBLGENPRO_USER_CODE_REGION_END
-			return toReturn;
-		}
-
-
-		#region Included Code
-
-		#endregion
-	}
-	
 	/// <summary>Factory to create new, empty IpEntity objects.</summary>
 	[Serializable]
 	public partial class IpEntityFactory : EntityFactoryBase {
@@ -242,7 +220,6 @@ namespace AmstaJanBonga.Business.FactoryClasses
 			
 			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewLivingroomShiftEvent
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 			return toReturn;
 		}
 
@@ -331,8 +308,6 @@ namespace AmstaJanBonga.Business.FactoryClasses
 			{
 				case AmstaJanBonga.Business.EntityType.EmployeeEntity:
 					return new EmployeeCollection();
-				case AmstaJanBonga.Business.EntityType.EmployeeLivingroomEntity:
-					return new EmployeeLivingroomCollection();
 				case AmstaJanBonga.Business.EntityType.IpEntity:
 					return new IpCollection();
 				case AmstaJanBonga.Business.EntityType.LivingroomEntity:
@@ -371,9 +346,6 @@ namespace AmstaJanBonga.Business.FactoryClasses
 			{
 				case AmstaJanBonga.Business.EntityType.EmployeeEntity:
 					factoryToUse = new EmployeeEntityFactory();
-					break;
-				case AmstaJanBonga.Business.EntityType.EmployeeLivingroomEntity:
-					factoryToUse = new EmployeeLivingroomEntityFactory();
 					break;
 				case AmstaJanBonga.Business.EntityType.IpEntity:
 					factoryToUse = new IpEntityFactory();

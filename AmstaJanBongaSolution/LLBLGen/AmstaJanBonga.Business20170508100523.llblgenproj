@@ -130,7 +130,7 @@
   <EntityModel>
     <ValueTypeDefinitions />
     <EntityDefinitions>
-      <EntityDefinition Name="Employee" GroupName="Vanderlaan" ObjectID="3852a4a9-a4e4-434a-882f-b7264abd0d95">
+      <EntityDefinition Name="Employee" GroupName="Vanderlaan" ObjectID="9344a4b8-d832-492e-be36-7fc62563df41">
         <Fields>
           <Field Name="DateCreated" Type="datetime" />
           <Field Name="DateDeleted" Type="datetime" IsOptional="true" />
@@ -141,11 +141,16 @@
           <Field Name="ImagePath" Type="string" IsOptional="true" MaxLength="250" />
           <Field Name="IsActive" Type="bool" />
           <Field Name="IsMarkedAsDeleted" Type="bool" />
-          <Field Name="LivingroomId" Type="int" Precision="10" />
           <Field Name="UserId" Type="int" IsOptional="true" Precision="10" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="Ip" GroupName="Vanderlaan" ObjectID="c1763ceb-9d75-479f-b0cd-7a6afab21145">
+      <EntityDefinition Name="EmployeeLivingroom" GroupName="Vanderlaan" ObjectID="342500d8-2df1-4c92-91c2-81e9a90892d2">
+        <Fields>
+          <Field Name="EmployeeId" Type="int" Precision="10" IsPrimaryKey="true" />
+          <Field Name="LivingroomId" Type="int" Precision="10" IsPrimaryKey="true" />
+        </Fields>
+      </EntityDefinition>
+      <EntityDefinition Name="Ip" GroupName="Vanderlaan" ObjectID="9c37c137-a55a-4d60-9c26-3b7b0730e7ac">
         <Fields>
           <Field Name="DateCreated" Type="datetime" />
           <Field Name="DateLastModified" Type="datetime" IsOptional="true" />
@@ -154,7 +159,7 @@
           <Field Name="Ipaddress" Type="string" MaxLength="20" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="Livingroom" GroupName="Vanderlaan" ObjectID="06eaa92e-4c88-46c5-ae6f-17d934f8cf86">
+      <EntityDefinition Name="Livingroom" GroupName="Vanderlaan" ObjectID="20c8a841-ea25-48d7-b0ef-52c5e93f7d62">
         <Fields>
           <Field Name="ColourTypeEnum" Type="byte" Precision="3" />
           <Field Name="DateCreated" Type="datetime" />
@@ -167,7 +172,7 @@
           <Field Name="Name" Type="string" MaxLength="50" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="LivingroomChoreEvent" GroupName="Vanderlaan" ObjectID="8eaa9465-71e9-48da-a84a-d9c7f4b78899">
+      <EntityDefinition Name="LivingroomChoreEvent" GroupName="Vanderlaan" ObjectID="04cea51f-6e94-41dd-858c-a3285b6ba142">
         <Fields>
           <Field Name="Date" Type="datetime" IsPrimaryKey="true" />
           <Field Name="DateCreated" Type="datetime" />
@@ -178,7 +183,7 @@
           <Field Name="TimeOfDayTypeEnum" Type="byte" Precision="3" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="LivingroomGeneral" GroupName="Vanderlaan" ObjectID="6c02716e-75f6-4706-a2aa-766ef59d9c75">
+      <EntityDefinition Name="LivingroomGeneral" GroupName="Vanderlaan" ObjectID="61b4a33f-1dcf-426a-9862-eafb358aca30">
         <Fields>
           <Field Name="DateCreated" Type="datetime" />
           <Field Name="DateLastModified" Type="datetime" IsOptional="true" />
@@ -187,7 +192,7 @@
           <Field Name="LivingroomId" Type="int" Precision="10" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="LivingroomGeneralEvent" GroupName="Vanderlaan" ObjectID="f9df5149-abc5-469d-b20f-e38948b79344">
+      <EntityDefinition Name="LivingroomGeneralEvent" GroupName="Vanderlaan" ObjectID="ec157c59-203c-437d-89a3-566a17196512">
         <Fields>
           <Field Name="Date" Type="datetime" IsPrimaryKey="true" />
           <Field Name="DateCreated" Type="datetime" />
@@ -197,7 +202,7 @@
           <Field Name="LivingroomId" Type="int" Precision="10" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="LivingroomShiftEvent" GroupName="Vanderlaan" ObjectID="b39c5d5b-5446-45b9-91fa-0c9ec8006f3c">
+      <EntityDefinition Name="LivingroomShiftEvent" GroupName="Vanderlaan" ObjectID="138092dc-16f7-4e95-a071-37c72247f59c">
         <Fields>
           <Field Name="Date" Type="datetime" IsPrimaryKey="true" />
           <Field Name="DateCreated" Type="datetime" />
@@ -205,10 +210,10 @@
           <Field Name="DateLastModifiedByUserId" Type="int" IsOptional="true" Precision="10" />
           <Field Name="EmployeeId" Type="int" Precision="10" IsPrimaryKey="true" />
           <Field Name="LivingroomId" Type="int" Precision="10" IsPrimaryKey="true" />
-          <Field Name="ShiftTypeEnum" Type="byte" Precision="3" IsPrimaryKey="true" />
+          <Field Name="ShiftTimeEnum" Type="byte" Precision="3" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="Patient" GroupName="Vanderlaan" ObjectID="58366ab0-2ebc-43b3-97dc-f1b79585883d">
+      <EntityDefinition Name="Patient" GroupName="Vanderlaan" ObjectID="9189f4ba-4365-4886-9245-059be10b9116">
         <Fields>
           <Field Name="DateCreated" Type="datetime" />
           <Field Name="DateDeleted" Type="datetime" IsOptional="true" />
@@ -222,7 +227,7 @@
           <Field Name="LivingroomId" Type="int" Precision="10" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="User" GroupName="Vanderlaan" ObjectID="4f25243a-4ef3-4ed2-ab9f-ebaf62911187">
+      <EntityDefinition Name="User" GroupName="Vanderlaan" ObjectID="0c1e2701-4fc7-4764-8d7f-c5f9f4a3d731">
         <Fields>
           <Field Name="DateCreated" Type="datetime" />
           <Field Name="DateDeleted" Type="datetime" IsOptional="true" />
@@ -242,7 +247,7 @@
           </UniqueConstraint>
         </UniqueConstraints>
       </EntityDefinition>
-      <EntityDefinition Name="UserRole" GroupName="Vanderlaan" ObjectID="8dc22c68-2b6e-4856-9ce6-ce578b207d0c">
+      <EntityDefinition Name="UserRole" GroupName="Vanderlaan" ObjectID="26cb0944-6441-4d7d-8419-20030a2f000a">
         <Fields>
           <Field Name="RoleTypeEnum" Type="byte" Precision="3" />
           <Field Name="UserId" Type="int" Precision="10" IsPrimaryKey="true" />
@@ -250,14 +255,19 @@
       </EntityDefinition>
     </EntityDefinitions>
     <Relationships>
-      <NormalRelationship Name="Vanderlaan.Employee.Livingroom-Vanderlaan.Livingroom.Employees" Start="Vanderlaan:Employee" End="Vanderlaan:Livingroom" StartNavigator="Livingroom" EndNavigator="Employees" Type="4">
-        <FieldRelationships>
-          <FieldFieldRelationship FkField="LivingroomId" PkField="Id" />
-        </FieldRelationships>
-      </NormalRelationship>
       <NormalRelationship Name="Vanderlaan.Employee.User-Vanderlaan.User.Employees" Start="Vanderlaan:Employee" End="Vanderlaan:User" StartNavigator="User" EndNavigator="Employees" Type="4" EndIsOptional="true">
         <FieldRelationships>
           <FieldFieldRelationship FkField="UserId" PkField="Id" />
+        </FieldRelationships>
+      </NormalRelationship>
+      <NormalRelationship Name="Vanderlaan.EmployeeLivingroom.Employee-Vanderlaan.Employee.EmployeeLivingrooms" Start="Vanderlaan:EmployeeLivingroom" End="Vanderlaan:Employee" StartNavigator="Employee" EndNavigator="EmployeeLivingrooms" Type="4">
+        <FieldRelationships>
+          <FieldFieldRelationship FkField="EmployeeId" PkField="Id" />
+        </FieldRelationships>
+      </NormalRelationship>
+      <NormalRelationship Name="Vanderlaan.EmployeeLivingroom.Livingroom-Vanderlaan.Livingroom.EmployeeLivingrooms" Start="Vanderlaan:EmployeeLivingroom" End="Vanderlaan:Livingroom" StartNavigator="Livingroom" EndNavigator="EmployeeLivingrooms" Type="4">
+        <FieldRelationships>
+          <FieldFieldRelationship FkField="LivingroomId" PkField="Id" />
         </FieldRelationships>
       </NormalRelationship>
       <NormalRelationship Name="Vanderlaan.LivingroomChoreEvent.Livingroom-Vanderlaan.Livingroom.LivingroomChoreEvents" Start="Vanderlaan:LivingroomChoreEvent" End="Vanderlaan:Livingroom" StartNavigator="Livingroom" EndNavigator="LivingroomChoreEvents" Type="4">
@@ -318,7 +328,7 @@
       <Catalogs>
         <Catalog Name="Vanderlaan_jouwsoftware_janbonga_development">
           <Schemas>
-            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-05-08T11:18:55.7239304Z">
+            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-05-08T07:05:11.457386Z">
               <StoredProcedures>
                 <StoredProcedure Name="sp_alterdiagram">
                   <Parameters>
@@ -386,22 +396,28 @@
                 </StoredProcedure>
               </StoredProcedures>
             </Schema>
-            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-05-08T11:18:55.802935Z">
+            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-05-08T07:05:11.8624092Z">
               <Tables>
                 <Table Name="Employee">
                   <PkConstraintName Name="PK_Employee" />
                   <Fields>
                     <Field Name="Id" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
                     <Field Name="UserId" Ordinal="2" IsOptional="true" DbType="8" Precision="10" />
-                    <Field Name="LivingroomId" Ordinal="3" DbType="8" Precision="10" />
-                    <Field Name="FirstName" Ordinal="4" DbType="24" Length="50" />
-                    <Field Name="ImagePath" Ordinal="5" IsOptional="true" DbType="24" Length="250" />
-                    <Field Name="IsActive" Ordinal="6" HasDefaultValue="true" DefaultValue="(1)" DbType="2" />
-                    <Field Name="IsMarkedAsDeleted" Ordinal="7" HasDefaultValue="true" DefaultValue="(0)" DbType="2" />
-                    <Field Name="DateCreated" Ordinal="8" DbType="4" />
-                    <Field Name="DateLastModified" Ordinal="9" IsOptional="true" DbType="4" />
-                    <Field Name="DateLastModifiedByUserId" Ordinal="10" IsOptional="true" DbType="8" Precision="10" />
-                    <Field Name="DateDeleted" Ordinal="11" IsOptional="true" DbType="4" />
+                    <Field Name="FirstName" Ordinal="3" DbType="24" Length="50" />
+                    <Field Name="ImagePath" Ordinal="4" IsOptional="true" DbType="24" Length="250" />
+                    <Field Name="IsActive" Ordinal="5" HasDefaultValue="true" DefaultValue="(1)" DbType="2" />
+                    <Field Name="IsMarkedAsDeleted" Ordinal="6" HasDefaultValue="true" DefaultValue="(0)" DbType="2" />
+                    <Field Name="DateCreated" Ordinal="7" DbType="4" />
+                    <Field Name="DateLastModified" Ordinal="8" IsOptional="true" DbType="4" />
+                    <Field Name="DateLastModifiedByUserId" Ordinal="9" IsOptional="true" DbType="8" Precision="10" />
+                    <Field Name="DateDeleted" Ordinal="10" IsOptional="true" DbType="4" />
+                  </Fields>
+                </Table>
+                <Table Name="EmployeeLivingroom">
+                  <PkConstraintName Name="PK_EmployeeLivingroom" />
+                  <Fields>
+                    <Field Name="EmployeeId" Ordinal="1" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="LivingroomId" Ordinal="2" IsPrimaryKey="true" DbType="8" Precision="10" />
                   </Fields>
                 </Table>
                 <Table Name="IP">
@@ -467,7 +483,7 @@
                     <Field Name="EmployeeId" Ordinal="1" IsPrimaryKey="true" DbType="8" Precision="10" />
                     <Field Name="LivingroomId" Ordinal="2" IsPrimaryKey="true" DbType="8" Precision="10" />
                     <Field Name="Date" Ordinal="3" IsPrimaryKey="true" DbType="28" />
-                    <Field Name="ShiftTypeEnum" Ordinal="4" IsPrimaryKey="true" DbType="22" Precision="3" />
+                    <Field Name="ShiftTimeEnum" Ordinal="4" IsPrimaryKey="true" DbType="22" Precision="3" />
                     <Field Name="DateCreated" Ordinal="5" DbType="4" />
                     <Field Name="DateLastModified" Ordinal="6" IsOptional="true" DbType="4" />
                     <Field Name="DateLastModifiedByUserId" Ordinal="7" IsOptional="true" DbType="8" Precision="10" />
@@ -520,14 +536,19 @@
             </Schema>
           </Schemas>
           <ForeignKeyConstraints>
-            <ForeignKeyConstraint Name="Vanderlaan:Employee:FK_Employee_Livingroom">
-              <FieldPairs>
-                <FieldPair PkField="Vanderlaan:Livingroom:Id" FkField="Vanderlaan:Employee:LivingroomId" />
-              </FieldPairs>
-            </ForeignKeyConstraint>
             <ForeignKeyConstraint Name="Vanderlaan:Employee:FK_Employee_User">
               <FieldPairs>
                 <FieldPair PkField="Vanderlaan:User:Id" FkField="Vanderlaan:Employee:UserId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="Vanderlaan:EmployeeLivingroom:FK_EmployeeLivingroom_Employee">
+              <FieldPairs>
+                <FieldPair PkField="Vanderlaan:Employee:Id" FkField="Vanderlaan:EmployeeLivingroom:EmployeeId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="Vanderlaan:EmployeeLivingroom:FK_EmployeeLivingroom_Livingroom">
+              <FieldPairs>
+                <FieldPair PkField="Vanderlaan:Livingroom:Id" FkField="Vanderlaan:EmployeeLivingroom:LivingroomId" />
               </FieldPairs>
             </ForeignKeyConstraint>
             <ForeignKeyConstraint Name="Vanderlaan:LivingroomChoreEvent:FK_Chores_Livingroom">
@@ -589,8 +610,13 @@
             <FieldMapping FieldName="ImagePath" TargetFieldName="ImagePath" />
             <FieldMapping FieldName="IsActive" TargetFieldName="IsActive" />
             <FieldMapping FieldName="IsMarkedAsDeleted" TargetFieldName="IsMarkedAsDeleted" />
-            <FieldMapping FieldName="LivingroomId" TargetFieldName="LivingroomId" />
             <FieldMapping FieldName="UserId" TargetFieldName="UserId" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName="Vanderlaan:EmployeeLivingroom" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:EmployeeLivingroom">
+          <FieldMappings>
+            <FieldMapping FieldName="EmployeeId" TargetFieldName="EmployeeId" />
+            <FieldMapping FieldName="LivingroomId" TargetFieldName="LivingroomId" />
           </FieldMappings>
         </EntityMapping>
         <EntityMapping EntityName="Vanderlaan:Ip" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:IP">
@@ -653,7 +679,7 @@
             <FieldMapping FieldName="DateLastModifiedByUserId" TargetFieldName="DateLastModifiedByUserId" />
             <FieldMapping FieldName="EmployeeId" TargetFieldName="EmployeeId" />
             <FieldMapping FieldName="LivingroomId" TargetFieldName="LivingroomId" />
-            <FieldMapping FieldName="ShiftTypeEnum" TargetFieldName="ShiftTypeEnum" />
+            <FieldMapping FieldName="ShiftTimeEnum" TargetFieldName="ShiftTimeEnum" />
           </FieldMappings>
         </EntityMapping>
         <EntityMapping EntityName="Vanderlaan:Patient" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:Patient">
