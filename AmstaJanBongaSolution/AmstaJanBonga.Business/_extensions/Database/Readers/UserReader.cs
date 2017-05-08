@@ -76,10 +76,6 @@ namespace AmstaJanBonga.Business.Database.Readers
             return users;
         }
 
-        /// <summary>
-        /// Returns a collection of all the users that are not linked to any employee.
-        /// </summary>
-        /// <returns></returns>
         public static UserCollection GetAllUnlinkedUsers()
         {
             var users = new UserCollection();
@@ -88,6 +84,7 @@ namespace AmstaJanBonga.Business.Database.Readers
             // Relations
             bucket.Relations.Add(UserEntity.Relations.EmployeeEntityUsingUserId, JoinHint.Left)
                 .CustomFilter = new PredicateExpression { EmployeeFields.UserId == UserFields.Id };
+
             // Predicate
             bucket.PredicateExpression.Add(EmployeeFields.UserId == DBNull.Value);
 
@@ -102,11 +99,6 @@ namespace AmstaJanBonga.Business.Database.Readers
             return users;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="includeUserId"></param>
-        /// <returns></returns>
         public static UserCollection GetAllUnlinkedUsers(int includeUserId)
         {
             var users = new UserCollection();
@@ -115,6 +107,7 @@ namespace AmstaJanBonga.Business.Database.Readers
             // Relations
             bucket.Relations.Add(UserEntity.Relations.EmployeeEntityUsingUserId, JoinHint.Left)
                 .CustomFilter = new PredicateExpression { EmployeeFields.UserId == UserFields.Id };
+
             // Predicate
             bucket.PredicateExpression.Add(EmployeeFields.UserId == DBNull.Value);
             bucket.PredicateExpression.AddWithOr(EmployeeFields.UserId == includeUserId);

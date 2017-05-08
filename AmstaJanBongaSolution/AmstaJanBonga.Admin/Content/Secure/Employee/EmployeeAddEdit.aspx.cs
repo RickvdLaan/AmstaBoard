@@ -106,8 +106,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Employee
                 }
 
                 this._ddlUser.Items.Insert(0, new ListItem("Selecteer gebruiker", string.Empty));
-
-                this._ddlUser.SelectedValue = this.Employee.LivingroomId.ToString();
+                this._ddlUser.SelectedValue = this.Employee.UserId.ToString();
             }
         }
 
