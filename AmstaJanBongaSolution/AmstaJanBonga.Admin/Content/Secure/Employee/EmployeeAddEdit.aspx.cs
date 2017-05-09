@@ -81,7 +81,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Employee
 
         private void PreFillUnlinkedUsers()
         {
-            dynamic users = null;
+            var users = null as Business.CollectionClasses.UserCollection;
 
             // Add
             if (!this.HasEmployeeId)
@@ -98,7 +98,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Employee
             // Edit
             else
             {
-                users = UserReader.GetAllUnlinkedUsers(this.Employee.Id);
+                users = UserReader.GetAllUnlinkedUsers(this.Employee.UserId);
 
                 for (int i = 0; i < users.Count; i++)
                 {
@@ -106,7 +106,8 @@ namespace AmstaJanBonga.Admin.Content.Secure.Employee
                 }
 
                 this._ddlUser.Items.Insert(0, new ListItem("Selecteer gebruiker", string.Empty));
-                this._ddlUser.SelectedValue = this.Employee.UserId.ToString();
+                this._ddlUser.SelectedValue = 
+                    this.Employee.UserId.HasValue ? this.Employee.UserId.Value.ToString() : string.Empty;
             }
         }
 
@@ -119,12 +120,12 @@ namespace AmstaJanBonga.Admin.Content.Secure.Employee
             // Edit
             if (this.HasEmployeeId)
             {
-                EmployeeManager.UpdateEmployee(this.Employee, this._ddlLivingrooms.SelectedValue.ToInt(), this._txtFirstName.Text, this._fileUpload, this._cbActive.Checked);
+                EmployeeManager.UpdateEmployee(this.Employee, this._ddlLivingrooms.SelectedValue.ToInt(), this._ddlUser.SelectedValue.ToNullableInt(), this._txtFirstName.Text, this._fileUpload, this._cbActive.Checked);
             }
             // Add
             else
             {
-                EmployeeManager.InsertEmployee(this._ddlLivingrooms.SelectedValue.ToInt(), this._txtFirstName.Text, this._fileUpload, this._cbActive.Checked);
+                EmployeeManager.InsertEmployee(this._ddlLivingrooms.SelectedValue.ToInt(), this._ddlUser.SelectedValue.ToNullableInt(), this._txtFirstName.Text, this._fileUpload, this._cbActive.Checked);
             }
         }
 

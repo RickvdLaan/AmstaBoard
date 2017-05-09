@@ -42,7 +42,9 @@ namespace AmstaJanBonga.Admin.Content.Secure.Patient
             if (!this.IsPostBack)
             {
                 this.PreFillForm();
-                this._hlEdit.NavigateUrl = "~/Content/Secure/Patient/PatientAddEdit.aspx?PatientId={0}".FormatString(this.Patient.Id);
+
+                if (this.HasPatientId)
+                    this._hlEdit.NavigateUrl = "~/Content/Secure/Patient/PatientAddEdit.aspx?PatientId={0}".FormatString(this.Patient.Id);
             }
         }
 

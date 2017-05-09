@@ -30,7 +30,7 @@
                     </HeaderTemplate>
 
                     <ItemTemplate>
-                        <asp:HyperLink runat="server" NavigateUrl='<%# Eval("Id","~/Content/Secure/Patient/PatientDetails.aspx?EmployeeId={0}") %>'>
+                        <asp:HyperLink runat="server" NavigateUrl='<%# Eval("Id","~/Content/Secure/Employee/EmployeeDetails.aspx?EmployeeId={0}") %>'>
                             <%# Eval("FirstName").ToString().CapitalizeFirstLetter() %>
                         </asp:HyperLink>
                     </ItemTemplate>

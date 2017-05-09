@@ -42,7 +42,8 @@ namespace AmstaJanBonga.Admin.Content.Secure.User
         {
             if (!this.IsPostBack)
             {
-                this._hlEdit.NavigateUrl = "~/Content/Secure/User/UserAddEdit.aspx?UserId={0}".FormatString(this.User.Id);
+                if (this.HasUserId)
+                    this._hlEdit.NavigateUrl = "~/Content/Secure/User/UserAddEdit.aspx?UserId={0}".FormatString(this.User.Id);
             }
         }
 

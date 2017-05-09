@@ -17,12 +17,13 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// <param name="imagePath"></param>
         /// <param name="isActive"></param>
         /// <returns></returns>
-        public static EmployeeEntity InsertEmployee(int livingroomId, string firstName, FileUpload fileUpload, bool isActive)
+        public static EmployeeEntity InsertEmployee(int livingroomId, int? userId, string firstName, FileUpload fileUpload, bool isActive)
         {
             // Saving the employee wihtout an image, image is mandetory.
             var employee = new EmployeeEntity()
             {
                 LivingroomId = livingroomId,
+                UserId = userId,
                 FirstName = firstName,
                 ImagePath = string.Empty,
                 IsActive = isActive,
@@ -75,7 +76,7 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// <param name="imagePath"></param>
         /// <param name="isActive"></param>
         /// <returns></returns>
-        public static EmployeeEntity UpdateEmployee(EmployeeEntity employee, int livingroomId, string firstName, FileUpload fileUpload, bool isActive)
+        public static EmployeeEntity UpdateEmployee(EmployeeEntity employee, int livingroomId, int? userId, string firstName, FileUpload fileUpload, bool isActive)
         {
             // The path without the filename
             var path = HttpContext.Current.Server.MapPath(
@@ -99,6 +100,7 @@ namespace AmstaJanBonga.Business.Database.Managers
             }
 
             employee.LivingroomId = livingroomId;
+            employee.UserId = userId;
             employee.FirstName = firstName;
             employee.IsActive = isActive;
 
