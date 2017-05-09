@@ -58,7 +58,7 @@
 
                 <tr>
                     <td class="label">
-                        Accountnaam
+                        Gebruikersnaam
                     </td>
                     <td>
                         <asp:Label runat="server" ID="_lblUsername"></asp:Label>

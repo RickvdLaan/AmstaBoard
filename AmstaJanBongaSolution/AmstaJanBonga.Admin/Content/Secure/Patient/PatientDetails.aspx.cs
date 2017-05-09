@@ -10,7 +10,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Patient
     {
         #region Variables & Objects
 
-        private PatientEntity patient = null;
+        private PatientEntity _patient = null;
 
         #endregion
 
@@ -25,13 +25,13 @@ namespace AmstaJanBonga.Admin.Content.Secure.Patient
         {
             get
             {
-                if (this.patient == null)
+                if (this._patient == null)
                 {
                     if (this.HasPatientId)
-                        this.patient = PatientReader.GetPatientById(Url.QueryStringParser.GetInt("PatientId"), true);
+                        this._patient = PatientReader.GetPatientById(Url.QueryStringParser.GetInt("PatientId"), true);
                 }
 
-                return this.patient;
+                return this._patient;
             }
         }
 
