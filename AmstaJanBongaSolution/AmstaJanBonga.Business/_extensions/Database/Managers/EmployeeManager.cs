@@ -1,4 +1,5 @@
-﻿using AmstaJanBonga.Business.EntityClasses;
+﻿using AmstaJanBonga.Business.Database.Readers;
+using AmstaJanBonga.Business.EntityClasses;
 using Rlaan.Toolkit.Configuration;
 using System;
 using System.IO;
@@ -25,7 +26,7 @@ namespace AmstaJanBonga.Business.Database.Managers
                 LivingroomId = livingroomId,
                 UserId = userId,
                 FirstName = firstName,
-                ImagePath = string.Empty,
+                ImagePath = null,
                 IsActive = isActive,
                 DateCreated = DateTime.Now
             };
@@ -108,6 +109,36 @@ namespace AmstaJanBonga.Business.Database.Managers
             employee.Save();
 
             return employee;
+        }
+
+        public static void DeleteEmployeeImage(EmployeeEntity employee)
+        {
+            if (employee.IsNew || !string.IsNullOrEmpty(employee.ImagePath))
+                return;
+
+            DeleteImage(employee);
+
+            employee.ImagePath = null;
+            employee.Save();
+        }
+
+        public static void DeleteEmployeeImage(int employeeId, bool throwExceptionIfNotFound)
+        {
+            var employee = EmployeeReader.GetEmployeeById(employeeId, throwExceptionIfNotFound);
+
+            DeleteEmployeeImage(employee);
+        }
+
+        private static void DeleteImage(EmployeeEntity employee)
+        {
+            // The path without the filename
+            var path = HttpContext.Current.Server.MapPath(
+                   string.Format("{0}{1}",
+                   HttpContext.Current.Request.ApplicationPath,
+                   employee.ImagePath));
+
+            if (File.Exists(path))
+                File.Delete(path);
         }
     }
 }

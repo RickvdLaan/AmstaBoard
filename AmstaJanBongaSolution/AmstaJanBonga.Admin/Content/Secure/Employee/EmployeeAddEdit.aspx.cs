@@ -58,6 +58,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Employee
             {
                 this._txtFirstName.Text = this.Employee.FirstName;
                 this._cbActive.Checked = this.Employee.IsActive;
+                this._btnDeleteExistingPicture.Enabled = !string.IsNullOrEmpty(this.Employee.ImagePath);
             }
         }
 
@@ -132,6 +133,11 @@ namespace AmstaJanBonga.Admin.Content.Secure.Employee
         #endregion
 
         #region Events
+
+        protected void _btnDeleteExistingPicture_Click(object sender, EventArgs e)
+        {
+            EmployeeManager.DeleteEmployeeImage(this.Employee);
+        }
 
         protected void _btnSave_Click(object sender, EventArgs e)
         {

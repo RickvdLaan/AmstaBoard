@@ -48,7 +48,7 @@
 
                     </td>
                     <td>
-                        <asp:Button runat="server" ID="_btnDeleteExistingPicture" Text="Verwijder bestaande foto" Enabled="false" />
+                        <asp:Button runat="server" ID="_btnDeleteExistingPicture" Text="Verwijder bestaande foto" Enabled="false" OnClick="_btnDeleteExistingPicture_Click" />
                     </td>
                 </tr>
 
