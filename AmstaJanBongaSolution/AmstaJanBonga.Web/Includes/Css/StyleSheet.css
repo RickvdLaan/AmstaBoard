@@ -656,6 +656,24 @@ td.times div:first-of-type {
     width: 32%;
 }
 
+.image-shifts {
+    /*border-radius: 50%;
+    margin: 4% 0;
+    width: 31%;
+    border: 0.5vw solid #009eed;*/
+    display: inline-block;
+    width: 6.5vw;
+    height: 6.5vw;
+    background-position: center center;
+    background-size: cover;
+    border-radius: 50%;
+    border: 0.5vw solid #683d84;
+}
+
+section .image-shifts {
+    margin: 2% 0;
+}
+
 .image-chores {
     /*border-radius: 50%;
     margin: 4% 0;
@@ -664,7 +682,6 @@ td.times div:first-of-type {
     display: inline-block;
     width: 6.5vw;
     height: 6.5vw;
-    border: 3px solid #c99;
     background-position: center center;
     background-size: cover;
     border-radius: 50%;
@@ -726,6 +743,26 @@ section .image-chores {
     background: -webkit-linear-gradient(top, rgba(209,209,209,1) 0%,rgba(199,199,199,1) 100%);
     background: linear-gradient(to bottom, rgba(209,209,209,1) 0%,rgba(199,199,199,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d1d1d1', endColorstr='#c7c7c7',GradientType=0 );
+}
+
+/* Employee overview */
+
+.employee-overview {
+    display: table;
+    border-spacing: 1em;
+    height: Calc(100% - 100px);
+    width: 100%;
+}
+
+    .employee-overview .tile-container-cell h3 {
+        font-size: 1.55vw;
+    }
+
+.employee-select {
+    border-radius: 50%;
+    display: block;
+    height: 7.5vw;
+    width: 7.5vw;
 }
 
 /* Patient overview */

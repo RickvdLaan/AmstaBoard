@@ -1,7 +1,9 @@
 ﻿using AmstaJanBonga.Business.CollectionClasses;
 using AmstaJanBonga.Business.DaoClasses;
 using AmstaJanBonga.Business.EntityClasses;
+using AmstaJanBonga.Business.Enums;
 using AmstaJanBonga.Business.HelperClasses;
+using Rlaan.Toolkit.Extensions;
 using SD.LLBLGen.Pro.ORMSupportClasses;
 using System;
 using System.Collections.Generic;
@@ -11,6 +13,23 @@ namespace AmstaJanBonga.Business.Database.Readers
 {
     public abstract class LivingroomShiftEventReader
     {
+        public static LivingroomShiftEventEntity GetShiftByIds(int employeeId, int livingroomId, DateTime date, ShiftTypeEnum shiftType, bool throwExceptionWhenNotFound)
+        {
+            var shift = new LivingroomShiftEventEntity(date, employeeId, livingroomId, (byte)shiftType);
+
+            // The hidden field is set to -1 if a '+' was clicked.
+            if (employeeId != -1 && shift.IsNew && throwExceptionWhenNotFound)
+            {
+                throw new Exception("Shift not found by EmployeeId: {0}, LivingroomId: {1}, Date: {2} and ShiftTypeEnum: {3}.".FormatString(employeeId, livingroomId, date, shiftType));
+            }
+            else if (shift.IsNew)
+            {
+                shift.DateCreated = DateTime.Now;
+            }
+
+            return shift;
+        }
+
         public static DataTable GetAllShiftsDistinctByLivingroomId(int livingroomId)
         {
             // Result fields.
@@ -56,7 +75,8 @@ namespace AmstaJanBonga.Business.Database.Readers
             // Sorter
             var sorter = new SortExpression
             {
-                LivingroomShiftEventFields.Date | SortOperator.Ascending
+                LivingroomShiftEventFields.Date | SortOperator.Ascending,
+                LivingroomShiftEventFields.ShiftTypeEnum | SortOperator.Ascending
             };
 
             // Predicate
@@ -66,7 +86,7 @@ namespace AmstaJanBonga.Business.Database.Readers
                 LivingroomShiftEventFields.Date == date
             };
 
-            shifts.GetMulti(predicate, 0, sorter);
+            shifts.GetMulti(predicate, -1, sorter);
 
             return shifts;
         }

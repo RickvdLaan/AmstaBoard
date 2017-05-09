@@ -10,7 +10,7 @@ public abstract class Helper
 {
     #region Temp code Sprint 1
 
-    public const int LIVINGROOM_STIMULATE = 1;
+    public const int LIVINGROOM_STIMULATE = 2;
 
     #endregion
 

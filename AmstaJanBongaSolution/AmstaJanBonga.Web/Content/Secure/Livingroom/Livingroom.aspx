@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Main.Master" AutoEventWireup="true" CodeBehind="Livingroom.aspx.cs" Inherits="AmstaJanBonga.Web.Content.Home" %>
 
 <%@ Import namespace="Rlaan.Toolkit.Extensions" %>
+<%@ Import namespace="AmstaJanBonga.Business.Enums" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="_cphHead" runat="server">
     <!-- Sets the width of the staff images based on the amount of staff members -->
@@ -30,6 +31,14 @@
             if (hiddenFieldPatient) {
                 hiddenFieldPatient.value = patientId + "_" + timeOfDay;
             }
+        }   
+
+        function HiddenFieldEmployee(employeeId, shiftType) {
+            var hiddenFieldEmployee = document.getElementById('<%= _hfEmployee.ClientID %>');
+
+            if (hiddenFieldEmployee) {
+                hiddenFieldEmployee.value = employeeId + "_" + shiftType;
+            }
         }
     </script>
 
@@ -52,30 +61,30 @@
     </div>
 
     <!-- Staff -->
-    <div class="tile staff disabled">
+    <div class="tile staff">
         <h2>
             Dag en avonddienst
             <i class="fa fa-clock-o" aria-hidden="true"></i>
         </h2>
 
+        <asp:HiddenField runat="server" ID="_hfEmployee" />
+
         <div class="tile-wrapper">
-            <div class="tile-container-cell">
-                <h4>Dag</h4>
-                <div class="image image-staff image-empty"></div> <%-- data-remodal-target="employee-remodal" />--%>
-                <h3>Voornaam</h3>
-            </div>
+            <asp:Repeater runat="server" ID="_repEmployeeShiftsDay" OnDataBinding="_repEmployeeShiftsDay_DataBinding">
+                <ItemTemplate>
+                    <div class="tile-container-cell">
+                        <h4>
+                            <%# ((ShiftTypeEnum)Enum.Parse(typeof(ShiftTypeEnum), Eval("ShiftTypeEnum").ToString())).Description() %>
+                        </h4>
+                        <div class="image image-staff image-empty" style='background-image: url(<%# Eval("Employee.ImagePath").ToString().Replace('\\', '/')%>);' data-remodal-target="shift-remodal" onclick='HiddenFieldEmployee(<%# Eval("Employee.Id") %>, <%# Eval("ShiftTypeEnum") %>)'></div>
+                        <h3>
+                             <%# Eval("Employee.FirstName") %>
+                        </h3>
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater>
 
-            <div class="tile-container-cell">
-                <h4>Dag</h4>
-                <div class="image image-staff image-empty"></div> <%-- data-remodal-target="employee-remodal" />--%>
-                <h3>Voornaam</h3>
-            </div>
-
-            <div class="tile-container-cell">
-                <h4>Avond</h4>
-                <div class="image image-staff image-empty"></div> <%-- data-remodal-target="employee-remodal" />--%>
-                <h3>Voornaam</h3>
-            </div>
+            <asp:Literal runat="server" ID="_litShift" Visible="false"></asp:Literal>
         </div>
     </div>
 
@@ -112,7 +121,7 @@
                      <asp:Repeater runat="server" ID="_repChoreMorning" OnDataBinding="_repChoreMorning_DataBinding">
                         <ItemTemplate>
                             <li>
-                                <div id='<%# Eval("Patient.Id") %>' class="image image-chores" style='background-image: url(<%# Eval("Patient.ImagePath").ToString().Replace('\\', '/')%>);' data-remodal-target="chores-remodal" onclick='HiddenFieldPatient(<%# Eval("Patient.Id") %>, 0)'></div>
+                                <div class="image image-chores" style='background-image: url(<%# Eval("Patient.ImagePath").ToString().Replace('\\', '/')%>);' data-remodal-target="chores-remodal" onclick='HiddenFieldPatient(<%# Eval("Patient.Id") %>, 0)'></div>
                             </li>
                         </ItemTemplate>
                     </asp:Repeater> 
@@ -130,7 +139,7 @@
                      <asp:Repeater runat="server" ID="_repChoreAfternoon" OnDataBinding="_repChoreAfternoon_DataBinding">
                         <ItemTemplate>
                             <li>
-                                <div id='<%# Eval("Patient.Id") %>' class="image image-chores" style='background-image: url(<%# Eval("Patient.ImagePath").ToString().Replace('\\', '/')%>);' data-remodal-target="chores-remodal" onclick='HiddenFieldPatient(<%# Eval("Patient.Id") %>, 1)'></div>
+                                <div class="image image-chores" style='background-image: url(<%# Eval("Patient.ImagePath").ToString().Replace('\\', '/')%>);' data-remodal-target="chores-remodal" onclick='HiddenFieldPatient(<%# Eval("Patient.Id") %>, 1)'></div>
                             </li>
                         </ItemTemplate>
                     </asp:Repeater>
@@ -148,7 +157,7 @@
                      <asp:Repeater runat="server" ID="_repChoreEvening" OnDataBinding="_repChoreEvening_DataBinding">
                         <ItemTemplate>
                             <li>
-                                <div id='<%# Eval("Patient.Id") %>' class="image image-chores" style='background-image: url(<%# Eval("Patient.ImagePath").ToString().Replace('\\', '/')%>);' data-remodal-target="chores-remodal" onclick='HiddenFieldPatient(<%# Eval("Patient.Id") %>, 2)'></div>
+                                <div class="image image-chores" style='background-image: url(<%# Eval("Patient.ImagePath").ToString().Replace('\\', '/')%>);' data-remodal-target="chores-remodal" onclick='HiddenFieldPatient(<%# Eval("Patient.Id") %>, 2)'></div>
                             </li>
                         </ItemTemplate>
                     </asp:Repeater>
@@ -160,12 +169,12 @@
     </div>
 
     <!-- Select Employee -->
-    <div class="remodal purple-bg no-select select-staff" data-remodal-id="employee-remodal" data-remodal-options="hashTracking: false">
+    <div class="remodal purple-bg no-select" data-remodal-id="shift-remodal" data-remodal-options="hashTracking: false">
         <table>
             <thead>
                 <tr>
                     <td>
-                         <h2>Selecteer personeelslid</h2>
+                         <h2>Selecteer werknemer</h2>
                     </td>
                 </tr>
             </thead>
@@ -173,8 +182,8 @@
             <tbody>
                 <tr>
                     <td>
-                        <!-- Employee -->
-                        <div class="patient-overview">
+                        <!-- Employees -->
+                        <div class="employee-overview">
                             <asp:Repeater runat="server" ID="_repEmployees">
                                 <ItemTemplate>
                                     <!-- Row -->
@@ -182,7 +191,9 @@
 
                                     <!-- Cell -->
                                     <div class="tile-container-cell">
-                                        <asp:Image runat="server" CssClass="image-select-staff" data-remodal-action="confirm" ImageUrl="~/Includes/Css/Images/avatar.jpg" />
+                                        <asp:LinkButton CssClass="employee-select" runat="server" ID="_lbEmployee" OnClick="_lbEmployee_Click" CommandArgument='<%# Eval("Id") %>'>
+                                            <div class="image image-shifts" style='pointer-events: none; background-image: url(<%# Eval("ImagePath").ToString().Replace('\\', '/')%>);'data-remodal-action="confirm"></div>
+                                        </asp:LinkButton>
                                     </div>
 
                                     <%# (Container.ItemIndex + 5) % 5 == 4 ? "</div>" : string.Empty %>
