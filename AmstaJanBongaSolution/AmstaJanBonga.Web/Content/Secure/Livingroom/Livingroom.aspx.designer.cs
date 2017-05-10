@@ -31,13 +31,31 @@ namespace AmstaJanBonga.Web.Content {
         protected global::System.Web.UI.WebControls.Repeater _repEmployeeShiftsDay;
         
         /// <summary>
-        /// _litShift control.
+        /// _litShiftDay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal _litShift;
+        protected global::System.Web.UI.WebControls.Literal _litShiftDay;
+        
+        /// <summary>
+        /// _repEmployeeShiftsEvening control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater _repEmployeeShiftsEvening;
+        
+        /// <summary>
+        /// _litShiftEvening control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal _litShiftEvening;
         
         /// <summary>
         /// _litGeneral control.

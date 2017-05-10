@@ -2,7 +2,6 @@
 using AmstaJanBonga.Business.EntityClasses;
 using AmstaJanBonga.Business.Enums;
 using System;
-using System.Collections.Generic;
 
 namespace AmstaJanBonga.Business.Database.Managers
 {
@@ -10,21 +9,19 @@ namespace AmstaJanBonga.Business.Database.Managers
     {
         public static void UpdateShift(LivingroomShiftEventEntity oldShift, LivingroomShiftEventEntity newShift)
         {
-            if (oldShift == newShift || !newShift.IsNew)
-                return;
-
-            // This code has to be done this way.
-            var shift = new LivingroomShiftEventEntity()
+            if  (oldShift.EmployeeId    == newShift.EmployeeId   &&
+                oldShift.LivingroomId  == newShift.LivingroomId  &&
+                oldShift.ShiftTypeEnum == newShift.ShiftTypeEnum &&
+                oldShift.Date          == newShift.Date          ||
+                !newShift.IsNew)
             {
-                EmployeeId = newShift.EmployeeId,
-                LivingroomId = newShift.LivingroomId,
-                Date = newShift.Date,
-                ShiftTypeEnum = newShift.ShiftTypeEnum,
-                DateCreated = DateTime.Now
-            }.Save();
+                return;
+            }
 
             if (!oldShift.IsNew)
                 oldShift.Delete();
+
+            newShift.Save();
         }
 
         /// <summary>
@@ -53,57 +50,21 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// Inserts multiple 
         /// </summary>
         /// <param name="shifts"></param>
-        public static void InsertMulti(List<LivingroomShiftEventEntity> shifts)
+        public static void InsertMulti(LivingroomShiftEventCollection shifts)
         {
-            var livingroomShiftEventCollection = new LivingroomShiftEventCollection();
-            livingroomShiftEventCollection.AddRange(shifts);
-
-            livingroomShiftEventCollection.SaveMulti();
+            shifts.SaveMulti();
         }
 
-        /// <summary>
-        /// Inserts multiple 
-        /// </summary>
-        /// <param name="shift"></param>
-        public static void InsertMulti(params LivingroomShiftEventEntity[] shift)
+        public static void UpdateMulti(LivingroomShiftEventCollection originalCollection, LivingroomShiftEventCollection newCollection)
         {
-            var livingroomShiftEventCollection = new LivingroomShiftEventCollection();
-            livingroomShiftEventCollection.AddRange(shift);
+            var tracker = new LivingroomShiftEventCollection();
+            originalCollection.RemovedEntitiesTracker = tracker;
 
-            livingroomShiftEventCollection.SaveMulti();
-        }
+            originalCollection.RemovedEntitiesTracker.AddRange(originalCollection);
+            originalCollection.AddRange(newCollection);
 
-        public static void UpdateMulti(LivingroomShiftEventCollection originalCollection, List<LivingroomShiftEventEntity> shifts)
-        {
-            // The new shift collection, could be identical to the existing originalCollection,
-            // but could also be completely different.
-            var newCollection = new LivingroomShiftEventCollection();
-            newCollection.AddRange(shifts);
-
-            var shiftsToDelete = new LivingroomShiftEventCollection();
-
-            foreach (var shift in originalCollection)
-            {
-                // The shift doesn't exist in the new collection, thus should be removed.
-                if (!newCollection.Contains(shift))
-                {
-                    shiftsToDelete.Add(shift);
-                }
-            }
-
-            foreach (var shift in newCollection)
-            {
-                // There was a new shift added, thus it should be added.
-                if (!originalCollection.Contains(shift))
-                {
-                    shift.Save();
-                }
-            }
-
-            foreach (var shift in shiftsToDelete)
-            {
-                shift.Delete();
-            }
+            originalCollection.RemovedEntitiesTracker.DeleteMulti();
+            originalCollection.SaveMulti();
         }
     }
 }

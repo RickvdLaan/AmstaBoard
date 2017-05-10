@@ -24,6 +24,10 @@ namespace AmstaJanBonga.Business.Database.Readers
             }
             else if (chore.IsNew)
             {
+                chore.PatientId = patientId;
+                chore.LivingroomId = livingroomId;
+                chore.Date = date;
+                chore.TimeOfDayTypeEnum = (byte)timeOfDay;
                 chore.DateCreated = DateTime.Now;
             }
 

@@ -614,7 +614,7 @@ td.times div:first-of-type {
     display: inline-block;
     width: 100%;
     margin: 2.5% 0;
-    font-size: 1.1vw;
+    font-size: 1.55vw;
 }
 
 .chores .tile-container-row h3,
@@ -656,6 +656,20 @@ td.times div:first-of-type {
     width: 32%;
 }
 
+.staff .tile-wrapper .tile-container-cell {
+    width: 33.3333%;
+}
+
+    .staff .tile-wrapper .tile-container-cell .image-shifts {
+        border: 0.7vw solid #683d84;
+    }
+
+.tile-wrapper .image-shifts {
+    width: 8.5vw;
+    height: 8.5vw;
+}
+
+
 .image-shifts {
     /*border-radius: 50%;
     margin: 4% 0;
@@ -668,10 +682,6 @@ td.times div:first-of-type {
     background-size: cover;
     border-radius: 50%;
     border: 0.5vw solid #683d84;
-}
-
-section .image-shifts {
-    margin: 2% 0;
 }
 
 .image-chores {
@@ -784,6 +794,42 @@ section .image-chores {
     height: 7.5vw;
     width: 7.5vw;
 }
+
+/* Error500 */
+
+.h1-error {
+    font-size: 48px;
+    margin-bottom: 3%;
+    margin-top: 8%;
+    text-align: center;
+}
+
+    .h1-error i {
+        font-size: 90px;
+        margin-right: 10px;
+        margin-top: 0;
+        vertical-align: middle;
+    }
+
+.error-div {
+    margin: 0 auto;
+    width: 630px;
+}
+
+    .error-div p {
+        font-size: 18px;
+        margin-bottom: 15px;
+        line-height: 28px;
+    }
+
+    .error-div a {
+        font-size: 18px;
+        text-decoration: underline;
+    }
+
+    .error-div h2 {
+        margin-bottom: 15px;
+    }
 
 /* 
     4. Keyframes

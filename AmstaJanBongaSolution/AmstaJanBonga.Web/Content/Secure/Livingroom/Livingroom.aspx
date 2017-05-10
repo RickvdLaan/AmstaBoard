@@ -35,7 +35,7 @@
 
         function HiddenFieldEmployee(employeeId, shiftType) {
             var hiddenFieldEmployee = document.getElementById('<%= _hfEmployee.ClientID %>');
-
+        
             if (hiddenFieldEmployee) {
                 hiddenFieldEmployee.value = employeeId + "_" + shiftType;
             }
@@ -60,7 +60,7 @@
         </div>
     </div>
 
-    <!-- Staff -->
+    <!-- Employees -->
     <div class="tile staff">
         <h2>
             Dag en avonddienst
@@ -83,8 +83,24 @@
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
+            
+            <asp:Literal runat="server" ID="_litShiftDay" Visible="false"></asp:Literal>
 
-            <asp:Literal runat="server" ID="_litShift" Visible="false"></asp:Literal>
+            <asp:Repeater runat="server" ID="_repEmployeeShiftsEvening" OnDataBinding="_repEmployeeShiftsEvening_DataBinding">
+                <ItemTemplate>
+                    <div class="tile-container-cell">
+                        <h4>
+                            <%# ((ShiftTypeEnum)Enum.Parse(typeof(ShiftTypeEnum), Eval("ShiftTypeEnum").ToString())).Description() %>
+                        </h4>
+                        <div class="image image-staff image-empty" style='background-image: url(<%# Eval("Employee.ImagePath").ToString().Replace('\\', '/')%>);' data-remodal-target="shift-remodal" onclick='HiddenFieldEmployee(<%# Eval("Employee.Id") %>, <%# Eval("ShiftTypeEnum") %>)'></div>
+                        <h3>
+                             <%# Eval("Employee.FirstName") %>
+                        </h3>
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater>
+
+            <asp:Literal runat="server" ID="_litShiftEvening" Visible="false"></asp:Literal>
         </div>
     </div>
 

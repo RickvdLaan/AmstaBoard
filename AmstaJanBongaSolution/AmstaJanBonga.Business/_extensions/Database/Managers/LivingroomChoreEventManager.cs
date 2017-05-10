@@ -2,7 +2,6 @@
 using AmstaJanBonga.Business.EntityClasses;
 using AmstaJanBonga.Business.Enums;
 using System;
-using System.Collections.Generic;
 
 namespace AmstaJanBonga.Business.Database.Managers
 {
@@ -10,21 +9,19 @@ namespace AmstaJanBonga.Business.Database.Managers
     {
         public static void UpdateChore(LivingroomChoreEventEntity oldChore, LivingroomChoreEventEntity newChore)
         {
-            if (oldChore == newChore || !newChore.IsNew)
-                return;
-
-            // This code has to be done this way.
-            var chore = new LivingroomChoreEventEntity()
+            if (oldChore.PatientId         == newChore.PatientId         &&
+                oldChore.LivingroomId      == newChore.LivingroomId      &&
+                oldChore.TimeOfDayTypeEnum == newChore.TimeOfDayTypeEnum &&
+                oldChore.Date              == newChore.Date              ||
+                !newChore.IsNew)
             {
-                PatientId = newChore.PatientId,
-                LivingroomId = newChore.LivingroomId,
-                Date = newChore.Date,
-                TimeOfDayTypeEnum = newChore.TimeOfDayTypeEnum,
-                DateCreated = DateTime.Now
-            }.Save();
+                return;
+            }
 
             if (!oldChore.IsNew)
                 oldChore.Delete();
+
+            newChore.Save();
         }
 
         /// <summary>
@@ -53,57 +50,21 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// Inserts multiple 
         /// </summary>
         /// <param name="chore"></param>
-        public static void InsertMulti(List<LivingroomChoreEventEntity> chores)
+        public static void InsertMulti(LivingroomChoreEventCollection chores)
         {
-            var livingroomChoreEventCollection = new LivingroomChoreEventCollection();
-            livingroomChoreEventCollection.AddRange(chores);
-
-            livingroomChoreEventCollection.SaveMulti();
+            chores.SaveMulti();
         }
 
-        /// <summary>
-        /// Inserts multiple 
-        /// </summary>
-        /// <param name="chore"></param>
-        public static void InsertMulti(params LivingroomChoreEventEntity[] chore)
+        public static void UpdateMulti(LivingroomChoreEventCollection originalCollection, LivingroomChoreEventCollection newCollection)
         {
-            var livingroomChoreEventCollection = new LivingroomChoreEventCollection();
-            livingroomChoreEventCollection.AddRange(chore);
+            var tracker = new LivingroomChoreEventCollection();
+            originalCollection.RemovedEntitiesTracker = tracker;
 
-            livingroomChoreEventCollection.SaveMulti();
-        }
+            originalCollection.RemovedEntitiesTracker.AddRange(originalCollection);
+            originalCollection.AddRange(newCollection);
 
-        public static void UpdateMulti(LivingroomChoreEventCollection originalCollection, List<LivingroomChoreEventEntity> chores)
-        {
-            // The new chore collection, could be identical to the existing originalCollection,
-            // but could also be completely different.
-            var newCollection = new LivingroomChoreEventCollection();
-            newCollection.AddRange(chores);
-
-            var choresToDelete = new LivingroomChoreEventCollection();
-
-            foreach (var chore in originalCollection)
-            {
-                // The chore doesn't exist in the new collection, thus should be removed.
-                if (!newCollection.Contains(chore))
-                {
-                    choresToDelete.Add(chore);
-                }
-            }
-
-            foreach (var chore in newCollection)
-            {
-                // There was a new chore added, thus it should be added.
-                if (!originalCollection.Contains(chore))
-                {
-                    chore.Save();
-                }
-            }
-
-            foreach (var chore in choresToDelete)
-            {
-                chore.Delete();
-            }
+            originalCollection.RemovedEntitiesTracker.DeleteMulti();
+            originalCollection.SaveMulti();
         }
     }
 }

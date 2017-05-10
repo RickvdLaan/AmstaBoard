@@ -199,9 +199,9 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Shifts
             }
         }
 
-        private List<LivingroomShiftEventEntity> GetSelectedEmployees()
+        private LivingroomShiftEventCollection GetSelectedEmployees()
         {
-            var shifts = new List<LivingroomShiftEventEntity>();
+            var shifts = new LivingroomShiftEventCollection();
 
             // Day
             for (int i = 0; i < _jlbDay.ListBoxDestination.Items.Count; i++)

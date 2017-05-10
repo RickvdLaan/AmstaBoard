@@ -12,7 +12,7 @@ namespace AmstaJanBonga.Web.Content
     {
         #region Variables & Objects
 
-        private string _emptyEmployeeDiv = "<li><div style='display: inline-table; background-color: #f4f4f4; opacity: 0.75;' class='image image-shifts' data-remodal-target='shift-remodal' onclick='HiddenFieldEmployee(-1, 0)'><i class='fa fa-plus' style='color: #683d84; display: table-cell; font-size: 3vw; text-align: center; vertical-align: middle;' aria-hidden='true'></i></div></li>";
+        private string _emptyEmployeeDiv = "<div class='tile-container-cell'><h4 style='opacity: 0.55;'>{0}</h4><div style='display: inline-table; background-color: #f4f4f4; opacity: 0.55;' class='image image-shifts' data-remodal-target='shift-remodal' onclick='HiddenFieldEmployee(-1, {1})'><i class='fa fa-plus' style='color: #683d84; display: table-cell; font-size: 3vw; text-align: center; vertical-align: middle;' aria-hidden='true'></i></div><h3><br /></h3></div>";
 
         private string _emptyPatientDiv = "<li><div style='display: inline-table; background-color: #f4f4f4; opacity: 0.75;' class='image image-chores' data-remodal-target='chores-remodal' onclick='HiddenFieldPatient(-1, {0})'><i class='fa fa-plus' style='color: #009eed; display: table-cell; font-size: 3vw; text-align: center; vertical-align: middle;' aria-hidden='true'></i></div></li>";
 
@@ -128,6 +128,9 @@ namespace AmstaJanBonga.Web.Content
 
             this._repEmployeeShiftsDay.DataSource = dataSourceDay;
             this._repEmployeeShiftsDay.DataBind();
+
+            this._repEmployeeShiftsEvening.DataSource = dataSourceEvening;
+            this._repEmployeeShiftsEvening.DataBind();
         }
 
         private void DatabindChores()
@@ -172,7 +175,7 @@ namespace AmstaJanBonga.Web.Content
 
         #region Events
 
-        // Employees (Shifts)
+        #region Shifts
 
         protected void _lbEmployee_Click(object sender, EventArgs e)
         {
@@ -190,7 +193,62 @@ namespace AmstaJanBonga.Web.Content
             this.DatabindShifts();
         }
 
-        // Patients (Chores)
+        protected void _repEmployeeShiftsDay_DataBinding(object sender, EventArgs e)
+        {
+            // Day
+
+            var dataSource = ((Repeater)sender).DataSource as LivingroomShiftEventCollection;
+
+            if (dataSource.Count < 2)
+            {
+                switch (dataSource.Count)
+                {
+                    case 0:
+                        this._litShiftDay.Text = this._emptyEmployeeDiv.FormatString(ShiftTypeEnum.Day.Description(), (byte)ShiftTypeEnum.Day);
+                        this._litShiftDay.Text += this._emptyEmployeeDiv.FormatString(ShiftTypeEnum.Day.Description(), (byte)ShiftTypeEnum.Day);
+                        this._litShiftDay.Visible = true;
+                        break;
+                    case 1:
+                        this._litShiftDay.Text = this._emptyEmployeeDiv.FormatString(ShiftTypeEnum.Day.Description(), (byte)ShiftTypeEnum.Day);
+                        this._litShiftDay.Visible = true;
+                        break;
+                    default:
+                        throw new NotImplementedException();
+                }
+            }
+            else
+            {
+                this._litShiftDay.Visible = false;
+            }
+        }
+
+        protected void _repEmployeeShiftsEvening_DataBinding(object sender, EventArgs e)
+        {
+            // Evening
+
+            var dataSource = ((Repeater)sender).DataSource as LivingroomShiftEventCollection;
+
+            if (dataSource.Count < 1)
+            {
+                switch (dataSource.Count)
+                {
+                    case 0:
+                        this._litShiftEvening.Text = this._emptyEmployeeDiv.FormatString(ShiftTypeEnum.Evening.Description(), (byte)ShiftTypeEnum.Evening);
+                        this._litShiftEvening.Visible = true;
+                        break;
+                    default:
+                        throw new NotImplementedException();
+                }
+            }
+            else
+            {
+                this._litShiftEvening.Visible = false;
+            }
+        }
+
+        #endregion
+
+        #region Chores
 
         protected void _lbPatient_Click(object sender, EventArgs e)
         {
@@ -206,29 +264,6 @@ namespace AmstaJanBonga.Web.Content
             LivingroomChoreEventManager.UpdateChore(oldChore, newChore);
 
             this.DatabindChores();
-        }
-
-        // Employees (Shifts)
-
-        protected void _repEmployeeShiftsDay_DataBinding(object sender, EventArgs e)
-        {
-            // TODO: If two, show 2x add, if one, show 1x add.
-            // Always show evening if not added. If added, dont show.
-            var dataSource = ((Repeater)sender).DataSource as LivingroomShiftEventCollection;
-
-            if (dataSource.Count < 2)
-            {
-                switch (dataSource.Count)
-                {
-                    case 0:
-                    case 1:
-                        this._litShift.Text = this._emptyEmployeeDiv;
-                        this._litShift.Visible = true;
-                        break;
-                    default:
-                        throw new NotImplementedException();
-                }
-            }
         }
 
         protected void _repChoreMorning_DataBinding(object sender, EventArgs e)
@@ -313,6 +348,8 @@ namespace AmstaJanBonga.Web.Content
                 this._litChoreEvening.Visible = false;
             }
         }
+
+        #endregion
 
         #endregion
     }

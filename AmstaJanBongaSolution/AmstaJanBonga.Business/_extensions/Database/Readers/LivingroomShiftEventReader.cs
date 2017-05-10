@@ -24,6 +24,10 @@ namespace AmstaJanBonga.Business.Database.Readers
             }
             else if (shift.IsNew)
             {
+                shift.EmployeeId = employeeId;
+                shift.Date = date;
+                shift.ShiftTypeEnum = (byte)shiftType;
+                shift.LivingroomId = livingroomId;
                 shift.DateCreated = DateTime.Now;
             }
 

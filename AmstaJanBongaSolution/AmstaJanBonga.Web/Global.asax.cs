@@ -137,6 +137,7 @@ namespace AmstaJanBonga.Web
 
             routes.MapPageRoute("Login", "Login", "~/Content/Unsecure/Login/Login.aspx");
             routes.MapPageRoute("Livingroom", "Livingroom", "~/Content/Secure/Livingroom/Livingroom.aspx");
+            routes.MapPageRoute("Erro500", "Error500", "~/Content/Unsecure/Error/Error500.aspx");
         }
     }
 }

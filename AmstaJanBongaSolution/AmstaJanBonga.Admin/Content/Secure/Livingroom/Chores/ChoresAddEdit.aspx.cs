@@ -206,9 +206,9 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
             }
         }
 
-        private List<LivingroomChoreEventEntity> GetSelectedPatients()
+        private LivingroomChoreEventCollection GetSelectedPatients()
         {
-            var chores = new List<LivingroomChoreEventEntity>();
+            var chores = new LivingroomChoreEventCollection();
 
             // Morning
             for (int i = 0; i < _jlbMorning.ListBoxDestination.Items.Count; i++)

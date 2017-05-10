@@ -125,6 +125,7 @@
   <ItemGroup>
     <Content Include="Content\Secure\PatientAgendaOverview\PatientAgendaOverview.aspx" />
     <Content Include="Content\Secure\PatientAgenda\PatientAgenda.aspx" />
+    <Content Include="Content\Unsecure\Error\Error500.aspx" />
     <Content Include="Content\Unsecure\Login\Login.aspx" />
     <Content Include="Includes\Css\Addons.css" />
     <Content Include="Includes\Css\Images\avatar.jpg" />
@@ -229,6 +230,13 @@
     </Compile>
     <Compile Include="Content\Secure\PatientAgenda\PatientAgenda.aspx.designer.cs">
       <DependentUpon>PatientAgenda.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Content\Unsecure\Error\Error500.aspx.cs">
+      <DependentUpon>Error500.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\Unsecure\Error\Error500.aspx.designer.cs">
+      <DependentUpon>Error500.aspx</DependentUpon>
     </Compile>
     <Compile Include="Content\Unsecure\Login\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
