@@ -6,24 +6,24 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="_cphHead" runat="server">
     <!-- Sets the width of the staff images based on the amount of staff members -->
     <script>
-        $(function () {
-            SetStaffImageClasses();
-        });
+        //$(function () {
+        //    SetStaffImageClasses();
+        //});
 
-        function SetStaffImageClasses() {
-            return;
-            var images = $(".staff div.image").length;
+        //function SetStaffImageClasses() {
+        //    return;
+        //    var images = $(".staff div.image").length;
 
-            if (images == 3) {
-                $('.staff').find('div.image').addClass('image-staff-3');
-            }
-            else if (images == 2) {
-                $('.staff').find('div.image').addClass('image-staff-2');
-            }
-            else {
-                alert("There are less than two images or more than three, this shouldn't be possible.");
-            }
-        }
+        //    if (images == 3) {
+        //        $('.staff').find('div.image').addClass('image-staff-3');
+        //    }
+        //    else if (images == 2) {
+        //        $('.staff').find('div.image').addClass('image-staff-2');
+        //    }
+        //    else {
+        //        alert("There are less than two images or more than three, this shouldn't be possible.");
+        //    }
+        //}
 
         function HiddenFieldPatient(patientId, timeOfDay) {
             var hiddenFieldPatient = document.getElementById('<%= _hfPatient.ClientID %>');
@@ -76,7 +76,7 @@
                         <h4>
                             <%# ((ShiftTypeEnum)Enum.Parse(typeof(ShiftTypeEnum), Eval("ShiftTypeEnum").ToString())).Description() %>
                         </h4>
-                        <div class="image image-staff image-empty" style='background-image: url(<%# Eval("Employee.ImagePath").ToString().Replace('\\', '/')%>);' data-remodal-target="shift-remodal" onclick='HiddenFieldEmployee(<%# Eval("Employee.Id") %>, <%# Eval("ShiftTypeEnum") %>)'></div>
+                        <div class="image image-staff image-empty" <%# !string.IsNullOrEmpty(Eval("Employee.ImagePath").ToString()) ? "style='background-image: url(" + Eval("Employee.ImagePath").ToString().Replace('\\', '/') + ");'" : string.Empty %> data-remodal-target="shift-remodal" onclick='HiddenFieldEmployee(<%# Eval("Employee.Id") %>, <%# Eval("ShiftTypeEnum") %>)'></div>
                         <h3>
                              <%# Eval("Employee.FirstName") %>
                         </h3>
@@ -92,7 +92,7 @@
                         <h4>
                             <%# ((ShiftTypeEnum)Enum.Parse(typeof(ShiftTypeEnum), Eval("ShiftTypeEnum").ToString())).Description() %>
                         </h4>
-                        <div class="image image-staff image-empty" style='background-image: url(<%# Eval("Employee.ImagePath").ToString().Replace('\\', '/')%>);' data-remodal-target="shift-remodal" onclick='HiddenFieldEmployee(<%# Eval("Employee.Id") %>, <%# Eval("ShiftTypeEnum") %>)'></div>
+                        <div class="image image-staff image-empty" <%# !string.IsNullOrEmpty(Eval("Employee.ImagePath").ToString()) ? "style='background-image: url(" + Eval("Employee.ImagePath").ToString().Replace('\\', '/') + ");'" : string.Empty %> data-remodal-target="shift-remodal" onclick='HiddenFieldEmployee(<%# Eval("Employee.Id") %>, <%# Eval("ShiftTypeEnum") %>)'></div>
                         <h3>
                              <%# Eval("Employee.FirstName") %>
                         </h3>
@@ -137,7 +137,7 @@
                      <asp:Repeater runat="server" ID="_repChoreMorning" OnDataBinding="_repChoreMorning_DataBinding">
                         <ItemTemplate>
                             <li>
-                                <div class="image image-chores" style='background-image: url(<%# Eval("Patient.ImagePath").ToString().Replace('\\', '/')%>);' data-remodal-target="chores-remodal" onclick='HiddenFieldPatient(<%# Eval("Patient.Id") %>, 0)'></div>
+                                <div class="image image-chores" <%# "style='background-image: url(" + Eval("Patient.ImagePath").ToString().Replace('\\', '/') + ");'" %> data-remodal-target="chores-remodal" onclick='HiddenFieldPatient(<%# Eval("Patient.Id") %>, 0)'></div>
                             </li>
                         </ItemTemplate>
                     </asp:Repeater> 
@@ -155,7 +155,7 @@
                      <asp:Repeater runat="server" ID="_repChoreAfternoon" OnDataBinding="_repChoreAfternoon_DataBinding">
                         <ItemTemplate>
                             <li>
-                                <div class="image image-chores" style='background-image: url(<%# Eval("Patient.ImagePath").ToString().Replace('\\', '/')%>);' data-remodal-target="chores-remodal" onclick='HiddenFieldPatient(<%# Eval("Patient.Id") %>, 1)'></div>
+                                <div class="image image-chores" <%# "style='background-image: url(" + Eval("Patient.ImagePath").ToString().Replace('\\', '/') + ");'" %> data-remodal-target="chores-remodal" onclick='HiddenFieldPatient(<%# Eval("Patient.Id") %>, 1)'></div>
                             </li>
                         </ItemTemplate>
                     </asp:Repeater>
@@ -173,7 +173,7 @@
                      <asp:Repeater runat="server" ID="_repChoreEvening" OnDataBinding="_repChoreEvening_DataBinding">
                         <ItemTemplate>
                             <li>
-                                <div class="image image-chores" style='background-image: url(<%# Eval("Patient.ImagePath").ToString().Replace('\\', '/')%>);' data-remodal-target="chores-remodal" onclick='HiddenFieldPatient(<%# Eval("Patient.Id") %>, 2)'></div>
+                                <div class="image image-chores" <%# "style='background-image: url(" + Eval("Patient.ImagePath").ToString().Replace('\\', '/') + ");'" %> data-remodal-target="chores-remodal" onclick='HiddenFieldPatient(<%# Eval("Patient.Id") %>, 2)'></div>
                             </li>
                         </ItemTemplate>
                     </asp:Repeater>
@@ -208,8 +208,10 @@
                                     <!-- Cell -->
                                     <div class="tile-container-cell">
                                         <asp:LinkButton CssClass="employee-select" runat="server" ID="_lbEmployee" OnClick="_lbEmployee_Click" CommandArgument='<%# Eval("Id") %>'>
-                                            <div class="image image-shifts" style='pointer-events: none; background-image: url(<%# Eval("ImagePath").ToString().Replace('\\', '/')%>);'data-remodal-action="confirm"></div>
+                                            <div class="image image-shifts image-empty" style='pointer-events: none; background-image: url(<%# Eval("ImagePath").ToString().Replace('\\', '/')%>);'data-remodal-action="confirm"></div>       
                                         </asp:LinkButton>
+
+                                        <h4><%# Eval("FirstName") %></h4>
                                     </div>
 
                                     <%# (Container.ItemIndex + 5) % 5 == 4 ? "</div>" : string.Empty %>
@@ -256,6 +258,8 @@
                                         <asp:LinkButton CssClass="patient-select" runat="server" ID="_lbPatient" OnClick="_lbPatient_Click" CommandArgument='<%# Eval("Id") %>'>
                                             <div class="image image-chores" style='pointer-events: none; background-image: url(<%# Eval("ImagePath").ToString().Replace('\\', '/')%>);'data-remodal-action="confirm"></div>
                                         </asp:LinkButton>
+
+                                        <h4><%# Eval("FirstName") %></h4>
                                     </div>
 
                                     <%# (Container.ItemIndex + 5) % 5 == 4 ? "</div>" : string.Empty %>

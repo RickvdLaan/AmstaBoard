@@ -13,7 +13,7 @@
         <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,400italic,600' rel='stylesheet' type='text/css' />
 
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-        <script src="Includes/Js/mobile-navigation.js"></script>
+        <script type="text/javascript" src="https://adminjanbonga.jouwsoftware.nl/Includes/js/load-screen.js"></script>
 
         <asp:ContentPlaceHolder ID="_cphHead" runat="server"></asp:ContentPlaceHolder>
 
@@ -93,6 +93,11 @@
                 <!-- Content -->
                 <asp:ScriptManager runat="server" />
                 <asp:ContentPlaceHolder ID="_cphContent" runat="server"></asp:ContentPlaceHolder>
+            </div>
+
+             <div class="loading">
+                <small>Aan het laden...</small>
+                <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
             </div>
         </form>
     </body>

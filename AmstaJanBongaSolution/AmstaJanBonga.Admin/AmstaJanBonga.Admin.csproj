@@ -153,6 +153,7 @@
     </Content>
     <Content Include="Includes\Css\font-awesome-4.7.0\HELP-US-OUT.txt" />
     <Content Include="Includes\Css\Images\logo.svg" />
+    <Content Include="Includes\Js\load-screen.js" />
     <Content Include="Includes\Js\mobile-navigation.js" />
     <Content Include="Includes\Js\remodal-1.1.1\dist\remodal-default-theme.css" />
     <Content Include="Includes\Js\remodal-1.1.1\dist\remodal.css" />

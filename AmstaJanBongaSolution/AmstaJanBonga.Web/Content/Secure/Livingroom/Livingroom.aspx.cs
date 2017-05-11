@@ -12,7 +12,7 @@ namespace AmstaJanBonga.Web.Content
     {
         #region Variables & Objects
 
-        private string _emptyEmployeeDiv = "<div class='tile-container-cell'><h4 style='opacity: 0.55;'>{0}</h4><div style='display: inline-table; background-color: #f4f4f4; opacity: 0.55;' class='image image-shifts' data-remodal-target='shift-remodal' onclick='HiddenFieldEmployee(-1, {1})'><i class='fa fa-plus' style='color: #683d84; display: table-cell; font-size: 3vw; text-align: center; vertical-align: middle;' aria-hidden='true'></i></div><h3><br /></h3></div>";
+        private string _emptyEmployeeDiv = "<div class='tile-container-cell'><h4 style='opacity: 0.55;'>{0}</h4><div style='display: inline-table; background-color: #f4f4f4; opacity: 0.45;' class='image image-shifts' data-remodal-target='shift-remodal' onclick='HiddenFieldEmployee(-1, {1})'><i class='fa fa-plus' style='color: #683d84; display: table-cell; font-size: 3vw; text-align: center; vertical-align: middle;' aria-hidden='true'></i></div><h3><br /></h3></div>";
 
         private string _emptyPatientDiv = "<li><div style='display: inline-table; background-color: #f4f4f4; opacity: 0.75;' class='image image-chores' data-remodal-target='chores-remodal' onclick='HiddenFieldPatient(-1, {0})'><i class='fa fa-plus' style='color: #009eed; display: table-cell; font-size: 3vw; text-align: center; vertical-align: middle;' aria-hidden='true'></i></div></li>";
 

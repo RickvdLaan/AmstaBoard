@@ -97,7 +97,7 @@ namespace AmstaJanBonga.Business.Database.Managers
 
                 // Saving the file to the virtual directory and setting the path on the entity.
                 var newPath = Helper.FileManager.SaveImageToVirtualDirectory(fileUpload, virtualDirectory, employee.Id);
-                employee.ImagePath = newPath.Substring(path.IndexOf(@"\_uploads\"));
+                employee.ImagePath = newPath.Substring(newPath.IndexOf(@"\_uploads\"));
             }
 
             employee.LivingroomId = livingroomId;
