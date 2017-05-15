@@ -20,10 +20,8 @@
             1. Druk <asp:HyperLink runat="server" NavigateUrl="~/Livingroom">hier</asp:HyperLink>
             of op het <i class="fa fa-th-large" aria-hidden="true"></i> icoontje linksboven om terug te gaan naar het hoofdscherm.
         </p>
-
         <p>
-            2. Blijft deze error tevoorschijn komen? Neem dan contact op met de applicatiebeheerder met het noodnummer of stuur 
-            een e-mail naar: "support@jouwsoftware.nl".
+            2. Blijft deze error tevoorschijn komen? Neem dan contact op met de applicatiebeheerder.
         </p>
     </div>  
 </asp:Content>

@@ -1,17 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace AmstaJanBonga.Web.Content.Unsecure.Error
 {
-    public partial class Error404 : System.Web.UI.Page
+    public partial class Error404 : DefaultPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
+
+        #region Overrides
+
+        protected override void OnPreRenderComplete(EventArgs e)
+        {
+            this.MasterPage.AddClassToContent("red-bg");
+
+            base.OnPreRenderComplete(e);
+        }
+
+        #endregion
     }
 }

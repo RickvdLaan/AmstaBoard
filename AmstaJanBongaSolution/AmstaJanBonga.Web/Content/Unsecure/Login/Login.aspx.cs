@@ -3,7 +3,7 @@ using AmstaJanBonga.Business.Enums;
 using AmstaJanBonga.Business.Security;
 using Resources;
 using Rlaan.Toolkit.Configuration;
-using Rlaan.Toolkit.Web;
+using Rlaan.Toolkit.Extensions;
 using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -14,8 +14,6 @@ namespace AmstaJanBonga.Web.Content.Unsecure.Login
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-
             if (!Page.IsCallback)
             {
                 var txtUsername = _loginAuthentication.FindControl("UserName") as TextBox;
@@ -27,6 +25,15 @@ namespace AmstaJanBonga.Web.Content.Unsecure.Login
         }
 
         #region Overrides
+
+        protected override void OnPreInit(EventArgs e)
+        {
+            // Checks if the software is updating.
+            if (WebConfig.GetSetting("Application.IsUpdating").ToBoolean())
+                Response.Redirect("~/Updating");
+
+            base.OnPreInit(e);
+        }
 
         protected override void OnInit(EventArgs e)
         {
@@ -53,15 +60,6 @@ namespace AmstaJanBonga.Web.Content.Unsecure.Login
                 return;
             }
 
-            //// Determines whether the database connection is available.
-            //if (!NetworkInformation.IsDatabaseConnectionAvailable(WebConfig.GetSetting("ConnectionString.SQL Server (SqlClient)")))
-            //{
-            //    _loginAuthentication.FailureText = Resource.ServerConncetionError;
-
-            //    e.Authenticated = false;
-            //    return;
-            //}
-
             // Gets the user which corresponds with the username and password.
             var user = UserReader.GetUserByUsernameAndPassword(username, password);
 
@@ -83,8 +81,17 @@ namespace AmstaJanBonga.Web.Content.Unsecure.Login
                 return;
             }
 
+            // Validates whether the current user is bound to a living room.
+            if (EmployeeReader.GetEmployeeByUserId(user.Id, false) == null)
+            {
+                _loginAuthentication.FailureText = Resource.NotBoundToLivingRoom;
+
+                e.Authenticated = false;
+                return;
+            }
+
             // Determines whether the current user has the appropriate role.
-            if (!UserReader.IsUserInRole(user, RoleTypeEnum.Root, RoleTypeEnum.Manager, RoleTypeEnum.Employee))
+            if (!UserReader.IsUserInRole(user, RoleTypeEnum.Root, RoleTypeEnum.Manager, RoleTypeEnum.Employee, RoleTypeEnum.Trainee))
             {
                 _loginAuthentication.FailureText = Resource.AccountPermissions;
 

@@ -1,6 +1,7 @@
 ﻿using AmstaJanBonga.Business.Database.Readers;
 using AmstaJanBonga.Business.EntityClasses;
 using Rlaan.Toolkit.Configuration;
+using Rlaan.Toolkit.Extensions;
 using System;
 using System.IO;
 using System.Web;
@@ -20,6 +21,15 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// <returns></returns>
         public static EmployeeEntity InsertEmployee(int livingroomId, int? userId, string firstName, FileUpload fileUpload, bool isActive)
         {
+            if (userId.HasValue)
+            {
+                // Multiple people might be working in the CMS at the same time, attempting to connect the same user.
+                if (EmployeeReader.GetEmployeeByUserId(userId.Value, false) != null)
+                {
+                    throw new Exception("There already exists a user with userId: {0}.".FormatString(userId.Value));
+                }
+            }
+
             // Saving the employee wihtout an image, image is mandetory.
             var employee = new EmployeeEntity()
             {
@@ -79,6 +89,15 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// <returns></returns>
         public static EmployeeEntity UpdateEmployee(EmployeeEntity employee, int livingroomId, int? userId, string firstName, FileUpload fileUpload, bool isActive)
         {
+            if (userId.HasValue)
+            {
+                // Multiple people might be working in the CMS at the same time, attempting to connect the same user.
+                if (EmployeeReader.GetEmployeeByUserId(userId.Value, false) != null)
+                {
+                    throw new Exception("There already exists a user with userId: {0}.".FormatString(userId.Value));
+                }
+            }
+
             // The path without the filename
             var path = HttpContext.Current.Server.MapPath(
                    string.Format("{0}{1}",

@@ -2,6 +2,7 @@
 using AmstaJanBonga.Business.DaoClasses;
 using AmstaJanBonga.Business.EntityClasses;
 using AmstaJanBonga.Business.HelperClasses;
+using AmstaJanBonga.Business.Security;
 using Rlaan.Toolkit.Extensions;
 using SD.LLBLGen.Pro.ORMSupportClasses;
 using System;
@@ -43,6 +44,42 @@ namespace AmstaJanBonga.Business.Database.Readers
             return employee;
         }
 
+        /// <summary>
+        /// Gets the employee with the corresponding userId or null.
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public static EmployeeEntity GetEmployeeByUserId(int userId, bool throwExceptionWhenNotFound)
+        {
+            var user = new UserEntity(userId);
+
+            var predicate = new PredicateExpression
+            {
+                EmployeeFields.UserId == userId
+            };
+
+            user.GetMultiEmployees(true, predicate);
+
+            if (user.Employees.Count > 1)
+                throw new Exception("Multiple employees found with userId: {0}".FormatString(userId));
+            else if (user.Employees.Count == 0 && !throwExceptionWhenNotFound)
+            {
+                if (Authentication.IsAuthenticated)
+                    Authentication.Utility.SignOut();
+
+                return null;
+            }
+            else if (user.Employees.Count == 0 && throwExceptionWhenNotFound)
+            {
+                if (Authentication.IsAuthenticated)
+                    Authentication.Utility.SignOut();
+
+                throw new Exception("No employee found for userId: {0}.".FormatString(userId));
+            }
+
+            return user.Employees[0];
+        }
+
         #endregion
 
         #region Collections
@@ -65,12 +102,16 @@ namespace AmstaJanBonga.Business.Database.Readers
             var employees = new EmployeeCollection();
 
             // Predicate
-            var predicate = new PredicateExpression();
-            predicate.Add(EmployeeFields.LivingroomId == livingroomId);
+            var predicate = new PredicateExpression
+            {
+                EmployeeFields.LivingroomId == livingroomId
+            };
 
             // Sorting
-            var sorter = new SortExpression();
-            sorter.Add(EmployeeFields.FirstName | SortOperator.Ascending);
+            var sorter = new SortExpression
+            {
+                EmployeeFields.FirstName | SortOperator.Ascending
+            };
 
             // Get
             employees.GetMulti(predicate, 0, sorter);

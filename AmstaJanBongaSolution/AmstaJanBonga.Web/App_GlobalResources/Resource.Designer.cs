@@ -70,7 +70,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Uw account is niet bevoegd..
+        ///   Looks up a localized string similar to Uw account heeft onvoldoende rechten om in te loggen..
         /// </summary>
         internal static string AccountPermissions {
             get {
@@ -138,6 +138,15 @@ namespace Resources {
         internal static string InvalidUsernameAndOrPassword {
             get {
                 return ResourceManager.GetString("InvalidUsernameAndOrPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uw account is niet gekoppeld aan een woonkamer..
+        /// </summary>
+        internal static string NotBoundToLivingRoom {
+            get {
+                return ResourceManager.GetString("NotBoundToLivingRoom", resourceCulture);
             }
         }
         

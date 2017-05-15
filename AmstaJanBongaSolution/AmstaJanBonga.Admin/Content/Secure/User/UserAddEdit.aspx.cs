@@ -62,6 +62,8 @@ namespace AmstaJanBonga.Admin.Content.Secure.User
 
                 this._txtUsername.Text = this.User.Username;
                 this._cbActive.Checked = this.User.IsActive;
+
+                this._ddlRoles.SelectedItem.Value = this.User.UserRole.RoleTypeEnum.ToString();
             }
         }
 

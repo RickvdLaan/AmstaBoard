@@ -63,7 +63,7 @@
                             </div>
 
                             <div>
-                                <asp:LinkButton runat="server" ID="_lbTime" OnClick="_lbTime_Click" style="display: block; font-size: 2.085vw; height: 100%;" data-remodal-target="menu-remodal">
+                                <asp:LinkButton runat="server" ID="_lbTime" style="display: block; font-size: 2.085vw; height: 100%;" data-remodal-target="menu-remodal">
                                     <asp:Literal runat="server" ID="_litTime"></asp:Literal>
                                 </asp:LinkButton>
                             </div>                 

@@ -1,4 +1,5 @@
-﻿using AmstaJanBonga.Business.EntityClasses;
+﻿using AmstaJanBonga.Business.Database.Readers;
+using AmstaJanBonga.Business.EntityClasses;
 using AmstaJanBonga.Business.Security;
 using System;
 
@@ -9,6 +10,12 @@ namespace AmstaJanBonga.Web
     /// </summary>
     public abstract class SecurePage : DefaultPage
     {
+        #region Variables & Objects
+
+        private int _livingRoomId = -1;
+
+        #endregion
+
         #region Properties
 
         /// <summary>
@@ -20,9 +27,20 @@ namespace AmstaJanBonga.Web
             {
                 if (Authentication.IsAuthenticated)
                     return Authentication.AuthenticatedUser;
-
+                
                 // Should only be able to occur during development stages.
                 throw new SecurityException("Seems like nobody is logged on, the SecurePage utility might be used incorrectly.");
+            }
+        }
+
+        public int CurrentLivingRoomId
+        {
+            get
+            {
+                if (this._livingRoomId == -1)
+                    this._livingRoomId = EmployeeReader.GetEmployeeByUserId(Authentication.AuthenticatedUser.Id, true).LivingroomId;
+
+                return this._livingRoomId;
             }
         }
 

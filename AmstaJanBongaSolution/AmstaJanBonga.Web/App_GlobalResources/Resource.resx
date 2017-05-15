@@ -121,7 +121,7 @@
     <value>Accountgegevens</value>
   </data>
   <data name="AccountPermissions" xml:space="preserve">
-    <value>Uw account is niet bevoegd.</value>
+    <value>Uw account heeft onvoldoende rechten om in te loggen.</value>
   </data>
   <data name="AnErrorOccured" xml:space="preserve">
     <value>Helaas, er is iets fout gegaan.</value>
@@ -143,6 +143,9 @@
   </data>
   <data name="InvalidUsernameAndOrPassword" xml:space="preserve">
     <value>Uw gebruikersnaam en/of wachtwoord zijn onjuist.</value>
+  </data>
+  <data name="NotBoundToLivingRoom" xml:space="preserve">
+    <value>Uw account is niet gekoppeld aan een woonkamer.</value>
   </data>
   <data name="NotificationDeleted" xml:space="preserve">
     <value>De gegevens zijn succesvol verwijdert.</value>

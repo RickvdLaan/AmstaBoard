@@ -2,6 +2,7 @@
 using AmstaJanBonga.Business.Enums;
 using AmstaJanBonga.Business.Security;
 using Rlaan.Toolkit.Configuration;
+using Rlaan.Toolkit.Extensions;
 using Rlaan.Toolkit.Web;
 using System;
 using System.Threading;
@@ -32,8 +33,6 @@ namespace AmstaJanBonga.Web
                 {
                     if (Authentication.IsAuthenticated)
                         Authentication.Utility.SignOut();
-
-                    Response.Redirect("https://www.jouwsoftware.nl/");
                 }
             }
         }
@@ -64,7 +63,8 @@ namespace AmstaJanBonga.Web
                 if (user != null && UserReader.IsUserInRole(user,
                     RoleTypeEnum.Employee,
                     RoleTypeEnum.Manager,
-                    RoleTypeEnum.Root))
+                    RoleTypeEnum.Root,
+                    RoleTypeEnum.Trainee))
                 {
                     // User passed all checks, we can re-authenticate the current user.
                     Authentication.Utility.AuthenticateUser(user);
@@ -81,8 +81,12 @@ namespace AmstaJanBonga.Web
                 }
                 else
                 {
-                    // For some weird reason the user isn't authenticated anymore or doesn't have enough privileges.
-                    Response.Redirect("~/Unsecure/InsufficientPrivileges/InsufficientPrivileges.aspx");
+                    // User is not allowed to log in, and it was missed in the login screen.
+                    if (Authentication.IsAuthenticated)
+                        Authentication.Utility.SignOut();
+
+                    // Logging the event to the developer.
+                    Log.Object(user, "No RoleTypeEnum found by value {0}, it was either not implemented or does not exist and wasn't caught by the login screen.".FormatString());
                 }
             }
         }
@@ -138,6 +142,8 @@ namespace AmstaJanBonga.Web
             routes.MapPageRoute("Login", "Login", "~/Content/Unsecure/Login/Login.aspx");
             routes.MapPageRoute("Livingroom", "Livingroom", "~/Content/Secure/Livingroom/Livingroom.aspx");
             routes.MapPageRoute("Erro500", "Error500", "~/Content/Unsecure/Error/Error500.aspx");
+            routes.MapPageRoute("Erro404", "Error404", "~/Content/Unsecure/Error/Error404.aspx");
+            routes.MapPageRoute("Updating", "Updating", "~/Content/Unsecure/Updating/Updating.aspx");
         }
     }
 }

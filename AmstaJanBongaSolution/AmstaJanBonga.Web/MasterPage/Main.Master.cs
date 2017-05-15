@@ -1,14 +1,11 @@
-﻿using AmstaJanBonga.Business.Security;
-using Rlaan.Toolkit.Configuration;
+﻿using Rlaan.Toolkit.Configuration;
 using Rlaan.Toolkit.Extensions;
 using Rlaan.Toolkit.Web;
 using System;
 using System.Globalization;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
-using System.Xml;
 using System.Xml.Linq;
 
 namespace AmstaJanBonga.Web.MasterPage
@@ -27,6 +24,10 @@ namespace AmstaJanBonga.Web.MasterPage
 
         protected override void OnInit(EventArgs e)
         {
+            // Checks if the software is updating.
+            if (WebConfig.GetSetting("Application.IsUpdating").ToBoolean())
+                Response.Redirect("~/Updating");
+
             // Were one of these exceptions ever to occur on the live environment then give the developer a punch in the head for not testing his work!
             if (Project.Environment.IsDevelopEnvironment || Project.Environment.IsStagingEnvironment || Project.Environment.IsLiveEnvironment)
             {
@@ -38,7 +39,7 @@ namespace AmstaJanBonga.Web.MasterPage
                 if (HttpContext.Current.Request.Url.AbsolutePath.Contains("Content/Secure") && !this.Page.GetType().IsSubclassOf(typeof(SecurePage)))
                     throw new SecurePageNotImplementedException("The current page was placed in the secure folder but does not implemented the SecurePage class.");
             }
-
+            
             base.OnInit(e);
         }
 
@@ -57,6 +58,10 @@ namespace AmstaJanBonga.Web.MasterPage
 
         private void UpdateInformationBar()
         {
+            // Checks if the software is updating.
+            if (WebConfig.GetSetting("Application.IsUpdating").ToBoolean())
+                Response.Redirect("~/Updating");
+
             var culture = new CultureInfo("nl-NL");
             var day = culture.DateTimeFormat.GetDayName(DateTime.Today.DayOfWeek);
             var month = culture.DateTimeFormat.GetMonthName(DateTime.Today.Month);
@@ -68,7 +73,10 @@ namespace AmstaJanBonga.Web.MasterPage
             this._litTime.Text = "{0}".FormatString(DateTime.Now.ToString("HH:mm"));
 
             // Weather
-            this._litWeather.Text = "Het weer: {0} °C".FormatString(GetTemperature());
+            this._litWeather.Text = "Het weer: {0} °C".FormatString(this.GetTemperature());
+
+            // Gets the current date and see's if it's different from the stored date.
+            this.GetDate();
         }
 
         /// <summary>
@@ -82,9 +90,9 @@ namespace AmstaJanBonga.Web.MasterPage
             // Checking whether the cookie exists, if not, gets the temperature and saves the cookie with its value.
             if (Request.Cookies["Temperature"] == null)
             {
-                var locationId = 2759794;
-                var apiId = "84f3dec579b93e63775499eecfa68338";
-                var apiCall = @"http://api.openweathermap.org/data/2.5/weather?id={0}&units=metric&mode=xml&APPID={1}".FormatString(locationId, apiId);
+                var locationId = WebConfig.GetSetting("Weather.Api.Location"); ;
+                var apiId = WebConfig.GetSetting("Weather.Api.Id");
+                var apiCall = (WebConfig.GetSetting("Weather.Api.Url") + "weather?id={0}&units=metric&mode=xml&APPID={1}").FormatString(locationId, apiId);
 
                 using (var client = new WebClient())
                 {
@@ -116,6 +124,29 @@ namespace AmstaJanBonga.Web.MasterPage
             return temperature;
         }
 
+        private void GetDate()
+        {
+            if (Request.Cookies["Date"] == null)
+            {
+                // Setting a cookie for the current date.
+                var cookie = new HttpCookie("Date")
+                {
+                    Value = DateTime.Now.Date.ToString(),
+                    Expires = DateTime.Now.AddHours(24)
+                };
+
+                Response.Cookies.Add(cookie);
+            }
+            // Cookie should be removed and the page should be refreshed after midnight.
+            else if (Convert.ToDateTime(Request.Cookies["Date"].Value).Date != DateTime.Now.Date)
+            {
+                // Deleting the old date cookie, since a new day has arrived.
+                Response.Cookies["Date"].Expires = DateTime.Now.AddDays(-1);
+
+                Url.Refresh();
+            }
+        }
+
         #endregion
 
         #region Events
@@ -128,44 +159,6 @@ namespace AmstaJanBonga.Web.MasterPage
         protected void _lbHome_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Livingroom");
-        }
-
-        protected void _lbTime_Click(object sender, EventArgs e)
-        {
-            //// A maybe functionality? Triple click on time for sign out?
-            //// Could be turned on and off from the CMS?
-            //var counter = 1;
-
-            //// Checking whether a cookie already exists, if so. Nothing will be done.
-            //if (Request.Cookies["SOCT"] == null)
-            //{
-            //    // Creates a cookie which has an expire time of five minutes...
-            //    var cookie = new HttpCookie("SOCT");
-            //    cookie.Value = counter.ToString();
-            //    cookie.Expires = DateTime.Now.AddSeconds(10);
-            //    Response.Cookies.Add(cookie);
-            //}
-            //else
-            //{
-            //    counter = int.Parse(Request.Cookies["SOCT"].Value);
-            //    counter++;
-
-            //    var cookie = new HttpCookie("SOCT");
-            //    cookie.Value = counter.ToString();
-            //    cookie.Expires = DateTime.Now.AddSeconds(10);
-            //    Response.Cookies.Add(cookie);
-            //}
-
-            //if (counter >= 3)
-            //{
-            //    var cookie = new HttpCookie("SOCT");
-            //    cookie.Expires = DateTime.Now.AddSeconds(-1);
-            //    Response.Cookies.Add(cookie);
-
-            //    Authentication.Utility.SignOut();
-            //}
-            //else
-            //    Url.Refresh();
         }
 
         #endregion

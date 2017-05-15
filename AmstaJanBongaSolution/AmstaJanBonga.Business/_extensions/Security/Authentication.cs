@@ -39,9 +39,7 @@ namespace AmstaJanBonga.Business.Security
             {
                 if (HttpContext.Current != null)
                 {
-                    var principle = HttpContext.Current.User as CustomPrincipal;
-
-                    if (principle != null && principle.User is UserEntity)
+                    if (HttpContext.Current.User is CustomPrincipal principle && principle.User is UserEntity)
                         return principle.User as UserEntity;
                 }
 
@@ -64,6 +62,9 @@ namespace AmstaJanBonga.Business.Security
             public static void SignOut()
             {
                 FormsAuthentication.SignOut();
+                HttpContext.Current.Session.Abandon();
+                Roles.DeleteCookie();
+                HttpContext.Current.Session.Clear();
 
                 // Redirects the user to the login page.
                 HttpContext.Current.Response.Redirect("~/Login");
