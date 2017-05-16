@@ -49,6 +49,47 @@ namespace AmstaJanBonga.Business.Security
 
         #endregion
 
+        #region Authentication Attribute
+
+        public void AuthActivityAttribute(string Activity)
+        {
+            if (IsAuthenticated)
+            {
+                if (GetUserActivities(AuthenticatedUser).Contains(Activity))
+                {
+                    // Authorized
+                }
+                else
+                {
+                    // Unauthorized
+                }
+            }
+            else
+            {
+                throw new Exception();
+            }
+        }
+
+        public ActivityCollection GetUserActivities(UserEntity currentUser)
+        {
+            var roles = GetUserRoles(currentUser);
+            var activities = new ActivityCollection();
+
+            foreach (Role role in roles)
+            {
+                List<Activity> roleActivities = GetRoleActivities(role);
+                activities.AddRange(roleActivities);
+            }
+
+            return activities;
+
+            // If we wanted to be concise, this whole method could be written as:
+            // return GetUserRoles( currentUser ).SelectMany( x => x.GetRoleActivities( x ) );
+        }
+
+
+        #endregion
+
         #endregion
 
         /// <summary>
