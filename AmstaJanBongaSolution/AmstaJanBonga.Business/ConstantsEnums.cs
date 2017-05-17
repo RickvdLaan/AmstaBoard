@@ -244,8 +244,6 @@ namespace AmstaJanBonga.Business
 		DateLastModified,
 		///<summary>DateLastModifiedByUserId. </summary>
 		DateLastModifiedByUserId,
-		///<summary>Id. </summary>
-		Id,
 		///<summary>Name. </summary>
 		Name,
 		/// <summary></summary>
@@ -272,8 +270,8 @@ namespace AmstaJanBonga.Business
 	{
 		///<summary>RoleTypeEnum. </summary>
 		RoleTypeEnum,
-		///<summary>UserActivityId. </summary>
-		UserActivityId,
+		///<summary>UserActivityName. </summary>
+		UserActivityName,
 		/// <summary></summary>
 		AmountOfFields
 	}

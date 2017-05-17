@@ -30,7 +30,7 @@ namespace AmstaJanBonga.Business.RelationClasses
 		public virtual List<IEntityRelation> GetAllRelations()
 		{
 			List<IEntityRelation> toReturn = new List<IEntityRelation>();
-			toReturn.Add(this.UserActivityEntityUsingUserActivityId);
+			toReturn.Add(this.UserActivityEntityUsingUserActivityName);
 			toReturn.Add(this.UserRoleEntityUsingRoleTypeEnum);
 			return toReturn;
 		}
@@ -40,14 +40,14 @@ namespace AmstaJanBonga.Business.RelationClasses
 
 
 		/// <summary>Returns a new IEntityRelation object, between UserRoleActivityEntity and UserActivityEntity over the m:1 relation they have, using the relation between the fields:
-		/// UserRoleActivity.UserActivityId - UserActivity.Id
+		/// UserRoleActivity.UserActivityName - UserActivity.Name
 		/// </summary>
-		public virtual IEntityRelation UserActivityEntityUsingUserActivityId
+		public virtual IEntityRelation UserActivityEntityUsingUserActivityName
 		{
 			get
 			{
 				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne, "UserActivity", false);
-				relation.AddEntityFieldPair(UserActivityFields.Id, UserRoleActivityFields.UserActivityId);
+				relation.AddEntityFieldPair(UserActivityFields.Name, UserRoleActivityFields.UserActivityName);
 				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("UserActivityEntity", false);
 				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("UserRoleActivityEntity", true);
 				return relation;
@@ -81,7 +81,7 @@ namespace AmstaJanBonga.Business.RelationClasses
 	/// <summary>Static class which is used for providing relationship instances which are re-used internally for syncing</summary>
 	internal static class StaticUserRoleActivityRelations
 	{
-		internal static readonly IEntityRelation UserActivityEntityUsingUserActivityIdStatic = new UserRoleActivityRelations().UserActivityEntityUsingUserActivityId;
+		internal static readonly IEntityRelation UserActivityEntityUsingUserActivityNameStatic = new UserRoleActivityRelations().UserActivityEntityUsingUserActivityName;
 		internal static readonly IEntityRelation UserRoleEntityUsingRoleTypeEnumStatic = new UserRoleActivityRelations().UserRoleEntityUsingRoleTypeEnum;
 
 		/// <summary>CTor</summary>

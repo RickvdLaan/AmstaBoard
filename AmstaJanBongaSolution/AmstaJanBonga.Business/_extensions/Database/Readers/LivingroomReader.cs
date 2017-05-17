@@ -1,6 +1,7 @@
 ﻿using AmstaJanBonga.Business.CollectionClasses;
 using AmstaJanBonga.Business.EntityClasses;
 using AmstaJanBonga.Business.Enums;
+using AmstaJanBonga.Business.Security;
 using Rlaan.Toolkit.Extensions;
 using System;
 
@@ -50,6 +51,8 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static LivingRoomCollection GetAllLivingRooms()
         {
+            Authentication.AuthenticateActivity("ReadLivingRoom");
+
             var livingRooms = new LivingRoomCollection();
             livingRooms.GetMulti(null, 0);
 

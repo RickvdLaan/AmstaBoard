@@ -100,7 +100,7 @@ namespace AmstaJanBonga.Business.DaoClasses
 			
 			if(userActivityInstance != null)
 			{
-				selectFilter.Add(new FieldCompareValuePredicate(fieldsToReturn[(int)UserRoleActivityFieldIndex.UserActivityId], ComparisonOperator.Equal, ((UserActivityEntity)userActivityInstance).Id));
+				selectFilter.Add(new FieldCompareValuePredicate(fieldsToReturn[(int)UserRoleActivityFieldIndex.UserActivityName], ComparisonOperator.Equal, ((UserActivityEntity)userActivityInstance).Name));
 			}
 			if(userRoleInstance != null)
 			{

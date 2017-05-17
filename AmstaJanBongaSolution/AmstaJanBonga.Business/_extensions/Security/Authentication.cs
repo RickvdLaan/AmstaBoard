@@ -1,5 +1,9 @@
 ﻿using AmstaJanBonga.Business.EntityClasses;
+using Rlaan.Toolkit.Configuration;
+using Rlaan.Toolkit.Extensions;
+using Rlaan.Toolkit.Web;
 using System;
+using System.Security;
 using System.Threading;
 using System.Web;
 using System.Web.Security;
@@ -47,9 +51,36 @@ namespace AmstaJanBonga.Business.Security
 
         #region Methods
 
+        /// <summary>
+        /// Validates whether the AuthenticatedUser has enough privileges to access the provided activity.
+        /// </summary>
+        /// <param name="activity"></param>
         public static void AuthenticateActivity(string activity)
         {
-            
+            // Validating whether the current user is authenticated.
+            if (IsAuthenticated)
+            {
+                foreach (var roleActivity in AuthenticatedUser.UserRole.UserRoleActivities)
+                {
+                    // Checking whether the current user is allowed to access the provided activity.
+                    if (roleActivity.UserActivityName == activity)
+                        return;
+                }
+
+                // User doesn't have the right privileges. 
+                throw new SecurityException("The current user by id: {0} doesn't have enough privileges to access acctivity {1}."
+                    .FormatString(AuthenticatedUser.Id, activity));
+            }
+            // The user is not logged in, redirecting!
+            else
+            {
+                // Logging the current event for investigation.
+                if (Project.Environment.IsStagingEnvironment || Project.Environment.IsLiveEnvironment)
+                    Log.Object(AuthenticatedUser, "The AuthenticatedUser wasn't logged in.");
+
+                // Redirecting to the login page.
+                HttpContext.Current.Response.Redirect("~/Login");
+            }
         }
 
         #endregion

@@ -211,12 +211,11 @@ namespace AmstaJanBonga.Business.HelperClasses
 		/// <summary>Inits UserActivityEntity's mappings</summary>
 		private void InitUserActivityEntityMappings()
 		{
-			this.AddElementMapping("UserActivityEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "UserActivity", 5, 0);
+			this.AddElementMapping("UserActivityEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "UserActivity", 4, 0);
 			this.AddElementFieldMapping("UserActivityEntity", "DateCreated", "DateCreated", false, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 0);
 			this.AddElementFieldMapping("UserActivityEntity", "DateLastModified", "DateLastModified", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 1);
 			this.AddElementFieldMapping("UserActivityEntity", "DateLastModifiedByUserId", "DateLastModifiedByUserId", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 2);
-			this.AddElementFieldMapping("UserActivityEntity", "Id", "Id", false, "Int", 0, 10, 0, true, "SCOPE_IDENTITY()", null, typeof(System.Int32), 3);
-			this.AddElementFieldMapping("UserActivityEntity", "Name", "Name", true, "VarChar", 50, 0, 0, false, "", null, typeof(System.String), 4);
+			this.AddElementFieldMapping("UserActivityEntity", "Name", "Name", false, "VarChar", 50, 0, 0, false, "", null, typeof(System.String), 3);
 		}
 
 		/// <summary>Inits UserRoleEntity's mappings</summary>
@@ -235,7 +234,7 @@ namespace AmstaJanBonga.Business.HelperClasses
 		{
 			this.AddElementMapping("UserRoleActivityEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "UserRoleActivity", 2, 0);
 			this.AddElementFieldMapping("UserRoleActivityEntity", "RoleTypeEnum", "RoleTypeEnum", false, "TinyInt", 0, 3, 0, false, "", null, typeof(System.Byte), 0);
-			this.AddElementFieldMapping("UserRoleActivityEntity", "UserActivityId", "UserActivityId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 1);
+			this.AddElementFieldMapping("UserRoleActivityEntity", "UserActivityName", "UserActivityName", false, "VarChar", 50, 0, 0, false, "", null, typeof(System.String), 1);
 		}
 
 	}

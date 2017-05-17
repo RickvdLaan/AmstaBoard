@@ -258,15 +258,16 @@
           </UniqueConstraint>
         </UniqueConstraints>
       </EntityDefinition>
-      <EntityDefinition Name="UserActivity" GroupName="Vanderlaan" ObjectID="879ea988-8aea-4ca4-aed9-941d8df15eb5">
+      <EntityDefinition Name="UserActivity" GroupName="Vanderlaan" ObjectID="e5d321be-b1f8-4f07-9494-36228fd16c6b">
         <Fields>
           <Field Name="DateCreated" Type="datetime" />
           <Field Name="DateLastModified" Type="datetime" IsOptional="true" />
           <Field Name="DateLastModifiedByUserId" Type="int" IsOptional="true" Precision="10" />
-          <Field Name="Name" Type="string" MaxLength="50" IsPrimaryKey="true" />
+          <Field Name="Id" Type="int" IsReadOnly="true" Precision="10" IsPrimaryKey="true" />
+          <Field Name="Name" Type="string" IsOptional="true" MaxLength="50" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="UserRole" GroupName="Vanderlaan" ObjectID="75a9c19e-0eee-40f3-8619-bd0cbd10e761">
+      <EntityDefinition Name="UserRole" GroupName="Vanderlaan" ObjectID="16571756-9423-4c13-a7e8-06dbcaec8b85">
         <Fields>
           <Field Name="DateCreated" Type="datetime" />
           <Field Name="DateLastModified" Type="datetime" IsOptional="true" />
@@ -275,10 +276,10 @@
           <Field Name="RoleTypeEnum" Type="byte" Precision="3" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="UserRoleActivity" GroupName="Vanderlaan" ObjectID="0a8e1041-a230-4748-ae00-9d2931e86e00">
+      <EntityDefinition Name="UserRoleActivity" GroupName="Vanderlaan" ObjectID="32af27ea-c0b1-4b7d-8a01-545357d15deb">
         <Fields>
           <Field Name="RoleTypeEnum" Type="byte" Precision="3" IsPrimaryKey="true" />
-          <Field Name="UserActivityName" Type="string" MaxLength="50" IsPrimaryKey="true" />
+          <Field Name="UserActivityId" Type="int" Precision="10" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
     </EntityDefinitions>
@@ -345,7 +346,7 @@
       </NormalRelationship>
       <NormalRelationship Name="Vanderlaan.UserRoleActivity.UserActivity-Vanderlaan.UserActivity.UserRoleActivities" Start="Vanderlaan:UserRoleActivity" End="Vanderlaan:UserActivity" StartNavigator="UserActivity" EndNavigator="UserRoleActivities" Type="4">
         <FieldRelationships>
-          <FieldFieldRelationship FkField="UserActivityName" PkField="Name" />
+          <FieldFieldRelationship FkField="UserActivityId" PkField="Id" />
         </FieldRelationships>
       </NormalRelationship>
       <NormalRelationship Name="Vanderlaan.UserRoleActivity.UserRole-Vanderlaan.UserRole.UserRoleActivities" Start="Vanderlaan:UserRoleActivity" End="Vanderlaan:UserRole" StartNavigator="UserRole" EndNavigator="UserRoleActivities" Type="4">
@@ -371,7 +372,7 @@
       <Catalogs>
         <Catalog Name="Vanderlaan_jouwsoftware_janbonga_development">
           <Schemas>
-            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-05-17T17:01:35.5037019Z">
+            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-05-17T14:50:31.9538811Z">
               <StoredProcedures>
                 <StoredProcedure Name="sp_alterdiagram">
                   <Parameters>
@@ -439,7 +440,7 @@
                 </StoredProcedure>
               </StoredProcedures>
             </Schema>
-            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-05-17T17:01:35.581702Z">
+            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-05-17T14:50:32.0078842Z">
               <Tables>
                 <Table Name="AgendaEvent">
                   <PkConstraintName Name="PK_AgendaEvent" />
@@ -581,12 +582,13 @@
                   </UniqueConstraints>
                 </Table>
                 <Table Name="UserActivity">
-                  <PkConstraintName Name="PK_UserActivity_1" />
+                  <PkConstraintName Name="PK_UserActivity" />
                   <Fields>
-                    <Field Name="Name" Ordinal="1" IsPrimaryKey="true" DbType="24" Length="50" />
-                    <Field Name="DateCreated" Ordinal="2" DbType="4" />
-                    <Field Name="DateLastModified" Ordinal="3" IsOptional="true" DbType="4" />
-                    <Field Name="DateLastModifiedByUserId" Ordinal="4" IsOptional="true" DbType="8" Precision="10" />
+                    <Field Name="Id" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="Name" Ordinal="2" IsOptional="true" DbType="24" Length="50" />
+                    <Field Name="DateCreated" Ordinal="3" DbType="4" />
+                    <Field Name="DateLastModified" Ordinal="4" IsOptional="true" DbType="4" />
+                    <Field Name="DateLastModifiedByUserId" Ordinal="5" IsOptional="true" DbType="8" Precision="10" />
                   </Fields>
                 </Table>
                 <Table Name="UserRole">
@@ -603,7 +605,7 @@
                   <PkConstraintName Name="PK_UserRoleActivity" />
                   <Fields>
                     <Field Name="RoleTypeEnum" Ordinal="1" IsPrimaryKey="true" DbType="22" Precision="3" />
-                    <Field Name="UserActivityName" Ordinal="2" IsPrimaryKey="true" DbType="24" Length="50" />
+                    <Field Name="UserActivityId" Ordinal="2" IsPrimaryKey="true" DbType="8" Precision="10" />
                   </Fields>
                 </Table>
               </Tables>
@@ -670,9 +672,9 @@
                 <FieldPair PkField="Vanderlaan:UserRole:RoleTypeEnum" FkField="Vanderlaan:User:RoleTypeEnum" />
               </FieldPairs>
             </ForeignKeyConstraint>
-            <ForeignKeyConstraint Name="Vanderlaan:UserRoleActivity:FK_UserRoleActivity_UserActivity1">
+            <ForeignKeyConstraint Name="Vanderlaan:UserRoleActivity:FK_UserRoleActivity_UserActivity">
               <FieldPairs>
-                <FieldPair PkField="Vanderlaan:UserActivity:Name" FkField="Vanderlaan:UserRoleActivity:UserActivityName" />
+                <FieldPair PkField="Vanderlaan:UserActivity:Id" FkField="Vanderlaan:UserRoleActivity:UserActivityId" />
               </FieldPairs>
             </ForeignKeyConstraint>
             <ForeignKeyConstraint Name="Vanderlaan:UserRoleActivity:FK_UserRoleActivity_UserRole">
@@ -816,6 +818,7 @@
             <FieldMapping FieldName="DateCreated" TargetFieldName="DateCreated" />
             <FieldMapping FieldName="DateLastModified" TargetFieldName="DateLastModified" />
             <FieldMapping FieldName="DateLastModifiedByUserId" TargetFieldName="DateLastModifiedByUserId" />
+            <FieldMapping FieldName="Id" TargetFieldName="Id" SequenceToUse="SCOPE_IDENTITY()" />
             <FieldMapping FieldName="Name" TargetFieldName="Name" />
           </FieldMappings>
         </EntityMapping>
@@ -831,7 +834,7 @@
         <EntityMapping EntityName="Vanderlaan:UserRoleActivity" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:UserRoleActivity">
           <FieldMappings>
             <FieldMapping FieldName="RoleTypeEnum" TargetFieldName="RoleTypeEnum" />
-            <FieldMapping FieldName="UserActivityName" TargetFieldName="UserActivityName" />
+            <FieldMapping FieldName="UserActivityId" TargetFieldName="UserActivityId" />
           </FieldMappings>
         </EntityMapping>
       </EntityMappings>

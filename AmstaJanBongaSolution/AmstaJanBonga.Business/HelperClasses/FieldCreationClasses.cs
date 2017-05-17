@@ -482,11 +482,6 @@ namespace AmstaJanBonga.Business.HelperClasses
 		{
 			get { return (EntityField)EntityFieldFactory.Create(UserActivityFieldIndex.DateLastModifiedByUserId);}
 		}
-		/// <summary>Creates a new UserActivityEntity.Id field instance</summary>
-		public static EntityField Id
-		{
-			get { return (EntityField)EntityFieldFactory.Create(UserActivityFieldIndex.Id);}
-		}
 		/// <summary>Creates a new UserActivityEntity.Name field instance</summary>
 		public static EntityField Name
 		{
@@ -532,10 +527,10 @@ namespace AmstaJanBonga.Business.HelperClasses
 		{
 			get { return (EntityField)EntityFieldFactory.Create(UserRoleActivityFieldIndex.RoleTypeEnum);}
 		}
-		/// <summary>Creates a new UserRoleActivityEntity.UserActivityId field instance</summary>
-		public static EntityField UserActivityId
+		/// <summary>Creates a new UserRoleActivityEntity.UserActivityName field instance</summary>
+		public static EntityField UserActivityName
 		{
-			get { return (EntityField)EntityFieldFactory.Create(UserRoleActivityFieldIndex.UserActivityId);}
+			get { return (EntityField)EntityFieldFactory.Create(UserRoleActivityFieldIndex.UserActivityName);}
 		}
 	}
 	

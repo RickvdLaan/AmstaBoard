@@ -72,26 +72,26 @@ namespace AmstaJanBonga.Business.EntityClasses
 		}
 		
 		/// <summary>CTor</summary>
-		/// <param name="id">PK value for UserActivity which data should be fetched into this UserActivity object</param>
-		public UserActivityEntity(System.Int32 id):base("UserActivityEntity")
+		/// <param name="name">PK value for UserActivity which data should be fetched into this UserActivity object</param>
+		public UserActivityEntity(System.String name):base("UserActivityEntity")
 		{
-			InitClassFetch(id, null, null);
+			InitClassFetch(name, null, null);
 		}
 
 		/// <summary>CTor</summary>
-		/// <param name="id">PK value for UserActivity which data should be fetched into this UserActivity object</param>
+		/// <param name="name">PK value for UserActivity which data should be fetched into this UserActivity object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
-		public UserActivityEntity(System.Int32 id, IPrefetchPath prefetchPathToUse):base("UserActivityEntity")
+		public UserActivityEntity(System.String name, IPrefetchPath prefetchPathToUse):base("UserActivityEntity")
 		{
-			InitClassFetch(id, null, prefetchPathToUse);
+			InitClassFetch(name, null, prefetchPathToUse);
 		}
 
 		/// <summary>CTor</summary>
-		/// <param name="id">PK value for UserActivity which data should be fetched into this UserActivity object</param>
+		/// <param name="name">PK value for UserActivity which data should be fetched into this UserActivity object</param>
 		/// <param name="validator">The custom validator object for this UserActivityEntity</param>
-		public UserActivityEntity(System.Int32 id, IValidator validator):base("UserActivityEntity")
+		public UserActivityEntity(System.String name, IValidator validator):base("UserActivityEntity")
 		{
-			InitClassFetch(id, validator, null);
+			InitClassFetch(name, validator, null);
 		}
 
 		/// <summary>Private CTor for deserialization</summary>
@@ -131,7 +131,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 			switch(fieldName)
 			{
 				case "UserRoleActivities":
-					toReturn.Add(Relations.UserRoleActivityEntityUsingUserActivityId);
+					toReturn.Add(Relations.UserRoleActivityEntityUsingUserActivityName);
 					break;
 				default:
 					break;				
@@ -239,50 +239,50 @@ namespace AmstaJanBonga.Business.EntityClasses
 
 
 		/// <summary> Fetches the contents of this entity from the persistent storage using the primary key.</summary>
-		/// <param name="id">PK value for UserActivity which data should be fetched into this UserActivity object</param>
+		/// <param name="name">PK value for UserActivity which data should be fetched into this UserActivity object</param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		public bool FetchUsingPK(System.Int32 id)
+		public bool FetchUsingPK(System.String name)
 		{
-			return FetchUsingPK(id, null, null, null);
+			return FetchUsingPK(name, null, null, null);
 		}
 
 		/// <summary> Fetches the contents of this entity from the persistent storage using the primary key.</summary>
-		/// <param name="id">PK value for UserActivity which data should be fetched into this UserActivity object</param>
+		/// <param name="name">PK value for UserActivity which data should be fetched into this UserActivity object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		public bool FetchUsingPK(System.Int32 id, IPrefetchPath prefetchPathToUse)
+		public bool FetchUsingPK(System.String name, IPrefetchPath prefetchPathToUse)
 		{
-			return FetchUsingPK(id, prefetchPathToUse, null, null);
+			return FetchUsingPK(name, prefetchPathToUse, null, null);
 		}
 
 		/// <summary> Fetches the contents of this entity from the persistent storage using the primary key.</summary>
-		/// <param name="id">PK value for UserActivity which data should be fetched into this UserActivity object</param>
+		/// <param name="name">PK value for UserActivity which data should be fetched into this UserActivity object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <param name="contextToUse">The context to add the entity to if the fetch was succesful. </param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		public bool FetchUsingPK(System.Int32 id, IPrefetchPath prefetchPathToUse, Context contextToUse)
+		public bool FetchUsingPK(System.String name, IPrefetchPath prefetchPathToUse, Context contextToUse)
 		{
-			return FetchUsingPK(id, prefetchPathToUse, contextToUse, null);
+			return FetchUsingPK(name, prefetchPathToUse, contextToUse, null);
 		}
 
 		/// <summary> Fetches the contents of this entity from the persistent storage using the primary key.</summary>
-		/// <param name="id">PK value for UserActivity which data should be fetched into this UserActivity object</param>
+		/// <param name="name">PK value for UserActivity which data should be fetched into this UserActivity object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <param name="contextToUse">The context to add the entity to if the fetch was succesful. </param>
 		/// <param name="excludedIncludedFields">The list of IEntityField objects which have to be excluded or included for the fetch. 
 		/// If null or empty, all fields are fetched (default). If an instance of ExcludeIncludeFieldsList is passed in and its ExcludeContainedFields property
 		/// is set to false, the fields contained in excludedIncludedFields are kept in the query, the rest of the fields in the query are excluded.</param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		public bool FetchUsingPK(System.Int32 id, IPrefetchPath prefetchPathToUse, Context contextToUse, ExcludeIncludeFieldsList excludedIncludedFields)
+		public bool FetchUsingPK(System.String name, IPrefetchPath prefetchPathToUse, Context contextToUse, ExcludeIncludeFieldsList excludedIncludedFields)
 		{
-			return Fetch(id, prefetchPathToUse, contextToUse, excludedIncludedFields);
+			return Fetch(name, prefetchPathToUse, contextToUse, excludedIncludedFields);
 		}
 
 		/// <summary> Refetches the Entity from the persistent storage. Refetch is used to re-load an Entity which is marked "Out-of-sync", due to a save action. Refetching an empty Entity has no effect. </summary>
 		/// <returns>true if Refetch succeeded, false otherwise</returns>
 		public override bool Refetch()
 		{
-			return Fetch(this.Id, null, null, null);
+			return Fetch(this.Name, null, null, null);
 		}
 
 
@@ -375,16 +375,16 @@ namespace AmstaJanBonga.Business.EntityClasses
 		}		
 
 		/// <summary> Initializes the the entity and fetches the data related to the entity in this entity.</summary>
-		/// <param name="id">PK value for UserActivity which data should be fetched into this UserActivity object</param>
+		/// <param name="name">PK value for UserActivity which data should be fetched into this UserActivity object</param>
 		/// <param name="validator">The validator object for this UserActivityEntity</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
-		private void InitClassFetch(System.Int32 id, IValidator validator, IPrefetchPath prefetchPathToUse)
+		private void InitClassFetch(System.String name, IValidator validator, IPrefetchPath prefetchPathToUse)
 		{
 			OnInitializing();
 			this.Validator = validator;
 			this.Fields = CreateFields();
 			InitClassMembers();	
-			Fetch(id, prefetchPathToUse, null, null);
+			Fetch(name, prefetchPathToUse, null, null);
 
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassFetch
 			// __LLBLGENPRO_USER_CODE_REGION_END
@@ -419,26 +419,24 @@ namespace AmstaJanBonga.Business.EntityClasses
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("DateLastModifiedByUserId", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("Id", fieldHashtable);
-			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("Name", fieldHashtable);
 		}
 		#endregion
 
 		/// <summary> Fetches the entity from the persistent storage. Fetch simply reads the entity into an EntityFields object. </summary>
-		/// <param name="id">PK value for UserActivity which data should be fetched into this UserActivity object</param>
+		/// <param name="name">PK value for UserActivity which data should be fetched into this UserActivity object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <param name="contextToUse">The context to add the entity to if the fetch was succesful. </param>
 		/// <param name="excludedIncludedFields">The list of IEntityField objects which have to be excluded or included for the fetch. 
 		/// If null or empty, all fields are fetched (default). If an instance of ExcludeIncludeFieldsList is passed in and its ExcludeContainedFields property
 		/// is set to false, the fields contained in excludedIncludedFields are kept in the query, the rest of the fields in the query are excluded.</param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		private bool Fetch(System.Int32 id, IPrefetchPath prefetchPathToUse, Context contextToUse, ExcludeIncludeFieldsList excludedIncludedFields)
+		private bool Fetch(System.String name, IPrefetchPath prefetchPathToUse, Context contextToUse, ExcludeIncludeFieldsList excludedIncludedFields)
 		{
 			try
 			{
 				OnFetch();
-				this.Fields[(int)UserActivityFieldIndex.Id].ForcedCurrentValueWrite(id);
+				this.Fields[(int)UserActivityFieldIndex.Name].ForcedCurrentValueWrite(name);
 				CreateDAOInstance().FetchExisting(this, this.Transaction, prefetchPathToUse, contextToUse, excludedIncludedFields);
 				return (this.Fields.State == EntityState.Fetched);
 			}
@@ -537,20 +535,10 @@ namespace AmstaJanBonga.Business.EntityClasses
 			set	{ SetValue((int)UserActivityFieldIndex.DateLastModifiedByUserId, value, true); }
 		}
 
-		/// <summary> The Id property of the Entity UserActivity<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "UserActivity"."Id"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
-		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, true</remarks>
-		public virtual System.Int32 Id
-		{
-			get { return (System.Int32)GetValue((int)UserActivityFieldIndex.Id, true); }
-			set	{ SetValue((int)UserActivityFieldIndex.Id, value, true); }
-		}
-
 		/// <summary> The Name property of the Entity UserActivity<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "UserActivity"."Name"<br/>
 		/// Table field type characteristics (type, precision, scale, length): VarChar, 0, 0, 50<br/>
-		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, false</remarks>
 		public virtual System.String Name
 		{
 			get { return (System.String)GetValue((int)UserActivityFieldIndex.Name, true); }

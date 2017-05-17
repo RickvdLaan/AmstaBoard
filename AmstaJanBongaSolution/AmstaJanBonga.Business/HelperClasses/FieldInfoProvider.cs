@@ -209,8 +209,7 @@ namespace AmstaJanBonga.Business.HelperClasses
 			this.AddElementFieldInfo("UserActivityEntity", "DateCreated", typeof(System.DateTime), false, false, false, false,  (int)UserActivityFieldIndex.DateCreated, 0, 0, 0);
 			this.AddElementFieldInfo("UserActivityEntity", "DateLastModified", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)UserActivityFieldIndex.DateLastModified, 0, 0, 0);
 			this.AddElementFieldInfo("UserActivityEntity", "DateLastModifiedByUserId", typeof(Nullable<System.Int32>), false, false, false, true,  (int)UserActivityFieldIndex.DateLastModifiedByUserId, 0, 0, 10);
-			this.AddElementFieldInfo("UserActivityEntity", "Id", typeof(System.Int32), true, false, true, false,  (int)UserActivityFieldIndex.Id, 0, 0, 10);
-			this.AddElementFieldInfo("UserActivityEntity", "Name", typeof(System.String), false, false, false, true,  (int)UserActivityFieldIndex.Name, 50, 0, 0);
+			this.AddElementFieldInfo("UserActivityEntity", "Name", typeof(System.String), true, false, false, false,  (int)UserActivityFieldIndex.Name, 50, 0, 0);
 		}
 		/// <summary>Inits UserRoleEntity's FieldInfo objects</summary>
 		private void InitUserRoleEntityInfos()
@@ -227,7 +226,7 @@ namespace AmstaJanBonga.Business.HelperClasses
 		{
 			this.AddFieldIndexEnumForElementName(typeof(UserRoleActivityFieldIndex), "UserRoleActivityEntity");
 			this.AddElementFieldInfo("UserRoleActivityEntity", "RoleTypeEnum", typeof(System.Byte), true, true, false, false,  (int)UserRoleActivityFieldIndex.RoleTypeEnum, 0, 0, 3);
-			this.AddElementFieldInfo("UserRoleActivityEntity", "UserActivityId", typeof(System.Int32), true, true, false, false,  (int)UserRoleActivityFieldIndex.UserActivityId, 0, 0, 10);
+			this.AddElementFieldInfo("UserRoleActivityEntity", "UserActivityName", typeof(System.String), true, true, false, false,  (int)UserRoleActivityFieldIndex.UserActivityName, 50, 0, 0);
 		}
 		
 	}

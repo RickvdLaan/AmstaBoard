@@ -77,28 +77,28 @@ namespace AmstaJanBonga.Business.EntityClasses
 		
 		/// <summary>CTor</summary>
 		/// <param name="roleTypeEnum">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
-		/// <param name="userActivityId">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
-		public UserRoleActivityEntity(System.Byte roleTypeEnum, System.Int32 userActivityId):base("UserRoleActivityEntity")
+		/// <param name="userActivityName">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
+		public UserRoleActivityEntity(System.Byte roleTypeEnum, System.String userActivityName):base("UserRoleActivityEntity")
 		{
-			InitClassFetch(roleTypeEnum, userActivityId, null, null);
+			InitClassFetch(roleTypeEnum, userActivityName, null, null);
 		}
 
 		/// <summary>CTor</summary>
 		/// <param name="roleTypeEnum">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
-		/// <param name="userActivityId">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
+		/// <param name="userActivityName">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
-		public UserRoleActivityEntity(System.Byte roleTypeEnum, System.Int32 userActivityId, IPrefetchPath prefetchPathToUse):base("UserRoleActivityEntity")
+		public UserRoleActivityEntity(System.Byte roleTypeEnum, System.String userActivityName, IPrefetchPath prefetchPathToUse):base("UserRoleActivityEntity")
 		{
-			InitClassFetch(roleTypeEnum, userActivityId, null, prefetchPathToUse);
+			InitClassFetch(roleTypeEnum, userActivityName, null, prefetchPathToUse);
 		}
 
 		/// <summary>CTor</summary>
 		/// <param name="roleTypeEnum">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
-		/// <param name="userActivityId">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
+		/// <param name="userActivityName">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
 		/// <param name="validator">The custom validator object for this UserRoleActivityEntity</param>
-		public UserRoleActivityEntity(System.Byte roleTypeEnum, System.Int32 userActivityId, IValidator validator):base("UserRoleActivityEntity")
+		public UserRoleActivityEntity(System.Byte roleTypeEnum, System.String userActivityName, IValidator validator):base("UserRoleActivityEntity")
 		{
-			InitClassFetch(roleTypeEnum, userActivityId, validator, null);
+			InitClassFetch(roleTypeEnum, userActivityName, validator, null);
 		}
 
 		/// <summary>Private CTor for deserialization</summary>
@@ -139,7 +139,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 					DesetupSyncUserRole(true, false);
 					_alreadyFetchedUserRole = false;
 					break;
-				case UserRoleActivityFieldIndex.UserActivityId:
+				case UserRoleActivityFieldIndex.UserActivityName:
 					DesetupSyncUserActivity(true, false);
 					_alreadyFetchedUserActivity = false;
 					break;
@@ -173,7 +173,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 			switch(fieldName)
 			{
 				case "UserActivity":
-					toReturn.Add(Relations.UserActivityEntityUsingUserActivityId);
+					toReturn.Add(Relations.UserActivityEntityUsingUserActivityName);
 					break;
 				case "UserRole":
 					toReturn.Add(Relations.UserRoleEntityUsingRoleTypeEnum);
@@ -305,53 +305,53 @@ namespace AmstaJanBonga.Business.EntityClasses
 
 		/// <summary> Fetches the contents of this entity from the persistent storage using the primary key.</summary>
 		/// <param name="roleTypeEnum">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
-		/// <param name="userActivityId">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
+		/// <param name="userActivityName">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		public bool FetchUsingPK(System.Byte roleTypeEnum, System.Int32 userActivityId)
+		public bool FetchUsingPK(System.Byte roleTypeEnum, System.String userActivityName)
 		{
-			return FetchUsingPK(roleTypeEnum, userActivityId, null, null, null);
+			return FetchUsingPK(roleTypeEnum, userActivityName, null, null, null);
 		}
 
 		/// <summary> Fetches the contents of this entity from the persistent storage using the primary key.</summary>
 		/// <param name="roleTypeEnum">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
-		/// <param name="userActivityId">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
+		/// <param name="userActivityName">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		public bool FetchUsingPK(System.Byte roleTypeEnum, System.Int32 userActivityId, IPrefetchPath prefetchPathToUse)
+		public bool FetchUsingPK(System.Byte roleTypeEnum, System.String userActivityName, IPrefetchPath prefetchPathToUse)
 		{
-			return FetchUsingPK(roleTypeEnum, userActivityId, prefetchPathToUse, null, null);
+			return FetchUsingPK(roleTypeEnum, userActivityName, prefetchPathToUse, null, null);
 		}
 
 		/// <summary> Fetches the contents of this entity from the persistent storage using the primary key.</summary>
 		/// <param name="roleTypeEnum">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
-		/// <param name="userActivityId">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
+		/// <param name="userActivityName">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <param name="contextToUse">The context to add the entity to if the fetch was succesful. </param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		public bool FetchUsingPK(System.Byte roleTypeEnum, System.Int32 userActivityId, IPrefetchPath prefetchPathToUse, Context contextToUse)
+		public bool FetchUsingPK(System.Byte roleTypeEnum, System.String userActivityName, IPrefetchPath prefetchPathToUse, Context contextToUse)
 		{
-			return FetchUsingPK(roleTypeEnum, userActivityId, prefetchPathToUse, contextToUse, null);
+			return FetchUsingPK(roleTypeEnum, userActivityName, prefetchPathToUse, contextToUse, null);
 		}
 
 		/// <summary> Fetches the contents of this entity from the persistent storage using the primary key.</summary>
 		/// <param name="roleTypeEnum">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
-		/// <param name="userActivityId">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
+		/// <param name="userActivityName">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <param name="contextToUse">The context to add the entity to if the fetch was succesful. </param>
 		/// <param name="excludedIncludedFields">The list of IEntityField objects which have to be excluded or included for the fetch. 
 		/// If null or empty, all fields are fetched (default). If an instance of ExcludeIncludeFieldsList is passed in and its ExcludeContainedFields property
 		/// is set to false, the fields contained in excludedIncludedFields are kept in the query, the rest of the fields in the query are excluded.</param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		public bool FetchUsingPK(System.Byte roleTypeEnum, System.Int32 userActivityId, IPrefetchPath prefetchPathToUse, Context contextToUse, ExcludeIncludeFieldsList excludedIncludedFields)
+		public bool FetchUsingPK(System.Byte roleTypeEnum, System.String userActivityName, IPrefetchPath prefetchPathToUse, Context contextToUse, ExcludeIncludeFieldsList excludedIncludedFields)
 		{
-			return Fetch(roleTypeEnum, userActivityId, prefetchPathToUse, contextToUse, excludedIncludedFields);
+			return Fetch(roleTypeEnum, userActivityName, prefetchPathToUse, contextToUse, excludedIncludedFields);
 		}
 
 		/// <summary> Refetches the Entity from the persistent storage. Refetch is used to re-load an Entity which is marked "Out-of-sync", due to a save action. Refetching an empty Entity has no effect. </summary>
 		/// <returns>true if Refetch succeeded, false otherwise</returns>
 		public override bool Refetch()
 		{
-			return Fetch(this.RoleTypeEnum, this.UserActivityId, null, null, null);
+			return Fetch(this.RoleTypeEnum, this.UserActivityName, null, null, null);
 		}
 
 
@@ -377,13 +377,13 @@ namespace AmstaJanBonga.Business.EntityClasses
 		{
 			if( ( !_alreadyFetchedUserActivity || forceFetch || _alwaysFetchUserActivity) && !this.IsSerializing && !this.IsDeserializing  && !this.InDesignMode)			
 			{
-				bool performLazyLoading = this.CheckIfLazyLoadingShouldOccur(Relations.UserActivityEntityUsingUserActivityId);
+				bool performLazyLoading = this.CheckIfLazyLoadingShouldOccur(Relations.UserActivityEntityUsingUserActivityName);
 				UserActivityEntity newEntity = new UserActivityEntity();
 				bool fetchResult = false;
 				if(performLazyLoading)
 				{
 					AddToTransactionIfNecessary(newEntity);
-					fetchResult = newEntity.FetchUsingPK(this.UserActivityId);
+					fetchResult = newEntity.FetchUsingPK(this.UserActivityName);
 				}
 				if(fetchResult)
 				{
@@ -472,16 +472,16 @@ namespace AmstaJanBonga.Business.EntityClasses
 
 		/// <summary> Initializes the the entity and fetches the data related to the entity in this entity.</summary>
 		/// <param name="roleTypeEnum">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
-		/// <param name="userActivityId">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
+		/// <param name="userActivityName">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
 		/// <param name="validator">The validator object for this UserRoleActivityEntity</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
-		private void InitClassFetch(System.Byte roleTypeEnum, System.Int32 userActivityId, IValidator validator, IPrefetchPath prefetchPathToUse)
+		private void InitClassFetch(System.Byte roleTypeEnum, System.String userActivityName, IValidator validator, IPrefetchPath prefetchPathToUse)
 		{
 			OnInitializing();
 			this.Validator = validator;
 			this.Fields = CreateFields();
 			InitClassMembers();	
-			Fetch(roleTypeEnum, userActivityId, prefetchPathToUse, null, null);
+			Fetch(roleTypeEnum, userActivityName, prefetchPathToUse, null, null);
 
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassFetch
 			// __LLBLGENPRO_USER_CODE_REGION_END
@@ -511,7 +511,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("RoleTypeEnum", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("UserActivityId", fieldHashtable);
+			_fieldsCustomProperties.Add("UserActivityName", fieldHashtable);
 		}
 		#endregion
 
@@ -520,7 +520,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <param name="resetFKFields">if set to true it will also reset the FK fields pointing to the related entity</param>
 		private void DesetupSyncUserActivity(bool signalRelatedEntity, bool resetFKFields)
 		{
-			this.PerformDesetupSyncRelatedEntity( _userActivity, new PropertyChangedEventHandler( OnUserActivityPropertyChanged ), "UserActivity", AmstaJanBonga.Business.RelationClasses.StaticUserRoleActivityRelations.UserActivityEntityUsingUserActivityIdStatic, true, signalRelatedEntity, "UserRoleActivities", resetFKFields, new int[] { (int)UserRoleActivityFieldIndex.UserActivityId } );		
+			this.PerformDesetupSyncRelatedEntity( _userActivity, new PropertyChangedEventHandler( OnUserActivityPropertyChanged ), "UserActivity", AmstaJanBonga.Business.RelationClasses.StaticUserRoleActivityRelations.UserActivityEntityUsingUserActivityNameStatic, true, signalRelatedEntity, "UserRoleActivities", resetFKFields, new int[] { (int)UserRoleActivityFieldIndex.UserActivityName } );		
 			_userActivity = null;
 		}
 		
@@ -532,7 +532,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 			{		
 				DesetupSyncUserActivity(true, true);
 				_userActivity = (UserActivityEntity)relatedEntity;
-				this.PerformSetupSyncRelatedEntity( _userActivity, new PropertyChangedEventHandler( OnUserActivityPropertyChanged ), "UserActivity", AmstaJanBonga.Business.RelationClasses.StaticUserRoleActivityRelations.UserActivityEntityUsingUserActivityIdStatic, true, ref _alreadyFetchedUserActivity, new string[] {  } );
+				this.PerformSetupSyncRelatedEntity( _userActivity, new PropertyChangedEventHandler( OnUserActivityPropertyChanged ), "UserActivity", AmstaJanBonga.Business.RelationClasses.StaticUserRoleActivityRelations.UserActivityEntityUsingUserActivityNameStatic, true, ref _alreadyFetchedUserActivity, new string[] {  } );
 			}
 		}
 
@@ -583,20 +583,20 @@ namespace AmstaJanBonga.Business.EntityClasses
 
 		/// <summary> Fetches the entity from the persistent storage. Fetch simply reads the entity into an EntityFields object. </summary>
 		/// <param name="roleTypeEnum">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
-		/// <param name="userActivityId">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
+		/// <param name="userActivityName">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <param name="contextToUse">The context to add the entity to if the fetch was succesful. </param>
 		/// <param name="excludedIncludedFields">The list of IEntityField objects which have to be excluded or included for the fetch. 
 		/// If null or empty, all fields are fetched (default). If an instance of ExcludeIncludeFieldsList is passed in and its ExcludeContainedFields property
 		/// is set to false, the fields contained in excludedIncludedFields are kept in the query, the rest of the fields in the query are excluded.</param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		private bool Fetch(System.Byte roleTypeEnum, System.Int32 userActivityId, IPrefetchPath prefetchPathToUse, Context contextToUse, ExcludeIncludeFieldsList excludedIncludedFields)
+		private bool Fetch(System.Byte roleTypeEnum, System.String userActivityName, IPrefetchPath prefetchPathToUse, Context contextToUse, ExcludeIncludeFieldsList excludedIncludedFields)
 		{
 			try
 			{
 				OnFetch();
 				this.Fields[(int)UserRoleActivityFieldIndex.RoleTypeEnum].ForcedCurrentValueWrite(roleTypeEnum);
-				this.Fields[(int)UserRoleActivityFieldIndex.UserActivityId].ForcedCurrentValueWrite(userActivityId);
+				this.Fields[(int)UserRoleActivityFieldIndex.UserActivityName].ForcedCurrentValueWrite(userActivityName);
 				CreateDAOInstance().FetchExisting(this, this.Transaction, prefetchPathToUse, contextToUse, excludedIncludedFields);
 				return (this.Fields.State == EntityState.Fetched);
 			}
@@ -682,14 +682,14 @@ namespace AmstaJanBonga.Business.EntityClasses
 			set	{ SetValue((int)UserRoleActivityFieldIndex.RoleTypeEnum, value, true); }
 		}
 
-		/// <summary> The UserActivityId property of the Entity UserRoleActivity<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "UserRoleActivity"."UserActivityId"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
+		/// <summary> The UserActivityName property of the Entity UserRoleActivity<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "UserRoleActivity"."UserActivityName"<br/>
+		/// Table field type characteristics (type, precision, scale, length): VarChar, 0, 0, 50<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, false</remarks>
-		public virtual System.Int32 UserActivityId
+		public virtual System.String UserActivityName
 		{
-			get { return (System.Int32)GetValue((int)UserRoleActivityFieldIndex.UserActivityId, true); }
-			set	{ SetValue((int)UserRoleActivityFieldIndex.UserActivityId, value, true); }
+			get { return (System.String)GetValue((int)UserRoleActivityFieldIndex.UserActivityName, true); }
+			set	{ SetValue((int)UserRoleActivityFieldIndex.UserActivityName, value, true); }
 		}
 
 

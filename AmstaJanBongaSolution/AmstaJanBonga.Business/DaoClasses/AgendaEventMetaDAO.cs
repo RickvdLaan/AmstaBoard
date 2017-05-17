@@ -25,7 +25,6 @@ namespace AmstaJanBonga.Business.DaoClasses
 	
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces
 	// __LLBLGENPRO_USER_CODE_REGION_END
-	
 
 	/// <summary>General DAO class for the AgendaEventMeta Entity. It will perform database oriented actions for a entity of type 'AgendaEventMetaEntity'.</summary>
 	public partial class AgendaEventMetaDAO : CommonDaoBase
@@ -106,7 +105,6 @@ namespace AmstaJanBonga.Business.DaoClasses
 		
 		// __LLBLGENPRO_USER_CODE_REGION_START CustomDAOCode
 		// __LLBLGENPRO_USER_CODE_REGION_END
-		
 		#endregion
 		
 		#region Included Code
