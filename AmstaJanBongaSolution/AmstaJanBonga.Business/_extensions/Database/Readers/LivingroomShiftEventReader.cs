@@ -3,6 +3,7 @@ using AmstaJanBonga.Business.DaoClasses;
 using AmstaJanBonga.Business.EntityClasses;
 using AmstaJanBonga.Business.Enums;
 using AmstaJanBonga.Business.HelperClasses;
+using AmstaJanBonga.Business.Security;
 using Rlaan.Toolkit.Extensions;
 using SD.LLBLGen.Pro.ORMSupportClasses;
 using System;
@@ -15,6 +16,8 @@ namespace AmstaJanBonga.Business.Database.Readers
     {
         public static LivingRoomShiftEventEntity GetShiftByIds(int employeeId, int livingRoomId, DateTime date, ShiftTypeEnum shiftType, bool throwExceptionWhenNotFound)
         {
+            Authentication.AuthenticateActivity("");
+
             var shift = new LivingRoomShiftEventEntity(date, employeeId, livingRoomId, (byte)shiftType);
 
             // The hidden field is set to -1 if a '+' was clicked.
@@ -36,6 +39,8 @@ namespace AmstaJanBonga.Business.Database.Readers
 
         public static DataTable GetAllShiftsDistinctByLivingRoomId(int livingRoomId)
         {
+            Authentication.AuthenticateActivity("");
+
             // Result fields.
             var fields = new ResultsetFields(3)
             {
@@ -76,6 +81,8 @@ namespace AmstaJanBonga.Business.Database.Readers
 
         public static LivingRoomShiftEventCollection GetAllShiftsFilteredByLivingroomAndDate(int livingRoomId, DateTime date)
         {
+            Authentication.AuthenticateActivity("");
+
             var shifts = new LivingRoomShiftEventCollection();
 
             // Sorter
@@ -105,6 +112,8 @@ namespace AmstaJanBonga.Business.Database.Readers
 
         public static List<DateTime> GetAllUsedDatesByLivingRoomId(int livingRoomId)
         {
+            Authentication.AuthenticateActivity("");
+
             // Result fields.
             var fields = new ResultsetFields(1)
             {

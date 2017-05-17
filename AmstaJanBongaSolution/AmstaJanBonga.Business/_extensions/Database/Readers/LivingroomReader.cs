@@ -12,31 +12,33 @@ namespace AmstaJanBonga.Business.Database.Readers
         #region Entities
 
         /// <summary>
-        /// Gets the livingroom with the corresponding livingroom id or null. 
+        /// Gets the living room with the corresponding living room id or null. 
         /// </summary>
         /// <param name="livingRoomId">The living rooms unique id.</param>
         /// <param name="name">The name of the living room.</param>
         /// <param name="colourType">The colour of the living room, default is grey.</param>
         /// <returns></returns>
-        public static LivingRoomEntity GetLivingroomById(int livingRoomId)
+        public static LivingRoomEntity GetLivingRoomById(int livingRoomId)
         {
+            Authentication.AuthenticateActivity("ReadLivingRoom");
+
             return new LivingRoomEntity(livingRoomId);
         }
 
         /// <summary>
         /// Gets the livingroom with the corresponding livingroom id or null.
         /// </summary>
-        /// <param name="livingroomId">The living rooms unique id.</param>
+        /// <param name="LivingRoomId">The living rooms unique id.</param>
         /// <param name="name">The name of the living room.</param>
         /// <param name="colourType">The colour of the living room, default is grey.</param>
         /// <param name="throwExceptionWhenNotFound"></param>
         /// <returns></returns>
-        public static LivingRoomEntity GetLivingroomById(int livingroomId, bool throwExceptionWhenNotFound)
+        public static LivingRoomEntity GetLivingRoomById(int LivingRoomId, bool throwExceptionWhenNotFound)
         {
-            var livingroom = GetLivingroomById(livingroomId);
+            var livingroom = GetLivingRoomById(LivingRoomId);
 
             if (livingroom.IsNew && throwExceptionWhenNotFound)
-                throw new Exception("Livingroom not found by id {0}.".FormatString(livingroomId));
+                throw new Exception("Living room not found by id {0}.".FormatString(LivingRoomId));
 
             return livingroom;
         }

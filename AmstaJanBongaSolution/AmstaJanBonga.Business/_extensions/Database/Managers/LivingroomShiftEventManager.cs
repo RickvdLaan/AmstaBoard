@@ -1,6 +1,7 @@
 ﻿using AmstaJanBonga.Business.CollectionClasses;
 using AmstaJanBonga.Business.EntityClasses;
 using AmstaJanBonga.Business.Enums;
+using AmstaJanBonga.Business.Security;
 using System;
 
 namespace AmstaJanBonga.Business.Database.Managers
@@ -9,6 +10,8 @@ namespace AmstaJanBonga.Business.Database.Managers
     {
         public static void UpdateShift(LivingRoomShiftEventEntity oldShift, LivingRoomShiftEventEntity newShift)
         {
+            Authentication.AuthenticateActivity("");
+
             if  (oldShift.EmployeeId    == newShift.EmployeeId   &&
                 oldShift.LivingRoomId  == newShift.LivingRoomId  &&
                 oldShift.ShiftTypeEnum == newShift.ShiftTypeEnum &&
@@ -52,11 +55,15 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// <param name="shifts"></param>
         public static void InsertMulti(LivingRoomShiftEventCollection shifts)
         {
+            Authentication.AuthenticateActivity("");
+
             shifts.SaveMulti();
         }
 
         public static void UpdateMulti(LivingRoomShiftEventCollection originalCollection, LivingRoomShiftEventCollection newCollection)
         {
+            Authentication.AuthenticateActivity("");
+
             var tracker = new LivingRoomShiftEventCollection();
             originalCollection.RemovedEntitiesTracker = tracker;
 

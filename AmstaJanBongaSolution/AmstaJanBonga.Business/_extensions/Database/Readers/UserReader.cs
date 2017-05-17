@@ -2,6 +2,7 @@
 using AmstaJanBonga.Business.EntityClasses;
 using AmstaJanBonga.Business.Enums;
 using AmstaJanBonga.Business.HelperClasses;
+using AmstaJanBonga.Business.Security;
 using Rlaan.Toolkit.Extensions;
 using SD.LLBLGen.Pro.ORMSupportClasses;
 using System;
@@ -24,6 +25,8 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static UserEntity GetUserById(int userId)
         {
+            Authentication.AuthenticateActivity("");
+
             return new UserEntity(userId);
         }
 
@@ -51,6 +54,8 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static UserEntity GetUserByUsernameAndPassword(string username, string password)
         {
+            Authentication.AuthenticateActivity("");
+
             var user = new UserEntity();
             user.FetchUsingUCUsername(username);
             
@@ -71,6 +76,8 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static UserCollection GetAllUsers()
         {
+            Authentication.AuthenticateActivity("");
+
             var users = new UserCollection();
             users.GetMulti(null, 0);
 
@@ -79,6 +86,8 @@ namespace AmstaJanBonga.Business.Database.Readers
 
         public static UserCollection GetAllUnlinkedUsers()
         {
+            Authentication.AuthenticateActivity("");
+
             var users = new UserCollection();
             var bucket = new RelationPredicateBucket() as IRelationPredicateBucket;
             
@@ -102,6 +111,8 @@ namespace AmstaJanBonga.Business.Database.Readers
 
         public static UserCollection GetAllUnlinkedUsers(int? includeUserId)
         {
+            Authentication.AuthenticateActivity("");
+
             if (!includeUserId.HasValue)
                 return GetAllUnlinkedUsers();
 
@@ -136,6 +147,8 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static int GetAllUsersDBCount()
         {
+            Authentication.AuthenticateActivity("");
+
             return new UserCollection().GetDbCount();
         }
 
@@ -146,6 +159,8 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static bool IsAvailableUsername(string username)
         {
+            Authentication.AuthenticateActivity("");
+
             // Attempts to fetch the user based on the provided username.
             return !(new UserEntity().FetchUsingUCUsername(username));
         }
@@ -158,6 +173,8 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static bool IsUserInRole(UserEntity user, params RoleTypeEnum[] roleTypes)
         {
+            Authentication.AuthenticateActivity("");
+
             // Checks if the user exists and if the user is equal to any of the provided roletypes.
             return !user.IsNew && roleTypes.Any(roleType => user.UserRole.RoleTypeEnum == (short)roleType);
         }

@@ -1,5 +1,6 @@
 ﻿using AmstaJanBonga.Business.Database.Readers;
 using AmstaJanBonga.Business.EntityClasses;
+using AmstaJanBonga.Business.Security;
 using System;
 
 namespace AmstaJanBonga.Business.Database.Managers
@@ -8,6 +9,8 @@ namespace AmstaJanBonga.Business.Database.Managers
     {
         public static void Insert(int livingroomId, DateTime date, string description)
         {
+            Authentication.AuthenticateActivity("");
+
             var livingroomGeneralEvent = new LivingRoomGeneralEventEntity()
             {
                 LivingRoomId = livingroomId,
@@ -21,6 +24,8 @@ namespace AmstaJanBonga.Business.Database.Managers
 
         public static void Update(int livingroomId, DateTime date, string description)
         {
+            Authentication.AuthenticateActivity("");
+
             var livingroomGeneralEvent = LivingRoomGeneralEventReader.GetLivingroomGeneralByIdAndDate(livingroomId, date, true);
 
             livingroomGeneralEvent.Description = description;

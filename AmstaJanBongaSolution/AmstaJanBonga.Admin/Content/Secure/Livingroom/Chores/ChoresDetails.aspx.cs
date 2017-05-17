@@ -43,12 +43,12 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
             }
         }
 
-        private LivingRoomEntity Livingroom
+        private LivingRoomEntity LivingRoom
         {
             get
             {
                 if (this._livingroom == null && this.HasLivingRoomId)
-                    this._livingroom = LivingRoomReader.GetLivingroomById(Url.QueryStringParser.GetInt("LivingRoomId"), true);
+                    this._livingroom = LivingRoomReader.GetLivingRoomById(Url.QueryStringParser.GetInt("LivingRoomId"), true);
 
                 return this._livingroom;
             }
@@ -59,7 +59,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
             get
             {
                 if (this._chores == null)
-                    this._chores = LivingRoomChoreEventReader.GetAllChoresFilteredByLivingroomAndDate(this.Livingroom.Id, this.QueryStringDate.Date);
+                    this._chores = LivingRoomChoreEventReader.GetAllChoresFilteredByLivingroomAndDate(this.LivingRoom.Id, this.QueryStringDate.Date);
 
                 return this._chores;
             }
@@ -76,9 +76,9 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
                 if (this.HasLivingRoomId)
                 {
                     if (this.HasDate)
-                        this._hlEdit.NavigateUrl = "~/Content/Secure/Livingroom/Chores/ChoresAddEdit.aspx?LivingRoomId={0}&Date={1}".FormatString(this.Livingroom.Id, this.QueryStringDate.Date);
+                        this._hlEdit.NavigateUrl = "~/Content/Secure/Livingroom/Chores/ChoresAddEdit.aspx?LivingRoomId={0}&Date={1}".FormatString(this.LivingRoom.Id, this.QueryStringDate.Date);
 
-                    this._hlReturn.NavigateUrl = "~/Content/Secure/Livingroom/Chores/ChoresOverview.aspx?LivingRoomId={0}".FormatString(this.Livingroom.Id);
+                    this._hlReturn.NavigateUrl = "~/Content/Secure/Livingroom/Chores/ChoresOverview.aspx?LivingRoomId={0}".FormatString(this.LivingRoom.Id);
                 }
             }
         }
@@ -90,7 +90,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
             if (this.HasLivingRoomId && this.HasDate)
             {
                 this._lblDate.Text = this.QueryStringDate.ToString("dd-MM-yyyy");
-                this._lblLivingroom.Text = this.Livingroom.Name;
+                this._lblLivingroom.Text = this.LivingRoom.Name;
 
                 foreach (var chore in this.Chores)
                 {

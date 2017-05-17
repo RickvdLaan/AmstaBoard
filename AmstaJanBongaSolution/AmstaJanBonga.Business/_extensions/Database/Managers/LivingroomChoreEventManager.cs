@@ -1,6 +1,7 @@
 ﻿using AmstaJanBonga.Business.CollectionClasses;
 using AmstaJanBonga.Business.EntityClasses;
 using AmstaJanBonga.Business.Enums;
+using AmstaJanBonga.Business.Security;
 using System;
 
 namespace AmstaJanBonga.Business.Database.Managers
@@ -9,6 +10,8 @@ namespace AmstaJanBonga.Business.Database.Managers
     {
         public static void UpdateChore(LivingRoomChoreEventEntity oldChore, LivingRoomChoreEventEntity newChore)
         {
+            Authentication.AuthenticateActivity("");
+
             if (oldChore.PatientId         == newChore.PatientId         &&
                 oldChore.LivingRoomId      == newChore.LivingRoomId      &&
                 oldChore.TimeOfDayTypeEnum == newChore.TimeOfDayTypeEnum &&
@@ -34,6 +37,8 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// <returns></returns>
         public static LivingRoomChoreEventEntity CreateLivingroomChoreEventEntity(int patientId, int livingroomId, DateTime date, TimeOfDayTypeEnum timeOfDay)
         {
+            Authentication.AuthenticateActivity("");
+
             var chore = new LivingRoomChoreEventEntity()
             {
                 PatientId = patientId,
@@ -52,11 +57,15 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// <param name="chore"></param>
         public static void InsertMulti(LivingRoomChoreEventCollection chores)
         {
+            Authentication.AuthenticateActivity("");
+
             chores.SaveMulti();
         }
 
         public static void UpdateMulti(LivingRoomChoreEventCollection originalCollection, LivingRoomChoreEventCollection newCollection)
         {
+            Authentication.AuthenticateActivity("");
+
             var tracker = new LivingRoomChoreEventCollection();
             originalCollection.RemovedEntitiesTracker = tracker;
 

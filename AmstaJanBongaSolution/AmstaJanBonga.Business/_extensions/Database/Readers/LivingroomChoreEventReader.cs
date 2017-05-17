@@ -3,6 +3,7 @@ using AmstaJanBonga.Business.DaoClasses;
 using AmstaJanBonga.Business.EntityClasses;
 using AmstaJanBonga.Business.Enums;
 using AmstaJanBonga.Business.HelperClasses;
+using AmstaJanBonga.Business.Security;
 using Rlaan.Toolkit.Extensions;
 using SD.LLBLGen.Pro.ORMSupportClasses;
 using System;
@@ -15,6 +16,8 @@ namespace AmstaJanBonga.Business.Database.Readers
     {
         public static LivingRoomChoreEventEntity GetChoreByIds(int patientId, int livingroomId, DateTime date, TimeOfDayTypeEnum timeOfDay, bool throwExceptionWhenNotFound)
         {
+            Authentication.AuthenticateActivity("");
+
             var chore = new LivingRoomChoreEventEntity(date, livingroomId, patientId, (byte)timeOfDay);
 
             // The hidden field is set to -1 if a '+' was clicked.
@@ -36,6 +39,8 @@ namespace AmstaJanBonga.Business.Database.Readers
 
         public static LivingRoomChoreEventCollection GetAllChoresFilteredByLivingroomAndDate(int livingroomId, DateTime date)
         {
+            Authentication.AuthenticateActivity("");
+
             var chores = new LivingRoomChoreEventCollection();
 
             // Sorter
@@ -58,6 +63,8 @@ namespace AmstaJanBonga.Business.Database.Readers
 
         public static DataTable GetAllChoresDistinctByLivingRoomId(int livingroomId)
         {
+            Authentication.AuthenticateActivity("");
+
             // Result fields.
             var fields = new ResultsetFields(3)
             {
@@ -96,6 +103,8 @@ namespace AmstaJanBonga.Business.Database.Readers
 
         public static List<DateTime> GetAllUsedDatesByLivingRoomId(int livingroomId)
         {
+            Authentication.AuthenticateActivity("");
+
             // Result fields.
             var fields = new ResultsetFields(1)
             {

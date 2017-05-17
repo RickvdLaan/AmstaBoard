@@ -16,6 +16,8 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// <returns></returns>
         public static UserEntity InsertUser(string username, string password, RoleTypeEnum roleType)
         {
+            Authentication.AuthenticateActivity("");
+
             var salt = RNGCSP.GenerateRandomSalt();
 
             var user = new UserEntity()
@@ -41,6 +43,8 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// <returns></returns>
         public static UserEntity UpdateUserRole(UserEntity user, RoleTypeEnum roleType)
         {
+            Authentication.AuthenticateActivity("");
+
             if (user.RoleTypeEnum != (byte)roleType)
             {
                 user.RoleTypeEnum = (byte)roleType;
@@ -53,6 +57,8 @@ namespace AmstaJanBonga.Business.Database.Managers
 
         public static void MarkUserAsDeleted()
         {
+            Authentication.AuthenticateActivity("");
+
             // Won't be implemented untill the entire database is done.
             throw new NotImplementedException();
         }

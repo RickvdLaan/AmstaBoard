@@ -2,6 +2,7 @@
 using AmstaJanBonga.Business.DaoClasses;
 using AmstaJanBonga.Business.EntityClasses;
 using AmstaJanBonga.Business.HelperClasses;
+using AmstaJanBonga.Business.Security;
 using Rlaan.Toolkit.Extensions;
 using SD.LLBLGen.Pro.ORMSupportClasses;
 using System;
@@ -14,6 +15,8 @@ namespace AmstaJanBonga.Business.Database.Readers
     {
         public static LivingRoomGeneralEventCollection GetAllLivingroomGeneralEventsByLivingRoomId(int livingroomId)
         {
+            Authentication.AuthenticateActivity("");
+
             var livingroomGeneralEvents = new LivingRoomGeneralEventCollection();
 
             var predicate = new PredicateExpression();
@@ -27,6 +30,8 @@ namespace AmstaJanBonga.Business.Database.Readers
 
         public static List<DateTime> GetAllUsedDatesByLivingRoomId(int livingroomId)
         {
+            Authentication.AuthenticateActivity("");
+
             // Result fields.
             var fields = new ResultsetFields(1)
             {
@@ -62,6 +67,8 @@ namespace AmstaJanBonga.Business.Database.Readers
 
         public static LivingRoomGeneralEventEntity GetLivingroomGeneralByIdAndDate(int livingroomId, DateTime date, bool throwExceptionWhenNotFound)
         {
+            Authentication.AuthenticateActivity("");
+
             var livingroomGeneralEvent = new LivingRoomGeneralEventEntity(date, livingroomId);
 
             if (throwExceptionWhenNotFound && livingroomGeneralEvent.IsNew)

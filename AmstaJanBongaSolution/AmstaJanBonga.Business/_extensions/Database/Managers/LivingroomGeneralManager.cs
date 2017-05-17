@@ -1,5 +1,6 @@
 ﻿using AmstaJanBonga.Business.Database.Readers;
 using AmstaJanBonga.Business.EntityClasses;
+using AmstaJanBonga.Business.Security;
 using System;
 
 namespace AmstaJanBonga.Business.Database.Managers
@@ -8,6 +9,8 @@ namespace AmstaJanBonga.Business.Database.Managers
     {
         public static void InsertOrUpdate(int livingroomId, string description)
         {
+            Authentication.AuthenticateActivity("");
+
             var livingroomGeneral = new LivingRoomGeneralEntity(livingroomId);
 
             if (livingroomGeneral.IsNew)

@@ -12,6 +12,8 @@ namespace AmstaJanBonga.Business.Database.Readers
     {
         public static LivingRoomGeneralEntity GetLivingroomGeneralById(int livingroomId, bool throwExceptionWhenNotFound)
         {
+            Authentication.AuthenticateActivity("");
+
             var livingroomGeneral = new LivingRoomGeneralEntity(livingroomId);
 
             if (throwExceptionWhenNotFound && livingroomGeneral.IsNew)

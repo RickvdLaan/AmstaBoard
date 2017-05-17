@@ -2,6 +2,7 @@
 using AmstaJanBonga.Business.DaoClasses;
 using AmstaJanBonga.Business.EntityClasses;
 using AmstaJanBonga.Business.HelperClasses;
+using AmstaJanBonga.Business.Security;
 using Rlaan.Toolkit.Extensions;
 using SD.LLBLGen.Pro.ORMSupportClasses;
 using System;
@@ -20,6 +21,8 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static PatientEntity GetPatientById(int patientId)
         {
+            Authentication.AuthenticateActivity("");
+
             return new PatientEntity(patientId);
         }
 
@@ -49,6 +52,8 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static PatientCollection GetAllPatients()
         {
+            Authentication.AuthenticateActivity("");
+
             var patients = new PatientCollection();
             patients.GetMulti(null, 0);
 
@@ -57,6 +62,8 @@ namespace AmstaJanBonga.Business.Database.Readers
 
         public static PatientCollection GetAllPatientsByLivingRoomId(int livingroomId)
         {
+            Authentication.AuthenticateActivity("");
+
             // Collection
             var patients = new PatientCollection();
 
@@ -81,6 +88,8 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static DataTable GetAllPatientsJoinedWithLivingroom()
         {
+            Authentication.AuthenticateActivity("");
+
             // The fields in the result.
             var fields = new ResultsetFields(3);
             fields.DefineField(PatientFields.Id, 0);
@@ -112,6 +121,8 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static int GetAllPatientsDBCount()
         {
+            Authentication.AuthenticateActivity("");
+
             return new PatientCollection().GetDbCount();
         }
 

@@ -1,4 +1,5 @@
 ﻿using AmstaJanBonga.Business.EntityClasses;
+using AmstaJanBonga.Business.Security;
 using Rlaan.Toolkit.Configuration;
 using System;
 using System.IO;
@@ -19,6 +20,8 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// <returns></returns>
         public static PatientEntity InsertPatient(int livingroomId, string firstName, FileUpload fileUpload)
         {
+            Authentication.AuthenticateActivity("");
+
             // Saving the patient wihtout an image, image is mandetory.
             var patient = new PatientEntity()
             {
@@ -73,6 +76,8 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// <returns></returns>
         public static PatientEntity UpdatePatient(PatientEntity patient, int livingroomId, string firstName, FileUpload fileUpload)
         {
+            Authentication.AuthenticateActivity("");
+
             // The path without the filename
             var path = HttpContext.Current.Server.MapPath(
                    string.Format("{0}{1}",
@@ -105,6 +110,8 @@ namespace AmstaJanBonga.Business.Database.Managers
 
         public static void MarkUserAsDeleted()
         {
+            Authentication.AuthenticateActivity("");
+
             // Won't be implemented untill the entire database is done.
             throw new NotImplementedException();
         }

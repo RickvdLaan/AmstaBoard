@@ -1,5 +1,6 @@
 ﻿using AmstaJanBonga.Business.Database.Readers;
 using AmstaJanBonga.Business.EntityClasses;
+using AmstaJanBonga.Business.Security;
 using Rlaan.Toolkit.Configuration;
 using Rlaan.Toolkit.Extensions;
 using System;
@@ -21,6 +22,8 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// <returns></returns>
         public static EmployeeEntity InsertEmployee(int livingroomId, int? userId, string firstName, FileUpload fileUpload)
         {
+            Authentication.AuthenticateActivity("");
+
             if (userId.HasValue)
             {
                 // Multiple people might be working in the CMS at the same time, attempting to connect the same user.
@@ -88,6 +91,8 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// <returns></returns>
         public static EmployeeEntity UpdateEmployee(EmployeeEntity employee, int livingroomId, int? userId, string firstName, FileUpload fileUpload)
         {
+            Authentication.AuthenticateActivity("");
+
             if (userId.HasValue)
             {
                 // Multiple people might be working in the CMS at the same time, attempting to connect the same user.
@@ -130,6 +135,8 @@ namespace AmstaJanBonga.Business.Database.Managers
 
         public static void DeleteEmployeeImage(EmployeeEntity employee)
         {
+            Authentication.AuthenticateActivity("");
+
             if (employee.IsNew || !string.IsNullOrEmpty(employee.ImagePath))
                 return;
 
@@ -141,6 +148,8 @@ namespace AmstaJanBonga.Business.Database.Managers
 
         public static void DeleteEmployeeImage(int employeeId, bool throwExceptionIfNotFound)
         {
+            Authentication.AuthenticateActivity("");
+
             var employee = EmployeeReader.GetEmployeeById(employeeId, throwExceptionIfNotFound);
 
             DeleteEmployeeImage(employee);

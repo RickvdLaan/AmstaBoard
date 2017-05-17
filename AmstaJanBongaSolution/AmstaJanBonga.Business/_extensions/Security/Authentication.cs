@@ -57,6 +57,10 @@ namespace AmstaJanBonga.Business.Security
         /// <param name="activity"></param>
         public static void AuthenticateActivity(string activity)
         {
+            // Validating whether the provided activity isn't null. empty or consists only of white-space characters.
+            if (string.IsNullOrWhiteSpace(activity))
+                throw new InvalidOperationException("Provided activity is empty.");
+
             // Validating whether the current user is authenticated.
             if (IsAuthenticated)
             {
@@ -67,6 +71,7 @@ namespace AmstaJanBonga.Business.Security
                         return;
                 }
 
+                // @Fixme: Implement a "not enough privileges" error page.
                 // User doesn't have the right privileges. 
                 throw new SecurityException("The current user by id: {0} doesn't have enough privileges to access acctivity {1}."
                     .FormatString(AuthenticatedUser.Id, activity));
@@ -76,7 +81,7 @@ namespace AmstaJanBonga.Business.Security
             {
                 // Logging the current event for investigation.
                 if (Project.Environment.IsStagingEnvironment || Project.Environment.IsLiveEnvironment)
-                    Log.Object(AuthenticatedUser, "The AuthenticatedUser wasn't logged in.");
+                    Log.Object(AuthenticatedUser, "The AuthenticatedUser wasn't logged in on the AuthenticateActivity check.");
 
                 // Redirecting to the login page.
                 HttpContext.Current.Response.Redirect("~/Login");

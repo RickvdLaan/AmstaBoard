@@ -46,7 +46,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
             get
             {
                 if (this._livingroom == null && this.HasLivingRoomId)
-                    this._livingroom = LivingRoomReader.GetLivingroomById(Url.QueryStringParser.GetInt("LivingRoomId"), true);
+                    this._livingroom = LivingRoomReader.GetLivingRoomById(Url.QueryStringParser.GetInt("LivingRoomId"), true);
 
                 return this._livingroom;
             }

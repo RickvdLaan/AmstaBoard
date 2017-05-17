@@ -23,6 +23,8 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static EmployeeEntity GetEmployeeById(int employeeId)
         {
+            Authentication.AuthenticateActivity("");
+
             return new EmployeeEntity(employeeId);
         }
 
@@ -51,6 +53,8 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static EmployeeEntity GetEmployeeByUserId(int userId, bool throwExceptionWhenNotFound)
         {
+            Authentication.AuthenticateActivity("");
+
             var user = new UserEntity(userId);
 
             var predicate = new PredicateExpression
@@ -104,6 +108,8 @@ namespace AmstaJanBonga.Business.Database.Readers
 
         public static EmployeeCollection GetAllEmployeesByLivingRoomId(int livingroomId)
         {
+            Authentication.AuthenticateActivity("");
+
             // Collection
             var employees = new EmployeeCollection();
 
@@ -133,6 +139,8 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static DataTable GetAllEmployeesJoinedWithLivingroom()
         {
+            Authentication.AuthenticateActivity("");
+
             // The fields in the result.
             var fields = new ResultsetFields(3);
             fields.DefineField(EmployeeFields.Id, 0);
