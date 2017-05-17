@@ -1,10 +1,7 @@
 ﻿using AmstaJanBonga.Business.EntityClasses;
+using AmstaJanBonga.Business.Security;
 using Rlaan.Toolkit.Extensions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AmstaJanBonga.Business.Database.Readers
 {

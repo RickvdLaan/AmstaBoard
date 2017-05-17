@@ -45,16 +45,6 @@
                             <%#  ((RoleTypeEnum)Enum.Parse(typeof(RoleTypeEnum), Eval("UserRole.RoleTypeEnum").ToString())).Description() %>
                         </ItemTemplate>
                     </asp:TemplateField>
-
-                    <asp:TemplateField>
-                        <HeaderTemplate>
-                            Account actief
-                        </HeaderTemplate>
-
-                        <ItemTemplate>
-                            <%# Eval("IsActiveToString") %>
-                        </ItemTemplate>
-                    </asp:TemplateField>
     
                     <asp:TemplateField ItemStyle-CssClass="options" HeaderStyle-CssClass="center details-width">
                         <HeaderTemplate>
