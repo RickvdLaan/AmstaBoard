@@ -26,9 +26,9 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
             get { return Url.GetFullUrl.Contains("&Date=") ? "Wijzigen" : "Toevoegen"; }
         }
 
-        private bool HasLivingroomId
+        private bool HasLivingRoomId
         {
-            get { return Url.QueryStringParser.HasParameter("LivingroomId"); }
+            get { return Url.QueryStringParser.HasParameter("LivingRoomId"); }
         }
 
         private bool HasDate
@@ -36,12 +36,12 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
             get { return Url.QueryStringParser.HasParameter("Date"); }
         }
 
-        private int LivingroomId
+        private int LivingRoomId
         {
             get
             {
-                if (this.HasLivingroomId)
-                    this._livingroomId = Url.QueryStringParser.GetInt("LivingroomId");
+                if (this.HasLivingRoomId)
+                    this._livingroomId = Url.QueryStringParser.GetInt("LivingRoomId");
 
                 return this._livingroomId;
             }
@@ -66,7 +66,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
             {
                 this.PreFill();
 
-                this._hlReturn.NavigateUrl = "~/Content/Secure/Livingroom/General/GeneralOverview.aspx?LivingroomId={0}".FormatString(this.LivingroomId);
+                this._hlReturn.NavigateUrl = "~/Content/Secure/Livingroom/General/GeneralOverview.aspx?LivingRoomId={0}".FormatString(this.LivingRoomId);
             }
         }
 
@@ -74,14 +74,14 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
 
         private void PreFill()
         {
-            if (this.HasLivingroomId)
+            if (this.HasLivingRoomId)
             {
-                var livingroomGeneral = LivingroomGeneralReader.GetLivingroomGeneralById(this.LivingroomId, true);
+                var livingroomGeneral = LivingRoomGeneralReader.GetLivingroomGeneralById(this.LivingRoomId, true);
 
                 // Edit
                 if (this.HasDate)
                 {
-                    var livingroomGeneralEvent = LivingroomGeneralEventReader.GetLivingroomGeneralByIdAndDate(this.LivingroomId, this.QueryStringDate.Date, true);
+                    var livingroomGeneralEvent = LivingRoomGeneralEventReader.GetLivingroomGeneralByIdAndDate(this.LivingRoomId, this.QueryStringDate.Date, true);
 
                     // Sets the date.
                     this.ExtendedCalendar.SelectedDate = this.QueryStringDate.Date;
@@ -109,7 +109,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
 
         private void Save()
         {
-            if (this.HasLivingroomId)
+            if (this.HasLivingRoomId)
             {
                 var general = Server.HtmlEncode(this._txtGeneral.Text).Replace(Environment.NewLine, "<br />");
                 var generalEvent = Server.HtmlEncode(this._txtGeneralEvent.Text).Replace(Environment.NewLine, "<br />");
@@ -117,16 +117,16 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
                 // Edit (Update)
                 if (this.HasDate)
                 {
-                    LivingroomGeneralEventManager.Update(this.LivingroomId, this.ExtendedCalendar.SelectedDate.Date, generalEvent);
+                    LivingroomGeneralEventManager.Update(this.LivingRoomId, this.ExtendedCalendar.SelectedDate.Date, generalEvent);
                 }
                 // Add (Insert)
                 else
                 {
-                    LivingroomGeneralEventManager.Insert(this.LivingroomId, this.ExtendedCalendar.SelectedDate.Date, generalEvent);
+                    LivingroomGeneralEventManager.Insert(this.LivingRoomId, this.ExtendedCalendar.SelectedDate.Date, generalEvent);
                 }
 
                 // This one needs to be updated/inserted regardless.
-                LivingroomGeneralManager.InsertOrUpdate(this.LivingroomId, string.IsNullOrWhiteSpace(general) ? null : general);
+                LivingroomGeneralManager.InsertOrUpdate(this.LivingRoomId, string.IsNullOrWhiteSpace(general) ? null : general);
             }
         }
 
@@ -151,13 +151,13 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
             {
                 this.Save();
 
-                Response.Redirect("~/Content/Secure/Livingroom/General/GeneralOverview.aspx?LivingroomId={0}".FormatString(this.LivingroomId));
+                Response.Redirect("~/Content/Secure/Livingroom/General/GeneralOverview.aspx?LivingRoomId={0}".FormatString(this.LivingRoomId));
             }
         }
 
         protected void _btnCancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Content/Secure/Livingroom/General/GeneralOverview.aspx?LivingroomId={0}".FormatString(this.LivingroomId));
+            Response.Redirect("~/Content/Secure/Livingroom/General/GeneralOverview.aspx?LivingRoomId={0}".FormatString(this.LivingRoomId));
         }
 
         #endregion

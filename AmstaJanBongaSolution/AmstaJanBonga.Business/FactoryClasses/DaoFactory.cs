@@ -28,6 +28,20 @@ namespace AmstaJanBonga.Business.FactoryClasses
 		{
 		}
 
+		/// <summary>Creates a new AgendaEventDAO object</summary>
+		/// <returns>the new DAO object ready to use for AgendaEvent Entities</returns>
+		public static AgendaEventDAO CreateAgendaEventDAO()
+		{
+			return new AgendaEventDAO();
+		}
+
+		/// <summary>Creates a new AgendaEventMetaDAO object</summary>
+		/// <returns>the new DAO object ready to use for AgendaEventMeta Entities</returns>
+		public static AgendaEventMetaDAO CreateAgendaEventMetaDAO()
+		{
+			return new AgendaEventMetaDAO();
+		}
+
 		/// <summary>Creates a new EmployeeDAO object</summary>
 		/// <returns>the new DAO object ready to use for Employee Entities</returns>
 		public static EmployeeDAO CreateEmployeeDAO()
@@ -42,39 +56,39 @@ namespace AmstaJanBonga.Business.FactoryClasses
 			return new IpDAO();
 		}
 
-		/// <summary>Creates a new LivingroomDAO object</summary>
-		/// <returns>the new DAO object ready to use for Livingroom Entities</returns>
-		public static LivingroomDAO CreateLivingroomDAO()
+		/// <summary>Creates a new LivingRoomDAO object</summary>
+		/// <returns>the new DAO object ready to use for LivingRoom Entities</returns>
+		public static LivingRoomDAO CreateLivingRoomDAO()
 		{
-			return new LivingroomDAO();
+			return new LivingRoomDAO();
 		}
 
-		/// <summary>Creates a new LivingroomChoreEventDAO object</summary>
-		/// <returns>the new DAO object ready to use for LivingroomChoreEvent Entities</returns>
-		public static LivingroomChoreEventDAO CreateLivingroomChoreEventDAO()
+		/// <summary>Creates a new LivingRoomChoreEventDAO object</summary>
+		/// <returns>the new DAO object ready to use for LivingRoomChoreEvent Entities</returns>
+		public static LivingRoomChoreEventDAO CreateLivingRoomChoreEventDAO()
 		{
-			return new LivingroomChoreEventDAO();
+			return new LivingRoomChoreEventDAO();
 		}
 
-		/// <summary>Creates a new LivingroomGeneralDAO object</summary>
-		/// <returns>the new DAO object ready to use for LivingroomGeneral Entities</returns>
-		public static LivingroomGeneralDAO CreateLivingroomGeneralDAO()
+		/// <summary>Creates a new LivingRoomGeneralDAO object</summary>
+		/// <returns>the new DAO object ready to use for LivingRoomGeneral Entities</returns>
+		public static LivingRoomGeneralDAO CreateLivingRoomGeneralDAO()
 		{
-			return new LivingroomGeneralDAO();
+			return new LivingRoomGeneralDAO();
 		}
 
-		/// <summary>Creates a new LivingroomGeneralEventDAO object</summary>
-		/// <returns>the new DAO object ready to use for LivingroomGeneralEvent Entities</returns>
-		public static LivingroomGeneralEventDAO CreateLivingroomGeneralEventDAO()
+		/// <summary>Creates a new LivingRoomGeneralEventDAO object</summary>
+		/// <returns>the new DAO object ready to use for LivingRoomGeneralEvent Entities</returns>
+		public static LivingRoomGeneralEventDAO CreateLivingRoomGeneralEventDAO()
 		{
-			return new LivingroomGeneralEventDAO();
+			return new LivingRoomGeneralEventDAO();
 		}
 
-		/// <summary>Creates a new LivingroomShiftEventDAO object</summary>
-		/// <returns>the new DAO object ready to use for LivingroomShiftEvent Entities</returns>
-		public static LivingroomShiftEventDAO CreateLivingroomShiftEventDAO()
+		/// <summary>Creates a new LivingRoomShiftEventDAO object</summary>
+		/// <returns>the new DAO object ready to use for LivingRoomShiftEvent Entities</returns>
+		public static LivingRoomShiftEventDAO CreateLivingRoomShiftEventDAO()
 		{
-			return new LivingroomShiftEventDAO();
+			return new LivingRoomShiftEventDAO();
 		}
 
 		/// <summary>Creates a new PatientDAO object</summary>
@@ -91,11 +105,25 @@ namespace AmstaJanBonga.Business.FactoryClasses
 			return new UserDAO();
 		}
 
+		/// <summary>Creates a new UserActivityDAO object</summary>
+		/// <returns>the new DAO object ready to use for UserActivity Entities</returns>
+		public static UserActivityDAO CreateUserActivityDAO()
+		{
+			return new UserActivityDAO();
+		}
+
 		/// <summary>Creates a new UserRoleDAO object</summary>
 		/// <returns>the new DAO object ready to use for UserRole Entities</returns>
 		public static UserRoleDAO CreateUserRoleDAO()
 		{
 			return new UserRoleDAO();
+		}
+
+		/// <summary>Creates a new UserRoleActivityDAO object</summary>
+		/// <returns>the new DAO object ready to use for UserRoleActivity Entities</returns>
+		public static UserRoleActivityDAO CreateUserRoleActivityDAO()
+		{
+			return new UserRoleActivityDAO();
 		}
 
 		/// <summary>Creates a new TypedListDAO object</summary>

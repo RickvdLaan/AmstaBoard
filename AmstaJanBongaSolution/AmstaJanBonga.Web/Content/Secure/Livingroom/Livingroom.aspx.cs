@@ -31,7 +31,7 @@ namespace AmstaJanBonga.Web.Content
                 if (this._employees == null)
                 {
                     this._employees = new EmployeeCollection();
-                    this._employees = EmployeeReader.GetAllEmployeesByLivingroomId(this.CurrentLivingRoomId);
+                    this._employees = EmployeeReader.GetAllEmployeesByLivingRoomId(this.CurrentLivingRoomId);
                 }
 
                 return this._employees;
@@ -46,7 +46,7 @@ namespace AmstaJanBonga.Web.Content
                 if (this._patients == null)
                 {   
                     this._patients = new PatientCollection();
-                    this._patients = PatientReader.GetAllPatientsByLivingroomId(this.CurrentLivingRoomId);
+                    this._patients = PatientReader.GetAllPatientsByLivingRoomId(this.CurrentLivingRoomId);
                 }
 
                 return this._patients;
@@ -89,13 +89,13 @@ namespace AmstaJanBonga.Web.Content
 
         private void DatabindGeneral()
         {
-            var generalEvent = LivingroomGeneralEventReader.GetLivingroomGeneralByIdAndDate(this.CurrentLivingRoomId, DateTime.Now, false);
+            var generalEvent = LivingRoomGeneralEventReader.GetLivingroomGeneralByIdAndDate(this.CurrentLivingRoomId, DateTime.Now, false);
 
             if (generalEvent != null)
             {
-                if (!string.IsNullOrWhiteSpace(generalEvent.LivingroomGeneral.Description))
+                if (!string.IsNullOrWhiteSpace(generalEvent.LivingRoomGeneral.Description))
                 {
-                    this._litGeneral.Text += generalEvent.LivingroomGeneral.Description;
+                    this._litGeneral.Text += generalEvent.LivingRoomGeneral.Description;
                     this._litGeneral.Text += "<br /><br />";
                 }
 
@@ -104,7 +104,7 @@ namespace AmstaJanBonga.Web.Content
             // No date was added, so trying again.
             else
             {
-                var general = LivingroomGeneralReader.GetLivingroomGeneralById(this.CurrentLivingRoomId, false);
+                var general = LivingRoomGeneralReader.GetLivingroomGeneralById(this.CurrentLivingRoomId, false);
 
                 if (general != null && !string.IsNullOrWhiteSpace(general.Description))
                     this._litGeneral.Text += general.Description;
@@ -113,10 +113,10 @@ namespace AmstaJanBonga.Web.Content
 
         private void DatabindShifts()
         {
-            var dataSource = LivingroomShiftEventReader.GetAllShiftsFilteredByLivingroomAndDate(this.CurrentLivingRoomId, DateTime.Now);
+            var dataSource = LivingRoomShiftEventReader.GetAllShiftsFilteredByLivingroomAndDate(this.CurrentLivingRoomId, DateTime.Now);
 
-            var dataSourceDay = new LivingroomShiftEventCollection();
-            var dataSourceEvening = new LivingroomShiftEventCollection();
+            var dataSourceDay = new LivingRoomShiftEventCollection();
+            var dataSourceEvening = new LivingRoomShiftEventCollection();
 
             for (int i = 0; i < dataSource.Count; i++)
             {
@@ -135,11 +135,11 @@ namespace AmstaJanBonga.Web.Content
 
         private void DatabindChores()
         {
-            var chores = LivingroomChoreEventReader.GetAllChoresFilteredByLivingroomAndDate(this.CurrentLivingRoomId, DateTime.Now);
+            var chores = LivingRoomChoreEventReader.GetAllChoresFilteredByLivingroomAndDate(this.CurrentLivingRoomId, DateTime.Now);
 
-            var morning = new LivingroomChoreEventCollection();
-            var afternoon = new LivingroomChoreEventCollection();
-            var evening = new LivingroomChoreEventCollection();
+            var morning = new LivingRoomChoreEventCollection();
+            var afternoon = new LivingRoomChoreEventCollection();
+            var evening = new LivingRoomChoreEventCollection();
 
             foreach (var chore in chores)
             {
@@ -185,8 +185,8 @@ namespace AmstaJanBonga.Web.Content
 
             var shiftType = (ShiftTypeEnum)Enum.Parse(typeof(ShiftTypeEnum), values[1]);
 
-            var oldShift = LivingroomShiftEventReader.GetShiftByIds(values[0].ToInt(), this.CurrentLivingRoomId, DateTime.Now, shiftType, true);
-            var newShift = LivingroomShiftEventReader.GetShiftByIds(linkButton.CommandArgument.ToInt(), this.CurrentLivingRoomId, DateTime.Now, shiftType, false);
+            var oldShift = LivingRoomShiftEventReader.GetShiftByIds(values[0].ToInt(), this.CurrentLivingRoomId, DateTime.Now, shiftType, true);
+            var newShift = LivingRoomShiftEventReader.GetShiftByIds(linkButton.CommandArgument.ToInt(), this.CurrentLivingRoomId, DateTime.Now, shiftType, false);
 
             LivingroomShiftEventManager.UpdateShift(oldShift, newShift);
 
@@ -197,7 +197,7 @@ namespace AmstaJanBonga.Web.Content
         {
             // Day
 
-            var dataSource = ((Repeater)sender).DataSource as LivingroomShiftEventCollection;
+            var dataSource = ((Repeater)sender).DataSource as LivingRoomShiftEventCollection;
 
             if (dataSource.Count < 2)
             {
@@ -226,7 +226,7 @@ namespace AmstaJanBonga.Web.Content
         {
             // Evening
 
-            var dataSource = ((Repeater)sender).DataSource as LivingroomShiftEventCollection;
+            var dataSource = ((Repeater)sender).DataSource as LivingRoomShiftEventCollection;
 
             if (dataSource.Count < 1)
             {
@@ -258,8 +258,8 @@ namespace AmstaJanBonga.Web.Content
 
             var timeOfDay = (TimeOfDayTypeEnum)Enum.Parse(typeof(TimeOfDayTypeEnum), values[1]);
 
-            var oldChore = LivingroomChoreEventReader.GetChoreByIds(values[0].ToInt(), this.CurrentLivingRoomId, DateTime.Now, timeOfDay, true);
-            var newChore = LivingroomChoreEventReader.GetChoreByIds(linkButton.CommandArgument.ToInt(), this.CurrentLivingRoomId, DateTime.Now, timeOfDay, false);
+            var oldChore = LivingRoomChoreEventReader.GetChoreByIds(values[0].ToInt(), this.CurrentLivingRoomId, DateTime.Now, timeOfDay, true);
+            var newChore = LivingRoomChoreEventReader.GetChoreByIds(linkButton.CommandArgument.ToInt(), this.CurrentLivingRoomId, DateTime.Now, timeOfDay, false);
 
             LivingroomChoreEventManager.UpdateChore(oldChore, newChore);
 
@@ -268,7 +268,7 @@ namespace AmstaJanBonga.Web.Content
 
         protected void _repChoreMorning_DataBinding(object sender, EventArgs e)
         {
-            var dataSource = ((Repeater)sender).DataSource as LivingroomChoreEventCollection;
+            var dataSource = ((Repeater)sender).DataSource as LivingRoomChoreEventCollection;
 
             if (dataSource.Count < 2)
             {
@@ -295,7 +295,7 @@ namespace AmstaJanBonga.Web.Content
 
         protected void _repChoreAfternoon_DataBinding(object sender, EventArgs e)
         {
-            var dataSource = ((Repeater)sender).DataSource as LivingroomChoreEventCollection;
+            var dataSource = ((Repeater)sender).DataSource as LivingRoomChoreEventCollection;
             var count = dataSource.Count;
 
             if (count < 2)
@@ -323,7 +323,7 @@ namespace AmstaJanBonga.Web.Content
 
         protected void _repChoreEvening_DataBinding(object sender, EventArgs e)
         {
-            var dataSource = ((Repeater)sender).DataSource as LivingroomChoreEventCollection;
+            var dataSource = ((Repeater)sender).DataSource as LivingRoomChoreEventCollection;
             var count = dataSource.Count;
 
             if (count < 2)

@@ -3,20 +3,8 @@ using System;
 
 namespace AmstaJanBonga.Business.EntityClasses
 {
-    public partial class LivingroomEntity
+    public partial class LivingRoomEntity
     {
-        #region Properties
-
-        /// <summary>
-        /// Gets the ToString() varient of the bool IsActive, translated in Dutch.
-        /// </summary>
-        public string IsActiveToString
-        {
-            get { return ((IsActive == true) ? "Ja" : "Nee"); }
-        }
-
-        #endregion
-
         #region Overrides
 
         protected override void OnSave()

@@ -10,39 +10,39 @@ using System.Data;
 
 namespace AmstaJanBonga.Business.Database.Readers
 {
-    public abstract class LivingroomGeneralEventReader
+    public abstract class LivingRoomGeneralEventReader
     {
-        public static LivingroomGeneralEventCollection GetAllLivingroomGeneralEventsByLivingroomId(int livingroomId)
+        public static LivingRoomGeneralEventCollection GetAllLivingroomGeneralEventsByLivingRoomId(int livingroomId)
         {
-            var livingroomGeneralEvents = new LivingroomGeneralEventCollection();
+            var livingroomGeneralEvents = new LivingRoomGeneralEventCollection();
 
             var predicate = new PredicateExpression();
-            predicate.Add(LivingroomGeneralEventFields.LivingroomId == livingroomId);
-            predicate.Add(LivingroomGeneralEventFields.Date >= DateTime.Now);
+            predicate.Add(LivingRoomGeneralEventFields.LivingRoomId == livingroomId);
+            predicate.Add(LivingRoomGeneralEventFields.Date >= DateTime.Now);
 
             livingroomGeneralEvents.GetMulti(predicate, -1);
 
             return livingroomGeneralEvents;
         }
 
-        public static List<DateTime> GetAllUsedDatesByLivingroomId(int livingroomId)
+        public static List<DateTime> GetAllUsedDatesByLivingRoomId(int livingroomId)
         {
             // Result fields.
             var fields = new ResultsetFields(1)
             {
-                LivingroomGeneralEventFields.Date
+                LivingRoomGeneralEventFields.Date
             };
 
             // Sorting
             var sorter = new SortExpression
             {
-                LivingroomGeneralEventFields.Date | SortOperator.Ascending
+                LivingRoomGeneralEventFields.Date | SortOperator.Ascending
             };
 
             // Predicate
             var predicate = new PredicateExpression
             {
-                LivingroomGeneralEventFields.LivingroomId == livingroomId
+                LivingRoomGeneralEventFields.LivingRoomId == livingroomId
             };
 
             // Create the DataTable, DAO and fill the DataTable with the above query definition/parameters.
@@ -60,9 +60,9 @@ namespace AmstaJanBonga.Business.Database.Readers
             return dates;
         }
 
-        public static LivingroomGeneralEventEntity GetLivingroomGeneralByIdAndDate(int livingroomId, DateTime date, bool throwExceptionWhenNotFound)
+        public static LivingRoomGeneralEventEntity GetLivingroomGeneralByIdAndDate(int livingroomId, DateTime date, bool throwExceptionWhenNotFound)
         {
-            var livingroomGeneralEvent = new LivingroomGeneralEventEntity(date, livingroomId);
+            var livingroomGeneralEvent = new LivingRoomGeneralEventEntity(date, livingroomId);
 
             if (throwExceptionWhenNotFound && livingroomGeneralEvent.IsNew)
                 throw new Exception("Nothing found for livingroom {0} and date {1}.".FormatString(livingroomId, date));

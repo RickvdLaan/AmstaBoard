@@ -60,41 +60,41 @@ namespace AmstaJanBonga.Business.CollectionClasses
 
 		/// <summary> Retrieves in this EmployeeCollection object all EmployeeEntity objects which have data in common with the specified related Entities.
 		/// If one is omitted, that entity is not used as a filter. All current elements in the collection are removed from the collection.</summary>
-		/// <param name="livingroomInstance">LivingroomEntity instance to use as a filter for the EmployeeEntity objects to return</param>
+		/// <param name="livingRoomInstance">LivingRoomEntity instance to use as a filter for the EmployeeEntity objects to return</param>
 		/// <param name="userInstance">UserEntity instance to use as a filter for the EmployeeEntity objects to return</param>
 		/// <returns>true if succeeded, false otherwise</returns>
-		public bool GetMultiManyToOne(IEntity livingroomInstance, IEntity userInstance)
+		public bool GetMultiManyToOne(IEntity livingRoomInstance, IEntity userInstance)
 		{
-			return GetMultiManyToOne(livingroomInstance, userInstance, this.MaxNumberOfItemsToReturn, this.SortClauses, null, 0, 0);
+			return GetMultiManyToOne(livingRoomInstance, userInstance, this.MaxNumberOfItemsToReturn, this.SortClauses, null, 0, 0);
 		}
 
 		/// <summary> Retrieves in this EmployeeCollection object all EmployeeEntity objects which have data in common with the specified related Entities.
 		/// If one is omitted, that entity is not used as a filter. All current elements in the collection are removed from the collection.</summary>
-		/// <param name="livingroomInstance">LivingroomEntity instance to use as a filter for the EmployeeEntity objects to return</param>
+		/// <param name="livingRoomInstance">LivingRoomEntity instance to use as a filter for the EmployeeEntity objects to return</param>
 		/// <param name="userInstance">UserEntity instance to use as a filter for the EmployeeEntity objects to return</param>
 		/// <param name="filter">Extra filter to limit the resultset. Predicate expression can be null, in which case it will be ignored.</param>
 		/// <returns>true if succeeded, false otherwise</returns>
-		public bool GetMultiManyToOne(IEntity livingroomInstance, IEntity userInstance, IPredicateExpression filter)
+		public bool GetMultiManyToOne(IEntity livingRoomInstance, IEntity userInstance, IPredicateExpression filter)
 		{
-			return GetMultiManyToOne(livingroomInstance, userInstance, this.MaxNumberOfItemsToReturn, this.SortClauses, filter, 0, 0);
+			return GetMultiManyToOne(livingRoomInstance, userInstance, this.MaxNumberOfItemsToReturn, this.SortClauses, filter, 0, 0);
 		}
 
 		/// <summary> Retrieves in this EmployeeCollection object all EmployeeEntity objects which have data in common with the specified related Entities.
 		/// If one is omitted, that entity is not used as a filter. All current elements in the collection are removed from the collection.</summary>
-		/// <param name="livingroomInstance">LivingroomEntity instance to use as a filter for the EmployeeEntity objects to return</param>
+		/// <param name="livingRoomInstance">LivingRoomEntity instance to use as a filter for the EmployeeEntity objects to return</param>
 		/// <param name="userInstance">UserEntity instance to use as a filter for the EmployeeEntity objects to return</param>
 		/// <param name="maxNumberOfItemsToReturn"> The maximum number of items to return with this retrieval query.</param>
 		/// <param name="sortClauses">The order by specifications for the sorting of the resultset. When not specified, no sorting is applied.</param>
 		/// <param name="filter">Extra filter to limit the resultset. Predicate expression can be null, in which case it will be ignored.</param>
 		/// <returns>true if succeeded, false otherwise</returns>
-		public bool GetMultiManyToOne(IEntity livingroomInstance, IEntity userInstance, long maxNumberOfItemsToReturn, ISortExpression sortClauses, IPredicateExpression filter)
+		public bool GetMultiManyToOne(IEntity livingRoomInstance, IEntity userInstance, long maxNumberOfItemsToReturn, ISortExpression sortClauses, IPredicateExpression filter)
 		{
-			return GetMultiManyToOne(livingroomInstance, userInstance, maxNumberOfItemsToReturn, sortClauses, filter, 0, 0);
+			return GetMultiManyToOne(livingRoomInstance, userInstance, maxNumberOfItemsToReturn, sortClauses, filter, 0, 0);
 		}
 
 		/// <summary> Retrieves in this EmployeeCollection object all EmployeeEntity objects which have data in common with the specified related Entities.
 		/// If one is omitted, that entity is not used as a filter. All current elements in the collection are removed from the collection.</summary>
-		/// <param name="livingroomInstance">LivingroomEntity instance to use as a filter for the EmployeeEntity objects to return</param>
+		/// <param name="livingRoomInstance">LivingRoomEntity instance to use as a filter for the EmployeeEntity objects to return</param>
 		/// <param name="userInstance">UserEntity instance to use as a filter for the EmployeeEntity objects to return</param>
 		/// <param name="maxNumberOfItemsToReturn"> The maximum number of items to return with this retrieval query.</param>
 		/// <param name="sortClauses">The order by specifications for the sorting of the resultset. When not specified, no sorting is applied.</param>
@@ -102,10 +102,10 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <param name="pageNumber">The page number to retrieve.</param>
 		/// <param name="pageSize">The page size of the page to retrieve.</param>
 		/// <returns>true if succeeded, false otherwise</returns>
-		public virtual bool GetMultiManyToOne(IEntity livingroomInstance, IEntity userInstance, long maxNumberOfItemsToReturn, ISortExpression sortClauses, IPredicateExpression filter, int pageNumber, int pageSize)
+		public virtual bool GetMultiManyToOne(IEntity livingRoomInstance, IEntity userInstance, long maxNumberOfItemsToReturn, ISortExpression sortClauses, IPredicateExpression filter, int pageNumber, int pageSize)
 		{
 			bool validParameters = false;
-			validParameters |= (livingroomInstance!=null);
+			validParameters |= (livingRoomInstance!=null);
 			validParameters |= (userInstance!=null);
 			if(!validParameters)
 			{
@@ -115,28 +115,28 @@ namespace AmstaJanBonga.Business.CollectionClasses
 			{
 				this.Clear();
 			}
-			return DAOFactory.CreateEmployeeDAO().GetMulti(this.Transaction, this, maxNumberOfItemsToReturn, sortClauses, this.EntityFactoryToUse, filter, livingroomInstance, userInstance, pageNumber, pageSize);
+			return DAOFactory.CreateEmployeeDAO().GetMulti(this.Transaction, this, maxNumberOfItemsToReturn, sortClauses, this.EntityFactoryToUse, filter, livingRoomInstance, userInstance, pageNumber, pageSize);
 		}
 
 		/// <summary> Deletes from the persistent storage all Employee entities which have data in common with the specified related Entities. If one is omitted, that entity is not used as a filter.</summary>
 		/// <remarks>Runs directly on the persistent storage. It will not delete entity objects from the current collection.</remarks>
-		/// <param name="livingroomInstance">LivingroomEntity instance to use as a filter for the EmployeeEntity objects to return</param>
+		/// <param name="livingRoomInstance">LivingRoomEntity instance to use as a filter for the EmployeeEntity objects to return</param>
 		/// <param name="userInstance">UserEntity instance to use as a filter for the EmployeeEntity objects to return</param>
 		/// <returns>Amount of entities affected, if the used persistent storage has rowcounting enabled.</returns>
-		public int DeleteMultiManyToOne(IEntity livingroomInstance, IEntity userInstance)
+		public int DeleteMultiManyToOne(IEntity livingRoomInstance, IEntity userInstance)
 		{
-			return DAOFactory.CreateEmployeeDAO().DeleteMulti(this.Transaction, livingroomInstance, userInstance);
+			return DAOFactory.CreateEmployeeDAO().DeleteMulti(this.Transaction, livingRoomInstance, userInstance);
 		}
 
 		/// <summary> Updates in the persistent storage all Employee entities which have data in common with the specified related Entities. If one is omitted, that entity is not used as a filter.
 		/// Which fields are updated in those matching entities depends on which fields are <i>changed</i> in the passed in entity entityWithNewValues. The new values of these fields are read from entityWithNewValues. </summary>
 		/// <param name="entityWithNewValues">EmployeeEntity instance which holds the new values for the matching entities to update. Only changed fields are taken into account</param>
-		/// <param name="livingroomInstance">LivingroomEntity instance to use as a filter for the EmployeeEntity objects to return</param>
+		/// <param name="livingRoomInstance">LivingRoomEntity instance to use as a filter for the EmployeeEntity objects to return</param>
 		/// <param name="userInstance">UserEntity instance to use as a filter for the EmployeeEntity objects to return</param>
 		/// <returns>Amount of entities affected, if the used persistent storage has rowcounting enabled.</returns>
-		public int UpdateMultiManyToOne(EmployeeEntity entityWithNewValues, IEntity livingroomInstance, IEntity userInstance)
+		public int UpdateMultiManyToOne(EmployeeEntity entityWithNewValues, IEntity livingRoomInstance, IEntity userInstance)
 		{
-			return DAOFactory.CreateEmployeeDAO().UpdateMulti(entityWithNewValues, this.Transaction, livingroomInstance, userInstance);
+			return DAOFactory.CreateEmployeeDAO().UpdateMulti(entityWithNewValues, this.Transaction, livingRoomInstance, userInstance);
 		}
 
 

@@ -61,11 +61,11 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="_Extensions\Database\EntityClasses\LivingroomChoreEventEntity.cs" />
+    <Compile Include="_Extensions\Database\EntityClasses\LivingRoomChoreEventEntity.cs" />
     <Compile Include="_Extensions\Database\EntityClasses\EmployeeEntity.cs" />
-    <Compile Include="_Extensions\Database\EntityClasses\LivingroomEntity.cs" />
-    <Compile Include="_Extensions\Database\EntityClasses\LivingroomGeneralEntity.cs" />
-    <Compile Include="_Extensions\Database\EntityClasses\LivingroomGeneralEventEntity.cs" />
+    <Compile Include="_Extensions\Database\EntityClasses\LivingRoomEntity.cs" />
+    <Compile Include="_Extensions\Database\EntityClasses\LivingRoomGeneralEntity.cs" />
+    <Compile Include="_Extensions\Database\EntityClasses\LivingRoomGeneralEventEntity.cs" />
     <Compile Include="_Extensions\Database\EntityClasses\PatientEntity.cs" />
     <Compile Include="_Extensions\Database\EntityClasses\UserEntity.cs" />
     <Compile Include="_Extensions\Database\Managers\EmployeeManager.cs" />
@@ -78,10 +78,10 @@
     <Compile Include="_Extensions\Database\Readers\IpReader.cs" />
     <Compile Include="_Extensions\Database\Readers\LivingroomChoreEventReader.cs" />
     <Compile Include="_Extensions\Database\Readers\EmployeeReader.cs" />
-    <Compile Include="_Extensions\Database\Readers\LivingroomGeneralEventReader.cs" />
-    <Compile Include="_Extensions\Database\Readers\LivingroomGeneralReader.cs" />
-    <Compile Include="_Extensions\Database\Readers\LivingroomReader.cs" />
-    <Compile Include="_Extensions\Database\Readers\LivingroomShiftEventReader.cs" />
+    <Compile Include="_Extensions\Database\Readers\LivingRoomGeneralEventReader.cs" />
+    <Compile Include="_Extensions\Database\Readers\LivingRoomGeneralReader.cs" />
+    <Compile Include="_Extensions\Database\Readers\LivingRoomReader.cs" />
+    <Compile Include="_Extensions\Database\Readers\LivingRoomShiftEventReader.cs" />
     <Compile Include="_Extensions\Database\Readers\PatientReader.cs" />
     <Compile Include="_Extensions\Database\Readers\UserReader.cs" />
     <Compile Include="_Extensions\Enums\ColourTypeEnum.cs" />
@@ -102,37 +102,55 @@
     <Compile Include="AssemblyInfo.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
+    <Compile Include="CollectionClasses\AgendaEventCollection.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
+    <Compile Include="CollectionClasses\AgendaEventMetaCollection.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
     <Compile Include="CollectionClasses\EmployeeCollection.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
     <Compile Include="CollectionClasses\IpCollection.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
-    <Compile Include="CollectionClasses\LivingroomChoreEventCollection.cs">
+    <Compile Include="CollectionClasses\LivingRoomChoreEventCollection.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
-    <Compile Include="CollectionClasses\LivingroomCollection.cs">
+    <Compile Include="CollectionClasses\LivingRoomCollection.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
-    <Compile Include="CollectionClasses\LivingroomGeneralCollection.cs">
+    <Compile Include="CollectionClasses\LivingRoomGeneralCollection.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
-    <Compile Include="CollectionClasses\LivingroomGeneralEventCollection.cs">
+    <Compile Include="CollectionClasses\LivingRoomGeneralEventCollection.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
-    <Compile Include="CollectionClasses\LivingroomShiftEventCollection.cs">
+    <Compile Include="CollectionClasses\LivingRoomShiftEventCollection.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
     <Compile Include="CollectionClasses\PatientCollection.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
+    <Compile Include="CollectionClasses\UserActivityCollection.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
     <Compile Include="CollectionClasses\UserCollection.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
+    <Compile Include="CollectionClasses\UserRoleActivityCollection.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
     <Compile Include="CollectionClasses\UserRoleCollection.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
     <Compile Include="ConstantsEnums.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
+    <Compile Include="DaoClasses\AgendaEventDAO.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
+    <Compile Include="DaoClasses\AgendaEventMetaDAO.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
     <Compile Include="DaoClasses\CommonDaoBase.cs">
@@ -144,19 +162,19 @@
     <Compile Include="DaoClasses\IpDAO.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
-    <Compile Include="DaoClasses\LivingroomChoreEventDAO.cs">
+    <Compile Include="DaoClasses\LivingRoomChoreEventDAO.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
-    <Compile Include="DaoClasses\LivingroomDAO.cs">
+    <Compile Include="DaoClasses\LivingRoomDAO.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
-    <Compile Include="DaoClasses\LivingroomGeneralDAO.cs">
+    <Compile Include="DaoClasses\LivingRoomGeneralDAO.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
-    <Compile Include="DaoClasses\LivingroomGeneralEventDAO.cs">
+    <Compile Include="DaoClasses\LivingRoomGeneralEventDAO.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
-    <Compile Include="DaoClasses\LivingroomShiftEventDAO.cs">
+    <Compile Include="DaoClasses\LivingRoomShiftEventDAO.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
     <Compile Include="DaoClasses\PatientDAO.cs">
@@ -165,10 +183,22 @@
     <Compile Include="DaoClasses\TypedListDAO.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
+    <Compile Include="DaoClasses\UserActivityDAO.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
     <Compile Include="DaoClasses\UserDAO.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
+    <Compile Include="DaoClasses\UserRoleActivityDAO.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
     <Compile Include="DaoClasses\UserRoleDAO.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
+    <Compile Include="EntityClasses\AgendaEventEntity.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
+    <Compile Include="EntityClasses\AgendaEventMetaEntity.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
     <Compile Include="EntityClasses\CommonEntityBase.cs">
@@ -180,25 +210,31 @@
     <Compile Include="EntityClasses\IpEntity.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
-    <Compile Include="EntityClasses\LivingroomChoreEventEntity.cs">
+    <Compile Include="EntityClasses\LivingRoomChoreEventEntity.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
-    <Compile Include="EntityClasses\LivingroomEntity.cs">
+    <Compile Include="EntityClasses\LivingRoomEntity.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
-    <Compile Include="EntityClasses\LivingroomGeneralEntity.cs">
+    <Compile Include="EntityClasses\LivingRoomGeneralEntity.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
-    <Compile Include="EntityClasses\LivingroomGeneralEventEntity.cs">
+    <Compile Include="EntityClasses\LivingRoomGeneralEventEntity.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
-    <Compile Include="EntityClasses\LivingroomShiftEventEntity.cs">
+    <Compile Include="EntityClasses\LivingRoomShiftEventEntity.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
     <Compile Include="EntityClasses\PatientEntity.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
+    <Compile Include="EntityClasses\UserActivityEntity.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
     <Compile Include="EntityClasses\UserEntity.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
+    <Compile Include="EntityClasses\UserRoleActivityEntity.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
     <Compile Include="EntityClasses\UserRoleEntity.cs">
@@ -243,6 +279,12 @@
     <Compile Include="Linq\LinqMetaData.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
+    <Compile Include="RelationClasses\AgendaEventMetaRelations.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
+    <Compile Include="RelationClasses\AgendaEventRelations.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
     <Compile Include="RelationClasses\DynamicRelation.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
@@ -252,25 +294,31 @@
     <Compile Include="RelationClasses\IpRelations.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
-    <Compile Include="RelationClasses\LivingroomChoreEventRelations.cs">
+    <Compile Include="RelationClasses\LivingRoomChoreEventRelations.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
-    <Compile Include="RelationClasses\LivingroomGeneralEventRelations.cs">
+    <Compile Include="RelationClasses\LivingRoomGeneralEventRelations.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
-    <Compile Include="RelationClasses\LivingroomGeneralRelations.cs">
+    <Compile Include="RelationClasses\LivingRoomGeneralRelations.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
-    <Compile Include="RelationClasses\LivingroomRelations.cs">
+    <Compile Include="RelationClasses\LivingRoomRelations.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
-    <Compile Include="RelationClasses\LivingroomShiftEventRelations.cs">
+    <Compile Include="RelationClasses\LivingRoomShiftEventRelations.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
     <Compile Include="RelationClasses\PatientRelations.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
+    <Compile Include="RelationClasses\UserActivityRelations.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
     <Compile Include="RelationClasses\UserRelations.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
+    <Compile Include="RelationClasses\UserRoleActivityRelations.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
     <Compile Include="RelationClasses\UserRoleRelations.cs">

@@ -106,6 +106,18 @@ namespace AmstaJanBonga.Business.FactoryClasses
 		}
 		
 
+		/// <summary>Creates and returns a new EntityQuery for the AgendaEvent entity</summary>
+		public EntityQuery<AgendaEventEntity> AgendaEvent
+		{
+			get { return Create<AgendaEventEntity>(); }
+		}
+
+		/// <summary>Creates and returns a new EntityQuery for the AgendaEventMeta entity</summary>
+		public EntityQuery<AgendaEventMetaEntity> AgendaEventMeta
+		{
+			get { return Create<AgendaEventMetaEntity>(); }
+		}
+
 		/// <summary>Creates and returns a new EntityQuery for the Employee entity</summary>
 		public EntityQuery<EmployeeEntity> Employee
 		{
@@ -118,34 +130,34 @@ namespace AmstaJanBonga.Business.FactoryClasses
 			get { return Create<IpEntity>(); }
 		}
 
-		/// <summary>Creates and returns a new EntityQuery for the Livingroom entity</summary>
-		public EntityQuery<LivingroomEntity> Livingroom
+		/// <summary>Creates and returns a new EntityQuery for the LivingRoom entity</summary>
+		public EntityQuery<LivingRoomEntity> LivingRoom
 		{
-			get { return Create<LivingroomEntity>(); }
+			get { return Create<LivingRoomEntity>(); }
 		}
 
-		/// <summary>Creates and returns a new EntityQuery for the LivingroomChoreEvent entity</summary>
-		public EntityQuery<LivingroomChoreEventEntity> LivingroomChoreEvent
+		/// <summary>Creates and returns a new EntityQuery for the LivingRoomChoreEvent entity</summary>
+		public EntityQuery<LivingRoomChoreEventEntity> LivingRoomChoreEvent
 		{
-			get { return Create<LivingroomChoreEventEntity>(); }
+			get { return Create<LivingRoomChoreEventEntity>(); }
 		}
 
-		/// <summary>Creates and returns a new EntityQuery for the LivingroomGeneral entity</summary>
-		public EntityQuery<LivingroomGeneralEntity> LivingroomGeneral
+		/// <summary>Creates and returns a new EntityQuery for the LivingRoomGeneral entity</summary>
+		public EntityQuery<LivingRoomGeneralEntity> LivingRoomGeneral
 		{
-			get { return Create<LivingroomGeneralEntity>(); }
+			get { return Create<LivingRoomGeneralEntity>(); }
 		}
 
-		/// <summary>Creates and returns a new EntityQuery for the LivingroomGeneralEvent entity</summary>
-		public EntityQuery<LivingroomGeneralEventEntity> LivingroomGeneralEvent
+		/// <summary>Creates and returns a new EntityQuery for the LivingRoomGeneralEvent entity</summary>
+		public EntityQuery<LivingRoomGeneralEventEntity> LivingRoomGeneralEvent
 		{
-			get { return Create<LivingroomGeneralEventEntity>(); }
+			get { return Create<LivingRoomGeneralEventEntity>(); }
 		}
 
-		/// <summary>Creates and returns a new EntityQuery for the LivingroomShiftEvent entity</summary>
-		public EntityQuery<LivingroomShiftEventEntity> LivingroomShiftEvent
+		/// <summary>Creates and returns a new EntityQuery for the LivingRoomShiftEvent entity</summary>
+		public EntityQuery<LivingRoomShiftEventEntity> LivingRoomShiftEvent
 		{
-			get { return Create<LivingroomShiftEventEntity>(); }
+			get { return Create<LivingRoomShiftEventEntity>(); }
 		}
 
 		/// <summary>Creates and returns a new EntityQuery for the Patient entity</summary>
@@ -160,10 +172,22 @@ namespace AmstaJanBonga.Business.FactoryClasses
 			get { return Create<UserEntity>(); }
 		}
 
+		/// <summary>Creates and returns a new EntityQuery for the UserActivity entity</summary>
+		public EntityQuery<UserActivityEntity> UserActivity
+		{
+			get { return Create<UserActivityEntity>(); }
+		}
+
 		/// <summary>Creates and returns a new EntityQuery for the UserRole entity</summary>
 		public EntityQuery<UserRoleEntity> UserRole
 		{
 			get { return Create<UserRoleEntity>(); }
+		}
+
+		/// <summary>Creates and returns a new EntityQuery for the UserRoleActivity entity</summary>
+		public EntityQuery<UserRoleActivityEntity> UserRoleActivity
+		{
+			get { return Create<UserRoleActivityEntity>(); }
 		}
 
 

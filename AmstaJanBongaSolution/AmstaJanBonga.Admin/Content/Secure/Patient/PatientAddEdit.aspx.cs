@@ -57,13 +57,12 @@ namespace AmstaJanBonga.Admin.Content.Secure.Patient
             {
                 this._txtFirstName.Text = this.Patient.FirstName;
                 this._rfvFileUpload.Enabled = false;
-                this._cbActive.Checked = this.Patient.IsActive;
             }
         }
 
         private void PreFillLivingrooms()
         {
-            var livingrooms = LivingroomReader.GetAllLivingrooms();
+            var livingrooms = LivingRoomReader.GetAllLivingRooms();
 
             for (int i = 0; i < livingrooms.Count; i++)
             {
@@ -75,7 +74,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Patient
             // Edit
             if (this.HasPatientId)
             {
-                this._ddlLivingrooms.SelectedValue = this.Patient.LivingroomId.ToString();
+                this._ddlLivingrooms.SelectedValue = this.Patient.LivingRoomId.ToString();
             }
         }
 
@@ -88,12 +87,12 @@ namespace AmstaJanBonga.Admin.Content.Secure.Patient
             // Edit
             if (this.HasPatientId)
             {
-                PatientManager.UpdatePatient(this.Patient, this._ddlLivingrooms.SelectedValue.ToInt(), this._txtFirstName.Text, this._fileUpload, this._cbActive.Checked);
+                PatientManager.UpdatePatient(this.Patient, this._ddlLivingrooms.SelectedValue.ToInt(), this._txtFirstName.Text, this._fileUpload);
             }
             // Add
             else
             {
-                PatientManager.InsertPatient(this._ddlLivingrooms.SelectedValue.ToInt(), this._txtFirstName.Text, this._fileUpload, this._cbActive.Checked);
+                PatientManager.InsertPatient(this._ddlLivingrooms.SelectedValue.ToInt(), this._txtFirstName.Text, this._fileUpload);
             }
         }
 

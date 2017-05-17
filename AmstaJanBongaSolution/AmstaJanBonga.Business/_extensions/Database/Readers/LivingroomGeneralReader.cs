@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace AmstaJanBonga.Business.Database.Readers
 {
-    public abstract class LivingroomGeneralReader
+    public abstract class LivingRoomGeneralReader
     {
-        public static LivingroomGeneralEntity GetLivingroomGeneralById(int livingroomId, bool throwExceptionWhenNotFound)
+        public static LivingRoomGeneralEntity GetLivingroomGeneralById(int livingroomId, bool throwExceptionWhenNotFound)
         {
-            var livingroomGeneral = new LivingroomGeneralEntity(livingroomId);
+            var livingroomGeneral = new LivingRoomGeneralEntity(livingroomId);
 
             if (throwExceptionWhenNotFound && livingroomGeneral.IsNew)
                 throw new Exception("Nothing found for livingroom {0}.".FormatString(livingroomId));

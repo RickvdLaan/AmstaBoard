@@ -38,7 +38,7 @@ namespace AmstaJanBonga.Web
             get
             {
                 if (this._livingRoomId == -1)
-                    this._livingRoomId = EmployeeReader.GetEmployeeByUserId(Authentication.AuthenticatedUser.Id, true).LivingroomId;
+                    this._livingRoomId = EmployeeReader.GetEmployeeByUserId(Authentication.AuthenticatedUser.Id, true).LivingRoomId;
 
                 return this._livingRoomId;
             }

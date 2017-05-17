@@ -28,32 +28,32 @@ namespace AmstaJanBonga.Business.CollectionClasses
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces
 	// __LLBLGENPRO_USER_CODE_REGION_END
 
-	/// <summary>Collection class for storing and retrieving collections of LivingroomEntity objects. </summary>
+	/// <summary>Collection class for storing and retrieving collections of LivingRoomEntity objects. </summary>
 	[Serializable]
-	public partial class LivingroomCollection : EntityCollectionBase<LivingroomEntity>
+	public partial class LivingRoomCollection : EntityCollectionBase<LivingRoomEntity>
 	{
 		/// <summary> CTor</summary>
-		public LivingroomCollection():base(new LivingroomEntityFactory())
+		public LivingRoomCollection():base(new LivingRoomEntityFactory())
 		{
 		}
 
 		/// <summary> CTor</summary>
 		/// <param name="initialContents">The initial contents of this collection.</param>
-		public LivingroomCollection(IEnumerable<LivingroomEntity> initialContents):base(new LivingroomEntityFactory())
+		public LivingRoomCollection(IEnumerable<LivingRoomEntity> initialContents):base(new LivingRoomEntityFactory())
 		{
 			AddRange(initialContents);
 		}
 
 		/// <summary> CTor</summary>
 		/// <param name="entityFactoryToUse">The EntityFactory to use when creating entity objects during a GetMulti() call.</param>
-		public LivingroomCollection(IEntityFactory entityFactoryToUse):base(entityFactoryToUse)
+		public LivingRoomCollection(IEntityFactory entityFactoryToUse):base(entityFactoryToUse)
 		{
 		}
 
 		/// <summary> Private CTor for deserialization</summary>
 		/// <param name="info"></param>
 		/// <param name="context"></param>
-		protected LivingroomCollection(SerializationInfo info, StreamingContext context) : base(info, context)
+		protected LivingRoomCollection(SerializationInfo info, StreamingContext context) : base(info, context)
 		{
 		}
 
@@ -91,7 +91,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <returns>DataTable with the rows requested.</returns>
 		public static DataTable GetMultiAsDataTable(IPredicate selectFilter, long maxNumberOfItemsToReturn, ISortExpression sortClauses, IRelationCollection relations, int pageNumber, int pageSize)
 		{
-			LivingroomDAO dao = DAOFactory.CreateLivingroomDAO();
+			LivingRoomDAO dao = DAOFactory.CreateLivingRoomDAO();
 			return dao.GetMultiAsDataTable(maxNumberOfItemsToReturn, sortClauses, selectFilter, relations, pageNumber, pageSize);
 		}
 
@@ -101,7 +101,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <param name="fieldIndex">Field index of field to which to apply the aggregate function and expression</param>
 		/// <param name="aggregateToApply">Aggregate function to apply. </param>
 		/// <returns>the scalar value requested</returns>
-		public object GetScalar(LivingroomFieldIndex fieldIndex, AggregateFunction aggregateToApply)
+		public object GetScalar(LivingRoomFieldIndex fieldIndex, AggregateFunction aggregateToApply)
 		{
 			return GetScalar(fieldIndex, null, aggregateToApply, null, null, null);
 		}
@@ -111,7 +111,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <param name="expressionToExecute">The expression to execute. Can be null</param>
 		/// <param name="aggregateToApply">Aggregate function to apply. </param>
 		/// <returns>the scalar value requested</returns>
-		public object GetScalar(LivingroomFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply)
+		public object GetScalar(LivingRoomFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply)
 		{
 			return GetScalar(fieldIndex, expressionToExecute, aggregateToApply, null, null, null);
 		}
@@ -122,7 +122,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <param name="aggregateToApply">Aggregate function to apply. </param>
 		/// <param name="filter">The filter to apply to retrieve the scalar</param>
 		/// <returns>the scalar value requested</returns>
-		public object GetScalar(LivingroomFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter)
+		public object GetScalar(LivingRoomFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter)
 		{
 			return GetScalar(fieldIndex, expressionToExecute, aggregateToApply, filter, null, null);
 		}
@@ -134,7 +134,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <param name="filter">The filter to apply to retrieve the scalar</param>
 		/// <param name="groupByClause">The groupby clause to apply to retrieve the scalar</param>
 		/// <returns>the scalar value requested</returns>
-		public object GetScalar(LivingroomFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter, IGroupByCollection groupByClause)
+		public object GetScalar(LivingRoomFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter, IGroupByCollection groupByClause)
 		{
 			return GetScalar(fieldIndex, expressionToExecute, aggregateToApply, filter, null, groupByClause);
 		}
@@ -147,7 +147,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <param name="relations">The relations to walk</param>
 		/// <param name="groupByClause">The groupby clause to apply to retrieve the scalar</param>
 		/// <returns>the scalar value requested</returns>
-		public virtual object GetScalar(LivingroomFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter, IRelationCollection relations, IGroupByCollection groupByClause)
+		public virtual object GetScalar(LivingRoomFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter, IRelationCollection relations, IGroupByCollection groupByClause)
 		{
 			EntityFields fields = new EntityFields(1);
 			fields[0] = EntityFieldFactory.Create(fieldIndex);
@@ -159,13 +159,13 @@ namespace AmstaJanBonga.Business.CollectionClasses
 			{
 				fields[0].AggregateFunctionToApply = aggregateToApply;
 			}
-			return DAOFactory.CreateLivingroomDAO().GetScalar(fields, this.Transaction, filter, relations, groupByClause);
+			return DAOFactory.CreateLivingRoomDAO().GetScalar(fields, this.Transaction, filter, relations, groupByClause);
 		}
 		
 		/// <summary>Creats a new DAO instance so code which is in the base class can still use the proper DAO object.</summary>
 		protected override IDao CreateDAOInstance()
 		{
-			return DAOFactory.CreateLivingroomDAO();
+			return DAOFactory.CreateLivingRoomDAO();
 		}
 		
 		/// <summary>Creates a new transaction object</summary>

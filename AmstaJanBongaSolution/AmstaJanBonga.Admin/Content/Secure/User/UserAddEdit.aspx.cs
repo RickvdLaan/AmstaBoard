@@ -61,7 +61,6 @@ namespace AmstaJanBonga.Admin.Content.Secure.User
                 this._trVerifyPassword.Visible = false;
 
                 this._txtUsername.Text = this.User.Username;
-                this._cbActive.Checked = this.User.IsActive;
 
                 this._ddlRoles.SelectedItem.Value = this.User.UserRole.RoleTypeEnum.ToString();
             }
@@ -89,10 +88,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.User
             // Edit
             if (this.HasUserId)
             {
-                UserManager.UpdateUser(
-                    this.User, 
-                    (RoleTypeEnum)Enum.Parse(typeof(RoleTypeEnum), this._ddlRoles.SelectedValue), 
-                    this._cbActive.Checked);
+                UserManager.UpdateUserRole(this.User, (RoleTypeEnum)Enum.Parse(typeof(RoleTypeEnum), this._ddlRoles.SelectedValue));
             }
             // Add
             else
@@ -100,8 +96,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.User
                 UserManager.InsertUser(
                     this._txtUsername.Text, 
                     this._txtPassword.Text, 
-                    (RoleTypeEnum)Enum.Parse(typeof(RoleTypeEnum), this._ddlRoles.SelectedValue),
-                    this._cbActive.Checked);
+                    (RoleTypeEnum)Enum.Parse(typeof(RoleTypeEnum), this._ddlRoles.SelectedValue));
             }
         }
 

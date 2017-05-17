@@ -19,4 +19,13 @@
             <asp:HyperLink runat="server" CssClass="fa fa-plus-circle" Text="Gebruiker Toevoegen"></asp:HyperLink>
         </div>
     </div>
+
+    <div class="box">
+        Claim check
+
+        <asp:GridView ID="ClaimsGridView" runat="server" CellPadding="3">  
+            <AlternatingRowStyle BackColor="White" />  
+            <HeaderStyle BackColor="#7AC0DA" ForeColor="White" />  
+        </asp:GridView>  
+    </div>
 </asp:Content>

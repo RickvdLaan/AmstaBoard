@@ -43,14 +43,14 @@ namespace AmstaJanBonga.Business.DaoClasses
 		/// <param name="sortClauses">The order by specifications for the sorting of the resultset. When not specified, no sorting is applied.</param>
 		/// <param name="entityFactoryToUse">The EntityFactory to use when creating entity objects during a GetMulti() call.</param>
 		/// <param name="filter">Extra filter to limit the resultset. Predicate expression can be null, in which case it will be ignored.</param>
-		/// <param name="livingroomInstance">LivingroomEntity instance to use as a filter for the PatientEntity objects to return</param>
+		/// <param name="livingRoomInstance">LivingRoomEntity instance to use as a filter for the PatientEntity objects to return</param>
 		/// <param name="pageNumber">The page number to retrieve.</param>
 		/// <param name="pageSize">The page size of the page to retrieve.</param>
-		public bool GetMulti(ITransaction containingTransaction, IEntityCollection collectionToFill, long maxNumberOfItemsToReturn, ISortExpression sortClauses, IEntityFactory entityFactoryToUse, IPredicateExpression filter, IEntity livingroomInstance, int pageNumber, int pageSize)
+		public bool GetMulti(ITransaction containingTransaction, IEntityCollection collectionToFill, long maxNumberOfItemsToReturn, ISortExpression sortClauses, IEntityFactory entityFactoryToUse, IPredicateExpression filter, IEntity livingRoomInstance, int pageNumber, int pageSize)
 		{
 			this.EntityFactoryToUse = entityFactoryToUse;
 			IEntityFields fieldsToReturn = EntityFieldsFactory.CreateEntityFieldsObject(AmstaJanBonga.Business.EntityType.PatientEntity);
-			IPredicateExpression selectFilter = CreateFilterUsingForeignKeys(livingroomInstance, fieldsToReturn);
+			IPredicateExpression selectFilter = CreateFilterUsingForeignKeys(livingRoomInstance, fieldsToReturn);
 			if(filter!=null)
 			{
 				selectFilter.AddWithAnd(filter);
@@ -63,12 +63,12 @@ namespace AmstaJanBonga.Business.DaoClasses
 
 		/// <summary>Deletes from the persistent storage all 'Patient' entities which have data in common with the specified related Entities. If one is omitted, that entity is not used as a filter.</summary>
 		/// <param name="containingTransaction">A containing transaction, if caller is added to a transaction, or null if not.</param>
-		/// <param name="livingroomInstance">LivingroomEntity instance to use as a filter for the PatientEntity objects to delete</param>
+		/// <param name="livingRoomInstance">LivingRoomEntity instance to use as a filter for the PatientEntity objects to delete</param>
 		/// <returns>Amount of entities affected, if the used persistent storage has rowcounting enabled.</returns>
-		public int DeleteMulti(ITransaction containingTransaction, IEntity livingroomInstance)
+		public int DeleteMulti(ITransaction containingTransaction, IEntity livingRoomInstance)
 		{
 			IEntityFields fields = EntityFieldsFactory.CreateEntityFieldsObject(AmstaJanBonga.Business.EntityType.PatientEntity);
-			IPredicateExpression deleteFilter = CreateFilterUsingForeignKeys(livingroomInstance, fields);
+			IPredicateExpression deleteFilter = CreateFilterUsingForeignKeys(livingRoomInstance, fields);
 			return this.DeleteMulti(containingTransaction, deleteFilter);
 		}
 
@@ -77,26 +77,26 @@ namespace AmstaJanBonga.Business.DaoClasses
 		/// of <i>entityWithNewValues</i> which are affected by the filterBucket's filter will thus also be updated.</summary>
 		/// <param name="entityWithNewValues">IEntity instance which holds the new values for the matching entities to update. Only changed fields are taken into account</param>
 		/// <param name="containingTransaction">A containing transaction, if caller is added to a transaction, or null if not.</param>
-		/// <param name="livingroomInstance">LivingroomEntity instance to use as a filter for the PatientEntity objects to update</param>
+		/// <param name="livingRoomInstance">LivingRoomEntity instance to use as a filter for the PatientEntity objects to update</param>
 		/// <returns>Amount of entities affected, if the used persistent storage has rowcounting enabled.</returns>
-		public int UpdateMulti(IEntity entityWithNewValues, ITransaction containingTransaction, IEntity livingroomInstance)
+		public int UpdateMulti(IEntity entityWithNewValues, ITransaction containingTransaction, IEntity livingRoomInstance)
 		{
 			IEntityFields fields = EntityFieldsFactory.CreateEntityFieldsObject(AmstaJanBonga.Business.EntityType.PatientEntity);
-			IPredicateExpression updateFilter = CreateFilterUsingForeignKeys(livingroomInstance, fields);
+			IPredicateExpression updateFilter = CreateFilterUsingForeignKeys(livingRoomInstance, fields);
 			return this.UpdateMulti(entityWithNewValues, containingTransaction, updateFilter);
 		}
 
 		/// <summary>Creates a PredicateExpression which should be used as a filter when any combination of available foreign keys is specified.</summary>
-		/// <param name="livingroomInstance">LivingroomEntity instance to use as a filter for the PatientEntity objects</param>
+		/// <param name="livingRoomInstance">LivingRoomEntity instance to use as a filter for the PatientEntity objects</param>
 		/// <param name="fieldsToReturn">IEntityFields implementation which forms the definition of the fieldset of the target entity.</param>
 		/// <returns>A ready to use PredicateExpression based on the passed in foreign key value holders.</returns>
-		private IPredicateExpression CreateFilterUsingForeignKeys(IEntity livingroomInstance, IEntityFields fieldsToReturn)
+		private IPredicateExpression CreateFilterUsingForeignKeys(IEntity livingRoomInstance, IEntityFields fieldsToReturn)
 		{
 			IPredicateExpression selectFilter = new PredicateExpression();
 			
-			if(livingroomInstance != null)
+			if(livingRoomInstance != null)
 			{
-				selectFilter.Add(new FieldCompareValuePredicate(fieldsToReturn[(int)PatientFieldIndex.LivingroomId], ComparisonOperator.Equal, ((LivingroomEntity)livingroomInstance).Id));
+				selectFilter.Add(new FieldCompareValuePredicate(fieldsToReturn[(int)PatientFieldIndex.LivingRoomId], ComparisonOperator.Equal, ((LivingRoomEntity)livingRoomInstance).Id));
 			}
 			return selectFilter;
 		}

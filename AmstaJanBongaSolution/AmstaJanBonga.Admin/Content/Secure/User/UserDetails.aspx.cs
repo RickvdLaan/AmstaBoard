@@ -65,7 +65,6 @@ namespace AmstaJanBonga.Admin.Content.Secure.User
             if (this.HasUserId)
             {
                 this._lblUsername.Text = this.User.Username.CapitalizeFirstLetter();
-                this._lblActive.Text = this.User.IsActiveToString;
                 this._lblRoleType.Text = ((RoleTypeEnum)Enum.Parse(typeof(RoleTypeEnum), this.User.UserRole.RoleTypeEnum.ToString())).Description();
             }
         }

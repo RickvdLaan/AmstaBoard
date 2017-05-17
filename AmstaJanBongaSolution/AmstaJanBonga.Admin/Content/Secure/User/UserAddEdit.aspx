@@ -64,15 +64,6 @@
                         <asp:DropDownList runat="server" ID="_ddlRoles"></asp:DropDownList>
                     </td>
                 </tr>
-
-                <tr>
-                    <td class="label required">
-                        Actief
-                    </td>
-                    <td>
-                        <asp:CheckBox runat="server" ID="_cbActive" Checked="true" />
-                    </td>
-                </tr>
             </tbody>
         </table>
 

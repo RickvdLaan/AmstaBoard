@@ -17,56 +17,56 @@ using SD.LLBLGen.Pro.ORMSupportClasses;
 
 namespace AmstaJanBonga.Business.RelationClasses
 {
-	/// <summary>Implements the relations factory for the entity: LivingroomGeneral. </summary>
-	public partial class LivingroomGeneralRelations
+	/// <summary>Implements the relations factory for the entity: LivingRoomGeneral. </summary>
+	public partial class LivingRoomGeneralRelations
 	{
 		/// <summary>CTor</summary>
-		public LivingroomGeneralRelations()
+		public LivingRoomGeneralRelations()
 		{
 		}
 
-		/// <summary>Gets all relations of the LivingroomGeneralEntity as a list of IEntityRelation objects.</summary>
+		/// <summary>Gets all relations of the LivingRoomGeneralEntity as a list of IEntityRelation objects.</summary>
 		/// <returns>a list of IEntityRelation objects</returns>
 		public virtual List<IEntityRelation> GetAllRelations()
 		{
 			List<IEntityRelation> toReturn = new List<IEntityRelation>();
-			toReturn.Add(this.LivingroomGeneralEventEntityUsingLivingroomId);
-			toReturn.Add(this.LivingroomEntityUsingLivingroomId);
+			toReturn.Add(this.LivingRoomGeneralEventEntityUsingLivingRoomId);
+			toReturn.Add(this.LivingRoomEntityUsingLivingRoomId);
 			return toReturn;
 		}
 
 		#region Class Property Declarations
 
-		/// <summary>Returns a new IEntityRelation object, between LivingroomGeneralEntity and LivingroomGeneralEventEntity over the 1:n relation they have, using the relation between the fields:
-		/// LivingroomGeneral.LivingroomId - LivingroomGeneralEvent.LivingroomId
+		/// <summary>Returns a new IEntityRelation object, between LivingRoomGeneralEntity and LivingRoomGeneralEventEntity over the 1:n relation they have, using the relation between the fields:
+		/// LivingRoomGeneral.LivingRoomId - LivingRoomGeneralEvent.LivingRoomId
 		/// </summary>
-		public virtual IEntityRelation LivingroomGeneralEventEntityUsingLivingroomId
+		public virtual IEntityRelation LivingRoomGeneralEventEntityUsingLivingRoomId
 		{
 			get
 			{
-				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany, "LivingroomGeneralEvents" , true);
-				relation.AddEntityFieldPair(LivingroomGeneralFields.LivingroomId, LivingroomGeneralEventFields.LivingroomId);
-				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("LivingroomGeneralEntity", true);
-				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("LivingroomGeneralEventEntity", false);
+				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany, "LivingRoomGeneralEvents" , true);
+				relation.AddEntityFieldPair(LivingRoomGeneralFields.LivingRoomId, LivingRoomGeneralEventFields.LivingRoomId);
+				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("LivingRoomGeneralEntity", true);
+				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("LivingRoomGeneralEventEntity", false);
 				return relation;
 			}
 		}
 
-		/// <summary>Returns a new IEntityRelation object, between LivingroomGeneralEntity and LivingroomEntity over the 1:1 relation they have, using the relation between the fields:
-		/// LivingroomGeneral.LivingroomId - Livingroom.Id
+		/// <summary>Returns a new IEntityRelation object, between LivingRoomGeneralEntity and LivingRoomEntity over the 1:1 relation they have, using the relation between the fields:
+		/// LivingRoomGeneral.LivingRoomId - LivingRoom.Id
 		/// </summary>
-		public virtual IEntityRelation LivingroomEntityUsingLivingroomId
+		public virtual IEntityRelation LivingRoomEntityUsingLivingRoomId
 		{
 			get
 			{
-				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToOne, "Livingroom", false);
+				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToOne, "LivingRoom", false);
 
 
 
-				relation.AddEntityFieldPair(LivingroomFields.Id, LivingroomGeneralFields.LivingroomId);
+				relation.AddEntityFieldPair(LivingRoomFields.Id, LivingRoomGeneralFields.LivingRoomId);
 
-				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("LivingroomEntity", false);
-				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("LivingroomGeneralEntity", true);
+				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("LivingRoomEntity", false);
+				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("LivingRoomGeneralEntity", true);
 				return relation;
 			}
 		}
@@ -83,13 +83,13 @@ namespace AmstaJanBonga.Business.RelationClasses
 	}
 	
 	/// <summary>Static class which is used for providing relationship instances which are re-used internally for syncing</summary>
-	internal static class StaticLivingroomGeneralRelations
+	internal static class StaticLivingRoomGeneralRelations
 	{
-		internal static readonly IEntityRelation LivingroomGeneralEventEntityUsingLivingroomIdStatic = new LivingroomGeneralRelations().LivingroomGeneralEventEntityUsingLivingroomId;
-		internal static readonly IEntityRelation LivingroomEntityUsingLivingroomIdStatic = new LivingroomGeneralRelations().LivingroomEntityUsingLivingroomId;
+		internal static readonly IEntityRelation LivingRoomGeneralEventEntityUsingLivingRoomIdStatic = new LivingRoomGeneralRelations().LivingRoomGeneralEventEntityUsingLivingRoomId;
+		internal static readonly IEntityRelation LivingRoomEntityUsingLivingRoomIdStatic = new LivingRoomGeneralRelations().LivingRoomEntityUsingLivingRoomId;
 
 		/// <summary>CTor</summary>
-		static StaticLivingroomGeneralRelations()
+		static StaticLivingRoomGeneralRelations()
 		{
 		}
 	}

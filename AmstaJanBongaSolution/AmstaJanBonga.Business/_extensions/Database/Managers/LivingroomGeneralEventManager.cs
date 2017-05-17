@@ -8,9 +8,9 @@ namespace AmstaJanBonga.Business.Database.Managers
     {
         public static void Insert(int livingroomId, DateTime date, string description)
         {
-            var livingroomGeneralEvent = new LivingroomGeneralEventEntity()
+            var livingroomGeneralEvent = new LivingRoomGeneralEventEntity()
             {
-                LivingroomId = livingroomId,
+                LivingRoomId = livingroomId,
                 Date = date,
                 Description = description,
                 DateCreated = DateTime.Now
@@ -21,7 +21,7 @@ namespace AmstaJanBonga.Business.Database.Managers
 
         public static void Update(int livingroomId, DateTime date, string description)
         {
-            var livingroomGeneralEvent = LivingroomGeneralEventReader.GetLivingroomGeneralByIdAndDate(livingroomId, date, true);
+            var livingroomGeneralEvent = LivingRoomGeneralEventReader.GetLivingroomGeneralByIdAndDate(livingroomId, date, true);
 
             livingroomGeneralEvent.Description = description;
             livingroomGeneralEvent.Save();

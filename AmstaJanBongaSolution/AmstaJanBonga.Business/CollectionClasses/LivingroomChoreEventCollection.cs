@@ -28,84 +28,84 @@ namespace AmstaJanBonga.Business.CollectionClasses
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces
 	// __LLBLGENPRO_USER_CODE_REGION_END
 
-	/// <summary>Collection class for storing and retrieving collections of LivingroomChoreEventEntity objects. </summary>
+	/// <summary>Collection class for storing and retrieving collections of LivingRoomChoreEventEntity objects. </summary>
 	[Serializable]
-	public partial class LivingroomChoreEventCollection : EntityCollectionBase<LivingroomChoreEventEntity>
+	public partial class LivingRoomChoreEventCollection : EntityCollectionBase<LivingRoomChoreEventEntity>
 	{
 		/// <summary> CTor</summary>
-		public LivingroomChoreEventCollection():base(new LivingroomChoreEventEntityFactory())
+		public LivingRoomChoreEventCollection():base(new LivingRoomChoreEventEntityFactory())
 		{
 		}
 
 		/// <summary> CTor</summary>
 		/// <param name="initialContents">The initial contents of this collection.</param>
-		public LivingroomChoreEventCollection(IEnumerable<LivingroomChoreEventEntity> initialContents):base(new LivingroomChoreEventEntityFactory())
+		public LivingRoomChoreEventCollection(IEnumerable<LivingRoomChoreEventEntity> initialContents):base(new LivingRoomChoreEventEntityFactory())
 		{
 			AddRange(initialContents);
 		}
 
 		/// <summary> CTor</summary>
 		/// <param name="entityFactoryToUse">The EntityFactory to use when creating entity objects during a GetMulti() call.</param>
-		public LivingroomChoreEventCollection(IEntityFactory entityFactoryToUse):base(entityFactoryToUse)
+		public LivingRoomChoreEventCollection(IEntityFactory entityFactoryToUse):base(entityFactoryToUse)
 		{
 		}
 
 		/// <summary> Private CTor for deserialization</summary>
 		/// <param name="info"></param>
 		/// <param name="context"></param>
-		protected LivingroomChoreEventCollection(SerializationInfo info, StreamingContext context) : base(info, context)
+		protected LivingRoomChoreEventCollection(SerializationInfo info, StreamingContext context) : base(info, context)
 		{
 		}
 
 
-		/// <summary> Retrieves in this LivingroomChoreEventCollection object all LivingroomChoreEventEntity objects which have data in common with the specified related Entities.
+		/// <summary> Retrieves in this LivingRoomChoreEventCollection object all LivingRoomChoreEventEntity objects which have data in common with the specified related Entities.
 		/// If one is omitted, that entity is not used as a filter. All current elements in the collection are removed from the collection.</summary>
-		/// <param name="livingroomInstance">LivingroomEntity instance to use as a filter for the LivingroomChoreEventEntity objects to return</param>
-		/// <param name="patientInstance">PatientEntity instance to use as a filter for the LivingroomChoreEventEntity objects to return</param>
+		/// <param name="livingRoomInstance">LivingRoomEntity instance to use as a filter for the LivingRoomChoreEventEntity objects to return</param>
+		/// <param name="patientInstance">PatientEntity instance to use as a filter for the LivingRoomChoreEventEntity objects to return</param>
 		/// <returns>true if succeeded, false otherwise</returns>
-		public bool GetMultiManyToOne(IEntity livingroomInstance, IEntity patientInstance)
+		public bool GetMultiManyToOne(IEntity livingRoomInstance, IEntity patientInstance)
 		{
-			return GetMultiManyToOne(livingroomInstance, patientInstance, this.MaxNumberOfItemsToReturn, this.SortClauses, null, 0, 0);
+			return GetMultiManyToOne(livingRoomInstance, patientInstance, this.MaxNumberOfItemsToReturn, this.SortClauses, null, 0, 0);
 		}
 
-		/// <summary> Retrieves in this LivingroomChoreEventCollection object all LivingroomChoreEventEntity objects which have data in common with the specified related Entities.
+		/// <summary> Retrieves in this LivingRoomChoreEventCollection object all LivingRoomChoreEventEntity objects which have data in common with the specified related Entities.
 		/// If one is omitted, that entity is not used as a filter. All current elements in the collection are removed from the collection.</summary>
-		/// <param name="livingroomInstance">LivingroomEntity instance to use as a filter for the LivingroomChoreEventEntity objects to return</param>
-		/// <param name="patientInstance">PatientEntity instance to use as a filter for the LivingroomChoreEventEntity objects to return</param>
+		/// <param name="livingRoomInstance">LivingRoomEntity instance to use as a filter for the LivingRoomChoreEventEntity objects to return</param>
+		/// <param name="patientInstance">PatientEntity instance to use as a filter for the LivingRoomChoreEventEntity objects to return</param>
 		/// <param name="filter">Extra filter to limit the resultset. Predicate expression can be null, in which case it will be ignored.</param>
 		/// <returns>true if succeeded, false otherwise</returns>
-		public bool GetMultiManyToOne(IEntity livingroomInstance, IEntity patientInstance, IPredicateExpression filter)
+		public bool GetMultiManyToOne(IEntity livingRoomInstance, IEntity patientInstance, IPredicateExpression filter)
 		{
-			return GetMultiManyToOne(livingroomInstance, patientInstance, this.MaxNumberOfItemsToReturn, this.SortClauses, filter, 0, 0);
+			return GetMultiManyToOne(livingRoomInstance, patientInstance, this.MaxNumberOfItemsToReturn, this.SortClauses, filter, 0, 0);
 		}
 
-		/// <summary> Retrieves in this LivingroomChoreEventCollection object all LivingroomChoreEventEntity objects which have data in common with the specified related Entities.
+		/// <summary> Retrieves in this LivingRoomChoreEventCollection object all LivingRoomChoreEventEntity objects which have data in common with the specified related Entities.
 		/// If one is omitted, that entity is not used as a filter. All current elements in the collection are removed from the collection.</summary>
-		/// <param name="livingroomInstance">LivingroomEntity instance to use as a filter for the LivingroomChoreEventEntity objects to return</param>
-		/// <param name="patientInstance">PatientEntity instance to use as a filter for the LivingroomChoreEventEntity objects to return</param>
+		/// <param name="livingRoomInstance">LivingRoomEntity instance to use as a filter for the LivingRoomChoreEventEntity objects to return</param>
+		/// <param name="patientInstance">PatientEntity instance to use as a filter for the LivingRoomChoreEventEntity objects to return</param>
 		/// <param name="maxNumberOfItemsToReturn"> The maximum number of items to return with this retrieval query.</param>
 		/// <param name="sortClauses">The order by specifications for the sorting of the resultset. When not specified, no sorting is applied.</param>
 		/// <param name="filter">Extra filter to limit the resultset. Predicate expression can be null, in which case it will be ignored.</param>
 		/// <returns>true if succeeded, false otherwise</returns>
-		public bool GetMultiManyToOne(IEntity livingroomInstance, IEntity patientInstance, long maxNumberOfItemsToReturn, ISortExpression sortClauses, IPredicateExpression filter)
+		public bool GetMultiManyToOne(IEntity livingRoomInstance, IEntity patientInstance, long maxNumberOfItemsToReturn, ISortExpression sortClauses, IPredicateExpression filter)
 		{
-			return GetMultiManyToOne(livingroomInstance, patientInstance, maxNumberOfItemsToReturn, sortClauses, filter, 0, 0);
+			return GetMultiManyToOne(livingRoomInstance, patientInstance, maxNumberOfItemsToReturn, sortClauses, filter, 0, 0);
 		}
 
-		/// <summary> Retrieves in this LivingroomChoreEventCollection object all LivingroomChoreEventEntity objects which have data in common with the specified related Entities.
+		/// <summary> Retrieves in this LivingRoomChoreEventCollection object all LivingRoomChoreEventEntity objects which have data in common with the specified related Entities.
 		/// If one is omitted, that entity is not used as a filter. All current elements in the collection are removed from the collection.</summary>
-		/// <param name="livingroomInstance">LivingroomEntity instance to use as a filter for the LivingroomChoreEventEntity objects to return</param>
-		/// <param name="patientInstance">PatientEntity instance to use as a filter for the LivingroomChoreEventEntity objects to return</param>
+		/// <param name="livingRoomInstance">LivingRoomEntity instance to use as a filter for the LivingRoomChoreEventEntity objects to return</param>
+		/// <param name="patientInstance">PatientEntity instance to use as a filter for the LivingRoomChoreEventEntity objects to return</param>
 		/// <param name="maxNumberOfItemsToReturn"> The maximum number of items to return with this retrieval query.</param>
 		/// <param name="sortClauses">The order by specifications for the sorting of the resultset. When not specified, no sorting is applied.</param>
 		/// <param name="filter">Extra filter to limit the resultset. Predicate expression can be null, in which case it will be ignored.</param>
 		/// <param name="pageNumber">The page number to retrieve.</param>
 		/// <param name="pageSize">The page size of the page to retrieve.</param>
 		/// <returns>true if succeeded, false otherwise</returns>
-		public virtual bool GetMultiManyToOne(IEntity livingroomInstance, IEntity patientInstance, long maxNumberOfItemsToReturn, ISortExpression sortClauses, IPredicateExpression filter, int pageNumber, int pageSize)
+		public virtual bool GetMultiManyToOne(IEntity livingRoomInstance, IEntity patientInstance, long maxNumberOfItemsToReturn, ISortExpression sortClauses, IPredicateExpression filter, int pageNumber, int pageSize)
 		{
 			bool validParameters = false;
-			validParameters |= (livingroomInstance!=null);
+			validParameters |= (livingRoomInstance!=null);
 			validParameters |= (patientInstance!=null);
 			if(!validParameters)
 			{
@@ -115,28 +115,28 @@ namespace AmstaJanBonga.Business.CollectionClasses
 			{
 				this.Clear();
 			}
-			return DAOFactory.CreateLivingroomChoreEventDAO().GetMulti(this.Transaction, this, maxNumberOfItemsToReturn, sortClauses, this.EntityFactoryToUse, filter, livingroomInstance, patientInstance, pageNumber, pageSize);
+			return DAOFactory.CreateLivingRoomChoreEventDAO().GetMulti(this.Transaction, this, maxNumberOfItemsToReturn, sortClauses, this.EntityFactoryToUse, filter, livingRoomInstance, patientInstance, pageNumber, pageSize);
 		}
 
-		/// <summary> Deletes from the persistent storage all LivingroomChoreEvent entities which have data in common with the specified related Entities. If one is omitted, that entity is not used as a filter.</summary>
+		/// <summary> Deletes from the persistent storage all LivingRoomChoreEvent entities which have data in common with the specified related Entities. If one is omitted, that entity is not used as a filter.</summary>
 		/// <remarks>Runs directly on the persistent storage. It will not delete entity objects from the current collection.</remarks>
-		/// <param name="livingroomInstance">LivingroomEntity instance to use as a filter for the LivingroomChoreEventEntity objects to return</param>
-		/// <param name="patientInstance">PatientEntity instance to use as a filter for the LivingroomChoreEventEntity objects to return</param>
+		/// <param name="livingRoomInstance">LivingRoomEntity instance to use as a filter for the LivingRoomChoreEventEntity objects to return</param>
+		/// <param name="patientInstance">PatientEntity instance to use as a filter for the LivingRoomChoreEventEntity objects to return</param>
 		/// <returns>Amount of entities affected, if the used persistent storage has rowcounting enabled.</returns>
-		public int DeleteMultiManyToOne(IEntity livingroomInstance, IEntity patientInstance)
+		public int DeleteMultiManyToOne(IEntity livingRoomInstance, IEntity patientInstance)
 		{
-			return DAOFactory.CreateLivingroomChoreEventDAO().DeleteMulti(this.Transaction, livingroomInstance, patientInstance);
+			return DAOFactory.CreateLivingRoomChoreEventDAO().DeleteMulti(this.Transaction, livingRoomInstance, patientInstance);
 		}
 
-		/// <summary> Updates in the persistent storage all LivingroomChoreEvent entities which have data in common with the specified related Entities. If one is omitted, that entity is not used as a filter.
+		/// <summary> Updates in the persistent storage all LivingRoomChoreEvent entities which have data in common with the specified related Entities. If one is omitted, that entity is not used as a filter.
 		/// Which fields are updated in those matching entities depends on which fields are <i>changed</i> in the passed in entity entityWithNewValues. The new values of these fields are read from entityWithNewValues. </summary>
-		/// <param name="entityWithNewValues">LivingroomChoreEventEntity instance which holds the new values for the matching entities to update. Only changed fields are taken into account</param>
-		/// <param name="livingroomInstance">LivingroomEntity instance to use as a filter for the LivingroomChoreEventEntity objects to return</param>
-		/// <param name="patientInstance">PatientEntity instance to use as a filter for the LivingroomChoreEventEntity objects to return</param>
+		/// <param name="entityWithNewValues">LivingRoomChoreEventEntity instance which holds the new values for the matching entities to update. Only changed fields are taken into account</param>
+		/// <param name="livingRoomInstance">LivingRoomEntity instance to use as a filter for the LivingRoomChoreEventEntity objects to return</param>
+		/// <param name="patientInstance">PatientEntity instance to use as a filter for the LivingRoomChoreEventEntity objects to return</param>
 		/// <returns>Amount of entities affected, if the used persistent storage has rowcounting enabled.</returns>
-		public int UpdateMultiManyToOne(LivingroomChoreEventEntity entityWithNewValues, IEntity livingroomInstance, IEntity patientInstance)
+		public int UpdateMultiManyToOne(LivingRoomChoreEventEntity entityWithNewValues, IEntity livingRoomInstance, IEntity patientInstance)
 		{
-			return DAOFactory.CreateLivingroomChoreEventDAO().UpdateMulti(entityWithNewValues, this.Transaction, livingroomInstance, patientInstance);
+			return DAOFactory.CreateLivingRoomChoreEventDAO().UpdateMulti(entityWithNewValues, this.Transaction, livingRoomInstance, patientInstance);
 		}
 
 
@@ -171,7 +171,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <returns>DataTable with the rows requested.</returns>
 		public static DataTable GetMultiAsDataTable(IPredicate selectFilter, long maxNumberOfItemsToReturn, ISortExpression sortClauses, IRelationCollection relations, int pageNumber, int pageSize)
 		{
-			LivingroomChoreEventDAO dao = DAOFactory.CreateLivingroomChoreEventDAO();
+			LivingRoomChoreEventDAO dao = DAOFactory.CreateLivingRoomChoreEventDAO();
 			return dao.GetMultiAsDataTable(maxNumberOfItemsToReturn, sortClauses, selectFilter, relations, pageNumber, pageSize);
 		}
 
@@ -181,7 +181,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <param name="fieldIndex">Field index of field to which to apply the aggregate function and expression</param>
 		/// <param name="aggregateToApply">Aggregate function to apply. </param>
 		/// <returns>the scalar value requested</returns>
-		public object GetScalar(LivingroomChoreEventFieldIndex fieldIndex, AggregateFunction aggregateToApply)
+		public object GetScalar(LivingRoomChoreEventFieldIndex fieldIndex, AggregateFunction aggregateToApply)
 		{
 			return GetScalar(fieldIndex, null, aggregateToApply, null, null, null);
 		}
@@ -191,7 +191,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <param name="expressionToExecute">The expression to execute. Can be null</param>
 		/// <param name="aggregateToApply">Aggregate function to apply. </param>
 		/// <returns>the scalar value requested</returns>
-		public object GetScalar(LivingroomChoreEventFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply)
+		public object GetScalar(LivingRoomChoreEventFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply)
 		{
 			return GetScalar(fieldIndex, expressionToExecute, aggregateToApply, null, null, null);
 		}
@@ -202,7 +202,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <param name="aggregateToApply">Aggregate function to apply. </param>
 		/// <param name="filter">The filter to apply to retrieve the scalar</param>
 		/// <returns>the scalar value requested</returns>
-		public object GetScalar(LivingroomChoreEventFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter)
+		public object GetScalar(LivingRoomChoreEventFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter)
 		{
 			return GetScalar(fieldIndex, expressionToExecute, aggregateToApply, filter, null, null);
 		}
@@ -214,7 +214,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <param name="filter">The filter to apply to retrieve the scalar</param>
 		/// <param name="groupByClause">The groupby clause to apply to retrieve the scalar</param>
 		/// <returns>the scalar value requested</returns>
-		public object GetScalar(LivingroomChoreEventFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter, IGroupByCollection groupByClause)
+		public object GetScalar(LivingRoomChoreEventFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter, IGroupByCollection groupByClause)
 		{
 			return GetScalar(fieldIndex, expressionToExecute, aggregateToApply, filter, null, groupByClause);
 		}
@@ -227,7 +227,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <param name="relations">The relations to walk</param>
 		/// <param name="groupByClause">The groupby clause to apply to retrieve the scalar</param>
 		/// <returns>the scalar value requested</returns>
-		public virtual object GetScalar(LivingroomChoreEventFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter, IRelationCollection relations, IGroupByCollection groupByClause)
+		public virtual object GetScalar(LivingRoomChoreEventFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter, IRelationCollection relations, IGroupByCollection groupByClause)
 		{
 			EntityFields fields = new EntityFields(1);
 			fields[0] = EntityFieldFactory.Create(fieldIndex);
@@ -239,13 +239,13 @@ namespace AmstaJanBonga.Business.CollectionClasses
 			{
 				fields[0].AggregateFunctionToApply = aggregateToApply;
 			}
-			return DAOFactory.CreateLivingroomChoreEventDAO().GetScalar(fields, this.Transaction, filter, relations, groupByClause);
+			return DAOFactory.CreateLivingRoomChoreEventDAO().GetScalar(fields, this.Transaction, filter, relations, groupByClause);
 		}
 		
 		/// <summary>Creats a new DAO instance so code which is in the base class can still use the proper DAO object.</summary>
 		protected override IDao CreateDAOInstance()
 		{
-			return DAOFactory.CreateLivingroomChoreEventDAO();
+			return DAOFactory.CreateLivingRoomChoreEventDAO();
 		}
 		
 		/// <summary>Creates a new transaction object</summary>

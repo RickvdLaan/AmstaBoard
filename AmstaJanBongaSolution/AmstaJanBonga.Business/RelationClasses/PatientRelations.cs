@@ -30,39 +30,55 @@ namespace AmstaJanBonga.Business.RelationClasses
 		public virtual List<IEntityRelation> GetAllRelations()
 		{
 			List<IEntityRelation> toReturn = new List<IEntityRelation>();
-			toReturn.Add(this.LivingroomChoreEventEntityUsingPatientId);
-			toReturn.Add(this.LivingroomEntityUsingLivingroomId);
+			toReturn.Add(this.AgendaEventEntityUsingPatientId);
+			toReturn.Add(this.LivingRoomChoreEventEntityUsingPatientId);
+			toReturn.Add(this.LivingRoomEntityUsingLivingRoomId);
 			return toReturn;
 		}
 
 		#region Class Property Declarations
 
-		/// <summary>Returns a new IEntityRelation object, between PatientEntity and LivingroomChoreEventEntity over the 1:n relation they have, using the relation between the fields:
-		/// Patient.Id - LivingroomChoreEvent.PatientId
+		/// <summary>Returns a new IEntityRelation object, between PatientEntity and AgendaEventEntity over the 1:n relation they have, using the relation between the fields:
+		/// Patient.Id - AgendaEvent.PatientId
 		/// </summary>
-		public virtual IEntityRelation LivingroomChoreEventEntityUsingPatientId
+		public virtual IEntityRelation AgendaEventEntityUsingPatientId
 		{
 			get
 			{
-				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany, "LivingroomChoreEvents" , true);
-				relation.AddEntityFieldPair(PatientFields.Id, LivingroomChoreEventFields.PatientId);
+				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany, "AgendaEvents" , true);
+				relation.AddEntityFieldPair(PatientFields.Id, AgendaEventFields.PatientId);
 				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("PatientEntity", true);
-				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("LivingroomChoreEventEntity", false);
+				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("AgendaEventEntity", false);
+				return relation;
+			}
+		}
+
+		/// <summary>Returns a new IEntityRelation object, between PatientEntity and LivingRoomChoreEventEntity over the 1:n relation they have, using the relation between the fields:
+		/// Patient.Id - LivingRoomChoreEvent.PatientId
+		/// </summary>
+		public virtual IEntityRelation LivingRoomChoreEventEntityUsingPatientId
+		{
+			get
+			{
+				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany, "LivingRoomChoreEvents" , true);
+				relation.AddEntityFieldPair(PatientFields.Id, LivingRoomChoreEventFields.PatientId);
+				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("PatientEntity", true);
+				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("LivingRoomChoreEventEntity", false);
 				return relation;
 			}
 		}
 
 
-		/// <summary>Returns a new IEntityRelation object, between PatientEntity and LivingroomEntity over the m:1 relation they have, using the relation between the fields:
-		/// Patient.LivingroomId - Livingroom.Id
+		/// <summary>Returns a new IEntityRelation object, between PatientEntity and LivingRoomEntity over the m:1 relation they have, using the relation between the fields:
+		/// Patient.LivingRoomId - LivingRoom.Id
 		/// </summary>
-		public virtual IEntityRelation LivingroomEntityUsingLivingroomId
+		public virtual IEntityRelation LivingRoomEntityUsingLivingRoomId
 		{
 			get
 			{
-				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne, "Livingroom", false);
-				relation.AddEntityFieldPair(LivingroomFields.Id, PatientFields.LivingroomId);
-				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("LivingroomEntity", false);
+				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne, "LivingRoom", false);
+				relation.AddEntityFieldPair(LivingRoomFields.Id, PatientFields.LivingRoomId);
+				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("LivingRoomEntity", false);
 				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("PatientEntity", true);
 				return relation;
 			}
@@ -81,8 +97,9 @@ namespace AmstaJanBonga.Business.RelationClasses
 	/// <summary>Static class which is used for providing relationship instances which are re-used internally for syncing</summary>
 	internal static class StaticPatientRelations
 	{
-		internal static readonly IEntityRelation LivingroomChoreEventEntityUsingPatientIdStatic = new PatientRelations().LivingroomChoreEventEntityUsingPatientId;
-		internal static readonly IEntityRelation LivingroomEntityUsingLivingroomIdStatic = new PatientRelations().LivingroomEntityUsingLivingroomId;
+		internal static readonly IEntityRelation AgendaEventEntityUsingPatientIdStatic = new PatientRelations().AgendaEventEntityUsingPatientId;
+		internal static readonly IEntityRelation LivingRoomChoreEventEntityUsingPatientIdStatic = new PatientRelations().LivingRoomChoreEventEntityUsingPatientId;
+		internal static readonly IEntityRelation LivingRoomEntityUsingLivingRoomIdStatic = new PatientRelations().LivingRoomEntityUsingLivingRoomId;
 
 		/// <summary>CTor</summary>
 		static StaticPatientRelations()

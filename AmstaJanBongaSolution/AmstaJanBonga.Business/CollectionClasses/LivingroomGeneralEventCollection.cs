@@ -28,80 +28,80 @@ namespace AmstaJanBonga.Business.CollectionClasses
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces
 	// __LLBLGENPRO_USER_CODE_REGION_END
 
-	/// <summary>Collection class for storing and retrieving collections of LivingroomGeneralEventEntity objects. </summary>
+	/// <summary>Collection class for storing and retrieving collections of LivingRoomGeneralEventEntity objects. </summary>
 	[Serializable]
-	public partial class LivingroomGeneralEventCollection : EntityCollectionBase<LivingroomGeneralEventEntity>
+	public partial class LivingRoomGeneralEventCollection : EntityCollectionBase<LivingRoomGeneralEventEntity>
 	{
 		/// <summary> CTor</summary>
-		public LivingroomGeneralEventCollection():base(new LivingroomGeneralEventEntityFactory())
+		public LivingRoomGeneralEventCollection():base(new LivingRoomGeneralEventEntityFactory())
 		{
 		}
 
 		/// <summary> CTor</summary>
 		/// <param name="initialContents">The initial contents of this collection.</param>
-		public LivingroomGeneralEventCollection(IEnumerable<LivingroomGeneralEventEntity> initialContents):base(new LivingroomGeneralEventEntityFactory())
+		public LivingRoomGeneralEventCollection(IEnumerable<LivingRoomGeneralEventEntity> initialContents):base(new LivingRoomGeneralEventEntityFactory())
 		{
 			AddRange(initialContents);
 		}
 
 		/// <summary> CTor</summary>
 		/// <param name="entityFactoryToUse">The EntityFactory to use when creating entity objects during a GetMulti() call.</param>
-		public LivingroomGeneralEventCollection(IEntityFactory entityFactoryToUse):base(entityFactoryToUse)
+		public LivingRoomGeneralEventCollection(IEntityFactory entityFactoryToUse):base(entityFactoryToUse)
 		{
 		}
 
 		/// <summary> Private CTor for deserialization</summary>
 		/// <param name="info"></param>
 		/// <param name="context"></param>
-		protected LivingroomGeneralEventCollection(SerializationInfo info, StreamingContext context) : base(info, context)
+		protected LivingRoomGeneralEventCollection(SerializationInfo info, StreamingContext context) : base(info, context)
 		{
 		}
 
 
-		/// <summary> Retrieves in this LivingroomGeneralEventCollection object all LivingroomGeneralEventEntity objects which have data in common with the specified related Entities.
+		/// <summary> Retrieves in this LivingRoomGeneralEventCollection object all LivingRoomGeneralEventEntity objects which have data in common with the specified related Entities.
 		/// If one is omitted, that entity is not used as a filter. All current elements in the collection are removed from the collection.</summary>
-		/// <param name="livingroomGeneralInstance">LivingroomGeneralEntity instance to use as a filter for the LivingroomGeneralEventEntity objects to return</param>
+		/// <param name="livingRoomGeneralInstance">LivingRoomGeneralEntity instance to use as a filter for the LivingRoomGeneralEventEntity objects to return</param>
 		/// <returns>true if succeeded, false otherwise</returns>
-		public bool GetMultiManyToOne(IEntity livingroomGeneralInstance)
+		public bool GetMultiManyToOne(IEntity livingRoomGeneralInstance)
 		{
-			return GetMultiManyToOne(livingroomGeneralInstance, this.MaxNumberOfItemsToReturn, this.SortClauses, null, 0, 0);
+			return GetMultiManyToOne(livingRoomGeneralInstance, this.MaxNumberOfItemsToReturn, this.SortClauses, null, 0, 0);
 		}
 
-		/// <summary> Retrieves in this LivingroomGeneralEventCollection object all LivingroomGeneralEventEntity objects which have data in common with the specified related Entities.
+		/// <summary> Retrieves in this LivingRoomGeneralEventCollection object all LivingRoomGeneralEventEntity objects which have data in common with the specified related Entities.
 		/// If one is omitted, that entity is not used as a filter. All current elements in the collection are removed from the collection.</summary>
-		/// <param name="livingroomGeneralInstance">LivingroomGeneralEntity instance to use as a filter for the LivingroomGeneralEventEntity objects to return</param>
+		/// <param name="livingRoomGeneralInstance">LivingRoomGeneralEntity instance to use as a filter for the LivingRoomGeneralEventEntity objects to return</param>
 		/// <param name="filter">Extra filter to limit the resultset. Predicate expression can be null, in which case it will be ignored.</param>
 		/// <returns>true if succeeded, false otherwise</returns>
-		public bool GetMultiManyToOne(IEntity livingroomGeneralInstance, IPredicateExpression filter)
+		public bool GetMultiManyToOne(IEntity livingRoomGeneralInstance, IPredicateExpression filter)
 		{
-			return GetMultiManyToOne(livingroomGeneralInstance, this.MaxNumberOfItemsToReturn, this.SortClauses, filter, 0, 0);
+			return GetMultiManyToOne(livingRoomGeneralInstance, this.MaxNumberOfItemsToReturn, this.SortClauses, filter, 0, 0);
 		}
 
-		/// <summary> Retrieves in this LivingroomGeneralEventCollection object all LivingroomGeneralEventEntity objects which have data in common with the specified related Entities.
+		/// <summary> Retrieves in this LivingRoomGeneralEventCollection object all LivingRoomGeneralEventEntity objects which have data in common with the specified related Entities.
 		/// If one is omitted, that entity is not used as a filter. All current elements in the collection are removed from the collection.</summary>
-		/// <param name="livingroomGeneralInstance">LivingroomGeneralEntity instance to use as a filter for the LivingroomGeneralEventEntity objects to return</param>
+		/// <param name="livingRoomGeneralInstance">LivingRoomGeneralEntity instance to use as a filter for the LivingRoomGeneralEventEntity objects to return</param>
 		/// <param name="maxNumberOfItemsToReturn"> The maximum number of items to return with this retrieval query.</param>
 		/// <param name="sortClauses">The order by specifications for the sorting of the resultset. When not specified, no sorting is applied.</param>
 		/// <param name="filter">Extra filter to limit the resultset. Predicate expression can be null, in which case it will be ignored.</param>
 		/// <returns>true if succeeded, false otherwise</returns>
-		public bool GetMultiManyToOne(IEntity livingroomGeneralInstance, long maxNumberOfItemsToReturn, ISortExpression sortClauses, IPredicateExpression filter)
+		public bool GetMultiManyToOne(IEntity livingRoomGeneralInstance, long maxNumberOfItemsToReturn, ISortExpression sortClauses, IPredicateExpression filter)
 		{
-			return GetMultiManyToOne(livingroomGeneralInstance, maxNumberOfItemsToReturn, sortClauses, filter, 0, 0);
+			return GetMultiManyToOne(livingRoomGeneralInstance, maxNumberOfItemsToReturn, sortClauses, filter, 0, 0);
 		}
 
-		/// <summary> Retrieves in this LivingroomGeneralEventCollection object all LivingroomGeneralEventEntity objects which have data in common with the specified related Entities.
+		/// <summary> Retrieves in this LivingRoomGeneralEventCollection object all LivingRoomGeneralEventEntity objects which have data in common with the specified related Entities.
 		/// If one is omitted, that entity is not used as a filter. All current elements in the collection are removed from the collection.</summary>
-		/// <param name="livingroomGeneralInstance">LivingroomGeneralEntity instance to use as a filter for the LivingroomGeneralEventEntity objects to return</param>
+		/// <param name="livingRoomGeneralInstance">LivingRoomGeneralEntity instance to use as a filter for the LivingRoomGeneralEventEntity objects to return</param>
 		/// <param name="maxNumberOfItemsToReturn"> The maximum number of items to return with this retrieval query.</param>
 		/// <param name="sortClauses">The order by specifications for the sorting of the resultset. When not specified, no sorting is applied.</param>
 		/// <param name="filter">Extra filter to limit the resultset. Predicate expression can be null, in which case it will be ignored.</param>
 		/// <param name="pageNumber">The page number to retrieve.</param>
 		/// <param name="pageSize">The page size of the page to retrieve.</param>
 		/// <returns>true if succeeded, false otherwise</returns>
-		public virtual bool GetMultiManyToOne(IEntity livingroomGeneralInstance, long maxNumberOfItemsToReturn, ISortExpression sortClauses, IPredicateExpression filter, int pageNumber, int pageSize)
+		public virtual bool GetMultiManyToOne(IEntity livingRoomGeneralInstance, long maxNumberOfItemsToReturn, ISortExpression sortClauses, IPredicateExpression filter, int pageNumber, int pageSize)
 		{
 			bool validParameters = false;
-			validParameters |= (livingroomGeneralInstance!=null);
+			validParameters |= (livingRoomGeneralInstance!=null);
 			if(!validParameters)
 			{
 				return GetMulti(filter, maxNumberOfItemsToReturn, sortClauses, null, pageNumber, pageSize);
@@ -110,26 +110,26 @@ namespace AmstaJanBonga.Business.CollectionClasses
 			{
 				this.Clear();
 			}
-			return DAOFactory.CreateLivingroomGeneralEventDAO().GetMulti(this.Transaction, this, maxNumberOfItemsToReturn, sortClauses, this.EntityFactoryToUse, filter, livingroomGeneralInstance, pageNumber, pageSize);
+			return DAOFactory.CreateLivingRoomGeneralEventDAO().GetMulti(this.Transaction, this, maxNumberOfItemsToReturn, sortClauses, this.EntityFactoryToUse, filter, livingRoomGeneralInstance, pageNumber, pageSize);
 		}
 
-		/// <summary> Deletes from the persistent storage all LivingroomGeneralEvent entities which have data in common with the specified related Entities. If one is omitted, that entity is not used as a filter.</summary>
+		/// <summary> Deletes from the persistent storage all LivingRoomGeneralEvent entities which have data in common with the specified related Entities. If one is omitted, that entity is not used as a filter.</summary>
 		/// <remarks>Runs directly on the persistent storage. It will not delete entity objects from the current collection.</remarks>
-		/// <param name="livingroomGeneralInstance">LivingroomGeneralEntity instance to use as a filter for the LivingroomGeneralEventEntity objects to return</param>
+		/// <param name="livingRoomGeneralInstance">LivingRoomGeneralEntity instance to use as a filter for the LivingRoomGeneralEventEntity objects to return</param>
 		/// <returns>Amount of entities affected, if the used persistent storage has rowcounting enabled.</returns>
-		public int DeleteMultiManyToOne(IEntity livingroomGeneralInstance)
+		public int DeleteMultiManyToOne(IEntity livingRoomGeneralInstance)
 		{
-			return DAOFactory.CreateLivingroomGeneralEventDAO().DeleteMulti(this.Transaction, livingroomGeneralInstance);
+			return DAOFactory.CreateLivingRoomGeneralEventDAO().DeleteMulti(this.Transaction, livingRoomGeneralInstance);
 		}
 
-		/// <summary> Updates in the persistent storage all LivingroomGeneralEvent entities which have data in common with the specified related Entities. If one is omitted, that entity is not used as a filter.
+		/// <summary> Updates in the persistent storage all LivingRoomGeneralEvent entities which have data in common with the specified related Entities. If one is omitted, that entity is not used as a filter.
 		/// Which fields are updated in those matching entities depends on which fields are <i>changed</i> in the passed in entity entityWithNewValues. The new values of these fields are read from entityWithNewValues. </summary>
-		/// <param name="entityWithNewValues">LivingroomGeneralEventEntity instance which holds the new values for the matching entities to update. Only changed fields are taken into account</param>
-		/// <param name="livingroomGeneralInstance">LivingroomGeneralEntity instance to use as a filter for the LivingroomGeneralEventEntity objects to return</param>
+		/// <param name="entityWithNewValues">LivingRoomGeneralEventEntity instance which holds the new values for the matching entities to update. Only changed fields are taken into account</param>
+		/// <param name="livingRoomGeneralInstance">LivingRoomGeneralEntity instance to use as a filter for the LivingRoomGeneralEventEntity objects to return</param>
 		/// <returns>Amount of entities affected, if the used persistent storage has rowcounting enabled.</returns>
-		public int UpdateMultiManyToOne(LivingroomGeneralEventEntity entityWithNewValues, IEntity livingroomGeneralInstance)
+		public int UpdateMultiManyToOne(LivingRoomGeneralEventEntity entityWithNewValues, IEntity livingRoomGeneralInstance)
 		{
-			return DAOFactory.CreateLivingroomGeneralEventDAO().UpdateMulti(entityWithNewValues, this.Transaction, livingroomGeneralInstance);
+			return DAOFactory.CreateLivingRoomGeneralEventDAO().UpdateMulti(entityWithNewValues, this.Transaction, livingRoomGeneralInstance);
 		}
 
 
@@ -164,7 +164,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <returns>DataTable with the rows requested.</returns>
 		public static DataTable GetMultiAsDataTable(IPredicate selectFilter, long maxNumberOfItemsToReturn, ISortExpression sortClauses, IRelationCollection relations, int pageNumber, int pageSize)
 		{
-			LivingroomGeneralEventDAO dao = DAOFactory.CreateLivingroomGeneralEventDAO();
+			LivingRoomGeneralEventDAO dao = DAOFactory.CreateLivingRoomGeneralEventDAO();
 			return dao.GetMultiAsDataTable(maxNumberOfItemsToReturn, sortClauses, selectFilter, relations, pageNumber, pageSize);
 		}
 
@@ -174,7 +174,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <param name="fieldIndex">Field index of field to which to apply the aggregate function and expression</param>
 		/// <param name="aggregateToApply">Aggregate function to apply. </param>
 		/// <returns>the scalar value requested</returns>
-		public object GetScalar(LivingroomGeneralEventFieldIndex fieldIndex, AggregateFunction aggregateToApply)
+		public object GetScalar(LivingRoomGeneralEventFieldIndex fieldIndex, AggregateFunction aggregateToApply)
 		{
 			return GetScalar(fieldIndex, null, aggregateToApply, null, null, null);
 		}
@@ -184,7 +184,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <param name="expressionToExecute">The expression to execute. Can be null</param>
 		/// <param name="aggregateToApply">Aggregate function to apply. </param>
 		/// <returns>the scalar value requested</returns>
-		public object GetScalar(LivingroomGeneralEventFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply)
+		public object GetScalar(LivingRoomGeneralEventFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply)
 		{
 			return GetScalar(fieldIndex, expressionToExecute, aggregateToApply, null, null, null);
 		}
@@ -195,7 +195,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <param name="aggregateToApply">Aggregate function to apply. </param>
 		/// <param name="filter">The filter to apply to retrieve the scalar</param>
 		/// <returns>the scalar value requested</returns>
-		public object GetScalar(LivingroomGeneralEventFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter)
+		public object GetScalar(LivingRoomGeneralEventFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter)
 		{
 			return GetScalar(fieldIndex, expressionToExecute, aggregateToApply, filter, null, null);
 		}
@@ -207,7 +207,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <param name="filter">The filter to apply to retrieve the scalar</param>
 		/// <param name="groupByClause">The groupby clause to apply to retrieve the scalar</param>
 		/// <returns>the scalar value requested</returns>
-		public object GetScalar(LivingroomGeneralEventFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter, IGroupByCollection groupByClause)
+		public object GetScalar(LivingRoomGeneralEventFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter, IGroupByCollection groupByClause)
 		{
 			return GetScalar(fieldIndex, expressionToExecute, aggregateToApply, filter, null, groupByClause);
 		}
@@ -220,7 +220,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <param name="relations">The relations to walk</param>
 		/// <param name="groupByClause">The groupby clause to apply to retrieve the scalar</param>
 		/// <returns>the scalar value requested</returns>
-		public virtual object GetScalar(LivingroomGeneralEventFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter, IRelationCollection relations, IGroupByCollection groupByClause)
+		public virtual object GetScalar(LivingRoomGeneralEventFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter, IRelationCollection relations, IGroupByCollection groupByClause)
 		{
 			EntityFields fields = new EntityFields(1);
 			fields[0] = EntityFieldFactory.Create(fieldIndex);
@@ -232,13 +232,13 @@ namespace AmstaJanBonga.Business.CollectionClasses
 			{
 				fields[0].AggregateFunctionToApply = aggregateToApply;
 			}
-			return DAOFactory.CreateLivingroomGeneralEventDAO().GetScalar(fields, this.Transaction, filter, relations, groupByClause);
+			return DAOFactory.CreateLivingRoomGeneralEventDAO().GetScalar(fields, this.Transaction, filter, relations, groupByClause);
 		}
 		
 		/// <summary>Creats a new DAO instance so code which is in the base class can still use the proper DAO object.</summary>
 		protected override IDao CreateDAOInstance()
 		{
-			return DAOFactory.CreateLivingroomGeneralEventDAO();
+			return DAOFactory.CreateLivingRoomGeneralEventDAO();
 		}
 		
 		/// <summary>Creates a new transaction object</summary>

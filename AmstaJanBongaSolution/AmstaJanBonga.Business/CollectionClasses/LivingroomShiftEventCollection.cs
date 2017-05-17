@@ -28,85 +28,85 @@ namespace AmstaJanBonga.Business.CollectionClasses
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces
 	// __LLBLGENPRO_USER_CODE_REGION_END
 
-	/// <summary>Collection class for storing and retrieving collections of LivingroomShiftEventEntity objects. </summary>
+	/// <summary>Collection class for storing and retrieving collections of LivingRoomShiftEventEntity objects. </summary>
 	[Serializable]
-	public partial class LivingroomShiftEventCollection : EntityCollectionBase<LivingroomShiftEventEntity>
+	public partial class LivingRoomShiftEventCollection : EntityCollectionBase<LivingRoomShiftEventEntity>
 	{
 		/// <summary> CTor</summary>
-		public LivingroomShiftEventCollection():base(new LivingroomShiftEventEntityFactory())
+		public LivingRoomShiftEventCollection():base(new LivingRoomShiftEventEntityFactory())
 		{
 		}
 
 		/// <summary> CTor</summary>
 		/// <param name="initialContents">The initial contents of this collection.</param>
-		public LivingroomShiftEventCollection(IEnumerable<LivingroomShiftEventEntity> initialContents):base(new LivingroomShiftEventEntityFactory())
+		public LivingRoomShiftEventCollection(IEnumerable<LivingRoomShiftEventEntity> initialContents):base(new LivingRoomShiftEventEntityFactory())
 		{
 			AddRange(initialContents);
 		}
 
 		/// <summary> CTor</summary>
 		/// <param name="entityFactoryToUse">The EntityFactory to use when creating entity objects during a GetMulti() call.</param>
-		public LivingroomShiftEventCollection(IEntityFactory entityFactoryToUse):base(entityFactoryToUse)
+		public LivingRoomShiftEventCollection(IEntityFactory entityFactoryToUse):base(entityFactoryToUse)
 		{
 		}
 
 		/// <summary> Private CTor for deserialization</summary>
 		/// <param name="info"></param>
 		/// <param name="context"></param>
-		protected LivingroomShiftEventCollection(SerializationInfo info, StreamingContext context) : base(info, context)
+		protected LivingRoomShiftEventCollection(SerializationInfo info, StreamingContext context) : base(info, context)
 		{
 		}
 
 
-		/// <summary> Retrieves in this LivingroomShiftEventCollection object all LivingroomShiftEventEntity objects which have data in common with the specified related Entities.
+		/// <summary> Retrieves in this LivingRoomShiftEventCollection object all LivingRoomShiftEventEntity objects which have data in common with the specified related Entities.
 		/// If one is omitted, that entity is not used as a filter. All current elements in the collection are removed from the collection.</summary>
-		/// <param name="employeeInstance">EmployeeEntity instance to use as a filter for the LivingroomShiftEventEntity objects to return</param>
-		/// <param name="livingroomInstance">LivingroomEntity instance to use as a filter for the LivingroomShiftEventEntity objects to return</param>
+		/// <param name="employeeInstance">EmployeeEntity instance to use as a filter for the LivingRoomShiftEventEntity objects to return</param>
+		/// <param name="livingRoomInstance">LivingRoomEntity instance to use as a filter for the LivingRoomShiftEventEntity objects to return</param>
 		/// <returns>true if succeeded, false otherwise</returns>
-		public bool GetMultiManyToOne(IEntity employeeInstance, IEntity livingroomInstance)
+		public bool GetMultiManyToOne(IEntity employeeInstance, IEntity livingRoomInstance)
 		{
-			return GetMultiManyToOne(employeeInstance, livingroomInstance, this.MaxNumberOfItemsToReturn, this.SortClauses, null, 0, 0);
+			return GetMultiManyToOne(employeeInstance, livingRoomInstance, this.MaxNumberOfItemsToReturn, this.SortClauses, null, 0, 0);
 		}
 
-		/// <summary> Retrieves in this LivingroomShiftEventCollection object all LivingroomShiftEventEntity objects which have data in common with the specified related Entities.
+		/// <summary> Retrieves in this LivingRoomShiftEventCollection object all LivingRoomShiftEventEntity objects which have data in common with the specified related Entities.
 		/// If one is omitted, that entity is not used as a filter. All current elements in the collection are removed from the collection.</summary>
-		/// <param name="employeeInstance">EmployeeEntity instance to use as a filter for the LivingroomShiftEventEntity objects to return</param>
-		/// <param name="livingroomInstance">LivingroomEntity instance to use as a filter for the LivingroomShiftEventEntity objects to return</param>
+		/// <param name="employeeInstance">EmployeeEntity instance to use as a filter for the LivingRoomShiftEventEntity objects to return</param>
+		/// <param name="livingRoomInstance">LivingRoomEntity instance to use as a filter for the LivingRoomShiftEventEntity objects to return</param>
 		/// <param name="filter">Extra filter to limit the resultset. Predicate expression can be null, in which case it will be ignored.</param>
 		/// <returns>true if succeeded, false otherwise</returns>
-		public bool GetMultiManyToOne(IEntity employeeInstance, IEntity livingroomInstance, IPredicateExpression filter)
+		public bool GetMultiManyToOne(IEntity employeeInstance, IEntity livingRoomInstance, IPredicateExpression filter)
 		{
-			return GetMultiManyToOne(employeeInstance, livingroomInstance, this.MaxNumberOfItemsToReturn, this.SortClauses, filter, 0, 0);
+			return GetMultiManyToOne(employeeInstance, livingRoomInstance, this.MaxNumberOfItemsToReturn, this.SortClauses, filter, 0, 0);
 		}
 
-		/// <summary> Retrieves in this LivingroomShiftEventCollection object all LivingroomShiftEventEntity objects which have data in common with the specified related Entities.
+		/// <summary> Retrieves in this LivingRoomShiftEventCollection object all LivingRoomShiftEventEntity objects which have data in common with the specified related Entities.
 		/// If one is omitted, that entity is not used as a filter. All current elements in the collection are removed from the collection.</summary>
-		/// <param name="employeeInstance">EmployeeEntity instance to use as a filter for the LivingroomShiftEventEntity objects to return</param>
-		/// <param name="livingroomInstance">LivingroomEntity instance to use as a filter for the LivingroomShiftEventEntity objects to return</param>
+		/// <param name="employeeInstance">EmployeeEntity instance to use as a filter for the LivingRoomShiftEventEntity objects to return</param>
+		/// <param name="livingRoomInstance">LivingRoomEntity instance to use as a filter for the LivingRoomShiftEventEntity objects to return</param>
 		/// <param name="maxNumberOfItemsToReturn"> The maximum number of items to return with this retrieval query.</param>
 		/// <param name="sortClauses">The order by specifications for the sorting of the resultset. When not specified, no sorting is applied.</param>
 		/// <param name="filter">Extra filter to limit the resultset. Predicate expression can be null, in which case it will be ignored.</param>
 		/// <returns>true if succeeded, false otherwise</returns>
-		public bool GetMultiManyToOne(IEntity employeeInstance, IEntity livingroomInstance, long maxNumberOfItemsToReturn, ISortExpression sortClauses, IPredicateExpression filter)
+		public bool GetMultiManyToOne(IEntity employeeInstance, IEntity livingRoomInstance, long maxNumberOfItemsToReturn, ISortExpression sortClauses, IPredicateExpression filter)
 		{
-			return GetMultiManyToOne(employeeInstance, livingroomInstance, maxNumberOfItemsToReturn, sortClauses, filter, 0, 0);
+			return GetMultiManyToOne(employeeInstance, livingRoomInstance, maxNumberOfItemsToReturn, sortClauses, filter, 0, 0);
 		}
 
-		/// <summary> Retrieves in this LivingroomShiftEventCollection object all LivingroomShiftEventEntity objects which have data in common with the specified related Entities.
+		/// <summary> Retrieves in this LivingRoomShiftEventCollection object all LivingRoomShiftEventEntity objects which have data in common with the specified related Entities.
 		/// If one is omitted, that entity is not used as a filter. All current elements in the collection are removed from the collection.</summary>
-		/// <param name="employeeInstance">EmployeeEntity instance to use as a filter for the LivingroomShiftEventEntity objects to return</param>
-		/// <param name="livingroomInstance">LivingroomEntity instance to use as a filter for the LivingroomShiftEventEntity objects to return</param>
+		/// <param name="employeeInstance">EmployeeEntity instance to use as a filter for the LivingRoomShiftEventEntity objects to return</param>
+		/// <param name="livingRoomInstance">LivingRoomEntity instance to use as a filter for the LivingRoomShiftEventEntity objects to return</param>
 		/// <param name="maxNumberOfItemsToReturn"> The maximum number of items to return with this retrieval query.</param>
 		/// <param name="sortClauses">The order by specifications for the sorting of the resultset. When not specified, no sorting is applied.</param>
 		/// <param name="filter">Extra filter to limit the resultset. Predicate expression can be null, in which case it will be ignored.</param>
 		/// <param name="pageNumber">The page number to retrieve.</param>
 		/// <param name="pageSize">The page size of the page to retrieve.</param>
 		/// <returns>true if succeeded, false otherwise</returns>
-		public virtual bool GetMultiManyToOne(IEntity employeeInstance, IEntity livingroomInstance, long maxNumberOfItemsToReturn, ISortExpression sortClauses, IPredicateExpression filter, int pageNumber, int pageSize)
+		public virtual bool GetMultiManyToOne(IEntity employeeInstance, IEntity livingRoomInstance, long maxNumberOfItemsToReturn, ISortExpression sortClauses, IPredicateExpression filter, int pageNumber, int pageSize)
 		{
 			bool validParameters = false;
 			validParameters |= (employeeInstance!=null);
-			validParameters |= (livingroomInstance!=null);
+			validParameters |= (livingRoomInstance!=null);
 			if(!validParameters)
 			{
 				return GetMulti(filter, maxNumberOfItemsToReturn, sortClauses, null, pageNumber, pageSize);
@@ -115,28 +115,28 @@ namespace AmstaJanBonga.Business.CollectionClasses
 			{
 				this.Clear();
 			}
-			return DAOFactory.CreateLivingroomShiftEventDAO().GetMulti(this.Transaction, this, maxNumberOfItemsToReturn, sortClauses, this.EntityFactoryToUse, filter, employeeInstance, livingroomInstance, pageNumber, pageSize);
+			return DAOFactory.CreateLivingRoomShiftEventDAO().GetMulti(this.Transaction, this, maxNumberOfItemsToReturn, sortClauses, this.EntityFactoryToUse, filter, employeeInstance, livingRoomInstance, pageNumber, pageSize);
 		}
 
-		/// <summary> Deletes from the persistent storage all LivingroomShiftEvent entities which have data in common with the specified related Entities. If one is omitted, that entity is not used as a filter.</summary>
+		/// <summary> Deletes from the persistent storage all LivingRoomShiftEvent entities which have data in common with the specified related Entities. If one is omitted, that entity is not used as a filter.</summary>
 		/// <remarks>Runs directly on the persistent storage. It will not delete entity objects from the current collection.</remarks>
-		/// <param name="employeeInstance">EmployeeEntity instance to use as a filter for the LivingroomShiftEventEntity objects to return</param>
-		/// <param name="livingroomInstance">LivingroomEntity instance to use as a filter for the LivingroomShiftEventEntity objects to return</param>
+		/// <param name="employeeInstance">EmployeeEntity instance to use as a filter for the LivingRoomShiftEventEntity objects to return</param>
+		/// <param name="livingRoomInstance">LivingRoomEntity instance to use as a filter for the LivingRoomShiftEventEntity objects to return</param>
 		/// <returns>Amount of entities affected, if the used persistent storage has rowcounting enabled.</returns>
-		public int DeleteMultiManyToOne(IEntity employeeInstance, IEntity livingroomInstance)
+		public int DeleteMultiManyToOne(IEntity employeeInstance, IEntity livingRoomInstance)
 		{
-			return DAOFactory.CreateLivingroomShiftEventDAO().DeleteMulti(this.Transaction, employeeInstance, livingroomInstance);
+			return DAOFactory.CreateLivingRoomShiftEventDAO().DeleteMulti(this.Transaction, employeeInstance, livingRoomInstance);
 		}
 
-		/// <summary> Updates in the persistent storage all LivingroomShiftEvent entities which have data in common with the specified related Entities. If one is omitted, that entity is not used as a filter.
+		/// <summary> Updates in the persistent storage all LivingRoomShiftEvent entities which have data in common with the specified related Entities. If one is omitted, that entity is not used as a filter.
 		/// Which fields are updated in those matching entities depends on which fields are <i>changed</i> in the passed in entity entityWithNewValues. The new values of these fields are read from entityWithNewValues. </summary>
-		/// <param name="entityWithNewValues">LivingroomShiftEventEntity instance which holds the new values for the matching entities to update. Only changed fields are taken into account</param>
-		/// <param name="employeeInstance">EmployeeEntity instance to use as a filter for the LivingroomShiftEventEntity objects to return</param>
-		/// <param name="livingroomInstance">LivingroomEntity instance to use as a filter for the LivingroomShiftEventEntity objects to return</param>
+		/// <param name="entityWithNewValues">LivingRoomShiftEventEntity instance which holds the new values for the matching entities to update. Only changed fields are taken into account</param>
+		/// <param name="employeeInstance">EmployeeEntity instance to use as a filter for the LivingRoomShiftEventEntity objects to return</param>
+		/// <param name="livingRoomInstance">LivingRoomEntity instance to use as a filter for the LivingRoomShiftEventEntity objects to return</param>
 		/// <returns>Amount of entities affected, if the used persistent storage has rowcounting enabled.</returns>
-		public int UpdateMultiManyToOne(LivingroomShiftEventEntity entityWithNewValues, IEntity employeeInstance, IEntity livingroomInstance)
+		public int UpdateMultiManyToOne(LivingRoomShiftEventEntity entityWithNewValues, IEntity employeeInstance, IEntity livingRoomInstance)
 		{
-			return DAOFactory.CreateLivingroomShiftEventDAO().UpdateMulti(entityWithNewValues, this.Transaction, employeeInstance, livingroomInstance);
+			return DAOFactory.CreateLivingRoomShiftEventDAO().UpdateMulti(entityWithNewValues, this.Transaction, employeeInstance, livingRoomInstance);
 		}
 
 
@@ -171,7 +171,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <returns>DataTable with the rows requested.</returns>
 		public static DataTable GetMultiAsDataTable(IPredicate selectFilter, long maxNumberOfItemsToReturn, ISortExpression sortClauses, IRelationCollection relations, int pageNumber, int pageSize)
 		{
-			LivingroomShiftEventDAO dao = DAOFactory.CreateLivingroomShiftEventDAO();
+			LivingRoomShiftEventDAO dao = DAOFactory.CreateLivingRoomShiftEventDAO();
 			return dao.GetMultiAsDataTable(maxNumberOfItemsToReturn, sortClauses, selectFilter, relations, pageNumber, pageSize);
 		}
 
@@ -181,7 +181,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <param name="fieldIndex">Field index of field to which to apply the aggregate function and expression</param>
 		/// <param name="aggregateToApply">Aggregate function to apply. </param>
 		/// <returns>the scalar value requested</returns>
-		public object GetScalar(LivingroomShiftEventFieldIndex fieldIndex, AggregateFunction aggregateToApply)
+		public object GetScalar(LivingRoomShiftEventFieldIndex fieldIndex, AggregateFunction aggregateToApply)
 		{
 			return GetScalar(fieldIndex, null, aggregateToApply, null, null, null);
 		}
@@ -191,7 +191,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <param name="expressionToExecute">The expression to execute. Can be null</param>
 		/// <param name="aggregateToApply">Aggregate function to apply. </param>
 		/// <returns>the scalar value requested</returns>
-		public object GetScalar(LivingroomShiftEventFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply)
+		public object GetScalar(LivingRoomShiftEventFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply)
 		{
 			return GetScalar(fieldIndex, expressionToExecute, aggregateToApply, null, null, null);
 		}
@@ -202,7 +202,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <param name="aggregateToApply">Aggregate function to apply. </param>
 		/// <param name="filter">The filter to apply to retrieve the scalar</param>
 		/// <returns>the scalar value requested</returns>
-		public object GetScalar(LivingroomShiftEventFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter)
+		public object GetScalar(LivingRoomShiftEventFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter)
 		{
 			return GetScalar(fieldIndex, expressionToExecute, aggregateToApply, filter, null, null);
 		}
@@ -214,7 +214,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <param name="filter">The filter to apply to retrieve the scalar</param>
 		/// <param name="groupByClause">The groupby clause to apply to retrieve the scalar</param>
 		/// <returns>the scalar value requested</returns>
-		public object GetScalar(LivingroomShiftEventFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter, IGroupByCollection groupByClause)
+		public object GetScalar(LivingRoomShiftEventFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter, IGroupByCollection groupByClause)
 		{
 			return GetScalar(fieldIndex, expressionToExecute, aggregateToApply, filter, null, groupByClause);
 		}
@@ -227,7 +227,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <param name="relations">The relations to walk</param>
 		/// <param name="groupByClause">The groupby clause to apply to retrieve the scalar</param>
 		/// <returns>the scalar value requested</returns>
-		public virtual object GetScalar(LivingroomShiftEventFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter, IRelationCollection relations, IGroupByCollection groupByClause)
+		public virtual object GetScalar(LivingRoomShiftEventFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter, IRelationCollection relations, IGroupByCollection groupByClause)
 		{
 			EntityFields fields = new EntityFields(1);
 			fields[0] = EntityFieldFactory.Create(fieldIndex);
@@ -239,13 +239,13 @@ namespace AmstaJanBonga.Business.CollectionClasses
 			{
 				fields[0].AggregateFunctionToApply = aggregateToApply;
 			}
-			return DAOFactory.CreateLivingroomShiftEventDAO().GetScalar(fields, this.Transaction, filter, relations, groupByClause);
+			return DAOFactory.CreateLivingRoomShiftEventDAO().GetScalar(fields, this.Transaction, filter, relations, groupByClause);
 		}
 		
 		/// <summary>Creats a new DAO instance so code which is in the base class can still use the proper DAO object.</summary>
 		protected override IDao CreateDAOInstance()
 		{
-			return DAOFactory.CreateLivingroomShiftEventDAO();
+			return DAOFactory.CreateLivingRoomShiftEventDAO();
 		}
 		
 		/// <summary>Creates a new transaction object</summary>

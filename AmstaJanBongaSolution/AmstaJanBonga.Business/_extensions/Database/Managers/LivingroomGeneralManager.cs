@@ -8,11 +8,11 @@ namespace AmstaJanBonga.Business.Database.Managers
     {
         public static void InsertOrUpdate(int livingroomId, string description)
         {
-            var livingroomGeneral = new LivingroomGeneralEntity(livingroomId);
+            var livingroomGeneral = new LivingRoomGeneralEntity(livingroomId);
 
             if (livingroomGeneral.IsNew)
             {
-                livingroomGeneral.LivingroomId = livingroomId;
+                livingroomGeneral.LivingRoomId = livingroomId;
                 livingroomGeneral.Description = description;
                 livingroomGeneral.DateCreated = DateTime.Now;
             }

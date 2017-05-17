@@ -12,9 +12,9 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
 
         private DateTime _date = DateTime.MinValue;
 
-        private LivingroomEntity _livingroom = null;
+        private LivingRoomEntity _livingroom = null;
 
-        private LivingroomGeneralEventEntity _livingroomGeneralEvent = null;
+        private LivingRoomGeneralEventEntity _livingroomGeneralEvent = null;
 
         #endregion
 
@@ -22,12 +22,12 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
 
         private bool HasDate
         {
-            get { return Url.QueryStringParser.HasParameter("LivingroomId"); }
+            get { return Url.QueryStringParser.HasParameter("LivingRoomId"); }
         }
 
-        private bool HasLivingroomId
+        private bool HasLivingRoomId
         {
-            get { return Url.QueryStringParser.HasParameter("LivingroomId"); }
+            get { return Url.QueryStringParser.HasParameter("LivingRoomId"); }
         }
 
         private DateTime QueryStringDate
@@ -41,23 +41,23 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
             }
         }
 
-        private LivingroomEntity Livingroom
+        private LivingRoomEntity Livingroom
         {
             get
             {
-                if (this._livingroom == null && this.HasLivingroomId)
-                    this._livingroom = LivingroomReader.GetLivingroomById(Url.QueryStringParser.GetInt("LivingroomId"), true);
+                if (this._livingroom == null && this.HasLivingRoomId)
+                    this._livingroom = LivingRoomReader.GetLivingroomById(Url.QueryStringParser.GetInt("LivingRoomId"), true);
 
                 return this._livingroom;
             }
         }
 
-        private LivingroomGeneralEventEntity LivingroomGeneralEvent
+        private LivingRoomGeneralEventEntity LivingroomGeneralEvent
         {
             get
             {
-                if (this._livingroomGeneralEvent == null && this.HasLivingroomId)
-                    this._livingroomGeneralEvent = LivingroomGeneralEventReader.GetLivingroomGeneralByIdAndDate(this.Livingroom.Id, this.QueryStringDate.Date, true);
+                if (this._livingroomGeneralEvent == null && this.HasLivingRoomId)
+                    this._livingroomGeneralEvent = LivingRoomGeneralEventReader.GetLivingroomGeneralByIdAndDate(this.Livingroom.Id, this.QueryStringDate.Date, true);
 
                 return this._livingroomGeneralEvent;
             }
@@ -71,12 +71,12 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
             {
                 this.PreFill();
 
-                if (this.HasLivingroomId)
+                if (this.HasLivingRoomId)
                 {
                     if (this.HasDate)
-                        this._hlEdit.NavigateUrl = "~/Content/Secure/Livingroom/General/GeneralEventAddEdit.aspx?LivingroomId={0}&Date={1}".FormatString(this.Livingroom.Id, this.QueryStringDate.Date);
+                        this._hlEdit.NavigateUrl = "~/Content/Secure/Livingroom/General/GeneralEventAddEdit.aspx?LivingRoomId={0}&Date={1}".FormatString(this.Livingroom.Id, this.QueryStringDate.Date);
 
-                    this._hlReturn.NavigateUrl = "~/Content/Secure/Livingroom/General/GeneralOverview.aspx?LivingroomId={0}".FormatString(this.Livingroom.Id);
+                    this._hlReturn.NavigateUrl = "~/Content/Secure/Livingroom/General/GeneralOverview.aspx?LivingRoomId={0}".FormatString(this.Livingroom.Id);
                 }
             }
         }
@@ -85,7 +85,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
 
         private void PreFill()
         {
-            if (this.HasLivingroomId && this.HasDate)
+            if (this.HasLivingRoomId && this.HasDate)
             {
                 this._lblDate.Text = this.QueryStringDate.ToString("dd-MM-yyyy");
                 this._lblLivingroom.Text = this.Livingroom.Name;

@@ -17,15 +17,14 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// <param name="imagePath"></param>
         /// <param name="isActive"></param>
         /// <returns></returns>
-        public static PatientEntity InsertPatient(int livingroomId, string firstName, FileUpload fileUpload, bool isActive)
+        public static PatientEntity InsertPatient(int livingroomId, string firstName, FileUpload fileUpload)
         {
             // Saving the patient wihtout an image, image is mandetory.
             var patient = new PatientEntity()
             {
-                LivingroomId = livingroomId,
+                LivingRoomId = livingroomId,
                 FirstName = firstName,
                 ImagePath = string.Empty,
-                IsActive = isActive,
                 DateCreated = DateTime.Now
             };
 
@@ -72,7 +71,7 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// <param name="imagePath"></param>
         /// <param name="isActive"></param>
         /// <returns></returns>
-        public static PatientEntity UpdatePatient(PatientEntity patient, int livingroomId, string firstName, FileUpload fileUpload, bool isActive)
+        public static PatientEntity UpdatePatient(PatientEntity patient, int livingroomId, string firstName, FileUpload fileUpload)
         {
             // The path without the filename
             var path = HttpContext.Current.Server.MapPath(
@@ -95,9 +94,8 @@ namespace AmstaJanBonga.Business.Database.Managers
                 patient.ImagePath = newPath.Substring(path.IndexOf(@"\_uploads\"));
             }
 
-            patient.LivingroomId = livingroomId;
+            patient.LivingRoomId = livingroomId;
             patient.FirstName = firstName;
-            patient.IsActive = isActive;
 
             // Saving the patient.
             patient.Save();

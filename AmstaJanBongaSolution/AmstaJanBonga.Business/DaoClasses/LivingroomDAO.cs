@@ -26,11 +26,11 @@ namespace AmstaJanBonga.Business.DaoClasses
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces
 	// __LLBLGENPRO_USER_CODE_REGION_END
 
-	/// <summary>General DAO class for the Livingroom Entity. It will perform database oriented actions for a entity of type 'LivingroomEntity'.</summary>
-	public partial class LivingroomDAO : CommonDaoBase
+	/// <summary>General DAO class for the LivingRoom Entity. It will perform database oriented actions for a entity of type 'LivingRoomEntity'.</summary>
+	public partial class LivingRoomDAO : CommonDaoBase
 	{
 		/// <summary>CTor</summary>
-		public LivingroomDAO() : base(InheritanceHierarchyType.None, "LivingroomEntity", new LivingroomEntityFactory())
+		public LivingRoomDAO() : base(InheritanceHierarchyType.None, "LivingRoomEntity", new LivingRoomEntityFactory())
 		{
 		}
 

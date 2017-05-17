@@ -1,0 +1,435 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--LLBLGen Pro v5.1 project file. Do not manually edit this file. Incorrect references could lead to an unloadable project file.-->
+<Project Version="5.1" TargetFrameworkName="LLBLGen Pro Runtime Framework">
+  <Properties>
+    <Abbreviations />
+    <Property Name="AdditionalTaskPerformerFolder" Value="" />
+    <Property Name="AdditionalTasksFolder" Value="" />
+    <Property Name="AdditionalTemplatesFolder" Value="" />
+    <Property Name="AdditionalTypeConverterFolder" Value="" />
+    <Property Name="AddNewElementsAfterRefresh_v5" Value="false" />
+    <Property Name="AddNewElementsAfterRelationalModelDataSync_v5" Value="false" />
+    <Property Name="AddNewFieldsAfterRefresh_v5" Value="true" />
+    <Property Name="AddNewFieldsAfterRelationalModelDataSync_v5" Value="true" />
+    <Property Name="AddNewViewsAsEntitiesAfterRefresh_v5" Value="false" />
+    <Property Name="AddNewViewsAsEntitiesAfterRelationalModelDataSync_v5" Value="false" />
+    <Property Name="AutoAddManyToManyRelationships" Value="false" />
+    <Property Name="AutoAssignSequencesToIntegerPks" Value="true" />
+    <Property Name="AutoAssignTypeConverterToFieldMapping" Value="true" />
+    <Property Name="CleanUpVsNetProjects" Value="true" />
+    <Property Name="ConnectionStringKeyNamePattern" Value="ConnectionString.{$ProviderName}" />
+    <Property Name="DefaultDeleteRuleAction" Value="1" />
+    <Property Name="DefaultUpdateRuleAction" Value="0" />
+    <Property Name="EncodingToUse" Value="0" />
+    <Property Name="EntityActionCombinationDefaultForTable" Value="0" />
+    <Property Name="EntityActionCombinationDefaultForView" Value="4" />
+    <Property Name="EntityFieldNameStripPattern" Value="{}{}" />
+    <Property Name="EntityNameStripPattern" Value="{tbl_}{}" />
+    <Property Name="ExcludableOrphanedElementDetectedAction" Value="3" />
+    <Property Name="FailCodeGenerationOnWriteError" Value="false" />
+    <Property Name="FieldMappedOntoRelatedFieldPattern" Value="{$RelatedFieldName}" />
+    <Property Name="FkFieldsAreNamedAfterTargetField" Value="true" />
+    <Property Name="ForeignKeyConstraintPattern" Value="FK_{$Guid}" />
+    <Property Name="ForeignKeyFieldPattern" Value="{$NavigatorName}{$RelatedFieldName}" />
+    <Property Name="GroupUsage" Value="0" />
+    <Property Name="IdentifyingFieldsFollowDBPrimaryKeyConstraints_v5" Value="true" />
+    <Property Name="InsertUnderscoreAtWordBreakCaseInsensitiveDBs" Value="false" />
+    <Property Name="InsertUnderscoreAtWordBreakCaseSensitiveDBs" Value="false" />
+    <Property Name="LengthPrecisionScaleFollowDBLengthPrecisionScale_v5" Value="true" />
+    <Property Name="MakeElementNamePascalCasing" Value="true" />
+    <Property Name="NavigatorMappedOntoManyToManyPattern" Value="{$EndEntityName}CollectionVia{$IntermediateEntityName$S}" />
+    <Property Name="NavigatorMappedOntoOneManyToOnePattern" Value="{$EndEntityName$S}" />
+    <Property Name="NavigatorMappedOntoOneToManyPattern" Value="{$EndEntityName$P}" />
+    <Property Name="NonExcludableOrphanedElementDetectedAction" Value="3" />
+    <Property Name="PreferDecimalOverCurrencyTypes" Value="true" />
+    <Property Name="PreferNaturalCharacterTypes" Value="true" />
+    <Property Name="PreferSystemSequencesOverSchemaSequencesIfApplicable" Value="true" />
+    <Property Name="PreferVariableLengthTypes" Value="true" />
+    <Property Name="PrimaryKeyConstraintPattern" Value="PK_{$Guid}" />
+    <Property Name="ProjectCreator" Value="Rick van der Laan" />
+    <Property Name="ProjectName" Value="AmstaJanBonga.Business" />
+    <Property Name="ReflectNullabilityOfElementFieldInTargetField_v5" Value="false" />
+    <Property Name="ReflectTypeOfElementFieldInTargetField_v5" Value="true" />
+    <Property Name="RelationalModelDataElementNameCasingCaseInsensitiveDBs" Value="3" />
+    <Property Name="RelationalModelDataElementNameCasingCaseSensitiveDBs" Value="3" />
+    <Property Name="RelationshipsFollowDBForeignKeyConstraints_v5" Value="true" />
+    <Property Name="RemoveUnderscoresFromElementName" Value="true" />
+    <Property Name="RemoveUnmappedElementsAfterRefresh_v5" Value="false" />
+    <Property Name="RemoveUnmappedElementsAfterRelationalModelDataSync_v5" Value="false" />
+    <Property Name="ResetFieldOrderBasedOnTargetOrderAtRefresh" Value="false" />
+    <Property Name="ResetFieldOrderBasedOnTargetOrderAtRelationalModelDataSync" Value="false" />
+    <Property Name="RetrieveDBCustomProperties" Value="false" />
+    <Property Name="RootNamespace" Value="" />
+    <Property Name="SequenceNameMatchingPattern" Value="SEQ_{$TableName}" />
+    <Property Name="SequencePattern" Value="SEQ_{$EntityName}" />
+    <Property Name="SetGroupNameAfterSchemaName" Value="true" />
+    <Property Name="SetSchemaNameAfterGroupName" Value="true" />
+    <Property Name="SingularizeElementNames" Value="true" />
+    <Property Name="StoredProcNameStripPattern" Value="{pr_, sp_}{}" />
+    <Property Name="StoreTimeLastGeneratedIntoProject" Value="false" />
+    <Property Name="SyncMappedElementNamesAfterRefresh_v5" Value="false" />
+    <Property Name="SyncMappedElementNamesAfterRelationalModelDataSync_v5" Value="false" />
+    <Property Name="SyncRelationalModelDataElementNameWithModelElementName_v5" Value="false" />
+    <Property Name="SyncRenamedMappedElementNamesAfterRefresh_v5" Value="false" />
+    <Property Name="SyncRenamedMappedElementNamesAfterRelationalModelDataSync_v5" Value="false" />
+    <Property Name="TableValuedFunctionNameStripPattern" Value="{fn_, pr_, sp_}{}" />
+    <Property Name="TargetPerEntityEdgesRequireBackingFkConstraint" Value="true" />
+    <Property Name="TypedViewFieldNameStripPattern" Value="{}{}" />
+    <Property Name="TypedViewMappedOnResultsetPattern" Value="{$ProcFunctionName}{$ResultsetName}Result" />
+    <Property Name="TypedViewNameStripPattern" Value="{vw_}{}" />
+    <Property Name="UniqueConstraintPattern" Value="UC_{$Guid}" />
+    <Property Name="UniqueConstraintsFollowDBUniqueConstraints_v5" Value="true" />
+    <Property Name="UpdateCustomPropertiesAfterRefresh_v5" Value="false" />
+    <Property Name="UpdateCustomPropertiesAfterRelationalModelDataSync_v5" Value="false" />
+    <Property Name="UseCustomFieldOrderingOnNewElements" Value="false" />
+  </Properties>
+  <TypeShortcuts />
+  <IgnoredWarnings />
+  <SavedSearchQueries />
+  <CodeGenerationCyclePreferences>
+    <OutputType Value="3">
+      <LastUsedPreferences>
+        <DestinationRootFolder Value="C:\Git\AmstaJanBongaSolution\AmstaJanBongaSolution\AmstaJanBonga.Business" />
+        <FrameworkName Value="LLBLGen Pro Runtime Framework" />
+        <LanguageName Value="C#" />
+        <PlatformName Value=".NET 4.5.2" />
+        <PresetName Value="SD.Presets.SelfServicing.General" />
+        <RootNamespace Value="AmstaJanBonga.Business" />
+        <TemplateGroup Value="SelfServicing" />
+        <TemplateBindings>
+          <Binding Name="SD.TemplateBindings.SharedTemplates.Deprecated" />
+          <Binding Name="SD.TemplateBindings.SharedTemplates.NET45x" />
+          <Binding Name="SD.TemplateBindings.SharedTemplates" />
+          <Binding Name="SD.TemplateBindings.SqlServerSpecific" />
+          <Binding Name="SD.TemplateBindings.General" />
+        </TemplateBindings>
+      </LastUsedPreferences>
+    </OutputType>
+    <OutputType Value="1">
+      <LastUsedPreferences>
+        <DestinationRootFolder Value="" />
+        <FrameworkName Value="DDL SQL" />
+        <LanguageName Value="SQL" />
+        <PlatformName Value="RDBMS" />
+        <PresetName Value="" />
+        <RootNamespace Value="" />
+        <TemplateGroup Value="Create DDL SQL" />
+        <TemplateBindings />
+      </LastUsedPreferences>
+    </OutputType>
+  </CodeGenerationCyclePreferences>
+  <CodeGenerationMetaDataDefaults>
+    <TargetElement Type="256">
+      <Defaults>
+        <Attributes>
+          <Attribute Value="Browsable($false)" />
+        </Attributes>
+      </Defaults>
+    </TargetElement>
+  </CodeGenerationMetaDataDefaults>
+  <TargetDatabases>
+    <TargetDatabase Type="2D18D138-1DD2-467E-86CC-4838250611AE" SyncSource="2">
+      <ConnectionElements>
+        <ConnectionElement Name="ServerName" Value="185.41.126.25, 9144" />
+        <ConnectionElement Name="CatalogName" Value="master" />
+        <ConnectionElement Name="UserID" Value="Vanderlaan" />
+        <ConnectionElement Name="Password" Value="" />
+      </ConnectionElements>
+      <SystemSequences>
+        <Sequence Name="SCOPE_IDENTITY()" />
+        <Sequence Name="@@IDENTITY" />
+      </SystemSequences>
+      <Catalogs>
+        <Catalog Name="Vanderlaan_jouwsoftware_janbonga_development">
+          <Schemas>
+            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-05-17T08:46:54.8847089Z">
+              <StoredProcedures>
+                <StoredProcedure Name="sp_alterdiagram">
+                  <Parameters>
+                    <Parameter Name="@diagramname" Direction="1" Ordinal="1" DbType="12" Length="128" />
+                    <Parameter Name="@owner_id" Direction="1" Ordinal="2" DbType="8" Precision="10" />
+                    <Parameter Name="@version" Direction="1" Ordinal="3" DbType="8" Precision="10" />
+                    <Parameter Name="@definition" Direction="1" Ordinal="4" DbType="23" Length="2147483647" />
+                  </Parameters>
+                  <CustomProperties>
+                    <CustomProperty Name="microsoft_database_tools_support" Value="1" />
+                  </CustomProperties>
+                </StoredProcedure>
+                <StoredProcedure Name="sp_creatediagram">
+                  <Parameters>
+                    <Parameter Name="@diagramname" Direction="1" Ordinal="1" DbType="12" Length="128" />
+                    <Parameter Name="@owner_id" Direction="1" Ordinal="2" DbType="8" Precision="10" />
+                    <Parameter Name="@version" Direction="1" Ordinal="3" DbType="8" Precision="10" />
+                    <Parameter Name="@definition" Direction="1" Ordinal="4" DbType="23" Length="2147483647" />
+                  </Parameters>
+                  <CustomProperties>
+                    <CustomProperty Name="microsoft_database_tools_support" Value="1" />
+                  </CustomProperties>
+                </StoredProcedure>
+                <StoredProcedure Name="sp_dropdiagram">
+                  <Parameters>
+                    <Parameter Name="@diagramname" Direction="1" Ordinal="1" DbType="12" Length="128" />
+                    <Parameter Name="@owner_id" Direction="1" Ordinal="2" DbType="8" Precision="10" />
+                  </Parameters>
+                  <CustomProperties>
+                    <CustomProperty Name="microsoft_database_tools_support" Value="1" />
+                  </CustomProperties>
+                </StoredProcedure>
+                <StoredProcedure Name="sp_helpdiagramdefinition">
+                  <Parameters>
+                    <Parameter Name="@diagramname" Direction="1" Ordinal="1" DbType="12" Length="128" />
+                    <Parameter Name="@owner_id" Direction="1" Ordinal="2" DbType="8" Precision="10" />
+                  </Parameters>
+                  <CustomProperties>
+                    <CustomProperty Name="microsoft_database_tools_support" Value="1" />
+                  </CustomProperties>
+                </StoredProcedure>
+                <StoredProcedure Name="sp_helpdiagrams">
+                  <Parameters>
+                    <Parameter Name="@diagramname" Direction="1" Ordinal="1" DbType="12" Length="128" />
+                    <Parameter Name="@owner_id" Direction="1" Ordinal="2" DbType="8" Precision="10" />
+                  </Parameters>
+                  <CustomProperties>
+                    <CustomProperty Name="microsoft_database_tools_support" Value="1" />
+                  </CustomProperties>
+                </StoredProcedure>
+                <StoredProcedure Name="sp_renamediagram">
+                  <Parameters>
+                    <Parameter Name="@diagramname" Direction="1" Ordinal="1" DbType="12" Length="128" />
+                    <Parameter Name="@owner_id" Direction="1" Ordinal="2" DbType="8" Precision="10" />
+                    <Parameter Name="@new_diagramname" Direction="1" Ordinal="3" DbType="12" Length="128" />
+                  </Parameters>
+                  <CustomProperties>
+                    <CustomProperty Name="microsoft_database_tools_support" Value="1" />
+                  </CustomProperties>
+                </StoredProcedure>
+                <StoredProcedure Name="sp_upgraddiagrams">
+                  <CustomProperties>
+                    <CustomProperty Name="microsoft_database_tools_support" Value="1" />
+                  </CustomProperties>
+                </StoredProcedure>
+              </StoredProcedures>
+            </Schema>
+            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-05-17T08:46:55.0095091Z">
+              <Tables>
+                <Table Name="AgendaEvent">
+                  <PkConstraintName Name="PK_AgendaEvent" />
+                  <Fields>
+                    <Field Name="Id" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="PatientId" Ordinal="2" DbType="8" Precision="10" />
+                    <Field Name="Name" Ordinal="3" DbType="24" Length="50" />
+                  </Fields>
+                </Table>
+                <Table Name="AgendaEventMeta">
+                  <PkConstraintName Name="PK_AgendaEventMeta" />
+                  <Fields>
+                    <Field Name="Id" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="AgendaEventId" Ordinal="2" DbType="8" Precision="10" />
+                    <Field Name="RepeatStart" Ordinal="3" DbType="8" Precision="10" />
+                    <Field Name="RepeatInterval" Ordinal="4" DbType="8" Precision="10" />
+                  </Fields>
+                </Table>
+                <Table Name="Employee">
+                  <PkConstraintName Name="PK_Employee" />
+                  <Fields>
+                    <Field Name="Id" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="UserId" Ordinal="2" IsOptional="true" DbType="8" Precision="10" />
+                    <Field Name="LivingroomId" Ordinal="3" DbType="8" Precision="10" />
+                    <Field Name="FirstName" Ordinal="4" DbType="24" Length="50" />
+                    <Field Name="ImagePath" Ordinal="5" IsOptional="true" DbType="24" Length="250" />
+                    <Field Name="IsMarkedAsDeleted" Ordinal="6" HasDefaultValue="true" DefaultValue="(0)" DbType="2" />
+                    <Field Name="DateCreated" Ordinal="7" DbType="4" />
+                    <Field Name="DateLastModified" Ordinal="8" IsOptional="true" DbType="4" />
+                    <Field Name="DateLastModifiedByUserId" Ordinal="9" IsOptional="true" DbType="8" Precision="10" />
+                    <Field Name="DateDeleted" Ordinal="10" IsOptional="true" DbType="4" />
+                  </Fields>
+                </Table>
+                <Table Name="IP">
+                  <PkConstraintName Name="PK_IP" />
+                  <Fields>
+                    <Field Name="IPAddress" Ordinal="1" IsPrimaryKey="true" DbType="24" Length="20" />
+                    <Field Name="Description" Ordinal="2" DbType="24" Length="250" />
+                    <Field Name="DateCreated" Ordinal="3" DbType="4" />
+                    <Field Name="DateLastModified" Ordinal="4" IsOptional="true" DbType="4" />
+                    <Field Name="DateLastModifiedByUserId" Ordinal="5" IsOptional="true" DbType="8" Precision="10" />
+                  </Fields>
+                </Table>
+                <Table Name="LivingRoom">
+                  <PkConstraintName Name="PK_Livingroom" />
+                  <Fields>
+                    <Field Name="Id" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="Name" Ordinal="2" DbType="24" Length="50" />
+                    <Field Name="ColourTypeEnum" Ordinal="3" HasDefaultValue="true" DefaultValue="(0)" DbType="22" Precision="3" />
+                    <Field Name="IsMarkedAsDeleted" Ordinal="4" HasDefaultValue="true" DefaultValue="(0)" DbType="2" />
+                    <Field Name="DateCreated" Ordinal="5" DbType="4" />
+                    <Field Name="DateLastModified" Ordinal="6" IsOptional="true" DbType="4" />
+                    <Field Name="DateLastModifiedByUserId" Ordinal="7" IsOptional="true" DbType="8" Precision="10" />
+                    <Field Name="DateDeleted" Ordinal="8" IsOptional="true" DbType="4" />
+                  </Fields>
+                </Table>
+                <Table Name="LivingRoomChoreEvent">
+                  <PkConstraintName Name="PK_Chores_1" />
+                  <Fields>
+                    <Field Name="PatientId" Ordinal="1" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="LivingroomId" Ordinal="2" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="Date" Ordinal="3" IsPrimaryKey="true" DbType="28" />
+                    <Field Name="TimeOfDayTypeEnum" Ordinal="4" IsPrimaryKey="true" DbType="22" Precision="3" />
+                    <Field Name="DateCreated" Ordinal="5" DbType="4" />
+                    <Field Name="DateLastModified" Ordinal="6" IsOptional="true" DbType="4" />
+                    <Field Name="DateLastModifiedByUserId" Ordinal="7" IsOptional="true" DbType="8" Precision="10" />
+                  </Fields>
+                </Table>
+                <Table Name="LivingRoomGeneral">
+                  <PkConstraintName Name="PK_General" />
+                  <Fields>
+                    <Field Name="LivingroomId" Ordinal="1" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="Description" Ordinal="2" IsOptional="true" DbType="24" Length="50" />
+                    <Field Name="DateCreated" Ordinal="3" DbType="4" />
+                    <Field Name="DateLastModified" Ordinal="4" IsOptional="true" DbType="4" />
+                    <Field Name="DateLastModifiedByUserId" Ordinal="5" IsOptional="true" DbType="8" Precision="10" />
+                  </Fields>
+                </Table>
+                <Table Name="LivingRoomGeneralEvent">
+                  <PkConstraintName Name="PK_GeneralInformation" />
+                  <Fields>
+                    <Field Name="LivingroomId" Ordinal="1" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="Date" Ordinal="2" IsPrimaryKey="true" DbType="28" />
+                    <Field Name="Description" Ordinal="3" DbType="24" Length="250" />
+                    <Field Name="DateCreated" Ordinal="4" DbType="4" />
+                    <Field Name="DateLastModified" Ordinal="5" IsOptional="true" DbType="4" />
+                    <Field Name="DateLastModifiedByUserId" Ordinal="6" IsOptional="true" DbType="8" Precision="10" />
+                  </Fields>
+                </Table>
+                <Table Name="LivingRoomShiftEvent">
+                  <PkConstraintName Name="PK_LivingroomShiftEvent" />
+                  <Fields>
+                    <Field Name="EmployeeId" Ordinal="1" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="LivingroomId" Ordinal="2" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="Date" Ordinal="3" IsPrimaryKey="true" DbType="28" />
+                    <Field Name="ShiftTypeEnum" Ordinal="4" IsPrimaryKey="true" DbType="22" Precision="3" />
+                    <Field Name="DateCreated" Ordinal="5" DbType="4" />
+                    <Field Name="DateLastModified" Ordinal="6" IsOptional="true" DbType="4" />
+                    <Field Name="DateLastModifiedByUserId" Ordinal="7" IsOptional="true" DbType="8" Precision="10" />
+                  </Fields>
+                </Table>
+                <Table Name="Patient">
+                  <PkConstraintName Name="PK_Patient_1" />
+                  <Fields>
+                    <Field Name="Id" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="LivingroomId" Ordinal="2" DbType="8" Precision="10" />
+                    <Field Name="FirstName" Ordinal="3" DbType="24" Length="50" />
+                    <Field Name="ImagePath" Ordinal="4" DbType="24" Length="250" />
+                    <Field Name="IsMarkedAsDeleted" Ordinal="5" HasDefaultValue="true" DefaultValue="(0)" DbType="2" />
+                    <Field Name="DateCreated" Ordinal="6" DbType="4" />
+                    <Field Name="DateLastModified" Ordinal="7" IsOptional="true" DbType="4" />
+                    <Field Name="DateLastModifiedByUserId" Ordinal="8" IsOptional="true" DbType="8" Precision="10" />
+                    <Field Name="DateDeleted" Ordinal="9" IsOptional="true" DbType="4" />
+                  </Fields>
+                </Table>
+                <Table Name="User">
+                  <PkConstraintName Name="PK_User" />
+                  <Fields>
+                    <Field Name="Id" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="Username" Ordinal="2" DbType="24" Length="50" />
+                    <Field Name="Password" Ordinal="3" DbType="24" Length="250" />
+                    <Field Name="Salt" Ordinal="4" DbType="24" Length="250" />
+                    <Field Name="IsMarkedAsDeleted" Ordinal="5" HasDefaultValue="true" DefaultValue="(0)" DbType="2" />
+                    <Field Name="DateCreated" Ordinal="6" DbType="4" />
+                    <Field Name="DateLastLogin" Ordinal="7" IsOptional="true" DbType="4" />
+                    <Field Name="DateLastModified" Ordinal="8" IsOptional="true" DbType="4" />
+                    <Field Name="DateLastModifiedByUserId" Ordinal="9" IsOptional="true" DbType="8" Precision="10" />
+                    <Field Name="DateDeleted" Ordinal="10" IsOptional="true" DbType="4" />
+                  </Fields>
+                  <UniqueConstraints>
+                    <UniqueConstraint Name="UC_Username">
+                      <Field Name="Username" />
+                    </UniqueConstraint>
+                  </UniqueConstraints>
+                </Table>
+                <Table Name="UserRole">
+                  <PkConstraintName Name="PK_UserRole" />
+                  <Fields>
+                    <Field Name="UserId" Ordinal="1" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="RoleTypeEnum" Ordinal="2" DbType="22" Precision="3" />
+                  </Fields>
+                </Table>
+              </Tables>
+            </Schema>
+          </Schemas>
+          <ForeignKeyConstraints>
+            <ForeignKeyConstraint Name="Vanderlaan:AgendaEvent:FK_AgendaEvent_Patient">
+              <FieldPairs>
+                <FieldPair PkField="Vanderlaan:Patient:Id" FkField="Vanderlaan:AgendaEvent:PatientId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="Vanderlaan:AgendaEventMeta:FK_AgendaEventMeta_AgendaEvent">
+              <FieldPairs>
+                <FieldPair PkField="Vanderlaan:AgendaEvent:Id" FkField="Vanderlaan:AgendaEventMeta:AgendaEventId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="Vanderlaan:Employee:FK_Employee_Livingroom">
+              <FieldPairs>
+                <FieldPair PkField="Vanderlaan:LivingRoom:Id" FkField="Vanderlaan:Employee:LivingroomId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="Vanderlaan:Employee:FK_Employee_User">
+              <FieldPairs>
+                <FieldPair PkField="Vanderlaan:User:Id" FkField="Vanderlaan:Employee:UserId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="Vanderlaan:LivingRoomChoreEvent:FK_Chores_Livingroom">
+              <FieldPairs>
+                <FieldPair PkField="Vanderlaan:LivingRoom:Id" FkField="Vanderlaan:LivingRoomChoreEvent:LivingroomId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="Vanderlaan:LivingRoomChoreEvent:FK_Chores_Patient1">
+              <FieldPairs>
+                <FieldPair PkField="Vanderlaan:Patient:Id" FkField="Vanderlaan:LivingRoomChoreEvent:PatientId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="Vanderlaan:LivingRoomGeneral:FK_General_Livingroom">
+              <FieldPairs>
+                <FieldPair PkField="Vanderlaan:LivingRoom:Id" FkField="Vanderlaan:LivingRoomGeneral:LivingroomId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="Vanderlaan:LivingRoomGeneralEvent:FK_GeneralInformation_General">
+              <FieldPairs>
+                <FieldPair PkField="Vanderlaan:LivingRoomGeneral:LivingroomId" FkField="Vanderlaan:LivingRoomGeneralEvent:LivingroomId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="Vanderlaan:LivingRoomShiftEvent:FK_LivingroomShiftEvent_Employee">
+              <FieldPairs>
+                <FieldPair PkField="Vanderlaan:Employee:Id" FkField="Vanderlaan:LivingRoomShiftEvent:EmployeeId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="Vanderlaan:LivingRoomShiftEvent:FK_LivingroomShiftEvent_Livingroom">
+              <FieldPairs>
+                <FieldPair PkField="Vanderlaan:LivingRoom:Id" FkField="Vanderlaan:LivingRoomShiftEvent:LivingroomId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="Vanderlaan:Patient:FK_Patient_Livingroom">
+              <FieldPairs>
+                <FieldPair PkField="Vanderlaan:LivingRoom:Id" FkField="Vanderlaan:Patient:LivingroomId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="Vanderlaan:UserRole:FK_UserRole_User">
+              <FieldPairs>
+                <FieldPair PkField="Vanderlaan:User:Id" FkField="Vanderlaan:UserRole:UserId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+          </ForeignKeyConstraints>
+        </Catalog>
+      </Catalogs>
+    </TargetDatabase>
+  </TargetDatabases>
+  <MappingStores>
+    <MappingStore Type="2D18D138-1DD2-467E-86CC-4838250611AE">
+      <EntityMappings />
+      <TypedViewMappings />
+      <SPCallMappings />
+      <TvfCallMappings />
+      <TypeConversionDefinitions />
+    </MappingStore>
+  </MappingStores>
+  <ModelViews />
+</Project>

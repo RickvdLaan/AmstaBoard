@@ -13,8 +13,8 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom
     {
         #region Properties
 
-        private LivingroomCollection _livingrooms = null;
-        public LivingroomCollection Livingrooms
+        private LivingRoomCollection _livingrooms = null;
+        public LivingRoomCollection Livingrooms
         {
             get { return this._livingrooms; }
             set { this._livingrooms = value; }
@@ -31,7 +31,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom
 
         protected void _gvLivingrooms_PreRender(object sender, EventArgs e)
         {
-            this.Livingrooms = LivingroomReader.GetAllLivingrooms();
+            this.Livingrooms = LivingRoomReader.GetAllLivingRooms();
 
             this._gvLivingrooms.DataSource = this.Livingrooms;
             this._gvLivingrooms.DataBind();

@@ -17,53 +17,53 @@ using SD.LLBLGen.Pro.ORMSupportClasses;
 
 namespace AmstaJanBonga.Business.RelationClasses
 {
-	/// <summary>Implements the relations factory for the entity: User. </summary>
-	public partial class UserRelations
+	/// <summary>Implements the relations factory for the entity: UserRoleActivity. </summary>
+	public partial class UserRoleActivityRelations
 	{
 		/// <summary>CTor</summary>
-		public UserRelations()
+		public UserRoleActivityRelations()
 		{
 		}
 
-		/// <summary>Gets all relations of the UserEntity as a list of IEntityRelation objects.</summary>
+		/// <summary>Gets all relations of the UserRoleActivityEntity as a list of IEntityRelation objects.</summary>
 		/// <returns>a list of IEntityRelation objects</returns>
 		public virtual List<IEntityRelation> GetAllRelations()
 		{
 			List<IEntityRelation> toReturn = new List<IEntityRelation>();
-			toReturn.Add(this.EmployeeEntityUsingUserId);
+			toReturn.Add(this.UserActivityEntityUsingUserActivityId);
 			toReturn.Add(this.UserRoleEntityUsingRoleTypeEnum);
 			return toReturn;
 		}
 
 		#region Class Property Declarations
 
-		/// <summary>Returns a new IEntityRelation object, between UserEntity and EmployeeEntity over the 1:n relation they have, using the relation between the fields:
-		/// User.Id - Employee.UserId
+
+
+		/// <summary>Returns a new IEntityRelation object, between UserRoleActivityEntity and UserActivityEntity over the m:1 relation they have, using the relation between the fields:
+		/// UserRoleActivity.UserActivityId - UserActivity.Id
 		/// </summary>
-		public virtual IEntityRelation EmployeeEntityUsingUserId
+		public virtual IEntityRelation UserActivityEntityUsingUserActivityId
 		{
 			get
 			{
-				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany, "Employees" , true);
-				relation.AddEntityFieldPair(UserFields.Id, EmployeeFields.UserId);
-				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("UserEntity", true);
-				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("EmployeeEntity", false);
+				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne, "UserActivity", false);
+				relation.AddEntityFieldPair(UserActivityFields.Id, UserRoleActivityFields.UserActivityId);
+				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("UserActivityEntity", false);
+				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("UserRoleActivityEntity", true);
 				return relation;
 			}
 		}
-
-
-		/// <summary>Returns a new IEntityRelation object, between UserEntity and UserRoleEntity over the m:1 relation they have, using the relation between the fields:
-		/// User.RoleTypeEnum - UserRole.RoleTypeEnum
+		/// <summary>Returns a new IEntityRelation object, between UserRoleActivityEntity and UserRoleEntity over the m:1 relation they have, using the relation between the fields:
+		/// UserRoleActivity.RoleTypeEnum - UserRole.RoleTypeEnum
 		/// </summary>
 		public virtual IEntityRelation UserRoleEntityUsingRoleTypeEnum
 		{
 			get
 			{
 				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne, "UserRole", false);
-				relation.AddEntityFieldPair(UserRoleFields.RoleTypeEnum, UserFields.RoleTypeEnum);
+				relation.AddEntityFieldPair(UserRoleFields.RoleTypeEnum, UserRoleActivityFields.RoleTypeEnum);
 				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("UserRoleEntity", false);
-				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("UserEntity", true);
+				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("UserRoleActivityEntity", true);
 				return relation;
 			}
 		}
@@ -79,13 +79,13 @@ namespace AmstaJanBonga.Business.RelationClasses
 	}
 	
 	/// <summary>Static class which is used for providing relationship instances which are re-used internally for syncing</summary>
-	internal static class StaticUserRelations
+	internal static class StaticUserRoleActivityRelations
 	{
-		internal static readonly IEntityRelation EmployeeEntityUsingUserIdStatic = new UserRelations().EmployeeEntityUsingUserId;
-		internal static readonly IEntityRelation UserRoleEntityUsingRoleTypeEnumStatic = new UserRelations().UserRoleEntityUsingRoleTypeEnum;
+		internal static readonly IEntityRelation UserActivityEntityUsingUserActivityIdStatic = new UserRoleActivityRelations().UserActivityEntityUsingUserActivityId;
+		internal static readonly IEntityRelation UserRoleEntityUsingRoleTypeEnumStatic = new UserRoleActivityRelations().UserRoleEntityUsingRoleTypeEnum;
 
 		/// <summary>CTor</summary>
-		static StaticUserRelations()
+		static StaticUserRoleActivityRelations()
 		{
 		}
 	}

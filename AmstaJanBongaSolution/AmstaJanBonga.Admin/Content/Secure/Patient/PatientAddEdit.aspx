@@ -53,15 +53,6 @@
                         <asp:RequiredFieldValidator runat="server" ValidateRequestMode="Enabled" CssClass="error" ErrorMessage="Verplichte velden kunnen niet leeg blijven." Display="Dynamic" ControlToValidate="_ddlLivingrooms" ValidationGroup="Validate"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
-
-                <tr>
-                    <td class="label required">
-                        Actief
-                    </td>
-                    <td>
-                        <asp:CheckBox runat="server" ID="_cbActive" Checked="true" />
-                    </td>
-                </tr>
             </tbody>
         </table>
 

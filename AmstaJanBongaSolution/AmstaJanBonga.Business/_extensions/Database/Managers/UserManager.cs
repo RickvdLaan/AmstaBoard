@@ -13,50 +13,39 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// <param name="username">The username.</param>
         /// <param name="password">The password in plain text.</param>
         /// <param name="roleType">The users role.</param>
-        /// <param name="isActive">Whether the users active, default value is true.</param>
         /// <returns></returns>
-        public static UserEntity InsertUser(string username, string password, RoleTypeEnum roleType, bool isActive = true)
+        public static UserEntity InsertUser(string username, string password, RoleTypeEnum roleType)
         {
             var salt = RNGCSP.GenerateRandomSalt();
 
             var user = new UserEntity()
             {
+                RoleTypeEnum = (byte)roleType,
                 Username = username,
                 Password = PasswordHash.HashPassword(password, salt),
                 Salt = Convert.ToBase64String(salt),
-                IsActive = isActive,
                 IsMarkedAsDeleted = false,
                 DateCreated = DateTime.Now
             };
             
             user.Save();
 
-            var userRole = new UserRoleEntity()
-            {
-                UserId = user.Id,
-                RoleTypeEnum = (byte)roleType
-            };
-            
-            userRole.Save();
-
             return user;
         }
 
         /// <summary>
-        /// Updates the user.
+        /// Updates the provided users role.
         /// </summary>
-        /// <param name="roleType">The users role.</param>
-        /// <param name="isActive">Whether the users active, default value is true.</param>
+        /// <param name="user"></param>
+        /// <param name="roleType"></param>
         /// <returns></returns>
-        public static UserEntity UpdateUser(UserEntity user, RoleTypeEnum roleType, bool isActive = true)
+        public static UserEntity UpdateUserRole(UserEntity user, RoleTypeEnum roleType)
         {
-            if (user.UserRole.RoleTypeEnum != (byte)roleType)
+            if (user.RoleTypeEnum != (byte)roleType)
             {
-                user.UserRole.RoleTypeEnum = (byte)roleType;
-                user.UserRole.Save();
+                user.RoleTypeEnum = (byte)roleType;
             }
 
-            user.IsActive = isActive;
             user.Save();
 
             return user;

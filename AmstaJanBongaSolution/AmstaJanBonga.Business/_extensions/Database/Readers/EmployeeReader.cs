@@ -64,15 +64,15 @@ namespace AmstaJanBonga.Business.Database.Readers
                 throw new Exception("Multiple employees found with userId: {0}".FormatString(userId));
             else if (user.Employees.Count == 0 && !throwExceptionWhenNotFound)
             {
-                if (Authentication.IsAuthenticated)
-                    Authentication.Utility.SignOut();
+                //if (Authentication.IsAuthenticated)
+                //    Authentication.Utility.SignOut();
 
                 return null;
             }
             else if (user.Employees.Count == 0 && throwExceptionWhenNotFound)
             {
-                if (Authentication.IsAuthenticated)
-                    Authentication.Utility.SignOut();
+                //if (Authentication.IsAuthenticated)
+                //    Authentication.Utility.SignOut();
 
                 throw new Exception("No employee found for userId: {0}.".FormatString(userId));
             }
@@ -90,13 +90,19 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static EmployeeCollection GetAllEmployees()
         {
+            Authentication.AuthenticateActivity("ReadEmployee");
+
             var employees = new EmployeeCollection();
-            employees.GetMulti(null, 0);
+
+            var predicate = new PredicateExpression();
+            predicate.AddWithAnd(EmployeeFields.IsMarkedAsDeleted == false);
+
+            employees.GetMulti(predicate, 0);
 
             return employees;
         }
 
-        public static EmployeeCollection GetAllEmployeesByLivingroomId(int livingroomId)
+        public static EmployeeCollection GetAllEmployeesByLivingRoomId(int livingroomId)
         {
             // Collection
             var employees = new EmployeeCollection();
@@ -104,7 +110,8 @@ namespace AmstaJanBonga.Business.Database.Readers
             // Predicate
             var predicate = new PredicateExpression
             {
-                EmployeeFields.LivingroomId == livingroomId
+                EmployeeFields.LivingRoomId == livingroomId,
+                EmployeeFields.IsMarkedAsDeleted == false
             };
 
             // Sorting
@@ -130,12 +137,18 @@ namespace AmstaJanBonga.Business.Database.Readers
             var fields = new ResultsetFields(3);
             fields.DefineField(EmployeeFields.Id, 0);
             fields.DefineField(EmployeeFields.FirstName, 1);
-            fields.DefineField(LivingroomFields.Name, 2);
+            fields.DefineField(LivingRoomFields.Name, 2);
 
             // Add all JOIN clauses from the relation collection.
             var relations = new RelationCollection
             {
-                EmployeeEntity.Relations.LivingroomEntityUsingLivingroomId
+                EmployeeEntity.Relations.LivingRoomEntityUsingLivingRoomId
+            };
+
+            var predicate = new PredicateExpression()
+            {
+                EmployeeFields.IsMarkedAsDeleted == false,
+                LivingRoomFields.IsMarkedAsDeleted == false
             };
 
             // Create the DataTable, DAO and fill the DataTable with the above query definition/parameters.

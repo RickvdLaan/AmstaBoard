@@ -15,9 +15,9 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Shifts
     {
         #region Variables & Objects
 
-        private LivingroomEntity _livingroom = null;
+        private LivingRoomEntity _livingroom = null;
 
-        private LivingroomShiftEventCollection _shifts = null;
+        private LivingRoomShiftEventCollection _shifts = null;
 
         private DateTime _date = DateTime.MinValue;
 
@@ -33,9 +33,9 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Shifts
             get { return Url.GetFullUrl.Contains("&Date=") ? "Wijzigen" : "Toevoegen"; }
         }
 
-        private bool HasLivingroomId
+        private bool HasLivingRoomId
         {
-            get { return Url.QueryStringParser.HasParameter("LivingroomId"); }
+            get { return Url.QueryStringParser.HasParameter("LivingRoomId"); }
         }
 
         private bool HasDate
@@ -43,12 +43,12 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Shifts
             get { return Url.QueryStringParser.HasParameter("Date"); }
         }
 
-        private LivingroomEntity Livingroom
+        private LivingRoomEntity Livingroom
         {
             get
             {
-                if (this._livingroom == null && this.HasLivingroomId)
-                    this._livingroom = LivingroomReader.GetLivingroomById(Url.QueryStringParser.GetInt("LivingroomId"), true);
+                if (this._livingroom == null && this.HasLivingRoomId)
+                    this._livingroom = LivingRoomReader.GetLivingroomById(Url.QueryStringParser.GetInt("LivingRoomId"), true);
 
                 return this._livingroom;
             }
@@ -65,14 +65,14 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Shifts
             }
         }
 
-        private LivingroomShiftEventCollection Shifts
+        private LivingRoomShiftEventCollection Shifts
         {
             get
             {
-                if (this._shifts == null && this.HasLivingroomId && this.HasDate)
+                if (this._shifts == null && this.HasLivingRoomId && this.HasDate)
                 {
                     // Gets all shifts for a specific livingroom and date.
-                    this._shifts = LivingroomShiftEventReader.GetAllShiftsFilteredByLivingroomAndDate(this.Livingroom.Id, this.QueryStringDate.Date);
+                    this._shifts = LivingRoomShiftEventReader.GetAllShiftsFilteredByLivingroomAndDate(this.Livingroom.Id, this.QueryStringDate.Date);
                 }
 
                 return this._shifts;
@@ -91,7 +91,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Shifts
             {
                 this.PreFill();
 
-                this._hlReturn.NavigateUrl = "~/Content/Secure/Livingroom/Shifts/ShiftsOverview.aspx?LivingroomId={0}".FormatString(this.Livingroom.Id);
+                this._hlReturn.NavigateUrl = "~/Content/Secure/Livingroom/Shifts/ShiftsOverview.aspx?LivingRoomId={0}".FormatString(this.Livingroom.Id);
             }
         }
 
@@ -99,10 +99,10 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Shifts
 
         private void PreFill()
         {
-            if (this.HasLivingroomId)
+            if (this.HasLivingRoomId)
             {
                 // Gets all the employees for a specific livingroom.
-                var employees = EmployeeReader.GetAllEmployeesByLivingroomId(this.Livingroom.Id);
+                var employees = EmployeeReader.GetAllEmployeesByLivingRoomId(this.Livingroom.Id);
 
                 // Edit
                 if (this.HasDate)
@@ -142,7 +142,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Shifts
             }
         }
 
-        private void PreFillListBox(LivingroomShiftEventCollection shifts, EmployeeCollection employees, JsListBox listBox, ShiftTypeEnum shiftTypeEnum)
+        private void PreFillListBox(LivingRoomShiftEventCollection shifts, EmployeeCollection employees, JsListBox listBox, ShiftTypeEnum shiftTypeEnum)
         {
             // The shift source and destination data.
             var shiftSourceData = new EmployeeCollection();
@@ -182,7 +182,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Shifts
 
         private void Save()
         {
-            if (this.HasLivingroomId)
+            if (this.HasLivingRoomId)
             {
                 // Edit
                 if (this.HasDate)
@@ -199,9 +199,9 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Shifts
             }
         }
 
-        private LivingroomShiftEventCollection GetSelectedEmployees()
+        private LivingRoomShiftEventCollection GetSelectedEmployees()
         {
-            var shifts = new LivingroomShiftEventCollection();
+            var shifts = new LivingRoomShiftEventCollection();
 
             // Day
             for (int i = 0; i < _jlbDay.ListBoxDestination.Items.Count; i++)
@@ -235,13 +235,13 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Shifts
             {
                 this.Save();
 
-                Response.Redirect("~/Content/Secure/Livingroom/Shifts/ShiftsOverview.aspx?LivingroomId={0}".FormatString(this.Livingroom.Id));
+                Response.Redirect("~/Content/Secure/Livingroom/Shifts/ShiftsOverview.aspx?LivingRoomId={0}".FormatString(this.Livingroom.Id));
             }
         }
 
         protected void _btnCancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Content/Secure/Livingroom/Shifts/ShiftsOverview.aspx?LivingroomId={0}".FormatString(this.Livingroom.Id));
+            Response.Redirect("~/Content/Secure/Livingroom/Shifts/ShiftsOverview.aspx?LivingRoomId={0}".FormatString(this.Livingroom.Id));
         }
 
         #endregion

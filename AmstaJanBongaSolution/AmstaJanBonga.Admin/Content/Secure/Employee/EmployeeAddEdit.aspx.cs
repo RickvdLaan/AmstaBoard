@@ -57,14 +57,13 @@ namespace AmstaJanBonga.Admin.Content.Secure.Employee
             if (this.HasEmployeeId)
             {
                 this._txtFirstName.Text = this.Employee.FirstName;
-                this._cbActive.Checked = this.Employee.IsActive;
                 this._btnDeleteExistingPicture.Enabled = !string.IsNullOrEmpty(this.Employee.ImagePath);
             }
         }
 
         private void PreFillLivingrooms()
         {
-            var livingrooms = LivingroomReader.GetAllLivingrooms();
+            var livingrooms = LivingRoomReader.GetAllLivingRooms();
 
             for (int i = 0; i < livingrooms.Count; i++)
             {
@@ -76,7 +75,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Employee
             // Edit
             if (this.HasEmployeeId)
             {
-                this._ddlLivingrooms.SelectedValue = this.Employee.LivingroomId.ToString();
+                this._ddlLivingrooms.SelectedValue = this.Employee.LivingRoomId.ToString();
             }
         }
 
@@ -121,12 +120,12 @@ namespace AmstaJanBonga.Admin.Content.Secure.Employee
             // Edit
             if (this.HasEmployeeId)
             {
-                EmployeeManager.UpdateEmployee(this.Employee, this._ddlLivingrooms.SelectedValue.ToInt(), this._ddlUser.SelectedValue.ToNullableInt(), this._txtFirstName.Text, this._fileUpload, this._cbActive.Checked);
+                EmployeeManager.UpdateEmployee(this.Employee, this._ddlLivingrooms.SelectedValue.ToInt(), this._ddlUser.SelectedValue.ToNullableInt(), this._txtFirstName.Text, this._fileUpload);
             }
             // Add
             else
             {
-                EmployeeManager.InsertEmployee(this._ddlLivingrooms.SelectedValue.ToInt(), this._ddlUser.SelectedValue.ToNullableInt(), this._txtFirstName.Text, this._fileUpload, this._cbActive.Checked);
+                EmployeeManager.InsertEmployee(this._ddlLivingrooms.SelectedValue.ToInt(), this._ddlUser.SelectedValue.ToNullableInt(), this._txtFirstName.Text, this._fileUpload);
             }
         }
 

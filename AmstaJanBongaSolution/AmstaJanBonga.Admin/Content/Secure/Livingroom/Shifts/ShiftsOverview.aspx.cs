@@ -19,18 +19,18 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Shifts
 
         #region Properties
 
-        private bool HasLivingroomId
+        private bool HasLivingRoomId
         {
-            get { return Url.QueryStringParser.HasParameter("LivingroomId"); }
+            get { return Url.QueryStringParser.HasParameter("LivingRoomId"); }
         }
 
-        private int LivingroomId
+        private int LivingRoomId
         {
             get
             {
-                if (this._livingroomId == -1 && this.HasLivingroomId)
+                if (this._livingroomId == -1 && this.HasLivingRoomId)
                 {
-                    this._livingroomId = Url.QueryStringParser.GetInt("LivingroomId");
+                    this._livingroomId = Url.QueryStringParser.GetInt("LivingRoomId");
                 }
 
                 return this._livingroomId;
@@ -49,16 +49,16 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Shifts
         {
             if (!this.IsPostBack)
             {
-                this._hlAddEditShifts.NavigateUrl = "~/Content/Secure/Livingroom/Shifts/ShiftsAddEdit.aspx?LivingroomId={0}".FormatString(this.LivingroomId);
+                this._hlAddEditShifts.NavigateUrl = "~/Content/Secure/Livingroom/Shifts/ShiftsAddEdit.aspx?LivingRoomId={0}".FormatString(this.LivingRoomId);
             }
         }
         #region PreRender
 
         protected void _gvShifts_PreRender(object sender, EventArgs e)
         {
-            if (this.HasLivingroomId)
+            if (this.HasLivingRoomId)
             {
-                this.Shifts = LivingroomShiftEventReader.GetAllShiftsDistinctByLivingroomId(this.LivingroomId);
+                this.Shifts = LivingRoomShiftEventReader.GetAllShiftsDistinctByLivingRoomId(this.LivingRoomId);
 
                 this._gvShifts.DataSource = this.Shifts;
                 this._gvShifts.DataBind();

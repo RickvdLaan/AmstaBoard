@@ -11,56 +11,58 @@ using System.Data;
 
 namespace AmstaJanBonga.Business.Database.Readers
 {
-    public abstract class LivingroomShiftEventReader
+    public abstract class LivingRoomShiftEventReader
     {
-        public static LivingroomShiftEventEntity GetShiftByIds(int employeeId, int livingroomId, DateTime date, ShiftTypeEnum shiftType, bool throwExceptionWhenNotFound)
+        public static LivingRoomShiftEventEntity GetShiftByIds(int employeeId, int livingRoomId, DateTime date, ShiftTypeEnum shiftType, bool throwExceptionWhenNotFound)
         {
-            var shift = new LivingroomShiftEventEntity(date, employeeId, livingroomId, (byte)shiftType);
+            var shift = new LivingRoomShiftEventEntity(date, employeeId, livingRoomId, (byte)shiftType);
 
             // The hidden field is set to -1 if a '+' was clicked.
             if (employeeId != -1 && shift.IsNew && throwExceptionWhenNotFound)
             {
-                throw new Exception("Shift not found by EmployeeId: {0}, LivingroomId: {1}, Date: {2} and ShiftTypeEnum: {3}.".FormatString(employeeId, livingroomId, date, shiftType));
+                throw new Exception("Shift not found by EmployeeId: {0}, LivingRoomId: {1}, Date: {2} and ShiftTypeEnum: {3}.".FormatString(employeeId, livingRoomId, date, shiftType));
             }
             else if (shift.IsNew)
             {
                 shift.EmployeeId = employeeId;
                 shift.Date = date;
                 shift.ShiftTypeEnum = (byte)shiftType;
-                shift.LivingroomId = livingroomId;
+                shift.LivingRoomId = livingRoomId;
                 shift.DateCreated = DateTime.Now;
             }
 
             return shift;
         }
 
-        public static DataTable GetAllShiftsDistinctByLivingroomId(int livingroomId)
+        public static DataTable GetAllShiftsDistinctByLivingRoomId(int livingRoomId)
         {
             // Result fields.
             var fields = new ResultsetFields(3)
             {
-                LivingroomShiftEventFields.LivingroomId,
-                LivingroomFields.Name,
-                LivingroomShiftEventFields.Date
+                LivingRoomShiftEventFields.LivingRoomId,
+                LivingRoomFields.Name,
+                LivingRoomShiftEventFields.Date
             };
 
             // Sorter
             var sorter = new SortExpression
             {
-                LivingroomShiftEventFields.Date | SortOperator.Ascending
+                LivingRoomShiftEventFields.Date | SortOperator.Ascending
             };
 
             // Adds the JOIN clause from the relation collection.
             var relations = new RelationCollection
             {
-                LivingroomShiftEventEntity.Relations.LivingroomEntityUsingLivingroomId
+                LivingRoomShiftEventEntity.Relations.LivingRoomEntityUsingLivingRoomId,
+                LivingRoomShiftEventEntity.Relations.EmployeeEntityUsingEmployeeId
             };
 
             // Predicate
             var predicate = new PredicateExpression
             {
-                LivingroomShiftEventFields.LivingroomId == livingroomId,
-                LivingroomShiftEventFields.Date >= DateTime.Now
+                LivingRoomShiftEventFields.LivingRoomId == livingRoomId,
+                LivingRoomShiftEventFields.Date >= DateTime.Now,
+                EmployeeFields.IsMarkedAsDeleted == false
             };
 
             // Create the DataTable, DAO and fill the DataTable with the above query definition/parameters.
@@ -72,47 +74,53 @@ namespace AmstaJanBonga.Business.Database.Readers
             return dt;
         }
 
-        public static LivingroomShiftEventCollection GetAllShiftsFilteredByLivingroomAndDate(int livingroomId, DateTime date)
+        public static LivingRoomShiftEventCollection GetAllShiftsFilteredByLivingroomAndDate(int livingRoomId, DateTime date)
         {
-            var shifts = new LivingroomShiftEventCollection();
+            var shifts = new LivingRoomShiftEventCollection();
 
             // Sorter
             var sorter = new SortExpression
             {
-                LivingroomShiftEventFields.Date | SortOperator.Ascending,
-                LivingroomShiftEventFields.ShiftTypeEnum | SortOperator.Ascending
+                LivingRoomShiftEventFields.Date | SortOperator.Descending,
+                LivingRoomShiftEventFields.ShiftTypeEnum | SortOperator.Descending,
+                LivingRoomShiftEventFields.DateCreated | SortOperator.Descending
             };
 
             // Predicate
-            var predicate = new PredicateExpression
+            var predicate = new PredicateExpression();
+            predicate.Add(LivingRoomShiftEventFields.LivingRoomId == livingRoomId);
+            predicate.AddWithAnd(LivingRoomShiftEventFields.Date == date);
+            predicate.AddWithAnd(EmployeeFields.IsMarkedAsDeleted == false);
+
+            // Adds the JOIN clause from the relation collection.
+            var relations = new RelationCollection
             {
-                LivingroomShiftEventFields.LivingroomId == livingroomId,
-                LivingroomShiftEventFields.Date == date
+                LivingRoomShiftEventEntity.Relations.EmployeeEntityUsingEmployeeId
             };
 
-            shifts.GetMulti(predicate, -1, sorter);
+            shifts.GetMulti(predicate, 0, sorter, relations);
 
             return shifts;
         }
 
-        public static List<DateTime> GetAllUsedDatesByLivingroomId(int livingroomId)
+        public static List<DateTime> GetAllUsedDatesByLivingRoomId(int livingRoomId)
         {
             // Result fields.
             var fields = new ResultsetFields(1)
             {
-                LivingroomShiftEventFields.Date
+                LivingRoomShiftEventFields.Date
             };
 
             // Sorting
             var sorter = new SortExpression
             {
-                LivingroomShiftEventFields.Date | SortOperator.Ascending
+                LivingRoomShiftEventFields.Date | SortOperator.Ascending
             };
 
             // Predicate
             var predicate = new PredicateExpression
             {
-                LivingroomShiftEventFields.LivingroomId == livingroomId
+                LivingRoomShiftEventFields.LivingRoomId == livingRoomId
             };
 
             // Create the DataTable, DAO and fill the DataTable with the above query definition/parameters.

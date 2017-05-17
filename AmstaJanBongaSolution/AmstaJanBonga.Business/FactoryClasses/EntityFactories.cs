@@ -75,6 +75,51 @@ namespace AmstaJanBonga.Business.FactoryClasses
 		}
 	}
 	
+	/// <summary>Factory to create new, empty AgendaEventEntity objects.</summary>
+	[Serializable]
+	public partial class AgendaEventEntityFactory : EntityFactoryBase {
+		/// <summary>CTor</summary>
+		public AgendaEventEntityFactory() : base("AgendaEventEntity", AmstaJanBonga.Business.EntityType.AgendaEventEntity) { }
+
+		/// <summary>Creates a new, empty AgendaEventEntity object.</summary>
+		/// <returns>A new, empty AgendaEventEntity object.</returns>
+		public override IEntity Create() {
+			IEntity toReturn = new AgendaEventEntity();
+			
+			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewAgendaEvent
+			// __LLBLGENPRO_USER_CODE_REGION_END
+			return toReturn;
+		}
+
+
+		#region Included Code
+
+		#endregion
+	}
+	
+	/// <summary>Factory to create new, empty AgendaEventMetaEntity objects.</summary>
+	[Serializable]
+	public partial class AgendaEventMetaEntityFactory : EntityFactoryBase {
+		/// <summary>CTor</summary>
+		public AgendaEventMetaEntityFactory() : base("AgendaEventMetaEntity", AmstaJanBonga.Business.EntityType.AgendaEventMetaEntity) { }
+
+		/// <summary>Creates a new, empty AgendaEventMetaEntity object.</summary>
+		/// <returns>A new, empty AgendaEventMetaEntity object.</returns>
+		public override IEntity Create() {
+			IEntity toReturn = new AgendaEventMetaEntity();
+			
+			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewAgendaEventMeta
+			// __LLBLGENPRO_USER_CODE_REGION_END
+			
+			return toReturn;
+		}
+
+
+		#region Included Code
+
+		#endregion
+	}
+	
 	/// <summary>Factory to create new, empty EmployeeEntity objects.</summary>
 	[Serializable]
 	public partial class EmployeeEntityFactory : EntityFactoryBase {
@@ -119,18 +164,18 @@ namespace AmstaJanBonga.Business.FactoryClasses
 		#endregion
 	}
 	
-	/// <summary>Factory to create new, empty LivingroomEntity objects.</summary>
+	/// <summary>Factory to create new, empty LivingRoomEntity objects.</summary>
 	[Serializable]
-	public partial class LivingroomEntityFactory : EntityFactoryBase {
+	public partial class LivingRoomEntityFactory : EntityFactoryBase {
 		/// <summary>CTor</summary>
-		public LivingroomEntityFactory() : base("LivingroomEntity", AmstaJanBonga.Business.EntityType.LivingroomEntity) { }
+		public LivingRoomEntityFactory() : base("LivingRoomEntity", AmstaJanBonga.Business.EntityType.LivingRoomEntity) { }
 
-		/// <summary>Creates a new, empty LivingroomEntity object.</summary>
-		/// <returns>A new, empty LivingroomEntity object.</returns>
+		/// <summary>Creates a new, empty LivingRoomEntity object.</summary>
+		/// <returns>A new, empty LivingRoomEntity object.</returns>
 		public override IEntity Create() {
-			IEntity toReturn = new LivingroomEntity();
+			IEntity toReturn = new LivingRoomEntity();
 			
-			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewLivingroom
+			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewLivingRoom
 			// __LLBLGENPRO_USER_CODE_REGION_END
 			return toReturn;
 		}
@@ -141,18 +186,18 @@ namespace AmstaJanBonga.Business.FactoryClasses
 		#endregion
 	}
 	
-	/// <summary>Factory to create new, empty LivingroomChoreEventEntity objects.</summary>
+	/// <summary>Factory to create new, empty LivingRoomChoreEventEntity objects.</summary>
 	[Serializable]
-	public partial class LivingroomChoreEventEntityFactory : EntityFactoryBase {
+	public partial class LivingRoomChoreEventEntityFactory : EntityFactoryBase {
 		/// <summary>CTor</summary>
-		public LivingroomChoreEventEntityFactory() : base("LivingroomChoreEventEntity", AmstaJanBonga.Business.EntityType.LivingroomChoreEventEntity) { }
+		public LivingRoomChoreEventEntityFactory() : base("LivingRoomChoreEventEntity", AmstaJanBonga.Business.EntityType.LivingRoomChoreEventEntity) { }
 
-		/// <summary>Creates a new, empty LivingroomChoreEventEntity object.</summary>
-		/// <returns>A new, empty LivingroomChoreEventEntity object.</returns>
+		/// <summary>Creates a new, empty LivingRoomChoreEventEntity object.</summary>
+		/// <returns>A new, empty LivingRoomChoreEventEntity object.</returns>
 		public override IEntity Create() {
-			IEntity toReturn = new LivingroomChoreEventEntity();
+			IEntity toReturn = new LivingRoomChoreEventEntity();
 			
-			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewLivingroomChoreEvent
+			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewLivingRoomChoreEvent
 			// __LLBLGENPRO_USER_CODE_REGION_END
 			return toReturn;
 		}
@@ -163,18 +208,18 @@ namespace AmstaJanBonga.Business.FactoryClasses
 		#endregion
 	}
 	
-	/// <summary>Factory to create new, empty LivingroomGeneralEntity objects.</summary>
+	/// <summary>Factory to create new, empty LivingRoomGeneralEntity objects.</summary>
 	[Serializable]
-	public partial class LivingroomGeneralEntityFactory : EntityFactoryBase {
+	public partial class LivingRoomGeneralEntityFactory : EntityFactoryBase {
 		/// <summary>CTor</summary>
-		public LivingroomGeneralEntityFactory() : base("LivingroomGeneralEntity", AmstaJanBonga.Business.EntityType.LivingroomGeneralEntity) { }
+		public LivingRoomGeneralEntityFactory() : base("LivingRoomGeneralEntity", AmstaJanBonga.Business.EntityType.LivingRoomGeneralEntity) { }
 
-		/// <summary>Creates a new, empty LivingroomGeneralEntity object.</summary>
-		/// <returns>A new, empty LivingroomGeneralEntity object.</returns>
+		/// <summary>Creates a new, empty LivingRoomGeneralEntity object.</summary>
+		/// <returns>A new, empty LivingRoomGeneralEntity object.</returns>
 		public override IEntity Create() {
-			IEntity toReturn = new LivingroomGeneralEntity();
+			IEntity toReturn = new LivingRoomGeneralEntity();
 			
-			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewLivingroomGeneral
+			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewLivingRoomGeneral
 			// __LLBLGENPRO_USER_CODE_REGION_END
 			return toReturn;
 		}
@@ -185,18 +230,18 @@ namespace AmstaJanBonga.Business.FactoryClasses
 		#endregion
 	}
 	
-	/// <summary>Factory to create new, empty LivingroomGeneralEventEntity objects.</summary>
+	/// <summary>Factory to create new, empty LivingRoomGeneralEventEntity objects.</summary>
 	[Serializable]
-	public partial class LivingroomGeneralEventEntityFactory : EntityFactoryBase {
+	public partial class LivingRoomGeneralEventEntityFactory : EntityFactoryBase {
 		/// <summary>CTor</summary>
-		public LivingroomGeneralEventEntityFactory() : base("LivingroomGeneralEventEntity", AmstaJanBonga.Business.EntityType.LivingroomGeneralEventEntity) { }
+		public LivingRoomGeneralEventEntityFactory() : base("LivingRoomGeneralEventEntity", AmstaJanBonga.Business.EntityType.LivingRoomGeneralEventEntity) { }
 
-		/// <summary>Creates a new, empty LivingroomGeneralEventEntity object.</summary>
-		/// <returns>A new, empty LivingroomGeneralEventEntity object.</returns>
+		/// <summary>Creates a new, empty LivingRoomGeneralEventEntity object.</summary>
+		/// <returns>A new, empty LivingRoomGeneralEventEntity object.</returns>
 		public override IEntity Create() {
-			IEntity toReturn = new LivingroomGeneralEventEntity();
+			IEntity toReturn = new LivingRoomGeneralEventEntity();
 			
-			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewLivingroomGeneralEvent
+			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewLivingRoomGeneralEvent
 			// __LLBLGENPRO_USER_CODE_REGION_END
 			return toReturn;
 		}
@@ -207,18 +252,18 @@ namespace AmstaJanBonga.Business.FactoryClasses
 		#endregion
 	}
 	
-	/// <summary>Factory to create new, empty LivingroomShiftEventEntity objects.</summary>
+	/// <summary>Factory to create new, empty LivingRoomShiftEventEntity objects.</summary>
 	[Serializable]
-	public partial class LivingroomShiftEventEntityFactory : EntityFactoryBase {
+	public partial class LivingRoomShiftEventEntityFactory : EntityFactoryBase {
 		/// <summary>CTor</summary>
-		public LivingroomShiftEventEntityFactory() : base("LivingroomShiftEventEntity", AmstaJanBonga.Business.EntityType.LivingroomShiftEventEntity) { }
+		public LivingRoomShiftEventEntityFactory() : base("LivingRoomShiftEventEntity", AmstaJanBonga.Business.EntityType.LivingRoomShiftEventEntity) { }
 
-		/// <summary>Creates a new, empty LivingroomShiftEventEntity object.</summary>
-		/// <returns>A new, empty LivingroomShiftEventEntity object.</returns>
+		/// <summary>Creates a new, empty LivingRoomShiftEventEntity object.</summary>
+		/// <returns>A new, empty LivingRoomShiftEventEntity object.</returns>
 		public override IEntity Create() {
-			IEntity toReturn = new LivingroomShiftEventEntity();
+			IEntity toReturn = new LivingRoomShiftEventEntity();
 			
-			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewLivingroomShiftEvent
+			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewLivingRoomShiftEvent
 			// __LLBLGENPRO_USER_CODE_REGION_END
 			return toReturn;
 		}
@@ -273,6 +318,28 @@ namespace AmstaJanBonga.Business.FactoryClasses
 		#endregion
 	}
 	
+	/// <summary>Factory to create new, empty UserActivityEntity objects.</summary>
+	[Serializable]
+	public partial class UserActivityEntityFactory : EntityFactoryBase {
+		/// <summary>CTor</summary>
+		public UserActivityEntityFactory() : base("UserActivityEntity", AmstaJanBonga.Business.EntityType.UserActivityEntity) { }
+
+		/// <summary>Creates a new, empty UserActivityEntity object.</summary>
+		/// <returns>A new, empty UserActivityEntity object.</returns>
+		public override IEntity Create() {
+			IEntity toReturn = new UserActivityEntity();
+			
+			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewUserActivity
+			// __LLBLGENPRO_USER_CODE_REGION_END
+			return toReturn;
+		}
+
+
+		#region Included Code
+
+		#endregion
+	}
+	
 	/// <summary>Factory to create new, empty UserRoleEntity objects.</summary>
 	[Serializable]
 	public partial class UserRoleEntityFactory : EntityFactoryBase {
@@ -294,6 +361,28 @@ namespace AmstaJanBonga.Business.FactoryClasses
 
 		#endregion
 	}
+	
+	/// <summary>Factory to create new, empty UserRoleActivityEntity objects.</summary>
+	[Serializable]
+	public partial class UserRoleActivityEntityFactory : EntityFactoryBase {
+		/// <summary>CTor</summary>
+		public UserRoleActivityEntityFactory() : base("UserRoleActivityEntity", AmstaJanBonga.Business.EntityType.UserRoleActivityEntity) { }
+
+		/// <summary>Creates a new, empty UserRoleActivityEntity object.</summary>
+		/// <returns>A new, empty UserRoleActivityEntity object.</returns>
+		public override IEntity Create() {
+			IEntity toReturn = new UserRoleActivityEntity();
+			
+			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewUserRoleActivity
+			// __LLBLGENPRO_USER_CODE_REGION_END
+			return toReturn;
+		}
+
+
+		#region Included Code
+
+		#endregion
+	}
 
 	/// <summary>Factory to create new entity collection objects</summary>
 	[Serializable]
@@ -306,26 +395,34 @@ namespace AmstaJanBonga.Business.FactoryClasses
 		{
 			switch(typeToUse)
 			{
+				case AmstaJanBonga.Business.EntityType.AgendaEventEntity:
+					return new AgendaEventCollection();
+				case AmstaJanBonga.Business.EntityType.AgendaEventMetaEntity:
+					return new AgendaEventMetaCollection();
 				case AmstaJanBonga.Business.EntityType.EmployeeEntity:
 					return new EmployeeCollection();
 				case AmstaJanBonga.Business.EntityType.IpEntity:
 					return new IpCollection();
-				case AmstaJanBonga.Business.EntityType.LivingroomEntity:
-					return new LivingroomCollection();
-				case AmstaJanBonga.Business.EntityType.LivingroomChoreEventEntity:
-					return new LivingroomChoreEventCollection();
-				case AmstaJanBonga.Business.EntityType.LivingroomGeneralEntity:
-					return new LivingroomGeneralCollection();
-				case AmstaJanBonga.Business.EntityType.LivingroomGeneralEventEntity:
-					return new LivingroomGeneralEventCollection();
-				case AmstaJanBonga.Business.EntityType.LivingroomShiftEventEntity:
-					return new LivingroomShiftEventCollection();
+				case AmstaJanBonga.Business.EntityType.LivingRoomEntity:
+					return new LivingRoomCollection();
+				case AmstaJanBonga.Business.EntityType.LivingRoomChoreEventEntity:
+					return new LivingRoomChoreEventCollection();
+				case AmstaJanBonga.Business.EntityType.LivingRoomGeneralEntity:
+					return new LivingRoomGeneralCollection();
+				case AmstaJanBonga.Business.EntityType.LivingRoomGeneralEventEntity:
+					return new LivingRoomGeneralEventCollection();
+				case AmstaJanBonga.Business.EntityType.LivingRoomShiftEventEntity:
+					return new LivingRoomShiftEventCollection();
 				case AmstaJanBonga.Business.EntityType.PatientEntity:
 					return new PatientCollection();
 				case AmstaJanBonga.Business.EntityType.UserEntity:
 					return new UserCollection();
+				case AmstaJanBonga.Business.EntityType.UserActivityEntity:
+					return new UserActivityCollection();
 				case AmstaJanBonga.Business.EntityType.UserRoleEntity:
 					return new UserRoleCollection();
+				case AmstaJanBonga.Business.EntityType.UserRoleActivityEntity:
+					return new UserRoleActivityCollection();
 				default:
 					return null;
 			}
@@ -344,26 +441,32 @@ namespace AmstaJanBonga.Business.FactoryClasses
 			IEntityFactory factoryToUse = null;
 			switch(entityTypeToCreate)
 			{
+				case AmstaJanBonga.Business.EntityType.AgendaEventEntity:
+					factoryToUse = new AgendaEventEntityFactory();
+					break;
+				case AmstaJanBonga.Business.EntityType.AgendaEventMetaEntity:
+					factoryToUse = new AgendaEventMetaEntityFactory();
+					break;
 				case AmstaJanBonga.Business.EntityType.EmployeeEntity:
 					factoryToUse = new EmployeeEntityFactory();
 					break;
 				case AmstaJanBonga.Business.EntityType.IpEntity:
 					factoryToUse = new IpEntityFactory();
 					break;
-				case AmstaJanBonga.Business.EntityType.LivingroomEntity:
-					factoryToUse = new LivingroomEntityFactory();
+				case AmstaJanBonga.Business.EntityType.LivingRoomEntity:
+					factoryToUse = new LivingRoomEntityFactory();
 					break;
-				case AmstaJanBonga.Business.EntityType.LivingroomChoreEventEntity:
-					factoryToUse = new LivingroomChoreEventEntityFactory();
+				case AmstaJanBonga.Business.EntityType.LivingRoomChoreEventEntity:
+					factoryToUse = new LivingRoomChoreEventEntityFactory();
 					break;
-				case AmstaJanBonga.Business.EntityType.LivingroomGeneralEntity:
-					factoryToUse = new LivingroomGeneralEntityFactory();
+				case AmstaJanBonga.Business.EntityType.LivingRoomGeneralEntity:
+					factoryToUse = new LivingRoomGeneralEntityFactory();
 					break;
-				case AmstaJanBonga.Business.EntityType.LivingroomGeneralEventEntity:
-					factoryToUse = new LivingroomGeneralEventEntityFactory();
+				case AmstaJanBonga.Business.EntityType.LivingRoomGeneralEventEntity:
+					factoryToUse = new LivingRoomGeneralEventEntityFactory();
 					break;
-				case AmstaJanBonga.Business.EntityType.LivingroomShiftEventEntity:
-					factoryToUse = new LivingroomShiftEventEntityFactory();
+				case AmstaJanBonga.Business.EntityType.LivingRoomShiftEventEntity:
+					factoryToUse = new LivingRoomShiftEventEntityFactory();
 					break;
 				case AmstaJanBonga.Business.EntityType.PatientEntity:
 					factoryToUse = new PatientEntityFactory();
@@ -371,8 +474,14 @@ namespace AmstaJanBonga.Business.FactoryClasses
 				case AmstaJanBonga.Business.EntityType.UserEntity:
 					factoryToUse = new UserEntityFactory();
 					break;
+				case AmstaJanBonga.Business.EntityType.UserActivityEntity:
+					factoryToUse = new UserActivityEntityFactory();
+					break;
 				case AmstaJanBonga.Business.EntityType.UserRoleEntity:
 					factoryToUse = new UserRoleEntityFactory();
+					break;
+				case AmstaJanBonga.Business.EntityType.UserRoleActivityEntity:
+					factoryToUse = new UserRoleActivityEntityFactory();
 					break;
 			}
 			IEntity toReturn = null;

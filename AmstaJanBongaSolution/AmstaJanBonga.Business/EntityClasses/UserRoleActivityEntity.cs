@@ -31,19 +31,19 @@ namespace AmstaJanBonga.Business.EntityClasses
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces
 	// __LLBLGENPRO_USER_CODE_REGION_END
 
-	/// <summary>Entity class which represents the entity 'EmployeeLivingroom'. <br/><br/>
+	/// <summary>Entity class which represents the entity 'UserRoleActivity'. <br/><br/>
 	/// 
 	/// </summary>
 	[Serializable]
-	public partial class EmployeeLivingroomEntity : CommonEntityBase
+	public partial class UserRoleActivityEntity : CommonEntityBase
 		// __LLBLGENPRO_USER_CODE_REGION_START AdditionalInterfaces
 		// __LLBLGENPRO_USER_CODE_REGION_END	
 	{
 		#region Class Member Declarations
-		private EmployeeEntity _employee;
-		private bool	_alwaysFetchEmployee, _alreadyFetchedEmployee, _employeeReturnsNewIfNotFound;
-		private LivingroomEntity _livingroom;
-		private bool	_alwaysFetchLivingroom, _alreadyFetchedLivingroom, _livingroomReturnsNewIfNotFound;
+		private UserActivityEntity _userActivity;
+		private bool	_alwaysFetchUserActivity, _alreadyFetchedUserActivity, _userActivityReturnsNewIfNotFound;
+		private UserRoleEntity _userRole;
+		private bool	_alwaysFetchUserRole, _alreadyFetchedUserRole, _userRoleReturnsNewIfNotFound;
 
 		// __LLBLGENPRO_USER_CODE_REGION_START PrivateMembers
 		// __LLBLGENPRO_USER_CODE_REGION_END
@@ -56,73 +56,73 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <summary>All names of fields mapped onto a relation. Usable for in-memory filtering</summary>
 		public static partial class MemberNames
 		{
-			/// <summary>Member name Employee</summary>
-			public static readonly string Employee = "Employee";
-			/// <summary>Member name Livingroom</summary>
-			public static readonly string Livingroom = "Livingroom";
+			/// <summary>Member name UserActivity</summary>
+			public static readonly string UserActivity = "UserActivity";
+			/// <summary>Member name UserRole</summary>
+			public static readonly string UserRole = "UserRole";
 		}
 		#endregion
 		
 		/// <summary>Static CTor for setting up custom property hashtables. Is executed before the first instance of this entity class or derived classes is constructed. </summary>
-		static EmployeeLivingroomEntity()
+		static UserRoleActivityEntity()
 		{
 			SetupCustomPropertyHashtables();
 		}
 
 		/// <summary>CTor</summary>
-		public EmployeeLivingroomEntity() :base("EmployeeLivingroomEntity")
+		public UserRoleActivityEntity() :base("UserRoleActivityEntity")
 		{
 			InitClassEmpty(null);
 		}
 		
 		/// <summary>CTor</summary>
-		/// <param name="employeeId">PK value for EmployeeLivingroom which data should be fetched into this EmployeeLivingroom object</param>
-		/// <param name="livingroomId">PK value for EmployeeLivingroom which data should be fetched into this EmployeeLivingroom object</param>
-		public EmployeeLivingroomEntity(System.Int32 employeeId, System.Int32 livingroomId):base("EmployeeLivingroomEntity")
+		/// <param name="roleTypeEnum">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
+		/// <param name="userActivityId">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
+		public UserRoleActivityEntity(System.Byte roleTypeEnum, System.Int32 userActivityId):base("UserRoleActivityEntity")
 		{
-			InitClassFetch(employeeId, livingroomId, null, null);
+			InitClassFetch(roleTypeEnum, userActivityId, null, null);
 		}
 
 		/// <summary>CTor</summary>
-		/// <param name="employeeId">PK value for EmployeeLivingroom which data should be fetched into this EmployeeLivingroom object</param>
-		/// <param name="livingroomId">PK value for EmployeeLivingroom which data should be fetched into this EmployeeLivingroom object</param>
+		/// <param name="roleTypeEnum">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
+		/// <param name="userActivityId">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
-		public EmployeeLivingroomEntity(System.Int32 employeeId, System.Int32 livingroomId, IPrefetchPath prefetchPathToUse):base("EmployeeLivingroomEntity")
+		public UserRoleActivityEntity(System.Byte roleTypeEnum, System.Int32 userActivityId, IPrefetchPath prefetchPathToUse):base("UserRoleActivityEntity")
 		{
-			InitClassFetch(employeeId, livingroomId, null, prefetchPathToUse);
+			InitClassFetch(roleTypeEnum, userActivityId, null, prefetchPathToUse);
 		}
 
 		/// <summary>CTor</summary>
-		/// <param name="employeeId">PK value for EmployeeLivingroom which data should be fetched into this EmployeeLivingroom object</param>
-		/// <param name="livingroomId">PK value for EmployeeLivingroom which data should be fetched into this EmployeeLivingroom object</param>
-		/// <param name="validator">The custom validator object for this EmployeeLivingroomEntity</param>
-		public EmployeeLivingroomEntity(System.Int32 employeeId, System.Int32 livingroomId, IValidator validator):base("EmployeeLivingroomEntity")
+		/// <param name="roleTypeEnum">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
+		/// <param name="userActivityId">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
+		/// <param name="validator">The custom validator object for this UserRoleActivityEntity</param>
+		public UserRoleActivityEntity(System.Byte roleTypeEnum, System.Int32 userActivityId, IValidator validator):base("UserRoleActivityEntity")
 		{
-			InitClassFetch(employeeId, livingroomId, validator, null);
+			InitClassFetch(roleTypeEnum, userActivityId, validator, null);
 		}
 
 		/// <summary>Private CTor for deserialization</summary>
 		/// <param name="info"></param>
 		/// <param name="context"></param>
-		protected EmployeeLivingroomEntity(SerializationInfo info, StreamingContext context) : base(info, context)
+		protected UserRoleActivityEntity(SerializationInfo info, StreamingContext context) : base(info, context)
 		{
-			_employee = (EmployeeEntity)info.GetValue("_employee", typeof(EmployeeEntity));
-			if(_employee!=null)
+			_userActivity = (UserActivityEntity)info.GetValue("_userActivity", typeof(UserActivityEntity));
+			if(_userActivity!=null)
 			{
-				_employee.AfterSave+=new EventHandler(OnEntityAfterSave);
+				_userActivity.AfterSave+=new EventHandler(OnEntityAfterSave);
 			}
-			_employeeReturnsNewIfNotFound = info.GetBoolean("_employeeReturnsNewIfNotFound");
-			_alwaysFetchEmployee = info.GetBoolean("_alwaysFetchEmployee");
-			_alreadyFetchedEmployee = info.GetBoolean("_alreadyFetchedEmployee");
+			_userActivityReturnsNewIfNotFound = info.GetBoolean("_userActivityReturnsNewIfNotFound");
+			_alwaysFetchUserActivity = info.GetBoolean("_alwaysFetchUserActivity");
+			_alreadyFetchedUserActivity = info.GetBoolean("_alreadyFetchedUserActivity");
 
-			_livingroom = (LivingroomEntity)info.GetValue("_livingroom", typeof(LivingroomEntity));
-			if(_livingroom!=null)
+			_userRole = (UserRoleEntity)info.GetValue("_userRole", typeof(UserRoleEntity));
+			if(_userRole!=null)
 			{
-				_livingroom.AfterSave+=new EventHandler(OnEntityAfterSave);
+				_userRole.AfterSave+=new EventHandler(OnEntityAfterSave);
 			}
-			_livingroomReturnsNewIfNotFound = info.GetBoolean("_livingroomReturnsNewIfNotFound");
-			_alwaysFetchLivingroom = info.GetBoolean("_alwaysFetchLivingroom");
-			_alreadyFetchedLivingroom = info.GetBoolean("_alreadyFetchedLivingroom");
+			_userRoleReturnsNewIfNotFound = info.GetBoolean("_userRoleReturnsNewIfNotFound");
+			_alwaysFetchUserRole = info.GetBoolean("_alwaysFetchUserRole");
+			_alreadyFetchedUserRole = info.GetBoolean("_alreadyFetchedUserRole");
 			this.FixupDeserialization(FieldInfoProviderSingleton.GetInstance(), PersistenceInfoProviderSingleton.GetInstance());
 			// __LLBLGENPRO_USER_CODE_REGION_START DeserializationConstructor
 			// __LLBLGENPRO_USER_CODE_REGION_END
@@ -133,15 +133,15 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <param name="fieldIndex">The fieldindex.</param>
 		protected override void PerformDesyncSetupFKFieldChange(int fieldIndex)
 		{
-			switch((EmployeeLivingroomFieldIndex)fieldIndex)
+			switch((UserRoleActivityFieldIndex)fieldIndex)
 			{
-				case EmployeeLivingroomFieldIndex.EmployeeId:
-					DesetupSyncEmployee(true, false);
-					_alreadyFetchedEmployee = false;
+				case UserRoleActivityFieldIndex.RoleTypeEnum:
+					DesetupSyncUserRole(true, false);
+					_alreadyFetchedUserRole = false;
 					break;
-				case EmployeeLivingroomFieldIndex.LivingroomId:
-					DesetupSyncLivingroom(true, false);
-					_alreadyFetchedLivingroom = false;
+				case UserRoleActivityFieldIndex.UserActivityId:
+					DesetupSyncUserActivity(true, false);
+					_alreadyFetchedUserActivity = false;
 					break;
 				default:
 					base.PerformDesyncSetupFKFieldChange(fieldIndex);
@@ -152,8 +152,8 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <summary> Will perform post-ReadXml actions</summary>
 		protected override void PerformPostReadXmlFixups()
 		{
-			_alreadyFetchedEmployee = (_employee != null);
-			_alreadyFetchedLivingroom = (_livingroom != null);
+			_alreadyFetchedUserActivity = (_userActivity != null);
+			_alreadyFetchedUserRole = (_userRole != null);
 		}
 				
 		/// <summary>Gets the relation objects which represent the relation the fieldName specified is mapped on. </summary>
@@ -172,11 +172,11 @@ namespace AmstaJanBonga.Business.EntityClasses
 			RelationCollection toReturn = new RelationCollection();
 			switch(fieldName)
 			{
-				case "Employee":
-					toReturn.Add(Relations.EmployeeEntityUsingEmployeeId);
+				case "UserActivity":
+					toReturn.Add(Relations.UserActivityEntityUsingUserActivityId);
 					break;
-				case "Livingroom":
-					toReturn.Add(Relations.LivingroomEntityUsingLivingroomId);
+				case "UserRole":
+					toReturn.Add(Relations.UserRoleEntityUsingRoleTypeEnum);
 					break;
 				default:
 					break;				
@@ -192,14 +192,14 @@ namespace AmstaJanBonga.Business.EntityClasses
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		protected override void GetObjectData(SerializationInfo info, StreamingContext context)
 		{
-			info.AddValue("_employee", (!this.MarkedForDeletion?_employee:null));
-			info.AddValue("_employeeReturnsNewIfNotFound", _employeeReturnsNewIfNotFound);
-			info.AddValue("_alwaysFetchEmployee", _alwaysFetchEmployee);
-			info.AddValue("_alreadyFetchedEmployee", _alreadyFetchedEmployee);
-			info.AddValue("_livingroom", (!this.MarkedForDeletion?_livingroom:null));
-			info.AddValue("_livingroomReturnsNewIfNotFound", _livingroomReturnsNewIfNotFound);
-			info.AddValue("_alwaysFetchLivingroom", _alwaysFetchLivingroom);
-			info.AddValue("_alreadyFetchedLivingroom", _alreadyFetchedLivingroom);
+			info.AddValue("_userActivity", (!this.MarkedForDeletion?_userActivity:null));
+			info.AddValue("_userActivityReturnsNewIfNotFound", _userActivityReturnsNewIfNotFound);
+			info.AddValue("_alwaysFetchUserActivity", _alwaysFetchUserActivity);
+			info.AddValue("_alreadyFetchedUserActivity", _alreadyFetchedUserActivity);
+			info.AddValue("_userRole", (!this.MarkedForDeletion?_userRole:null));
+			info.AddValue("_userRoleReturnsNewIfNotFound", _userRoleReturnsNewIfNotFound);
+			info.AddValue("_alwaysFetchUserRole", _alwaysFetchUserRole);
+			info.AddValue("_alreadyFetchedUserRole", _alreadyFetchedUserRole);
 
 			// __LLBLGENPRO_USER_CODE_REGION_START GetObjectInfo
 			// __LLBLGENPRO_USER_CODE_REGION_END
@@ -215,13 +215,13 @@ namespace AmstaJanBonga.Business.EntityClasses
 		{
 			switch(propertyName)
 			{
-				case "Employee":
-					_alreadyFetchedEmployee = true;
-					this.Employee = (EmployeeEntity)entity;
+				case "UserActivity":
+					_alreadyFetchedUserActivity = true;
+					this.UserActivity = (UserActivityEntity)entity;
 					break;
-				case "Livingroom":
-					_alreadyFetchedLivingroom = true;
-					this.Livingroom = (LivingroomEntity)entity;
+				case "UserRole":
+					_alreadyFetchedUserRole = true;
+					this.UserRole = (UserRoleEntity)entity;
 					break;
 				default:
 					this.OnSetRelatedEntityProperty(propertyName, entity);
@@ -237,11 +237,11 @@ namespace AmstaJanBonga.Business.EntityClasses
 		{
 			switch(fieldName)
 			{
-				case "Employee":
-					SetupSyncEmployee(relatedEntity);
+				case "UserActivity":
+					SetupSyncUserActivity(relatedEntity);
 					break;
-				case "Livingroom":
-					SetupSyncLivingroom(relatedEntity);
+				case "UserRole":
+					SetupSyncUserRole(relatedEntity);
 					break;
 				default:
 					break;
@@ -257,11 +257,11 @@ namespace AmstaJanBonga.Business.EntityClasses
 		{
 			switch(fieldName)
 			{
-				case "Employee":
-					DesetupSyncEmployee(false, true);
+				case "UserActivity":
+					DesetupSyncUserActivity(false, true);
 					break;
-				case "Livingroom":
-					DesetupSyncLivingroom(false, true);
+				case "UserRole":
+					DesetupSyncUserRole(false, true);
 					break;
 				default:
 					break;
@@ -281,13 +281,13 @@ namespace AmstaJanBonga.Business.EntityClasses
 		protected override List<IEntity> GetDependentRelatedEntities()
 		{
 			List<IEntity> toReturn = new List<IEntity>();
-			if(_employee!=null)
+			if(_userActivity!=null)
 			{
-				toReturn.Add(_employee);
+				toReturn.Add(_userActivity);
 			}
-			if(_livingroom!=null)
+			if(_userRole!=null)
 			{
-				toReturn.Add(_livingroom);
+				toReturn.Add(_userRole);
 			}
 			return toReturn;
 		}
@@ -304,54 +304,54 @@ namespace AmstaJanBonga.Business.EntityClasses
 
 
 		/// <summary> Fetches the contents of this entity from the persistent storage using the primary key.</summary>
-		/// <param name="employeeId">PK value for EmployeeLivingroom which data should be fetched into this EmployeeLivingroom object</param>
-		/// <param name="livingroomId">PK value for EmployeeLivingroom which data should be fetched into this EmployeeLivingroom object</param>
+		/// <param name="roleTypeEnum">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
+		/// <param name="userActivityId">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		public bool FetchUsingPK(System.Int32 employeeId, System.Int32 livingroomId)
+		public bool FetchUsingPK(System.Byte roleTypeEnum, System.Int32 userActivityId)
 		{
-			return FetchUsingPK(employeeId, livingroomId, null, null, null);
+			return FetchUsingPK(roleTypeEnum, userActivityId, null, null, null);
 		}
 
 		/// <summary> Fetches the contents of this entity from the persistent storage using the primary key.</summary>
-		/// <param name="employeeId">PK value for EmployeeLivingroom which data should be fetched into this EmployeeLivingroom object</param>
-		/// <param name="livingroomId">PK value for EmployeeLivingroom which data should be fetched into this EmployeeLivingroom object</param>
+		/// <param name="roleTypeEnum">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
+		/// <param name="userActivityId">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		public bool FetchUsingPK(System.Int32 employeeId, System.Int32 livingroomId, IPrefetchPath prefetchPathToUse)
+		public bool FetchUsingPK(System.Byte roleTypeEnum, System.Int32 userActivityId, IPrefetchPath prefetchPathToUse)
 		{
-			return FetchUsingPK(employeeId, livingroomId, prefetchPathToUse, null, null);
+			return FetchUsingPK(roleTypeEnum, userActivityId, prefetchPathToUse, null, null);
 		}
 
 		/// <summary> Fetches the contents of this entity from the persistent storage using the primary key.</summary>
-		/// <param name="employeeId">PK value for EmployeeLivingroom which data should be fetched into this EmployeeLivingroom object</param>
-		/// <param name="livingroomId">PK value for EmployeeLivingroom which data should be fetched into this EmployeeLivingroom object</param>
+		/// <param name="roleTypeEnum">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
+		/// <param name="userActivityId">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <param name="contextToUse">The context to add the entity to if the fetch was succesful. </param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		public bool FetchUsingPK(System.Int32 employeeId, System.Int32 livingroomId, IPrefetchPath prefetchPathToUse, Context contextToUse)
+		public bool FetchUsingPK(System.Byte roleTypeEnum, System.Int32 userActivityId, IPrefetchPath prefetchPathToUse, Context contextToUse)
 		{
-			return FetchUsingPK(employeeId, livingroomId, prefetchPathToUse, contextToUse, null);
+			return FetchUsingPK(roleTypeEnum, userActivityId, prefetchPathToUse, contextToUse, null);
 		}
 
 		/// <summary> Fetches the contents of this entity from the persistent storage using the primary key.</summary>
-		/// <param name="employeeId">PK value for EmployeeLivingroom which data should be fetched into this EmployeeLivingroom object</param>
-		/// <param name="livingroomId">PK value for EmployeeLivingroom which data should be fetched into this EmployeeLivingroom object</param>
+		/// <param name="roleTypeEnum">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
+		/// <param name="userActivityId">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <param name="contextToUse">The context to add the entity to if the fetch was succesful. </param>
 		/// <param name="excludedIncludedFields">The list of IEntityField objects which have to be excluded or included for the fetch. 
 		/// If null or empty, all fields are fetched (default). If an instance of ExcludeIncludeFieldsList is passed in and its ExcludeContainedFields property
 		/// is set to false, the fields contained in excludedIncludedFields are kept in the query, the rest of the fields in the query are excluded.</param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		public bool FetchUsingPK(System.Int32 employeeId, System.Int32 livingroomId, IPrefetchPath prefetchPathToUse, Context contextToUse, ExcludeIncludeFieldsList excludedIncludedFields)
+		public bool FetchUsingPK(System.Byte roleTypeEnum, System.Int32 userActivityId, IPrefetchPath prefetchPathToUse, Context contextToUse, ExcludeIncludeFieldsList excludedIncludedFields)
 		{
-			return Fetch(employeeId, livingroomId, prefetchPathToUse, contextToUse, excludedIncludedFields);
+			return Fetch(roleTypeEnum, userActivityId, prefetchPathToUse, contextToUse, excludedIncludedFields);
 		}
 
 		/// <summary> Refetches the Entity from the persistent storage. Refetch is used to re-load an Entity which is marked "Out-of-sync", due to a save action. Refetching an empty Entity has no effect. </summary>
 		/// <returns>true if Refetch succeeded, false otherwise</returns>
 		public override bool Refetch()
 		{
-			return Fetch(this.EmployeeId, this.LivingroomId, null, null, null);
+			return Fetch(this.RoleTypeEnum, this.UserActivityId, null, null, null);
 		}
 
 
@@ -360,88 +360,88 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <returns>A list of all the EntityRelation objects the type of this instance has. Hierarchy relations are excluded.</returns>
 		protected override List<IEntityRelation> GetAllRelations()
 		{
-			return new EmployeeLivingroomRelations().GetAllRelations();
+			return new UserRoleActivityRelations().GetAllRelations();
 		}
 
-		/// <summary> Retrieves the related entity of type 'EmployeeEntity', using a relation of type 'n:1'</summary>
-		/// <returns>A fetched entity of type 'EmployeeEntity' which is related to this entity.</returns>
-		public EmployeeEntity GetSingleEmployee()
+		/// <summary> Retrieves the related entity of type 'UserActivityEntity', using a relation of type 'n:1'</summary>
+		/// <returns>A fetched entity of type 'UserActivityEntity' which is related to this entity.</returns>
+		public UserActivityEntity GetSingleUserActivity()
 		{
-			return GetSingleEmployee(false);
+			return GetSingleUserActivity(false);
 		}
 
-		/// <summary> Retrieves the related entity of type 'EmployeeEntity', using a relation of type 'n:1'</summary>
+		/// <summary> Retrieves the related entity of type 'UserActivityEntity', using a relation of type 'n:1'</summary>
 		/// <param name="forceFetch">if true, it will discard any changes currently in the currently loaded related entity and will refetch the entity from the persistent storage</param>
-		/// <returns>A fetched entity of type 'EmployeeEntity' which is related to this entity.</returns>
-		public virtual EmployeeEntity GetSingleEmployee(bool forceFetch)
+		/// <returns>A fetched entity of type 'UserActivityEntity' which is related to this entity.</returns>
+		public virtual UserActivityEntity GetSingleUserActivity(bool forceFetch)
 		{
-			if( ( !_alreadyFetchedEmployee || forceFetch || _alwaysFetchEmployee) && !this.IsSerializing && !this.IsDeserializing  && !this.InDesignMode)			
+			if( ( !_alreadyFetchedUserActivity || forceFetch || _alwaysFetchUserActivity) && !this.IsSerializing && !this.IsDeserializing  && !this.InDesignMode)			
 			{
-				bool performLazyLoading = this.CheckIfLazyLoadingShouldOccur(Relations.EmployeeEntityUsingEmployeeId);
-				EmployeeEntity newEntity = new EmployeeEntity();
+				bool performLazyLoading = this.CheckIfLazyLoadingShouldOccur(Relations.UserActivityEntityUsingUserActivityId);
+				UserActivityEntity newEntity = new UserActivityEntity();
 				bool fetchResult = false;
 				if(performLazyLoading)
 				{
 					AddToTransactionIfNecessary(newEntity);
-					fetchResult = newEntity.FetchUsingPK(this.EmployeeId);
+					fetchResult = newEntity.FetchUsingPK(this.UserActivityId);
 				}
 				if(fetchResult)
 				{
-					newEntity = (EmployeeEntity)GetFromActiveContext(newEntity);
+					newEntity = (UserActivityEntity)GetFromActiveContext(newEntity);
 				}
 				else
 				{
-					if(!_employeeReturnsNewIfNotFound)
+					if(!_userActivityReturnsNewIfNotFound)
 					{
 						RemoveFromTransactionIfNecessary(newEntity);
 						newEntity = null;
 					}
 				}
-				this.Employee = newEntity;
-				_alreadyFetchedEmployee = fetchResult;
+				this.UserActivity = newEntity;
+				_alreadyFetchedUserActivity = fetchResult;
 			}
-			return _employee;
+			return _userActivity;
 		}
 
 
-		/// <summary> Retrieves the related entity of type 'LivingroomEntity', using a relation of type 'n:1'</summary>
-		/// <returns>A fetched entity of type 'LivingroomEntity' which is related to this entity.</returns>
-		public LivingroomEntity GetSingleLivingroom()
+		/// <summary> Retrieves the related entity of type 'UserRoleEntity', using a relation of type 'n:1'</summary>
+		/// <returns>A fetched entity of type 'UserRoleEntity' which is related to this entity.</returns>
+		public UserRoleEntity GetSingleUserRole()
 		{
-			return GetSingleLivingroom(false);
+			return GetSingleUserRole(false);
 		}
 
-		/// <summary> Retrieves the related entity of type 'LivingroomEntity', using a relation of type 'n:1'</summary>
+		/// <summary> Retrieves the related entity of type 'UserRoleEntity', using a relation of type 'n:1'</summary>
 		/// <param name="forceFetch">if true, it will discard any changes currently in the currently loaded related entity and will refetch the entity from the persistent storage</param>
-		/// <returns>A fetched entity of type 'LivingroomEntity' which is related to this entity.</returns>
-		public virtual LivingroomEntity GetSingleLivingroom(bool forceFetch)
+		/// <returns>A fetched entity of type 'UserRoleEntity' which is related to this entity.</returns>
+		public virtual UserRoleEntity GetSingleUserRole(bool forceFetch)
 		{
-			if( ( !_alreadyFetchedLivingroom || forceFetch || _alwaysFetchLivingroom) && !this.IsSerializing && !this.IsDeserializing  && !this.InDesignMode)			
+			if( ( !_alreadyFetchedUserRole || forceFetch || _alwaysFetchUserRole) && !this.IsSerializing && !this.IsDeserializing  && !this.InDesignMode)			
 			{
-				bool performLazyLoading = this.CheckIfLazyLoadingShouldOccur(Relations.LivingroomEntityUsingLivingroomId);
-				LivingroomEntity newEntity = new LivingroomEntity();
+				bool performLazyLoading = this.CheckIfLazyLoadingShouldOccur(Relations.UserRoleEntityUsingRoleTypeEnum);
+				UserRoleEntity newEntity = new UserRoleEntity();
 				bool fetchResult = false;
 				if(performLazyLoading)
 				{
 					AddToTransactionIfNecessary(newEntity);
-					fetchResult = newEntity.FetchUsingPK(this.LivingroomId);
+					fetchResult = newEntity.FetchUsingPK(this.RoleTypeEnum);
 				}
 				if(fetchResult)
 				{
-					newEntity = (LivingroomEntity)GetFromActiveContext(newEntity);
+					newEntity = (UserRoleEntity)GetFromActiveContext(newEntity);
 				}
 				else
 				{
-					if(!_livingroomReturnsNewIfNotFound)
+					if(!_userRoleReturnsNewIfNotFound)
 					{
 						RemoveFromTransactionIfNecessary(newEntity);
 						newEntity = null;
 					}
 				}
-				this.Livingroom = newEntity;
-				_alreadyFetchedLivingroom = fetchResult;
+				this.UserRole = newEntity;
+				_alreadyFetchedUserRole = fetchResult;
 			}
-			return _livingroom;
+			return _userRole;
 		}
 
 
@@ -450,8 +450,8 @@ namespace AmstaJanBonga.Business.EntityClasses
 		protected override Dictionary<string, object> GetRelatedData()
 		{
 			Dictionary<string, object> toReturn = new Dictionary<string, object>();
-			toReturn.Add("Employee", _employee);
-			toReturn.Add("Livingroom", _livingroom);
+			toReturn.Add("UserActivity", _userActivity);
+			toReturn.Add("UserRole", _userRole);
 			return toReturn;
 		}
 	
@@ -471,17 +471,17 @@ namespace AmstaJanBonga.Business.EntityClasses
 		}		
 
 		/// <summary> Initializes the the entity and fetches the data related to the entity in this entity.</summary>
-		/// <param name="employeeId">PK value for EmployeeLivingroom which data should be fetched into this EmployeeLivingroom object</param>
-		/// <param name="livingroomId">PK value for EmployeeLivingroom which data should be fetched into this EmployeeLivingroom object</param>
-		/// <param name="validator">The validator object for this EmployeeLivingroomEntity</param>
+		/// <param name="roleTypeEnum">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
+		/// <param name="userActivityId">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
+		/// <param name="validator">The validator object for this UserRoleActivityEntity</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
-		private void InitClassFetch(System.Int32 employeeId, System.Int32 livingroomId, IValidator validator, IPrefetchPath prefetchPathToUse)
+		private void InitClassFetch(System.Byte roleTypeEnum, System.Int32 userActivityId, IValidator validator, IPrefetchPath prefetchPathToUse)
 		{
 			OnInitializing();
 			this.Validator = validator;
 			this.Fields = CreateFields();
 			InitClassMembers();	
-			Fetch(employeeId, livingroomId, prefetchPathToUse, null, null);
+			Fetch(roleTypeEnum, userActivityId, prefetchPathToUse, null, null);
 
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassFetch
 			// __LLBLGENPRO_USER_CODE_REGION_END
@@ -492,8 +492,8 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <summary> Initializes the class members</summary>
 		private void InitClassMembers()
 		{
-			_employeeReturnsNewIfNotFound = false;
-			_livingroomReturnsNewIfNotFound = false;
+			_userActivityReturnsNewIfNotFound = false;
+			_userRoleReturnsNewIfNotFound = false;
 			PerformDependencyInjection();
 
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassMembers
@@ -509,37 +509,37 @@ namespace AmstaJanBonga.Business.EntityClasses
 			_fieldsCustomProperties = new Dictionary<string, Dictionary<string, string>>();
 			Dictionary<string, string> fieldHashtable;
 			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("EmployeeId", fieldHashtable);
+			_fieldsCustomProperties.Add("RoleTypeEnum", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("LivingroomId", fieldHashtable);
+			_fieldsCustomProperties.Add("UserActivityId", fieldHashtable);
 		}
 		#endregion
 
-		/// <summary> Removes the sync logic for member _employee</summary>
+		/// <summary> Removes the sync logic for member _userActivity</summary>
 		/// <param name="signalRelatedEntity">If set to true, it will call the related entity's UnsetRelatedEntity method</param>
 		/// <param name="resetFKFields">if set to true it will also reset the FK fields pointing to the related entity</param>
-		private void DesetupSyncEmployee(bool signalRelatedEntity, bool resetFKFields)
+		private void DesetupSyncUserActivity(bool signalRelatedEntity, bool resetFKFields)
 		{
-			this.PerformDesetupSyncRelatedEntity( _employee, new PropertyChangedEventHandler( OnEmployeePropertyChanged ), "Employee", AmstaJanBonga.Business.RelationClasses.StaticEmployeeLivingroomRelations.EmployeeEntityUsingEmployeeIdStatic, true, signalRelatedEntity, "EmployeeLivingrooms", resetFKFields, new int[] { (int)EmployeeLivingroomFieldIndex.EmployeeId } );		
-			_employee = null;
+			this.PerformDesetupSyncRelatedEntity( _userActivity, new PropertyChangedEventHandler( OnUserActivityPropertyChanged ), "UserActivity", AmstaJanBonga.Business.RelationClasses.StaticUserRoleActivityRelations.UserActivityEntityUsingUserActivityIdStatic, true, signalRelatedEntity, "UserRoleActivities", resetFKFields, new int[] { (int)UserRoleActivityFieldIndex.UserActivityId } );		
+			_userActivity = null;
 		}
 		
-		/// <summary> setups the sync logic for member _employee</summary>
+		/// <summary> setups the sync logic for member _userActivity</summary>
 		/// <param name="relatedEntity">Instance to set as the related entity of type entityType</param>
-		private void SetupSyncEmployee(IEntityCore relatedEntity)
+		private void SetupSyncUserActivity(IEntityCore relatedEntity)
 		{
-			if(_employee!=relatedEntity)
+			if(_userActivity!=relatedEntity)
 			{		
-				DesetupSyncEmployee(true, true);
-				_employee = (EmployeeEntity)relatedEntity;
-				this.PerformSetupSyncRelatedEntity( _employee, new PropertyChangedEventHandler( OnEmployeePropertyChanged ), "Employee", AmstaJanBonga.Business.RelationClasses.StaticEmployeeLivingroomRelations.EmployeeEntityUsingEmployeeIdStatic, true, ref _alreadyFetchedEmployee, new string[] {  } );
+				DesetupSyncUserActivity(true, true);
+				_userActivity = (UserActivityEntity)relatedEntity;
+				this.PerformSetupSyncRelatedEntity( _userActivity, new PropertyChangedEventHandler( OnUserActivityPropertyChanged ), "UserActivity", AmstaJanBonga.Business.RelationClasses.StaticUserRoleActivityRelations.UserActivityEntityUsingUserActivityIdStatic, true, ref _alreadyFetchedUserActivity, new string[] {  } );
 			}
 		}
 
 		/// <summary>Handles property change events of properties in a related entity.</summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void OnEmployeePropertyChanged( object sender, PropertyChangedEventArgs e )
+		private void OnUserActivityPropertyChanged( object sender, PropertyChangedEventArgs e )
 		{
 			switch( e.PropertyName )
 			{
@@ -548,31 +548,31 @@ namespace AmstaJanBonga.Business.EntityClasses
 			}
 		}
 
-		/// <summary> Removes the sync logic for member _livingroom</summary>
+		/// <summary> Removes the sync logic for member _userRole</summary>
 		/// <param name="signalRelatedEntity">If set to true, it will call the related entity's UnsetRelatedEntity method</param>
 		/// <param name="resetFKFields">if set to true it will also reset the FK fields pointing to the related entity</param>
-		private void DesetupSyncLivingroom(bool signalRelatedEntity, bool resetFKFields)
+		private void DesetupSyncUserRole(bool signalRelatedEntity, bool resetFKFields)
 		{
-			this.PerformDesetupSyncRelatedEntity( _livingroom, new PropertyChangedEventHandler( OnLivingroomPropertyChanged ), "Livingroom", AmstaJanBonga.Business.RelationClasses.StaticEmployeeLivingroomRelations.LivingroomEntityUsingLivingroomIdStatic, true, signalRelatedEntity, "EmployeeLivingrooms", resetFKFields, new int[] { (int)EmployeeLivingroomFieldIndex.LivingroomId } );		
-			_livingroom = null;
+			this.PerformDesetupSyncRelatedEntity( _userRole, new PropertyChangedEventHandler( OnUserRolePropertyChanged ), "UserRole", AmstaJanBonga.Business.RelationClasses.StaticUserRoleActivityRelations.UserRoleEntityUsingRoleTypeEnumStatic, true, signalRelatedEntity, "UserRoleActivities", resetFKFields, new int[] { (int)UserRoleActivityFieldIndex.RoleTypeEnum } );		
+			_userRole = null;
 		}
 		
-		/// <summary> setups the sync logic for member _livingroom</summary>
+		/// <summary> setups the sync logic for member _userRole</summary>
 		/// <param name="relatedEntity">Instance to set as the related entity of type entityType</param>
-		private void SetupSyncLivingroom(IEntityCore relatedEntity)
+		private void SetupSyncUserRole(IEntityCore relatedEntity)
 		{
-			if(_livingroom!=relatedEntity)
+			if(_userRole!=relatedEntity)
 			{		
-				DesetupSyncLivingroom(true, true);
-				_livingroom = (LivingroomEntity)relatedEntity;
-				this.PerformSetupSyncRelatedEntity( _livingroom, new PropertyChangedEventHandler( OnLivingroomPropertyChanged ), "Livingroom", AmstaJanBonga.Business.RelationClasses.StaticEmployeeLivingroomRelations.LivingroomEntityUsingLivingroomIdStatic, true, ref _alreadyFetchedLivingroom, new string[] {  } );
+				DesetupSyncUserRole(true, true);
+				_userRole = (UserRoleEntity)relatedEntity;
+				this.PerformSetupSyncRelatedEntity( _userRole, new PropertyChangedEventHandler( OnUserRolePropertyChanged ), "UserRole", AmstaJanBonga.Business.RelationClasses.StaticUserRoleActivityRelations.UserRoleEntityUsingRoleTypeEnumStatic, true, ref _alreadyFetchedUserRole, new string[] {  } );
 			}
 		}
 
 		/// <summary>Handles property change events of properties in a related entity.</summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void OnLivingroomPropertyChanged( object sender, PropertyChangedEventArgs e )
+		private void OnUserRolePropertyChanged( object sender, PropertyChangedEventArgs e )
 		{
 			switch( e.PropertyName )
 			{
@@ -582,21 +582,21 @@ namespace AmstaJanBonga.Business.EntityClasses
 		}
 
 		/// <summary> Fetches the entity from the persistent storage. Fetch simply reads the entity into an EntityFields object. </summary>
-		/// <param name="employeeId">PK value for EmployeeLivingroom which data should be fetched into this EmployeeLivingroom object</param>
-		/// <param name="livingroomId">PK value for EmployeeLivingroom which data should be fetched into this EmployeeLivingroom object</param>
+		/// <param name="roleTypeEnum">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
+		/// <param name="userActivityId">PK value for UserRoleActivity which data should be fetched into this UserRoleActivity object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <param name="contextToUse">The context to add the entity to if the fetch was succesful. </param>
 		/// <param name="excludedIncludedFields">The list of IEntityField objects which have to be excluded or included for the fetch. 
 		/// If null or empty, all fields are fetched (default). If an instance of ExcludeIncludeFieldsList is passed in and its ExcludeContainedFields property
 		/// is set to false, the fields contained in excludedIncludedFields are kept in the query, the rest of the fields in the query are excluded.</param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		private bool Fetch(System.Int32 employeeId, System.Int32 livingroomId, IPrefetchPath prefetchPathToUse, Context contextToUse, ExcludeIncludeFieldsList excludedIncludedFields)
+		private bool Fetch(System.Byte roleTypeEnum, System.Int32 userActivityId, IPrefetchPath prefetchPathToUse, Context contextToUse, ExcludeIncludeFieldsList excludedIncludedFields)
 		{
 			try
 			{
 				OnFetch();
-				this.Fields[(int)EmployeeLivingroomFieldIndex.EmployeeId].ForcedCurrentValueWrite(employeeId);
-				this.Fields[(int)EmployeeLivingroomFieldIndex.LivingroomId].ForcedCurrentValueWrite(livingroomId);
+				this.Fields[(int)UserRoleActivityFieldIndex.RoleTypeEnum].ForcedCurrentValueWrite(roleTypeEnum);
+				this.Fields[(int)UserRoleActivityFieldIndex.UserActivityId].ForcedCurrentValueWrite(userActivityId);
 				CreateDAOInstance().FetchExisting(this, this.Transaction, prefetchPathToUse, contextToUse, excludedIncludedFields);
 				return (this.Fields.State == EntityState.Fetched);
 			}
@@ -610,21 +610,21 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <returns></returns>
 		protected override IDao CreateDAOInstance()
 		{
-			return DAOFactory.CreateEmployeeLivingroomDAO();
+			return DAOFactory.CreateUserRoleActivityDAO();
 		}
 		
 		/// <summary> Creates the entity factory for this type.</summary>
 		/// <returns></returns>
 		protected override IEntityFactory CreateEntityFactory()
 		{
-			return new EmployeeLivingroomEntityFactory();
+			return new UserRoleActivityEntityFactory();
 		}
 
 		#region Class Property Declarations
 		/// <summary> The relations object holding all relations of this entity with other entity classes.</summary>
-		public  static EmployeeLivingroomRelations Relations
+		public  static UserRoleActivityRelations Relations
 		{
-			get	{ return new EmployeeLivingroomRelations(); }
+			get	{ return new UserRoleActivityRelations(); }
 		}
 		
 		/// <summary> The custom properties for this entity type.</summary>
@@ -634,18 +634,18 @@ namespace AmstaJanBonga.Business.EntityClasses
 			get { return _customProperties;}
 		}
 
-		/// <summary> Creates a new PrefetchPathElement object which contains all the information to prefetch the related entities of type 'Employee'  for this entity.</summary>
+		/// <summary> Creates a new PrefetchPathElement object which contains all the information to prefetch the related entities of type 'UserActivity'  for this entity.</summary>
 		/// <returns>Ready to use IPrefetchPathElement implementation.</returns>
-		public static IPrefetchPathElement PrefetchPathEmployee
+		public static IPrefetchPathElement PrefetchPathUserActivity
 		{
-			get	{ return new PrefetchPathElement(new AmstaJanBonga.Business.CollectionClasses.EmployeeCollection(), (IEntityRelation)GetRelationsForField("Employee")[0], (int)AmstaJanBonga.Business.EntityType.EmployeeLivingroomEntity, (int)AmstaJanBonga.Business.EntityType.EmployeeEntity, 0, null, null, null, "Employee", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne); }
+			get	{ return new PrefetchPathElement(new AmstaJanBonga.Business.CollectionClasses.UserActivityCollection(), (IEntityRelation)GetRelationsForField("UserActivity")[0], (int)AmstaJanBonga.Business.EntityType.UserRoleActivityEntity, (int)AmstaJanBonga.Business.EntityType.UserActivityEntity, 0, null, null, null, "UserActivity", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne); }
 		}
 
-		/// <summary> Creates a new PrefetchPathElement object which contains all the information to prefetch the related entities of type 'Livingroom'  for this entity.</summary>
+		/// <summary> Creates a new PrefetchPathElement object which contains all the information to prefetch the related entities of type 'UserRole'  for this entity.</summary>
 		/// <returns>Ready to use IPrefetchPathElement implementation.</returns>
-		public static IPrefetchPathElement PrefetchPathLivingroom
+		public static IPrefetchPathElement PrefetchPathUserRole
 		{
-			get	{ return new PrefetchPathElement(new AmstaJanBonga.Business.CollectionClasses.LivingroomCollection(), (IEntityRelation)GetRelationsForField("Livingroom")[0], (int)AmstaJanBonga.Business.EntityType.EmployeeLivingroomEntity, (int)AmstaJanBonga.Business.EntityType.LivingroomEntity, 0, null, null, null, "Livingroom", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne); }
+			get	{ return new PrefetchPathElement(new AmstaJanBonga.Business.CollectionClasses.UserRoleCollection(), (IEntityRelation)GetRelationsForField("UserRole")[0], (int)AmstaJanBonga.Business.EntityType.UserRoleActivityEntity, (int)AmstaJanBonga.Business.EntityType.UserRoleEntity, 0, null, null, null, "UserRole", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne); }
 		}
 
 
@@ -672,143 +672,143 @@ namespace AmstaJanBonga.Business.EntityClasses
 			get { return FieldsCustomProperties;}
 		}
 
-		/// <summary> The EmployeeId property of the Entity EmployeeLivingroom<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "EmployeeLivingroom"."EmployeeId"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
+		/// <summary> The RoleTypeEnum property of the Entity UserRoleActivity<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "UserRoleActivity"."RoleTypeEnum"<br/>
+		/// Table field type characteristics (type, precision, scale, length): TinyInt, 3, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, false</remarks>
-		public virtual System.Int32 EmployeeId
+		public virtual System.Byte RoleTypeEnum
 		{
-			get { return (System.Int32)GetValue((int)EmployeeLivingroomFieldIndex.EmployeeId, true); }
-			set	{ SetValue((int)EmployeeLivingroomFieldIndex.EmployeeId, value, true); }
+			get { return (System.Byte)GetValue((int)UserRoleActivityFieldIndex.RoleTypeEnum, true); }
+			set	{ SetValue((int)UserRoleActivityFieldIndex.RoleTypeEnum, value, true); }
 		}
 
-		/// <summary> The LivingroomId property of the Entity EmployeeLivingroom<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "EmployeeLivingroom"."LivingroomId"<br/>
+		/// <summary> The UserActivityId property of the Entity UserRoleActivity<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "UserRoleActivity"."UserActivityId"<br/>
 		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, false</remarks>
-		public virtual System.Int32 LivingroomId
+		public virtual System.Int32 UserActivityId
 		{
-			get { return (System.Int32)GetValue((int)EmployeeLivingroomFieldIndex.LivingroomId, true); }
-			set	{ SetValue((int)EmployeeLivingroomFieldIndex.LivingroomId, value, true); }
+			get { return (System.Int32)GetValue((int)UserRoleActivityFieldIndex.UserActivityId, true); }
+			set	{ SetValue((int)UserRoleActivityFieldIndex.UserActivityId, value, true); }
 		}
 
 
-		/// <summary> Gets / sets related entity of type 'EmployeeEntity'. This property is not visible in databound grids.
+		/// <summary> Gets / sets related entity of type 'UserActivityEntity'. This property is not visible in databound grids.
 		/// Setting this property to a new object will make the load-on-demand feature to stop fetching data from the database, until you set this
 		/// property to null. Setting this property to an entity will make sure that FK-PK relations are synchronized when appropriate.<br/><br/>
 		/// </summary>
-		/// <remarks>This property is added for conveniance, however it is recommeded to use the method 'GetSingleEmployee()', because 
+		/// <remarks>This property is added for conveniance, however it is recommeded to use the method 'GetSingleUserActivity()', because 
 		/// this property is rather expensive and a method tells the user to cache the result when it has to be used more than once in the
 		/// same scope. The property is marked non-browsable to make it hidden in bound controls, f.e. datagrids.</remarks>
 		[Browsable(false)]
-		public virtual EmployeeEntity Employee
+		public virtual UserActivityEntity UserActivity
 		{
-			get	{ return GetSingleEmployee(false); }
+			get	{ return GetSingleUserActivity(false); }
 			set 
 			{ 
 				if(this.IsDeserializing)
 				{
-					SetupSyncEmployee(value);
+					SetupSyncUserActivity(value);
 				}
 				else
 				{
-					SetSingleRelatedEntityNavigator(value, "EmployeeLivingrooms", "Employee", _employee, true); 
+					SetSingleRelatedEntityNavigator(value, "UserRoleActivities", "UserActivity", _userActivity, true); 
 				}
 			}
 		}
 
-		/// <summary> Gets / sets the lazy loading flag for Employee. When set to true, Employee is always refetched from the 
-		/// persistent storage. When set to false, the data is only fetched the first time Employee is accessed. You can always execute a forced fetch by calling GetSingleEmployee(true).</summary>
+		/// <summary> Gets / sets the lazy loading flag for UserActivity. When set to true, UserActivity is always refetched from the 
+		/// persistent storage. When set to false, the data is only fetched the first time UserActivity is accessed. You can always execute a forced fetch by calling GetSingleUserActivity(true).</summary>
 		[Browsable(false)]
-		public bool AlwaysFetchEmployee
+		public bool AlwaysFetchUserActivity
 		{
-			get	{ return _alwaysFetchEmployee; }
-			set	{ _alwaysFetchEmployee = value; }	
+			get	{ return _alwaysFetchUserActivity; }
+			set	{ _alwaysFetchUserActivity = value; }	
 		}
 				
-		/// <summary>Gets / Sets the lazy loading flag if the property Employee already has been fetched. Setting this property to false when Employee has been fetched
-		/// will set Employee to null as well. Setting this property to true while Employee hasn't been fetched disables lazy loading for Employee</summary>
+		/// <summary>Gets / Sets the lazy loading flag if the property UserActivity already has been fetched. Setting this property to false when UserActivity has been fetched
+		/// will set UserActivity to null as well. Setting this property to true while UserActivity hasn't been fetched disables lazy loading for UserActivity</summary>
 		[Browsable(false)]
-		public bool AlreadyFetchedEmployee
+		public bool AlreadyFetchedUserActivity
 		{
-			get { return _alreadyFetchedEmployee;}
+			get { return _alreadyFetchedUserActivity;}
 			set 
 			{
-				if(_alreadyFetchedEmployee && !value)
+				if(_alreadyFetchedUserActivity && !value)
 				{
-					this.Employee = null;
+					this.UserActivity = null;
 				}
-				_alreadyFetchedEmployee = value;
+				_alreadyFetchedUserActivity = value;
 			}
 		}
 
-		/// <summary> Gets / sets the flag for what to do if the related entity available through the property Employee is not found
-		/// in the database. When set to true, Employee will return a new entity instance if the related entity is not found, otherwise 
+		/// <summary> Gets / sets the flag for what to do if the related entity available through the property UserActivity is not found
+		/// in the database. When set to true, UserActivity will return a new entity instance if the related entity is not found, otherwise 
 		/// null be returned if the related entity is not found. Default: false.</summary>
 		[Browsable(false)]
-		public bool EmployeeReturnsNewIfNotFound
+		public bool UserActivityReturnsNewIfNotFound
 		{
-			get	{ return _employeeReturnsNewIfNotFound; }
-			set { _employeeReturnsNewIfNotFound = value; }	
+			get	{ return _userActivityReturnsNewIfNotFound; }
+			set { _userActivityReturnsNewIfNotFound = value; }	
 		}
 
-		/// <summary> Gets / sets related entity of type 'LivingroomEntity'. This property is not visible in databound grids.
+		/// <summary> Gets / sets related entity of type 'UserRoleEntity'. This property is not visible in databound grids.
 		/// Setting this property to a new object will make the load-on-demand feature to stop fetching data from the database, until you set this
 		/// property to null. Setting this property to an entity will make sure that FK-PK relations are synchronized when appropriate.<br/><br/>
 		/// </summary>
-		/// <remarks>This property is added for conveniance, however it is recommeded to use the method 'GetSingleLivingroom()', because 
+		/// <remarks>This property is added for conveniance, however it is recommeded to use the method 'GetSingleUserRole()', because 
 		/// this property is rather expensive and a method tells the user to cache the result when it has to be used more than once in the
 		/// same scope. The property is marked non-browsable to make it hidden in bound controls, f.e. datagrids.</remarks>
 		[Browsable(false)]
-		public virtual LivingroomEntity Livingroom
+		public virtual UserRoleEntity UserRole
 		{
-			get	{ return GetSingleLivingroom(false); }
+			get	{ return GetSingleUserRole(false); }
 			set 
 			{ 
 				if(this.IsDeserializing)
 				{
-					SetupSyncLivingroom(value);
+					SetupSyncUserRole(value);
 				}
 				else
 				{
-					SetSingleRelatedEntityNavigator(value, "EmployeeLivingrooms", "Livingroom", _livingroom, true); 
+					SetSingleRelatedEntityNavigator(value, "UserRoleActivities", "UserRole", _userRole, true); 
 				}
 			}
 		}
 
-		/// <summary> Gets / sets the lazy loading flag for Livingroom. When set to true, Livingroom is always refetched from the 
-		/// persistent storage. When set to false, the data is only fetched the first time Livingroom is accessed. You can always execute a forced fetch by calling GetSingleLivingroom(true).</summary>
+		/// <summary> Gets / sets the lazy loading flag for UserRole. When set to true, UserRole is always refetched from the 
+		/// persistent storage. When set to false, the data is only fetched the first time UserRole is accessed. You can always execute a forced fetch by calling GetSingleUserRole(true).</summary>
 		[Browsable(false)]
-		public bool AlwaysFetchLivingroom
+		public bool AlwaysFetchUserRole
 		{
-			get	{ return _alwaysFetchLivingroom; }
-			set	{ _alwaysFetchLivingroom = value; }	
+			get	{ return _alwaysFetchUserRole; }
+			set	{ _alwaysFetchUserRole = value; }	
 		}
 				
-		/// <summary>Gets / Sets the lazy loading flag if the property Livingroom already has been fetched. Setting this property to false when Livingroom has been fetched
-		/// will set Livingroom to null as well. Setting this property to true while Livingroom hasn't been fetched disables lazy loading for Livingroom</summary>
+		/// <summary>Gets / Sets the lazy loading flag if the property UserRole already has been fetched. Setting this property to false when UserRole has been fetched
+		/// will set UserRole to null as well. Setting this property to true while UserRole hasn't been fetched disables lazy loading for UserRole</summary>
 		[Browsable(false)]
-		public bool AlreadyFetchedLivingroom
+		public bool AlreadyFetchedUserRole
 		{
-			get { return _alreadyFetchedLivingroom;}
+			get { return _alreadyFetchedUserRole;}
 			set 
 			{
-				if(_alreadyFetchedLivingroom && !value)
+				if(_alreadyFetchedUserRole && !value)
 				{
-					this.Livingroom = null;
+					this.UserRole = null;
 				}
-				_alreadyFetchedLivingroom = value;
+				_alreadyFetchedUserRole = value;
 			}
 		}
 
-		/// <summary> Gets / sets the flag for what to do if the related entity available through the property Livingroom is not found
-		/// in the database. When set to true, Livingroom will return a new entity instance if the related entity is not found, otherwise 
+		/// <summary> Gets / sets the flag for what to do if the related entity available through the property UserRole is not found
+		/// in the database. When set to true, UserRole will return a new entity instance if the related entity is not found, otherwise 
 		/// null be returned if the related entity is not found. Default: false.</summary>
 		[Browsable(false)]
-		public bool LivingroomReturnsNewIfNotFound
+		public bool UserRoleReturnsNewIfNotFound
 		{
-			get	{ return _livingroomReturnsNewIfNotFound; }
-			set { _livingroomReturnsNewIfNotFound = value; }	
+			get	{ return _userRoleReturnsNewIfNotFound; }
+			set { _userRoleReturnsNewIfNotFound = value; }	
 		}
 
 
@@ -829,7 +829,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		[Browsable(false), XmlIgnore]
 		protected override int LLBLGenProEntityTypeValue 
 		{ 
-			get { return (int)AmstaJanBonga.Business.EntityType.EmployeeLivingroomEntity; }
+			get { return (int)AmstaJanBonga.Business.EntityType.UserRoleActivityEntity; }
 		}
 
 		#endregion

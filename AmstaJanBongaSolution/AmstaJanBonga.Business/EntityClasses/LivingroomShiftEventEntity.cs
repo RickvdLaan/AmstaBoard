@@ -31,19 +31,19 @@ namespace AmstaJanBonga.Business.EntityClasses
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces
 	// __LLBLGENPRO_USER_CODE_REGION_END
 
-	/// <summary>Entity class which represents the entity 'LivingroomShiftEvent'. <br/><br/>
+	/// <summary>Entity class which represents the entity 'LivingRoomShiftEvent'. <br/><br/>
 	/// 
 	/// </summary>
 	[Serializable]
-	public partial class LivingroomShiftEventEntity : CommonEntityBase
+	public partial class LivingRoomShiftEventEntity : CommonEntityBase
 		// __LLBLGENPRO_USER_CODE_REGION_START AdditionalInterfaces
 		// __LLBLGENPRO_USER_CODE_REGION_END	
 	{
 		#region Class Member Declarations
 		private EmployeeEntity _employee;
 		private bool	_alwaysFetchEmployee, _alreadyFetchedEmployee, _employeeReturnsNewIfNotFound;
-		private LivingroomEntity _livingroom;
-		private bool	_alwaysFetchLivingroom, _alreadyFetchedLivingroom, _livingroomReturnsNewIfNotFound;
+		private LivingRoomEntity _livingRoom;
+		private bool	_alwaysFetchLivingRoom, _alreadyFetchedLivingRoom, _livingRoomReturnsNewIfNotFound;
 
 		// __LLBLGENPRO_USER_CODE_REGION_START PrivateMembers
 		// __LLBLGENPRO_USER_CODE_REGION_END
@@ -58,59 +58,59 @@ namespace AmstaJanBonga.Business.EntityClasses
 		{
 			/// <summary>Member name Employee</summary>
 			public static readonly string Employee = "Employee";
-			/// <summary>Member name Livingroom</summary>
-			public static readonly string Livingroom = "Livingroom";
+			/// <summary>Member name LivingRoom</summary>
+			public static readonly string LivingRoom = "LivingRoom";
 		}
 		#endregion
 		
 		/// <summary>Static CTor for setting up custom property hashtables. Is executed before the first instance of this entity class or derived classes is constructed. </summary>
-		static LivingroomShiftEventEntity()
+		static LivingRoomShiftEventEntity()
 		{
 			SetupCustomPropertyHashtables();
 		}
 
 		/// <summary>CTor</summary>
-		public LivingroomShiftEventEntity() :base("LivingroomShiftEventEntity")
+		public LivingRoomShiftEventEntity() :base("LivingRoomShiftEventEntity")
 		{
 			InitClassEmpty(null);
 		}
 		
 		/// <summary>CTor</summary>
-		/// <param name="date">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="employeeId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="livingroomId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="shiftTypeEnum">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		public LivingroomShiftEventEntity(System.DateTime date, System.Int32 employeeId, System.Int32 livingroomId, System.Byte shiftTypeEnum):base("LivingroomShiftEventEntity")
+		/// <param name="date">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
+		/// <param name="employeeId">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
+		/// <param name="livingRoomId">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
+		/// <param name="shiftTypeEnum">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
+		public LivingRoomShiftEventEntity(System.DateTime date, System.Int32 employeeId, System.Int32 livingRoomId, System.Byte shiftTypeEnum):base("LivingRoomShiftEventEntity")
 		{
-			InitClassFetch(date, employeeId, livingroomId, shiftTypeEnum, null, null);
+			InitClassFetch(date, employeeId, livingRoomId, shiftTypeEnum, null, null);
 		}
 
 		/// <summary>CTor</summary>
-		/// <param name="date">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="employeeId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="livingroomId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="shiftTypeEnum">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
+		/// <param name="date">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
+		/// <param name="employeeId">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
+		/// <param name="livingRoomId">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
+		/// <param name="shiftTypeEnum">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
-		public LivingroomShiftEventEntity(System.DateTime date, System.Int32 employeeId, System.Int32 livingroomId, System.Byte shiftTypeEnum, IPrefetchPath prefetchPathToUse):base("LivingroomShiftEventEntity")
+		public LivingRoomShiftEventEntity(System.DateTime date, System.Int32 employeeId, System.Int32 livingRoomId, System.Byte shiftTypeEnum, IPrefetchPath prefetchPathToUse):base("LivingRoomShiftEventEntity")
 		{
-			InitClassFetch(date, employeeId, livingroomId, shiftTypeEnum, null, prefetchPathToUse);
+			InitClassFetch(date, employeeId, livingRoomId, shiftTypeEnum, null, prefetchPathToUse);
 		}
 
 		/// <summary>CTor</summary>
-		/// <param name="date">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="employeeId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="livingroomId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="shiftTypeEnum">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="validator">The custom validator object for this LivingroomShiftEventEntity</param>
-		public LivingroomShiftEventEntity(System.DateTime date, System.Int32 employeeId, System.Int32 livingroomId, System.Byte shiftTypeEnum, IValidator validator):base("LivingroomShiftEventEntity")
+		/// <param name="date">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
+		/// <param name="employeeId">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
+		/// <param name="livingRoomId">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
+		/// <param name="shiftTypeEnum">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
+		/// <param name="validator">The custom validator object for this LivingRoomShiftEventEntity</param>
+		public LivingRoomShiftEventEntity(System.DateTime date, System.Int32 employeeId, System.Int32 livingRoomId, System.Byte shiftTypeEnum, IValidator validator):base("LivingRoomShiftEventEntity")
 		{
-			InitClassFetch(date, employeeId, livingroomId, shiftTypeEnum, validator, null);
+			InitClassFetch(date, employeeId, livingRoomId, shiftTypeEnum, validator, null);
 		}
 
 		/// <summary>Private CTor for deserialization</summary>
 		/// <param name="info"></param>
 		/// <param name="context"></param>
-		protected LivingroomShiftEventEntity(SerializationInfo info, StreamingContext context) : base(info, context)
+		protected LivingRoomShiftEventEntity(SerializationInfo info, StreamingContext context) : base(info, context)
 		{
 			_employee = (EmployeeEntity)info.GetValue("_employee", typeof(EmployeeEntity));
 			if(_employee!=null)
@@ -121,14 +121,14 @@ namespace AmstaJanBonga.Business.EntityClasses
 			_alwaysFetchEmployee = info.GetBoolean("_alwaysFetchEmployee");
 			_alreadyFetchedEmployee = info.GetBoolean("_alreadyFetchedEmployee");
 
-			_livingroom = (LivingroomEntity)info.GetValue("_livingroom", typeof(LivingroomEntity));
-			if(_livingroom!=null)
+			_livingRoom = (LivingRoomEntity)info.GetValue("_livingRoom", typeof(LivingRoomEntity));
+			if(_livingRoom!=null)
 			{
-				_livingroom.AfterSave+=new EventHandler(OnEntityAfterSave);
+				_livingRoom.AfterSave+=new EventHandler(OnEntityAfterSave);
 			}
-			_livingroomReturnsNewIfNotFound = info.GetBoolean("_livingroomReturnsNewIfNotFound");
-			_alwaysFetchLivingroom = info.GetBoolean("_alwaysFetchLivingroom");
-			_alreadyFetchedLivingroom = info.GetBoolean("_alreadyFetchedLivingroom");
+			_livingRoomReturnsNewIfNotFound = info.GetBoolean("_livingRoomReturnsNewIfNotFound");
+			_alwaysFetchLivingRoom = info.GetBoolean("_alwaysFetchLivingRoom");
+			_alreadyFetchedLivingRoom = info.GetBoolean("_alreadyFetchedLivingRoom");
 			this.FixupDeserialization(FieldInfoProviderSingleton.GetInstance(), PersistenceInfoProviderSingleton.GetInstance());
 			// __LLBLGENPRO_USER_CODE_REGION_START DeserializationConstructor
 			// __LLBLGENPRO_USER_CODE_REGION_END
@@ -139,15 +139,15 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <param name="fieldIndex">The fieldindex.</param>
 		protected override void PerformDesyncSetupFKFieldChange(int fieldIndex)
 		{
-			switch((LivingroomShiftEventFieldIndex)fieldIndex)
+			switch((LivingRoomShiftEventFieldIndex)fieldIndex)
 			{
-				case LivingroomShiftEventFieldIndex.EmployeeId:
+				case LivingRoomShiftEventFieldIndex.EmployeeId:
 					DesetupSyncEmployee(true, false);
 					_alreadyFetchedEmployee = false;
 					break;
-				case LivingroomShiftEventFieldIndex.LivingroomId:
-					DesetupSyncLivingroom(true, false);
-					_alreadyFetchedLivingroom = false;
+				case LivingRoomShiftEventFieldIndex.LivingRoomId:
+					DesetupSyncLivingRoom(true, false);
+					_alreadyFetchedLivingRoom = false;
 					break;
 				default:
 					base.PerformDesyncSetupFKFieldChange(fieldIndex);
@@ -159,7 +159,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		protected override void PerformPostReadXmlFixups()
 		{
 			_alreadyFetchedEmployee = (_employee != null);
-			_alreadyFetchedLivingroom = (_livingroom != null);
+			_alreadyFetchedLivingRoom = (_livingRoom != null);
 		}
 				
 		/// <summary>Gets the relation objects which represent the relation the fieldName specified is mapped on. </summary>
@@ -181,8 +181,8 @@ namespace AmstaJanBonga.Business.EntityClasses
 				case "Employee":
 					toReturn.Add(Relations.EmployeeEntityUsingEmployeeId);
 					break;
-				case "Livingroom":
-					toReturn.Add(Relations.LivingroomEntityUsingLivingroomId);
+				case "LivingRoom":
+					toReturn.Add(Relations.LivingRoomEntityUsingLivingRoomId);
 					break;
 				default:
 					break;				
@@ -202,10 +202,10 @@ namespace AmstaJanBonga.Business.EntityClasses
 			info.AddValue("_employeeReturnsNewIfNotFound", _employeeReturnsNewIfNotFound);
 			info.AddValue("_alwaysFetchEmployee", _alwaysFetchEmployee);
 			info.AddValue("_alreadyFetchedEmployee", _alreadyFetchedEmployee);
-			info.AddValue("_livingroom", (!this.MarkedForDeletion?_livingroom:null));
-			info.AddValue("_livingroomReturnsNewIfNotFound", _livingroomReturnsNewIfNotFound);
-			info.AddValue("_alwaysFetchLivingroom", _alwaysFetchLivingroom);
-			info.AddValue("_alreadyFetchedLivingroom", _alreadyFetchedLivingroom);
+			info.AddValue("_livingRoom", (!this.MarkedForDeletion?_livingRoom:null));
+			info.AddValue("_livingRoomReturnsNewIfNotFound", _livingRoomReturnsNewIfNotFound);
+			info.AddValue("_alwaysFetchLivingRoom", _alwaysFetchLivingRoom);
+			info.AddValue("_alreadyFetchedLivingRoom", _alreadyFetchedLivingRoom);
 
 			// __LLBLGENPRO_USER_CODE_REGION_START GetObjectInfo
 			// __LLBLGENPRO_USER_CODE_REGION_END
@@ -225,9 +225,9 @@ namespace AmstaJanBonga.Business.EntityClasses
 					_alreadyFetchedEmployee = true;
 					this.Employee = (EmployeeEntity)entity;
 					break;
-				case "Livingroom":
-					_alreadyFetchedLivingroom = true;
-					this.Livingroom = (LivingroomEntity)entity;
+				case "LivingRoom":
+					_alreadyFetchedLivingRoom = true;
+					this.LivingRoom = (LivingRoomEntity)entity;
 					break;
 				default:
 					this.OnSetRelatedEntityProperty(propertyName, entity);
@@ -246,8 +246,8 @@ namespace AmstaJanBonga.Business.EntityClasses
 				case "Employee":
 					SetupSyncEmployee(relatedEntity);
 					break;
-				case "Livingroom":
-					SetupSyncLivingroom(relatedEntity);
+				case "LivingRoom":
+					SetupSyncLivingRoom(relatedEntity);
 					break;
 				default:
 					break;
@@ -266,8 +266,8 @@ namespace AmstaJanBonga.Business.EntityClasses
 				case "Employee":
 					DesetupSyncEmployee(false, true);
 					break;
-				case "Livingroom":
-					DesetupSyncLivingroom(false, true);
+				case "LivingRoom":
+					DesetupSyncLivingRoom(false, true);
 					break;
 				default:
 					break;
@@ -291,9 +291,9 @@ namespace AmstaJanBonga.Business.EntityClasses
 			{
 				toReturn.Add(_employee);
 			}
-			if(_livingroom!=null)
+			if(_livingRoom!=null)
 			{
-				toReturn.Add(_livingroom);
+				toReturn.Add(_livingRoom);
 			}
 			return toReturn;
 		}
@@ -310,62 +310,62 @@ namespace AmstaJanBonga.Business.EntityClasses
 
 
 		/// <summary> Fetches the contents of this entity from the persistent storage using the primary key.</summary>
-		/// <param name="date">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="employeeId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="livingroomId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="shiftTypeEnum">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
+		/// <param name="date">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
+		/// <param name="employeeId">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
+		/// <param name="livingRoomId">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
+		/// <param name="shiftTypeEnum">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		public bool FetchUsingPK(System.DateTime date, System.Int32 employeeId, System.Int32 livingroomId, System.Byte shiftTypeEnum)
+		public bool FetchUsingPK(System.DateTime date, System.Int32 employeeId, System.Int32 livingRoomId, System.Byte shiftTypeEnum)
 		{
-			return FetchUsingPK(date, employeeId, livingroomId, shiftTypeEnum, null, null, null);
+			return FetchUsingPK(date, employeeId, livingRoomId, shiftTypeEnum, null, null, null);
 		}
 
 		/// <summary> Fetches the contents of this entity from the persistent storage using the primary key.</summary>
-		/// <param name="date">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="employeeId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="livingroomId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="shiftTypeEnum">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
+		/// <param name="date">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
+		/// <param name="employeeId">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
+		/// <param name="livingRoomId">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
+		/// <param name="shiftTypeEnum">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		public bool FetchUsingPK(System.DateTime date, System.Int32 employeeId, System.Int32 livingroomId, System.Byte shiftTypeEnum, IPrefetchPath prefetchPathToUse)
+		public bool FetchUsingPK(System.DateTime date, System.Int32 employeeId, System.Int32 livingRoomId, System.Byte shiftTypeEnum, IPrefetchPath prefetchPathToUse)
 		{
-			return FetchUsingPK(date, employeeId, livingroomId, shiftTypeEnum, prefetchPathToUse, null, null);
+			return FetchUsingPK(date, employeeId, livingRoomId, shiftTypeEnum, prefetchPathToUse, null, null);
 		}
 
 		/// <summary> Fetches the contents of this entity from the persistent storage using the primary key.</summary>
-		/// <param name="date">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="employeeId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="livingroomId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="shiftTypeEnum">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
+		/// <param name="date">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
+		/// <param name="employeeId">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
+		/// <param name="livingRoomId">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
+		/// <param name="shiftTypeEnum">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <param name="contextToUse">The context to add the entity to if the fetch was succesful. </param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		public bool FetchUsingPK(System.DateTime date, System.Int32 employeeId, System.Int32 livingroomId, System.Byte shiftTypeEnum, IPrefetchPath prefetchPathToUse, Context contextToUse)
+		public bool FetchUsingPK(System.DateTime date, System.Int32 employeeId, System.Int32 livingRoomId, System.Byte shiftTypeEnum, IPrefetchPath prefetchPathToUse, Context contextToUse)
 		{
-			return FetchUsingPK(date, employeeId, livingroomId, shiftTypeEnum, prefetchPathToUse, contextToUse, null);
+			return FetchUsingPK(date, employeeId, livingRoomId, shiftTypeEnum, prefetchPathToUse, contextToUse, null);
 		}
 
 		/// <summary> Fetches the contents of this entity from the persistent storage using the primary key.</summary>
-		/// <param name="date">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="employeeId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="livingroomId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="shiftTypeEnum">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
+		/// <param name="date">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
+		/// <param name="employeeId">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
+		/// <param name="livingRoomId">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
+		/// <param name="shiftTypeEnum">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <param name="contextToUse">The context to add the entity to if the fetch was succesful. </param>
 		/// <param name="excludedIncludedFields">The list of IEntityField objects which have to be excluded or included for the fetch. 
 		/// If null or empty, all fields are fetched (default). If an instance of ExcludeIncludeFieldsList is passed in and its ExcludeContainedFields property
 		/// is set to false, the fields contained in excludedIncludedFields are kept in the query, the rest of the fields in the query are excluded.</param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		public bool FetchUsingPK(System.DateTime date, System.Int32 employeeId, System.Int32 livingroomId, System.Byte shiftTypeEnum, IPrefetchPath prefetchPathToUse, Context contextToUse, ExcludeIncludeFieldsList excludedIncludedFields)
+		public bool FetchUsingPK(System.DateTime date, System.Int32 employeeId, System.Int32 livingRoomId, System.Byte shiftTypeEnum, IPrefetchPath prefetchPathToUse, Context contextToUse, ExcludeIncludeFieldsList excludedIncludedFields)
 		{
-			return Fetch(date, employeeId, livingroomId, shiftTypeEnum, prefetchPathToUse, contextToUse, excludedIncludedFields);
+			return Fetch(date, employeeId, livingRoomId, shiftTypeEnum, prefetchPathToUse, contextToUse, excludedIncludedFields);
 		}
 
 		/// <summary> Refetches the Entity from the persistent storage. Refetch is used to re-load an Entity which is marked "Out-of-sync", due to a save action. Refetching an empty Entity has no effect. </summary>
 		/// <returns>true if Refetch succeeded, false otherwise</returns>
 		public override bool Refetch()
 		{
-			return Fetch(this.Date, this.EmployeeId, this.LivingroomId, this.ShiftTypeEnum, null, null, null);
+			return Fetch(this.Date, this.EmployeeId, this.LivingRoomId, this.ShiftTypeEnum, null, null, null);
 		}
 
 
@@ -374,7 +374,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <returns>A list of all the EntityRelation objects the type of this instance has. Hierarchy relations are excluded.</returns>
 		protected override List<IEntityRelation> GetAllRelations()
 		{
-			return new LivingroomShiftEventRelations().GetAllRelations();
+			return new LivingRoomShiftEventRelations().GetAllRelations();
 		}
 
 		/// <summary> Retrieves the related entity of type 'EmployeeEntity', using a relation of type 'n:1'</summary>
@@ -418,44 +418,44 @@ namespace AmstaJanBonga.Business.EntityClasses
 		}
 
 
-		/// <summary> Retrieves the related entity of type 'LivingroomEntity', using a relation of type 'n:1'</summary>
-		/// <returns>A fetched entity of type 'LivingroomEntity' which is related to this entity.</returns>
-		public LivingroomEntity GetSingleLivingroom()
+		/// <summary> Retrieves the related entity of type 'LivingRoomEntity', using a relation of type 'n:1'</summary>
+		/// <returns>A fetched entity of type 'LivingRoomEntity' which is related to this entity.</returns>
+		public LivingRoomEntity GetSingleLivingRoom()
 		{
-			return GetSingleLivingroom(false);
+			return GetSingleLivingRoom(false);
 		}
 
-		/// <summary> Retrieves the related entity of type 'LivingroomEntity', using a relation of type 'n:1'</summary>
+		/// <summary> Retrieves the related entity of type 'LivingRoomEntity', using a relation of type 'n:1'</summary>
 		/// <param name="forceFetch">if true, it will discard any changes currently in the currently loaded related entity and will refetch the entity from the persistent storage</param>
-		/// <returns>A fetched entity of type 'LivingroomEntity' which is related to this entity.</returns>
-		public virtual LivingroomEntity GetSingleLivingroom(bool forceFetch)
+		/// <returns>A fetched entity of type 'LivingRoomEntity' which is related to this entity.</returns>
+		public virtual LivingRoomEntity GetSingleLivingRoom(bool forceFetch)
 		{
-			if( ( !_alreadyFetchedLivingroom || forceFetch || _alwaysFetchLivingroom) && !this.IsSerializing && !this.IsDeserializing  && !this.InDesignMode)			
+			if( ( !_alreadyFetchedLivingRoom || forceFetch || _alwaysFetchLivingRoom) && !this.IsSerializing && !this.IsDeserializing  && !this.InDesignMode)			
 			{
-				bool performLazyLoading = this.CheckIfLazyLoadingShouldOccur(Relations.LivingroomEntityUsingLivingroomId);
-				LivingroomEntity newEntity = new LivingroomEntity();
+				bool performLazyLoading = this.CheckIfLazyLoadingShouldOccur(Relations.LivingRoomEntityUsingLivingRoomId);
+				LivingRoomEntity newEntity = new LivingRoomEntity();
 				bool fetchResult = false;
 				if(performLazyLoading)
 				{
 					AddToTransactionIfNecessary(newEntity);
-					fetchResult = newEntity.FetchUsingPK(this.LivingroomId);
+					fetchResult = newEntity.FetchUsingPK(this.LivingRoomId);
 				}
 				if(fetchResult)
 				{
-					newEntity = (LivingroomEntity)GetFromActiveContext(newEntity);
+					newEntity = (LivingRoomEntity)GetFromActiveContext(newEntity);
 				}
 				else
 				{
-					if(!_livingroomReturnsNewIfNotFound)
+					if(!_livingRoomReturnsNewIfNotFound)
 					{
 						RemoveFromTransactionIfNecessary(newEntity);
 						newEntity = null;
 					}
 				}
-				this.Livingroom = newEntity;
-				_alreadyFetchedLivingroom = fetchResult;
+				this.LivingRoom = newEntity;
+				_alreadyFetchedLivingRoom = fetchResult;
 			}
-			return _livingroom;
+			return _livingRoom;
 		}
 
 
@@ -465,7 +465,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		{
 			Dictionary<string, object> toReturn = new Dictionary<string, object>();
 			toReturn.Add("Employee", _employee);
-			toReturn.Add("Livingroom", _livingroom);
+			toReturn.Add("LivingRoom", _livingRoom);
 			return toReturn;
 		}
 	
@@ -485,19 +485,19 @@ namespace AmstaJanBonga.Business.EntityClasses
 		}		
 
 		/// <summary> Initializes the the entity and fetches the data related to the entity in this entity.</summary>
-		/// <param name="date">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="employeeId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="livingroomId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="shiftTypeEnum">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="validator">The validator object for this LivingroomShiftEventEntity</param>
+		/// <param name="date">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
+		/// <param name="employeeId">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
+		/// <param name="livingRoomId">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
+		/// <param name="shiftTypeEnum">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
+		/// <param name="validator">The validator object for this LivingRoomShiftEventEntity</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
-		private void InitClassFetch(System.DateTime date, System.Int32 employeeId, System.Int32 livingroomId, System.Byte shiftTypeEnum, IValidator validator, IPrefetchPath prefetchPathToUse)
+		private void InitClassFetch(System.DateTime date, System.Int32 employeeId, System.Int32 livingRoomId, System.Byte shiftTypeEnum, IValidator validator, IPrefetchPath prefetchPathToUse)
 		{
 			OnInitializing();
 			this.Validator = validator;
 			this.Fields = CreateFields();
 			InitClassMembers();	
-			Fetch(date, employeeId, livingroomId, shiftTypeEnum, prefetchPathToUse, null, null);
+			Fetch(date, employeeId, livingRoomId, shiftTypeEnum, prefetchPathToUse, null, null);
 
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassFetch
 			// __LLBLGENPRO_USER_CODE_REGION_END
@@ -509,7 +509,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		private void InitClassMembers()
 		{
 			_employeeReturnsNewIfNotFound = false;
-			_livingroomReturnsNewIfNotFound = false;
+			_livingRoomReturnsNewIfNotFound = false;
 			PerformDependencyInjection();
 
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassMembers
@@ -535,7 +535,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("EmployeeId", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("LivingroomId", fieldHashtable);
+			_fieldsCustomProperties.Add("LivingRoomId", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("ShiftTypeEnum", fieldHashtable);
 		}
@@ -546,7 +546,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <param name="resetFKFields">if set to true it will also reset the FK fields pointing to the related entity</param>
 		private void DesetupSyncEmployee(bool signalRelatedEntity, bool resetFKFields)
 		{
-			this.PerformDesetupSyncRelatedEntity( _employee, new PropertyChangedEventHandler( OnEmployeePropertyChanged ), "Employee", AmstaJanBonga.Business.RelationClasses.StaticLivingroomShiftEventRelations.EmployeeEntityUsingEmployeeIdStatic, true, signalRelatedEntity, "LivingroomShiftEvents", resetFKFields, new int[] { (int)LivingroomShiftEventFieldIndex.EmployeeId } );		
+			this.PerformDesetupSyncRelatedEntity( _employee, new PropertyChangedEventHandler( OnEmployeePropertyChanged ), "Employee", AmstaJanBonga.Business.RelationClasses.StaticLivingRoomShiftEventRelations.EmployeeEntityUsingEmployeeIdStatic, true, signalRelatedEntity, "LivingRoomShiftEvents", resetFKFields, new int[] { (int)LivingRoomShiftEventFieldIndex.EmployeeId } );		
 			_employee = null;
 		}
 		
@@ -558,7 +558,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 			{		
 				DesetupSyncEmployee(true, true);
 				_employee = (EmployeeEntity)relatedEntity;
-				this.PerformSetupSyncRelatedEntity( _employee, new PropertyChangedEventHandler( OnEmployeePropertyChanged ), "Employee", AmstaJanBonga.Business.RelationClasses.StaticLivingroomShiftEventRelations.EmployeeEntityUsingEmployeeIdStatic, true, ref _alreadyFetchedEmployee, new string[] {  } );
+				this.PerformSetupSyncRelatedEntity( _employee, new PropertyChangedEventHandler( OnEmployeePropertyChanged ), "Employee", AmstaJanBonga.Business.RelationClasses.StaticLivingRoomShiftEventRelations.EmployeeEntityUsingEmployeeIdStatic, true, ref _alreadyFetchedEmployee, new string[] {  } );
 			}
 		}
 
@@ -574,31 +574,31 @@ namespace AmstaJanBonga.Business.EntityClasses
 			}
 		}
 
-		/// <summary> Removes the sync logic for member _livingroom</summary>
+		/// <summary> Removes the sync logic for member _livingRoom</summary>
 		/// <param name="signalRelatedEntity">If set to true, it will call the related entity's UnsetRelatedEntity method</param>
 		/// <param name="resetFKFields">if set to true it will also reset the FK fields pointing to the related entity</param>
-		private void DesetupSyncLivingroom(bool signalRelatedEntity, bool resetFKFields)
+		private void DesetupSyncLivingRoom(bool signalRelatedEntity, bool resetFKFields)
 		{
-			this.PerformDesetupSyncRelatedEntity( _livingroom, new PropertyChangedEventHandler( OnLivingroomPropertyChanged ), "Livingroom", AmstaJanBonga.Business.RelationClasses.StaticLivingroomShiftEventRelations.LivingroomEntityUsingLivingroomIdStatic, true, signalRelatedEntity, "LivingroomShiftEvents", resetFKFields, new int[] { (int)LivingroomShiftEventFieldIndex.LivingroomId } );		
-			_livingroom = null;
+			this.PerformDesetupSyncRelatedEntity( _livingRoom, new PropertyChangedEventHandler( OnLivingRoomPropertyChanged ), "LivingRoom", AmstaJanBonga.Business.RelationClasses.StaticLivingRoomShiftEventRelations.LivingRoomEntityUsingLivingRoomIdStatic, true, signalRelatedEntity, "LivingRoomShiftEvents", resetFKFields, new int[] { (int)LivingRoomShiftEventFieldIndex.LivingRoomId } );		
+			_livingRoom = null;
 		}
 		
-		/// <summary> setups the sync logic for member _livingroom</summary>
+		/// <summary> setups the sync logic for member _livingRoom</summary>
 		/// <param name="relatedEntity">Instance to set as the related entity of type entityType</param>
-		private void SetupSyncLivingroom(IEntityCore relatedEntity)
+		private void SetupSyncLivingRoom(IEntityCore relatedEntity)
 		{
-			if(_livingroom!=relatedEntity)
+			if(_livingRoom!=relatedEntity)
 			{		
-				DesetupSyncLivingroom(true, true);
-				_livingroom = (LivingroomEntity)relatedEntity;
-				this.PerformSetupSyncRelatedEntity( _livingroom, new PropertyChangedEventHandler( OnLivingroomPropertyChanged ), "Livingroom", AmstaJanBonga.Business.RelationClasses.StaticLivingroomShiftEventRelations.LivingroomEntityUsingLivingroomIdStatic, true, ref _alreadyFetchedLivingroom, new string[] {  } );
+				DesetupSyncLivingRoom(true, true);
+				_livingRoom = (LivingRoomEntity)relatedEntity;
+				this.PerformSetupSyncRelatedEntity( _livingRoom, new PropertyChangedEventHandler( OnLivingRoomPropertyChanged ), "LivingRoom", AmstaJanBonga.Business.RelationClasses.StaticLivingRoomShiftEventRelations.LivingRoomEntityUsingLivingRoomIdStatic, true, ref _alreadyFetchedLivingRoom, new string[] {  } );
 			}
 		}
 
 		/// <summary>Handles property change events of properties in a related entity.</summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void OnLivingroomPropertyChanged( object sender, PropertyChangedEventArgs e )
+		private void OnLivingRoomPropertyChanged( object sender, PropertyChangedEventArgs e )
 		{
 			switch( e.PropertyName )
 			{
@@ -608,25 +608,25 @@ namespace AmstaJanBonga.Business.EntityClasses
 		}
 
 		/// <summary> Fetches the entity from the persistent storage. Fetch simply reads the entity into an EntityFields object. </summary>
-		/// <param name="date">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="employeeId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="livingroomId">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
-		/// <param name="shiftTypeEnum">PK value for LivingroomShiftEvent which data should be fetched into this LivingroomShiftEvent object</param>
+		/// <param name="date">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
+		/// <param name="employeeId">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
+		/// <param name="livingRoomId">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
+		/// <param name="shiftTypeEnum">PK value for LivingRoomShiftEvent which data should be fetched into this LivingRoomShiftEvent object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <param name="contextToUse">The context to add the entity to if the fetch was succesful. </param>
 		/// <param name="excludedIncludedFields">The list of IEntityField objects which have to be excluded or included for the fetch. 
 		/// If null or empty, all fields are fetched (default). If an instance of ExcludeIncludeFieldsList is passed in and its ExcludeContainedFields property
 		/// is set to false, the fields contained in excludedIncludedFields are kept in the query, the rest of the fields in the query are excluded.</param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		private bool Fetch(System.DateTime date, System.Int32 employeeId, System.Int32 livingroomId, System.Byte shiftTypeEnum, IPrefetchPath prefetchPathToUse, Context contextToUse, ExcludeIncludeFieldsList excludedIncludedFields)
+		private bool Fetch(System.DateTime date, System.Int32 employeeId, System.Int32 livingRoomId, System.Byte shiftTypeEnum, IPrefetchPath prefetchPathToUse, Context contextToUse, ExcludeIncludeFieldsList excludedIncludedFields)
 		{
 			try
 			{
 				OnFetch();
-				this.Fields[(int)LivingroomShiftEventFieldIndex.Date].ForcedCurrentValueWrite(date);
-				this.Fields[(int)LivingroomShiftEventFieldIndex.EmployeeId].ForcedCurrentValueWrite(employeeId);
-				this.Fields[(int)LivingroomShiftEventFieldIndex.LivingroomId].ForcedCurrentValueWrite(livingroomId);
-				this.Fields[(int)LivingroomShiftEventFieldIndex.ShiftTypeEnum].ForcedCurrentValueWrite(shiftTypeEnum);
+				this.Fields[(int)LivingRoomShiftEventFieldIndex.Date].ForcedCurrentValueWrite(date);
+				this.Fields[(int)LivingRoomShiftEventFieldIndex.EmployeeId].ForcedCurrentValueWrite(employeeId);
+				this.Fields[(int)LivingRoomShiftEventFieldIndex.LivingRoomId].ForcedCurrentValueWrite(livingRoomId);
+				this.Fields[(int)LivingRoomShiftEventFieldIndex.ShiftTypeEnum].ForcedCurrentValueWrite(shiftTypeEnum);
 				CreateDAOInstance().FetchExisting(this, this.Transaction, prefetchPathToUse, contextToUse, excludedIncludedFields);
 				return (this.Fields.State == EntityState.Fetched);
 			}
@@ -640,21 +640,21 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <returns></returns>
 		protected override IDao CreateDAOInstance()
 		{
-			return DAOFactory.CreateLivingroomShiftEventDAO();
+			return DAOFactory.CreateLivingRoomShiftEventDAO();
 		}
 		
 		/// <summary> Creates the entity factory for this type.</summary>
 		/// <returns></returns>
 		protected override IEntityFactory CreateEntityFactory()
 		{
-			return new LivingroomShiftEventEntityFactory();
+			return new LivingRoomShiftEventEntityFactory();
 		}
 
 		#region Class Property Declarations
 		/// <summary> The relations object holding all relations of this entity with other entity classes.</summary>
-		public  static LivingroomShiftEventRelations Relations
+		public  static LivingRoomShiftEventRelations Relations
 		{
-			get	{ return new LivingroomShiftEventRelations(); }
+			get	{ return new LivingRoomShiftEventRelations(); }
 		}
 		
 		/// <summary> The custom properties for this entity type.</summary>
@@ -668,14 +668,14 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <returns>Ready to use IPrefetchPathElement implementation.</returns>
 		public static IPrefetchPathElement PrefetchPathEmployee
 		{
-			get	{ return new PrefetchPathElement(new AmstaJanBonga.Business.CollectionClasses.EmployeeCollection(), (IEntityRelation)GetRelationsForField("Employee")[0], (int)AmstaJanBonga.Business.EntityType.LivingroomShiftEventEntity, (int)AmstaJanBonga.Business.EntityType.EmployeeEntity, 0, null, null, null, "Employee", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne); }
+			get	{ return new PrefetchPathElement(new AmstaJanBonga.Business.CollectionClasses.EmployeeCollection(), (IEntityRelation)GetRelationsForField("Employee")[0], (int)AmstaJanBonga.Business.EntityType.LivingRoomShiftEventEntity, (int)AmstaJanBonga.Business.EntityType.EmployeeEntity, 0, null, null, null, "Employee", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne); }
 		}
 
-		/// <summary> Creates a new PrefetchPathElement object which contains all the information to prefetch the related entities of type 'Livingroom'  for this entity.</summary>
+		/// <summary> Creates a new PrefetchPathElement object which contains all the information to prefetch the related entities of type 'LivingRoom'  for this entity.</summary>
 		/// <returns>Ready to use IPrefetchPathElement implementation.</returns>
-		public static IPrefetchPathElement PrefetchPathLivingroom
+		public static IPrefetchPathElement PrefetchPathLivingRoom
 		{
-			get	{ return new PrefetchPathElement(new AmstaJanBonga.Business.CollectionClasses.LivingroomCollection(), (IEntityRelation)GetRelationsForField("Livingroom")[0], (int)AmstaJanBonga.Business.EntityType.LivingroomShiftEventEntity, (int)AmstaJanBonga.Business.EntityType.LivingroomEntity, 0, null, null, null, "Livingroom", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne); }
+			get	{ return new PrefetchPathElement(new AmstaJanBonga.Business.CollectionClasses.LivingRoomCollection(), (IEntityRelation)GetRelationsForField("LivingRoom")[0], (int)AmstaJanBonga.Business.EntityType.LivingRoomShiftEventEntity, (int)AmstaJanBonga.Business.EntityType.LivingRoomEntity, 0, null, null, null, "LivingRoom", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne); }
 		}
 
 
@@ -702,74 +702,74 @@ namespace AmstaJanBonga.Business.EntityClasses
 			get { return FieldsCustomProperties;}
 		}
 
-		/// <summary> The Date property of the Entity LivingroomShiftEvent<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "LivingroomShiftEvent"."Date"<br/>
+		/// <summary> The Date property of the Entity LivingRoomShiftEvent<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "LivingRoomShiftEvent"."Date"<br/>
 		/// Table field type characteristics (type, precision, scale, length): Date, 0, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, false</remarks>
 		public virtual System.DateTime Date
 		{
-			get { return (System.DateTime)GetValue((int)LivingroomShiftEventFieldIndex.Date, true); }
-			set	{ SetValue((int)LivingroomShiftEventFieldIndex.Date, value, true); }
+			get { return (System.DateTime)GetValue((int)LivingRoomShiftEventFieldIndex.Date, true); }
+			set	{ SetValue((int)LivingRoomShiftEventFieldIndex.Date, value, true); }
 		}
 
-		/// <summary> The DateCreated property of the Entity LivingroomShiftEvent<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "LivingroomShiftEvent"."DateCreated"<br/>
+		/// <summary> The DateCreated property of the Entity LivingRoomShiftEvent<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "LivingRoomShiftEvent"."DateCreated"<br/>
 		/// Table field type characteristics (type, precision, scale, length): DateTime, 0, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
 		public virtual System.DateTime DateCreated
 		{
-			get { return (System.DateTime)GetValue((int)LivingroomShiftEventFieldIndex.DateCreated, true); }
-			set	{ SetValue((int)LivingroomShiftEventFieldIndex.DateCreated, value, true); }
+			get { return (System.DateTime)GetValue((int)LivingRoomShiftEventFieldIndex.DateCreated, true); }
+			set	{ SetValue((int)LivingRoomShiftEventFieldIndex.DateCreated, value, true); }
 		}
 
-		/// <summary> The DateLastModified property of the Entity LivingroomShiftEvent<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "LivingroomShiftEvent"."DateLastModified"<br/>
+		/// <summary> The DateLastModified property of the Entity LivingRoomShiftEvent<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "LivingRoomShiftEvent"."DateLastModified"<br/>
 		/// Table field type characteristics (type, precision, scale, length): DateTime, 0, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
 		public virtual Nullable<System.DateTime> DateLastModified
 		{
-			get { return (Nullable<System.DateTime>)GetValue((int)LivingroomShiftEventFieldIndex.DateLastModified, false); }
-			set	{ SetValue((int)LivingroomShiftEventFieldIndex.DateLastModified, value, true); }
+			get { return (Nullable<System.DateTime>)GetValue((int)LivingRoomShiftEventFieldIndex.DateLastModified, false); }
+			set	{ SetValue((int)LivingRoomShiftEventFieldIndex.DateLastModified, value, true); }
 		}
 
-		/// <summary> The DateLastModifiedByUserId property of the Entity LivingroomShiftEvent<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "LivingroomShiftEvent"."DateLastModifiedByUserId"<br/>
+		/// <summary> The DateLastModifiedByUserId property of the Entity LivingRoomShiftEvent<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "LivingRoomShiftEvent"."DateLastModifiedByUserId"<br/>
 		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
 		public virtual Nullable<System.Int32> DateLastModifiedByUserId
 		{
-			get { return (Nullable<System.Int32>)GetValue((int)LivingroomShiftEventFieldIndex.DateLastModifiedByUserId, false); }
-			set	{ SetValue((int)LivingroomShiftEventFieldIndex.DateLastModifiedByUserId, value, true); }
+			get { return (Nullable<System.Int32>)GetValue((int)LivingRoomShiftEventFieldIndex.DateLastModifiedByUserId, false); }
+			set	{ SetValue((int)LivingRoomShiftEventFieldIndex.DateLastModifiedByUserId, value, true); }
 		}
 
-		/// <summary> The EmployeeId property of the Entity LivingroomShiftEvent<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "LivingroomShiftEvent"."EmployeeId"<br/>
+		/// <summary> The EmployeeId property of the Entity LivingRoomShiftEvent<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "LivingRoomShiftEvent"."EmployeeId"<br/>
 		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, false</remarks>
 		public virtual System.Int32 EmployeeId
 		{
-			get { return (System.Int32)GetValue((int)LivingroomShiftEventFieldIndex.EmployeeId, true); }
-			set	{ SetValue((int)LivingroomShiftEventFieldIndex.EmployeeId, value, true); }
+			get { return (System.Int32)GetValue((int)LivingRoomShiftEventFieldIndex.EmployeeId, true); }
+			set	{ SetValue((int)LivingRoomShiftEventFieldIndex.EmployeeId, value, true); }
 		}
 
-		/// <summary> The LivingroomId property of the Entity LivingroomShiftEvent<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "LivingroomShiftEvent"."LivingroomId"<br/>
+		/// <summary> The LivingRoomId property of the Entity LivingRoomShiftEvent<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "LivingRoomShiftEvent"."LivingRoomId"<br/>
 		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, false</remarks>
-		public virtual System.Int32 LivingroomId
+		public virtual System.Int32 LivingRoomId
 		{
-			get { return (System.Int32)GetValue((int)LivingroomShiftEventFieldIndex.LivingroomId, true); }
-			set	{ SetValue((int)LivingroomShiftEventFieldIndex.LivingroomId, value, true); }
+			get { return (System.Int32)GetValue((int)LivingRoomShiftEventFieldIndex.LivingRoomId, true); }
+			set	{ SetValue((int)LivingRoomShiftEventFieldIndex.LivingRoomId, value, true); }
 		}
 
-		/// <summary> The ShiftTypeEnum property of the Entity LivingroomShiftEvent<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "LivingroomShiftEvent"."ShiftTypeEnum"<br/>
+		/// <summary> The ShiftTypeEnum property of the Entity LivingRoomShiftEvent<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "LivingRoomShiftEvent"."ShiftTypeEnum"<br/>
 		/// Table field type characteristics (type, precision, scale, length): TinyInt, 3, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, false</remarks>
 		public virtual System.Byte ShiftTypeEnum
 		{
-			get { return (System.Byte)GetValue((int)LivingroomShiftEventFieldIndex.ShiftTypeEnum, true); }
-			set	{ SetValue((int)LivingroomShiftEventFieldIndex.ShiftTypeEnum, value, true); }
+			get { return (System.Byte)GetValue((int)LivingRoomShiftEventFieldIndex.ShiftTypeEnum, true); }
+			set	{ SetValue((int)LivingRoomShiftEventFieldIndex.ShiftTypeEnum, value, true); }
 		}
 
 
@@ -792,7 +792,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 				}
 				else
 				{
-					SetSingleRelatedEntityNavigator(value, "LivingroomShiftEvents", "Employee", _employee, true); 
+					SetSingleRelatedEntityNavigator(value, "LivingRoomShiftEvents", "Employee", _employee, true); 
 				}
 			}
 		}
@@ -832,63 +832,63 @@ namespace AmstaJanBonga.Business.EntityClasses
 			set { _employeeReturnsNewIfNotFound = value; }	
 		}
 
-		/// <summary> Gets / sets related entity of type 'LivingroomEntity'. This property is not visible in databound grids.
+		/// <summary> Gets / sets related entity of type 'LivingRoomEntity'. This property is not visible in databound grids.
 		/// Setting this property to a new object will make the load-on-demand feature to stop fetching data from the database, until you set this
 		/// property to null. Setting this property to an entity will make sure that FK-PK relations are synchronized when appropriate.<br/><br/>
 		/// </summary>
-		/// <remarks>This property is added for conveniance, however it is recommeded to use the method 'GetSingleLivingroom()', because 
+		/// <remarks>This property is added for conveniance, however it is recommeded to use the method 'GetSingleLivingRoom()', because 
 		/// this property is rather expensive and a method tells the user to cache the result when it has to be used more than once in the
 		/// same scope. The property is marked non-browsable to make it hidden in bound controls, f.e. datagrids.</remarks>
 		[Browsable(false)]
-		public virtual LivingroomEntity Livingroom
+		public virtual LivingRoomEntity LivingRoom
 		{
-			get	{ return GetSingleLivingroom(false); }
+			get	{ return GetSingleLivingRoom(false); }
 			set 
 			{ 
 				if(this.IsDeserializing)
 				{
-					SetupSyncLivingroom(value);
+					SetupSyncLivingRoom(value);
 				}
 				else
 				{
-					SetSingleRelatedEntityNavigator(value, "LivingroomShiftEvents", "Livingroom", _livingroom, true); 
+					SetSingleRelatedEntityNavigator(value, "LivingRoomShiftEvents", "LivingRoom", _livingRoom, true); 
 				}
 			}
 		}
 
-		/// <summary> Gets / sets the lazy loading flag for Livingroom. When set to true, Livingroom is always refetched from the 
-		/// persistent storage. When set to false, the data is only fetched the first time Livingroom is accessed. You can always execute a forced fetch by calling GetSingleLivingroom(true).</summary>
+		/// <summary> Gets / sets the lazy loading flag for LivingRoom. When set to true, LivingRoom is always refetched from the 
+		/// persistent storage. When set to false, the data is only fetched the first time LivingRoom is accessed. You can always execute a forced fetch by calling GetSingleLivingRoom(true).</summary>
 		[Browsable(false)]
-		public bool AlwaysFetchLivingroom
+		public bool AlwaysFetchLivingRoom
 		{
-			get	{ return _alwaysFetchLivingroom; }
-			set	{ _alwaysFetchLivingroom = value; }	
+			get	{ return _alwaysFetchLivingRoom; }
+			set	{ _alwaysFetchLivingRoom = value; }	
 		}
 				
-		/// <summary>Gets / Sets the lazy loading flag if the property Livingroom already has been fetched. Setting this property to false when Livingroom has been fetched
-		/// will set Livingroom to null as well. Setting this property to true while Livingroom hasn't been fetched disables lazy loading for Livingroom</summary>
+		/// <summary>Gets / Sets the lazy loading flag if the property LivingRoom already has been fetched. Setting this property to false when LivingRoom has been fetched
+		/// will set LivingRoom to null as well. Setting this property to true while LivingRoom hasn't been fetched disables lazy loading for LivingRoom</summary>
 		[Browsable(false)]
-		public bool AlreadyFetchedLivingroom
+		public bool AlreadyFetchedLivingRoom
 		{
-			get { return _alreadyFetchedLivingroom;}
+			get { return _alreadyFetchedLivingRoom;}
 			set 
 			{
-				if(_alreadyFetchedLivingroom && !value)
+				if(_alreadyFetchedLivingRoom && !value)
 				{
-					this.Livingroom = null;
+					this.LivingRoom = null;
 				}
-				_alreadyFetchedLivingroom = value;
+				_alreadyFetchedLivingRoom = value;
 			}
 		}
 
-		/// <summary> Gets / sets the flag for what to do if the related entity available through the property Livingroom is not found
-		/// in the database. When set to true, Livingroom will return a new entity instance if the related entity is not found, otherwise 
+		/// <summary> Gets / sets the flag for what to do if the related entity available through the property LivingRoom is not found
+		/// in the database. When set to true, LivingRoom will return a new entity instance if the related entity is not found, otherwise 
 		/// null be returned if the related entity is not found. Default: false.</summary>
 		[Browsable(false)]
-		public bool LivingroomReturnsNewIfNotFound
+		public bool LivingRoomReturnsNewIfNotFound
 		{
-			get	{ return _livingroomReturnsNewIfNotFound; }
-			set { _livingroomReturnsNewIfNotFound = value; }	
+			get	{ return _livingRoomReturnsNewIfNotFound; }
+			set { _livingRoomReturnsNewIfNotFound = value; }	
 		}
 
 
@@ -909,7 +909,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		[Browsable(false), XmlIgnore]
 		protected override int LLBLGenProEntityTypeValue 
 		{ 
-			get { return (int)AmstaJanBonga.Business.EntityType.LivingroomShiftEventEntity; }
+			get { return (int)AmstaJanBonga.Business.EntityType.LivingRoomShiftEventEntity; }
 		}
 
 		#endregion

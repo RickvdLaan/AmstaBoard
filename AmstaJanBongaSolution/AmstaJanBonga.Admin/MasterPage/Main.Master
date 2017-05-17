@@ -23,29 +23,7 @@
     </head>
 
     <body>
-        <form id="form1" runat="server">
-            <!-- Header -->
-            <div id="header-container" class="blue-bg">
-		        <h1>
-                    <asp:ContentPlaceHolder ID="_cphMainTitle" runat="server" />
-		        </h1>
-		        <h2>
-			        <asp:ContentPlaceHolder ID="_cphSubTitle" runat="server" />
-		        </h2>
-
-                <div id="user">           
-                    <i class="fa fa-user" aria-hidden="true"></i>
-                    <span>
-                        Ingelogd als, <%= this.Username %>
-                    </span>
-
-                    <asp:LinkButton runat="server" ID="_lbSignOut" OnClick="_lbSignOut_Click">
-                        <i class="fa fa-sign-out" aria-hidden="true"></i>
-                        <span>Uitloggen</span>
-                    </asp:LinkButton>
-                </div>      
-            </div>          
-
+        <form id="form1" runat="server">      
             <!-- Sidebar -->
             <div id="sidebar-container">
                 <div class="logo-container">
@@ -76,6 +54,28 @@
                     </asp:BulletedList>
                 </div>
             </div>
+
+            <!-- Header -->
+            <div id="header-container" class="blue-bg">
+		        <h1>
+                    <asp:ContentPlaceHolder ID="_cphMainTitle" runat="server" />
+		        </h1>
+		        <h2>
+			        <asp:ContentPlaceHolder ID="_cphSubTitle" runat="server" />
+		        </h2>
+
+                <div id="user">           
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <span>
+                        Ingelogd als, <%= this.Username %>
+                    </span>
+
+                    <asp:LinkButton runat="server" ID="_lbSignOut" OnClick="_lbSignOut_Click">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        <span>Uitloggen</span>
+                    </asp:LinkButton>
+                </div>      
+            </div>  
 
             <!-- Content -->
             <div id="content">    

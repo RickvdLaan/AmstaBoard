@@ -7,10 +7,10 @@ namespace AmstaJanBonga.Business.Database.Managers
 {
     public abstract class LivingroomShiftEventManager
     {
-        public static void UpdateShift(LivingroomShiftEventEntity oldShift, LivingroomShiftEventEntity newShift)
+        public static void UpdateShift(LivingRoomShiftEventEntity oldShift, LivingRoomShiftEventEntity newShift)
         {
             if  (oldShift.EmployeeId    == newShift.EmployeeId   &&
-                oldShift.LivingroomId  == newShift.LivingroomId  &&
+                oldShift.LivingRoomId  == newShift.LivingRoomId  &&
                 oldShift.ShiftTypeEnum == newShift.ShiftTypeEnum &&
                 oldShift.Date          == newShift.Date          ||
                 !newShift.IsNew)
@@ -32,12 +32,12 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// <param name="date"></param>
         /// <param name="shiftType"></param>
         /// <returns></returns>
-        public static LivingroomShiftEventEntity CreateLivingroomShiftEventEntity(int employeeId, int livingroomId, DateTime date, ShiftTypeEnum shiftType)
+        public static LivingRoomShiftEventEntity CreateLivingroomShiftEventEntity(int employeeId, int livingroomId, DateTime date, ShiftTypeEnum shiftType)
         {
-            var shift = new LivingroomShiftEventEntity()
+            var shift = new LivingRoomShiftEventEntity()
             {
                 EmployeeId = employeeId,
-                LivingroomId = livingroomId,
+                LivingRoomId = livingroomId,
                 Date = date,
                 ShiftTypeEnum = (byte)shiftType,
                 DateCreated = DateTime.Now
@@ -50,14 +50,14 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// Inserts multiple 
         /// </summary>
         /// <param name="shifts"></param>
-        public static void InsertMulti(LivingroomShiftEventCollection shifts)
+        public static void InsertMulti(LivingRoomShiftEventCollection shifts)
         {
             shifts.SaveMulti();
         }
 
-        public static void UpdateMulti(LivingroomShiftEventCollection originalCollection, LivingroomShiftEventCollection newCollection)
+        public static void UpdateMulti(LivingRoomShiftEventCollection originalCollection, LivingRoomShiftEventCollection newCollection)
         {
-            var tracker = new LivingroomShiftEventCollection();
+            var tracker = new LivingRoomShiftEventCollection();
             originalCollection.RemovedEntitiesTracker = tracker;
 
             originalCollection.RemovedEntitiesTracker.AddRange(originalCollection);

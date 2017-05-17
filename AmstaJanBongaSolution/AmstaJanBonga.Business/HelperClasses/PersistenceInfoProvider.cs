@@ -46,23 +46,50 @@ namespace AmstaJanBonga.Business.HelperClasses
 		/// <summary>Method which initializes the internal datastores with the structure of hierarchical types.</summary>
 		private void Init()
 		{
-			this.InitClass(10);
+			this.InitClass(14);
+			InitAgendaEventEntityMappings();
+			InitAgendaEventMetaEntityMappings();
 			InitEmployeeEntityMappings();
 			InitIpEntityMappings();
-			InitLivingroomEntityMappings();
-			InitLivingroomChoreEventEntityMappings();
-			InitLivingroomGeneralEntityMappings();
-			InitLivingroomGeneralEventEntityMappings();
-			InitLivingroomShiftEventEntityMappings();
+			InitLivingRoomEntityMappings();
+			InitLivingRoomChoreEventEntityMappings();
+			InitLivingRoomGeneralEntityMappings();
+			InitLivingRoomGeneralEventEntityMappings();
+			InitLivingRoomShiftEventEntityMappings();
 			InitPatientEntityMappings();
 			InitUserEntityMappings();
+			InitUserActivityEntityMappings();
 			InitUserRoleEntityMappings();
+			InitUserRoleActivityEntityMappings();
+		}
+
+		/// <summary>Inits AgendaEventEntity's mappings</summary>
+		private void InitAgendaEventEntityMappings()
+		{
+			this.AddElementMapping("AgendaEventEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "AgendaEvent", 6, 0);
+			this.AddElementFieldMapping("AgendaEventEntity", "Description", "Description", true, "VarChar", 500, 0, 0, false, "", null, typeof(System.String), 0);
+			this.AddElementFieldMapping("AgendaEventEntity", "Id", "Id", false, "Int", 0, 10, 0, true, "SCOPE_IDENTITY()", null, typeof(System.Int32), 1);
+			this.AddElementFieldMapping("AgendaEventEntity", "Location", "Location", true, "VarChar", 50, 0, 0, false, "", null, typeof(System.String), 2);
+			this.AddElementFieldMapping("AgendaEventEntity", "PatientId", "PatientId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 3);
+			this.AddElementFieldMapping("AgendaEventEntity", "Time", "Time", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 4);
+			this.AddElementFieldMapping("AgendaEventEntity", "Title", "Title", true, "VarChar", 50, 0, 0, false, "", null, typeof(System.String), 5);
+		}
+
+		/// <summary>Inits AgendaEventMetaEntity's mappings</summary>
+		private void InitAgendaEventMetaEntityMappings()
+		{
+			this.AddElementMapping("AgendaEventMetaEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "AgendaEventMeta", 5, 0);
+			this.AddElementFieldMapping("AgendaEventMetaEntity", "AgendaEventId", "AgendaEventId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 0);
+			this.AddElementFieldMapping("AgendaEventMetaEntity", "Id", "Id", false, "Int", 0, 10, 0, true, "SCOPE_IDENTITY()", null, typeof(System.Int32), 1);
+			this.AddElementFieldMapping("AgendaEventMetaEntity", "RepeatInterval", "RepeatInterval", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 2);
+			this.AddElementFieldMapping("AgendaEventMetaEntity", "RepeatStart", "RepeatStart", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 3);
+			this.AddElementFieldMapping("AgendaEventMetaEntity", "SingleEvent", "SingleEvent", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 4);
 		}
 
 		/// <summary>Inits EmployeeEntity's mappings</summary>
 		private void InitEmployeeEntityMappings()
 		{
-			this.AddElementMapping("EmployeeEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "Employee", 11, 0);
+			this.AddElementMapping("EmployeeEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "Employee", 10, 0);
 			this.AddElementFieldMapping("EmployeeEntity", "DateCreated", "DateCreated", false, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 0);
 			this.AddElementFieldMapping("EmployeeEntity", "DateDeleted", "DateDeleted", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 1);
 			this.AddElementFieldMapping("EmployeeEntity", "DateLastModified", "DateLastModified", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 2);
@@ -70,10 +97,9 @@ namespace AmstaJanBonga.Business.HelperClasses
 			this.AddElementFieldMapping("EmployeeEntity", "FirstName", "FirstName", false, "VarChar", 50, 0, 0, false, "", null, typeof(System.String), 4);
 			this.AddElementFieldMapping("EmployeeEntity", "Id", "Id", false, "Int", 0, 10, 0, true, "SCOPE_IDENTITY()", null, typeof(System.Int32), 5);
 			this.AddElementFieldMapping("EmployeeEntity", "ImagePath", "ImagePath", true, "VarChar", 250, 0, 0, false, "", null, typeof(System.String), 6);
-			this.AddElementFieldMapping("EmployeeEntity", "IsActive", "IsActive", false, "Bit", 0, 0, 0, false, "", null, typeof(System.Boolean), 7);
-			this.AddElementFieldMapping("EmployeeEntity", "IsMarkedAsDeleted", "IsMarkedAsDeleted", false, "Bit", 0, 0, 0, false, "", null, typeof(System.Boolean), 8);
-			this.AddElementFieldMapping("EmployeeEntity", "LivingroomId", "LivingroomId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 9);
-			this.AddElementFieldMapping("EmployeeEntity", "UserId", "UserId", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 10);
+			this.AddElementFieldMapping("EmployeeEntity", "IsMarkedAsDeleted", "IsMarkedAsDeleted", false, "Bit", 0, 0, 0, false, "", null, typeof(System.Boolean), 7);
+			this.AddElementFieldMapping("EmployeeEntity", "LivingRoomId", "LivingRoomId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 8);
+			this.AddElementFieldMapping("EmployeeEntity", "UserId", "UserId", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 9);
 		}
 
 		/// <summary>Inits IpEntity's mappings</summary>
@@ -87,74 +113,73 @@ namespace AmstaJanBonga.Business.HelperClasses
 			this.AddElementFieldMapping("IpEntity", "Ipaddress", "IPAddress", false, "VarChar", 20, 0, 0, false, "", null, typeof(System.String), 4);
 		}
 
-		/// <summary>Inits LivingroomEntity's mappings</summary>
-		private void InitLivingroomEntityMappings()
+		/// <summary>Inits LivingRoomEntity's mappings</summary>
+		private void InitLivingRoomEntityMappings()
 		{
-			this.AddElementMapping("LivingroomEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "Livingroom", 9, 0);
-			this.AddElementFieldMapping("LivingroomEntity", "ColourTypeEnum", "ColourTypeEnum", false, "TinyInt", 0, 3, 0, false, "", null, typeof(System.Byte), 0);
-			this.AddElementFieldMapping("LivingroomEntity", "DateCreated", "DateCreated", false, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 1);
-			this.AddElementFieldMapping("LivingroomEntity", "DateDeleted", "DateDeleted", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 2);
-			this.AddElementFieldMapping("LivingroomEntity", "DateLastModified", "DateLastModified", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 3);
-			this.AddElementFieldMapping("LivingroomEntity", "DateLastModifiedByUserId", "DateLastModifiedByUserId", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 4);
-			this.AddElementFieldMapping("LivingroomEntity", "Id", "Id", false, "Int", 0, 10, 0, true, "SCOPE_IDENTITY()", null, typeof(System.Int32), 5);
-			this.AddElementFieldMapping("LivingroomEntity", "IsActive", "IsActive", false, "Bit", 0, 0, 0, false, "", null, typeof(System.Boolean), 6);
-			this.AddElementFieldMapping("LivingroomEntity", "IsMarkedAsDeleted", "IsMarkedAsDeleted", false, "Bit", 0, 0, 0, false, "", null, typeof(System.Boolean), 7);
-			this.AddElementFieldMapping("LivingroomEntity", "Name", "Name", false, "VarChar", 50, 0, 0, false, "", null, typeof(System.String), 8);
+			this.AddElementMapping("LivingRoomEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "LivingRoom", 8, 0);
+			this.AddElementFieldMapping("LivingRoomEntity", "ColourTypeEnum", "ColourTypeEnum", false, "TinyInt", 0, 3, 0, false, "", null, typeof(System.Byte), 0);
+			this.AddElementFieldMapping("LivingRoomEntity", "DateCreated", "DateCreated", false, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 1);
+			this.AddElementFieldMapping("LivingRoomEntity", "DateDeleted", "DateDeleted", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 2);
+			this.AddElementFieldMapping("LivingRoomEntity", "DateLastModified", "DateLastModified", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 3);
+			this.AddElementFieldMapping("LivingRoomEntity", "DateLastModifiedByUserId", "DateLastModifiedByUserId", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 4);
+			this.AddElementFieldMapping("LivingRoomEntity", "Id", "Id", false, "Int", 0, 10, 0, true, "SCOPE_IDENTITY()", null, typeof(System.Int32), 5);
+			this.AddElementFieldMapping("LivingRoomEntity", "IsMarkedAsDeleted", "IsMarkedAsDeleted", false, "Bit", 0, 0, 0, false, "", null, typeof(System.Boolean), 6);
+			this.AddElementFieldMapping("LivingRoomEntity", "Name", "Name", false, "VarChar", 50, 0, 0, false, "", null, typeof(System.String), 7);
 		}
 
-		/// <summary>Inits LivingroomChoreEventEntity's mappings</summary>
-		private void InitLivingroomChoreEventEntityMappings()
+		/// <summary>Inits LivingRoomChoreEventEntity's mappings</summary>
+		private void InitLivingRoomChoreEventEntityMappings()
 		{
-			this.AddElementMapping("LivingroomChoreEventEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "LivingroomChoreEvent", 7, 0);
-			this.AddElementFieldMapping("LivingroomChoreEventEntity", "Date", "Date", false, "Date", 0, 0, 0, false, "", null, typeof(System.DateTime), 0);
-			this.AddElementFieldMapping("LivingroomChoreEventEntity", "DateCreated", "DateCreated", false, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 1);
-			this.AddElementFieldMapping("LivingroomChoreEventEntity", "DateLastModified", "DateLastModified", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 2);
-			this.AddElementFieldMapping("LivingroomChoreEventEntity", "DateLastModifiedByUserId", "DateLastModifiedByUserId", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 3);
-			this.AddElementFieldMapping("LivingroomChoreEventEntity", "LivingroomId", "LivingroomId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 4);
-			this.AddElementFieldMapping("LivingroomChoreEventEntity", "PatientId", "PatientId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 5);
-			this.AddElementFieldMapping("LivingroomChoreEventEntity", "TimeOfDayTypeEnum", "TimeOfDayTypeEnum", false, "TinyInt", 0, 3, 0, false, "", null, typeof(System.Byte), 6);
+			this.AddElementMapping("LivingRoomChoreEventEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "LivingRoomChoreEvent", 7, 0);
+			this.AddElementFieldMapping("LivingRoomChoreEventEntity", "Date", "Date", false, "Date", 0, 0, 0, false, "", null, typeof(System.DateTime), 0);
+			this.AddElementFieldMapping("LivingRoomChoreEventEntity", "DateCreated", "DateCreated", false, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 1);
+			this.AddElementFieldMapping("LivingRoomChoreEventEntity", "DateLastModified", "DateLastModified", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 2);
+			this.AddElementFieldMapping("LivingRoomChoreEventEntity", "DateLastModifiedByUserId", "DateLastModifiedByUserId", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 3);
+			this.AddElementFieldMapping("LivingRoomChoreEventEntity", "LivingRoomId", "LivingRoomId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 4);
+			this.AddElementFieldMapping("LivingRoomChoreEventEntity", "PatientId", "PatientId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 5);
+			this.AddElementFieldMapping("LivingRoomChoreEventEntity", "TimeOfDayTypeEnum", "TimeOfDayTypeEnum", false, "TinyInt", 0, 3, 0, false, "", null, typeof(System.Byte), 6);
 		}
 
-		/// <summary>Inits LivingroomGeneralEntity's mappings</summary>
-		private void InitLivingroomGeneralEntityMappings()
+		/// <summary>Inits LivingRoomGeneralEntity's mappings</summary>
+		private void InitLivingRoomGeneralEntityMappings()
 		{
-			this.AddElementMapping("LivingroomGeneralEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "LivingroomGeneral", 5, 0);
-			this.AddElementFieldMapping("LivingroomGeneralEntity", "DateCreated", "DateCreated", false, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 0);
-			this.AddElementFieldMapping("LivingroomGeneralEntity", "DateLastModified", "DateLastModified", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 1);
-			this.AddElementFieldMapping("LivingroomGeneralEntity", "DateLastModifiedByUserId", "DateLastModifiedByUserId", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 2);
-			this.AddElementFieldMapping("LivingroomGeneralEntity", "Description", "Description", true, "VarChar", 50, 0, 0, false, "", null, typeof(System.String), 3);
-			this.AddElementFieldMapping("LivingroomGeneralEntity", "LivingroomId", "LivingroomId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 4);
+			this.AddElementMapping("LivingRoomGeneralEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "LivingRoomGeneral", 5, 0);
+			this.AddElementFieldMapping("LivingRoomGeneralEntity", "DateCreated", "DateCreated", false, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 0);
+			this.AddElementFieldMapping("LivingRoomGeneralEntity", "DateLastModified", "DateLastModified", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 1);
+			this.AddElementFieldMapping("LivingRoomGeneralEntity", "DateLastModifiedByUserId", "DateLastModifiedByUserId", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 2);
+			this.AddElementFieldMapping("LivingRoomGeneralEntity", "Description", "Description", true, "VarChar", 50, 0, 0, false, "", null, typeof(System.String), 3);
+			this.AddElementFieldMapping("LivingRoomGeneralEntity", "LivingRoomId", "LivingRoomId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 4);
 		}
 
-		/// <summary>Inits LivingroomGeneralEventEntity's mappings</summary>
-		private void InitLivingroomGeneralEventEntityMappings()
+		/// <summary>Inits LivingRoomGeneralEventEntity's mappings</summary>
+		private void InitLivingRoomGeneralEventEntityMappings()
 		{
-			this.AddElementMapping("LivingroomGeneralEventEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "LivingroomGeneralEvent", 6, 0);
-			this.AddElementFieldMapping("LivingroomGeneralEventEntity", "Date", "Date", false, "Date", 0, 0, 0, false, "", null, typeof(System.DateTime), 0);
-			this.AddElementFieldMapping("LivingroomGeneralEventEntity", "DateCreated", "DateCreated", false, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 1);
-			this.AddElementFieldMapping("LivingroomGeneralEventEntity", "DateLastModified", "DateLastModified", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 2);
-			this.AddElementFieldMapping("LivingroomGeneralEventEntity", "DateLastModifiedByUserId", "DateLastModifiedByUserId", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 3);
-			this.AddElementFieldMapping("LivingroomGeneralEventEntity", "Description", "Description", false, "VarChar", 250, 0, 0, false, "", null, typeof(System.String), 4);
-			this.AddElementFieldMapping("LivingroomGeneralEventEntity", "LivingroomId", "LivingroomId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 5);
+			this.AddElementMapping("LivingRoomGeneralEventEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "LivingRoomGeneralEvent", 6, 0);
+			this.AddElementFieldMapping("LivingRoomGeneralEventEntity", "Date", "Date", false, "Date", 0, 0, 0, false, "", null, typeof(System.DateTime), 0);
+			this.AddElementFieldMapping("LivingRoomGeneralEventEntity", "DateCreated", "DateCreated", false, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 1);
+			this.AddElementFieldMapping("LivingRoomGeneralEventEntity", "DateLastModified", "DateLastModified", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 2);
+			this.AddElementFieldMapping("LivingRoomGeneralEventEntity", "DateLastModifiedByUserId", "DateLastModifiedByUserId", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 3);
+			this.AddElementFieldMapping("LivingRoomGeneralEventEntity", "Description", "Description", false, "VarChar", 250, 0, 0, false, "", null, typeof(System.String), 4);
+			this.AddElementFieldMapping("LivingRoomGeneralEventEntity", "LivingRoomId", "LivingRoomId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 5);
 		}
 
-		/// <summary>Inits LivingroomShiftEventEntity's mappings</summary>
-		private void InitLivingroomShiftEventEntityMappings()
+		/// <summary>Inits LivingRoomShiftEventEntity's mappings</summary>
+		private void InitLivingRoomShiftEventEntityMappings()
 		{
-			this.AddElementMapping("LivingroomShiftEventEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "LivingroomShiftEvent", 7, 0);
-			this.AddElementFieldMapping("LivingroomShiftEventEntity", "Date", "Date", false, "Date", 0, 0, 0, false, "", null, typeof(System.DateTime), 0);
-			this.AddElementFieldMapping("LivingroomShiftEventEntity", "DateCreated", "DateCreated", false, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 1);
-			this.AddElementFieldMapping("LivingroomShiftEventEntity", "DateLastModified", "DateLastModified", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 2);
-			this.AddElementFieldMapping("LivingroomShiftEventEntity", "DateLastModifiedByUserId", "DateLastModifiedByUserId", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 3);
-			this.AddElementFieldMapping("LivingroomShiftEventEntity", "EmployeeId", "EmployeeId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 4);
-			this.AddElementFieldMapping("LivingroomShiftEventEntity", "LivingroomId", "LivingroomId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 5);
-			this.AddElementFieldMapping("LivingroomShiftEventEntity", "ShiftTypeEnum", "ShiftTypeEnum", false, "TinyInt", 0, 3, 0, false, "", null, typeof(System.Byte), 6);
+			this.AddElementMapping("LivingRoomShiftEventEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "LivingRoomShiftEvent", 7, 0);
+			this.AddElementFieldMapping("LivingRoomShiftEventEntity", "Date", "Date", false, "Date", 0, 0, 0, false, "", null, typeof(System.DateTime), 0);
+			this.AddElementFieldMapping("LivingRoomShiftEventEntity", "DateCreated", "DateCreated", false, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 1);
+			this.AddElementFieldMapping("LivingRoomShiftEventEntity", "DateLastModified", "DateLastModified", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 2);
+			this.AddElementFieldMapping("LivingRoomShiftEventEntity", "DateLastModifiedByUserId", "DateLastModifiedByUserId", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 3);
+			this.AddElementFieldMapping("LivingRoomShiftEventEntity", "EmployeeId", "EmployeeId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 4);
+			this.AddElementFieldMapping("LivingRoomShiftEventEntity", "LivingRoomId", "LivingRoomId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 5);
+			this.AddElementFieldMapping("LivingRoomShiftEventEntity", "ShiftTypeEnum", "ShiftTypeEnum", false, "TinyInt", 0, 3, 0, false, "", null, typeof(System.Byte), 6);
 		}
 
 		/// <summary>Inits PatientEntity's mappings</summary>
 		private void InitPatientEntityMappings()
 		{
-			this.AddElementMapping("PatientEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "Patient", 10, 0);
+			this.AddElementMapping("PatientEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "Patient", 9, 0);
 			this.AddElementFieldMapping("PatientEntity", "DateCreated", "DateCreated", false, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 0);
 			this.AddElementFieldMapping("PatientEntity", "DateDeleted", "DateDeleted", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 1);
 			this.AddElementFieldMapping("PatientEntity", "DateLastModified", "DateLastModified", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 2);
@@ -162,9 +187,8 @@ namespace AmstaJanBonga.Business.HelperClasses
 			this.AddElementFieldMapping("PatientEntity", "FirstName", "FirstName", false, "VarChar", 50, 0, 0, false, "", null, typeof(System.String), 4);
 			this.AddElementFieldMapping("PatientEntity", "Id", "Id", false, "Int", 0, 10, 0, true, "SCOPE_IDENTITY()", null, typeof(System.Int32), 5);
 			this.AddElementFieldMapping("PatientEntity", "ImagePath", "ImagePath", false, "VarChar", 250, 0, 0, false, "", null, typeof(System.String), 6);
-			this.AddElementFieldMapping("PatientEntity", "IsActive", "IsActive", false, "Bit", 0, 0, 0, false, "", null, typeof(System.Boolean), 7);
-			this.AddElementFieldMapping("PatientEntity", "IsMarkedAsDeleted", "IsMarkedAsDeleted", false, "Bit", 0, 0, 0, false, "", null, typeof(System.Boolean), 8);
-			this.AddElementFieldMapping("PatientEntity", "LivingroomId", "LivingroomId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 9);
+			this.AddElementFieldMapping("PatientEntity", "IsMarkedAsDeleted", "IsMarkedAsDeleted", false, "Bit", 0, 0, 0, false, "", null, typeof(System.Boolean), 7);
+			this.AddElementFieldMapping("PatientEntity", "LivingRoomId", "LivingRoomId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 8);
 		}
 
 		/// <summary>Inits UserEntity's mappings</summary>
@@ -177,19 +201,41 @@ namespace AmstaJanBonga.Business.HelperClasses
 			this.AddElementFieldMapping("UserEntity", "DateLastModified", "DateLastModified", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 3);
 			this.AddElementFieldMapping("UserEntity", "DateLastModifiedByUserId", "DateLastModifiedByUserId", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 4);
 			this.AddElementFieldMapping("UserEntity", "Id", "Id", false, "Int", 0, 10, 0, true, "SCOPE_IDENTITY()", null, typeof(System.Int32), 5);
-			this.AddElementFieldMapping("UserEntity", "IsActive", "IsActive", false, "Bit", 0, 0, 0, false, "", null, typeof(System.Boolean), 6);
-			this.AddElementFieldMapping("UserEntity", "IsMarkedAsDeleted", "IsMarkedAsDeleted", false, "Bit", 0, 0, 0, false, "", null, typeof(System.Boolean), 7);
-			this.AddElementFieldMapping("UserEntity", "Password", "Password", false, "VarChar", 250, 0, 0, false, "", null, typeof(System.String), 8);
+			this.AddElementFieldMapping("UserEntity", "IsMarkedAsDeleted", "IsMarkedAsDeleted", false, "Bit", 0, 0, 0, false, "", null, typeof(System.Boolean), 6);
+			this.AddElementFieldMapping("UserEntity", "Password", "Password", false, "VarChar", 250, 0, 0, false, "", null, typeof(System.String), 7);
+			this.AddElementFieldMapping("UserEntity", "RoleTypeEnum", "RoleTypeEnum", true, "TinyInt", 0, 3, 0, false, "", null, typeof(System.Byte), 8);
 			this.AddElementFieldMapping("UserEntity", "Salt", "Salt", false, "VarChar", 250, 0, 0, false, "", null, typeof(System.String), 9);
 			this.AddElementFieldMapping("UserEntity", "Username", "Username", false, "VarChar", 50, 0, 0, false, "", null, typeof(System.String), 10);
+		}
+
+		/// <summary>Inits UserActivityEntity's mappings</summary>
+		private void InitUserActivityEntityMappings()
+		{
+			this.AddElementMapping("UserActivityEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "UserActivity", 5, 0);
+			this.AddElementFieldMapping("UserActivityEntity", "DateCreated", "DateCreated", false, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 0);
+			this.AddElementFieldMapping("UserActivityEntity", "DateLastModified", "DateLastModified", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 1);
+			this.AddElementFieldMapping("UserActivityEntity", "DateLastModifiedByUserId", "DateLastModifiedByUserId", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 2);
+			this.AddElementFieldMapping("UserActivityEntity", "Id", "Id", false, "Int", 0, 10, 0, true, "SCOPE_IDENTITY()", null, typeof(System.Int32), 3);
+			this.AddElementFieldMapping("UserActivityEntity", "Name", "Name", true, "VarChar", 50, 0, 0, false, "", null, typeof(System.String), 4);
 		}
 
 		/// <summary>Inits UserRoleEntity's mappings</summary>
 		private void InitUserRoleEntityMappings()
 		{
-			this.AddElementMapping("UserRoleEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "UserRole", 2, 0);
-			this.AddElementFieldMapping("UserRoleEntity", "RoleTypeEnum", "RoleTypeEnum", false, "TinyInt", 0, 3, 0, false, "", null, typeof(System.Byte), 0);
-			this.AddElementFieldMapping("UserRoleEntity", "UserId", "UserId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 1);
+			this.AddElementMapping("UserRoleEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "UserRole", 5, 0);
+			this.AddElementFieldMapping("UserRoleEntity", "DateCreated", "DateCreated", false, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 0);
+			this.AddElementFieldMapping("UserRoleEntity", "DateLastModified", "DateLastModified", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 1);
+			this.AddElementFieldMapping("UserRoleEntity", "DateLastModifiedByUserId", "DateLastModifiedByUserId", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 2);
+			this.AddElementFieldMapping("UserRoleEntity", "Name", "Name", false, "VarChar", 50, 0, 0, false, "", null, typeof(System.String), 3);
+			this.AddElementFieldMapping("UserRoleEntity", "RoleTypeEnum", "RoleTypeEnum", false, "TinyInt", 0, 3, 0, false, "", null, typeof(System.Byte), 4);
+		}
+
+		/// <summary>Inits UserRoleActivityEntity's mappings</summary>
+		private void InitUserRoleActivityEntityMappings()
+		{
+			this.AddElementMapping("UserRoleActivityEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "UserRoleActivity", 2, 0);
+			this.AddElementFieldMapping("UserRoleActivityEntity", "RoleTypeEnum", "RoleTypeEnum", false, "TinyInt", 0, 3, 0, false, "", null, typeof(System.Byte), 0);
+			this.AddElementFieldMapping("UserRoleActivityEntity", "UserActivityId", "UserActivityId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 1);
 		}
 
 	}

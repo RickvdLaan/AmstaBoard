@@ -11,21 +11,21 @@ using System.Data;
 
 namespace AmstaJanBonga.Business.Database.Readers
 {
-    public abstract class LivingroomChoreEventReader
+    public abstract class LivingRoomChoreEventReader
     {
-        public static LivingroomChoreEventEntity GetChoreByIds(int patientId, int livingroomId, DateTime date, TimeOfDayTypeEnum timeOfDay, bool throwExceptionWhenNotFound)
+        public static LivingRoomChoreEventEntity GetChoreByIds(int patientId, int livingroomId, DateTime date, TimeOfDayTypeEnum timeOfDay, bool throwExceptionWhenNotFound)
         {
-            var chore = new LivingroomChoreEventEntity(date, livingroomId, patientId, (byte)timeOfDay);
+            var chore = new LivingRoomChoreEventEntity(date, livingroomId, patientId, (byte)timeOfDay);
 
             // The hidden field is set to -1 if a '+' was clicked.
             if (patientId != -1 && chore.IsNew && throwExceptionWhenNotFound)
             {
-                throw new Exception("Chore not found by PatientId: {0}, LivingroomId: {1}, Date: {2} and TimeOfDay: {3}.".FormatString(patientId, livingroomId, date, timeOfDay));
+                throw new Exception("Chore not found by PatientId: {0}, LivingRoomId: {1}, Date: {2} and TimeOfDay: {3}.".FormatString(patientId, livingroomId, date, timeOfDay));
             }
             else if (chore.IsNew)
             {
                 chore.PatientId = patientId;
-                chore.LivingroomId = livingroomId;
+                chore.LivingRoomId = livingroomId;
                 chore.Date = date;
                 chore.TimeOfDayTypeEnum = (byte)timeOfDay;
                 chore.DateCreated = DateTime.Now;
@@ -34,21 +34,21 @@ namespace AmstaJanBonga.Business.Database.Readers
             return chore;
         }
 
-        public static LivingroomChoreEventCollection GetAllChoresFilteredByLivingroomAndDate(int livingroomId, DateTime date)
+        public static LivingRoomChoreEventCollection GetAllChoresFilteredByLivingroomAndDate(int livingroomId, DateTime date)
         {
-            var chores = new LivingroomChoreEventCollection();
+            var chores = new LivingRoomChoreEventCollection();
 
             // Sorter
             var sorter = new SortExpression
             {
-                LivingroomChoreEventFields.Date | SortOperator.Ascending
+                LivingRoomChoreEventFields.Date | SortOperator.Ascending
             };
 
             // Predicate
             var predicate = new PredicateExpression
             {
-                LivingroomChoreEventFields.LivingroomId == livingroomId,
-                LivingroomChoreEventFields.Date == date
+                LivingRoomChoreEventFields.LivingRoomId == livingroomId,
+                LivingRoomChoreEventFields.Date == date
             };
 
             chores.GetMulti(predicate, 0, sorter);
@@ -56,33 +56,33 @@ namespace AmstaJanBonga.Business.Database.Readers
             return chores;
         }
 
-        public static DataTable GetAllChoresDistinctByLivingroomId(int livingroomId)
+        public static DataTable GetAllChoresDistinctByLivingRoomId(int livingroomId)
         {
             // Result fields.
             var fields = new ResultsetFields(3)
             {
-                LivingroomChoreEventFields.LivingroomId,
-                LivingroomFields.Name,
-                LivingroomChoreEventFields.Date
+                LivingRoomChoreEventFields.LivingRoomId,
+                LivingRoomFields.Name,
+                LivingRoomChoreEventFields.Date
             };
 
             // Sorter
             var sorter = new SortExpression
             {
-                LivingroomChoreEventFields.Date | SortOperator.Ascending
+                LivingRoomChoreEventFields.Date | SortOperator.Ascending
             };
 
             // Adds the JOIN clause from the relation collection.
             var relations = new RelationCollection
             {
-                LivingroomChoreEventEntity.Relations.LivingroomEntityUsingLivingroomId
+                LivingRoomChoreEventEntity.Relations.LivingRoomEntityUsingLivingRoomId
             };
 
             // Predicate
             var predicate = new PredicateExpression
             {
-                LivingroomChoreEventFields.LivingroomId == livingroomId,
-                LivingroomChoreEventFields.Date >= DateTime.Now
+                LivingRoomChoreEventFields.LivingRoomId == livingroomId,
+                LivingRoomChoreEventFields.Date >= DateTime.Now
             };
 
             // Create the DataTable, DAO and fill the DataTable with the above query definition/parameters.
@@ -94,24 +94,24 @@ namespace AmstaJanBonga.Business.Database.Readers
             return dt;
         }
 
-        public static List<DateTime> GetAllUsedDatesByLivingroomId(int livingroomId)
+        public static List<DateTime> GetAllUsedDatesByLivingRoomId(int livingroomId)
         {
             // Result fields.
             var fields = new ResultsetFields(1)
             {
-                LivingroomChoreEventFields.Date
+                LivingRoomChoreEventFields.Date
             };
 
             // Sorting
             var sorter = new SortExpression
             {
-                LivingroomChoreEventFields.Date | SortOperator.Ascending
+                LivingRoomChoreEventFields.Date | SortOperator.Ascending
             };
 
             // Predicate
             var predicate = new PredicateExpression
             {
-                LivingroomChoreEventFields.LivingroomId == livingroomId
+                LivingRoomChoreEventFields.LivingRoomId == livingroomId
             };
 
             // Create the DataTable, DAO and fill the DataTable with the above query definition/parameters.

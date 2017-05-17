@@ -30,21 +30,24 @@ namespace AmstaJanBonga.Business.EntityClasses
 	
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces
 	// __LLBLGENPRO_USER_CODE_REGION_END
+	
 
-	/// <summary>Entity class which represents the entity 'GeneralInformation'. <br/><br/>
+	/// <summary>Entity class which represents the entity 'AgendaEventMeta'. <br/><br/>
 	/// 
 	/// </summary>
 	[Serializable]
-	public partial class GeneralInformationEntity : CommonEntityBase
+	public partial class AgendaEventMetaEntity : CommonEntityBase
 		// __LLBLGENPRO_USER_CODE_REGION_START AdditionalInterfaces
-		// __LLBLGENPRO_USER_CODE_REGION_END	
+		// __LLBLGENPRO_USER_CODE_REGION_END
+			
 	{
 		#region Class Member Declarations
-		private GeneralLivingroomEntity _generalLivingroom;
-		private bool	_alwaysFetchGeneralLivingroom, _alreadyFetchedGeneralLivingroom, _generalLivingroomReturnsNewIfNotFound;
+		private AgendaEventEntity _agendaEvent;
+		private bool	_alwaysFetchAgendaEvent, _alreadyFetchedAgendaEvent, _agendaEventReturnsNewIfNotFound;
 
 		// __LLBLGENPRO_USER_CODE_REGION_START PrivateMembers
 		// __LLBLGENPRO_USER_CODE_REGION_END
+		
 		#endregion
 
 		#region Statics
@@ -54,65 +57,63 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <summary>All names of fields mapped onto a relation. Usable for in-memory filtering</summary>
 		public static partial class MemberNames
 		{
-			/// <summary>Member name GeneralLivingroom</summary>
-			public static readonly string GeneralLivingroom = "GeneralLivingroom";
+			/// <summary>Member name AgendaEvent</summary>
+			public static readonly string AgendaEvent = "AgendaEvent";
 		}
 		#endregion
 		
 		/// <summary>Static CTor for setting up custom property hashtables. Is executed before the first instance of this entity class or derived classes is constructed. </summary>
-		static GeneralInformationEntity()
+		static AgendaEventMetaEntity()
 		{
 			SetupCustomPropertyHashtables();
 		}
 
 		/// <summary>CTor</summary>
-		public GeneralInformationEntity() :base("GeneralInformationEntity")
+		public AgendaEventMetaEntity() :base("AgendaEventMetaEntity")
 		{
 			InitClassEmpty(null);
 		}
 		
 		/// <summary>CTor</summary>
-		/// <param name="date">PK value for GeneralInformation which data should be fetched into this GeneralInformation object</param>
-		/// <param name="livingroomId">PK value for GeneralInformation which data should be fetched into this GeneralInformation object</param>
-		public GeneralInformationEntity(System.DateTime date, System.Int32 livingroomId):base("GeneralInformationEntity")
+		/// <param name="id">PK value for AgendaEventMeta which data should be fetched into this AgendaEventMeta object</param>
+		public AgendaEventMetaEntity(System.Int32 id):base("AgendaEventMetaEntity")
 		{
-			InitClassFetch(date, livingroomId, null, null);
+			InitClassFetch(id, null, null);
 		}
 
 		/// <summary>CTor</summary>
-		/// <param name="date">PK value for GeneralInformation which data should be fetched into this GeneralInformation object</param>
-		/// <param name="livingroomId">PK value for GeneralInformation which data should be fetched into this GeneralInformation object</param>
+		/// <param name="id">PK value for AgendaEventMeta which data should be fetched into this AgendaEventMeta object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
-		public GeneralInformationEntity(System.DateTime date, System.Int32 livingroomId, IPrefetchPath prefetchPathToUse):base("GeneralInformationEntity")
+		public AgendaEventMetaEntity(System.Int32 id, IPrefetchPath prefetchPathToUse):base("AgendaEventMetaEntity")
 		{
-			InitClassFetch(date, livingroomId, null, prefetchPathToUse);
+			InitClassFetch(id, null, prefetchPathToUse);
 		}
 
 		/// <summary>CTor</summary>
-		/// <param name="date">PK value for GeneralInformation which data should be fetched into this GeneralInformation object</param>
-		/// <param name="livingroomId">PK value for GeneralInformation which data should be fetched into this GeneralInformation object</param>
-		/// <param name="validator">The custom validator object for this GeneralInformationEntity</param>
-		public GeneralInformationEntity(System.DateTime date, System.Int32 livingroomId, IValidator validator):base("GeneralInformationEntity")
+		/// <param name="id">PK value for AgendaEventMeta which data should be fetched into this AgendaEventMeta object</param>
+		/// <param name="validator">The custom validator object for this AgendaEventMetaEntity</param>
+		public AgendaEventMetaEntity(System.Int32 id, IValidator validator):base("AgendaEventMetaEntity")
 		{
-			InitClassFetch(date, livingroomId, validator, null);
+			InitClassFetch(id, validator, null);
 		}
 
 		/// <summary>Private CTor for deserialization</summary>
 		/// <param name="info"></param>
 		/// <param name="context"></param>
-		protected GeneralInformationEntity(SerializationInfo info, StreamingContext context) : base(info, context)
+		protected AgendaEventMetaEntity(SerializationInfo info, StreamingContext context) : base(info, context)
 		{
-			_generalLivingroom = (GeneralLivingroomEntity)info.GetValue("_generalLivingroom", typeof(GeneralLivingroomEntity));
-			if(_generalLivingroom!=null)
+			_agendaEvent = (AgendaEventEntity)info.GetValue("_agendaEvent", typeof(AgendaEventEntity));
+			if(_agendaEvent!=null)
 			{
-				_generalLivingroom.AfterSave+=new EventHandler(OnEntityAfterSave);
+				_agendaEvent.AfterSave+=new EventHandler(OnEntityAfterSave);
 			}
-			_generalLivingroomReturnsNewIfNotFound = info.GetBoolean("_generalLivingroomReturnsNewIfNotFound");
-			_alwaysFetchGeneralLivingroom = info.GetBoolean("_alwaysFetchGeneralLivingroom");
-			_alreadyFetchedGeneralLivingroom = info.GetBoolean("_alreadyFetchedGeneralLivingroom");
+			_agendaEventReturnsNewIfNotFound = info.GetBoolean("_agendaEventReturnsNewIfNotFound");
+			_alwaysFetchAgendaEvent = info.GetBoolean("_alwaysFetchAgendaEvent");
+			_alreadyFetchedAgendaEvent = info.GetBoolean("_alreadyFetchedAgendaEvent");
 			this.FixupDeserialization(FieldInfoProviderSingleton.GetInstance(), PersistenceInfoProviderSingleton.GetInstance());
 			// __LLBLGENPRO_USER_CODE_REGION_START DeserializationConstructor
 			// __LLBLGENPRO_USER_CODE_REGION_END
+			
 		}
 		
 		
@@ -120,11 +121,11 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <param name="fieldIndex">The fieldindex.</param>
 		protected override void PerformDesyncSetupFKFieldChange(int fieldIndex)
 		{
-			switch((GeneralInformationFieldIndex)fieldIndex)
+			switch((AgendaEventMetaFieldIndex)fieldIndex)
 			{
-				case GeneralInformationFieldIndex.LivingroomId:
-					DesetupSyncGeneralLivingroom(true, false);
-					_alreadyFetchedGeneralLivingroom = false;
+				case AgendaEventMetaFieldIndex.AgendaEventId:
+					DesetupSyncAgendaEvent(true, false);
+					_alreadyFetchedAgendaEvent = false;
 					break;
 				default:
 					base.PerformDesyncSetupFKFieldChange(fieldIndex);
@@ -135,7 +136,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <summary> Will perform post-ReadXml actions</summary>
 		protected override void PerformPostReadXmlFixups()
 		{
-			_alreadyFetchedGeneralLivingroom = (_generalLivingroom != null);
+			_alreadyFetchedAgendaEvent = (_agendaEvent != null);
 		}
 				
 		/// <summary>Gets the relation objects which represent the relation the fieldName specified is mapped on. </summary>
@@ -154,8 +155,8 @@ namespace AmstaJanBonga.Business.EntityClasses
 			RelationCollection toReturn = new RelationCollection();
 			switch(fieldName)
 			{
-				case "GeneralLivingroom":
-					toReturn.Add(Relations.GeneralLivingroomEntityUsingLivingroomId);
+				case "AgendaEvent":
+					toReturn.Add(Relations.AgendaEventEntityUsingAgendaEventId);
 					break;
 				default:
 					break;				
@@ -171,13 +172,14 @@ namespace AmstaJanBonga.Business.EntityClasses
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		protected override void GetObjectData(SerializationInfo info, StreamingContext context)
 		{
-			info.AddValue("_generalLivingroom", (!this.MarkedForDeletion?_generalLivingroom:null));
-			info.AddValue("_generalLivingroomReturnsNewIfNotFound", _generalLivingroomReturnsNewIfNotFound);
-			info.AddValue("_alwaysFetchGeneralLivingroom", _alwaysFetchGeneralLivingroom);
-			info.AddValue("_alreadyFetchedGeneralLivingroom", _alreadyFetchedGeneralLivingroom);
+			info.AddValue("_agendaEvent", (!this.MarkedForDeletion?_agendaEvent:null));
+			info.AddValue("_agendaEventReturnsNewIfNotFound", _agendaEventReturnsNewIfNotFound);
+			info.AddValue("_alwaysFetchAgendaEvent", _alwaysFetchAgendaEvent);
+			info.AddValue("_alreadyFetchedAgendaEvent", _alreadyFetchedAgendaEvent);
 
 			// __LLBLGENPRO_USER_CODE_REGION_START GetObjectInfo
 			// __LLBLGENPRO_USER_CODE_REGION_END
+			
 			base.GetObjectData(info, context);
 		}
 		
@@ -190,9 +192,9 @@ namespace AmstaJanBonga.Business.EntityClasses
 		{
 			switch(propertyName)
 			{
-				case "GeneralLivingroom":
-					_alreadyFetchedGeneralLivingroom = true;
-					this.GeneralLivingroom = (GeneralLivingroomEntity)entity;
+				case "AgendaEvent":
+					_alreadyFetchedAgendaEvent = true;
+					this.AgendaEvent = (AgendaEventEntity)entity;
 					break;
 				default:
 					this.OnSetRelatedEntityProperty(propertyName, entity);
@@ -208,8 +210,8 @@ namespace AmstaJanBonga.Business.EntityClasses
 		{
 			switch(fieldName)
 			{
-				case "GeneralLivingroom":
-					SetupSyncGeneralLivingroom(relatedEntity);
+				case "AgendaEvent":
+					SetupSyncAgendaEvent(relatedEntity);
 					break;
 				default:
 					break;
@@ -225,8 +227,8 @@ namespace AmstaJanBonga.Business.EntityClasses
 		{
 			switch(fieldName)
 			{
-				case "GeneralLivingroom":
-					DesetupSyncGeneralLivingroom(false, true);
+				case "AgendaEvent":
+					DesetupSyncAgendaEvent(false, true);
 					break;
 				default:
 					break;
@@ -246,9 +248,9 @@ namespace AmstaJanBonga.Business.EntityClasses
 		protected override List<IEntity> GetDependentRelatedEntities()
 		{
 			List<IEntity> toReturn = new List<IEntity>();
-			if(_generalLivingroom!=null)
+			if(_agendaEvent!=null)
 			{
-				toReturn.Add(_generalLivingroom);
+				toReturn.Add(_agendaEvent);
 			}
 			return toReturn;
 		}
@@ -265,54 +267,50 @@ namespace AmstaJanBonga.Business.EntityClasses
 
 
 		/// <summary> Fetches the contents of this entity from the persistent storage using the primary key.</summary>
-		/// <param name="date">PK value for GeneralInformation which data should be fetched into this GeneralInformation object</param>
-		/// <param name="livingroomId">PK value for GeneralInformation which data should be fetched into this GeneralInformation object</param>
+		/// <param name="id">PK value for AgendaEventMeta which data should be fetched into this AgendaEventMeta object</param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		public bool FetchUsingPK(System.DateTime date, System.Int32 livingroomId)
+		public bool FetchUsingPK(System.Int32 id)
 		{
-			return FetchUsingPK(date, livingroomId, null, null, null);
+			return FetchUsingPK(id, null, null, null);
 		}
 
 		/// <summary> Fetches the contents of this entity from the persistent storage using the primary key.</summary>
-		/// <param name="date">PK value for GeneralInformation which data should be fetched into this GeneralInformation object</param>
-		/// <param name="livingroomId">PK value for GeneralInformation which data should be fetched into this GeneralInformation object</param>
+		/// <param name="id">PK value for AgendaEventMeta which data should be fetched into this AgendaEventMeta object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		public bool FetchUsingPK(System.DateTime date, System.Int32 livingroomId, IPrefetchPath prefetchPathToUse)
+		public bool FetchUsingPK(System.Int32 id, IPrefetchPath prefetchPathToUse)
 		{
-			return FetchUsingPK(date, livingroomId, prefetchPathToUse, null, null);
+			return FetchUsingPK(id, prefetchPathToUse, null, null);
 		}
 
 		/// <summary> Fetches the contents of this entity from the persistent storage using the primary key.</summary>
-		/// <param name="date">PK value for GeneralInformation which data should be fetched into this GeneralInformation object</param>
-		/// <param name="livingroomId">PK value for GeneralInformation which data should be fetched into this GeneralInformation object</param>
+		/// <param name="id">PK value for AgendaEventMeta which data should be fetched into this AgendaEventMeta object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <param name="contextToUse">The context to add the entity to if the fetch was succesful. </param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		public bool FetchUsingPK(System.DateTime date, System.Int32 livingroomId, IPrefetchPath prefetchPathToUse, Context contextToUse)
+		public bool FetchUsingPK(System.Int32 id, IPrefetchPath prefetchPathToUse, Context contextToUse)
 		{
-			return FetchUsingPK(date, livingroomId, prefetchPathToUse, contextToUse, null);
+			return FetchUsingPK(id, prefetchPathToUse, contextToUse, null);
 		}
 
 		/// <summary> Fetches the contents of this entity from the persistent storage using the primary key.</summary>
-		/// <param name="date">PK value for GeneralInformation which data should be fetched into this GeneralInformation object</param>
-		/// <param name="livingroomId">PK value for GeneralInformation which data should be fetched into this GeneralInformation object</param>
+		/// <param name="id">PK value for AgendaEventMeta which data should be fetched into this AgendaEventMeta object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <param name="contextToUse">The context to add the entity to if the fetch was succesful. </param>
 		/// <param name="excludedIncludedFields">The list of IEntityField objects which have to be excluded or included for the fetch. 
 		/// If null or empty, all fields are fetched (default). If an instance of ExcludeIncludeFieldsList is passed in and its ExcludeContainedFields property
 		/// is set to false, the fields contained in excludedIncludedFields are kept in the query, the rest of the fields in the query are excluded.</param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		public bool FetchUsingPK(System.DateTime date, System.Int32 livingroomId, IPrefetchPath prefetchPathToUse, Context contextToUse, ExcludeIncludeFieldsList excludedIncludedFields)
+		public bool FetchUsingPK(System.Int32 id, IPrefetchPath prefetchPathToUse, Context contextToUse, ExcludeIncludeFieldsList excludedIncludedFields)
 		{
-			return Fetch(date, livingroomId, prefetchPathToUse, contextToUse, excludedIncludedFields);
+			return Fetch(id, prefetchPathToUse, contextToUse, excludedIncludedFields);
 		}
 
 		/// <summary> Refetches the Entity from the persistent storage. Refetch is used to re-load an Entity which is marked "Out-of-sync", due to a save action. Refetching an empty Entity has no effect. </summary>
 		/// <returns>true if Refetch succeeded, false otherwise</returns>
 		public override bool Refetch()
 		{
-			return Fetch(this.Date, this.LivingroomId, null, null, null);
+			return Fetch(this.Id, null, null, null);
 		}
 
 
@@ -321,47 +319,47 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <returns>A list of all the EntityRelation objects the type of this instance has. Hierarchy relations are excluded.</returns>
 		protected override List<IEntityRelation> GetAllRelations()
 		{
-			return new GeneralInformationRelations().GetAllRelations();
+			return new AgendaEventMetaRelations().GetAllRelations();
 		}
 
-		/// <summary> Retrieves the related entity of type 'GeneralLivingroomEntity', using a relation of type 'n:1'</summary>
-		/// <returns>A fetched entity of type 'GeneralLivingroomEntity' which is related to this entity.</returns>
-		public GeneralLivingroomEntity GetSingleGeneralLivingroom()
+		/// <summary> Retrieves the related entity of type 'AgendaEventEntity', using a relation of type 'n:1'</summary>
+		/// <returns>A fetched entity of type 'AgendaEventEntity' which is related to this entity.</returns>
+		public AgendaEventEntity GetSingleAgendaEvent()
 		{
-			return GetSingleGeneralLivingroom(false);
+			return GetSingleAgendaEvent(false);
 		}
 
-		/// <summary> Retrieves the related entity of type 'GeneralLivingroomEntity', using a relation of type 'n:1'</summary>
+		/// <summary> Retrieves the related entity of type 'AgendaEventEntity', using a relation of type 'n:1'</summary>
 		/// <param name="forceFetch">if true, it will discard any changes currently in the currently loaded related entity and will refetch the entity from the persistent storage</param>
-		/// <returns>A fetched entity of type 'GeneralLivingroomEntity' which is related to this entity.</returns>
-		public virtual GeneralLivingroomEntity GetSingleGeneralLivingroom(bool forceFetch)
+		/// <returns>A fetched entity of type 'AgendaEventEntity' which is related to this entity.</returns>
+		public virtual AgendaEventEntity GetSingleAgendaEvent(bool forceFetch)
 		{
-			if( ( !_alreadyFetchedGeneralLivingroom || forceFetch || _alwaysFetchGeneralLivingroom) && !this.IsSerializing && !this.IsDeserializing  && !this.InDesignMode)			
+			if( ( !_alreadyFetchedAgendaEvent || forceFetch || _alwaysFetchAgendaEvent) && !this.IsSerializing && !this.IsDeserializing  && !this.InDesignMode)			
 			{
-				bool performLazyLoading = this.CheckIfLazyLoadingShouldOccur(Relations.GeneralLivingroomEntityUsingLivingroomId);
-				GeneralLivingroomEntity newEntity = new GeneralLivingroomEntity();
+				bool performLazyLoading = this.CheckIfLazyLoadingShouldOccur(Relations.AgendaEventEntityUsingAgendaEventId);
+				AgendaEventEntity newEntity = new AgendaEventEntity();
 				bool fetchResult = false;
 				if(performLazyLoading)
 				{
 					AddToTransactionIfNecessary(newEntity);
-					fetchResult = newEntity.FetchUsingPK(this.LivingroomId);
+					fetchResult = newEntity.FetchUsingPK(this.AgendaEventId);
 				}
 				if(fetchResult)
 				{
-					newEntity = (GeneralLivingroomEntity)GetFromActiveContext(newEntity);
+					newEntity = (AgendaEventEntity)GetFromActiveContext(newEntity);
 				}
 				else
 				{
-					if(!_generalLivingroomReturnsNewIfNotFound)
+					if(!_agendaEventReturnsNewIfNotFound)
 					{
 						RemoveFromTransactionIfNecessary(newEntity);
 						newEntity = null;
 					}
 				}
-				this.GeneralLivingroom = newEntity;
-				_alreadyFetchedGeneralLivingroom = fetchResult;
+				this.AgendaEvent = newEntity;
+				_alreadyFetchedAgendaEvent = fetchResult;
 			}
-			return _generalLivingroom;
+			return _agendaEvent;
 		}
 
 
@@ -370,7 +368,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		protected override Dictionary<string, object> GetRelatedData()
 		{
 			Dictionary<string, object> toReturn = new Dictionary<string, object>();
-			toReturn.Add("GeneralLivingroom", _generalLivingroom);
+			toReturn.Add("AgendaEvent", _agendaEvent);
 			return toReturn;
 		}
 	
@@ -385,25 +383,26 @@ namespace AmstaJanBonga.Business.EntityClasses
 
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassEmpty
 			// __LLBLGENPRO_USER_CODE_REGION_END
+			
 
 			OnInitialized();
 		}		
 
 		/// <summary> Initializes the the entity and fetches the data related to the entity in this entity.</summary>
-		/// <param name="date">PK value for GeneralInformation which data should be fetched into this GeneralInformation object</param>
-		/// <param name="livingroomId">PK value for GeneralInformation which data should be fetched into this GeneralInformation object</param>
-		/// <param name="validator">The validator object for this GeneralInformationEntity</param>
+		/// <param name="id">PK value for AgendaEventMeta which data should be fetched into this AgendaEventMeta object</param>
+		/// <param name="validator">The validator object for this AgendaEventMetaEntity</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
-		private void InitClassFetch(System.DateTime date, System.Int32 livingroomId, IValidator validator, IPrefetchPath prefetchPathToUse)
+		private void InitClassFetch(System.Int32 id, IValidator validator, IPrefetchPath prefetchPathToUse)
 		{
 			OnInitializing();
 			this.Validator = validator;
 			this.Fields = CreateFields();
 			InitClassMembers();	
-			Fetch(date, livingroomId, prefetchPathToUse, null, null);
+			Fetch(id, prefetchPathToUse, null, null);
 
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassFetch
 			// __LLBLGENPRO_USER_CODE_REGION_END
+			
 
 			OnInitialized();
 		}
@@ -411,11 +410,12 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <summary> Initializes the class members</summary>
 		private void InitClassMembers()
 		{
-			_generalLivingroomReturnsNewIfNotFound = false;
+			_agendaEventReturnsNewIfNotFound = false;
 			PerformDependencyInjection();
 
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassMembers
 			// __LLBLGENPRO_USER_CODE_REGION_END
+			
 			OnInitClassMembersComplete();
 		}
 
@@ -427,51 +427,43 @@ namespace AmstaJanBonga.Business.EntityClasses
 			_fieldsCustomProperties = new Dictionary<string, Dictionary<string, string>>();
 			Dictionary<string, string> fieldHashtable;
 			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("Date", fieldHashtable);
+			_fieldsCustomProperties.Add("AgendaEventId", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("DateCreated", fieldHashtable);
+			_fieldsCustomProperties.Add("Id", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("DateDeleted", fieldHashtable);
+			_fieldsCustomProperties.Add("RepeatInterval", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("DateLastModified", fieldHashtable);
+			_fieldsCustomProperties.Add("RepeatStart", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("DateLastModifiedByUserId", fieldHashtable);
-			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("Description", fieldHashtable);
-			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("IsActive", fieldHashtable);
-			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("IsMarkedAsDeleted", fieldHashtable);
-			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("LivingroomId", fieldHashtable);
+			_fieldsCustomProperties.Add("SingleEvent", fieldHashtable);
 		}
 		#endregion
 
-		/// <summary> Removes the sync logic for member _generalLivingroom</summary>
+		/// <summary> Removes the sync logic for member _agendaEvent</summary>
 		/// <param name="signalRelatedEntity">If set to true, it will call the related entity's UnsetRelatedEntity method</param>
 		/// <param name="resetFKFields">if set to true it will also reset the FK fields pointing to the related entity</param>
-		private void DesetupSyncGeneralLivingroom(bool signalRelatedEntity, bool resetFKFields)
+		private void DesetupSyncAgendaEvent(bool signalRelatedEntity, bool resetFKFields)
 		{
-			this.PerformDesetupSyncRelatedEntity( _generalLivingroom, new PropertyChangedEventHandler( OnGeneralLivingroomPropertyChanged ), "GeneralLivingroom", AmstaJanBonga.Business.RelationClasses.StaticGeneralInformationRelations.GeneralLivingroomEntityUsingLivingroomIdStatic, true, signalRelatedEntity, "GeneralInformations", resetFKFields, new int[] { (int)GeneralInformationFieldIndex.LivingroomId } );		
-			_generalLivingroom = null;
+			this.PerformDesetupSyncRelatedEntity( _agendaEvent, new PropertyChangedEventHandler( OnAgendaEventPropertyChanged ), "AgendaEvent", AmstaJanBonga.Business.RelationClasses.StaticAgendaEventMetaRelations.AgendaEventEntityUsingAgendaEventIdStatic, true, signalRelatedEntity, "AgendaEventMetas", resetFKFields, new int[] { (int)AgendaEventMetaFieldIndex.AgendaEventId } );		
+			_agendaEvent = null;
 		}
 		
-		/// <summary> setups the sync logic for member _generalLivingroom</summary>
+		/// <summary> setups the sync logic for member _agendaEvent</summary>
 		/// <param name="relatedEntity">Instance to set as the related entity of type entityType</param>
-		private void SetupSyncGeneralLivingroom(IEntityCore relatedEntity)
+		private void SetupSyncAgendaEvent(IEntityCore relatedEntity)
 		{
-			if(_generalLivingroom!=relatedEntity)
+			if(_agendaEvent!=relatedEntity)
 			{		
-				DesetupSyncGeneralLivingroom(true, true);
-				_generalLivingroom = (GeneralLivingroomEntity)relatedEntity;
-				this.PerformSetupSyncRelatedEntity( _generalLivingroom, new PropertyChangedEventHandler( OnGeneralLivingroomPropertyChanged ), "GeneralLivingroom", AmstaJanBonga.Business.RelationClasses.StaticGeneralInformationRelations.GeneralLivingroomEntityUsingLivingroomIdStatic, true, ref _alreadyFetchedGeneralLivingroom, new string[] {  } );
+				DesetupSyncAgendaEvent(true, true);
+				_agendaEvent = (AgendaEventEntity)relatedEntity;
+				this.PerformSetupSyncRelatedEntity( _agendaEvent, new PropertyChangedEventHandler( OnAgendaEventPropertyChanged ), "AgendaEvent", AmstaJanBonga.Business.RelationClasses.StaticAgendaEventMetaRelations.AgendaEventEntityUsingAgendaEventIdStatic, true, ref _alreadyFetchedAgendaEvent, new string[] {  } );
 			}
 		}
 
 		/// <summary>Handles property change events of properties in a related entity.</summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void OnGeneralLivingroomPropertyChanged( object sender, PropertyChangedEventArgs e )
+		private void OnAgendaEventPropertyChanged( object sender, PropertyChangedEventArgs e )
 		{
 			switch( e.PropertyName )
 			{
@@ -481,21 +473,19 @@ namespace AmstaJanBonga.Business.EntityClasses
 		}
 
 		/// <summary> Fetches the entity from the persistent storage. Fetch simply reads the entity into an EntityFields object. </summary>
-		/// <param name="date">PK value for GeneralInformation which data should be fetched into this GeneralInformation object</param>
-		/// <param name="livingroomId">PK value for GeneralInformation which data should be fetched into this GeneralInformation object</param>
+		/// <param name="id">PK value for AgendaEventMeta which data should be fetched into this AgendaEventMeta object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <param name="contextToUse">The context to add the entity to if the fetch was succesful. </param>
 		/// <param name="excludedIncludedFields">The list of IEntityField objects which have to be excluded or included for the fetch. 
 		/// If null or empty, all fields are fetched (default). If an instance of ExcludeIncludeFieldsList is passed in and its ExcludeContainedFields property
 		/// is set to false, the fields contained in excludedIncludedFields are kept in the query, the rest of the fields in the query are excluded.</param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		private bool Fetch(System.DateTime date, System.Int32 livingroomId, IPrefetchPath prefetchPathToUse, Context contextToUse, ExcludeIncludeFieldsList excludedIncludedFields)
+		private bool Fetch(System.Int32 id, IPrefetchPath prefetchPathToUse, Context contextToUse, ExcludeIncludeFieldsList excludedIncludedFields)
 		{
 			try
 			{
 				OnFetch();
-				this.Fields[(int)GeneralInformationFieldIndex.Date].ForcedCurrentValueWrite(date);
-				this.Fields[(int)GeneralInformationFieldIndex.LivingroomId].ForcedCurrentValueWrite(livingroomId);
+				this.Fields[(int)AgendaEventMetaFieldIndex.Id].ForcedCurrentValueWrite(id);
 				CreateDAOInstance().FetchExisting(this, this.Transaction, prefetchPathToUse, contextToUse, excludedIncludedFields);
 				return (this.Fields.State == EntityState.Fetched);
 			}
@@ -509,21 +499,21 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <returns></returns>
 		protected override IDao CreateDAOInstance()
 		{
-			return DAOFactory.CreateGeneralInformationDAO();
+			return DAOFactory.CreateAgendaEventMetaDAO();
 		}
 		
 		/// <summary> Creates the entity factory for this type.</summary>
 		/// <returns></returns>
 		protected override IEntityFactory CreateEntityFactory()
 		{
-			return new GeneralInformationEntityFactory();
+			return new AgendaEventMetaEntityFactory();
 		}
 
 		#region Class Property Declarations
 		/// <summary> The relations object holding all relations of this entity with other entity classes.</summary>
-		public  static GeneralInformationRelations Relations
+		public  static AgendaEventMetaRelations Relations
 		{
-			get	{ return new GeneralInformationRelations(); }
+			get	{ return new AgendaEventMetaRelations(); }
 		}
 		
 		/// <summary> The custom properties for this entity type.</summary>
@@ -533,11 +523,11 @@ namespace AmstaJanBonga.Business.EntityClasses
 			get { return _customProperties;}
 		}
 
-		/// <summary> Creates a new PrefetchPathElement object which contains all the information to prefetch the related entities of type 'GeneralLivingroom'  for this entity.</summary>
+		/// <summary> Creates a new PrefetchPathElement object which contains all the information to prefetch the related entities of type 'AgendaEvent'  for this entity.</summary>
 		/// <returns>Ready to use IPrefetchPathElement implementation.</returns>
-		public static IPrefetchPathElement PrefetchPathGeneralLivingroom
+		public static IPrefetchPathElement PrefetchPathAgendaEvent
 		{
-			get	{ return new PrefetchPathElement(new AmstaJanBonga.Business.CollectionClasses.GeneralLivingroomCollection(), (IEntityRelation)GetRelationsForField("GeneralLivingroom")[0], (int)AmstaJanBonga.Business.EntityType.GeneralInformationEntity, (int)AmstaJanBonga.Business.EntityType.GeneralLivingroomEntity, 0, null, null, null, "GeneralLivingroom", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne); }
+			get	{ return new PrefetchPathElement(new AmstaJanBonga.Business.CollectionClasses.AgendaEventCollection(), (IEntityRelation)GetRelationsForField("AgendaEvent")[0], (int)AmstaJanBonga.Business.EntityType.AgendaEventMetaEntity, (int)AmstaJanBonga.Business.EntityType.AgendaEventEntity, 0, null, null, null, "AgendaEvent", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne); }
 		}
 
 
@@ -564,154 +554,114 @@ namespace AmstaJanBonga.Business.EntityClasses
 			get { return FieldsCustomProperties;}
 		}
 
-		/// <summary> The Date property of the Entity GeneralInformation<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "GeneralInformation"."Date"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Date, 0, 0, 0<br/>
-		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, false</remarks>
-		public virtual System.DateTime Date
-		{
-			get { return (System.DateTime)GetValue((int)GeneralInformationFieldIndex.Date, true); }
-			set	{ SetValue((int)GeneralInformationFieldIndex.Date, value, true); }
-		}
-
-		/// <summary> The DateCreated property of the Entity GeneralInformation<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "GeneralInformation"."DateCreated"<br/>
-		/// Table field type characteristics (type, precision, scale, length): DateTime, 0, 0, 0<br/>
+		/// <summary> The AgendaEventId property of the Entity AgendaEventMeta<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "AgendaEventMeta"."AgendaEventId"<br/>
+		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
-		public virtual System.DateTime DateCreated
+		public virtual System.Int32 AgendaEventId
 		{
-			get { return (System.DateTime)GetValue((int)GeneralInformationFieldIndex.DateCreated, true); }
-			set	{ SetValue((int)GeneralInformationFieldIndex.DateCreated, value, true); }
+			get { return (System.Int32)GetValue((int)AgendaEventMetaFieldIndex.AgendaEventId, true); }
+			set	{ SetValue((int)AgendaEventMetaFieldIndex.AgendaEventId, value, true); }
 		}
 
-		/// <summary> The DateDeleted property of the Entity GeneralInformation<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "GeneralInformation"."DateDeleted"<br/>
-		/// Table field type characteristics (type, precision, scale, length): DateTime, 0, 0, 0<br/>
-		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
-		public virtual Nullable<System.DateTime> DateDeleted
+		/// <summary> The Id property of the Entity AgendaEventMeta<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "AgendaEventMeta"."Id"<br/>
+		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, true</remarks>
+		public virtual System.Int32 Id
 		{
-			get { return (Nullable<System.DateTime>)GetValue((int)GeneralInformationFieldIndex.DateDeleted, false); }
-			set	{ SetValue((int)GeneralInformationFieldIndex.DateDeleted, value, true); }
+			get { return (System.Int32)GetValue((int)AgendaEventMetaFieldIndex.Id, true); }
+			set	{ SetValue((int)AgendaEventMetaFieldIndex.Id, value, true); }
 		}
 
-		/// <summary> The DateLastModified property of the Entity GeneralInformation<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "GeneralInformation"."DateLastModified"<br/>
-		/// Table field type characteristics (type, precision, scale, length): DateTime, 0, 0, 0<br/>
-		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
-		public virtual Nullable<System.DateTime> DateLastModified
-		{
-			get { return (Nullable<System.DateTime>)GetValue((int)GeneralInformationFieldIndex.DateLastModified, false); }
-			set	{ SetValue((int)GeneralInformationFieldIndex.DateLastModified, value, true); }
-		}
-
-		/// <summary> The DateLastModifiedByUserId property of the Entity GeneralInformation<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "GeneralInformation"."DateLastModifiedByUserId"<br/>
+		/// <summary> The RepeatInterval property of the Entity AgendaEventMeta<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "AgendaEventMeta"."RepeatInterval"<br/>
 		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
-		public virtual Nullable<System.Int32> DateLastModifiedByUserId
+		public virtual Nullable<System.Int32> RepeatInterval
 		{
-			get { return (Nullable<System.Int32>)GetValue((int)GeneralInformationFieldIndex.DateLastModifiedByUserId, false); }
-			set	{ SetValue((int)GeneralInformationFieldIndex.DateLastModifiedByUserId, value, true); }
+			get { return (Nullable<System.Int32>)GetValue((int)AgendaEventMetaFieldIndex.RepeatInterval, false); }
+			set	{ SetValue((int)AgendaEventMetaFieldIndex.RepeatInterval, value, true); }
 		}
 
-		/// <summary> The Description property of the Entity GeneralInformation<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "GeneralInformation"."Description"<br/>
-		/// Table field type characteristics (type, precision, scale, length): VarChar, 0, 0, 250<br/>
-		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
-		public virtual System.String Description
-		{
-			get { return (System.String)GetValue((int)GeneralInformationFieldIndex.Description, true); }
-			set	{ SetValue((int)GeneralInformationFieldIndex.Description, value, true); }
-		}
-
-		/// <summary> The IsActive property of the Entity GeneralInformation<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "GeneralInformation"."IsActive"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Bit, 0, 0, 0<br/>
-		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
-		public virtual System.Boolean IsActive
-		{
-			get { return (System.Boolean)GetValue((int)GeneralInformationFieldIndex.IsActive, true); }
-			set	{ SetValue((int)GeneralInformationFieldIndex.IsActive, value, true); }
-		}
-
-		/// <summary> The IsMarkedAsDeleted property of the Entity GeneralInformation<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "GeneralInformation"."IsMarkedAsDeleted"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Bit, 0, 0, 0<br/>
-		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
-		public virtual System.Boolean IsMarkedAsDeleted
-		{
-			get { return (System.Boolean)GetValue((int)GeneralInformationFieldIndex.IsMarkedAsDeleted, true); }
-			set	{ SetValue((int)GeneralInformationFieldIndex.IsMarkedAsDeleted, value, true); }
-		}
-
-		/// <summary> The LivingroomId property of the Entity GeneralInformation<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "GeneralInformation"."LivingroomId"<br/>
+		/// <summary> The RepeatStart property of the Entity AgendaEventMeta<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "AgendaEventMeta"."RepeatStart"<br/>
 		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
-		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, false</remarks>
-		public virtual System.Int32 LivingroomId
+		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
+		public virtual Nullable<System.Int32> RepeatStart
 		{
-			get { return (System.Int32)GetValue((int)GeneralInformationFieldIndex.LivingroomId, true); }
-			set	{ SetValue((int)GeneralInformationFieldIndex.LivingroomId, value, true); }
+			get { return (Nullable<System.Int32>)GetValue((int)AgendaEventMetaFieldIndex.RepeatStart, false); }
+			set	{ SetValue((int)AgendaEventMetaFieldIndex.RepeatStart, value, true); }
+		}
+
+		/// <summary> The SingleEvent property of the Entity AgendaEventMeta<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "AgendaEventMeta"."SingleEvent"<br/>
+		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
+		public virtual Nullable<System.Int32> SingleEvent
+		{
+			get { return (Nullable<System.Int32>)GetValue((int)AgendaEventMetaFieldIndex.SingleEvent, false); }
+			set	{ SetValue((int)AgendaEventMetaFieldIndex.SingleEvent, value, true); }
 		}
 
 
-		/// <summary> Gets / sets related entity of type 'GeneralLivingroomEntity'. This property is not visible in databound grids.
+		/// <summary> Gets / sets related entity of type 'AgendaEventEntity'. This property is not visible in databound grids.
 		/// Setting this property to a new object will make the load-on-demand feature to stop fetching data from the database, until you set this
 		/// property to null. Setting this property to an entity will make sure that FK-PK relations are synchronized when appropriate.<br/><br/>
 		/// </summary>
-		/// <remarks>This property is added for conveniance, however it is recommeded to use the method 'GetSingleGeneralLivingroom()', because 
+		/// <remarks>This property is added for conveniance, however it is recommeded to use the method 'GetSingleAgendaEvent()', because 
 		/// this property is rather expensive and a method tells the user to cache the result when it has to be used more than once in the
 		/// same scope. The property is marked non-browsable to make it hidden in bound controls, f.e. datagrids.</remarks>
 		[Browsable(false)]
-		public virtual GeneralLivingroomEntity GeneralLivingroom
+		public virtual AgendaEventEntity AgendaEvent
 		{
-			get	{ return GetSingleGeneralLivingroom(false); }
+			get	{ return GetSingleAgendaEvent(false); }
 			set 
 			{ 
 				if(this.IsDeserializing)
 				{
-					SetupSyncGeneralLivingroom(value);
+					SetupSyncAgendaEvent(value);
 				}
 				else
 				{
-					SetSingleRelatedEntityNavigator(value, "GeneralInformations", "GeneralLivingroom", _generalLivingroom, true); 
+					SetSingleRelatedEntityNavigator(value, "AgendaEventMetas", "AgendaEvent", _agendaEvent, true); 
 				}
 			}
 		}
 
-		/// <summary> Gets / sets the lazy loading flag for GeneralLivingroom. When set to true, GeneralLivingroom is always refetched from the 
-		/// persistent storage. When set to false, the data is only fetched the first time GeneralLivingroom is accessed. You can always execute a forced fetch by calling GetSingleGeneralLivingroom(true).</summary>
+		/// <summary> Gets / sets the lazy loading flag for AgendaEvent. When set to true, AgendaEvent is always refetched from the 
+		/// persistent storage. When set to false, the data is only fetched the first time AgendaEvent is accessed. You can always execute a forced fetch by calling GetSingleAgendaEvent(true).</summary>
 		[Browsable(false)]
-		public bool AlwaysFetchGeneralLivingroom
+		public bool AlwaysFetchAgendaEvent
 		{
-			get	{ return _alwaysFetchGeneralLivingroom; }
-			set	{ _alwaysFetchGeneralLivingroom = value; }	
+			get	{ return _alwaysFetchAgendaEvent; }
+			set	{ _alwaysFetchAgendaEvent = value; }	
 		}
 				
-		/// <summary>Gets / Sets the lazy loading flag if the property GeneralLivingroom already has been fetched. Setting this property to false when GeneralLivingroom has been fetched
-		/// will set GeneralLivingroom to null as well. Setting this property to true while GeneralLivingroom hasn't been fetched disables lazy loading for GeneralLivingroom</summary>
+		/// <summary>Gets / Sets the lazy loading flag if the property AgendaEvent already has been fetched. Setting this property to false when AgendaEvent has been fetched
+		/// will set AgendaEvent to null as well. Setting this property to true while AgendaEvent hasn't been fetched disables lazy loading for AgendaEvent</summary>
 		[Browsable(false)]
-		public bool AlreadyFetchedGeneralLivingroom
+		public bool AlreadyFetchedAgendaEvent
 		{
-			get { return _alreadyFetchedGeneralLivingroom;}
+			get { return _alreadyFetchedAgendaEvent;}
 			set 
 			{
-				if(_alreadyFetchedGeneralLivingroom && !value)
+				if(_alreadyFetchedAgendaEvent && !value)
 				{
-					this.GeneralLivingroom = null;
+					this.AgendaEvent = null;
 				}
-				_alreadyFetchedGeneralLivingroom = value;
+				_alreadyFetchedAgendaEvent = value;
 			}
 		}
 
-		/// <summary> Gets / sets the flag for what to do if the related entity available through the property GeneralLivingroom is not found
-		/// in the database. When set to true, GeneralLivingroom will return a new entity instance if the related entity is not found, otherwise 
+		/// <summary> Gets / sets the flag for what to do if the related entity available through the property AgendaEvent is not found
+		/// in the database. When set to true, AgendaEvent will return a new entity instance if the related entity is not found, otherwise 
 		/// null be returned if the related entity is not found. Default: false.</summary>
 		[Browsable(false)]
-		public bool GeneralLivingroomReturnsNewIfNotFound
+		public bool AgendaEventReturnsNewIfNotFound
 		{
-			get	{ return _generalLivingroomReturnsNewIfNotFound; }
-			set { _generalLivingroomReturnsNewIfNotFound = value; }	
+			get	{ return _agendaEventReturnsNewIfNotFound; }
+			set { _agendaEventReturnsNewIfNotFound = value; }	
 		}
 
 
@@ -732,7 +682,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		[Browsable(false), XmlIgnore]
 		protected override int LLBLGenProEntityTypeValue 
 		{ 
-			get { return (int)AmstaJanBonga.Business.EntityType.GeneralInformationEntity; }
+			get { return (int)AmstaJanBonga.Business.EntityType.AgendaEventMetaEntity; }
 		}
 
 		#endregion
@@ -742,6 +692,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		
 		// __LLBLGENPRO_USER_CODE_REGION_START CustomEntityCode
 		// __LLBLGENPRO_USER_CODE_REGION_END
+		
 		#endregion
 
 		#region Included code

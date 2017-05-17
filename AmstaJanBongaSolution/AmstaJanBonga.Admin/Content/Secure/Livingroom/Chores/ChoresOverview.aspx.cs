@@ -19,18 +19,18 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
 
         #region Properties
 
-        private bool HasLivingroomId
+        private bool HasLivingRoomId
         {
-            get { return Url.QueryStringParser.HasParameter("LivingroomId"); }
+            get { return Url.QueryStringParser.HasParameter("LivingRoomId"); }
         }
 
-        private int LivingroomId
+        private int LivingRoomId
         {
             get
             {
-                if (this._livingroomId == -1 && this.HasLivingroomId)
+                if (this._livingroomId == -1 && this.HasLivingRoomId)
                 {
-                   this._livingroomId = Url.QueryStringParser.GetInt("LivingroomId");
+                   this._livingroomId = Url.QueryStringParser.GetInt("LivingRoomId");
                 }
 
                 return this._livingroomId;
@@ -49,7 +49,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
         {
             if (!this.IsPostBack)
             {
-                this._hlAddEditChores.NavigateUrl = "~/Content/Secure/Livingroom/Chores/ChoresAddEdit.aspx?LivingroomId={0}".FormatString(this.LivingroomId);
+                this._hlAddEditChores.NavigateUrl = "~/Content/Secure/Livingroom/Chores/ChoresAddEdit.aspx?LivingRoomId={0}".FormatString(this.LivingRoomId);
             }
         }
 
@@ -57,9 +57,9 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
 
         protected void _gvChores_PreRender(object sender, EventArgs e)
         {
-            if (this.HasLivingroomId)
+            if (this.HasLivingRoomId)
             {
-                this.Chores = LivingroomChoreEventReader.GetAllChoresDistinctByLivingroomId(this.LivingroomId);
+                this.Chores = LivingRoomChoreEventReader.GetAllChoresDistinctByLivingRoomId(this.LivingRoomId);
 
                 this._gvChores.DataSource = this.Chores;
                 this._gvChores.DataBind();

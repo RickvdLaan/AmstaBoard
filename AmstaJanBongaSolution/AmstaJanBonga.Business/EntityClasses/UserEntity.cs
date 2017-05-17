@@ -56,10 +56,10 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <summary>All names of fields mapped onto a relation. Usable for in-memory filtering</summary>
 		public static partial class MemberNames
 		{
-			/// <summary>Member name Employees</summary>
-			public static readonly string Employees = "Employees";
 			/// <summary>Member name UserRole</summary>
 			public static readonly string UserRole = "UserRole";
+			/// <summary>Member name Employees</summary>
+			public static readonly string Employees = "Employees";
 		}
 		#endregion
 		
@@ -119,6 +119,22 @@ namespace AmstaJanBonga.Business.EntityClasses
 			// __LLBLGENPRO_USER_CODE_REGION_END
 		}
 		
+		
+		/// <summary>Performs the desync setup when an FK field has been changed. The entity referenced based on the FK field will be dereferenced and sync info will be removed.</summary>
+		/// <param name="fieldIndex">The fieldindex.</param>
+		protected override void PerformDesyncSetupFKFieldChange(int fieldIndex)
+		{
+			switch((UserFieldIndex)fieldIndex)
+			{
+				case UserFieldIndex.RoleTypeEnum:
+					DesetupSyncUserRole(true, false);
+					_alreadyFetchedUserRole = false;
+					break;
+				default:
+					base.PerformDesyncSetupFKFieldChange(fieldIndex);
+					break;
+			}
+		}
 
 		/// <summary> Will perform post-ReadXml actions</summary>
 		protected override void PerformPostReadXmlFixups()
@@ -143,11 +159,11 @@ namespace AmstaJanBonga.Business.EntityClasses
 			RelationCollection toReturn = new RelationCollection();
 			switch(fieldName)
 			{
+				case "UserRole":
+					toReturn.Add(Relations.UserRoleEntityUsingRoleTypeEnum);
+					break;
 				case "Employees":
 					toReturn.Add(Relations.EmployeeEntityUsingUserId);
-					break;
-				case "UserRole":
-					toReturn.Add(Relations.UserRoleEntityUsingUserId);
 					break;
 				default:
 					break;				
@@ -166,7 +182,6 @@ namespace AmstaJanBonga.Business.EntityClasses
 			info.AddValue("_employees", (!this.MarkedForDeletion?_employees:null));
 			info.AddValue("_alwaysFetchEmployees", _alwaysFetchEmployees);
 			info.AddValue("_alreadyFetchedEmployees", _alreadyFetchedEmployees);
-
 			info.AddValue("_userRole", (!this.MarkedForDeletion?_userRole:null));
 			info.AddValue("_userRoleReturnsNewIfNotFound", _userRoleReturnsNewIfNotFound);
 			info.AddValue("_alwaysFetchUserRole", _alwaysFetchUserRole);
@@ -186,16 +201,16 @@ namespace AmstaJanBonga.Business.EntityClasses
 		{
 			switch(propertyName)
 			{
+				case "UserRole":
+					_alreadyFetchedUserRole = true;
+					this.UserRole = (UserRoleEntity)entity;
+					break;
 				case "Employees":
 					_alreadyFetchedEmployees = true;
 					if(entity!=null)
 					{
 						this.Employees.Add((EmployeeEntity)entity);
 					}
-					break;
-				case "UserRole":
-					_alreadyFetchedUserRole = true;
-					this.UserRole = (UserRoleEntity)entity;
 					break;
 				default:
 					this.OnSetRelatedEntityProperty(propertyName, entity);
@@ -211,11 +226,11 @@ namespace AmstaJanBonga.Business.EntityClasses
 		{
 			switch(fieldName)
 			{
-				case "Employees":
-					_employees.Add((EmployeeEntity)relatedEntity);
-					break;
 				case "UserRole":
 					SetupSyncUserRole(relatedEntity);
+					break;
+				case "Employees":
+					_employees.Add((EmployeeEntity)relatedEntity);
 					break;
 				default:
 					break;
@@ -231,11 +246,11 @@ namespace AmstaJanBonga.Business.EntityClasses
 		{
 			switch(fieldName)
 			{
-				case "Employees":
-					this.PerformRelatedEntityRemoval(_employees, relatedEntity, signalRelatedEntityManyToOne);
-					break;
 				case "UserRole":
 					DesetupSyncUserRole(false, true);
+					break;
+				case "Employees":
+					this.PerformRelatedEntityRemoval(_employees, relatedEntity, signalRelatedEntityManyToOne);
 					break;
 				default:
 					break;
@@ -247,10 +262,6 @@ namespace AmstaJanBonga.Business.EntityClasses
 		protected override List<IEntity> GetDependingRelatedEntities()
 		{
 			List<IEntity> toReturn = new List<IEntity>();
-			if(_userRole!=null)
-			{
-				toReturn.Add(_userRole);
-			}
 			return toReturn;
 		}
 		
@@ -259,6 +270,10 @@ namespace AmstaJanBonga.Business.EntityClasses
 		protected override List<IEntity> GetDependentRelatedEntities()
 		{
 			List<IEntity> toReturn = new List<IEntity>();
+			if(_userRole!=null)
+			{
+				toReturn.Add(_userRole);
+			}
 			return toReturn;
 		}
 		
@@ -437,27 +452,27 @@ namespace AmstaJanBonga.Business.EntityClasses
 			_employees.MaxNumberOfItemsToReturn=maxNumberOfItemsToReturn;
 		}
 
-		/// <summary> Retrieves the related entity of type 'UserRoleEntity', using a relation of type '1:1'</summary>
+		/// <summary> Retrieves the related entity of type 'UserRoleEntity', using a relation of type 'n:1'</summary>
 		/// <returns>A fetched entity of type 'UserRoleEntity' which is related to this entity.</returns>
 		public UserRoleEntity GetSingleUserRole()
 		{
 			return GetSingleUserRole(false);
 		}
-		
-		/// <summary> Retrieves the related entity of type 'UserRoleEntity', using a relation of type '1:1'</summary>
+
+		/// <summary> Retrieves the related entity of type 'UserRoleEntity', using a relation of type 'n:1'</summary>
 		/// <param name="forceFetch">if true, it will discard any changes currently in the currently loaded related entity and will refetch the entity from the persistent storage</param>
 		/// <returns>A fetched entity of type 'UserRoleEntity' which is related to this entity.</returns>
 		public virtual UserRoleEntity GetSingleUserRole(bool forceFetch)
 		{
-			if( ( !_alreadyFetchedUserRole || forceFetch || _alwaysFetchUserRole) && !this.IsSerializing && !this.IsDeserializing && !this.InDesignMode )
+			if( ( !_alreadyFetchedUserRole || forceFetch || _alwaysFetchUserRole) && !this.IsSerializing && !this.IsDeserializing  && !this.InDesignMode)			
 			{
-				bool performLazyLoading = this.CheckIfLazyLoadingShouldOccur(Relations.UserRoleEntityUsingUserId);
+				bool performLazyLoading = this.CheckIfLazyLoadingShouldOccur(Relations.UserRoleEntityUsingRoleTypeEnum);
 				UserRoleEntity newEntity = new UserRoleEntity();
 				bool fetchResult = false;
 				if(performLazyLoading)
 				{
 					AddToTransactionIfNecessary(newEntity);
-					fetchResult = newEntity.FetchUsingPK(this.Id);
+					fetchResult = newEntity.FetchUsingPK(this.RoleTypeEnum.GetValueOrDefault());
 				}
 				if(fetchResult)
 				{
@@ -483,8 +498,8 @@ namespace AmstaJanBonga.Business.EntityClasses
 		protected override Dictionary<string, object> GetRelatedData()
 		{
 			Dictionary<string, object> toReturn = new Dictionary<string, object>();
-			toReturn.Add("Employees", _employees);
 			toReturn.Add("UserRole", _userRole);
+			toReturn.Add("Employees", _employees);
 			return toReturn;
 		}
 	
@@ -555,11 +570,11 @@ namespace AmstaJanBonga.Business.EntityClasses
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("Id", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("IsActive", fieldHashtable);
-			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("IsMarkedAsDeleted", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("Password", fieldHashtable);
+			fieldHashtable = new Dictionary<string, string>();
+			_fieldsCustomProperties.Add("RoleTypeEnum", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("Salt", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
@@ -572,22 +587,22 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <param name="resetFKFields">if set to true it will also reset the FK fields pointing to the related entity</param>
 		private void DesetupSyncUserRole(bool signalRelatedEntity, bool resetFKFields)
 		{
-			this.PerformDesetupSyncRelatedEntity( _userRole, new PropertyChangedEventHandler( OnUserRolePropertyChanged ), "UserRole", AmstaJanBonga.Business.RelationClasses.StaticUserRelations.UserRoleEntityUsingUserIdStatic, false, signalRelatedEntity, "User", false, new int[] { (int)UserFieldIndex.Id } );
+			this.PerformDesetupSyncRelatedEntity( _userRole, new PropertyChangedEventHandler( OnUserRolePropertyChanged ), "UserRole", AmstaJanBonga.Business.RelationClasses.StaticUserRelations.UserRoleEntityUsingRoleTypeEnumStatic, true, signalRelatedEntity, "Users", resetFKFields, new int[] { (int)UserFieldIndex.RoleTypeEnum } );		
 			_userRole = null;
 		}
-	
+		
 		/// <summary> setups the sync logic for member _userRole</summary>
 		/// <param name="relatedEntity">Instance to set as the related entity of type entityType</param>
 		private void SetupSyncUserRole(IEntityCore relatedEntity)
 		{
 			if(_userRole!=relatedEntity)
-			{
+			{		
 				DesetupSyncUserRole(true, true);
 				_userRole = (UserRoleEntity)relatedEntity;
-				this.PerformSetupSyncRelatedEntity( _userRole, new PropertyChangedEventHandler( OnUserRolePropertyChanged ), "UserRole", AmstaJanBonga.Business.RelationClasses.StaticUserRelations.UserRoleEntityUsingUserIdStatic, false, ref _alreadyFetchedUserRole, new string[] {  } );
+				this.PerformSetupSyncRelatedEntity( _userRole, new PropertyChangedEventHandler( OnUserRolePropertyChanged ), "UserRole", AmstaJanBonga.Business.RelationClasses.StaticUserRelations.UserRoleEntityUsingRoleTypeEnumStatic, true, ref _alreadyFetchedUserRole, new string[] {  } );
 			}
 		}
-		
+
 		/// <summary>Handles property change events of properties in a related entity.</summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -662,7 +677,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <returns>Ready to use IPrefetchPathElement implementation.</returns>
 		public static IPrefetchPathElement PrefetchPathUserRole
 		{
-			get	{ return new PrefetchPathElement(new AmstaJanBonga.Business.CollectionClasses.UserRoleCollection(), (IEntityRelation)GetRelationsForField("UserRole")[0], (int)AmstaJanBonga.Business.EntityType.UserEntity, (int)AmstaJanBonga.Business.EntityType.UserRoleEntity, 0, null, null, null, "UserRole", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToOne);	}
+			get	{ return new PrefetchPathElement(new AmstaJanBonga.Business.CollectionClasses.UserRoleCollection(), (IEntityRelation)GetRelationsForField("UserRole")[0], (int)AmstaJanBonga.Business.EntityType.UserEntity, (int)AmstaJanBonga.Business.EntityType.UserRoleEntity, 0, null, null, null, "UserRole", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne); }
 		}
 
 
@@ -749,16 +764,6 @@ namespace AmstaJanBonga.Business.EntityClasses
 			set	{ SetValue((int)UserFieldIndex.Id, value, true); }
 		}
 
-		/// <summary> The IsActive property of the Entity User<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "User"."IsActive"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Bit, 0, 0, 0<br/>
-		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
-		public virtual System.Boolean IsActive
-		{
-			get { return (System.Boolean)GetValue((int)UserFieldIndex.IsActive, true); }
-			set	{ SetValue((int)UserFieldIndex.IsActive, value, true); }
-		}
-
 		/// <summary> The IsMarkedAsDeleted property of the Entity User<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "User"."IsMarkedAsDeleted"<br/>
 		/// Table field type characteristics (type, precision, scale, length): Bit, 0, 0, 0<br/>
@@ -777,6 +782,16 @@ namespace AmstaJanBonga.Business.EntityClasses
 		{
 			get { return (System.String)GetValue((int)UserFieldIndex.Password, true); }
 			set	{ SetValue((int)UserFieldIndex.Password, value, true); }
+		}
+
+		/// <summary> The RoleTypeEnum property of the Entity User<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "User"."RoleTypeEnum"<br/>
+		/// Table field type characteristics (type, precision, scale, length): TinyInt, 3, 0, 0<br/>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
+		public virtual Nullable<System.Byte> RoleTypeEnum
+		{
+			get { return (Nullable<System.Byte>)GetValue((int)UserFieldIndex.RoleTypeEnum, false); }
+			set	{ SetValue((int)UserFieldIndex.RoleTypeEnum, value, true); }
 		}
 
 		/// <summary> The Salt property of the Entity User<br/><br/></summary>
@@ -835,7 +850,8 @@ namespace AmstaJanBonga.Business.EntityClasses
 
 		/// <summary> Gets / sets related entity of type 'UserRoleEntity'. This property is not visible in databound grids.
 		/// Setting this property to a new object will make the load-on-demand feature to stop fetching data from the database, until you set this
-		/// property to null. Setting this property to an entity will make sure that FK-PK relations are synchronized when appropriate.<br/><br/></summary>
+		/// property to null. Setting this property to an entity will make sure that FK-PK relations are synchronized when appropriate.<br/><br/>
+		/// </summary>
 		/// <remarks>This property is added for conveniance, however it is recommeded to use the method 'GetSingleUserRole()', because 
 		/// this property is rather expensive and a method tells the user to cache the result when it has to be used more than once in the
 		/// same scope. The property is marked non-browsable to make it hidden in bound controls, f.e. datagrids.</remarks>
@@ -843,31 +859,15 @@ namespace AmstaJanBonga.Business.EntityClasses
 		public virtual UserRoleEntity UserRole
 		{
 			get	{ return GetSingleUserRole(false); }
-			set
-			{
+			set 
+			{ 
 				if(this.IsDeserializing)
 				{
 					SetupSyncUserRole(value);
 				}
 				else
 				{
-					if(value==null)
-					{
-						bool raisePropertyChanged = (_userRole !=null);
-						DesetupSyncUserRole(true, true);
-						if(raisePropertyChanged)
-						{
-							OnPropertyChanged("UserRole");
-						}
-					}
-					else
-					{
-						if(_userRole!=value)
-						{
-							((IEntity)value).SetRelatedEntity(this, "User");
-							SetupSyncUserRole(value);
-						}
-					}
+					SetSingleRelatedEntityNavigator(value, "Users", "UserRole", _userRole, true); 
 				}
 			}
 		}
@@ -880,7 +880,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 			get	{ return _alwaysFetchUserRole; }
 			set	{ _alwaysFetchUserRole = value; }	
 		}
-		
+				
 		/// <summary>Gets / Sets the lazy loading flag if the property UserRole already has been fetched. Setting this property to false when UserRole has been fetched
 		/// will set UserRole to null as well. Setting this property to true while UserRole hasn't been fetched disables lazy loading for UserRole</summary>
 		[Browsable(false)]
@@ -896,7 +896,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 				_alreadyFetchedUserRole = value;
 			}
 		}
-		
+
 		/// <summary> Gets / sets the flag for what to do if the related entity available through the property UserRole is not found
 		/// in the database. When set to true, UserRole will return a new entity instance if the related entity is not found, otherwise 
 		/// null be returned if the related entity is not found. Default: false.</summary>
@@ -904,8 +904,9 @@ namespace AmstaJanBonga.Business.EntityClasses
 		public bool UserRoleReturnsNewIfNotFound
 		{
 			get	{ return _userRoleReturnsNewIfNotFound; }
-			set	{ _userRoleReturnsNewIfNotFound = value; }	
+			set { _userRoleReturnsNewIfNotFound = value; }	
 		}
+
 
 		/// <summary> Gets or sets a value indicating whether this entity is a subtype</summary>
 		protected override bool LLBLGenProIsSubType

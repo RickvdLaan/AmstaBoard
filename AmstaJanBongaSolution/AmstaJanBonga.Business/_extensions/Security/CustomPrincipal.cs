@@ -18,7 +18,6 @@ namespace AmstaJanBonga.Business.Security
         private readonly IIdentity USER;
 
         public IIdentity Identity { get { return this.USER; } }
-        public IIdentity User { get { return this.USER; } }
 
         public CustomPrincipal(IIdentity user)
         {

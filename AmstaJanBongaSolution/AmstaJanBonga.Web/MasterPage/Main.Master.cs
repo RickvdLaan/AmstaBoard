@@ -132,10 +132,12 @@ namespace AmstaJanBonga.Web.MasterPage
                 var cookie = new HttpCookie("Date")
                 {
                     Value = DateTime.Now.Date.ToString(),
-                    Expires = DateTime.Now.AddHours(24)
+                    Expires = DateTime.Now.AddHours(1)
                 };
 
                 Response.Cookies.Add(cookie);
+
+                Url.Refresh();
             }
             // Cookie should be removed and the page should be refreshed after midnight.
             else if (Convert.ToDateTime(Request.Cookies["Date"].Value).Date != DateTime.Now.Date)

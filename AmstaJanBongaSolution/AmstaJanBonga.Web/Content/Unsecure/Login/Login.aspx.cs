@@ -72,15 +72,6 @@ namespace AmstaJanBonga.Web.Content.Unsecure.Login
                 return;
             }
 
-            // Determines whether the current user is active.
-            if (!user.IsActive)
-            {
-                _loginAuthentication.FailureText = Resource.DisabledAccount;
-
-                e.Authenticated = false;
-                return;
-            }
-
             // Validates whether the current user is bound to a living room.
             if (EmployeeReader.GetEmployeeByUserId(user.Id, false) == null)
             {

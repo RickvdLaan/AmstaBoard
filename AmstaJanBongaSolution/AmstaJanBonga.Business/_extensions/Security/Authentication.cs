@@ -1,6 +1,4 @@
-﻿using AmstaJanBonga.Business.Database.Managers;
-using AmstaJanBonga.Business.EntityClasses;
-using AmstaJanBonga.Business.Security;
+﻿using AmstaJanBonga.Business.EntityClasses;
 using System;
 using System.Threading;
 using System.Web;
@@ -13,8 +11,6 @@ namespace AmstaJanBonga.Business.Security
     /// </summary>
     public abstract class Authentication
     {
-        #region Security
-
         #region Properties
 
         /// <summary>
@@ -27,7 +23,7 @@ namespace AmstaJanBonga.Business.Security
 
         #endregion
 
-        #region Methods
+        #region Properties
 
         /// <summary>
         /// Returns the authenticated user or null.
@@ -39,8 +35,8 @@ namespace AmstaJanBonga.Business.Security
             {
                 if (HttpContext.Current != null)
                 {
-                    if (HttpContext.Current.User is CustomPrincipal principle && principle.User is UserEntity)
-                        return principle.User as UserEntity;
+                    if (HttpContext.Current.User is CustomPrincipal principle && principle.Identity is UserEntity)
+                        return principle.Identity as UserEntity;
                 }
 
                 return null;
@@ -49,46 +45,12 @@ namespace AmstaJanBonga.Business.Security
 
         #endregion
 
-        #region Authentication Attribute
+        #region Methods
 
-        public void AuthActivityAttribute(string Activity)
+        public static void AuthenticateActivity(string activity)
         {
-            if (IsAuthenticated)
-            {
-                if (GetUserActivities(AuthenticatedUser).Contains(Activity))
-                {
-                    // Authorized
-                }
-                else
-                {
-                    // Unauthorized
-                }
-            }
-            else
-            {
-                throw new Exception();
-            }
+            
         }
-
-        public ActivityCollection GetUserActivities(UserEntity currentUser)
-        {
-            var roles = GetUserRoles(currentUser);
-            var activities = new ActivityCollection();
-
-            foreach (Role role in roles)
-            {
-                List<Activity> roleActivities = GetRoleActivities(role);
-                activities.AddRange(roleActivities);
-            }
-
-            return activities;
-
-            // If we wanted to be concise, this whole method could be written as:
-            // return GetUserRoles( currentUser ).SelectMany( x => x.GetRoleActivities( x ) );
-        }
-
-
-        #endregion
 
         #endregion
 
@@ -104,7 +66,6 @@ namespace AmstaJanBonga.Business.Security
             {
                 FormsAuthentication.SignOut();
                 HttpContext.Current.Session.Abandon();
-                Roles.DeleteCookie();
                 HttpContext.Current.Session.Clear();
 
                 // Redirects the user to the login page.

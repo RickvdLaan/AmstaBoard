@@ -55,7 +55,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Patient
             if (this.HasPatientId)
             {
                 this._lblFirstName.Text = this.Patient.FirstName.CapitalizeFirstLetter();
-                this._lblLivingroom.Text = this.Patient.Livingroom.Name;
+                this._lblLivingroom.Text = this.Patient.LivingRoom.Name;
                 this._imgPatient.ImageUrl = this.Patient.ImagePath;
             }
         }

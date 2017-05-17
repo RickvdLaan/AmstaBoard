@@ -16,18 +16,18 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
 
         #region Properties
 
-        private bool HasLivingroomId
+        private bool HasLivingRoomId
         {
-            get { return Url.QueryStringParser.HasParameter("LivingroomId"); }
+            get { return Url.QueryStringParser.HasParameter("LivingRoomId"); }
         }
 
-        private int LivingroomId
+        private int LivingRoomId
         {
             get
             {
-                if (this._livingroomId == -1 && this.HasLivingroomId)
+                if (this._livingroomId == -1 && this.HasLivingRoomId)
                 {
-                    this._livingroomId = Url.QueryStringParser.GetInt("LivingroomId");
+                    this._livingroomId = Url.QueryStringParser.GetInt("LivingRoomId");
                 }
 
                 return this._livingroomId;
@@ -40,7 +40,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
         {
             if (!this.IsPostBack)
             {
-                this._hlAddEditGeneral.NavigateUrl = "~/Content/Secure/Livingroom/General/GeneralEventAddEdit.aspx?LivingroomId={0}".FormatString(this.LivingroomId);
+                this._hlAddEditGeneral.NavigateUrl = "~/Content/Secure/Livingroom/General/GeneralEventAddEdit.aspx?LivingRoomId={0}".FormatString(this.LivingRoomId);
             }
         }
 
@@ -48,9 +48,9 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
 
         protected void _gvGeneral_PreRender(object sender, EventArgs e)
         {
-            if (this.HasLivingroomId)
+            if (this.HasLivingRoomId)
             {
-                this._gvGeneral.DataSource = LivingroomGeneralEventReader.GetAllLivingroomGeneralEventsByLivingroomId(this.LivingroomId);
+                this._gvGeneral.DataSource = LivingRoomGeneralEventReader.GetAllLivingroomGeneralEventsByLivingRoomId(this.LivingRoomId);
                 this._gvGeneral.DataBind();
 
                 if (this._gvGeneral.Rows.Count > 0)

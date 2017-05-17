@@ -64,26 +64,32 @@ namespace AmstaJanBonga.Business.Linq
 			IDataSource toReturn = null;
 			switch((AmstaJanBonga.Business.EntityType)typeOfEntity)
 			{
+				case AmstaJanBonga.Business.EntityType.AgendaEventEntity:
+					toReturn = this.AgendaEvent;
+					break;
+				case AmstaJanBonga.Business.EntityType.AgendaEventMetaEntity:
+					toReturn = this.AgendaEventMeta;
+					break;
 				case AmstaJanBonga.Business.EntityType.EmployeeEntity:
 					toReturn = this.Employee;
 					break;
 				case AmstaJanBonga.Business.EntityType.IpEntity:
 					toReturn = this.Ip;
 					break;
-				case AmstaJanBonga.Business.EntityType.LivingroomEntity:
-					toReturn = this.Livingroom;
+				case AmstaJanBonga.Business.EntityType.LivingRoomEntity:
+					toReturn = this.LivingRoom;
 					break;
-				case AmstaJanBonga.Business.EntityType.LivingroomChoreEventEntity:
-					toReturn = this.LivingroomChoreEvent;
+				case AmstaJanBonga.Business.EntityType.LivingRoomChoreEventEntity:
+					toReturn = this.LivingRoomChoreEvent;
 					break;
-				case AmstaJanBonga.Business.EntityType.LivingroomGeneralEntity:
-					toReturn = this.LivingroomGeneral;
+				case AmstaJanBonga.Business.EntityType.LivingRoomGeneralEntity:
+					toReturn = this.LivingRoomGeneral;
 					break;
-				case AmstaJanBonga.Business.EntityType.LivingroomGeneralEventEntity:
-					toReturn = this.LivingroomGeneralEvent;
+				case AmstaJanBonga.Business.EntityType.LivingRoomGeneralEventEntity:
+					toReturn = this.LivingRoomGeneralEvent;
 					break;
-				case AmstaJanBonga.Business.EntityType.LivingroomShiftEventEntity:
-					toReturn = this.LivingroomShiftEvent;
+				case AmstaJanBonga.Business.EntityType.LivingRoomShiftEventEntity:
+					toReturn = this.LivingRoomShiftEvent;
 					break;
 				case AmstaJanBonga.Business.EntityType.PatientEntity:
 					toReturn = this.Patient;
@@ -91,8 +97,14 @@ namespace AmstaJanBonga.Business.Linq
 				case AmstaJanBonga.Business.EntityType.UserEntity:
 					toReturn = this.User;
 					break;
+				case AmstaJanBonga.Business.EntityType.UserActivityEntity:
+					toReturn = this.UserActivity;
+					break;
 				case AmstaJanBonga.Business.EntityType.UserRoleEntity:
 					toReturn = this.UserRole;
+					break;
+				case AmstaJanBonga.Business.EntityType.UserRoleActivityEntity:
+					toReturn = this.UserRoleActivity;
 					break;
 				default:
 					toReturn = null;
@@ -110,6 +122,16 @@ namespace AmstaJanBonga.Business.Linq
     		return new DataSource<TEntity>(_transactionToUse, new ElementCreator(), _customFunctionMappings, _contextToUse);
 		}
 
+		/// <summary>returns the datasource to use in a Linq query when targeting AgendaEventEntity instances in the database.</summary>
+		public DataSource<AgendaEventEntity> AgendaEvent
+		{
+			get { return new DataSource<AgendaEventEntity>(_transactionToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
+		}
+		/// <summary>returns the datasource to use in a Linq query when targeting AgendaEventMetaEntity instances in the database.</summary>
+		public DataSource<AgendaEventMetaEntity> AgendaEventMeta
+		{
+			get { return new DataSource<AgendaEventMetaEntity>(_transactionToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
+		}
 		/// <summary>returns the datasource to use in a Linq query when targeting EmployeeEntity instances in the database.</summary>
 		public DataSource<EmployeeEntity> Employee
 		{
@@ -120,30 +142,30 @@ namespace AmstaJanBonga.Business.Linq
 		{
 			get { return new DataSource<IpEntity>(_transactionToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
 		}
-		/// <summary>returns the datasource to use in a Linq query when targeting LivingroomEntity instances in the database.</summary>
-		public DataSource<LivingroomEntity> Livingroom
+		/// <summary>returns the datasource to use in a Linq query when targeting LivingRoomEntity instances in the database.</summary>
+		public DataSource<LivingRoomEntity> LivingRoom
 		{
-			get { return new DataSource<LivingroomEntity>(_transactionToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
+			get { return new DataSource<LivingRoomEntity>(_transactionToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
 		}
-		/// <summary>returns the datasource to use in a Linq query when targeting LivingroomChoreEventEntity instances in the database.</summary>
-		public DataSource<LivingroomChoreEventEntity> LivingroomChoreEvent
+		/// <summary>returns the datasource to use in a Linq query when targeting LivingRoomChoreEventEntity instances in the database.</summary>
+		public DataSource<LivingRoomChoreEventEntity> LivingRoomChoreEvent
 		{
-			get { return new DataSource<LivingroomChoreEventEntity>(_transactionToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
+			get { return new DataSource<LivingRoomChoreEventEntity>(_transactionToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
 		}
-		/// <summary>returns the datasource to use in a Linq query when targeting LivingroomGeneralEntity instances in the database.</summary>
-		public DataSource<LivingroomGeneralEntity> LivingroomGeneral
+		/// <summary>returns the datasource to use in a Linq query when targeting LivingRoomGeneralEntity instances in the database.</summary>
+		public DataSource<LivingRoomGeneralEntity> LivingRoomGeneral
 		{
-			get { return new DataSource<LivingroomGeneralEntity>(_transactionToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
+			get { return new DataSource<LivingRoomGeneralEntity>(_transactionToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
 		}
-		/// <summary>returns the datasource to use in a Linq query when targeting LivingroomGeneralEventEntity instances in the database.</summary>
-		public DataSource<LivingroomGeneralEventEntity> LivingroomGeneralEvent
+		/// <summary>returns the datasource to use in a Linq query when targeting LivingRoomGeneralEventEntity instances in the database.</summary>
+		public DataSource<LivingRoomGeneralEventEntity> LivingRoomGeneralEvent
 		{
-			get { return new DataSource<LivingroomGeneralEventEntity>(_transactionToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
+			get { return new DataSource<LivingRoomGeneralEventEntity>(_transactionToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
 		}
-		/// <summary>returns the datasource to use in a Linq query when targeting LivingroomShiftEventEntity instances in the database.</summary>
-		public DataSource<LivingroomShiftEventEntity> LivingroomShiftEvent
+		/// <summary>returns the datasource to use in a Linq query when targeting LivingRoomShiftEventEntity instances in the database.</summary>
+		public DataSource<LivingRoomShiftEventEntity> LivingRoomShiftEvent
 		{
-			get { return new DataSource<LivingroomShiftEventEntity>(_transactionToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
+			get { return new DataSource<LivingRoomShiftEventEntity>(_transactionToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
 		}
 		/// <summary>returns the datasource to use in a Linq query when targeting PatientEntity instances in the database.</summary>
 		public DataSource<PatientEntity> Patient
@@ -155,10 +177,20 @@ namespace AmstaJanBonga.Business.Linq
 		{
 			get { return new DataSource<UserEntity>(_transactionToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
 		}
+		/// <summary>returns the datasource to use in a Linq query when targeting UserActivityEntity instances in the database.</summary>
+		public DataSource<UserActivityEntity> UserActivity
+		{
+			get { return new DataSource<UserActivityEntity>(_transactionToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
+		}
 		/// <summary>returns the datasource to use in a Linq query when targeting UserRoleEntity instances in the database.</summary>
 		public DataSource<UserRoleEntity> UserRole
 		{
 			get { return new DataSource<UserRoleEntity>(_transactionToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
+		}
+		/// <summary>returns the datasource to use in a Linq query when targeting UserRoleActivityEntity instances in the database.</summary>
+		public DataSource<UserRoleActivityEntity> UserRoleActivity
+		{
+			get { return new DataSource<UserRoleActivityEntity>(_transactionToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
 		}
 
 		#region Class Property Declarations

@@ -1,4 +1,5 @@
-﻿using Rlaan.Toolkit.Web;
+﻿using Rlaan.Toolkit.Extensions;
+using Rlaan.Toolkit.Web;
 using System;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -123,15 +124,10 @@ public abstract class Helper
                 return string.Empty;
 
             // Sets the file name.
-            var fileNameToUse = string.Format("image-{0}{1}",
-                uniqueId,
-                Path.GetExtension(fileUpload.FileName));
+            var fileNameToUse = "image-{0}{1}".FormatString(uniqueId, Path.GetExtension(fileUpload.FileName));
 
             // The path without the filename
-            var path = HttpContext.Current.Server.MapPath(
-                   string.Format("{0}{1}",
-                   HttpContext.Current.Request.ApplicationPath,
-                   virtualDirectory));
+            var path = HttpContext.Current.Server.MapPath("{0}{1}".FormatString(HttpContext.Current.Request.ApplicationPath, virtualDirectory));
 
             // Creates the directory if it does not exist.
             if (!Directory.Exists(path))

@@ -28,85 +28,85 @@ namespace AmstaJanBonga.Business.CollectionClasses
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces
 	// __LLBLGENPRO_USER_CODE_REGION_END
 
-	/// <summary>Collection class for storing and retrieving collections of ChoreEntity objects. </summary>
+	/// <summary>Collection class for storing and retrieving collections of UserRoleActivityEntity objects. </summary>
 	[Serializable]
-	public partial class ChoreCollection : EntityCollectionBase<ChoreEntity>
+	public partial class UserRoleActivityCollection : EntityCollectionBase<UserRoleActivityEntity>
 	{
 		/// <summary> CTor</summary>
-		public ChoreCollection():base(new ChoreEntityFactory())
+		public UserRoleActivityCollection():base(new UserRoleActivityEntityFactory())
 		{
 		}
 
 		/// <summary> CTor</summary>
 		/// <param name="initialContents">The initial contents of this collection.</param>
-		public ChoreCollection(IEnumerable<ChoreEntity> initialContents):base(new ChoreEntityFactory())
+		public UserRoleActivityCollection(IEnumerable<UserRoleActivityEntity> initialContents):base(new UserRoleActivityEntityFactory())
 		{
 			AddRange(initialContents);
 		}
 
 		/// <summary> CTor</summary>
 		/// <param name="entityFactoryToUse">The EntityFactory to use when creating entity objects during a GetMulti() call.</param>
-		public ChoreCollection(IEntityFactory entityFactoryToUse):base(entityFactoryToUse)
+		public UserRoleActivityCollection(IEntityFactory entityFactoryToUse):base(entityFactoryToUse)
 		{
 		}
 
 		/// <summary> Private CTor for deserialization</summary>
 		/// <param name="info"></param>
 		/// <param name="context"></param>
-		protected ChoreCollection(SerializationInfo info, StreamingContext context) : base(info, context)
+		protected UserRoleActivityCollection(SerializationInfo info, StreamingContext context) : base(info, context)
 		{
 		}
 
 
-		/// <summary> Retrieves in this ChoreCollection object all ChoreEntity objects which have data in common with the specified related Entities.
+		/// <summary> Retrieves in this UserRoleActivityCollection object all UserRoleActivityEntity objects which have data in common with the specified related Entities.
 		/// If one is omitted, that entity is not used as a filter. All current elements in the collection are removed from the collection.</summary>
-		/// <param name="livingroomInstance">LivingroomEntity instance to use as a filter for the ChoreEntity objects to return</param>
-		/// <param name="patientInstance">PatientEntity instance to use as a filter for the ChoreEntity objects to return</param>
+		/// <param name="userActivityInstance">UserActivityEntity instance to use as a filter for the UserRoleActivityEntity objects to return</param>
+		/// <param name="userRoleInstance">UserRoleEntity instance to use as a filter for the UserRoleActivityEntity objects to return</param>
 		/// <returns>true if succeeded, false otherwise</returns>
-		public bool GetMultiManyToOne(IEntity livingroomInstance, IEntity patientInstance)
+		public bool GetMultiManyToOne(IEntity userActivityInstance, IEntity userRoleInstance)
 		{
-			return GetMultiManyToOne(livingroomInstance, patientInstance, this.MaxNumberOfItemsToReturn, this.SortClauses, null, 0, 0);
+			return GetMultiManyToOne(userActivityInstance, userRoleInstance, this.MaxNumberOfItemsToReturn, this.SortClauses, null, 0, 0);
 		}
 
-		/// <summary> Retrieves in this ChoreCollection object all ChoreEntity objects which have data in common with the specified related Entities.
+		/// <summary> Retrieves in this UserRoleActivityCollection object all UserRoleActivityEntity objects which have data in common with the specified related Entities.
 		/// If one is omitted, that entity is not used as a filter. All current elements in the collection are removed from the collection.</summary>
-		/// <param name="livingroomInstance">LivingroomEntity instance to use as a filter for the ChoreEntity objects to return</param>
-		/// <param name="patientInstance">PatientEntity instance to use as a filter for the ChoreEntity objects to return</param>
+		/// <param name="userActivityInstance">UserActivityEntity instance to use as a filter for the UserRoleActivityEntity objects to return</param>
+		/// <param name="userRoleInstance">UserRoleEntity instance to use as a filter for the UserRoleActivityEntity objects to return</param>
 		/// <param name="filter">Extra filter to limit the resultset. Predicate expression can be null, in which case it will be ignored.</param>
 		/// <returns>true if succeeded, false otherwise</returns>
-		public bool GetMultiManyToOne(IEntity livingroomInstance, IEntity patientInstance, IPredicateExpression filter)
+		public bool GetMultiManyToOne(IEntity userActivityInstance, IEntity userRoleInstance, IPredicateExpression filter)
 		{
-			return GetMultiManyToOne(livingroomInstance, patientInstance, this.MaxNumberOfItemsToReturn, this.SortClauses, filter, 0, 0);
+			return GetMultiManyToOne(userActivityInstance, userRoleInstance, this.MaxNumberOfItemsToReturn, this.SortClauses, filter, 0, 0);
 		}
 
-		/// <summary> Retrieves in this ChoreCollection object all ChoreEntity objects which have data in common with the specified related Entities.
+		/// <summary> Retrieves in this UserRoleActivityCollection object all UserRoleActivityEntity objects which have data in common with the specified related Entities.
 		/// If one is omitted, that entity is not used as a filter. All current elements in the collection are removed from the collection.</summary>
-		/// <param name="livingroomInstance">LivingroomEntity instance to use as a filter for the ChoreEntity objects to return</param>
-		/// <param name="patientInstance">PatientEntity instance to use as a filter for the ChoreEntity objects to return</param>
+		/// <param name="userActivityInstance">UserActivityEntity instance to use as a filter for the UserRoleActivityEntity objects to return</param>
+		/// <param name="userRoleInstance">UserRoleEntity instance to use as a filter for the UserRoleActivityEntity objects to return</param>
 		/// <param name="maxNumberOfItemsToReturn"> The maximum number of items to return with this retrieval query.</param>
 		/// <param name="sortClauses">The order by specifications for the sorting of the resultset. When not specified, no sorting is applied.</param>
 		/// <param name="filter">Extra filter to limit the resultset. Predicate expression can be null, in which case it will be ignored.</param>
 		/// <returns>true if succeeded, false otherwise</returns>
-		public bool GetMultiManyToOne(IEntity livingroomInstance, IEntity patientInstance, long maxNumberOfItemsToReturn, ISortExpression sortClauses, IPredicateExpression filter)
+		public bool GetMultiManyToOne(IEntity userActivityInstance, IEntity userRoleInstance, long maxNumberOfItemsToReturn, ISortExpression sortClauses, IPredicateExpression filter)
 		{
-			return GetMultiManyToOne(livingroomInstance, patientInstance, maxNumberOfItemsToReturn, sortClauses, filter, 0, 0);
+			return GetMultiManyToOne(userActivityInstance, userRoleInstance, maxNumberOfItemsToReturn, sortClauses, filter, 0, 0);
 		}
 
-		/// <summary> Retrieves in this ChoreCollection object all ChoreEntity objects which have data in common with the specified related Entities.
+		/// <summary> Retrieves in this UserRoleActivityCollection object all UserRoleActivityEntity objects which have data in common with the specified related Entities.
 		/// If one is omitted, that entity is not used as a filter. All current elements in the collection are removed from the collection.</summary>
-		/// <param name="livingroomInstance">LivingroomEntity instance to use as a filter for the ChoreEntity objects to return</param>
-		/// <param name="patientInstance">PatientEntity instance to use as a filter for the ChoreEntity objects to return</param>
+		/// <param name="userActivityInstance">UserActivityEntity instance to use as a filter for the UserRoleActivityEntity objects to return</param>
+		/// <param name="userRoleInstance">UserRoleEntity instance to use as a filter for the UserRoleActivityEntity objects to return</param>
 		/// <param name="maxNumberOfItemsToReturn"> The maximum number of items to return with this retrieval query.</param>
 		/// <param name="sortClauses">The order by specifications for the sorting of the resultset. When not specified, no sorting is applied.</param>
 		/// <param name="filter">Extra filter to limit the resultset. Predicate expression can be null, in which case it will be ignored.</param>
 		/// <param name="pageNumber">The page number to retrieve.</param>
 		/// <param name="pageSize">The page size of the page to retrieve.</param>
 		/// <returns>true if succeeded, false otherwise</returns>
-		public virtual bool GetMultiManyToOne(IEntity livingroomInstance, IEntity patientInstance, long maxNumberOfItemsToReturn, ISortExpression sortClauses, IPredicateExpression filter, int pageNumber, int pageSize)
+		public virtual bool GetMultiManyToOne(IEntity userActivityInstance, IEntity userRoleInstance, long maxNumberOfItemsToReturn, ISortExpression sortClauses, IPredicateExpression filter, int pageNumber, int pageSize)
 		{
 			bool validParameters = false;
-			validParameters |= (livingroomInstance!=null);
-			validParameters |= (patientInstance!=null);
+			validParameters |= (userActivityInstance!=null);
+			validParameters |= (userRoleInstance!=null);
 			if(!validParameters)
 			{
 				return GetMulti(filter, maxNumberOfItemsToReturn, sortClauses, null, pageNumber, pageSize);
@@ -115,28 +115,28 @@ namespace AmstaJanBonga.Business.CollectionClasses
 			{
 				this.Clear();
 			}
-			return DAOFactory.CreateChoreDAO().GetMulti(this.Transaction, this, maxNumberOfItemsToReturn, sortClauses, this.EntityFactoryToUse, filter, livingroomInstance, patientInstance, pageNumber, pageSize);
+			return DAOFactory.CreateUserRoleActivityDAO().GetMulti(this.Transaction, this, maxNumberOfItemsToReturn, sortClauses, this.EntityFactoryToUse, filter, userActivityInstance, userRoleInstance, pageNumber, pageSize);
 		}
 
-		/// <summary> Deletes from the persistent storage all Chore entities which have data in common with the specified related Entities. If one is omitted, that entity is not used as a filter.</summary>
+		/// <summary> Deletes from the persistent storage all UserRoleActivity entities which have data in common with the specified related Entities. If one is omitted, that entity is not used as a filter.</summary>
 		/// <remarks>Runs directly on the persistent storage. It will not delete entity objects from the current collection.</remarks>
-		/// <param name="livingroomInstance">LivingroomEntity instance to use as a filter for the ChoreEntity objects to return</param>
-		/// <param name="patientInstance">PatientEntity instance to use as a filter for the ChoreEntity objects to return</param>
+		/// <param name="userActivityInstance">UserActivityEntity instance to use as a filter for the UserRoleActivityEntity objects to return</param>
+		/// <param name="userRoleInstance">UserRoleEntity instance to use as a filter for the UserRoleActivityEntity objects to return</param>
 		/// <returns>Amount of entities affected, if the used persistent storage has rowcounting enabled.</returns>
-		public int DeleteMultiManyToOne(IEntity livingroomInstance, IEntity patientInstance)
+		public int DeleteMultiManyToOne(IEntity userActivityInstance, IEntity userRoleInstance)
 		{
-			return DAOFactory.CreateChoreDAO().DeleteMulti(this.Transaction, livingroomInstance, patientInstance);
+			return DAOFactory.CreateUserRoleActivityDAO().DeleteMulti(this.Transaction, userActivityInstance, userRoleInstance);
 		}
 
-		/// <summary> Updates in the persistent storage all Chore entities which have data in common with the specified related Entities. If one is omitted, that entity is not used as a filter.
+		/// <summary> Updates in the persistent storage all UserRoleActivity entities which have data in common with the specified related Entities. If one is omitted, that entity is not used as a filter.
 		/// Which fields are updated in those matching entities depends on which fields are <i>changed</i> in the passed in entity entityWithNewValues. The new values of these fields are read from entityWithNewValues. </summary>
-		/// <param name="entityWithNewValues">ChoreEntity instance which holds the new values for the matching entities to update. Only changed fields are taken into account</param>
-		/// <param name="livingroomInstance">LivingroomEntity instance to use as a filter for the ChoreEntity objects to return</param>
-		/// <param name="patientInstance">PatientEntity instance to use as a filter for the ChoreEntity objects to return</param>
+		/// <param name="entityWithNewValues">UserRoleActivityEntity instance which holds the new values for the matching entities to update. Only changed fields are taken into account</param>
+		/// <param name="userActivityInstance">UserActivityEntity instance to use as a filter for the UserRoleActivityEntity objects to return</param>
+		/// <param name="userRoleInstance">UserRoleEntity instance to use as a filter for the UserRoleActivityEntity objects to return</param>
 		/// <returns>Amount of entities affected, if the used persistent storage has rowcounting enabled.</returns>
-		public int UpdateMultiManyToOne(ChoreEntity entityWithNewValues, IEntity livingroomInstance, IEntity patientInstance)
+		public int UpdateMultiManyToOne(UserRoleActivityEntity entityWithNewValues, IEntity userActivityInstance, IEntity userRoleInstance)
 		{
-			return DAOFactory.CreateChoreDAO().UpdateMulti(entityWithNewValues, this.Transaction, livingroomInstance, patientInstance);
+			return DAOFactory.CreateUserRoleActivityDAO().UpdateMulti(entityWithNewValues, this.Transaction, userActivityInstance, userRoleInstance);
 		}
 
 
@@ -171,7 +171,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <returns>DataTable with the rows requested.</returns>
 		public static DataTable GetMultiAsDataTable(IPredicate selectFilter, long maxNumberOfItemsToReturn, ISortExpression sortClauses, IRelationCollection relations, int pageNumber, int pageSize)
 		{
-			ChoreDAO dao = DAOFactory.CreateChoreDAO();
+			UserRoleActivityDAO dao = DAOFactory.CreateUserRoleActivityDAO();
 			return dao.GetMultiAsDataTable(maxNumberOfItemsToReturn, sortClauses, selectFilter, relations, pageNumber, pageSize);
 		}
 
@@ -181,7 +181,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <param name="fieldIndex">Field index of field to which to apply the aggregate function and expression</param>
 		/// <param name="aggregateToApply">Aggregate function to apply. </param>
 		/// <returns>the scalar value requested</returns>
-		public object GetScalar(ChoreFieldIndex fieldIndex, AggregateFunction aggregateToApply)
+		public object GetScalar(UserRoleActivityFieldIndex fieldIndex, AggregateFunction aggregateToApply)
 		{
 			return GetScalar(fieldIndex, null, aggregateToApply, null, null, null);
 		}
@@ -191,7 +191,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <param name="expressionToExecute">The expression to execute. Can be null</param>
 		/// <param name="aggregateToApply">Aggregate function to apply. </param>
 		/// <returns>the scalar value requested</returns>
-		public object GetScalar(ChoreFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply)
+		public object GetScalar(UserRoleActivityFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply)
 		{
 			return GetScalar(fieldIndex, expressionToExecute, aggregateToApply, null, null, null);
 		}
@@ -202,7 +202,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <param name="aggregateToApply">Aggregate function to apply. </param>
 		/// <param name="filter">The filter to apply to retrieve the scalar</param>
 		/// <returns>the scalar value requested</returns>
-		public object GetScalar(ChoreFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter)
+		public object GetScalar(UserRoleActivityFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter)
 		{
 			return GetScalar(fieldIndex, expressionToExecute, aggregateToApply, filter, null, null);
 		}
@@ -214,7 +214,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <param name="filter">The filter to apply to retrieve the scalar</param>
 		/// <param name="groupByClause">The groupby clause to apply to retrieve the scalar</param>
 		/// <returns>the scalar value requested</returns>
-		public object GetScalar(ChoreFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter, IGroupByCollection groupByClause)
+		public object GetScalar(UserRoleActivityFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter, IGroupByCollection groupByClause)
 		{
 			return GetScalar(fieldIndex, expressionToExecute, aggregateToApply, filter, null, groupByClause);
 		}
@@ -227,7 +227,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <param name="relations">The relations to walk</param>
 		/// <param name="groupByClause">The groupby clause to apply to retrieve the scalar</param>
 		/// <returns>the scalar value requested</returns>
-		public virtual object GetScalar(ChoreFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter, IRelationCollection relations, IGroupByCollection groupByClause)
+		public virtual object GetScalar(UserRoleActivityFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter, IRelationCollection relations, IGroupByCollection groupByClause)
 		{
 			EntityFields fields = new EntityFields(1);
 			fields[0] = EntityFieldFactory.Create(fieldIndex);
@@ -239,13 +239,13 @@ namespace AmstaJanBonga.Business.CollectionClasses
 			{
 				fields[0].AggregateFunctionToApply = aggregateToApply;
 			}
-			return DAOFactory.CreateChoreDAO().GetScalar(fields, this.Transaction, filter, relations, groupByClause);
+			return DAOFactory.CreateUserRoleActivityDAO().GetScalar(fields, this.Transaction, filter, relations, groupByClause);
 		}
 		
 		/// <summary>Creats a new DAO instance so code which is in the base class can still use the proper DAO object.</summary>
 		protected override IDao CreateDAOInstance()
 		{
-			return DAOFactory.CreateChoreDAO();
+			return DAOFactory.CreateUserRoleActivityDAO();
 		}
 		
 		/// <summary>Creates a new transaction object</summary>

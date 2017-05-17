@@ -86,7 +86,7 @@ namespace AmstaJanBonga.Web
                         Authentication.Utility.SignOut();
 
                     // Logging the event to the developer.
-                    Log.Object(user, "No RoleTypeEnum found by value {0}, it was either not implemented or does not exist and wasn't caught by the login screen.".FormatString());
+                    Log.Object(user, "Web: No RoleTypeEnum found by value {0}, it was either not implemented or does not exist and wasn't caught by the login screen.".FormatString());
                 }
             }
         }

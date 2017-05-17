@@ -15,9 +15,9 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
     {
         #region Variables & Objects
 
-        private LivingroomEntity _livingroom = null;
+        private LivingRoomEntity _livingroom = null;
 
-        private LivingroomChoreEventCollection _chores = null;
+        private LivingRoomChoreEventCollection _chores = null;
 
         private DateTime _date = DateTime.MinValue;
 
@@ -33,9 +33,9 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
             get { return Url.GetFullUrl.Contains("&Date=") ? "Wijzigen" : "Toevoegen"; }
         }
 
-        private bool HasLivingroomId
+        private bool HasLivingRoomId
         {
-            get { return Url.QueryStringParser.HasParameter("LivingroomId"); }
+            get { return Url.QueryStringParser.HasParameter("LivingRoomId"); }
         }
 
         private bool HasDate
@@ -43,12 +43,12 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
             get { return Url.QueryStringParser.HasParameter("Date"); }
         }
 
-        private LivingroomEntity Livingroom
+        private LivingRoomEntity Livingroom
         {
             get
             {
-                if (this._livingroom == null && this.HasLivingroomId)
-                    this._livingroom = LivingroomReader.GetLivingroomById(Url.QueryStringParser.GetInt("LivingroomId"), true);
+                if (this._livingroom == null && this.HasLivingRoomId)
+                    this._livingroom = LivingRoomReader.GetLivingroomById(Url.QueryStringParser.GetInt("LivingRoomId"), true);
 
                 return this._livingroom;
             }
@@ -65,14 +65,14 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
             }
         }
 
-        private LivingroomChoreEventCollection Chores
+        private LivingRoomChoreEventCollection Chores
         {
             get
             {
-                if (this._chores == null && this.HasLivingroomId && this.HasDate)
+                if (this._chores == null && this.HasLivingRoomId && this.HasDate)
                 {
                     // Gets all chores for a specific livingroom and date.
-                    this._chores = LivingroomChoreEventReader.GetAllChoresFilteredByLivingroomAndDate(this.Livingroom.Id, this.QueryStringDate.Date);
+                    this._chores = LivingRoomChoreEventReader.GetAllChoresFilteredByLivingroomAndDate(this.Livingroom.Id, this.QueryStringDate.Date);
                 }
 
                 return this._chores;
@@ -91,7 +91,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
             {
                 this.PreFill();
 
-                this._hlReturn.NavigateUrl = "~/Content/Secure/Livingroom/Chores/ChoresOverview.aspx?LivingroomId={0}".FormatString(this.Livingroom.Id);
+                this._hlReturn.NavigateUrl = "~/Content/Secure/Livingroom/Chores/ChoresOverview.aspx?LivingRoomId={0}".FormatString(this.Livingroom.Id);
             }
         }
 
@@ -99,10 +99,10 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
 
         private void PreFill()
         {
-            if (this.HasLivingroomId)
+            if (this.HasLivingRoomId)
             {
                 // Gets all the patients for a specific livingroom.
-                var patients = PatientReader.GetAllPatientsByLivingroomId(this.Livingroom.Id);
+                var patients = PatientReader.GetAllPatientsByLivingRoomId(this.Livingroom.Id);
 
                 // Edit
                 if (this.HasDate)
@@ -149,7 +149,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
             }
         }
 
-        private void PreFillListBox(LivingroomChoreEventCollection chores, PatientCollection patients, JsListBox listBox, TimeOfDayTypeEnum timeOfDayType)
+        private void PreFillListBox(LivingRoomChoreEventCollection chores, PatientCollection patients, JsListBox listBox, TimeOfDayTypeEnum timeOfDayType)
         {
             // The chore source and destination data.
             var choreSourceData = new PatientCollection();
@@ -189,7 +189,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
 
         private void Save()
         {
-            if (this.HasLivingroomId)
+            if (this.HasLivingRoomId)
             {
                 // Edit
                 if (this.HasDate)
@@ -206,9 +206,9 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
             }
         }
 
-        private LivingroomChoreEventCollection GetSelectedPatients()
+        private LivingRoomChoreEventCollection GetSelectedPatients()
         {
-            var chores = new LivingroomChoreEventCollection();
+            var chores = new LivingRoomChoreEventCollection();
 
             // Morning
             for (int i = 0; i < _jlbMorning.ListBoxDestination.Items.Count; i++)
@@ -246,13 +246,13 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
             {
                 this.Save();
 
-                Response.Redirect("~/Content/Secure/Livingroom/Chores/ChoresOverview.aspx?LivingroomId={0}".FormatString(this.Livingroom.Id));
+                Response.Redirect("~/Content/Secure/Livingroom/Chores/ChoresOverview.aspx?LivingRoomId={0}".FormatString(this.Livingroom.Id));
             }
         }
 
         protected void _btnCancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Content/Secure/Livingroom/Chores/ChoresOverview.aspx?LivingroomId={0}".FormatString(this.Livingroom.Id));
+            Response.Redirect("~/Content/Secure/Livingroom/Chores/ChoresOverview.aspx?LivingRoomId={0}".FormatString(this.Livingroom.Id));
         }
 
         #endregion

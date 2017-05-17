@@ -3,16 +3,16 @@ using System;
 
 namespace AmstaJanBonga.Business.EntityClasses
 {
-    public partial class LivingroomChoreEventEntity
+    public partial class LivingRoomChoreEventEntity
     {
         #region Properties
 
         public override bool Equals(object obj)
         {
-            if (this.PatientId == (obj as LivingroomChoreEventEntity).PatientId &&
-                this.LivingroomId == (obj as LivingroomChoreEventEntity).LivingroomId &&
-                this.Date == (obj as LivingroomChoreEventEntity).Date &&
-                this.TimeOfDayTypeEnum == (obj as LivingroomChoreEventEntity).TimeOfDayTypeEnum)
+            if (this.PatientId == (obj as LivingRoomChoreEventEntity).PatientId &&
+                this.LivingRoomId == (obj as LivingRoomChoreEventEntity).LivingRoomId &&
+                this.Date == (obj as LivingRoomChoreEventEntity).Date &&
+                this.TimeOfDayTypeEnum == (obj as LivingRoomChoreEventEntity).TimeOfDayTypeEnum)
             {
                 return true;
             }

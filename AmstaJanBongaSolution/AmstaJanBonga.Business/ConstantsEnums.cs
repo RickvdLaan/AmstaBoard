@@ -11,6 +11,40 @@ using System;
 
 namespace AmstaJanBonga.Business
 {
+	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: AgendaEvent.</summary>
+	public enum AgendaEventFieldIndex
+	{
+		///<summary>Description. </summary>
+		Description,
+		///<summary>Id. </summary>
+		Id,
+		///<summary>Location. </summary>
+		Location,
+		///<summary>PatientId. </summary>
+		PatientId,
+		///<summary>Time. </summary>
+		Time,
+		///<summary>Title. </summary>
+		Title,
+		/// <summary></summary>
+		AmountOfFields
+	}
+	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: AgendaEventMeta.</summary>
+	public enum AgendaEventMetaFieldIndex
+	{
+		///<summary>AgendaEventId. </summary>
+		AgendaEventId,
+		///<summary>Id. </summary>
+		Id,
+		///<summary>RepeatInterval. </summary>
+		RepeatInterval,
+		///<summary>RepeatStart. </summary>
+		RepeatStart,
+		///<summary>SingleEvent. </summary>
+		SingleEvent,
+		/// <summary></summary>
+		AmountOfFields
+	}
 	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: Employee.</summary>
 	public enum EmployeeFieldIndex
 	{
@@ -28,12 +62,10 @@ namespace AmstaJanBonga.Business
 		Id,
 		///<summary>ImagePath. </summary>
 		ImagePath,
-		///<summary>IsActive. </summary>
-		IsActive,
 		///<summary>IsMarkedAsDeleted. </summary>
 		IsMarkedAsDeleted,
-		///<summary>LivingroomId. </summary>
-		LivingroomId,
+		///<summary>LivingRoomId. </summary>
+		LivingRoomId,
 		///<summary>UserId. </summary>
 		UserId,
 		/// <summary></summary>
@@ -55,8 +87,8 @@ namespace AmstaJanBonga.Business
 		/// <summary></summary>
 		AmountOfFields
 	}
-	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: Livingroom.</summary>
-	public enum LivingroomFieldIndex
+	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: LivingRoom.</summary>
+	public enum LivingRoomFieldIndex
 	{
 		///<summary>ColourTypeEnum. </summary>
 		ColourTypeEnum,
@@ -70,8 +102,6 @@ namespace AmstaJanBonga.Business
 		DateLastModifiedByUserId,
 		///<summary>Id. </summary>
 		Id,
-		///<summary>IsActive. </summary>
-		IsActive,
 		///<summary>IsMarkedAsDeleted. </summary>
 		IsMarkedAsDeleted,
 		///<summary>Name. </summary>
@@ -79,8 +109,8 @@ namespace AmstaJanBonga.Business
 		/// <summary></summary>
 		AmountOfFields
 	}
-	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: LivingroomChoreEvent.</summary>
-	public enum LivingroomChoreEventFieldIndex
+	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: LivingRoomChoreEvent.</summary>
+	public enum LivingRoomChoreEventFieldIndex
 	{
 		///<summary>Date. </summary>
 		Date,
@@ -90,8 +120,8 @@ namespace AmstaJanBonga.Business
 		DateLastModified,
 		///<summary>DateLastModifiedByUserId. </summary>
 		DateLastModifiedByUserId,
-		///<summary>LivingroomId. </summary>
-		LivingroomId,
+		///<summary>LivingRoomId. </summary>
+		LivingRoomId,
 		///<summary>PatientId. </summary>
 		PatientId,
 		///<summary>TimeOfDayTypeEnum. </summary>
@@ -99,8 +129,8 @@ namespace AmstaJanBonga.Business
 		/// <summary></summary>
 		AmountOfFields
 	}
-	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: LivingroomGeneral.</summary>
-	public enum LivingroomGeneralFieldIndex
+	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: LivingRoomGeneral.</summary>
+	public enum LivingRoomGeneralFieldIndex
 	{
 		///<summary>DateCreated. </summary>
 		DateCreated,
@@ -110,13 +140,13 @@ namespace AmstaJanBonga.Business
 		DateLastModifiedByUserId,
 		///<summary>Description. </summary>
 		Description,
-		///<summary>LivingroomId. </summary>
-		LivingroomId,
+		///<summary>LivingRoomId. </summary>
+		LivingRoomId,
 		/// <summary></summary>
 		AmountOfFields
 	}
-	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: LivingroomGeneralEvent.</summary>
-	public enum LivingroomGeneralEventFieldIndex
+	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: LivingRoomGeneralEvent.</summary>
+	public enum LivingRoomGeneralEventFieldIndex
 	{
 		///<summary>Date. </summary>
 		Date,
@@ -128,13 +158,13 @@ namespace AmstaJanBonga.Business
 		DateLastModifiedByUserId,
 		///<summary>Description. </summary>
 		Description,
-		///<summary>LivingroomId. </summary>
-		LivingroomId,
+		///<summary>LivingRoomId. </summary>
+		LivingRoomId,
 		/// <summary></summary>
 		AmountOfFields
 	}
-	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: LivingroomShiftEvent.</summary>
-	public enum LivingroomShiftEventFieldIndex
+	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: LivingRoomShiftEvent.</summary>
+	public enum LivingRoomShiftEventFieldIndex
 	{
 		///<summary>Date. </summary>
 		Date,
@@ -146,8 +176,8 @@ namespace AmstaJanBonga.Business
 		DateLastModifiedByUserId,
 		///<summary>EmployeeId. </summary>
 		EmployeeId,
-		///<summary>LivingroomId. </summary>
-		LivingroomId,
+		///<summary>LivingRoomId. </summary>
+		LivingRoomId,
 		///<summary>ShiftTypeEnum. </summary>
 		ShiftTypeEnum,
 		/// <summary></summary>
@@ -170,12 +200,10 @@ namespace AmstaJanBonga.Business
 		Id,
 		///<summary>ImagePath. </summary>
 		ImagePath,
-		///<summary>IsActive. </summary>
-		IsActive,
 		///<summary>IsMarkedAsDeleted. </summary>
 		IsMarkedAsDeleted,
-		///<summary>LivingroomId. </summary>
-		LivingroomId,
+		///<summary>LivingRoomId. </summary>
+		LivingRoomId,
 		/// <summary></summary>
 		AmountOfFields
 	}
@@ -194,12 +222,12 @@ namespace AmstaJanBonga.Business
 		DateLastModifiedByUserId,
 		///<summary>Id. </summary>
 		Id,
-		///<summary>IsActive. </summary>
-		IsActive,
 		///<summary>IsMarkedAsDeleted. </summary>
 		IsMarkedAsDeleted,
 		///<summary>Password. </summary>
 		Password,
+		///<summary>RoleTypeEnum. </summary>
+		RoleTypeEnum,
 		///<summary>Salt. </summary>
 		Salt,
 		///<summary>Username. </summary>
@@ -207,13 +235,45 @@ namespace AmstaJanBonga.Business
 		/// <summary></summary>
 		AmountOfFields
 	}
+	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: UserActivity.</summary>
+	public enum UserActivityFieldIndex
+	{
+		///<summary>DateCreated. </summary>
+		DateCreated,
+		///<summary>DateLastModified. </summary>
+		DateLastModified,
+		///<summary>DateLastModifiedByUserId. </summary>
+		DateLastModifiedByUserId,
+		///<summary>Id. </summary>
+		Id,
+		///<summary>Name. </summary>
+		Name,
+		/// <summary></summary>
+		AmountOfFields
+	}
 	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: UserRole.</summary>
 	public enum UserRoleFieldIndex
 	{
+		///<summary>DateCreated. </summary>
+		DateCreated,
+		///<summary>DateLastModified. </summary>
+		DateLastModified,
+		///<summary>DateLastModifiedByUserId. </summary>
+		DateLastModifiedByUserId,
+		///<summary>Name. </summary>
+		Name,
 		///<summary>RoleTypeEnum. </summary>
 		RoleTypeEnum,
-		///<summary>UserId. </summary>
-		UserId,
+		/// <summary></summary>
+		AmountOfFields
+	}
+	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: UserRoleActivity.</summary>
+	public enum UserRoleActivityFieldIndex
+	{
+		///<summary>RoleTypeEnum. </summary>
+		RoleTypeEnum,
+		///<summary>UserActivityId. </summary>
+		UserActivityId,
 		/// <summary></summary>
 		AmountOfFields
 	}
@@ -223,26 +283,34 @@ namespace AmstaJanBonga.Business
 	/// <summary>Enum definition for all the entity types defined in this namespace. Used by the entityfields factory.</summary>
 	public enum EntityType
 	{
+		///<summary>AgendaEvent</summary>
+		AgendaEventEntity,
+		///<summary>AgendaEventMeta</summary>
+		AgendaEventMetaEntity,
 		///<summary>Employee</summary>
 		EmployeeEntity,
 		///<summary>Ip</summary>
 		IpEntity,
-		///<summary>Livingroom</summary>
-		LivingroomEntity,
-		///<summary>LivingroomChoreEvent</summary>
-		LivingroomChoreEventEntity,
-		///<summary>LivingroomGeneral</summary>
-		LivingroomGeneralEntity,
-		///<summary>LivingroomGeneralEvent</summary>
-		LivingroomGeneralEventEntity,
-		///<summary>LivingroomShiftEvent</summary>
-		LivingroomShiftEventEntity,
+		///<summary>LivingRoom</summary>
+		LivingRoomEntity,
+		///<summary>LivingRoomChoreEvent</summary>
+		LivingRoomChoreEventEntity,
+		///<summary>LivingRoomGeneral</summary>
+		LivingRoomGeneralEntity,
+		///<summary>LivingRoomGeneralEvent</summary>
+		LivingRoomGeneralEventEntity,
+		///<summary>LivingRoomShiftEvent</summary>
+		LivingRoomShiftEventEntity,
 		///<summary>Patient</summary>
 		PatientEntity,
 		///<summary>User</summary>
 		UserEntity,
+		///<summary>UserActivity</summary>
+		UserActivityEntity,
 		///<summary>UserRole</summary>
-		UserRoleEntity
+		UserRoleEntity,
+		///<summary>UserRoleActivity</summary>
+		UserRoleActivityEntity
 	}
 
 

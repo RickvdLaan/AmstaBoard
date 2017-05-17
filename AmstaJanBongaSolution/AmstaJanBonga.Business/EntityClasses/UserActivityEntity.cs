@@ -31,17 +31,15 @@ namespace AmstaJanBonga.Business.EntityClasses
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces
 	// __LLBLGENPRO_USER_CODE_REGION_END
 
-	/// <summary>Entity class which represents the entity 'UserRole'. <br/><br/>
+	/// <summary>Entity class which represents the entity 'UserActivity'. <br/><br/>
 	/// 
 	/// </summary>
 	[Serializable]
-	public partial class UserRoleEntity : CommonEntityBase
+	public partial class UserActivityEntity : CommonEntityBase
 		// __LLBLGENPRO_USER_CODE_REGION_START AdditionalInterfaces
 		// __LLBLGENPRO_USER_CODE_REGION_END	
 	{
 		#region Class Member Declarations
-		private AmstaJanBonga.Business.CollectionClasses.UserCollection	_users;
-		private bool	_alwaysFetchUsers, _alreadyFetchedUsers;
 		private AmstaJanBonga.Business.CollectionClasses.UserRoleActivityCollection	_userRoleActivities;
 		private bool	_alwaysFetchUserRoleActivities, _alreadyFetchedUserRoleActivities;
 
@@ -56,57 +54,51 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <summary>All names of fields mapped onto a relation. Usable for in-memory filtering</summary>
 		public static partial class MemberNames
 		{
-			/// <summary>Member name Users</summary>
-			public static readonly string Users = "Users";
 			/// <summary>Member name UserRoleActivities</summary>
 			public static readonly string UserRoleActivities = "UserRoleActivities";
 		}
 		#endregion
 		
 		/// <summary>Static CTor for setting up custom property hashtables. Is executed before the first instance of this entity class or derived classes is constructed. </summary>
-		static UserRoleEntity()
+		static UserActivityEntity()
 		{
 			SetupCustomPropertyHashtables();
 		}
 
 		/// <summary>CTor</summary>
-		public UserRoleEntity() :base("UserRoleEntity")
+		public UserActivityEntity() :base("UserActivityEntity")
 		{
 			InitClassEmpty(null);
 		}
 		
 		/// <summary>CTor</summary>
-		/// <param name="roleTypeEnum">PK value for UserRole which data should be fetched into this UserRole object</param>
-		public UserRoleEntity(System.Byte roleTypeEnum):base("UserRoleEntity")
+		/// <param name="id">PK value for UserActivity which data should be fetched into this UserActivity object</param>
+		public UserActivityEntity(System.Int32 id):base("UserActivityEntity")
 		{
-			InitClassFetch(roleTypeEnum, null, null);
+			InitClassFetch(id, null, null);
 		}
 
 		/// <summary>CTor</summary>
-		/// <param name="roleTypeEnum">PK value for UserRole which data should be fetched into this UserRole object</param>
+		/// <param name="id">PK value for UserActivity which data should be fetched into this UserActivity object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
-		public UserRoleEntity(System.Byte roleTypeEnum, IPrefetchPath prefetchPathToUse):base("UserRoleEntity")
+		public UserActivityEntity(System.Int32 id, IPrefetchPath prefetchPathToUse):base("UserActivityEntity")
 		{
-			InitClassFetch(roleTypeEnum, null, prefetchPathToUse);
+			InitClassFetch(id, null, prefetchPathToUse);
 		}
 
 		/// <summary>CTor</summary>
-		/// <param name="roleTypeEnum">PK value for UserRole which data should be fetched into this UserRole object</param>
-		/// <param name="validator">The custom validator object for this UserRoleEntity</param>
-		public UserRoleEntity(System.Byte roleTypeEnum, IValidator validator):base("UserRoleEntity")
+		/// <param name="id">PK value for UserActivity which data should be fetched into this UserActivity object</param>
+		/// <param name="validator">The custom validator object for this UserActivityEntity</param>
+		public UserActivityEntity(System.Int32 id, IValidator validator):base("UserActivityEntity")
 		{
-			InitClassFetch(roleTypeEnum, validator, null);
+			InitClassFetch(id, validator, null);
 		}
 
 		/// <summary>Private CTor for deserialization</summary>
 		/// <param name="info"></param>
 		/// <param name="context"></param>
-		protected UserRoleEntity(SerializationInfo info, StreamingContext context) : base(info, context)
+		protected UserActivityEntity(SerializationInfo info, StreamingContext context) : base(info, context)
 		{
-			_users = (AmstaJanBonga.Business.CollectionClasses.UserCollection)info.GetValue("_users", typeof(AmstaJanBonga.Business.CollectionClasses.UserCollection));
-			_alwaysFetchUsers = info.GetBoolean("_alwaysFetchUsers");
-			_alreadyFetchedUsers = info.GetBoolean("_alreadyFetchedUsers");
-
 			_userRoleActivities = (AmstaJanBonga.Business.CollectionClasses.UserRoleActivityCollection)info.GetValue("_userRoleActivities", typeof(AmstaJanBonga.Business.CollectionClasses.UserRoleActivityCollection));
 			_alwaysFetchUserRoleActivities = info.GetBoolean("_alwaysFetchUserRoleActivities");
 			_alreadyFetchedUserRoleActivities = info.GetBoolean("_alreadyFetchedUserRoleActivities");
@@ -119,7 +111,6 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <summary> Will perform post-ReadXml actions</summary>
 		protected override void PerformPostReadXmlFixups()
 		{
-			_alreadyFetchedUsers = (_users.Count > 0);
 			_alreadyFetchedUserRoleActivities = (_userRoleActivities.Count > 0);
 		}
 				
@@ -139,11 +130,8 @@ namespace AmstaJanBonga.Business.EntityClasses
 			RelationCollection toReturn = new RelationCollection();
 			switch(fieldName)
 			{
-				case "Users":
-					toReturn.Add(Relations.UserEntityUsingRoleTypeEnum);
-					break;
 				case "UserRoleActivities":
-					toReturn.Add(Relations.UserRoleActivityEntityUsingRoleTypeEnum);
+					toReturn.Add(Relations.UserRoleActivityEntityUsingUserActivityId);
 					break;
 				default:
 					break;				
@@ -159,9 +147,6 @@ namespace AmstaJanBonga.Business.EntityClasses
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		protected override void GetObjectData(SerializationInfo info, StreamingContext context)
 		{
-			info.AddValue("_users", (!this.MarkedForDeletion?_users:null));
-			info.AddValue("_alwaysFetchUsers", _alwaysFetchUsers);
-			info.AddValue("_alreadyFetchedUsers", _alreadyFetchedUsers);
 			info.AddValue("_userRoleActivities", (!this.MarkedForDeletion?_userRoleActivities:null));
 			info.AddValue("_alwaysFetchUserRoleActivities", _alwaysFetchUserRoleActivities);
 			info.AddValue("_alreadyFetchedUserRoleActivities", _alreadyFetchedUserRoleActivities);
@@ -180,13 +165,6 @@ namespace AmstaJanBonga.Business.EntityClasses
 		{
 			switch(propertyName)
 			{
-				case "Users":
-					_alreadyFetchedUsers = true;
-					if(entity!=null)
-					{
-						this.Users.Add((UserEntity)entity);
-					}
-					break;
 				case "UserRoleActivities":
 					_alreadyFetchedUserRoleActivities = true;
 					if(entity!=null)
@@ -208,9 +186,6 @@ namespace AmstaJanBonga.Business.EntityClasses
 		{
 			switch(fieldName)
 			{
-				case "Users":
-					_users.Add((UserEntity)relatedEntity);
-					break;
 				case "UserRoleActivities":
 					_userRoleActivities.Add((UserRoleActivityEntity)relatedEntity);
 					break;
@@ -228,9 +203,6 @@ namespace AmstaJanBonga.Business.EntityClasses
 		{
 			switch(fieldName)
 			{
-				case "Users":
-					this.PerformRelatedEntityRemoval(_users, relatedEntity, signalRelatedEntityManyToOne);
-					break;
 				case "UserRoleActivities":
 					this.PerformRelatedEntityRemoval(_userRoleActivities, relatedEntity, signalRelatedEntityManyToOne);
 					break;
@@ -260,7 +232,6 @@ namespace AmstaJanBonga.Business.EntityClasses
 		protected override List<IEntityCollection> GetMemberEntityCollections()
 		{
 			List<IEntityCollection> toReturn = new List<IEntityCollection>();
-			toReturn.Add(_users);
 			toReturn.Add(_userRoleActivities);
 
 			return toReturn;
@@ -268,50 +239,50 @@ namespace AmstaJanBonga.Business.EntityClasses
 
 
 		/// <summary> Fetches the contents of this entity from the persistent storage using the primary key.</summary>
-		/// <param name="roleTypeEnum">PK value for UserRole which data should be fetched into this UserRole object</param>
+		/// <param name="id">PK value for UserActivity which data should be fetched into this UserActivity object</param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		public bool FetchUsingPK(System.Byte roleTypeEnum)
+		public bool FetchUsingPK(System.Int32 id)
 		{
-			return FetchUsingPK(roleTypeEnum, null, null, null);
+			return FetchUsingPK(id, null, null, null);
 		}
 
 		/// <summary> Fetches the contents of this entity from the persistent storage using the primary key.</summary>
-		/// <param name="roleTypeEnum">PK value for UserRole which data should be fetched into this UserRole object</param>
+		/// <param name="id">PK value for UserActivity which data should be fetched into this UserActivity object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		public bool FetchUsingPK(System.Byte roleTypeEnum, IPrefetchPath prefetchPathToUse)
+		public bool FetchUsingPK(System.Int32 id, IPrefetchPath prefetchPathToUse)
 		{
-			return FetchUsingPK(roleTypeEnum, prefetchPathToUse, null, null);
+			return FetchUsingPK(id, prefetchPathToUse, null, null);
 		}
 
 		/// <summary> Fetches the contents of this entity from the persistent storage using the primary key.</summary>
-		/// <param name="roleTypeEnum">PK value for UserRole which data should be fetched into this UserRole object</param>
+		/// <param name="id">PK value for UserActivity which data should be fetched into this UserActivity object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <param name="contextToUse">The context to add the entity to if the fetch was succesful. </param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		public bool FetchUsingPK(System.Byte roleTypeEnum, IPrefetchPath prefetchPathToUse, Context contextToUse)
+		public bool FetchUsingPK(System.Int32 id, IPrefetchPath prefetchPathToUse, Context contextToUse)
 		{
-			return FetchUsingPK(roleTypeEnum, prefetchPathToUse, contextToUse, null);
+			return FetchUsingPK(id, prefetchPathToUse, contextToUse, null);
 		}
 
 		/// <summary> Fetches the contents of this entity from the persistent storage using the primary key.</summary>
-		/// <param name="roleTypeEnum">PK value for UserRole which data should be fetched into this UserRole object</param>
+		/// <param name="id">PK value for UserActivity which data should be fetched into this UserActivity object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <param name="contextToUse">The context to add the entity to if the fetch was succesful. </param>
 		/// <param name="excludedIncludedFields">The list of IEntityField objects which have to be excluded or included for the fetch. 
 		/// If null or empty, all fields are fetched (default). If an instance of ExcludeIncludeFieldsList is passed in and its ExcludeContainedFields property
 		/// is set to false, the fields contained in excludedIncludedFields are kept in the query, the rest of the fields in the query are excluded.</param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		public bool FetchUsingPK(System.Byte roleTypeEnum, IPrefetchPath prefetchPathToUse, Context contextToUse, ExcludeIncludeFieldsList excludedIncludedFields)
+		public bool FetchUsingPK(System.Int32 id, IPrefetchPath prefetchPathToUse, Context contextToUse, ExcludeIncludeFieldsList excludedIncludedFields)
 		{
-			return Fetch(roleTypeEnum, prefetchPathToUse, contextToUse, excludedIncludedFields);
+			return Fetch(id, prefetchPathToUse, contextToUse, excludedIncludedFields);
 		}
 
 		/// <summary> Refetches the Entity from the persistent storage. Refetch is used to re-load an Entity which is marked "Out-of-sync", due to a save action. Refetching an empty Entity has no effect. </summary>
 		/// <returns>true if Refetch succeeded, false otherwise</returns>
 		public override bool Refetch()
 		{
-			return Fetch(this.RoleTypeEnum, null, null, null);
+			return Fetch(this.Id, null, null, null);
 		}
 
 
@@ -320,62 +291,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <returns>A list of all the EntityRelation objects the type of this instance has. Hierarchy relations are excluded.</returns>
 		protected override List<IEntityRelation> GetAllRelations()
 		{
-			return new UserRoleRelations().GetAllRelations();
-		}
-
-		/// <summary> Retrieves all related entities of type 'UserEntity' using a relation of type '1:n'.</summary>
-		/// <param name="forceFetch">if true, it will discard any changes currently in the collection and will rerun the complete query instead</param>
-		/// <returns>Filled collection with all related entities of type 'UserEntity'</returns>
-		public AmstaJanBonga.Business.CollectionClasses.UserCollection GetMultiUsers(bool forceFetch)
-		{
-			return GetMultiUsers(forceFetch, _users.EntityFactoryToUse, null);
-		}
-
-		/// <summary> Retrieves all related entities of type 'UserEntity' using a relation of type '1:n'.</summary>
-		/// <param name="forceFetch">if true, it will discard any changes currently in the collection and will rerun the complete query instead</param>
-		/// <param name="filter">Extra filter to limit the resultset.</param>
-		/// <returns>Filled collection with all related entities of type 'UserEntity'</returns>
-		public AmstaJanBonga.Business.CollectionClasses.UserCollection GetMultiUsers(bool forceFetch, IPredicateExpression filter)
-		{
-			return GetMultiUsers(forceFetch, _users.EntityFactoryToUse, filter);
-		}
-
-		/// <summary> Retrieves all related entities of type 'UserEntity' using a relation of type '1:n'.</summary>
-		/// <param name="forceFetch">if true, it will discard any changes currently in the collection and will rerun the complete query instead</param>
-		/// <param name="entityFactoryToUse">The entity factory to use for the GetMultiManyToOne() routine.</param>
-		/// <returns>Filled collection with all related entities of the type constructed by the passed in entity factory</returns>
-		public AmstaJanBonga.Business.CollectionClasses.UserCollection GetMultiUsers(bool forceFetch, IEntityFactory entityFactoryToUse)
-		{
-			return GetMultiUsers(forceFetch, entityFactoryToUse, null);
-		}
-
-		/// <summary> Retrieves all related entities of type 'UserEntity' using a relation of type '1:n'.</summary>
-		/// <param name="forceFetch">if true, it will discard any changes currently in the collection and will rerun the complete query instead</param>
-		/// <param name="entityFactoryToUse">The entity factory to use for the GetMultiManyToOne() routine.</param>
-		/// <param name="filter">Extra filter to limit the resultset.</param>
-		/// <returns>Filled collection with all related entities of the type constructed by the passed in entity factory</returns>
-		public virtual AmstaJanBonga.Business.CollectionClasses.UserCollection GetMultiUsers(bool forceFetch, IEntityFactory entityFactoryToUse, IPredicateExpression filter)
-		{
- 			if( ( !_alreadyFetchedUsers || forceFetch || _alwaysFetchUsers) && !this.IsSerializing && !this.IsDeserializing && !this.InDesignMode)
-			{
-				AddToTransactionIfNecessary(_users);
-				_users.SuppressClearInGetMulti=!forceFetch;
-				_users.EntityFactoryToUse = entityFactoryToUse;
-				_users.GetMultiManyToOne(this, filter);
-				_users.SuppressClearInGetMulti=false;
-				_alreadyFetchedUsers = true;
-			}
-			return _users;
-		}
-
-		/// <summary> Sets the collection parameters for the collection for 'Users'. These settings will be taken into account
-		/// when the property Users is requested or GetMultiUsers is called.</summary>
-		/// <param name="maxNumberOfItemsToReturn"> The maximum number of items to return. When set to 0, this parameter is ignored</param>
-		/// <param name="sortClauses">The order by specifications for the sorting of the resultset. When not specified (null), no sorting is applied.</param>
-		public virtual void SetCollectionParametersUsers(long maxNumberOfItemsToReturn, ISortExpression sortClauses)
-		{
-			_users.SortClauses=sortClauses;
-			_users.MaxNumberOfItemsToReturn=maxNumberOfItemsToReturn;
+			return new UserActivityRelations().GetAllRelations();
 		}
 
 		/// <summary> Retrieves all related entities of type 'UserRoleActivityEntity' using a relation of type '1:n'.</summary>
@@ -416,7 +332,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 				AddToTransactionIfNecessary(_userRoleActivities);
 				_userRoleActivities.SuppressClearInGetMulti=!forceFetch;
 				_userRoleActivities.EntityFactoryToUse = entityFactoryToUse;
-				_userRoleActivities.GetMultiManyToOne(null, this, filter);
+				_userRoleActivities.GetMultiManyToOne(this, null, filter);
 				_userRoleActivities.SuppressClearInGetMulti=false;
 				_alreadyFetchedUserRoleActivities = true;
 			}
@@ -439,7 +355,6 @@ namespace AmstaJanBonga.Business.EntityClasses
 		protected override Dictionary<string, object> GetRelatedData()
 		{
 			Dictionary<string, object> toReturn = new Dictionary<string, object>();
-			toReturn.Add("Users", _users);
 			toReturn.Add("UserRoleActivities", _userRoleActivities);
 			return toReturn;
 		}
@@ -460,16 +375,16 @@ namespace AmstaJanBonga.Business.EntityClasses
 		}		
 
 		/// <summary> Initializes the the entity and fetches the data related to the entity in this entity.</summary>
-		/// <param name="roleTypeEnum">PK value for UserRole which data should be fetched into this UserRole object</param>
-		/// <param name="validator">The validator object for this UserRoleEntity</param>
+		/// <param name="id">PK value for UserActivity which data should be fetched into this UserActivity object</param>
+		/// <param name="validator">The validator object for this UserActivityEntity</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
-		private void InitClassFetch(System.Byte roleTypeEnum, IValidator validator, IPrefetchPath prefetchPathToUse)
+		private void InitClassFetch(System.Int32 id, IValidator validator, IPrefetchPath prefetchPathToUse)
 		{
 			OnInitializing();
 			this.Validator = validator;
 			this.Fields = CreateFields();
 			InitClassMembers();	
-			Fetch(roleTypeEnum, prefetchPathToUse, null, null);
+			Fetch(id, prefetchPathToUse, null, null);
 
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassFetch
 			// __LLBLGENPRO_USER_CODE_REGION_END
@@ -481,11 +396,8 @@ namespace AmstaJanBonga.Business.EntityClasses
 		private void InitClassMembers()
 		{
 
-			_users = new AmstaJanBonga.Business.CollectionClasses.UserCollection();
-			_users.SetContainingEntityInfo(this, "UserRole");
-
 			_userRoleActivities = new AmstaJanBonga.Business.CollectionClasses.UserRoleActivityCollection();
-			_userRoleActivities.SetContainingEntityInfo(this, "UserRole");
+			_userRoleActivities.SetContainingEntityInfo(this, "UserActivity");
 			PerformDependencyInjection();
 
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassMembers
@@ -507,26 +419,26 @@ namespace AmstaJanBonga.Business.EntityClasses
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("DateLastModifiedByUserId", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("Name", fieldHashtable);
+			_fieldsCustomProperties.Add("Id", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("RoleTypeEnum", fieldHashtable);
+			_fieldsCustomProperties.Add("Name", fieldHashtable);
 		}
 		#endregion
 
 		/// <summary> Fetches the entity from the persistent storage. Fetch simply reads the entity into an EntityFields object. </summary>
-		/// <param name="roleTypeEnum">PK value for UserRole which data should be fetched into this UserRole object</param>
+		/// <param name="id">PK value for UserActivity which data should be fetched into this UserActivity object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <param name="contextToUse">The context to add the entity to if the fetch was succesful. </param>
 		/// <param name="excludedIncludedFields">The list of IEntityField objects which have to be excluded or included for the fetch. 
 		/// If null or empty, all fields are fetched (default). If an instance of ExcludeIncludeFieldsList is passed in and its ExcludeContainedFields property
 		/// is set to false, the fields contained in excludedIncludedFields are kept in the query, the rest of the fields in the query are excluded.</param>
 		/// <returns>True if succeeded, false otherwise.</returns>
-		private bool Fetch(System.Byte roleTypeEnum, IPrefetchPath prefetchPathToUse, Context contextToUse, ExcludeIncludeFieldsList excludedIncludedFields)
+		private bool Fetch(System.Int32 id, IPrefetchPath prefetchPathToUse, Context contextToUse, ExcludeIncludeFieldsList excludedIncludedFields)
 		{
 			try
 			{
 				OnFetch();
-				this.Fields[(int)UserRoleFieldIndex.RoleTypeEnum].ForcedCurrentValueWrite(roleTypeEnum);
+				this.Fields[(int)UserActivityFieldIndex.Id].ForcedCurrentValueWrite(id);
 				CreateDAOInstance().FetchExisting(this, this.Transaction, prefetchPathToUse, contextToUse, excludedIncludedFields);
 				return (this.Fields.State == EntityState.Fetched);
 			}
@@ -540,21 +452,21 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <returns></returns>
 		protected override IDao CreateDAOInstance()
 		{
-			return DAOFactory.CreateUserRoleDAO();
+			return DAOFactory.CreateUserActivityDAO();
 		}
 		
 		/// <summary> Creates the entity factory for this type.</summary>
 		/// <returns></returns>
 		protected override IEntityFactory CreateEntityFactory()
 		{
-			return new UserRoleEntityFactory();
+			return new UserActivityEntityFactory();
 		}
 
 		#region Class Property Declarations
 		/// <summary> The relations object holding all relations of this entity with other entity classes.</summary>
-		public  static UserRoleRelations Relations
+		public  static UserActivityRelations Relations
 		{
-			get	{ return new UserRoleRelations(); }
+			get	{ return new UserActivityRelations(); }
 		}
 		
 		/// <summary> The custom properties for this entity type.</summary>
@@ -564,18 +476,11 @@ namespace AmstaJanBonga.Business.EntityClasses
 			get { return _customProperties;}
 		}
 
-		/// <summary> Creates a new PrefetchPathElement object which contains all the information to prefetch the related entities of type 'User' for this entity.</summary>
-		/// <returns>Ready to use IPrefetchPathElement implementation.</returns>
-		public static IPrefetchPathElement PrefetchPathUsers
-		{
-			get { return new PrefetchPathElement(new AmstaJanBonga.Business.CollectionClasses.UserCollection(), (IEntityRelation)GetRelationsForField("Users")[0], (int)AmstaJanBonga.Business.EntityType.UserRoleEntity, (int)AmstaJanBonga.Business.EntityType.UserEntity, 0, null, null, null, "Users", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany); }
-		}
-
 		/// <summary> Creates a new PrefetchPathElement object which contains all the information to prefetch the related entities of type 'UserRoleActivity' for this entity.</summary>
 		/// <returns>Ready to use IPrefetchPathElement implementation.</returns>
 		public static IPrefetchPathElement PrefetchPathUserRoleActivities
 		{
-			get { return new PrefetchPathElement(new AmstaJanBonga.Business.CollectionClasses.UserRoleActivityCollection(), (IEntityRelation)GetRelationsForField("UserRoleActivities")[0], (int)AmstaJanBonga.Business.EntityType.UserRoleEntity, (int)AmstaJanBonga.Business.EntityType.UserRoleActivityEntity, 0, null, null, null, "UserRoleActivities", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany); }
+			get { return new PrefetchPathElement(new AmstaJanBonga.Business.CollectionClasses.UserRoleActivityCollection(), (IEntityRelation)GetRelationsForField("UserRoleActivities")[0], (int)AmstaJanBonga.Business.EntityType.UserActivityEntity, (int)AmstaJanBonga.Business.EntityType.UserRoleActivityEntity, 0, null, null, null, "UserRoleActivities", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany); }
 		}
 
 
@@ -602,89 +507,56 @@ namespace AmstaJanBonga.Business.EntityClasses
 			get { return FieldsCustomProperties;}
 		}
 
-		/// <summary> The DateCreated property of the Entity UserRole<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "UserRole"."DateCreated"<br/>
+		/// <summary> The DateCreated property of the Entity UserActivity<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "UserActivity"."DateCreated"<br/>
 		/// Table field type characteristics (type, precision, scale, length): DateTime, 0, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
 		public virtual System.DateTime DateCreated
 		{
-			get { return (System.DateTime)GetValue((int)UserRoleFieldIndex.DateCreated, true); }
-			set	{ SetValue((int)UserRoleFieldIndex.DateCreated, value, true); }
+			get { return (System.DateTime)GetValue((int)UserActivityFieldIndex.DateCreated, true); }
+			set	{ SetValue((int)UserActivityFieldIndex.DateCreated, value, true); }
 		}
 
-		/// <summary> The DateLastModified property of the Entity UserRole<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "UserRole"."DateLastModified"<br/>
+		/// <summary> The DateLastModified property of the Entity UserActivity<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "UserActivity"."DateLastModified"<br/>
 		/// Table field type characteristics (type, precision, scale, length): DateTime, 0, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
 		public virtual Nullable<System.DateTime> DateLastModified
 		{
-			get { return (Nullable<System.DateTime>)GetValue((int)UserRoleFieldIndex.DateLastModified, false); }
-			set	{ SetValue((int)UserRoleFieldIndex.DateLastModified, value, true); }
+			get { return (Nullable<System.DateTime>)GetValue((int)UserActivityFieldIndex.DateLastModified, false); }
+			set	{ SetValue((int)UserActivityFieldIndex.DateLastModified, value, true); }
 		}
 
-		/// <summary> The DateLastModifiedByUserId property of the Entity UserRole<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "UserRole"."DateLastModifiedByUserId"<br/>
+		/// <summary> The DateLastModifiedByUserId property of the Entity UserActivity<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "UserActivity"."DateLastModifiedByUserId"<br/>
 		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
 		public virtual Nullable<System.Int32> DateLastModifiedByUserId
 		{
-			get { return (Nullable<System.Int32>)GetValue((int)UserRoleFieldIndex.DateLastModifiedByUserId, false); }
-			set	{ SetValue((int)UserRoleFieldIndex.DateLastModifiedByUserId, value, true); }
+			get { return (Nullable<System.Int32>)GetValue((int)UserActivityFieldIndex.DateLastModifiedByUserId, false); }
+			set	{ SetValue((int)UserActivityFieldIndex.DateLastModifiedByUserId, value, true); }
 		}
 
-		/// <summary> The Name property of the Entity UserRole<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "UserRole"."Name"<br/>
+		/// <summary> The Id property of the Entity UserActivity<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "UserActivity"."Id"<br/>
+		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, true</remarks>
+		public virtual System.Int32 Id
+		{
+			get { return (System.Int32)GetValue((int)UserActivityFieldIndex.Id, true); }
+			set	{ SetValue((int)UserActivityFieldIndex.Id, value, true); }
+		}
+
+		/// <summary> The Name property of the Entity UserActivity<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "UserActivity"."Name"<br/>
 		/// Table field type characteristics (type, precision, scale, length): VarChar, 0, 0, 50<br/>
-		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
 		public virtual System.String Name
 		{
-			get { return (System.String)GetValue((int)UserRoleFieldIndex.Name, true); }
-			set	{ SetValue((int)UserRoleFieldIndex.Name, value, true); }
+			get { return (System.String)GetValue((int)UserActivityFieldIndex.Name, true); }
+			set	{ SetValue((int)UserActivityFieldIndex.Name, value, true); }
 		}
 
-		/// <summary> The RoleTypeEnum property of the Entity UserRole<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "UserRole"."RoleTypeEnum"<br/>
-		/// Table field type characteristics (type, precision, scale, length): TinyInt, 3, 0, 0<br/>
-		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, false</remarks>
-		public virtual System.Byte RoleTypeEnum
-		{
-			get { return (System.Byte)GetValue((int)UserRoleFieldIndex.RoleTypeEnum, true); }
-			set	{ SetValue((int)UserRoleFieldIndex.RoleTypeEnum, value, true); }
-		}
-
-		/// <summary> Retrieves all related entities of type 'UserEntity' using a relation of type '1:n'.<br/><br/>
-		/// </summary>
-		/// <remarks>This property is added for databinding conveniance, however it is recommeded to use the method 'GetMultiUsers()', because 
-		/// this property is rather expensive and a method tells the user to cache the result when it has to be used more than once in the same scope.</remarks>
-		public virtual AmstaJanBonga.Business.CollectionClasses.UserCollection Users
-		{
-			get	{ return GetMultiUsers(false); }
-		}
-
-		/// <summary> Gets / sets the lazy loading flag for Users. When set to true, Users is always refetched from the 
-		/// persistent storage. When set to false, the data is only fetched the first time Users is accessed. You can always execute/ a forced fetch by calling GetMultiUsers(true).</summary>
-		[Browsable(false)]
-		public bool AlwaysFetchUsers
-		{
-			get	{ return _alwaysFetchUsers; }
-			set	{ _alwaysFetchUsers = value; }	
-		}		
-				
-		/// <summary>Gets / Sets the lazy loading flag if the property Users already has been fetched. Setting this property to false when Users has been fetched
-		/// will clear the Users collection well. Setting this property to true while Users hasn't been fetched disables lazy loading for Users</summary>
-		[Browsable(false)]
-		public bool AlreadyFetchedUsers
-		{
-			get { return _alreadyFetchedUsers;}
-			set 
-			{
-				if(_alreadyFetchedUsers && !value && (_users != null))
-				{
-					_users.Clear();
-				}
-				_alreadyFetchedUsers = value;
-			}
-		}
 		/// <summary> Retrieves all related entities of type 'UserRoleActivityEntity' using a relation of type '1:n'.<br/><br/>
 		/// </summary>
 		/// <remarks>This property is added for databinding conveniance, however it is recommeded to use the method 'GetMultiUserRoleActivities()', because 
@@ -737,7 +609,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		[Browsable(false), XmlIgnore]
 		protected override int LLBLGenProEntityTypeValue 
 		{ 
-			get { return (int)AmstaJanBonga.Business.EntityType.UserRoleEntity; }
+			get { return (int)AmstaJanBonga.Business.EntityType.UserActivityEntity; }
 		}
 
 		#endregion

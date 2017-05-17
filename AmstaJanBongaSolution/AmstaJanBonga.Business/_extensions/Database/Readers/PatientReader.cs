@@ -55,14 +55,14 @@ namespace AmstaJanBonga.Business.Database.Readers
             return patients;
         }
 
-        public static PatientCollection GetAllPatientsByLivingroomId(int livingroomId)
+        public static PatientCollection GetAllPatientsByLivingRoomId(int livingroomId)
         {
             // Collection
             var patients = new PatientCollection();
 
             // Predicate
             var predicate = new PredicateExpression();
-            predicate.Add(PatientFields.LivingroomId == livingroomId);
+            predicate.Add(PatientFields.LivingRoomId == livingroomId);
 
             // Sorting
             var sorter = new SortExpression();
@@ -85,12 +85,12 @@ namespace AmstaJanBonga.Business.Database.Readers
             var fields = new ResultsetFields(3);
             fields.DefineField(PatientFields.Id, 0);
             fields.DefineField(PatientFields.FirstName, 1);
-            fields.DefineField(LivingroomFields.Name, 2);
+            fields.DefineField(LivingRoomFields.Name, 2);
 
             // Add all JOIN clauses from the relation collection.
             var relations = new RelationCollection
             {
-                PatientEntity.Relations.LivingroomEntityUsingLivingroomId
+                PatientEntity.Relations.LivingRoomEntityUsingLivingRoomId
             };
 
             // Create the DataTable, DAO and fill the DataTable with the above query definition/parameters.

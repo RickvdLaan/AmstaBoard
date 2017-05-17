@@ -25,13 +25,12 @@ namespace AmstaJanBonga.Business.DaoClasses
 	
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces
 	// __LLBLGENPRO_USER_CODE_REGION_END
-	
 
-	/// <summary>General DAO class for the GeneralLivingroom Entity. It will perform database oriented actions for a entity of type 'GeneralLivingroomEntity'.</summary>
-	public partial class GeneralLivingroomDAO : CommonDaoBase
+	/// <summary>General DAO class for the UserActivity Entity. It will perform database oriented actions for a entity of type 'UserActivityEntity'.</summary>
+	public partial class UserActivityDAO : CommonDaoBase
 	{
 		/// <summary>CTor</summary>
-		public GeneralLivingroomDAO() : base(InheritanceHierarchyType.None, "GeneralLivingroomEntity", new GeneralLivingroomEntityFactory())
+		public UserActivityDAO() : base(InheritanceHierarchyType.None, "UserActivityEntity", new UserActivityEntityFactory())
 		{
 		}
 
@@ -47,7 +46,6 @@ namespace AmstaJanBonga.Business.DaoClasses
 		
 		// __LLBLGENPRO_USER_CODE_REGION_START CustomDAOCode
 		// __LLBLGENPRO_USER_CODE_REGION_END
-		
 		#endregion
 		
 		#region Included Code

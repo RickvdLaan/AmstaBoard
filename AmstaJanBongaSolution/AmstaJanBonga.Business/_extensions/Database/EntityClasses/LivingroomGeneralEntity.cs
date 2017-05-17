@@ -3,7 +3,7 @@ using System;
 
 namespace AmstaJanBonga.Business.EntityClasses
 {
-    public partial class LivingroomGeneralEntity
+    public partial class LivingRoomGeneralEntity
     {
 
         #region Overrides

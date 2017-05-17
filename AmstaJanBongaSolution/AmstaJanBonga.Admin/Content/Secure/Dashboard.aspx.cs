@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Security.Claims;
+using System.Threading;
 
 namespace AmstaJanBonga.Admin.Content.Secure
 {
@@ -6,7 +8,7 @@ namespace AmstaJanBonga.Admin.Content.Secure
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
     }
 }

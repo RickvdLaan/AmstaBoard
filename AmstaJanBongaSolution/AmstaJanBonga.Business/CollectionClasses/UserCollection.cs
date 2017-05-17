@@ -58,6 +58,79 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		}
 
 
+		/// <summary> Retrieves in this UserCollection object all UserEntity objects which have data in common with the specified related Entities.
+		/// If one is omitted, that entity is not used as a filter. All current elements in the collection are removed from the collection.</summary>
+		/// <param name="userRoleInstance">UserRoleEntity instance to use as a filter for the UserEntity objects to return</param>
+		/// <returns>true if succeeded, false otherwise</returns>
+		public bool GetMultiManyToOne(IEntity userRoleInstance)
+		{
+			return GetMultiManyToOne(userRoleInstance, this.MaxNumberOfItemsToReturn, this.SortClauses, null, 0, 0);
+		}
+
+		/// <summary> Retrieves in this UserCollection object all UserEntity objects which have data in common with the specified related Entities.
+		/// If one is omitted, that entity is not used as a filter. All current elements in the collection are removed from the collection.</summary>
+		/// <param name="userRoleInstance">UserRoleEntity instance to use as a filter for the UserEntity objects to return</param>
+		/// <param name="filter">Extra filter to limit the resultset. Predicate expression can be null, in which case it will be ignored.</param>
+		/// <returns>true if succeeded, false otherwise</returns>
+		public bool GetMultiManyToOne(IEntity userRoleInstance, IPredicateExpression filter)
+		{
+			return GetMultiManyToOne(userRoleInstance, this.MaxNumberOfItemsToReturn, this.SortClauses, filter, 0, 0);
+		}
+
+		/// <summary> Retrieves in this UserCollection object all UserEntity objects which have data in common with the specified related Entities.
+		/// If one is omitted, that entity is not used as a filter. All current elements in the collection are removed from the collection.</summary>
+		/// <param name="userRoleInstance">UserRoleEntity instance to use as a filter for the UserEntity objects to return</param>
+		/// <param name="maxNumberOfItemsToReturn"> The maximum number of items to return with this retrieval query.</param>
+		/// <param name="sortClauses">The order by specifications for the sorting of the resultset. When not specified, no sorting is applied.</param>
+		/// <param name="filter">Extra filter to limit the resultset. Predicate expression can be null, in which case it will be ignored.</param>
+		/// <returns>true if succeeded, false otherwise</returns>
+		public bool GetMultiManyToOne(IEntity userRoleInstance, long maxNumberOfItemsToReturn, ISortExpression sortClauses, IPredicateExpression filter)
+		{
+			return GetMultiManyToOne(userRoleInstance, maxNumberOfItemsToReturn, sortClauses, filter, 0, 0);
+		}
+
+		/// <summary> Retrieves in this UserCollection object all UserEntity objects which have data in common with the specified related Entities.
+		/// If one is omitted, that entity is not used as a filter. All current elements in the collection are removed from the collection.</summary>
+		/// <param name="userRoleInstance">UserRoleEntity instance to use as a filter for the UserEntity objects to return</param>
+		/// <param name="maxNumberOfItemsToReturn"> The maximum number of items to return with this retrieval query.</param>
+		/// <param name="sortClauses">The order by specifications for the sorting of the resultset. When not specified, no sorting is applied.</param>
+		/// <param name="filter">Extra filter to limit the resultset. Predicate expression can be null, in which case it will be ignored.</param>
+		/// <param name="pageNumber">The page number to retrieve.</param>
+		/// <param name="pageSize">The page size of the page to retrieve.</param>
+		/// <returns>true if succeeded, false otherwise</returns>
+		public virtual bool GetMultiManyToOne(IEntity userRoleInstance, long maxNumberOfItemsToReturn, ISortExpression sortClauses, IPredicateExpression filter, int pageNumber, int pageSize)
+		{
+			bool validParameters = false;
+			validParameters |= (userRoleInstance!=null);
+			if(!validParameters)
+			{
+				return GetMulti(filter, maxNumberOfItemsToReturn, sortClauses, null, pageNumber, pageSize);
+			}
+			if(!this.SuppressClearInGetMulti)
+			{
+				this.Clear();
+			}
+			return DAOFactory.CreateUserDAO().GetMulti(this.Transaction, this, maxNumberOfItemsToReturn, sortClauses, this.EntityFactoryToUse, filter, userRoleInstance, pageNumber, pageSize);
+		}
+
+		/// <summary> Deletes from the persistent storage all User entities which have data in common with the specified related Entities. If one is omitted, that entity is not used as a filter.</summary>
+		/// <remarks>Runs directly on the persistent storage. It will not delete entity objects from the current collection.</remarks>
+		/// <param name="userRoleInstance">UserRoleEntity instance to use as a filter for the UserEntity objects to return</param>
+		/// <returns>Amount of entities affected, if the used persistent storage has rowcounting enabled.</returns>
+		public int DeleteMultiManyToOne(IEntity userRoleInstance)
+		{
+			return DAOFactory.CreateUserDAO().DeleteMulti(this.Transaction, userRoleInstance);
+		}
+
+		/// <summary> Updates in the persistent storage all User entities which have data in common with the specified related Entities. If one is omitted, that entity is not used as a filter.
+		/// Which fields are updated in those matching entities depends on which fields are <i>changed</i> in the passed in entity entityWithNewValues. The new values of these fields are read from entityWithNewValues. </summary>
+		/// <param name="entityWithNewValues">UserEntity instance which holds the new values for the matching entities to update. Only changed fields are taken into account</param>
+		/// <param name="userRoleInstance">UserRoleEntity instance to use as a filter for the UserEntity objects to return</param>
+		/// <returns>Amount of entities affected, if the used persistent storage has rowcounting enabled.</returns>
+		public int UpdateMultiManyToOne(UserEntity entityWithNewValues, IEntity userRoleInstance)
+		{
+			return DAOFactory.CreateUserDAO().UpdateMulti(entityWithNewValues, this.Transaction, userRoleInstance);
+		}
 
 
 		/// <summary> Retrieves Entity rows in a datatable which match the specified filter. It will always create a new connection to the database.</summary>

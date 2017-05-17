@@ -17,20 +17,20 @@ using SD.LLBLGen.Pro.ORMSupportClasses;
 
 namespace AmstaJanBonga.Business.RelationClasses
 {
-	/// <summary>Implements the relations factory for the entity: GeneralInformation. </summary>
-	public partial class GeneralInformationRelations
+	/// <summary>Implements the relations factory for the entity: AgendaEventMeta. </summary>
+	public partial class AgendaEventMetaRelations
 	{
 		/// <summary>CTor</summary>
-		public GeneralInformationRelations()
+		public AgendaEventMetaRelations()
 		{
 		}
 
-		/// <summary>Gets all relations of the GeneralInformationEntity as a list of IEntityRelation objects.</summary>
+		/// <summary>Gets all relations of the AgendaEventMetaEntity as a list of IEntityRelation objects.</summary>
 		/// <returns>a list of IEntityRelation objects</returns>
 		public virtual List<IEntityRelation> GetAllRelations()
 		{
 			List<IEntityRelation> toReturn = new List<IEntityRelation>();
-			toReturn.Add(this.GeneralLivingroomEntityUsingLivingroomId);
+			toReturn.Add(this.AgendaEventEntityUsingAgendaEventId);
 			return toReturn;
 		}
 
@@ -38,17 +38,17 @@ namespace AmstaJanBonga.Business.RelationClasses
 
 
 
-		/// <summary>Returns a new IEntityRelation object, between GeneralInformationEntity and GeneralLivingroomEntity over the m:1 relation they have, using the relation between the fields:
-		/// GeneralInformation.LivingroomId - GeneralLivingroom.LivingroomId
+		/// <summary>Returns a new IEntityRelation object, between AgendaEventMetaEntity and AgendaEventEntity over the m:1 relation they have, using the relation between the fields:
+		/// AgendaEventMeta.AgendaEventId - AgendaEvent.Id
 		/// </summary>
-		public virtual IEntityRelation GeneralLivingroomEntityUsingLivingroomId
+		public virtual IEntityRelation AgendaEventEntityUsingAgendaEventId
 		{
 			get
 			{
-				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne, "GeneralLivingroom", false);
-				relation.AddEntityFieldPair(GeneralLivingroomFields.LivingroomId, GeneralInformationFields.LivingroomId);
-				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("GeneralLivingroomEntity", false);
-				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("GeneralInformationEntity", true);
+				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne, "AgendaEvent", false);
+				relation.AddEntityFieldPair(AgendaEventFields.Id, AgendaEventMetaFields.AgendaEventId);
+				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("AgendaEventEntity", false);
+				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("AgendaEventMetaEntity", true);
 				return relation;
 			}
 		}
@@ -64,12 +64,12 @@ namespace AmstaJanBonga.Business.RelationClasses
 	}
 	
 	/// <summary>Static class which is used for providing relationship instances which are re-used internally for syncing</summary>
-	internal static class StaticGeneralInformationRelations
+	internal static class StaticAgendaEventMetaRelations
 	{
-		internal static readonly IEntityRelation GeneralLivingroomEntityUsingLivingroomIdStatic = new GeneralInformationRelations().GeneralLivingroomEntityUsingLivingroomId;
+		internal static readonly IEntityRelation AgendaEventEntityUsingAgendaEventIdStatic = new AgendaEventMetaRelations().AgendaEventEntityUsingAgendaEventId;
 
 		/// <summary>CTor</summary>
-		static StaticGeneralInformationRelations()
+		static StaticAgendaEventMetaRelations()
 		{
 		}
 	}

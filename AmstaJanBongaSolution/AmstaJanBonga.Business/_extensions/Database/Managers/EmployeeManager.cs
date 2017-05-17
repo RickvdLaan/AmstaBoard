@@ -19,7 +19,7 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// <param name="imagePath"></param>
         /// <param name="isActive"></param>
         /// <returns></returns>
-        public static EmployeeEntity InsertEmployee(int livingroomId, int? userId, string firstName, FileUpload fileUpload, bool isActive)
+        public static EmployeeEntity InsertEmployee(int livingroomId, int? userId, string firstName, FileUpload fileUpload)
         {
             if (userId.HasValue)
             {
@@ -33,11 +33,10 @@ namespace AmstaJanBonga.Business.Database.Managers
             // Saving the employee wihtout an image, image is mandetory.
             var employee = new EmployeeEntity()
             {
-                LivingroomId = livingroomId,
+                LivingRoomId = livingroomId,
                 UserId = userId,
                 FirstName = firstName,
                 ImagePath = null,
-                IsActive = isActive,
                 DateCreated = DateTime.Now
             };
 
@@ -87,7 +86,7 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// <param name="imagePath"></param>
         /// <param name="isActive"></param>
         /// <returns></returns>
-        public static EmployeeEntity UpdateEmployee(EmployeeEntity employee, int livingroomId, int? userId, string firstName, FileUpload fileUpload, bool isActive)
+        public static EmployeeEntity UpdateEmployee(EmployeeEntity employee, int livingroomId, int? userId, string firstName, FileUpload fileUpload)
         {
             if (userId.HasValue)
             {
@@ -119,10 +118,9 @@ namespace AmstaJanBonga.Business.Database.Managers
                 employee.ImagePath = newPath.Substring(newPath.IndexOf(@"\_uploads\"));
             }
 
-            employee.LivingroomId = livingroomId;
+            employee.LivingRoomId = livingroomId;
             employee.UserId = userId;
             employee.FirstName = firstName;
-            employee.IsActive = isActive;
 
             // Saving the employee.
             employee.Save();

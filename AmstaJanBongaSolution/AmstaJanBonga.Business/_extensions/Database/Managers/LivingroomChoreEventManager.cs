@@ -7,10 +7,10 @@ namespace AmstaJanBonga.Business.Database.Managers
 {
     public abstract class LivingroomChoreEventManager
     {
-        public static void UpdateChore(LivingroomChoreEventEntity oldChore, LivingroomChoreEventEntity newChore)
+        public static void UpdateChore(LivingRoomChoreEventEntity oldChore, LivingRoomChoreEventEntity newChore)
         {
             if (oldChore.PatientId         == newChore.PatientId         &&
-                oldChore.LivingroomId      == newChore.LivingroomId      &&
+                oldChore.LivingRoomId      == newChore.LivingRoomId      &&
                 oldChore.TimeOfDayTypeEnum == newChore.TimeOfDayTypeEnum &&
                 oldChore.Date              == newChore.Date              ||
                 !newChore.IsNew)
@@ -32,12 +32,12 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// <param name="date"></param>
         /// <param name="timeOfDay"></param>
         /// <returns></returns>
-        public static LivingroomChoreEventEntity CreateLivingroomChoreEventEntity(int patientId, int livingroomId, DateTime date, TimeOfDayTypeEnum timeOfDay)
+        public static LivingRoomChoreEventEntity CreateLivingroomChoreEventEntity(int patientId, int livingroomId, DateTime date, TimeOfDayTypeEnum timeOfDay)
         {
-            var chore = new LivingroomChoreEventEntity()
+            var chore = new LivingRoomChoreEventEntity()
             {
                 PatientId = patientId,
-                LivingroomId = livingroomId,
+                LivingRoomId = livingroomId,
                 Date = date,
                 TimeOfDayTypeEnum = (byte)timeOfDay,
                 DateCreated = DateTime.Now
@@ -50,14 +50,14 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// Inserts multiple 
         /// </summary>
         /// <param name="chore"></param>
-        public static void InsertMulti(LivingroomChoreEventCollection chores)
+        public static void InsertMulti(LivingRoomChoreEventCollection chores)
         {
             chores.SaveMulti();
         }
 
-        public static void UpdateMulti(LivingroomChoreEventCollection originalCollection, LivingroomChoreEventCollection newCollection)
+        public static void UpdateMulti(LivingRoomChoreEventCollection originalCollection, LivingRoomChoreEventCollection newCollection)
         {
-            var tracker = new LivingroomChoreEventCollection();
+            var tracker = new LivingRoomChoreEventCollection();
             originalCollection.RemovedEntitiesTracker = tracker;
 
             originalCollection.RemovedEntitiesTracker.AddRange(originalCollection);

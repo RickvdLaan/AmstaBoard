@@ -6,31 +6,31 @@ using System;
 
 namespace AmstaJanBonga.Business.Database.Readers
 {
-    public abstract class LivingroomReader
+    public abstract class LivingRoomReader
     {
         #region Entities
 
         /// <summary>
         /// Gets the livingroom with the corresponding livingroom id or null. 
         /// </summary>
-        /// <param name="livingroomId">The livingrooms unique id.</param>
-        /// <param name="name">The name of the livingroom.</param>
-        /// <param name="colourType">The colour of the livingroom, default is grey.</param>
+        /// <param name="livingRoomId">The living rooms unique id.</param>
+        /// <param name="name">The name of the living room.</param>
+        /// <param name="colourType">The colour of the living room, default is grey.</param>
         /// <returns></returns>
-        public static LivingroomEntity GetLivingroomById(int livingroomId)
+        public static LivingRoomEntity GetLivingroomById(int livingRoomId)
         {
-            return new LivingroomEntity(livingroomId);
+            return new LivingRoomEntity(livingRoomId);
         }
 
         /// <summary>
         /// Gets the livingroom with the corresponding livingroom id or null.
         /// </summary>
-        /// <param name="livingroomId">The livingrooms unique id.</param>
-        /// <param name="name">The name of the livingroom.</param>
-        /// <param name="colourType">The colour of the livingroom, default is grey.</param>
+        /// <param name="livingroomId">The living rooms unique id.</param>
+        /// <param name="name">The name of the living room.</param>
+        /// <param name="colourType">The colour of the living room, default is grey.</param>
         /// <param name="throwExceptionWhenNotFound"></param>
         /// <returns></returns>
-        public static LivingroomEntity GetLivingroomById(int livingroomId, bool throwExceptionWhenNotFound)
+        public static LivingRoomEntity GetLivingroomById(int livingroomId, bool throwExceptionWhenNotFound)
         {
             var livingroom = GetLivingroomById(livingroomId);
 
@@ -45,15 +45,15 @@ namespace AmstaJanBonga.Business.Database.Readers
         #region Collections
 
         /// <summary>
-        /// Returns a collection of all the livingrooms.
+        /// Returns a collection of all the living rooms.
         /// </summary>
         /// <returns></returns>
-        public static LivingroomCollection GetAllLivingrooms()
+        public static LivingRoomCollection GetAllLivingRooms()
         {
-            var livingrooms = new LivingroomCollection();
-            livingrooms.GetMulti(null, 0);
+            var livingRooms = new LivingRoomCollection();
+            livingRooms.GetMulti(null, 0);
 
-            return livingrooms;
+            return livingRooms;
         }
 
         #endregion
