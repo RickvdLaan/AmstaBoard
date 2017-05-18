@@ -25,7 +25,9 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static UserEntity GetUserById(int userId)
         {
-            Authentication.AuthenticateActivity("");
+            // Only needs to be checked when a user is already authenticated.
+            if (Authentication.IsAuthenticated)
+                Authentication.AuthenticateActivity("UserRead");
 
             return new UserEntity(userId);
         }
@@ -54,7 +56,7 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static UserEntity GetUserByUsernameAndPassword(string username, string password)
         {
-            Authentication.AuthenticateActivity("");
+            // Does not require any permissions.
 
             var user = new UserEntity();
             user.FetchUsingUCUsername(username);
@@ -76,7 +78,7 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static UserCollection GetAllUsers()
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("UserRead");
 
             var users = new UserCollection();
             users.GetMulti(null, 0);
@@ -86,7 +88,7 @@ namespace AmstaJanBonga.Business.Database.Readers
 
         public static UserCollection GetAllUnlinkedUsers()
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("UserRead");
 
             var users = new UserCollection();
             var bucket = new RelationPredicateBucket() as IRelationPredicateBucket;
@@ -111,7 +113,7 @@ namespace AmstaJanBonga.Business.Database.Readers
 
         public static UserCollection GetAllUnlinkedUsers(int? includeUserId)
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("UserRead");
 
             if (!includeUserId.HasValue)
                 return GetAllUnlinkedUsers();
@@ -147,7 +149,7 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static int GetAllUsersDBCount()
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("UserRead");
 
             return new UserCollection().GetDbCount();
         }
@@ -159,7 +161,7 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static bool IsAvailableUsername(string username)
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("UserRead");
 
             // Attempts to fetch the user based on the provided username.
             return !(new UserEntity().FetchUsingUCUsername(username));
@@ -173,7 +175,8 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static bool IsUserInRole(UserEntity user, params RoleTypeEnum[] roleTypes)
         {
-            Authentication.AuthenticateActivity("");
+            // Role check does not require any permissions, getting the user needs permissions
+            // or the user was obtained whilst attempting to log in.
 
             // Checks if the user exists and if the user is equal to any of the provided roletypes.
             return !user.IsNew && roleTypes.Any(roleType => user.UserRole.RoleTypeEnum == (short)roleType);

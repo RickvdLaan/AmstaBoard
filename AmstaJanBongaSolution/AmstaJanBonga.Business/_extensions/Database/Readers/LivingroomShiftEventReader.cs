@@ -16,7 +16,7 @@ namespace AmstaJanBonga.Business.Database.Readers
     {
         public static LivingRoomShiftEventEntity GetShiftByIds(int employeeId, int livingRoomId, DateTime date, ShiftTypeEnum shiftType, bool throwExceptionWhenNotFound)
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("ReadLivingRoomShiftEvent");
 
             var shift = new LivingRoomShiftEventEntity(date, employeeId, livingRoomId, (byte)shiftType);
 
@@ -39,7 +39,7 @@ namespace AmstaJanBonga.Business.Database.Readers
 
         public static DataTable GetAllShiftsDistinctByLivingRoomId(int livingRoomId)
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("ReadLivingRoomShiftEvent");
 
             // Result fields.
             var fields = new ResultsetFields(3)
@@ -81,7 +81,7 @@ namespace AmstaJanBonga.Business.Database.Readers
 
         public static LivingRoomShiftEventCollection GetAllShiftsFilteredByLivingroomAndDate(int livingRoomId, DateTime date)
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("ReadLivingRoomShiftEvent");
 
             var shifts = new LivingRoomShiftEventCollection();
 
@@ -112,7 +112,7 @@ namespace AmstaJanBonga.Business.Database.Readers
 
         public static List<DateTime> GetAllUsedDatesByLivingRoomId(int livingRoomId)
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("ReadLivingRoomShiftEvent");
 
             // Result fields.
             var fields = new ResultsetFields(1)

@@ -23,7 +23,7 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static EmployeeEntity GetEmployeeById(int employeeId)
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("ReadEmployee");
 
             return new EmployeeEntity(employeeId);
         }
@@ -53,7 +53,7 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static EmployeeEntity GetEmployeeByUserId(int userId, bool throwExceptionWhenNotFound)
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("ReadEmployee");
 
             var user = new UserEntity(userId);
 
@@ -67,19 +67,9 @@ namespace AmstaJanBonga.Business.Database.Readers
             if (user.Employees.Count > 1)
                 throw new Exception("Multiple employees found with userId: {0}".FormatString(userId));
             else if (user.Employees.Count == 0 && !throwExceptionWhenNotFound)
-            {
-                //if (Authentication.IsAuthenticated)
-                //    Authentication.Utility.SignOut();
-
                 return null;
-            }
             else if (user.Employees.Count == 0 && throwExceptionWhenNotFound)
-            {
-                //if (Authentication.IsAuthenticated)
-                //    Authentication.Utility.SignOut();
-
                 throw new Exception("No employee found for userId: {0}.".FormatString(userId));
-            }
 
             return user.Employees[0];
         }
@@ -108,7 +98,7 @@ namespace AmstaJanBonga.Business.Database.Readers
 
         public static EmployeeCollection GetAllEmployeesByLivingRoomId(int livingroomId)
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("ReadEmployee");
 
             // Collection
             var employees = new EmployeeCollection();
@@ -139,7 +129,7 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static DataTable GetAllEmployeesJoinedWithLivingroom()
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("ReadEmployee");
 
             // The fields in the result.
             var fields = new ResultsetFields(3);

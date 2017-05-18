@@ -26,7 +26,7 @@ namespace AmstaJanBonga.Business.Database.Managers
         {
             Authentication.AuthenticateActivity("");
 
-            var livingroomGeneralEvent = LivingRoomGeneralEventReader.GetLivingroomGeneralByIdAndDate(livingroomId, date, true);
+            var livingroomGeneralEvent = LivingRoomGeneralEventReader.GetLivingroomGeneralByLivingRoomIdAndDate(livingroomId, date, true);
 
             livingroomGeneralEvent.Description = description;
             livingroomGeneralEvent.Save();

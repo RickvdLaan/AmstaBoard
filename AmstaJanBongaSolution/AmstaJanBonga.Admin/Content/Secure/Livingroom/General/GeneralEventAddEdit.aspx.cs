@@ -81,7 +81,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
                 // Edit
                 if (this.HasDate)
                 {
-                    var livingroomGeneralEvent = LivingRoomGeneralEventReader.GetLivingroomGeneralByIdAndDate(this.LivingRoomId, this.QueryStringDate.Date, true);
+                    var livingroomGeneralEvent = LivingRoomGeneralEventReader.GetLivingroomGeneralByLivingRoomIdAndDate(this.LivingRoomId, this.QueryStringDate.Date, true);
 
                     // Sets the date.
                     this.ExtendedCalendar.SelectedDate = this.QueryStringDate.Date;

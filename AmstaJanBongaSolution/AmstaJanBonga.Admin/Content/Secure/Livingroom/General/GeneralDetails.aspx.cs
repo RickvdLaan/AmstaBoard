@@ -57,7 +57,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
             get
             {
                 if (this._livingroomGeneralEvent == null && this.HasLivingRoomId)
-                    this._livingroomGeneralEvent = LivingRoomGeneralEventReader.GetLivingroomGeneralByIdAndDate(this.Livingroom.Id, this.QueryStringDate.Date, true);
+                    this._livingroomGeneralEvent = LivingRoomGeneralEventReader.GetLivingroomGeneralByLivingRoomIdAndDate(this.Livingroom.Id, this.QueryStringDate.Date, true);
 
                 return this._livingroomGeneralEvent;
             }

@@ -13,24 +13,24 @@ namespace AmstaJanBonga.Business.Database.Readers
 {
     public abstract class LivingRoomGeneralEventReader
     {
-        public static LivingRoomGeneralEventCollection GetAllLivingroomGeneralEventsByLivingRoomId(int livingroomId)
+        public static LivingRoomGeneralEventCollection GetAllLivingRoomGeneralEventsByLivingRoomId(int livingRoomId)
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("ReadLivingRoomGeneralEvent");
 
             var livingroomGeneralEvents = new LivingRoomGeneralEventCollection();
 
             var predicate = new PredicateExpression();
-            predicate.Add(LivingRoomGeneralEventFields.LivingRoomId == livingroomId);
+            predicate.Add(LivingRoomGeneralEventFields.LivingRoomId == livingRoomId);
             predicate.Add(LivingRoomGeneralEventFields.Date >= DateTime.Now);
 
-            livingroomGeneralEvents.GetMulti(predicate, -1);
+            livingroomGeneralEvents.GetMulti(predicate, 0);
 
             return livingroomGeneralEvents;
         }
 
         public static List<DateTime> GetAllUsedDatesByLivingRoomId(int livingroomId)
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("ReadLivingRoomGeneralEvent");
 
             // Result fields.
             var fields = new ResultsetFields(1)
@@ -65,14 +65,14 @@ namespace AmstaJanBonga.Business.Database.Readers
             return dates;
         }
 
-        public static LivingRoomGeneralEventEntity GetLivingroomGeneralByIdAndDate(int livingroomId, DateTime date, bool throwExceptionWhenNotFound)
+        public static LivingRoomGeneralEventEntity GetLivingroomGeneralByLivingRoomIdAndDate(int livingRoomId, DateTime date, bool throwExceptionWhenNotFound)
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("ReadLivingRoomGeneralEvent");
 
-            var livingroomGeneralEvent = new LivingRoomGeneralEventEntity(date, livingroomId);
+            var livingroomGeneralEvent = new LivingRoomGeneralEventEntity(date, livingRoomId);
 
             if (throwExceptionWhenNotFound && livingroomGeneralEvent.IsNew)
-                throw new Exception("Nothing found for livingroom {0} and date {1}.".FormatString(livingroomId, date));
+                throw new Exception("Nothing found for livingroom {0} and date {1}.".FormatString(livingRoomId, date));
             else if (livingroomGeneralEvent.IsNew)
                 return null;
 

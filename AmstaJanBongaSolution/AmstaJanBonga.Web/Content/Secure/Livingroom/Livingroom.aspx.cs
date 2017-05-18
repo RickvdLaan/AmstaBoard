@@ -89,7 +89,7 @@ namespace AmstaJanBonga.Web.Content
 
         private void DatabindGeneral()
         {
-            var generalEvent = LivingRoomGeneralEventReader.GetLivingroomGeneralByIdAndDate(this.CurrentLivingRoomId, DateTime.Now, false);
+            var generalEvent = LivingRoomGeneralEventReader.GetLivingroomGeneralByLivingRoomIdAndDate(this.CurrentLivingRoomId, DateTime.Now, false);
 
             if (generalEvent != null)
             {

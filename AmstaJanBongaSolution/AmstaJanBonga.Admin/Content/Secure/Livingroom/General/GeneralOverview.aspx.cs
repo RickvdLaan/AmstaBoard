@@ -50,7 +50,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
         {
             if (this.HasLivingRoomId)
             {
-                this._gvGeneral.DataSource = LivingRoomGeneralEventReader.GetAllLivingroomGeneralEventsByLivingRoomId(this.LivingRoomId);
+                this._gvGeneral.DataSource = LivingRoomGeneralEventReader.GetAllLivingRoomGeneralEventsByLivingRoomId(this.LivingRoomId);
                 this._gvGeneral.DataBind();
 
                 if (this._gvGeneral.Rows.Count > 0)

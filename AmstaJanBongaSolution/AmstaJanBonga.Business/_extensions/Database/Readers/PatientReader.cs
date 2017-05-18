@@ -21,7 +21,7 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static PatientEntity GetPatientById(int patientId)
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("ReadPatient");
 
             return new PatientEntity(patientId);
         }
@@ -52,7 +52,7 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static PatientCollection GetAllPatients()
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("ReadPatient");
 
             var patients = new PatientCollection();
             patients.GetMulti(null, 0);
@@ -62,7 +62,7 @@ namespace AmstaJanBonga.Business.Database.Readers
 
         public static PatientCollection GetAllPatientsByLivingRoomId(int livingroomId)
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("ReadPatient");
 
             // Collection
             var patients = new PatientCollection();
@@ -88,7 +88,7 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static DataTable GetAllPatientsJoinedWithLivingroom()
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("ReadPatient");
 
             // The fields in the result.
             var fields = new ResultsetFields(3);
@@ -121,7 +121,7 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static int GetAllPatientsDBCount()
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("ReadPatient");
 
             return new PatientCollection().GetDbCount();
         }

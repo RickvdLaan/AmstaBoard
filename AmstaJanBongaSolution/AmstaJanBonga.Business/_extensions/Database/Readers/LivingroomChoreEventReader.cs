@@ -16,7 +16,7 @@ namespace AmstaJanBonga.Business.Database.Readers
     {
         public static LivingRoomChoreEventEntity GetChoreByIds(int patientId, int livingroomId, DateTime date, TimeOfDayTypeEnum timeOfDay, bool throwExceptionWhenNotFound)
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("ReadLivingRoomChoreEvent");
 
             var chore = new LivingRoomChoreEventEntity(date, livingroomId, patientId, (byte)timeOfDay);
 
@@ -39,7 +39,7 @@ namespace AmstaJanBonga.Business.Database.Readers
 
         public static LivingRoomChoreEventCollection GetAllChoresFilteredByLivingroomAndDate(int livingroomId, DateTime date)
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("ReadLivingRoomChoreEvent");
 
             var chores = new LivingRoomChoreEventCollection();
 
@@ -63,7 +63,7 @@ namespace AmstaJanBonga.Business.Database.Readers
 
         public static DataTable GetAllChoresDistinctByLivingRoomId(int livingroomId)
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("ReadLivingRoomChoreEvent");
 
             // Result fields.
             var fields = new ResultsetFields(3)
@@ -103,7 +103,7 @@ namespace AmstaJanBonga.Business.Database.Readers
 
         public static List<DateTime> GetAllUsedDatesByLivingRoomId(int livingroomId)
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("ReadLivingRoomChoreEvent");
 
             // Result fields.
             var fields = new ResultsetFields(1)
