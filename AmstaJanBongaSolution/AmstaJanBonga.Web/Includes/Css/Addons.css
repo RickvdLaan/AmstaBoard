@@ -93,6 +93,7 @@ div.remodal table tbody tr td:last-child {
     max-width: 100%;
     text-align: left;
     width: auto;
+    min-width: 500px;
 }
 
 .remodal h1,
@@ -113,6 +114,23 @@ div.remodal table tbody tr td:last-child {
     font-size: 1vw;
     padding-left: 50px;
     padding-right: 50px;
+}
+
+.button {
+    display: block;
+    font-size: 1vw;
+    height: 51px;
+    margin: auto;
+    width: 194px;
+    border: 0 none;
+    cursor: pointer;
+    font: "Open Sans",sans-serif;
+    outline: 0 none;
+    overflow: visible;
+    padding: 12px 0;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
 }
 
 .remodal .remodal-confirm:hover {

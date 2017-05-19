@@ -53,7 +53,9 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static EmployeeEntity GetEmployeeByUserId(int userId, bool throwExceptionWhenNotFound)
         {
-            Authentication.AuthenticateActivity("ReadEmployee");
+            // Is used when logging onto a living room.
+            if (Authentication.IsAuthenticated)
+                Authentication.AuthenticateActivity("ReadEmployee");
 
             var user = new UserEntity(userId);
 

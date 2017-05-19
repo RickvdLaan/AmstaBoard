@@ -72,6 +72,7 @@ a, p, span {
 
 a {
     text-decoration: none;
+    color: rgb(255, 167, 53);
 }
 
     a:hover {
@@ -141,7 +142,7 @@ a {
     box-shadow: 0 2px 1px rgba(0, 0, 0, 0.08);
     margin-top: 20px;
     overflow: auto;
-    padding: 15px;
+    padding: 15px 20px 20px;
 }
 * {
     font-family: "Lato","Open Sans",sans-serif;
@@ -201,7 +202,7 @@ a {
 #header-container {
     display: table;
     height: 105px;
-    position: fixed;
+    position: absolute;
     top: 0;
     width: calc(100% - 300px);
     z-index: 50;
@@ -348,10 +349,11 @@ a {
 
 .shortcut {
     background-color: #ededed;
-    margin-top: 5px;
-    padding: 5px 10px;
-    line-height: 1.8em;
     border-radius: 3px;
+    line-height: 1.8em;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    padding: 5px 10px;
 }
 
 .shortcut a {
@@ -418,7 +420,7 @@ a {
     }
 
  #sidebar-container #navigation-container ul li a {
-    color: #dadada;
+    color: #cdcdcd;
     padding-left: 30px;
     text-decoration: none;
     font-size: 17px;
@@ -471,6 +473,11 @@ a {
     box-shadow: inset 0 5px 5px 0 #000000;
 }
 
+#sidebar-container #navigation-container .nav-menu:hover a {
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
 
 
 
@@ -494,7 +501,6 @@ a {
     width: 100%;
     overflow: hidden;
     color: #5f6062;
-    margin-top: 15px;
     border: none;
 }
 
@@ -695,6 +701,7 @@ a {
     font-weight: lighter;
     padding: 6px;
     margin-bottom: 10px;
+    color: #ffffff;
 }
 
 
@@ -803,6 +810,9 @@ a {
     background-color: #f08a00;
     border-bottom: 1px solid #ddd;
     border-right: 1px solid #ddd;
+    color: #f7f7f7;
+    font-weight: 100;
+    font-size: 16px;
 }
 
 .calendar td:first-child.calendar-other-month-day {

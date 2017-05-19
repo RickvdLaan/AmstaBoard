@@ -51,15 +51,6 @@ namespace AmstaJanBonga.Admin.Content.Unsecure.Login
                 return;
             }
 
-            // Determines whether the database connection is available.
-            if (!NetworkInformation.IsDatabaseConnectionAvailable(WebConfig.GetSetting("ConnectionString.SQL Server (SqlClient)")))
-            {
-                _loginAuthentication.FailureText = Resource.ServerConncetionError;
-
-                e.Authenticated = false;
-                return;
-            }
-
             // Gets the user which corresponds with the username and password.
             var user = UserReader.GetUserByUsernameAndPassword(username, password);
 
@@ -73,7 +64,7 @@ namespace AmstaJanBonga.Admin.Content.Unsecure.Login
             }
 
             // Determines whether the current user has the appropriate role.
-            if (!UserReader.IsUserInRole(user, RoleTypeEnum.Root, RoleTypeEnum.Manager, RoleTypeEnum.Employee))
+            if (!UserReader.IsUserInRole(user, RoleTypeEnum.Root, RoleTypeEnum.Manager, RoleTypeEnum.Employee, RoleTypeEnum.Trainee))
             {
                 _loginAuthentication.FailureText = Resource.AccountPermissions;
 

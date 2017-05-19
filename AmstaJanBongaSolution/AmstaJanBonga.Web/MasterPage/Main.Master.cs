@@ -1,4 +1,5 @@
-﻿using Rlaan.Toolkit.Configuration;
+﻿using AmstaJanBonga.Business.Security;
+using Rlaan.Toolkit.Configuration;
 using Rlaan.Toolkit.Extensions;
 using Rlaan.Toolkit.Web;
 using System;
@@ -161,6 +162,12 @@ namespace AmstaJanBonga.Web.MasterPage
         protected void _lbHome_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Livingroom");
+        }
+
+
+        protected void _btnLogout_Click(object sender, EventArgs e)
+        {
+            Authentication.Utility.SignOut();
         }
 
         #endregion

@@ -88,8 +88,32 @@
             </div>
 
             <!-- Menu -->
-            <div class="remodal grey-bg no-select" data-remodal-id="menu-remodal" data-remodal-options="hashTracking: false">
+            <div class="remodal blue-bg no-select" data-remodal-id="menu-remodal" data-remodal-options="hashTracking: false">
+                 <table>
+                    <thead>
+                        <tr>
+                            <td>
+                                 <h2>Menu</h2>
+                            </td>
+                        </tr>
+                    </thead>
 
+                    <tbody>
+                        <tr>
+                            <td>
+                               <asp:Button runat="server" ID="_btnLogout" Text="Uitloggen" CssClass="green-bg button" OnClick="_btnLogout_Click" />
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <tfoot>
+                        <tr>
+                            <td>
+                                <button data-remodal-action="cancel" class="remodal-cancel">Annuleren</button>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
             </div>
         </form> 
     </body>

@@ -72,8 +72,12 @@ namespace AmstaJanBonga.Business.Database.Managers
             originalCollection.RemovedEntitiesTracker.AddRange(originalCollection);
             originalCollection.AddRange(newCollection);
 
-            originalCollection.RemovedEntitiesTracker.DeleteMulti();
-            originalCollection.SaveMulti();
+            foreach (var item in originalCollection.RemovedEntitiesTracker)
+            {
+                (item as LivingRoomChoreEventEntity).Delete();
+            }
+
+            newCollection.SaveMulti();
         }
     }
 }
