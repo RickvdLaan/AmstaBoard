@@ -71,10 +71,8 @@ namespace AmstaJanBonga.Business.Security
                         return;
                 }
 
-                // @Fixme: Implement a "not enough privileges" error page.
                 // User doesn't have the right privileges. 
-                throw new SecurityException("The current user by id: {0} doesn't have enough privileges to access acctivity {1}."
-                    .FormatString(AuthenticatedUser.Id, activity));
+                HttpContext.Current.Response.Redirect("~/InsufficientPrivileges");
             }
             // The user is not logged in, redirecting!
             else
@@ -84,7 +82,7 @@ namespace AmstaJanBonga.Business.Security
                     Log.Object(AuthenticatedUser, "The AuthenticatedUser wasn't logged in on the AuthenticateActivity check.");
 
                 // Redirecting to the login page.
-                HttpContext.Current.Response.Redirect("~/Login");
+                HttpContext.Current.Response.Redirect(FormsAuthentication.LoginUrl);
             }
         }
 
@@ -105,7 +103,7 @@ namespace AmstaJanBonga.Business.Security
                 HttpContext.Current.Session.Clear();
 
                 // Redirects the user to the login page.
-                HttpContext.Current.Response.Redirect("~/Login");
+                HttpContext.Current.Response.Redirect(FormsAuthentication.LoginUrl);
             }
 
             /// <summary>

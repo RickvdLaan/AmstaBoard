@@ -55,15 +55,6 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff35b5', endColorstr='#ff0075',GradientType=0 );
 }
 
-.green-bg,
-.grey-bg,
-.orange-bg,
-.pink-bg,
-.purple-bg,
-.red-bg {
-    color: #fff;
-}
-
 /* Remodal plugin */
 
 .remodal-close {

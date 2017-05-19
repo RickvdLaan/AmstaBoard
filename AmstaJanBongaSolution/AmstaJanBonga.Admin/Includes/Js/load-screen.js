@@ -1,4 +1,21 @@
 ﻿$(function () {
+	var isCtrlPressed = false;	
+	
+	// Detecting whether the ctrl button was pressed.
+	$(document).keydown(function(event) {
+		if(event.which == "17") {
+		   isCtrlPressed = true;
+		}
+	});
+	
+	// Detecting whether the ctrl button was released.
+	$(document).keyup(function(event) {
+		if(event.which == "17") {
+		   isCtrlPressed = false;
+		}
+	});
+	
+	// Shows a loading screen.
     function ShowProgress() {
         setTimeout(function () {
             var modal = $('<div />');
@@ -11,24 +28,27 @@
             loading.css({ top: top, left: left });
         }, 200);
     }
-
-    // Submits
-    $('form').live("submit", function () {
+		
+	// ASP buttons
+    $('form').on("submit", function (e) {
+		 if(!Page_IsValid) {
+           return;
+		}
+		
         ShowProgress();
     });
-
-    // Anchor tags
-    $("a").click(function () {
+	
+	// Anchor tags
+    $("a").click(function () {		
         var href = $(this).attr('href');
-
-        if (
-            ($(this).hasClass("js-listbox-button")) ||
-            (href.indexOf("ExtendedCalendar") != -1)
-        ) {
-            // Nothing has to be done.
-        }
-        else {
-            ShowProgress();
-        }
+		
+		if (!isCtrlPressed) {
+			// Ignoring all the anchors in controls which do postbacks, or update panels, etc.
+			if (($(this).hasClass("js-listbox-button")) || (href.indexOf("ExtendedCalendar") != -1)) {
+				return;
+			}
+			
+			ShowProgress();
+		}
     });
 }); 

@@ -12,6 +12,8 @@
     Overzicht
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="_cphExplanation" runat="server">
+    Dit is het overzicht van de bewoners, op deze pagina zijn alle bewoners te vinden die zijn toegevoegd aan het systeem. Vanuit hier is
+    het mogelijk om bewoners toe te voegen, te bekijken, wijzigen en de agenda aan te passen van de geselecteerde bewoner.
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="_cphContent" runat="server">
      <div class="box">
@@ -22,8 +24,8 @@
         </div>
        
         <div class="gridview">
-            <asp:GridView runat="server" ID="_gvPatients" OnPreRender="_gvPatients_PreRender" ShowHeaderWhenEmpty="true" AlternatingRowStyle-CssClass="alt" AllowPaging="false" AllowSorting="false" AutoGenerateColumns="false">
-                <Columns>          
+            <asp:GridView runat="server" ID="_gvPatients" OnPreRender="_gvPatients_PreRender" ShowHeaderWhenEmpty="true" AlternatingRowStyle-CssClass="alt" AllowPaging="true" PageSize="10" AllowSorting="false" AutoGenerateColumns="false" OnPageIndexChanging="_gvPatients_PageIndexChanging">
+                <Columns>
                     <asp:TemplateField>
                     <HeaderTemplate>
                         Bewoner
@@ -52,9 +54,10 @@
                         </HeaderTemplate>
 
                         <ItemTemplate>
+                            <asp:HyperLink runat="server" ToolTip="Agenda" CssClass="calendar fa fa-calendar"></asp:HyperLink>
                             <asp:HyperLink runat="server" ToolTip="Bekijken" CssClass="details fa fa-search" NavigateUrl='<%# Eval("Id","~/Content/Secure/Patient/PatientDetails.aspx?PatientId={0}") %>'></asp:HyperLink>
                             <asp:HyperLink runat="server" ToolTip="Wijzigen" CssClass="edit fa fa-pencil" NavigateUrl='<%# Eval("Id","~/Content/Secure/Patient/PatientAddEdit.aspx?PatientId={0}") %>'></asp:HyperLink>
-                            <asp:HyperLink runat="server" ToolTip="Verwijderen" CssClass="delete fa fa-times disabled"></asp:HyperLink>
+                            <asp:HyperLink runat="server" ToolTip="Verwijderen" CssClass="delete fa fa-times"></asp:HyperLink>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

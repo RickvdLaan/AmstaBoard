@@ -5,15 +5,15 @@ using System;
 
 namespace AmstaJanBonga.Business.Database.Managers
 {
-    public abstract class LivingroomGeneralEventManager
+    public abstract class LivingRoomGeneralEventManager
     {
-        public static void Insert(int livingroomId, DateTime date, string description)
+        public static void Insert(int livingRoomId, DateTime date, string description)
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("CreateLivingRoomGeneralEvent");
 
             var livingroomGeneralEvent = new LivingRoomGeneralEventEntity()
             {
-                LivingRoomId = livingroomId,
+                LivingRoomId = livingRoomId,
                 Date = date,
                 Description = description,
                 DateCreated = DateTime.Now
@@ -22,11 +22,11 @@ namespace AmstaJanBonga.Business.Database.Managers
             livingroomGeneralEvent.Save();
         }
 
-        public static void Update(int livingroomId, DateTime date, string description)
+        public static void Update(int livingRoomId, DateTime date, string description)
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("UpdateLivingRoomGeneralEvent");
 
-            var livingroomGeneralEvent = LivingRoomGeneralEventReader.GetLivingroomGeneralByLivingRoomIdAndDate(livingroomId, date, true);
+            var livingroomGeneralEvent = LivingRoomGeneralEventReader.GetLivingroomGeneralByLivingRoomIdAndDate(livingRoomId, date, true);
 
             livingroomGeneralEvent.Description = description;
             livingroomGeneralEvent.Save();

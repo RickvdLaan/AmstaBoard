@@ -6,11 +6,11 @@ using System;
 
 namespace AmstaJanBonga.Business.Database.Managers
 {
-    public abstract class LivingroomShiftEventManager
+    public abstract class LivingRoomShiftEventManager
     {
         public static void UpdateShift(LivingRoomShiftEventEntity oldShift, LivingRoomShiftEventEntity newShift)
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("UpdateLivingRoomShiftEvent");
 
             if  (oldShift.EmployeeId    == newShift.EmployeeId   &&
                 oldShift.LivingRoomId  == newShift.LivingRoomId  &&
@@ -37,6 +37,8 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// <returns></returns>
         public static LivingRoomShiftEventEntity CreateLivingroomShiftEventEntity(int employeeId, int livingroomId, DateTime date, ShiftTypeEnum shiftType)
         {
+            // Doesn't require a permission because it only creates an entity.
+
             var shift = new LivingRoomShiftEventEntity()
             {
                 EmployeeId = employeeId,
@@ -55,14 +57,14 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// <param name="shifts"></param>
         public static void InsertMulti(LivingRoomShiftEventCollection shifts)
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("CreateLivingRoomShiftEvent");
 
             shifts.SaveMulti();
         }
 
         public static void UpdateMulti(LivingRoomShiftEventCollection originalCollection, LivingRoomShiftEventCollection newCollection)
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("UpdateLivingRoomShiftEvent");
 
             var tracker = new LivingRoomShiftEventCollection();
             originalCollection.RemovedEntitiesTracker = tracker;

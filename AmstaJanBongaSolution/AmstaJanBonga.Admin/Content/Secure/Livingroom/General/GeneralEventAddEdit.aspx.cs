@@ -117,16 +117,16 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
                 // Edit (Update)
                 if (this.HasDate)
                 {
-                    LivingroomGeneralEventManager.Update(this.LivingRoomId, this.ExtendedCalendar.SelectedDate.Date, generalEvent);
+                    LivingRoomGeneralEventManager.Update(this.LivingRoomId, this.ExtendedCalendar.SelectedDate.Date, generalEvent);
                 }
                 // Add (Insert)
                 else
                 {
-                    LivingroomGeneralEventManager.Insert(this.LivingRoomId, this.ExtendedCalendar.SelectedDate.Date, generalEvent);
+                    LivingRoomGeneralEventManager.Insert(this.LivingRoomId, this.ExtendedCalendar.SelectedDate.Date, generalEvent);
                 }
 
                 // This one needs to be updated/inserted regardless.
-                LivingroomGeneralManager.InsertOrUpdate(this.LivingRoomId, string.IsNullOrWhiteSpace(general) ? null : general);
+                LivingRoomGeneralManager.InsertOrUpdate(this.LivingRoomId, string.IsNullOrWhiteSpace(general) ? null : general);
             }
         }
 

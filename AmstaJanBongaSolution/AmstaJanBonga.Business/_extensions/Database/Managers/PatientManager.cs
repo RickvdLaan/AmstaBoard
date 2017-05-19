@@ -20,7 +20,7 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// <returns></returns>
         public static PatientEntity InsertPatient(int livingroomId, string firstName, FileUpload fileUpload)
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("CreatePatient");
 
             // Saving the patient wihtout an image, image is mandetory.
             var patient = new PatientEntity()
@@ -76,7 +76,7 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// <returns></returns>
         public static PatientEntity UpdatePatient(PatientEntity patient, int livingroomId, string firstName, FileUpload fileUpload)
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("UpdatePatient");
 
             // The path without the filename
             var path = HttpContext.Current.Server.MapPath(
@@ -110,7 +110,7 @@ namespace AmstaJanBonga.Business.Database.Managers
 
         public static void MarkUserAsDeleted()
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("DeletePatient");
 
             // Won't be implemented untill the entire database is done.
             throw new NotImplementedException();

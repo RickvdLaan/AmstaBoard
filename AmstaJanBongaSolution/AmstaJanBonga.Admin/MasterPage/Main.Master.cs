@@ -38,8 +38,6 @@ namespace AmstaJanBonga.Admin.MasterPage
                 _liStaff.Attributes.Add("class", "nav-menu-active");
             else if (Url.GetFullUrl.Contains("Livingroom"))
                 _liLivingroom.Attributes.Add("class", "nav-menu-active");
-            else
-                throw new NotImplementedException("Menu item is not yet implemented.");
         }
 
         #region Overrides

@@ -188,7 +188,7 @@ namespace AmstaJanBonga.Web.Content
             var oldShift = LivingRoomShiftEventReader.GetShiftByIds(values[0].ToInt(), this.CurrentLivingRoomId, DateTime.Now, shiftType, true);
             var newShift = LivingRoomShiftEventReader.GetShiftByIds(linkButton.CommandArgument.ToInt(), this.CurrentLivingRoomId, DateTime.Now, shiftType, false);
 
-            LivingroomShiftEventManager.UpdateShift(oldShift, newShift);
+            LivingRoomShiftEventManager.UpdateShift(oldShift, newShift);
 
             this.DatabindShifts();
         }
@@ -261,7 +261,7 @@ namespace AmstaJanBonga.Web.Content
             var oldChore = LivingRoomChoreEventReader.GetChoreByIds(values[0].ToInt(), this.CurrentLivingRoomId, DateTime.Now, timeOfDay, true);
             var newChore = LivingRoomChoreEventReader.GetChoreByIds(linkButton.CommandArgument.ToInt(), this.CurrentLivingRoomId, DateTime.Now, timeOfDay, false);
 
-            LivingroomChoreEventManager.UpdateChore(oldChore, newChore);
+            LivingRoomChoreEventManager.UpdateChore(oldChore, newChore);
 
             this.DatabindChores();
         }

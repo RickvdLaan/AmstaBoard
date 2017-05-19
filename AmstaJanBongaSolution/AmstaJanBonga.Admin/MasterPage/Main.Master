@@ -56,7 +56,7 @@
             </div>
 
             <!-- Header -->
-            <div id="header-container" class="blue-bg">
+            <div id="header-container" class="orange-bg">
 		        <h1>
                     <asp:ContentPlaceHolder ID="_cphMainTitle" runat="server" />
 		        </h1>

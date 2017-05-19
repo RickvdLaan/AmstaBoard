@@ -6,11 +6,11 @@ using System;
 
 namespace AmstaJanBonga.Business.Database.Managers
 {
-    public abstract class LivingroomChoreEventManager
+    public abstract class LivingRoomChoreEventManager
     {
         public static void UpdateChore(LivingRoomChoreEventEntity oldChore, LivingRoomChoreEventEntity newChore)
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("UpdateLivingRoomChoreEvent");
 
             if (oldChore.PatientId         == newChore.PatientId         &&
                 oldChore.LivingRoomId      == newChore.LivingRoomId      &&
@@ -28,21 +28,21 @@ namespace AmstaJanBonga.Business.Database.Managers
         }
 
         /// <summary>
-        /// Creates a LivingroomChoreEventEntity and returns it.
+        /// Creates a LivingRoomChoreEventEntity and returns it.
         /// </summary>
         /// <param name="patientId"></param>
-        /// <param name="livingroomId"></param>
+        /// <param name="livingRoomId"></param>
         /// <param name="date"></param>
         /// <param name="timeOfDay"></param>
         /// <returns></returns>
-        public static LivingRoomChoreEventEntity CreateLivingroomChoreEventEntity(int patientId, int livingroomId, DateTime date, TimeOfDayTypeEnum timeOfDay)
+        public static LivingRoomChoreEventEntity CreateLivingRoomChoreEventEntity(int patientId, int livingRoomId, DateTime date, TimeOfDayTypeEnum timeOfDay)
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("CreateLivingRoomChoreEvent");
 
             var chore = new LivingRoomChoreEventEntity()
             {
                 PatientId = patientId,
-                LivingRoomId = livingroomId,
+                LivingRoomId = livingRoomId,
                 Date = date,
                 TimeOfDayTypeEnum = (byte)timeOfDay,
                 DateCreated = DateTime.Now
@@ -57,14 +57,14 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// <param name="chore"></param>
         public static void InsertMulti(LivingRoomChoreEventCollection chores)
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("CreateLivingRoomChoreEvent");
 
             chores.SaveMulti();
         }
 
         public static void UpdateMulti(LivingRoomChoreEventCollection originalCollection, LivingRoomChoreEventCollection newCollection)
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("UpdateLivingRoomChoreEvent");
 
             var tracker = new LivingRoomChoreEventCollection();
             originalCollection.RemovedEntitiesTracker = tracker;

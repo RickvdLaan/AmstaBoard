@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Security.Claims;
-using System.Threading;
 
 namespace AmstaJanBonga.Admin.Content.Secure
 {

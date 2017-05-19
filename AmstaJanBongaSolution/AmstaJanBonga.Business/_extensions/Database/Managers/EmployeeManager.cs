@@ -22,7 +22,7 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// <returns></returns>
         public static EmployeeEntity InsertEmployee(int livingroomId, int? userId, string firstName, FileUpload fileUpload)
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("CreateEmployee");
 
             if (userId.HasValue)
             {
@@ -91,7 +91,7 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// <returns></returns>
         public static EmployeeEntity UpdateEmployee(EmployeeEntity employee, int livingroomId, int? userId, string firstName, FileUpload fileUpload)
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("UpdateEmployee");
 
             if (userId.HasValue)
             {
@@ -135,7 +135,7 @@ namespace AmstaJanBonga.Business.Database.Managers
 
         public static void DeleteEmployeeImage(EmployeeEntity employee)
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("DeleteEmployee");
 
             if (employee.IsNew || !string.IsNullOrEmpty(employee.ImagePath))
                 return;
@@ -148,7 +148,7 @@ namespace AmstaJanBonga.Business.Database.Managers
 
         public static void DeleteEmployeeImage(int employeeId, bool throwExceptionIfNotFound)
         {
-            Authentication.AuthenticateActivity("");
+            Authentication.AuthenticateActivity("DeleteEmployee");
 
             var employee = EmployeeReader.GetEmployeeById(employeeId, throwExceptionIfNotFound);
 

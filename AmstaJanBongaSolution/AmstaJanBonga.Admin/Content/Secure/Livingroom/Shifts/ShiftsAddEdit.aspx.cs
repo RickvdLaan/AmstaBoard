@@ -188,13 +188,13 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Shifts
                 if (this.HasDate)
                 {
                     // Updates multiple shifts at once.
-                    LivingroomShiftEventManager.UpdateMulti(this.Shifts, this.GetSelectedEmployees());
+                    LivingRoomShiftEventManager.UpdateMulti(this.Shifts, this.GetSelectedEmployees());
                 }
                 // Add
                 else
                 {
                     // Inserts multiple shifts at once.
-                    LivingroomShiftEventManager.InsertMulti(this.GetSelectedEmployees());
+                    LivingRoomShiftEventManager.InsertMulti(this.GetSelectedEmployees());
                 }
             }
         }
@@ -205,11 +205,11 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Shifts
 
             // Day
             for (int i = 0; i < _jlbDay.ListBoxDestination.Items.Count; i++)
-                shifts.Add(LivingroomShiftEventManager.CreateLivingroomShiftEventEntity(this._jlbDay.ListBoxDestination.Items[i].Value.ToInt(), Livingroom.Id, this.ExtendedCalendar.SelectedDate, ShiftTypeEnum.Day));
+                shifts.Add(LivingRoomShiftEventManager.CreateLivingroomShiftEventEntity(this._jlbDay.ListBoxDestination.Items[i].Value.ToInt(), Livingroom.Id, this.ExtendedCalendar.SelectedDate, ShiftTypeEnum.Day));
 
             // Evening
             for (int i = 0; i < _jlbEvening.ListBoxDestination.Items.Count; i++)
-                shifts.Add(LivingroomShiftEventManager.CreateLivingroomShiftEventEntity(this._jlbEvening.ListBoxDestination.Items[i].Value.ToInt(), Livingroom.Id, this.ExtendedCalendar.SelectedDate, ShiftTypeEnum.Evening));
+                shifts.Add(LivingRoomShiftEventManager.CreateLivingroomShiftEventEntity(this._jlbEvening.ListBoxDestination.Items[i].Value.ToInt(), Livingroom.Id, this.ExtendedCalendar.SelectedDate, ShiftTypeEnum.Evening));
 
             return shifts;
         }

@@ -121,6 +121,7 @@
     <Content Include="Content\Controls\ExtendedCalendar\Shifts\ExtendedCalendar.ascx" />
     <Content Include="Content\Controls\JsListBox\JsListBox.ascx" />
     <Content Include="Content\Secure\Dashboard.aspx" />
+    <Content Include="Content\Secure\InsufficientPrivileges\InsufficientPrivileges.aspx" />
     <Content Include="Content\Secure\Livingroom\Chores\ChoresAddEdit.aspx" />
     <Content Include="Content\Secure\Livingroom\Chores\ChoresDetails.aspx" />
     <Content Include="Content\Secure\Livingroom\Chores\ChoresOverview.aspx" />
@@ -263,6 +264,13 @@
     </Compile>
     <Compile Include="Content\Secure\Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Content\Secure\InsufficientPrivileges\InsufficientPrivileges.aspx.cs">
+      <DependentUpon>InsufficientPrivileges.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\Secure\InsufficientPrivileges\InsufficientPrivileges.aspx.designer.cs">
+      <DependentUpon>InsufficientPrivileges.aspx</DependentUpon>
     </Compile>
     <Compile Include="Content\Secure\Livingroom\Chores\ChoresAddEdit.aspx.cs">
       <DependentUpon>ChoresAddEdit.aspx</DependentUpon>

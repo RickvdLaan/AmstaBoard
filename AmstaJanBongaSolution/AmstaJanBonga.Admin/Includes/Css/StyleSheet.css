@@ -119,6 +119,10 @@ a {
     -ms-user-select: none; /* IE/Edge */
 }
 
+.center {
+    text-align: center;
+}
+
 .no-resize {
     padding: 5px;
     resize: none;
@@ -127,6 +131,7 @@ a {
 .box:first-of-type {
     margin-top: 0;
 }
+
 .box {
     background-color: #fff;
     border-color: #f08a00 #e5e2df #e5e2df;
@@ -156,7 +161,6 @@ a {
     font-family: "Lato","Open Sans",sans-serif;
 }
 
-
 /* Sidebar */
 
 #sidebar-container {
@@ -172,16 +176,21 @@ a {
     background: -moz-linear-gradient(-45deg, #596878 0%, #3c454f 100%);
     background: -webkit-linear-gradient(-45deg, #596878 0%,#3c454f 100%);
     background: linear-gradient(135deg, #596878 0%,#3c454f 100%);
-
 }
-
-
 
 /* Header */
 
 #header-container .fa {
     color: #f4f4f4;
     font-size: 30px;
+}
+
+#header-container > div#user {
+    float: right;
+}
+
+#header-container > div#user::after {
+    clear: both;
 }
 
 #header-container,
@@ -217,7 +226,7 @@ a {
 
 #header-container  h2 {
     font-size: 16px;
-    line-height: 100px;
+    line-height: 97px;
     display: inline-block;
 }
 
@@ -327,12 +336,13 @@ a {
 .shortcut {
     background-color: #f7f7f7;
     margin-top: 5px;
+    padding: 5px 10px;
     line-height: 1.8em;
 }
 
 .shortcut a {
     color: #f08a00;
-    font-size: 14px;
+    font-size: 17px;
     font-family: "Lato", "Open Sans", sans-serif;
     cursor: pointer;
 }
@@ -444,106 +454,129 @@ a {
 
 /* GridView */
 
- #content .gridview table {
+#content .gridview table {
     border-collapse: collapse;
     text-align: left;
     width: 100%;
-
     overflow: hidden;
-    border: 1px solid #2a333b;
+    color: #5f6062;
     margin-top: 15px;
+    border: none;
 }
 
-     #content .gridview table td,
-     #content .gridview table th {
-        padding: 3px 10px;
+#content .gridview table tfoot tr td table {
+    margin-top: 0;
+    width: auto;
+}
+
+    #content .gridview table tfoot tr td {
+        border-left: 2px solid #596878;
+        border-right: 2px solid #596878;
     }
 
-     #content .gridview table tbody tr td,
-     #content .gridview table thead tr th {
-        white-space: nowrap;
+    #content .gridview table tfoot tr td table tr td {
+        border: none;
     }
 
-        #content .gridview table thead tr th{
-            font-size: 20px;
-        } 
-        
-        #content .gridview table tbody tr td:last-of-type {
-            min-width: 85px;
+        #content .gridview table tfoot tr td table tr td:first-child {
+            border: none;
         }
 
-        .center { text-align: center;}
-
-     #content .gridview table thead th {
-        color: #202020;
-        font-size: 15px;
-        border: 1px solid #2a333b;
-        font-weight: 400;
+    #content .gridview table tfoot tr td table tr td:last-child {
+        border: none;
     }
 
-     #content .gridview table tbody td {
-        border-left: 1px solid #2a333b;
-        border-color: #2a333b;
-        font-size: 16px;
-        font-weight: normal;
-        line-height: 1.4em;
+    #content .gridview table thead tr {
+        color: #f7f7f7;
+        background: #596878;
+        background: -moz-linear-gradient(-45deg, #596878 0%, #3c454f 100%);
+        background: -webkit-linear-gradient(-45deg, #596878 0%,#3c454f 100%);
+        background: linear-gradient(135deg, #596878 0%,#3c454f 100%);
     }
 
-     #content .gridview table tbody .alt td {
-        border-color: #2a333b;
+    #content .gridview table thead th,
+    #content .gridview table tbody td {
+        padding: 5px 10px;
+        border: none;
     }
 
-    #content .gridview table tbody td:first-child {
-        border-left: none;
+    #content .gridview table thead th {
+        height: 58px;
+        font-size: 20px;
     }
 
-    #content .gridview table tbody tr:last-child td {
-        border-bottom: none;
+        #content .gridview table thead th:first-child {
+            border-left: 2px solid #596878;
+        }
+
+        #content .gridview table thead th:last-child {
+            border-right: 2px solid #596878;
+        }
+
+    #content .gridview table tbody td,
+    #content .gridview table tfoot td {
+        height: 32px;
+        border-bottom: 2px solid #596878;
     }
 
-    #content .gridview .gridview-header {
-        background-color: #f4f4f4;
+        #content .gridview table tbody td:first-child {
+            border-left: 2px solid #596878;
+        }
+
+        #content .gridview table tbody td:last-child {
+            border-right: 2px solid #596878;
+        }
+
+    #content .gridview table tbody .alt {
+        background-color: #ebebeb;
     }
 
-    #content .gridview .fa-coffee {
-        color: #f08a00;
-    }
-
-    #content .gridview .fa-trash-o {
-        color: #00aaff;
-    }
-
-    #content .gridview .fa-clock-o {
-        color: #7a5195;
-    }
-
-    #content .gridview a {
-        color: #40464b;
-    }
+/* Options and icons */
 
 .options {
     text-align: center;
-    width: 150px;
+    width: 175px;
 }
 
     .options a {
-        font-size: 20px;
-        padding: 0 1px;
+        font-size: 22px;
+        vertical-align: middle;
+        padding: 10px 2px;
     }
 
-    #content .gridview a.delete {
-        color: #fa010f;
-    }
+#content .gridview a.delete {
+    color: #fa010f;
+}
 
+#content .gridview .fa-coffee {
+    color: #f08a00;
+}
 
+#content .gridview .fa-trash-o {
+    color: #00aaff;
+}
 
+#content .gridview .fa-clock-o {
+    color: #7a5195;
+}
 
+#content .gridview .fa-pencil {
+    color: #dc8b14;
+}
 
+#content .gridview .fa-search {
+    color: #007cff;
+}
 
+#content .gridview .fa-calendar {
+    color: #07bf62;
+}
 
+#content .gridview a {
+    color: #40464b;
+}
 
-
- /* Jouw Software ASP ListBox */
+/* Jouw Software ASP ListBox */
 .js-listbox-container {
     background-color: #f7f7f7;
     padding: 30px;

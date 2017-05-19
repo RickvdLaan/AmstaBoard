@@ -152,6 +152,9 @@ namespace AmstaJanBonga.Admin
 
             // Route for the home page, no query strings available.
             routes.MapPageRoute("Dashboard", "Dashboard", "~/Content/Secure/Dashboard.aspx");
+
+            // Route for the insufficient privileges page, no query strings available.
+            routes.MapPageRoute("InsufficientPrivileges", "InsufficientPrivileges", "~/Content/Secure/InsufficientPrivileges/InsufficientPrivileges.aspx");
         }
     }
 }
