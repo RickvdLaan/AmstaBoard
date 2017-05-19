@@ -145,8 +145,6 @@ namespace AmstaJanBonga.Web.MasterPage
             {
                 // Deleting the old date cookie, since a new day has arrived.
                 Response.Cookies["Date"].Expires = DateTime.Now.AddDays(-1);
-
-                Url.Refresh();
             }
         }
 
