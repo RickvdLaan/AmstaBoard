@@ -34,7 +34,7 @@
 }
 
 html, body, form {
-    background-color: #f7f7f7;
+    background-color: #ffffff;
 }
 
 h1, h2, h3, h4, h5, h6, a, p, span {
@@ -164,7 +164,7 @@ a {
 /* Sidebar */
 
 #sidebar-container {
-    width: 220px;
+    width: 300px;
     position: fixed;
     bottom: 0;
     top: 0;
@@ -200,12 +200,12 @@ a {
 
 #header-container {
     display: table;
-    height: 100px;
+    height: 105px;
     position: fixed;
     top: 0;
-    width: calc(100% - 220px);
+    width: calc(100% - 300px);
     z-index: 50;
-    left: 220px;
+    left: 300px;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -246,9 +246,9 @@ a {
 /* Content */
 
 #content {
-    margin-left: 220px;
+    margin-left: 300px;
     padding: 20px;
-    margin-top: 100px;
+    margin-top: 105px;
 }
 
 #content span,
@@ -269,12 +269,25 @@ a {
 
 .button-save {
     margin-right: 15px;
-   
 }
 
+.button-save,
 .button-cancel {
-
+    /* CSS3 Transition */
+    -webkit-transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
+    -o-transition: all 0.1s linear;
+    transition: all 0.1s linear;
 }
+
+    .button-cancel:active,
+    .button-save:active {
+        color: #f4f4f4;
+        background-color: #2d3135;
+        /* CSS3 Shadow */
+        -webkit-box-shadow: inset 0 5px 5px 0 rgba(0, 0, 0, 0.5);
+        box-shadow: inset 0 5px 5px 0 rgba(0, 0, 0, 0.5);
+    }
 
 .buttons {
     border-color: #e5e2df;
@@ -334,10 +347,11 @@ a {
 }
 
 .shortcut {
-    background-color: #f7f7f7;
+    background-color: #ededed;
     margin-top: 5px;
     padding: 5px 10px;
     line-height: 1.8em;
+    border-radius: 3px;
 }
 
 .shortcut a {
@@ -366,10 +380,16 @@ a {
 /* Sidebar - Navigation */
 
 #sidebar-container .logo-container {
+    height: 65px;
     padding-bottom: 10px;
     padding-left: 20px;
     padding-top: 30px;
+    text-align: center;
 }
+
+    #sidebar-container .logo-container img {
+        height: 65px;
+    }
 
  #sidebar-container #navigation-container #mobile-menu {
     display: none;
@@ -386,7 +406,9 @@ a {
         box-sizing: border-box;
         -moz-box-sizing: border-box;
         -webkit-box-sizing: border-box;
- 
+        width: 300px;
+        color: #dadada;
+
         /* Ignore Text Highlight */
         -webkit-touch-callout: none;
         -webkit-user-select: none;
@@ -397,9 +419,9 @@ a {
 
  #sidebar-container #navigation-container ul li a {
     color: #dadada;
-    padding-left: 50px;
+    padding-left: 30px;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 17px;
     display: block;
     line-height: 58px; 
 
@@ -409,6 +431,12 @@ a {
     -o-transition: all 0.1s linear;
     transition: all 0.1s linear;
 }
+
+    #sidebar-container #navigation-container ul#nav li i {
+        width: 20px;
+        font-size: 21px;
+        padding-right: 10px;
+    }
 
  #sidebar-container #navigation-container .nav-menu:hover {
     /* CSS3 Transition */
@@ -425,6 +453,11 @@ a {
     border-top: 1px solid #606c79;
 }
 
+#sidebar-container #navigation-container ul li.nav-menu-active i,
+#sidebar-container #navigation-container ul li.nav-menu-active a {
+    color: #ffffff;
+}
+
 .nav-menu {
     border-bottom: 1px solid #3e4b57;
     border-top: 1px solid #606c79;
@@ -437,6 +470,7 @@ a {
     -webkit-box-shadow: inset 0 5px 5px 0 #000000;
     box-shadow: inset 0 5px 5px 0 #000000;
 }
+
 
 
 
@@ -487,11 +521,11 @@ a {
     }
 
     #content .gridview table thead tr {
-        color: #f7f7f7;
+        color: #ffffff;
         background: #596878;
-        background: -moz-linear-gradient(-45deg, #596878 0%, #3c454f 100%);
-        background: -webkit-linear-gradient(-45deg, #596878 0%,#3c454f 100%);
-        background: linear-gradient(135deg, #596878 0%,#3c454f 100%);
+        background: -moz-linear-gradient(45deg, #596878 0%, #3c454f 100%);
+        background: -webkit-linear-gradient(45deg, #596878 0%,#3c454f 100%);
+        background: linear-gradient(45deg, #596878 0%,#3c454f 100%);
     }
 
     #content .gridview table thead th,
@@ -578,7 +612,7 @@ a {
 
 /* Jouw Software ASP ListBox */
 .js-listbox-container {
-    background-color: #f7f7f7;
+    background-color: #ededed;
     padding: 30px;
     min-height: 170px;
     border-color: #f08a00 #e5e2df #e5e2df;

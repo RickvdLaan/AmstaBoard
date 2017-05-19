@@ -23,21 +23,16 @@ namespace AmstaJanBonga.Admin.MasterPage
             if (!this.Page.IsPostBack && Authentication.IsAuthenticated)
                 this.Username = Authentication.AuthenticatedUser.Username ?? string.Empty;
 
-            foreach (ListItem item in nav.Items)
-            {
-                item.Attributes.Add("class", "nav-menu");
-            }
-
             if (Url.GetFullUrl.Contains("Dashboard"))
-                _liDashboard.Attributes.Add("class", "nav-menu-active");
+                this._liDashboard.Attributes.Add("class", "nav-menu-active");
             else if (Url.GetFullUrl.Contains("User"))
-                _liUser.Attributes.Add("class", "nav-menu-active");
+                this._liUser.Attributes.Add("class", "nav-menu-active");
             else if (Url.GetFullUrl.Contains("Patient"))
-                _liPatient.Attributes.Add("class", "nav-menu-active");
+                this._liPatient.Attributes.Add("class", "nav-menu-active");
             else if (Url.GetFullUrl.Contains("Employee"))
-                _liStaff.Attributes.Add("class", "nav-menu-active");
+                this._liEmployee.Attributes.Add("class", "nav-menu-active");
             else if (Url.GetFullUrl.Contains("Livingroom"))
-                _liLivingroom.Attributes.Add("class", "nav-menu-active");
+                this._liLivingRoom.Attributes.Add("class", "nav-menu-active");
         }
 
         #region Overrides

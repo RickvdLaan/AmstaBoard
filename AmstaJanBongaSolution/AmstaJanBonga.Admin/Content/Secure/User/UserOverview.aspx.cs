@@ -36,17 +36,16 @@ namespace AmstaJanBonga.Admin.Content.Secure.User
             this._gvUsers.DataSource = this.Users;
             this._gvUsers.DataBind();
 
+            this._gvUsers.UseAccessibleHeader = true;
+            this._gvUsers.HeaderRow.TableSection = TableRowSection.TableHeader;
+
+            if (this._gvUsers.TopPagerRow != null)
+                this._gvUsers.TopPagerRow.TableSection = TableRowSection.TableHeader;
+
             if (this._gvUsers.Rows.Count > 0)
             {
-                //This replaces <td> with <th> and adds the scope attribute
-                this._gvUsers.UseAccessibleHeader = true;
-
-                //This will add the <thead> and <tbody> elements
-                this._gvUsers.HeaderRow.TableSection = TableRowSection.TableHeader;
-
-                //This adds the <tfoot> element. 
-                //Remove if you don't have a footer row
-                this._gvUsers.FooterRow.TableSection = TableRowSection.TableFooter;
+                if (this._gvUsers.BottomPagerRow != null)
+                    this._gvUsers.BottomPagerRow.TableSection = TableRowSection.TableFooter;
             }
         }
 

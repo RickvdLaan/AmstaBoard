@@ -49,22 +49,13 @@ namespace AmstaJanBonga.Admin.MasterPage {
         protected global::System.Web.UI.WebControls.Image logo;
         
         /// <summary>
-        /// nav control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.BulletedList nav;
-        
-        /// <summary>
         /// _liDashboard control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListItem _liDashboard;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl _liDashboard;
         
         /// <summary>
         /// _liUser control.
@@ -73,25 +64,25 @@ namespace AmstaJanBonga.Admin.MasterPage {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListItem _liUser;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl _liUser;
         
         /// <summary>
-        /// _liStaff control.
+        /// _liEmployee control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListItem _liStaff;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl _liEmployee;
         
         /// <summary>
-        /// _liLivingroom control.
+        /// _liLivingRoom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListItem _liLivingroom;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl _liLivingRoom;
         
         /// <summary>
         /// _liPatient control.
@@ -100,7 +91,16 @@ namespace AmstaJanBonga.Admin.MasterPage {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListItem _liPatient;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl _liPatient;
+        
+        /// <summary>
+        /// _lbSignOut control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton _lbSignOut;
         
         /// <summary>
         /// _cphMainTitle control.
@@ -119,15 +119,6 @@ namespace AmstaJanBonga.Admin.MasterPage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder _cphSubTitle;
-        
-        /// <summary>
-        /// _lbSignOut control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton _lbSignOut;
         
         /// <summary>
         /// _cphExplanation control.

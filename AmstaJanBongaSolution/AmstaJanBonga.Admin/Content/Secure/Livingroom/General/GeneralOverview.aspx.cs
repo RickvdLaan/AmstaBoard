@@ -53,17 +53,16 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
                 this._gvGeneral.DataSource = LivingRoomGeneralEventReader.GetAllLivingRoomGeneralEventsByLivingRoomId(this.LivingRoomId);
                 this._gvGeneral.DataBind();
 
+                this._gvGeneral.UseAccessibleHeader = true;
+                this._gvGeneral.HeaderRow.TableSection = TableRowSection.TableHeader;
+
+                if (this._gvGeneral.TopPagerRow != null)
+                    this._gvGeneral.TopPagerRow.TableSection = TableRowSection.TableHeader;
+
                 if (this._gvGeneral.Rows.Count > 0)
                 {
-                    //This replaces <td> with <th> and adds the scope attribute
-                    this._gvGeneral.UseAccessibleHeader = true;
-
-                    //This will add the <thead> and <tbody> elements
-                    this._gvGeneral.HeaderRow.TableSection = TableRowSection.TableHeader;
-
-                    //This adds the <tfoot> element. 
-                    //Remove if you don't have a footer row
-                    this._gvGeneral.FooterRow.TableSection = TableRowSection.TableFooter;
+                    if (this._gvGeneral.BottomPagerRow != null)
+                        this._gvGeneral.BottomPagerRow.TableSection = TableRowSection.TableFooter;
                 }
             }
         }

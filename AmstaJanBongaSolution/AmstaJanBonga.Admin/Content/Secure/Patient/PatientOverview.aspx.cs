@@ -44,13 +44,14 @@ namespace AmstaJanBonga.Admin.Content.Secure.Patient
         {
             this.DataBindPatients();
 
+            this._gvPatients.UseAccessibleHeader = true;
+            this._gvPatients.HeaderRow.TableSection = TableRowSection.TableHeader;
+
+            if (this._gvPatients.TopPagerRow != null)
+                this._gvPatients.TopPagerRow.TableSection = TableRowSection.TableHeader;
+
             if (this._gvPatients.Rows.Count > 0)
             {
-                this._gvPatients.UseAccessibleHeader = true;
-                this._gvPatients.HeaderRow.TableSection = TableRowSection.TableHeader;
-
-                if (this._gvPatients.TopPagerRow != null)
-                    this._gvPatients.TopPagerRow.TableSection = TableRowSection.TableHeader;
                 if (this._gvPatients.BottomPagerRow != null)
                     this._gvPatients.BottomPagerRow.TableSection = TableRowSection.TableFooter;
             }

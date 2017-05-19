@@ -36,17 +36,16 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom
             this._gvLivingrooms.DataSource = this.Livingrooms;
             this._gvLivingrooms.DataBind();
 
+            this._gvLivingrooms.UseAccessibleHeader = true;
+            this._gvLivingrooms.HeaderRow.TableSection = TableRowSection.TableHeader;
+
+            if (this._gvLivingrooms.TopPagerRow != null)
+                this._gvLivingrooms.TopPagerRow.TableSection = TableRowSection.TableHeader;
+
             if (this._gvLivingrooms.Rows.Count > 0)
             {
-                //This replaces <td> with <th> and adds the scope attribute
-                this._gvLivingrooms.UseAccessibleHeader = true;
-
-                //This will add the <thead> and <tbody> elements
-                this._gvLivingrooms.HeaderRow.TableSection = TableRowSection.TableHeader;
-
-                //This adds the <tfoot> element. 
-                //Remove if you don't have a footer row
-                this._gvLivingrooms.FooterRow.TableSection = TableRowSection.TableFooter;
+                if (this._gvLivingrooms.BottomPagerRow != null)
+                    this._gvLivingrooms.BottomPagerRow.TableSection = TableRowSection.TableFooter;
             }
         }
 

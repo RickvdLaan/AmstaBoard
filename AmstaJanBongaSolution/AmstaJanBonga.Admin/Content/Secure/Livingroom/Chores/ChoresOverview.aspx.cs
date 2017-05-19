@@ -64,17 +64,16 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
                 this._gvChores.DataSource = this.Chores;
                 this._gvChores.DataBind();
 
+                this._gvChores.UseAccessibleHeader = true;
+                this._gvChores.HeaderRow.TableSection = TableRowSection.TableHeader;
+
+                if (this._gvChores.TopPagerRow != null)
+                    this._gvChores.TopPagerRow.TableSection = TableRowSection.TableHeader;
+
                 if (this._gvChores.Rows.Count > 0)
                 {
-                    //This replaces <td> with <th> and adds the scope attribute
-                    this._gvChores.UseAccessibleHeader = true;
-
-                    //This will add the <thead> and <tbody> elements
-                    this._gvChores.HeaderRow.TableSection = TableRowSection.TableHeader;
-
-                    //This adds the <tfoot> element. 
-                    //Remove if you don't have a footer row
-                    this._gvChores.FooterRow.TableSection = TableRowSection.TableFooter;
+                    if (this._gvChores.BottomPagerRow != null)
+                        this._gvChores.BottomPagerRow.TableSection = TableRowSection.TableFooter;
                 }
             }
         }

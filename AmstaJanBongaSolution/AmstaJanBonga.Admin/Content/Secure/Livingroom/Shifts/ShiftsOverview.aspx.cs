@@ -52,6 +52,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Shifts
                 this._hlAddEditShifts.NavigateUrl = "~/Content/Secure/Livingroom/Shifts/ShiftsAddEdit.aspx?LivingRoomId={0}".FormatString(this.LivingRoomId);
             }
         }
+
         #region PreRender
 
         protected void _gvShifts_PreRender(object sender, EventArgs e)
@@ -63,17 +64,16 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Shifts
                 this._gvShifts.DataSource = this.Shifts;
                 this._gvShifts.DataBind();
 
+                this._gvShifts.UseAccessibleHeader = true;
+                this._gvShifts.HeaderRow.TableSection = TableRowSection.TableHeader;
+
+                if (this._gvShifts.TopPagerRow != null)
+                    this._gvShifts.TopPagerRow.TableSection = TableRowSection.TableHeader;
+
                 if (this._gvShifts.Rows.Count > 0)
                 {
-                    //This replaces <td> with <th> and adds the scope attribute
-                    this._gvShifts.UseAccessibleHeader = true;
-
-                    //This will add the <thead> and <tbody> elements
-                    this._gvShifts.HeaderRow.TableSection = TableRowSection.TableHeader;
-
-                    //This adds the <tfoot> element. 
-                    //Remove if you don't have a footer row
-                    this._gvShifts.FooterRow.TableSection = TableRowSection.TableFooter;
+                    if (this._gvShifts.BottomPagerRow != null)
+                        this._gvShifts.BottomPagerRow.TableSection = TableRowSection.TableFooter;
                 }
             }
         }

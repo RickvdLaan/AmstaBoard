@@ -32,17 +32,16 @@ namespace AmstaJanBonga.Admin.Content.Secure.Employee
             this._gvEmployee.DataSource = this.Employees;
             this._gvEmployee.DataBind();
 
+            this._gvEmployee.UseAccessibleHeader = true;
+            this._gvEmployee.HeaderRow.TableSection = TableRowSection.TableHeader;
+
+            if (this._gvEmployee.TopPagerRow != null)
+                this._gvEmployee.TopPagerRow.TableSection = TableRowSection.TableHeader;
+
             if (this._gvEmployee.Rows.Count > 0)
             {
-                //This replaces <td> with <th> and adds the scope attribute
-                this._gvEmployee.UseAccessibleHeader = true;
-
-                //This will add the <thead> and <tbody> elements
-                this._gvEmployee.HeaderRow.TableSection = TableRowSection.TableHeader;
-
-                //This adds the <tfoot> element. 
-                //Remove if you don't have a footer row
-                this._gvEmployee.FooterRow.TableSection = TableRowSection.TableFooter;
+                if (this._gvEmployee.BottomPagerRow != null)
+                    this._gvEmployee.BottomPagerRow.TableSection = TableRowSection.TableFooter;
             }
         }
 
