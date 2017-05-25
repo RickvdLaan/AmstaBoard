@@ -26,6 +26,8 @@ namespace AmstaJanBonga.Business.Database.Readers
         public static UserEntity GetUserById(int userId)
         {
             // Only needs to be checked when a user is already authenticated.
+            // Reason being is that the user needs to be checked when 
+            // logging in.
             if (Authentication.IsAuthenticated)
                 Authentication.AuthenticateActivity("UserRead");
 

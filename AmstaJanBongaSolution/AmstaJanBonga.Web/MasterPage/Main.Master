@@ -101,7 +101,8 @@
                     <tbody>
                         <tr>
                             <td>
-                               <asp:Button runat="server" ID="_btnLogout" Text="Uitloggen" CssClass="green-bg button" OnClick="_btnLogout_Click" />
+                                <!-- A LinkButton is being used instead of Button since the Button doesn't do a postback without manipulating the jquery. -->
+                                <asp:LinkButton runat="server" ID="_SignOut" OnClick="_SignOut_Click" Text="Uitloggen" CssClass="green-bg button"></asp:LinkButton>
                             </td>
                         </tr>
                     </tbody>

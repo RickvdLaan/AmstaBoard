@@ -136,6 +136,7 @@ namespace AmstaJanBonga.Web.MasterPage
                     Expires = DateTime.Now.AddHours(1)
                 };
 
+                // Creates the cookie.
                 Response.Cookies.Add(cookie);
 
                 Url.Refresh();
@@ -162,8 +163,7 @@ namespace AmstaJanBonga.Web.MasterPage
             Response.Redirect("~/Livingroom");
         }
 
-
-        protected void _btnLogout_Click(object sender, EventArgs e)
+        protected void _SignOut_Click(object sender, EventArgs e)
         {
             Authentication.Utility.SignOut();
         }

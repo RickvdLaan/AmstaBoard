@@ -15,5 +15,20 @@ namespace AmstaJanBonga.Admin
         public MasterPage.Main MasterPage { get { return (MasterPage.Main)this.Master; } }
 
         #endregion
+
+        #region Overrides
+
+        protected override void OnPreInit(EventArgs e)
+        {
+            base.OnPreInit(e);
+
+            // Stop Caching in IE
+            Response.Cache.SetCacheability(System.Web.HttpCacheability.NoCache);
+
+            // Stop Caching in Firefox
+            Response.Cache.SetNoStore();
+        }
+
+        #endregion
     }
 }

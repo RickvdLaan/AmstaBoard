@@ -53,7 +53,9 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static EmployeeEntity GetEmployeeByUserId(int userId, bool throwExceptionWhenNotFound)
         {
-            // Is used when logging onto a living room.
+            // Only needs to be checked when a user is already authenticated.
+            // Reason being is the employees living room id is being check when
+            // being authenticated on the living room application.
             if (Authentication.IsAuthenticated)
                 Authentication.AuthenticateActivity("ReadEmployee");
 

@@ -72,6 +72,13 @@ namespace AmstaJanBonga.Admin.Content.Secure.User
 
             for (int i = 0; i < roleValues.Length; i++)
             {
+                // Root acounts are allowed to create users with root access. So when validating the
+                // current users role.
+                if (CurrentUser.RoleTypeEnum != (byte)RoleTypeEnum.Root)
+                    // Skipping the root in the loop when a user is not root.
+                    if ((RoleTypeEnum)Enum.Parse(typeof(RoleTypeEnum), roleValues[i].ToString()) == RoleTypeEnum.Root)
+                        continue;
+
                 this._ddlRoles.Items.Add(new ListItem(roleValues[i].Description(), roleValues[i].ToString()));
             }
 

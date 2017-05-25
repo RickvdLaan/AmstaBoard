@@ -30,10 +30,14 @@
                         </HeaderTemplate>
 
                         <ItemTemplate>
+                            <asp:HyperLink runat="server" NavigateUrl='<%# "~/Content/Secure/Livingroom/Chores/ChoresDetails.aspx?LivingRoomId={0}&Date={1}".FormatString(DataBinder.Eval(Container.DataItem, "LivingRoomId"), DataBinder.Eval(Container.DataItem, "Date")) %>'>
+
                             <%# "{0} {1} {2}".FormatString(
                                 new System.Globalization.CultureInfo("nl-NL").DateTimeFormat.GetDayName(Convert.ToDateTime(Eval("Date")).DayOfWeek), 
                                 Convert.ToDateTime(Eval("Date")).Day, 
                                 new System.Globalization.CultureInfo("nl-NL").DateTimeFormat.GetMonthName(Convert.ToDateTime(Eval("Date")).Month)) %>
+                            </asp:HyperLink>
+
                         </ItemTemplate>
                     </asp:TemplateField>
 
@@ -43,9 +47,7 @@
                         </HeaderTemplate>
 
                         <ItemTemplate>
-                            <asp:HyperLink runat="server" NavigateUrl='<%# "~/Content/Secure/Livingroom/Chores/ChoresDetails.aspx?LivingRoomId={0}&Date={1}".FormatString(DataBinder.Eval(Container.DataItem, "LivingRoomId"), DataBinder.Eval(Container.DataItem, "Date")) %>'>
                                 <%# Eval("Name").ToString().CapitalizeFirstLetter() %>
-                            </asp:HyperLink>
                         </ItemTemplate>
                     </asp:TemplateField>
 

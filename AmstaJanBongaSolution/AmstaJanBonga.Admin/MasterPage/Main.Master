@@ -8,7 +8,7 @@
 
         <link href="~/Includes/Css/StyleSheet.css" rel="stylesheet" />
         <link href="~/Includes/Css/Addons.css" rel="stylesheet" />
-        <link href="~/Includes/Css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+        <link href="~/Includes/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 
         <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,400italic,600' rel='stylesheet' type='text/css' />
 

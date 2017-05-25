@@ -23,7 +23,14 @@ namespace AmstaJanBonga.Business.Database.Readers
             predicate.Add(LivingRoomGeneralEventFields.LivingRoomId == livingRoomId);
             predicate.Add(LivingRoomGeneralEventFields.Date >= DateTime.Now);
 
-            livingroomGeneralEvents.GetMulti(predicate, 0);
+            // Adds the JOIN clause from the relation collection.
+            var relations = new RelationCollection
+            {
+                LivingRoomGeneralEventEntity.Relations.LivingRoomGeneralEntityUsingLivingRoomId,
+                LivingRoomGeneralEntity.Relations.LivingRoomEntityUsingLivingRoomId
+            };
+
+            livingroomGeneralEvents.GetMulti(predicate, 0, null, relations);
 
             return livingroomGeneralEvents;
         }
