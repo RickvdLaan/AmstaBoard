@@ -43,7 +43,10 @@ namespace AmstaJanBonga.Admin.Content.Secure.User
             if (!this.IsPostBack)
             {
                 if (this.HasUserId)
+                {
                     this._hlEdit.NavigateUrl = "~/Content/Secure/User/UserAddEdit.aspx?UserId={0}".FormatString(this.User.Id);
+                    this._hlChangePassword.NavigateUrl = "~/Content/Secure/User/UserChangePassword.aspx?UserId={0}".FormatString(this.User.Id);
+                }
             }
         }
 

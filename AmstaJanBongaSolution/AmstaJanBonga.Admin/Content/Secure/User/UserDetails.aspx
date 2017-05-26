@@ -25,6 +25,10 @@
             <asp:HyperLink runat="server" ID="_hlEdit" CssClass="edit fa fa-pencil">
                 Gebruiker Bewerken
             </asp:HyperLink>
+
+            <asp:HyperLink runat="server" ID="_hlChangePassword" CssClass="edit fa fa-lock">
+                Wachtwoord Wijzigen
+            </asp:HyperLink>
         </div>
 
         <table class="table-add-edit">

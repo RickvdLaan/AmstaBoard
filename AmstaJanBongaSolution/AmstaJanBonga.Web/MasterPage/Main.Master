@@ -6,7 +6,7 @@
     <head runat="server">
         <title>Amsta - Woonkamer Stimuleren</title>
         
-        <link href="~/Includes/Css/StyleSheet.css?build=11052017v2" rel="stylesheet" />
+        <link href="~/Includes/Css/StyleSheet.css?build=26052017v1" rel="stylesheet" />
         <script src="/Includes/Js/disable-right-click.js"></script>
 
         <!-- 17kb -->
@@ -30,10 +30,14 @@
         <asp:ContentPlaceHolder ID="_cphHead" runat="server">
         </asp:ContentPlaceHolder>
 
-        <link href="~/Includes/Css/Publish.css" rel="stylesheet" />
+        <link href="~/Includes/Css/Publish.css?build=26052017v1" rel="stylesheet" />
         
         <!-- All CSS addons for plugins, libraries ect. -->
-        <link href="~/Includes/Css/Addons.css" rel="stylesheet" />
+        <link href="/Includes/remodal-1.1.1/dist/remodal-default-theme.css" rel="stylesheet" />
+        <link href="/Includes/remodal-1.1.1/dist/remodal.css" rel="stylesheet" />
+        <script src="/Includes/remodal-1.1.1/dist/remodal.min.js"></script>
+
+        <link href="~/Includes/Css/Addons.css?build=26052017v1" rel="stylesheet" />
 
         <!-- Meta -->
         <meta charset="UTF-8" />

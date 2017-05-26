@@ -72,18 +72,18 @@ namespace AmstaJanBonga.Business.Database.Readers
             return dates;
         }
 
-        public static LivingRoomGeneralEventEntity GetLivingroomGeneralByLivingRoomIdAndDate(int livingRoomId, DateTime date, bool throwExceptionWhenNotFound)
+        public static LivingRoomGeneralEventEntity GetLivingRoomGeneralByLivingRoomIdAndDate(int livingRoomId, DateTime date, bool throwExceptionWhenNotFound)
         {
             Authentication.AuthenticateActivity("ReadLivingRoomGeneralEvent");
 
-            var livingroomGeneralEvent = new LivingRoomGeneralEventEntity(date, livingRoomId);
+            var livingRoomGeneralEvent = new LivingRoomGeneralEventEntity(date, livingRoomId);
 
-            if (throwExceptionWhenNotFound && livingroomGeneralEvent.IsNew)
-                throw new Exception("Nothing found for livingroom {0} and date {1}.".FormatString(livingRoomId, date));
-            else if (livingroomGeneralEvent.IsNew)
+            if (throwExceptionWhenNotFound && livingRoomGeneralEvent.IsNew)
+                throw new Exception("Nothing found for livin groom {0} and date {1}.".FormatString(livingRoomId, date));
+            else if (livingRoomGeneralEvent.IsNew)
                 return null;
 
-            return livingroomGeneralEvent;
+            return livingRoomGeneralEvent;
         }
     }
 }

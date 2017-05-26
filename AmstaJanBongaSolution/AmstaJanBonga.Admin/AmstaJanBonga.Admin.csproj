@@ -142,6 +142,7 @@
     <Content Include="Content\Secure\Employee\EmployeeDetails.aspx" />
     <Content Include="Content\Secure\Employee\EmployeeOverview.aspx" />
     <Content Include="Content\Secure\User\UserAddEdit.aspx" />
+    <Content Include="Content\Secure\User\UserChangePassword.aspx" />
     <Content Include="Content\Secure\User\UserDetails.aspx" />
     <Content Include="Content\Secure\User\UserOverview.aspx" />
     <Content Include="Content\Unsecure\Login\Login.aspx" />
@@ -409,6 +410,13 @@
     </Compile>
     <Compile Include="Content\Secure\User\UserAddEdit.aspx.designer.cs">
       <DependentUpon>UserAddEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Content\Secure\User\UserChangePassword.aspx.cs">
+      <DependentUpon>UserChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\Secure\User\UserChangePassword.aspx.designer.cs">
+      <DependentUpon>UserChangePassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Content\Secure\User\UserDetails.aspx.cs">
       <DependentUpon>UserDetails.aspx</DependentUpon>

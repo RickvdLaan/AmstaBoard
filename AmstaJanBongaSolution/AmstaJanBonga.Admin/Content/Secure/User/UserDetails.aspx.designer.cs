@@ -22,6 +22,15 @@ namespace AmstaJanBonga.Admin.Content.Secure.User {
         protected global::System.Web.UI.WebControls.HyperLink _hlEdit;
         
         /// <summary>
+        /// _hlChangePassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink _hlChangePassword;
+        
+        /// <summary>
         /// _lblUsername control.
         /// </summary>
         /// <remarks>

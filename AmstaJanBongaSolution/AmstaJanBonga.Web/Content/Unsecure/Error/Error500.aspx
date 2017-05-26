@@ -21,7 +21,11 @@
             of op het <i class="fa fa-th-large" aria-hidden="true"></i> icoontje linksboven om terug te gaan naar het hoofdscherm.
         </p>
         <p>
-            2. Blijft deze error tevoorschijn komen? Neem dan contact op met de applicatiebeheerder.
+            2. Reageert het touchscreen scherm niet of blijft het error scherm staan? Restart de computer door op de power knop te drukken van de 
+            computer (niet het scherm), wacht tot deze is afgesloten en zet de computer weer opnieuw aan.
+        </p>
+        <p>
+            3. Blijft deze error tevoorschijn komen na het proberen van de bovengenoemde oplossingen? Neem dan contact op met de applicatiebeheerder.
         </p>
     </div>  
 </asp:Content>

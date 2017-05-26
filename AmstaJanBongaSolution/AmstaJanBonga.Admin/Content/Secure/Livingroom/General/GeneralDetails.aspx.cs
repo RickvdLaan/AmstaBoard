@@ -12,9 +12,9 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
 
         private DateTime _date = DateTime.MinValue;
 
-        private LivingRoomEntity _livingroom = null;
+        private LivingRoomEntity _livingRoom = null;
 
-        private LivingRoomGeneralEventEntity _livingroomGeneralEvent = null;
+        private LivingRoomGeneralEventEntity _livingRoomGeneralEvent = null;
 
         #endregion
 
@@ -45,21 +45,21 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
         {
             get
             {
-                if (this._livingroom == null && this.HasLivingRoomId)
-                    this._livingroom = LivingRoomReader.GetLivingRoomById(Url.QueryStringParser.GetInt("LivingRoomId"), true);
+                if (this._livingRoom == null && this.HasLivingRoomId)
+                    this._livingRoom = LivingRoomReader.GetLivingRoomById(Url.QueryStringParser.GetInt("LivingRoomId"), true);
 
-                return this._livingroom;
+                return this._livingRoom;
             }
         }
 
-        private LivingRoomGeneralEventEntity LivingroomGeneralEvent
+        private LivingRoomGeneralEventEntity LivingRoomGeneralEvent
         {
             get
             {
-                if (this._livingroomGeneralEvent == null && this.HasLivingRoomId)
-                    this._livingroomGeneralEvent = LivingRoomGeneralEventReader.GetLivingroomGeneralByLivingRoomIdAndDate(this.Livingroom.Id, this.QueryStringDate.Date, true);
+                if (this._livingRoomGeneralEvent == null && this.HasLivingRoomId)
+                    this._livingRoomGeneralEvent = LivingRoomGeneralEventReader.GetLivingRoomGeneralByLivingRoomIdAndDate(this.Livingroom.Id, this.QueryStringDate.Date, true);
 
-                return this._livingroomGeneralEvent;
+                return this._livingRoomGeneralEvent;
             }
         }
 
@@ -89,7 +89,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
             {
                 this._lblDate.Text = this.QueryStringDate.ToString("dd-MM-yyyy");
                 this._lblLivingroom.Text = this.Livingroom.Name;
-                this._lblDescription.Text = this.LivingroomGeneralEvent.Description;
+                this._lblDescription.Text = this.LivingRoomGeneralEvent.Description;
             }
         }
 

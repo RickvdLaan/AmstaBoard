@@ -53,6 +53,7 @@
 
                         <ItemTemplate>
                             <asp:HyperLink runat="server" ToolTip="Bekijken" CssClass="details fa fa-search" NavigateUrl='<%# Eval("Id","~/Content/Secure/User/UserDetails.aspx?UserId={0}") %>'></asp:HyperLink>
+                            <asp:HyperLink runat="server" ToolTip="Wachtwoord Wijzigen" CssClass="edit fa fa-lock" NavigateUrl='<%# Eval("Id", "~/Content/Secure/User/UserChangePassword.aspx?UserId={0}") %>'></asp:HyperLink>
                             <asp:HyperLink runat="server" ToolTip="Wijzigen" CssClass="edit fa fa-pencil" NavigateUrl='<%# Eval("Id","~/Content/Secure/User/UserAddEdit.aspx?UserId={0}") %>'></asp:HyperLink>
                             <asp:HyperLink runat="server" ToolTip="Verwijderen" CssClass="delete fa fa-times"></asp:HyperLink>
                         </ItemTemplate>

@@ -7,18 +7,18 @@ namespace AmstaJanBonga.Business.Database.Readers
 {
     public abstract class LivingRoomGeneralReader
     {
-        public static LivingRoomGeneralEntity GetLivingroomGeneralById(int livingroomId, bool throwExceptionWhenNotFound)
+        public static LivingRoomGeneralEntity GetLivingRoomGeneralById(int livingRoomId, bool throwExceptionWhenNotFound)
         {
             Authentication.AuthenticateActivity("ReadLivingRoomGeneral");
 
-            var livingroomGeneral = new LivingRoomGeneralEntity(livingroomId);
+            var livingRoomGeneral = new LivingRoomGeneralEntity(livingRoomId);
 
-            if (throwExceptionWhenNotFound && livingroomGeneral.IsNew)
-                throw new Exception("Nothing found for livingroom {0}.".FormatString(livingroomId));
-            else if (!throwExceptionWhenNotFound && livingroomGeneral.IsNew)
+            if (throwExceptionWhenNotFound && livingRoomGeneral.IsNew)
+                throw new Exception("Nothing found for living room {0}.".FormatString(livingRoomId));
+            else if (!throwExceptionWhenNotFound && livingRoomGeneral.IsNew)
                 return null;
 
-            return livingroomGeneral;
+            return livingRoomGeneral;
         }
     }
 }

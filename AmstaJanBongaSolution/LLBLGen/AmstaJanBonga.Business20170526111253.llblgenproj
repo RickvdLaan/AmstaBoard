@@ -371,7 +371,7 @@
       <Catalogs>
         <Catalog Name="Vanderlaan_jouwsoftware_janbonga_development">
           <Schemas>
-            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-05-26T09:13:05.7515719Z">
+            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-05-17T17:01:35.5037019Z">
               <StoredProcedures>
                 <StoredProcedure Name="sp_alterdiagram">
                   <Parameters>
@@ -439,7 +439,7 @@
                 </StoredProcedure>
               </StoredProcedures>
             </Schema>
-            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-05-26T09:13:05.8545778Z">
+            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-05-17T17:01:35.581702Z">
               <Tables>
                 <Table Name="AgendaEvent">
                   <PkConstraintName Name="PK_AgendaEvent" />
@@ -635,7 +635,7 @@
                 <FieldPair PkField="Vanderlaan:LivingRoom:Id" FkField="Vanderlaan:LivingRoomChoreEvent:LivingRoomId" />
               </FieldPairs>
             </ForeignKeyConstraint>
-            <ForeignKeyConstraint Name="Vanderlaan:LivingRoomChoreEvent:FK_Chores_Patient">
+            <ForeignKeyConstraint Name="Vanderlaan:LivingRoomChoreEvent:FK_Chores_Patient1">
               <FieldPairs>
                 <FieldPair PkField="Vanderlaan:Patient:Id" FkField="Vanderlaan:LivingRoomChoreEvent:PatientId" />
               </FieldPairs>
@@ -670,7 +670,7 @@
                 <FieldPair PkField="Vanderlaan:UserRole:RoleTypeEnum" FkField="Vanderlaan:User:RoleTypeEnum" />
               </FieldPairs>
             </ForeignKeyConstraint>
-            <ForeignKeyConstraint Name="Vanderlaan:UserRoleActivity:FK_UserRoleActivity_UserActivity">
+            <ForeignKeyConstraint Name="Vanderlaan:UserRoleActivity:FK_UserRoleActivity_UserActivity1">
               <FieldPairs>
                 <FieldPair PkField="Vanderlaan:UserActivity:Name" FkField="Vanderlaan:UserRoleActivity:UserActivityName" />
               </FieldPairs>

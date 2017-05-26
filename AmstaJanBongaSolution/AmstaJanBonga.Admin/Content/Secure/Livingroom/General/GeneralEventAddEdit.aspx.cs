@@ -76,12 +76,14 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
         {
             if (this.HasLivingRoomId)
             {
-                var livingroomGeneral = LivingRoomGeneralReader.GetLivingroomGeneralById(this.LivingRoomId, true);
+                // We don't want it to throw an exception, because a living room might decide not to
+                // have a general announcement. 
+                var livingroomGeneral = LivingRoomGeneralReader.GetLivingRoomGeneralById(this.LivingRoomId, false);
 
                 // Edit
                 if (this.HasDate)
                 {
-                    var livingroomGeneralEvent = LivingRoomGeneralEventReader.GetLivingroomGeneralByLivingRoomIdAndDate(this.LivingRoomId, this.QueryStringDate.Date, true);
+                    var livingroomGeneralEvent = LivingRoomGeneralEventReader.GetLivingRoomGeneralByLivingRoomIdAndDate(this.LivingRoomId, this.QueryStringDate.Date, true);
 
                     // Sets the date.
                     this.ExtendedCalendar.SelectedDate = this.QueryStringDate.Date;
@@ -96,10 +98,8 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
                     this._txtGeneralEvent.Text = livingroomGeneralEvent.Description.Replace("<br />", Environment.NewLine);
                 }
                 // Add
-                else
-                {
+                if (!livingroomGeneral.IsNew)
                     this._txtGeneral.Text = livingroomGeneral.Description.Replace("<br />", Environment.NewLine);
-                }
             }
         }
 

@@ -55,6 +55,13 @@ namespace AmstaJanBonga.Business.Database.Managers
             return user;
         }
 
+        public static void UpdatePassword(UserEntity user, string password)
+        {
+            user.Password = PasswordHash.HashPassword(password, Convert.FromBase64String(user.Salt));
+
+            user.Save();
+        }
+
         public static void MarkUserAsDeleted()
         {
             Authentication.AuthenticateActivity("DeleteUser");

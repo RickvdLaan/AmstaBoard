@@ -26,10 +26,10 @@ namespace AmstaJanBonga.Business.Database.Managers
         {
             Authentication.AuthenticateActivity("UpdateLivingRoomGeneralEvent");
 
-            var livingroomGeneralEvent = LivingRoomGeneralEventReader.GetLivingroomGeneralByLivingRoomIdAndDate(livingRoomId, date, true);
+            var livingRoomGeneralEvent = LivingRoomGeneralEventReader.GetLivingRoomGeneralByLivingRoomIdAndDate(livingRoomId, date, true);
 
-            livingroomGeneralEvent.Description = description;
-            livingroomGeneralEvent.Save();
+            livingRoomGeneralEvent.Description = description;
+            livingRoomGeneralEvent.Save();
         }
     }
 }

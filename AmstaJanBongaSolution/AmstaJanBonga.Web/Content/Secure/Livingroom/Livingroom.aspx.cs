@@ -89,7 +89,7 @@ namespace AmstaJanBonga.Web.Content
 
         private void DatabindGeneral()
         {
-            var generalEvent = LivingRoomGeneralEventReader.GetLivingroomGeneralByLivingRoomIdAndDate(this.CurrentLivingRoomId, DateTime.Now, false);
+            var generalEvent = LivingRoomGeneralEventReader.GetLivingRoomGeneralByLivingRoomIdAndDate(this.CurrentLivingRoomId, DateTime.Now, false);
 
             if (generalEvent != null)
             {
@@ -104,7 +104,7 @@ namespace AmstaJanBonga.Web.Content
             // No date was added, so trying again.
             else
             {
-                var general = LivingRoomGeneralReader.GetLivingroomGeneralById(this.CurrentLivingRoomId, false);
+                var general = LivingRoomGeneralReader.GetLivingRoomGeneralById(this.CurrentLivingRoomId, false);
 
                 if (general != null && !string.IsNullOrWhiteSpace(general.Description))
                     this._litGeneral.Text += general.Description;

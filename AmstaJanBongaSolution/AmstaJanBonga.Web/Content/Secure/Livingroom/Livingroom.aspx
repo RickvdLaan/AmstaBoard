@@ -41,10 +41,6 @@
             }
         }
     </script>
-
-    <link href="/Includes/remodal-1.1.1/dist/remodal-default-theme.css" rel="stylesheet" />
-    <link href="/Includes/remodal-1.1.1/dist/remodal.css" rel="stylesheet" />
-    <script src="/Includes/remodal-1.1.1/dist/remodal.min.js"></script>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="_cphContent" runat="server">

@@ -95,3 +95,9 @@ a {
     -o-transition: all 0.5s linear;
     transition: all 0.5s linear;
 }
+
+.error_detailed {
+    color: #e37070;
+    display: block;
+    margin-top: 15px;
+}
