@@ -29,10 +29,7 @@ namespace AmstaJanBonga.Web.Content
             get
             {
                 if (this._employees == null)
-                {
-                    this._employees = new EmployeeCollection();
                     this._employees = EmployeeReader.GetAllEmployeesByLivingRoomId(this.CurrentLivingRoomId);
-                }
 
                 return this._employees;
             }
@@ -43,11 +40,8 @@ namespace AmstaJanBonga.Web.Content
         {
             get
             {
-                if (this._patients == null)
-                {   
-                    this._patients = new PatientCollection();
+                if (this._patients == null) 
                     this._patients = PatientReader.GetAllPatientsByLivingRoomId(this.CurrentLivingRoomId);
-                }
 
                 return this._patients;
             }
@@ -83,8 +77,11 @@ namespace AmstaJanBonga.Web.Content
 
         private void DatabindPatients()
         {
-            this._repPatients.DataSource = this.Patients;
-            this._repPatients.DataBind();
+            this._repAgendaPatients.DataSource = this.Patients;
+            this._repAgendaPatients.DataBind();
+
+            this._repChorePatients.DataSource = this.Patients;
+            this._repChorePatients.DataBind();
         }
 
         private void DatabindGeneral()
@@ -173,7 +170,16 @@ namespace AmstaJanBonga.Web.Content
 
         #endregion
 
-        #region Events
+        #region Agenda
+
+        protected void _lbPatientAgenda_Click(object sender, EventArgs e)
+        {
+            var linkButton = (LinkButton)sender;
+
+            Response.Redirect("~/Content/Secure/PatientAgenda/PatientAgenda.aspx?PatientId={0}".FormatString(linkButton.CommandArgument.ToInt()));
+        }
+
+        #endregion
 
         #region Shifts
 
@@ -250,7 +256,7 @@ namespace AmstaJanBonga.Web.Content
 
         #region Chores
 
-        protected void _lbPatient_Click(object sender, EventArgs e)
+        protected void _lbPatientChore_Click(object sender, EventArgs e)
         {
             var linkButton = (LinkButton)sender;
 
@@ -348,8 +354,6 @@ namespace AmstaJanBonga.Web.Content
                 this._litChoreEvening.Visible = false;
             }
         }
-
-        #endregion
 
         #endregion
     }

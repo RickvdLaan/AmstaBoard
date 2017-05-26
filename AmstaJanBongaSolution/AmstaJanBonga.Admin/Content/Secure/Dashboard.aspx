@@ -16,7 +16,7 @@
             Snelkoppelingen
         </h2>
         <div class="shortcut">
-            <asp:HyperLink runat="server" CssClass="fa fa-plus-circle" Text="Gebruiker Toevoegen"></asp:HyperLink>
+            
         </div>
     </div>
 </asp:Content>

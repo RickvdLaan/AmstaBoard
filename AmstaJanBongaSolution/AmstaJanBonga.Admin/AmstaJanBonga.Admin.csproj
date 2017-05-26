@@ -159,7 +159,7 @@
     <Content Include="Includes\Js\remodal-1.1.1\dist\remodal.css" />
     <Content Include="Includes\Js\remodal-1.1.1\dist\remodal.js" />
     <Content Include="Includes\Js\remodal-1.1.1\dist\remodal.min.js" />
-    <Content Include="Includes\Css\Login\Login.css" />
+    <Content Include="Includes\Css\Login.css" />
     <Content Include="Includes\Css\StyleSheet.css" />
     <Content Include="packages.config" />
     <Content Include="MasterPage\Main.Master" />

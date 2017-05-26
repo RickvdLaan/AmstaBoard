@@ -412,7 +412,7 @@ td.times div:first-of-type {
     background-color: #07bf62;
 }
 
-.agenda a {
+.agenda div {
     font-size: 40px;
     font-size: 2.085vw;
     font-weight: 400;
@@ -669,6 +669,19 @@ td.times div:first-of-type {
     height: 8.5vw;
 }
 
+.image-agenda {
+    /*border-radius: 50%;
+    margin: 4% 0;
+    width: 31%;
+    border: 0.5vw solid #009eed;*/
+    display: inline-block;
+    width: 6.5vw;
+    height: 6.5vw;
+    background-position: center center;
+    background-size: cover;
+    border-radius: 50%;
+    border: 0.5vw solid #07bf62;
+}
 
 .image-shifts {
     /*border-radius: 50%;

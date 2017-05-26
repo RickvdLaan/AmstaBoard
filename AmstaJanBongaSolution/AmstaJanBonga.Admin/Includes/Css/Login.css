@@ -68,6 +68,8 @@ a {
 }
 
 .logo {
+    background-image: url("Images/logo.svg");
+    height: 83px;
     margin-bottom: 50px;
 }
 

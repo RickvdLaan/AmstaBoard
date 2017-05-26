@@ -29,8 +29,6 @@
         <!-- ContentPlaceHolder Head -->
         <asp:ContentPlaceHolder ID="_cphHead" runat="server">
         </asp:ContentPlaceHolder>
-
-        <link href="~/Includes/Css/Publish.css?build=26052017v1" rel="stylesheet" />
         
         <!-- All CSS addons for plugins, libraries ect. -->
         <link href="/Includes/remodal-1.1.1/dist/remodal-default-theme.css" rel="stylesheet" />

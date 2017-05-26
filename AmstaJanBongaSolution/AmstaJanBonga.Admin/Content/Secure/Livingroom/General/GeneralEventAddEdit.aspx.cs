@@ -98,7 +98,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
                     this._txtGeneralEvent.Text = livingroomGeneralEvent.Description.Replace("<br />", Environment.NewLine);
                 }
                 // Add
-                if (!livingroomGeneral.IsNew)
+                if (livingroomGeneral != null)
                     this._txtGeneral.Text = livingroomGeneral.Description.Replace("<br />", Environment.NewLine);
             }
         }

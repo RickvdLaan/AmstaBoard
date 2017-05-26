@@ -130,6 +130,15 @@ namespace AmstaJanBonga.Web.Content {
         protected global::System.Web.UI.WebControls.Literal _litChoreEvening;
         
         /// <summary>
+        /// _repAgendaPatients control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater _repAgendaPatients;
+        
+        /// <summary>
         /// _repEmployees control.
         /// </summary>
         /// <remarks>
@@ -139,12 +148,12 @@ namespace AmstaJanBonga.Web.Content {
         protected global::System.Web.UI.WebControls.Repeater _repEmployees;
         
         /// <summary>
-        /// _repPatients control.
+        /// _repChorePatients control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater _repPatients;
+        protected global::System.Web.UI.WebControls.Repeater _repChorePatients;
     }
 }
