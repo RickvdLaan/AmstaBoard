@@ -131,7 +131,7 @@
     <Content Include="Includes\Css\Addons.css" />
     <Content Include="Includes\Css\Images\avatar.jpg" />
     <Content Include="Includes\Css\Images\logo.svg" />
-    <Content Include="Includes\Css\Login\Login.css" />
+    <Content Include="Includes\Css\Login.css" />
     <Content Include="Includes\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="Includes\font-awesome-4.7.0\css\font-awesome.min.css" />
     <Content Include="Includes\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />

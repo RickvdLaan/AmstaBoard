@@ -35,7 +35,7 @@
         </h2>
 
          <div class="tile-wrapper">
-             <div data-remodal-target="agenda-remodal" class="tile-container-cell button-press">Druk hier om uw agenda te bekijken</div>
+             <div data-remodal-target="agenda-remodal" class="tile-container-cell">Druk hier om uw agenda te bekijken</div>
         </div>
     </div>
 

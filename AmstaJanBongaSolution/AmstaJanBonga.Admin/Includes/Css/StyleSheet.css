@@ -620,7 +620,7 @@ a {
 .js-listbox-container {
     background-color: #ededed;
     padding: 30px;
-    min-height: 170px;
+    min-width: 347px;
     border-color: #f08a00 #e5e2df #e5e2df;
     border-radius: 3px;
     border-style: solid;
@@ -846,6 +846,7 @@ td.label {
     text-align: left;
     vertical-align: top;
     width: 250px;
+    min-width: 175px;
 }
 
 td.required::after {

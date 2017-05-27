@@ -8,7 +8,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="_cphContent" runat="server">
     <!-- The photo of the patient. -->
-    <asp:Image runat="server" CssClass="agenda-image" ImageUrl="~/Includes/Css/Images/avatar.jpg" />
+    <asp:Image runat="server" ID="_imagePatient" CssClass="agenda-image" />
 
     <asp:UpdatePanel runat="server" ID="_upAgenda" UpdateMode="Conditional" style="height: Calc(100% - 170px);" OnPreRender="_upAgenda_PreRender">
         <Triggers>
@@ -91,7 +91,7 @@
                                         </ItemTemplate>
                                     </asp:Repeater>
                                 </td>
-                            </asp:Panel>
+                            </asp:Panel>    
                             
                             <!-- Week -->
                             <asp:Panel runat="server" ID="_pnlWeek" Visible="false">
