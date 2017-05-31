@@ -30,7 +30,7 @@ namespace AmstaJanBonga.Business.RelationClasses
 		public virtual List<IEntityRelation> GetAllRelations()
 		{
 			List<IEntityRelation> toReturn = new List<IEntityRelation>();
-			toReturn.Add(this.AgendaEventEntityUsingPatientId);
+			toReturn.Add(this.AgendaEventMetaEntityUsingPatientId);
 			toReturn.Add(this.LivingRoomChoreEventEntityUsingPatientId);
 			toReturn.Add(this.LivingRoomEntityUsingLivingRoomId);
 			return toReturn;
@@ -38,17 +38,17 @@ namespace AmstaJanBonga.Business.RelationClasses
 
 		#region Class Property Declarations
 
-		/// <summary>Returns a new IEntityRelation object, between PatientEntity and AgendaEventEntity over the 1:n relation they have, using the relation between the fields:
-		/// Patient.Id - AgendaEvent.PatientId
+		/// <summary>Returns a new IEntityRelation object, between PatientEntity and AgendaEventMetaEntity over the 1:n relation they have, using the relation between the fields:
+		/// Patient.Id - AgendaEventMeta.PatientId
 		/// </summary>
-		public virtual IEntityRelation AgendaEventEntityUsingPatientId
+		public virtual IEntityRelation AgendaEventMetaEntityUsingPatientId
 		{
 			get
 			{
-				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany, "AgendaEvents" , true);
-				relation.AddEntityFieldPair(PatientFields.Id, AgendaEventFields.PatientId);
+				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany, "AgendaEventMeta" , true);
+				relation.AddEntityFieldPair(PatientFields.Id, AgendaEventMetaFields.PatientId);
 				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("PatientEntity", true);
-				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("AgendaEventEntity", false);
+				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("AgendaEventMetaEntity", false);
 				return relation;
 			}
 		}
@@ -97,7 +97,7 @@ namespace AmstaJanBonga.Business.RelationClasses
 	/// <summary>Static class which is used for providing relationship instances which are re-used internally for syncing</summary>
 	internal static class StaticPatientRelations
 	{
-		internal static readonly IEntityRelation AgendaEventEntityUsingPatientIdStatic = new PatientRelations().AgendaEventEntityUsingPatientId;
+		internal static readonly IEntityRelation AgendaEventMetaEntityUsingPatientIdStatic = new PatientRelations().AgendaEventMetaEntityUsingPatientId;
 		internal static readonly IEntityRelation LivingRoomChoreEventEntityUsingPatientIdStatic = new PatientRelations().LivingRoomChoreEventEntityUsingPatientId;
 		internal static readonly IEntityRelation LivingRoomEntityUsingLivingRoomIdStatic = new PatientRelations().LivingRoomEntityUsingLivingRoomId;
 

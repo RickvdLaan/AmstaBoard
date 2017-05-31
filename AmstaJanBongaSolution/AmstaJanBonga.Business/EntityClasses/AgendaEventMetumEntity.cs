@@ -30,14 +30,16 @@ namespace AmstaJanBonga.Business.EntityClasses
 	
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces
 	// __LLBLGENPRO_USER_CODE_REGION_END
+	
 
-	/// <summary>Entity class which represents the entity 'AgendaEventMeta'. <br/><br/>
+	/// <summary>Entity class which represents the entity 'AgendaEventMetum'. <br/><br/>
 	/// 
 	/// </summary>
 	[Serializable]
-	public partial class AgendaEventMetaEntity : CommonEntityBase
+	public partial class AgendaEventMetumEntity : CommonEntityBase
 		// __LLBLGENPRO_USER_CODE_REGION_START AdditionalInterfaces
-		// __LLBLGENPRO_USER_CODE_REGION_END	
+		// __LLBLGENPRO_USER_CODE_REGION_END
+			
 	{
 		#region Class Member Declarations
 		private AgendaEventEntity _agendaEvent;
@@ -47,6 +49,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 
 		// __LLBLGENPRO_USER_CODE_REGION_START PrivateMembers
 		// __LLBLGENPRO_USER_CODE_REGION_END
+		
 		#endregion
 
 		#region Statics
@@ -64,36 +67,36 @@ namespace AmstaJanBonga.Business.EntityClasses
 		#endregion
 		
 		/// <summary>Static CTor for setting up custom property hashtables. Is executed before the first instance of this entity class or derived classes is constructed. </summary>
-		static AgendaEventMetaEntity()
+		static AgendaEventMetumEntity()
 		{
 			SetupCustomPropertyHashtables();
 		}
 
 		/// <summary>CTor</summary>
-		public AgendaEventMetaEntity() :base("AgendaEventMetaEntity")
+		public AgendaEventMetumEntity() :base("AgendaEventMetumEntity")
 		{
 			InitClassEmpty(null);
 		}
 		
 		/// <summary>CTor</summary>
-		/// <param name="id">PK value for AgendaEventMeta which data should be fetched into this AgendaEventMeta object</param>
-		public AgendaEventMetaEntity(System.Int32 id):base("AgendaEventMetaEntity")
+		/// <param name="id">PK value for AgendaEventMetum which data should be fetched into this AgendaEventMetum object</param>
+		public AgendaEventMetumEntity(System.Int32 id):base("AgendaEventMetumEntity")
 		{
 			InitClassFetch(id, null, null);
 		}
 
 		/// <summary>CTor</summary>
-		/// <param name="id">PK value for AgendaEventMeta which data should be fetched into this AgendaEventMeta object</param>
+		/// <param name="id">PK value for AgendaEventMetum which data should be fetched into this AgendaEventMetum object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
-		public AgendaEventMetaEntity(System.Int32 id, IPrefetchPath prefetchPathToUse):base("AgendaEventMetaEntity")
+		public AgendaEventMetumEntity(System.Int32 id, IPrefetchPath prefetchPathToUse):base("AgendaEventMetumEntity")
 		{
 			InitClassFetch(id, null, prefetchPathToUse);
 		}
 
 		/// <summary>CTor</summary>
-		/// <param name="id">PK value for AgendaEventMeta which data should be fetched into this AgendaEventMeta object</param>
-		/// <param name="validator">The custom validator object for this AgendaEventMetaEntity</param>
-		public AgendaEventMetaEntity(System.Int32 id, IValidator validator):base("AgendaEventMetaEntity")
+		/// <param name="id">PK value for AgendaEventMetum which data should be fetched into this AgendaEventMetum object</param>
+		/// <param name="validator">The custom validator object for this AgendaEventMetumEntity</param>
+		public AgendaEventMetumEntity(System.Int32 id, IValidator validator):base("AgendaEventMetumEntity")
 		{
 			InitClassFetch(id, validator, null);
 		}
@@ -101,7 +104,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <summary>Private CTor for deserialization</summary>
 		/// <param name="info"></param>
 		/// <param name="context"></param>
-		protected AgendaEventMetaEntity(SerializationInfo info, StreamingContext context) : base(info, context)
+		protected AgendaEventMetumEntity(SerializationInfo info, StreamingContext context) : base(info, context)
 		{
 			_agendaEvent = (AgendaEventEntity)info.GetValue("_agendaEvent", typeof(AgendaEventEntity));
 			if(_agendaEvent!=null)
@@ -123,6 +126,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 			this.FixupDeserialization(FieldInfoProviderSingleton.GetInstance(), PersistenceInfoProviderSingleton.GetInstance());
 			// __LLBLGENPRO_USER_CODE_REGION_START DeserializationConstructor
 			// __LLBLGENPRO_USER_CODE_REGION_END
+			
 		}
 		
 		
@@ -130,13 +134,13 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <param name="fieldIndex">The fieldindex.</param>
 		protected override void PerformDesyncSetupFKFieldChange(int fieldIndex)
 		{
-			switch((AgendaEventMetaFieldIndex)fieldIndex)
+			switch((AgendaEventMetumFieldIndex)fieldIndex)
 			{
-				case AgendaEventMetaFieldIndex.AgendaEventId:
+				case AgendaEventMetumFieldIndex.AgendaEventId:
 					DesetupSyncAgendaEvent(true, false);
 					_alreadyFetchedAgendaEvent = false;
 					break;
-				case AgendaEventMetaFieldIndex.PatientId:
+				case AgendaEventMetumFieldIndex.PatientId:
 					DesetupSyncPatient(true, false);
 					_alreadyFetchedPatient = false;
 					break;
@@ -200,6 +204,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 
 			// __LLBLGENPRO_USER_CODE_REGION_START GetObjectInfo
 			// __LLBLGENPRO_USER_CODE_REGION_END
+			
 			base.GetObjectData(info, context);
 		}
 		
@@ -301,7 +306,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 
 
 		/// <summary> Fetches the contents of this entity from the persistent storage using the primary key.</summary>
-		/// <param name="id">PK value for AgendaEventMeta which data should be fetched into this AgendaEventMeta object</param>
+		/// <param name="id">PK value for AgendaEventMetum which data should be fetched into this AgendaEventMetum object</param>
 		/// <returns>True if succeeded, false otherwise.</returns>
 		public bool FetchUsingPK(System.Int32 id)
 		{
@@ -309,7 +314,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		}
 
 		/// <summary> Fetches the contents of this entity from the persistent storage using the primary key.</summary>
-		/// <param name="id">PK value for AgendaEventMeta which data should be fetched into this AgendaEventMeta object</param>
+		/// <param name="id">PK value for AgendaEventMetum which data should be fetched into this AgendaEventMetum object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <returns>True if succeeded, false otherwise.</returns>
 		public bool FetchUsingPK(System.Int32 id, IPrefetchPath prefetchPathToUse)
@@ -318,7 +323,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		}
 
 		/// <summary> Fetches the contents of this entity from the persistent storage using the primary key.</summary>
-		/// <param name="id">PK value for AgendaEventMeta which data should be fetched into this AgendaEventMeta object</param>
+		/// <param name="id">PK value for AgendaEventMetum which data should be fetched into this AgendaEventMetum object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <param name="contextToUse">The context to add the entity to if the fetch was succesful. </param>
 		/// <returns>True if succeeded, false otherwise.</returns>
@@ -328,7 +333,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		}
 
 		/// <summary> Fetches the contents of this entity from the persistent storage using the primary key.</summary>
-		/// <param name="id">PK value for AgendaEventMeta which data should be fetched into this AgendaEventMeta object</param>
+		/// <param name="id">PK value for AgendaEventMetum which data should be fetched into this AgendaEventMetum object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <param name="contextToUse">The context to add the entity to if the fetch was succesful. </param>
 		/// <param name="excludedIncludedFields">The list of IEntityField objects which have to be excluded or included for the fetch. 
@@ -353,7 +358,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <returns>A list of all the EntityRelation objects the type of this instance has. Hierarchy relations are excluded.</returns>
 		protected override List<IEntityRelation> GetAllRelations()
 		{
-			return new AgendaEventMetaRelations().GetAllRelations();
+			return new AgendaEventMetumRelations().GetAllRelations();
 		}
 
 		/// <summary> Retrieves the related entity of type 'AgendaEventEntity', using a relation of type 'n:1'</summary>
@@ -459,13 +464,14 @@ namespace AmstaJanBonga.Business.EntityClasses
 
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassEmpty
 			// __LLBLGENPRO_USER_CODE_REGION_END
+			
 
 			OnInitialized();
 		}		
 
 		/// <summary> Initializes the the entity and fetches the data related to the entity in this entity.</summary>
-		/// <param name="id">PK value for AgendaEventMeta which data should be fetched into this AgendaEventMeta object</param>
-		/// <param name="validator">The validator object for this AgendaEventMetaEntity</param>
+		/// <param name="id">PK value for AgendaEventMetum which data should be fetched into this AgendaEventMetum object</param>
+		/// <param name="validator">The validator object for this AgendaEventMetumEntity</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		private void InitClassFetch(System.Int32 id, IValidator validator, IPrefetchPath prefetchPathToUse)
 		{
@@ -477,6 +483,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassFetch
 			// __LLBLGENPRO_USER_CODE_REGION_END
+			
 
 			OnInitialized();
 		}
@@ -490,6 +497,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassMembers
 			// __LLBLGENPRO_USER_CODE_REGION_END
+			
 			OnInitClassMembersComplete();
 		}
 
@@ -520,7 +528,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <param name="resetFKFields">if set to true it will also reset the FK fields pointing to the related entity</param>
 		private void DesetupSyncAgendaEvent(bool signalRelatedEntity, bool resetFKFields)
 		{
-			this.PerformDesetupSyncRelatedEntity( _agendaEvent, new PropertyChangedEventHandler( OnAgendaEventPropertyChanged ), "AgendaEvent", AmstaJanBonga.Business.RelationClasses.StaticAgendaEventMetaRelations.AgendaEventEntityUsingAgendaEventIdStatic, true, signalRelatedEntity, "AgendaEventMeta", resetFKFields, new int[] { (int)AgendaEventMetaFieldIndex.AgendaEventId } );		
+			this.PerformDesetupSyncRelatedEntity( _agendaEvent, new PropertyChangedEventHandler( OnAgendaEventPropertyChanged ), "AgendaEvent", AmstaJanBonga.Business.RelationClasses.StaticAgendaEventMetumRelations.AgendaEventEntityUsingAgendaEventIdStatic, true, signalRelatedEntity, "AgendaEventMeta", resetFKFields, new int[] { (int)AgendaEventMetumFieldIndex.AgendaEventId } );		
 			_agendaEvent = null;
 		}
 		
@@ -532,7 +540,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 			{		
 				DesetupSyncAgendaEvent(true, true);
 				_agendaEvent = (AgendaEventEntity)relatedEntity;
-				this.PerformSetupSyncRelatedEntity( _agendaEvent, new PropertyChangedEventHandler( OnAgendaEventPropertyChanged ), "AgendaEvent", AmstaJanBonga.Business.RelationClasses.StaticAgendaEventMetaRelations.AgendaEventEntityUsingAgendaEventIdStatic, true, ref _alreadyFetchedAgendaEvent, new string[] {  } );
+				this.PerformSetupSyncRelatedEntity( _agendaEvent, new PropertyChangedEventHandler( OnAgendaEventPropertyChanged ), "AgendaEvent", AmstaJanBonga.Business.RelationClasses.StaticAgendaEventMetumRelations.AgendaEventEntityUsingAgendaEventIdStatic, true, ref _alreadyFetchedAgendaEvent, new string[] {  } );
 			}
 		}
 
@@ -553,7 +561,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <param name="resetFKFields">if set to true it will also reset the FK fields pointing to the related entity</param>
 		private void DesetupSyncPatient(bool signalRelatedEntity, bool resetFKFields)
 		{
-			this.PerformDesetupSyncRelatedEntity( _patient, new PropertyChangedEventHandler( OnPatientPropertyChanged ), "Patient", AmstaJanBonga.Business.RelationClasses.StaticAgendaEventMetaRelations.PatientEntityUsingPatientIdStatic, true, signalRelatedEntity, "AgendaEventMeta", resetFKFields, new int[] { (int)AgendaEventMetaFieldIndex.PatientId } );		
+			this.PerformDesetupSyncRelatedEntity( _patient, new PropertyChangedEventHandler( OnPatientPropertyChanged ), "Patient", AmstaJanBonga.Business.RelationClasses.StaticAgendaEventMetumRelations.PatientEntityUsingPatientIdStatic, true, signalRelatedEntity, "AgendaEventMeta", resetFKFields, new int[] { (int)AgendaEventMetumFieldIndex.PatientId } );		
 			_patient = null;
 		}
 		
@@ -565,7 +573,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 			{		
 				DesetupSyncPatient(true, true);
 				_patient = (PatientEntity)relatedEntity;
-				this.PerformSetupSyncRelatedEntity( _patient, new PropertyChangedEventHandler( OnPatientPropertyChanged ), "Patient", AmstaJanBonga.Business.RelationClasses.StaticAgendaEventMetaRelations.PatientEntityUsingPatientIdStatic, true, ref _alreadyFetchedPatient, new string[] {  } );
+				this.PerformSetupSyncRelatedEntity( _patient, new PropertyChangedEventHandler( OnPatientPropertyChanged ), "Patient", AmstaJanBonga.Business.RelationClasses.StaticAgendaEventMetumRelations.PatientEntityUsingPatientIdStatic, true, ref _alreadyFetchedPatient, new string[] {  } );
 			}
 		}
 
@@ -582,7 +590,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		}
 
 		/// <summary> Fetches the entity from the persistent storage. Fetch simply reads the entity into an EntityFields object. </summary>
-		/// <param name="id">PK value for AgendaEventMeta which data should be fetched into this AgendaEventMeta object</param>
+		/// <param name="id">PK value for AgendaEventMetum which data should be fetched into this AgendaEventMetum object</param>
 		/// <param name="prefetchPathToUse">the PrefetchPath which defines the graph of objects to fetch as well</param>
 		/// <param name="contextToUse">The context to add the entity to if the fetch was succesful. </param>
 		/// <param name="excludedIncludedFields">The list of IEntityField objects which have to be excluded or included for the fetch. 
@@ -594,7 +602,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 			try
 			{
 				OnFetch();
-				this.Fields[(int)AgendaEventMetaFieldIndex.Id].ForcedCurrentValueWrite(id);
+				this.Fields[(int)AgendaEventMetumFieldIndex.Id].ForcedCurrentValueWrite(id);
 				CreateDAOInstance().FetchExisting(this, this.Transaction, prefetchPathToUse, contextToUse, excludedIncludedFields);
 				return (this.Fields.State == EntityState.Fetched);
 			}
@@ -608,21 +616,21 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <returns></returns>
 		protected override IDao CreateDAOInstance()
 		{
-			return DAOFactory.CreateAgendaEventMetaDAO();
+			return DAOFactory.CreateAgendaEventMetumDAO();
 		}
 		
 		/// <summary> Creates the entity factory for this type.</summary>
 		/// <returns></returns>
 		protected override IEntityFactory CreateEntityFactory()
 		{
-			return new AgendaEventMetaEntityFactory();
+			return new AgendaEventMetumEntityFactory();
 		}
 
 		#region Class Property Declarations
 		/// <summary> The relations object holding all relations of this entity with other entity classes.</summary>
-		public  static AgendaEventMetaRelations Relations
+		public  static AgendaEventMetumRelations Relations
 		{
-			get	{ return new AgendaEventMetaRelations(); }
+			get	{ return new AgendaEventMetumRelations(); }
 		}
 		
 		/// <summary> The custom properties for this entity type.</summary>
@@ -636,14 +644,14 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <returns>Ready to use IPrefetchPathElement implementation.</returns>
 		public static IPrefetchPathElement PrefetchPathAgendaEvent
 		{
-			get	{ return new PrefetchPathElement(new AmstaJanBonga.Business.CollectionClasses.AgendaEventCollection(), (IEntityRelation)GetRelationsForField("AgendaEvent")[0], (int)AmstaJanBonga.Business.EntityType.AgendaEventMetaEntity, (int)AmstaJanBonga.Business.EntityType.AgendaEventEntity, 0, null, null, null, "AgendaEvent", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne); }
+			get	{ return new PrefetchPathElement(new AmstaJanBonga.Business.CollectionClasses.AgendaEventCollection(), (IEntityRelation)GetRelationsForField("AgendaEvent")[0], (int)AmstaJanBonga.Business.EntityType.AgendaEventMetumEntity, (int)AmstaJanBonga.Business.EntityType.AgendaEventEntity, 0, null, null, null, "AgendaEvent", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne); }
 		}
 
 		/// <summary> Creates a new PrefetchPathElement object which contains all the information to prefetch the related entities of type 'Patient'  for this entity.</summary>
 		/// <returns>Ready to use IPrefetchPathElement implementation.</returns>
 		public static IPrefetchPathElement PrefetchPathPatient
 		{
-			get	{ return new PrefetchPathElement(new AmstaJanBonga.Business.CollectionClasses.PatientCollection(), (IEntityRelation)GetRelationsForField("Patient")[0], (int)AmstaJanBonga.Business.EntityType.AgendaEventMetaEntity, (int)AmstaJanBonga.Business.EntityType.PatientEntity, 0, null, null, null, "Patient", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne); }
+			get	{ return new PrefetchPathElement(new AmstaJanBonga.Business.CollectionClasses.PatientCollection(), (IEntityRelation)GetRelationsForField("Patient")[0], (int)AmstaJanBonga.Business.EntityType.AgendaEventMetumEntity, (int)AmstaJanBonga.Business.EntityType.PatientEntity, 0, null, null, null, "Patient", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne); }
 		}
 
 
@@ -670,64 +678,64 @@ namespace AmstaJanBonga.Business.EntityClasses
 			get { return FieldsCustomProperties;}
 		}
 
-		/// <summary> The AgendaEventId property of the Entity AgendaEventMeta<br/><br/></summary>
+		/// <summary> The AgendaEventId property of the Entity AgendaEventMetum<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "AgendaEventMeta"."AgendaEventId"<br/>
 		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
 		public virtual System.Int32 AgendaEventId
 		{
-			get { return (System.Int32)GetValue((int)AgendaEventMetaFieldIndex.AgendaEventId, true); }
-			set	{ SetValue((int)AgendaEventMetaFieldIndex.AgendaEventId, value, true); }
+			get { return (System.Int32)GetValue((int)AgendaEventMetumFieldIndex.AgendaEventId, true); }
+			set	{ SetValue((int)AgendaEventMetumFieldIndex.AgendaEventId, value, true); }
 		}
 
-		/// <summary> The Id property of the Entity AgendaEventMeta<br/><br/></summary>
+		/// <summary> The Id property of the Entity AgendaEventMetum<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "AgendaEventMeta"."Id"<br/>
 		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, true</remarks>
 		public virtual System.Int32 Id
 		{
-			get { return (System.Int32)GetValue((int)AgendaEventMetaFieldIndex.Id, true); }
-			set	{ SetValue((int)AgendaEventMetaFieldIndex.Id, value, true); }
+			get { return (System.Int32)GetValue((int)AgendaEventMetumFieldIndex.Id, true); }
+			set	{ SetValue((int)AgendaEventMetumFieldIndex.Id, value, true); }
 		}
 
-		/// <summary> The PatientId property of the Entity AgendaEventMeta<br/><br/></summary>
+		/// <summary> The PatientId property of the Entity AgendaEventMetum<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "AgendaEventMeta"."PatientId"<br/>
 		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
 		public virtual System.Int32 PatientId
 		{
-			get { return (System.Int32)GetValue((int)AgendaEventMetaFieldIndex.PatientId, true); }
-			set	{ SetValue((int)AgendaEventMetaFieldIndex.PatientId, value, true); }
+			get { return (System.Int32)GetValue((int)AgendaEventMetumFieldIndex.PatientId, true); }
+			set	{ SetValue((int)AgendaEventMetumFieldIndex.PatientId, value, true); }
 		}
 
-		/// <summary> The RepeatInterval property of the Entity AgendaEventMeta<br/><br/></summary>
+		/// <summary> The RepeatInterval property of the Entity AgendaEventMetum<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "AgendaEventMeta"."RepeatInterval"<br/>
 		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
 		public virtual Nullable<System.Int32> RepeatInterval
 		{
-			get { return (Nullable<System.Int32>)GetValue((int)AgendaEventMetaFieldIndex.RepeatInterval, false); }
-			set	{ SetValue((int)AgendaEventMetaFieldIndex.RepeatInterval, value, true); }
+			get { return (Nullable<System.Int32>)GetValue((int)AgendaEventMetumFieldIndex.RepeatInterval, false); }
+			set	{ SetValue((int)AgendaEventMetumFieldIndex.RepeatInterval, value, true); }
 		}
 
-		/// <summary> The RepeatStart property of the Entity AgendaEventMeta<br/><br/></summary>
+		/// <summary> The RepeatStart property of the Entity AgendaEventMetum<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "AgendaEventMeta"."RepeatStart"<br/>
 		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
 		public virtual Nullable<System.Int32> RepeatStart
 		{
-			get { return (Nullable<System.Int32>)GetValue((int)AgendaEventMetaFieldIndex.RepeatStart, false); }
-			set	{ SetValue((int)AgendaEventMetaFieldIndex.RepeatStart, value, true); }
+			get { return (Nullable<System.Int32>)GetValue((int)AgendaEventMetumFieldIndex.RepeatStart, false); }
+			set	{ SetValue((int)AgendaEventMetumFieldIndex.RepeatStart, value, true); }
 		}
 
-		/// <summary> The SingleEvent property of the Entity AgendaEventMeta<br/><br/></summary>
+		/// <summary> The SingleEvent property of the Entity AgendaEventMetum<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "AgendaEventMeta"."SingleEvent"<br/>
 		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
 		public virtual Nullable<System.Int32> SingleEvent
 		{
-			get { return (Nullable<System.Int32>)GetValue((int)AgendaEventMetaFieldIndex.SingleEvent, false); }
-			set	{ SetValue((int)AgendaEventMetaFieldIndex.SingleEvent, value, true); }
+			get { return (Nullable<System.Int32>)GetValue((int)AgendaEventMetumFieldIndex.SingleEvent, false); }
+			set	{ SetValue((int)AgendaEventMetumFieldIndex.SingleEvent, value, true); }
 		}
 
 
@@ -867,7 +875,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		[Browsable(false), XmlIgnore]
 		protected override int LLBLGenProEntityTypeValue 
 		{ 
-			get { return (int)AmstaJanBonga.Business.EntityType.AgendaEventMetaEntity; }
+			get { return (int)AmstaJanBonga.Business.EntityType.AgendaEventMetumEntity; }
 		}
 
 		#endregion
@@ -877,6 +885,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		
 		// __LLBLGENPRO_USER_CODE_REGION_START CustomEntityCode
 		// __LLBLGENPRO_USER_CODE_REGION_END
+		
 		#endregion
 
 		#region Included code

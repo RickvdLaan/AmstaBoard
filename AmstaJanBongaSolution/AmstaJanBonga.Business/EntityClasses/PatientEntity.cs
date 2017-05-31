@@ -40,8 +40,8 @@ namespace AmstaJanBonga.Business.EntityClasses
 		// __LLBLGENPRO_USER_CODE_REGION_END	
 	{
 		#region Class Member Declarations
-		private AmstaJanBonga.Business.CollectionClasses.AgendaEventCollection	_agendaEvents;
-		private bool	_alwaysFetchAgendaEvents, _alreadyFetchedAgendaEvents;
+		private AmstaJanBonga.Business.CollectionClasses.AgendaEventMetaCollection	_agendaEventMeta;
+		private bool	_alwaysFetchAgendaEventMeta, _alreadyFetchedAgendaEventMeta;
 		private AmstaJanBonga.Business.CollectionClasses.LivingRoomChoreEventCollection	_livingRoomChoreEvents;
 		private bool	_alwaysFetchLivingRoomChoreEvents, _alreadyFetchedLivingRoomChoreEvents;
 		private LivingRoomEntity _livingRoom;
@@ -60,8 +60,8 @@ namespace AmstaJanBonga.Business.EntityClasses
 		{
 			/// <summary>Member name LivingRoom</summary>
 			public static readonly string LivingRoom = "LivingRoom";
-			/// <summary>Member name AgendaEvents</summary>
-			public static readonly string AgendaEvents = "AgendaEvents";
+			/// <summary>Member name AgendaEventMeta</summary>
+			public static readonly string AgendaEventMeta = "AgendaEventMeta";
 			/// <summary>Member name LivingRoomChoreEvents</summary>
 			public static readonly string LivingRoomChoreEvents = "LivingRoomChoreEvents";
 		}
@@ -107,9 +107,9 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <param name="context"></param>
 		protected PatientEntity(SerializationInfo info, StreamingContext context) : base(info, context)
 		{
-			_agendaEvents = (AmstaJanBonga.Business.CollectionClasses.AgendaEventCollection)info.GetValue("_agendaEvents", typeof(AmstaJanBonga.Business.CollectionClasses.AgendaEventCollection));
-			_alwaysFetchAgendaEvents = info.GetBoolean("_alwaysFetchAgendaEvents");
-			_alreadyFetchedAgendaEvents = info.GetBoolean("_alreadyFetchedAgendaEvents");
+			_agendaEventMeta = (AmstaJanBonga.Business.CollectionClasses.AgendaEventMetaCollection)info.GetValue("_agendaEventMeta", typeof(AmstaJanBonga.Business.CollectionClasses.AgendaEventMetaCollection));
+			_alwaysFetchAgendaEventMeta = info.GetBoolean("_alwaysFetchAgendaEventMeta");
+			_alreadyFetchedAgendaEventMeta = info.GetBoolean("_alreadyFetchedAgendaEventMeta");
 
 			_livingRoomChoreEvents = (AmstaJanBonga.Business.CollectionClasses.LivingRoomChoreEventCollection)info.GetValue("_livingRoomChoreEvents", typeof(AmstaJanBonga.Business.CollectionClasses.LivingRoomChoreEventCollection));
 			_alwaysFetchLivingRoomChoreEvents = info.GetBoolean("_alwaysFetchLivingRoomChoreEvents");
@@ -147,7 +147,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <summary> Will perform post-ReadXml actions</summary>
 		protected override void PerformPostReadXmlFixups()
 		{
-			_alreadyFetchedAgendaEvents = (_agendaEvents.Count > 0);
+			_alreadyFetchedAgendaEventMeta = (_agendaEventMeta.Count > 0);
 			_alreadyFetchedLivingRoomChoreEvents = (_livingRoomChoreEvents.Count > 0);
 			_alreadyFetchedLivingRoom = (_livingRoom != null);
 		}
@@ -171,8 +171,8 @@ namespace AmstaJanBonga.Business.EntityClasses
 				case "LivingRoom":
 					toReturn.Add(Relations.LivingRoomEntityUsingLivingRoomId);
 					break;
-				case "AgendaEvents":
-					toReturn.Add(Relations.AgendaEventEntityUsingPatientId);
+				case "AgendaEventMeta":
+					toReturn.Add(Relations.AgendaEventMetaEntityUsingPatientId);
 					break;
 				case "LivingRoomChoreEvents":
 					toReturn.Add(Relations.LivingRoomChoreEventEntityUsingPatientId);
@@ -191,9 +191,9 @@ namespace AmstaJanBonga.Business.EntityClasses
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		protected override void GetObjectData(SerializationInfo info, StreamingContext context)
 		{
-			info.AddValue("_agendaEvents", (!this.MarkedForDeletion?_agendaEvents:null));
-			info.AddValue("_alwaysFetchAgendaEvents", _alwaysFetchAgendaEvents);
-			info.AddValue("_alreadyFetchedAgendaEvents", _alreadyFetchedAgendaEvents);
+			info.AddValue("_agendaEventMeta", (!this.MarkedForDeletion?_agendaEventMeta:null));
+			info.AddValue("_alwaysFetchAgendaEventMeta", _alwaysFetchAgendaEventMeta);
+			info.AddValue("_alreadyFetchedAgendaEventMeta", _alreadyFetchedAgendaEventMeta);
 			info.AddValue("_livingRoomChoreEvents", (!this.MarkedForDeletion?_livingRoomChoreEvents:null));
 			info.AddValue("_alwaysFetchLivingRoomChoreEvents", _alwaysFetchLivingRoomChoreEvents);
 			info.AddValue("_alreadyFetchedLivingRoomChoreEvents", _alreadyFetchedLivingRoomChoreEvents);
@@ -220,11 +220,11 @@ namespace AmstaJanBonga.Business.EntityClasses
 					_alreadyFetchedLivingRoom = true;
 					this.LivingRoom = (LivingRoomEntity)entity;
 					break;
-				case "AgendaEvents":
-					_alreadyFetchedAgendaEvents = true;
+				case "AgendaEventMeta":
+					_alreadyFetchedAgendaEventMeta = true;
 					if(entity!=null)
 					{
-						this.AgendaEvents.Add((AgendaEventEntity)entity);
+						this.AgendaEventMeta.Add((AgendaEventMetaEntity)entity);
 					}
 					break;
 				case "LivingRoomChoreEvents":
@@ -251,8 +251,8 @@ namespace AmstaJanBonga.Business.EntityClasses
 				case "LivingRoom":
 					SetupSyncLivingRoom(relatedEntity);
 					break;
-				case "AgendaEvents":
-					_agendaEvents.Add((AgendaEventEntity)relatedEntity);
+				case "AgendaEventMeta":
+					_agendaEventMeta.Add((AgendaEventMetaEntity)relatedEntity);
 					break;
 				case "LivingRoomChoreEvents":
 					_livingRoomChoreEvents.Add((LivingRoomChoreEventEntity)relatedEntity);
@@ -274,8 +274,8 @@ namespace AmstaJanBonga.Business.EntityClasses
 				case "LivingRoom":
 					DesetupSyncLivingRoom(false, true);
 					break;
-				case "AgendaEvents":
-					this.PerformRelatedEntityRemoval(_agendaEvents, relatedEntity, signalRelatedEntityManyToOne);
+				case "AgendaEventMeta":
+					this.PerformRelatedEntityRemoval(_agendaEventMeta, relatedEntity, signalRelatedEntityManyToOne);
 					break;
 				case "LivingRoomChoreEvents":
 					this.PerformRelatedEntityRemoval(_livingRoomChoreEvents, relatedEntity, signalRelatedEntityManyToOne);
@@ -310,7 +310,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		protected override List<IEntityCollection> GetMemberEntityCollections()
 		{
 			List<IEntityCollection> toReturn = new List<IEntityCollection>();
-			toReturn.Add(_agendaEvents);
+			toReturn.Add(_agendaEventMeta);
 			toReturn.Add(_livingRoomChoreEvents);
 
 			return toReturn;
@@ -373,59 +373,59 @@ namespace AmstaJanBonga.Business.EntityClasses
 			return new PatientRelations().GetAllRelations();
 		}
 
-		/// <summary> Retrieves all related entities of type 'AgendaEventEntity' using a relation of type '1:n'.</summary>
+		/// <summary> Retrieves all related entities of type 'AgendaEventMetaEntity' using a relation of type '1:n'.</summary>
 		/// <param name="forceFetch">if true, it will discard any changes currently in the collection and will rerun the complete query instead</param>
-		/// <returns>Filled collection with all related entities of type 'AgendaEventEntity'</returns>
-		public AmstaJanBonga.Business.CollectionClasses.AgendaEventCollection GetMultiAgendaEvents(bool forceFetch)
+		/// <returns>Filled collection with all related entities of type 'AgendaEventMetaEntity'</returns>
+		public AmstaJanBonga.Business.CollectionClasses.AgendaEventMetaCollection GetMultiAgendaEventMeta(bool forceFetch)
 		{
-			return GetMultiAgendaEvents(forceFetch, _agendaEvents.EntityFactoryToUse, null);
+			return GetMultiAgendaEventMeta(forceFetch, _agendaEventMeta.EntityFactoryToUse, null);
 		}
 
-		/// <summary> Retrieves all related entities of type 'AgendaEventEntity' using a relation of type '1:n'.</summary>
+		/// <summary> Retrieves all related entities of type 'AgendaEventMetaEntity' using a relation of type '1:n'.</summary>
 		/// <param name="forceFetch">if true, it will discard any changes currently in the collection and will rerun the complete query instead</param>
 		/// <param name="filter">Extra filter to limit the resultset.</param>
-		/// <returns>Filled collection with all related entities of type 'AgendaEventEntity'</returns>
-		public AmstaJanBonga.Business.CollectionClasses.AgendaEventCollection GetMultiAgendaEvents(bool forceFetch, IPredicateExpression filter)
+		/// <returns>Filled collection with all related entities of type 'AgendaEventMetaEntity'</returns>
+		public AmstaJanBonga.Business.CollectionClasses.AgendaEventMetaCollection GetMultiAgendaEventMeta(bool forceFetch, IPredicateExpression filter)
 		{
-			return GetMultiAgendaEvents(forceFetch, _agendaEvents.EntityFactoryToUse, filter);
+			return GetMultiAgendaEventMeta(forceFetch, _agendaEventMeta.EntityFactoryToUse, filter);
 		}
 
-		/// <summary> Retrieves all related entities of type 'AgendaEventEntity' using a relation of type '1:n'.</summary>
+		/// <summary> Retrieves all related entities of type 'AgendaEventMetaEntity' using a relation of type '1:n'.</summary>
 		/// <param name="forceFetch">if true, it will discard any changes currently in the collection and will rerun the complete query instead</param>
 		/// <param name="entityFactoryToUse">The entity factory to use for the GetMultiManyToOne() routine.</param>
 		/// <returns>Filled collection with all related entities of the type constructed by the passed in entity factory</returns>
-		public AmstaJanBonga.Business.CollectionClasses.AgendaEventCollection GetMultiAgendaEvents(bool forceFetch, IEntityFactory entityFactoryToUse)
+		public AmstaJanBonga.Business.CollectionClasses.AgendaEventMetaCollection GetMultiAgendaEventMeta(bool forceFetch, IEntityFactory entityFactoryToUse)
 		{
-			return GetMultiAgendaEvents(forceFetch, entityFactoryToUse, null);
+			return GetMultiAgendaEventMeta(forceFetch, entityFactoryToUse, null);
 		}
 
-		/// <summary> Retrieves all related entities of type 'AgendaEventEntity' using a relation of type '1:n'.</summary>
+		/// <summary> Retrieves all related entities of type 'AgendaEventMetaEntity' using a relation of type '1:n'.</summary>
 		/// <param name="forceFetch">if true, it will discard any changes currently in the collection and will rerun the complete query instead</param>
 		/// <param name="entityFactoryToUse">The entity factory to use for the GetMultiManyToOne() routine.</param>
 		/// <param name="filter">Extra filter to limit the resultset.</param>
 		/// <returns>Filled collection with all related entities of the type constructed by the passed in entity factory</returns>
-		public virtual AmstaJanBonga.Business.CollectionClasses.AgendaEventCollection GetMultiAgendaEvents(bool forceFetch, IEntityFactory entityFactoryToUse, IPredicateExpression filter)
+		public virtual AmstaJanBonga.Business.CollectionClasses.AgendaEventMetaCollection GetMultiAgendaEventMeta(bool forceFetch, IEntityFactory entityFactoryToUse, IPredicateExpression filter)
 		{
- 			if( ( !_alreadyFetchedAgendaEvents || forceFetch || _alwaysFetchAgendaEvents) && !this.IsSerializing && !this.IsDeserializing && !this.InDesignMode)
+ 			if( ( !_alreadyFetchedAgendaEventMeta || forceFetch || _alwaysFetchAgendaEventMeta) && !this.IsSerializing && !this.IsDeserializing && !this.InDesignMode)
 			{
-				AddToTransactionIfNecessary(_agendaEvents);
-				_agendaEvents.SuppressClearInGetMulti=!forceFetch;
-				_agendaEvents.EntityFactoryToUse = entityFactoryToUse;
-				_agendaEvents.GetMultiManyToOne(this, filter);
-				_agendaEvents.SuppressClearInGetMulti=false;
-				_alreadyFetchedAgendaEvents = true;
+				AddToTransactionIfNecessary(_agendaEventMeta);
+				_agendaEventMeta.SuppressClearInGetMulti=!forceFetch;
+				_agendaEventMeta.EntityFactoryToUse = entityFactoryToUse;
+				_agendaEventMeta.GetMultiManyToOne(null, this, filter);
+				_agendaEventMeta.SuppressClearInGetMulti=false;
+				_alreadyFetchedAgendaEventMeta = true;
 			}
-			return _agendaEvents;
+			return _agendaEventMeta;
 		}
 
-		/// <summary> Sets the collection parameters for the collection for 'AgendaEvents'. These settings will be taken into account
-		/// when the property AgendaEvents is requested or GetMultiAgendaEvents is called.</summary>
+		/// <summary> Sets the collection parameters for the collection for 'AgendaEventMeta'. These settings will be taken into account
+		/// when the property AgendaEventMeta is requested or GetMultiAgendaEventMeta is called.</summary>
 		/// <param name="maxNumberOfItemsToReturn"> The maximum number of items to return. When set to 0, this parameter is ignored</param>
 		/// <param name="sortClauses">The order by specifications for the sorting of the resultset. When not specified (null), no sorting is applied.</param>
-		public virtual void SetCollectionParametersAgendaEvents(long maxNumberOfItemsToReturn, ISortExpression sortClauses)
+		public virtual void SetCollectionParametersAgendaEventMeta(long maxNumberOfItemsToReturn, ISortExpression sortClauses)
 		{
-			_agendaEvents.SortClauses=sortClauses;
-			_agendaEvents.MaxNumberOfItemsToReturn=maxNumberOfItemsToReturn;
+			_agendaEventMeta.SortClauses=sortClauses;
+			_agendaEventMeta.MaxNumberOfItemsToReturn=maxNumberOfItemsToReturn;
 		}
 
 		/// <summary> Retrieves all related entities of type 'LivingRoomChoreEventEntity' using a relation of type '1:n'.</summary>
@@ -530,7 +530,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		{
 			Dictionary<string, object> toReturn = new Dictionary<string, object>();
 			toReturn.Add("LivingRoom", _livingRoom);
-			toReturn.Add("AgendaEvents", _agendaEvents);
+			toReturn.Add("AgendaEventMeta", _agendaEventMeta);
 			toReturn.Add("LivingRoomChoreEvents", _livingRoomChoreEvents);
 			return toReturn;
 		}
@@ -572,8 +572,8 @@ namespace AmstaJanBonga.Business.EntityClasses
 		private void InitClassMembers()
 		{
 
-			_agendaEvents = new AmstaJanBonga.Business.CollectionClasses.AgendaEventCollection();
-			_agendaEvents.SetContainingEntityInfo(this, "Patient");
+			_agendaEventMeta = new AmstaJanBonga.Business.CollectionClasses.AgendaEventMetaCollection();
+			_agendaEventMeta.SetContainingEntityInfo(this, "Patient");
 
 			_livingRoomChoreEvents = new AmstaJanBonga.Business.CollectionClasses.LivingRoomChoreEventCollection();
 			_livingRoomChoreEvents.SetContainingEntityInfo(this, "Patient");
@@ -697,11 +697,11 @@ namespace AmstaJanBonga.Business.EntityClasses
 			get { return _customProperties;}
 		}
 
-		/// <summary> Creates a new PrefetchPathElement object which contains all the information to prefetch the related entities of type 'AgendaEvent' for this entity.</summary>
+		/// <summary> Creates a new PrefetchPathElement object which contains all the information to prefetch the related entities of type 'AgendaEventMeta' for this entity.</summary>
 		/// <returns>Ready to use IPrefetchPathElement implementation.</returns>
-		public static IPrefetchPathElement PrefetchPathAgendaEvents
+		public static IPrefetchPathElement PrefetchPathAgendaEventMeta
 		{
-			get { return new PrefetchPathElement(new AmstaJanBonga.Business.CollectionClasses.AgendaEventCollection(), (IEntityRelation)GetRelationsForField("AgendaEvents")[0], (int)AmstaJanBonga.Business.EntityType.PatientEntity, (int)AmstaJanBonga.Business.EntityType.AgendaEventEntity, 0, null, null, null, "AgendaEvents", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany); }
+			get { return new PrefetchPathElement(new AmstaJanBonga.Business.CollectionClasses.AgendaEventMetaCollection(), (IEntityRelation)GetRelationsForField("AgendaEventMeta")[0], (int)AmstaJanBonga.Business.EntityType.PatientEntity, (int)AmstaJanBonga.Business.EntityType.AgendaEventMetaEntity, 0, null, null, null, "AgendaEventMeta", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany); }
 		}
 
 		/// <summary> Creates a new PrefetchPathElement object which contains all the information to prefetch the related entities of type 'LivingRoomChoreEvent' for this entity.</summary>
@@ -832,37 +832,37 @@ namespace AmstaJanBonga.Business.EntityClasses
 			set	{ SetValue((int)PatientFieldIndex.LivingRoomId, value, true); }
 		}
 
-		/// <summary> Retrieves all related entities of type 'AgendaEventEntity' using a relation of type '1:n'.<br/><br/>
+		/// <summary> Retrieves all related entities of type 'AgendaEventMetaEntity' using a relation of type '1:n'.<br/><br/>
 		/// </summary>
-		/// <remarks>This property is added for databinding conveniance, however it is recommeded to use the method 'GetMultiAgendaEvents()', because 
+		/// <remarks>This property is added for databinding conveniance, however it is recommeded to use the method 'GetMultiAgendaEventMeta()', because 
 		/// this property is rather expensive and a method tells the user to cache the result when it has to be used more than once in the same scope.</remarks>
-		public virtual AmstaJanBonga.Business.CollectionClasses.AgendaEventCollection AgendaEvents
+		public virtual AmstaJanBonga.Business.CollectionClasses.AgendaEventMetaCollection AgendaEventMeta
 		{
-			get	{ return GetMultiAgendaEvents(false); }
+			get	{ return GetMultiAgendaEventMeta(false); }
 		}
 
-		/// <summary> Gets / sets the lazy loading flag for AgendaEvents. When set to true, AgendaEvents is always refetched from the 
-		/// persistent storage. When set to false, the data is only fetched the first time AgendaEvents is accessed. You can always execute/ a forced fetch by calling GetMultiAgendaEvents(true).</summary>
+		/// <summary> Gets / sets the lazy loading flag for AgendaEventMeta. When set to true, AgendaEventMeta is always refetched from the 
+		/// persistent storage. When set to false, the data is only fetched the first time AgendaEventMeta is accessed. You can always execute/ a forced fetch by calling GetMultiAgendaEventMeta(true).</summary>
 		[Browsable(false)]
-		public bool AlwaysFetchAgendaEvents
+		public bool AlwaysFetchAgendaEventMeta
 		{
-			get	{ return _alwaysFetchAgendaEvents; }
-			set	{ _alwaysFetchAgendaEvents = value; }	
+			get	{ return _alwaysFetchAgendaEventMeta; }
+			set	{ _alwaysFetchAgendaEventMeta = value; }	
 		}		
 				
-		/// <summary>Gets / Sets the lazy loading flag if the property AgendaEvents already has been fetched. Setting this property to false when AgendaEvents has been fetched
-		/// will clear the AgendaEvents collection well. Setting this property to true while AgendaEvents hasn't been fetched disables lazy loading for AgendaEvents</summary>
+		/// <summary>Gets / Sets the lazy loading flag if the property AgendaEventMeta already has been fetched. Setting this property to false when AgendaEventMeta has been fetched
+		/// will clear the AgendaEventMeta collection well. Setting this property to true while AgendaEventMeta hasn't been fetched disables lazy loading for AgendaEventMeta</summary>
 		[Browsable(false)]
-		public bool AlreadyFetchedAgendaEvents
+		public bool AlreadyFetchedAgendaEventMeta
 		{
-			get { return _alreadyFetchedAgendaEvents;}
+			get { return _alreadyFetchedAgendaEventMeta;}
 			set 
 			{
-				if(_alreadyFetchedAgendaEvents && !value && (_agendaEvents != null))
+				if(_alreadyFetchedAgendaEventMeta && !value && (_agendaEventMeta != null))
 				{
-					_agendaEvents.Clear();
+					_agendaEventMeta.Clear();
 				}
-				_alreadyFetchedAgendaEvents = value;
+				_alreadyFetchedAgendaEventMeta = value;
 			}
 		}
 		/// <summary> Retrieves all related entities of type 'LivingRoomChoreEventEntity' using a relation of type '1:n'.<br/><br/>

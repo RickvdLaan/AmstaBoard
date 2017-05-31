@@ -130,21 +130,20 @@
   <EntityModel>
     <ValueTypeDefinitions />
     <EntityDefinitions>
-      <EntityDefinition Name="AgendaEvent" GroupName="Vanderlaan" ObjectID="dc3add2c-a04f-4445-a9fe-0365e79cf6f8">
+      <EntityDefinition Name="AgendaEvent" GroupName="Vanderlaan" ObjectID="0a51ad38-64dd-4ae1-8074-1708515ea2e6">
         <Fields>
           <Field Name="Description" Type="string" IsOptional="true" MaxLength="500" />
           <Field Name="Id" Type="int" IsReadOnly="true" Precision="10" IsPrimaryKey="true" />
           <Field Name="Location" Type="string" IsOptional="true" MaxLength="50" />
-          <Field Name="TimeEnd" Type="datetime" IsOptional="true" />
-          <Field Name="TimeStart" Type="datetime" IsOptional="true" />
+          <Field Name="PatientId" Type="int" Precision="10" />
+          <Field Name="Time" Type="datetime" IsOptional="true" />
           <Field Name="Title" Type="string" IsOptional="true" MaxLength="50" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="AgendaEventMetum" GroupName="Vanderlaan" ObjectID="91fab9ef-5ad3-4d41-a51b-fe4cc84563f2">
+      <EntityDefinition Name="AgendaEventMeta" GroupName="Vanderlaan" ObjectID="1cb5672a-42b6-48c7-8962-48505e0799f8">
         <Fields>
           <Field Name="AgendaEventId" Type="int" Precision="10" />
           <Field Name="Id" Type="int" IsReadOnly="true" Precision="10" IsPrimaryKey="true" />
-          <Field Name="PatientId" Type="int" Precision="10" />
           <Field Name="RepeatInterval" Type="int" IsOptional="true" Precision="10" />
           <Field Name="RepeatStart" Type="int" IsOptional="true" Precision="10" />
           <Field Name="SingleEvent" Type="int" IsOptional="true" Precision="10" />
@@ -284,14 +283,14 @@
       </EntityDefinition>
     </EntityDefinitions>
     <Relationships>
-      <NormalRelationship Name="Vanderlaan.AgendaEventMetum.AgendaEvent-Vanderlaan.AgendaEvent.AgendaEventMeta" Start="Vanderlaan:AgendaEventMetum" End="Vanderlaan:AgendaEvent" StartNavigator="AgendaEvent" EndNavigator="AgendaEventMeta" Type="4">
-        <FieldRelationships>
-          <FieldFieldRelationship FkField="AgendaEventId" PkField="Id" />
-        </FieldRelationships>
-      </NormalRelationship>
-      <NormalRelationship Name="Vanderlaan.AgendaEventMetum.Patient-Vanderlaan.Patient.AgendaEventMeta" Start="Vanderlaan:AgendaEventMetum" End="Vanderlaan:Patient" StartNavigator="Patient" EndNavigator="AgendaEventMeta" Type="4">
+      <NormalRelationship Name="Vanderlaan.AgendaEvent.Patient-Vanderlaan.Patient.AgendaEvents" Start="Vanderlaan:AgendaEvent" End="Vanderlaan:Patient" StartNavigator="Patient" EndNavigator="AgendaEvents" Type="4">
         <FieldRelationships>
           <FieldFieldRelationship FkField="PatientId" PkField="Id" />
+        </FieldRelationships>
+      </NormalRelationship>
+      <NormalRelationship Name="Vanderlaan.AgendaEventMeta.AgendaEvent-Vanderlaan.AgendaEvent.AgendaEventMetas" Start="Vanderlaan:AgendaEventMeta" End="Vanderlaan:AgendaEvent" StartNavigator="AgendaEvent" EndNavigator="AgendaEventMetas" Type="4">
+        <FieldRelationships>
+          <FieldFieldRelationship FkField="AgendaEventId" PkField="Id" />
         </FieldRelationships>
       </NormalRelationship>
       <NormalRelationship Name="Vanderlaan.Employee.LivingRoom-Vanderlaan.LivingRoom.Employees" Start="Vanderlaan:Employee" End="Vanderlaan:LivingRoom" StartNavigator="LivingRoom" EndNavigator="Employees" Type="4">
@@ -372,7 +371,7 @@
       <Catalogs>
         <Catalog Name="Vanderlaan_jouwsoftware_janbonga_development">
           <Schemas>
-            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-05-31T08:54:48.0639955Z">
+            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-05-29T07:42:28.1285494Z">
               <StoredProcedures>
                 <StoredProcedure Name="sp_alterdiagram">
                   <Parameters>
@@ -440,16 +439,16 @@
                 </StoredProcedure>
               </StoredProcedures>
             </Schema>
-            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-05-31T08:54:48.1860025Z">
+            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-05-29T07:42:28.2195546Z">
               <Tables>
                 <Table Name="AgendaEvent">
                   <PkConstraintName Name="PK_AgendaEvent" />
                   <Fields>
                     <Field Name="Id" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
-                    <Field Name="Title" Ordinal="2" IsOptional="true" DbType="24" Length="50" />
-                    <Field Name="Location" Ordinal="3" IsOptional="true" DbType="24" Length="50" />
-                    <Field Name="TimeStart" Ordinal="4" IsOptional="true" DbType="4" />
-                    <Field Name="TimeEnd" Ordinal="5" IsOptional="true" DbType="4" />
+                    <Field Name="PatientId" Ordinal="2" DbType="8" Precision="10" />
+                    <Field Name="Title" Ordinal="3" IsOptional="true" DbType="24" Length="50" />
+                    <Field Name="Location" Ordinal="4" IsOptional="true" DbType="24" Length="50" />
+                    <Field Name="Time" Ordinal="5" IsOptional="true" DbType="4" />
                     <Field Name="Description" Ordinal="6" IsOptional="true" DbType="24" Length="500" />
                   </Fields>
                 </Table>
@@ -458,10 +457,9 @@
                   <Fields>
                     <Field Name="Id" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
                     <Field Name="AgendaEventId" Ordinal="2" DbType="8" Precision="10" />
-                    <Field Name="PatientId" Ordinal="3" DbType="8" Precision="10" />
-                    <Field Name="SingleEvent" Ordinal="4" IsOptional="true" DbType="8" Precision="10" />
-                    <Field Name="RepeatStart" Ordinal="5" IsOptional="true" DbType="8" Precision="10" />
-                    <Field Name="RepeatInterval" Ordinal="6" IsOptional="true" DbType="8" Precision="10" />
+                    <Field Name="SingleEvent" Ordinal="3" IsOptional="true" DbType="8" Precision="10" />
+                    <Field Name="RepeatStart" Ordinal="4" IsOptional="true" DbType="8" Precision="10" />
+                    <Field Name="RepeatInterval" Ordinal="5" IsOptional="true" DbType="8" Precision="10" />
                   </Fields>
                 </Table>
                 <Table Name="Employee">
@@ -612,14 +610,14 @@
             </Schema>
           </Schemas>
           <ForeignKeyConstraints>
+            <ForeignKeyConstraint Name="Vanderlaan:AgendaEvent:FK_AgendaEvent_Patient">
+              <FieldPairs>
+                <FieldPair PkField="Vanderlaan:Patient:Id" FkField="Vanderlaan:AgendaEvent:PatientId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
             <ForeignKeyConstraint Name="Vanderlaan:AgendaEventMeta:FK_AgendaEventMeta_AgendaEvent">
               <FieldPairs>
                 <FieldPair PkField="Vanderlaan:AgendaEvent:Id" FkField="Vanderlaan:AgendaEventMeta:AgendaEventId" />
-              </FieldPairs>
-            </ForeignKeyConstraint>
-            <ForeignKeyConstraint Name="Vanderlaan:AgendaEventMeta:FK_AgendaEventMeta_Patient">
-              <FieldPairs>
-                <FieldPair PkField="Vanderlaan:Patient:Id" FkField="Vanderlaan:AgendaEventMeta:PatientId" />
               </FieldPairs>
             </ForeignKeyConstraint>
             <ForeignKeyConstraint Name="Vanderlaan:Employee:FK_Employee_Livingroom">
@@ -695,16 +693,15 @@
             <FieldMapping FieldName="Description" TargetFieldName="Description" />
             <FieldMapping FieldName="Id" TargetFieldName="Id" SequenceToUse="SCOPE_IDENTITY()" />
             <FieldMapping FieldName="Location" TargetFieldName="Location" />
-            <FieldMapping FieldName="TimeEnd" TargetFieldName="TimeEnd" />
-            <FieldMapping FieldName="TimeStart" TargetFieldName="TimeStart" />
+            <FieldMapping FieldName="PatientId" TargetFieldName="PatientId" />
+            <FieldMapping FieldName="Time" TargetFieldName="Time" />
             <FieldMapping FieldName="Title" TargetFieldName="Title" />
           </FieldMappings>
         </EntityMapping>
-        <EntityMapping EntityName="Vanderlaan:AgendaEventMetum" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:AgendaEventMeta">
+        <EntityMapping EntityName="Vanderlaan:AgendaEventMeta" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:AgendaEventMeta">
           <FieldMappings>
             <FieldMapping FieldName="AgendaEventId" TargetFieldName="AgendaEventId" />
             <FieldMapping FieldName="Id" TargetFieldName="Id" SequenceToUse="SCOPE_IDENTITY()" />
-            <FieldMapping FieldName="PatientId" TargetFieldName="PatientId" />
             <FieldMapping FieldName="RepeatInterval" TargetFieldName="RepeatInterval" />
             <FieldMapping FieldName="RepeatStart" TargetFieldName="RepeatStart" />
             <FieldMapping FieldName="SingleEvent" TargetFieldName="SingleEvent" />

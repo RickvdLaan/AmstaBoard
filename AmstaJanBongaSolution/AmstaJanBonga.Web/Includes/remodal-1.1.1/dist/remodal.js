@@ -669,10 +669,10 @@
         //////////////////////////////////////////////////////////////////////
 
         var appointmentDialog =  $(document.getElementById('appointment-dialog'));
-
+        alert("reset");
         if (appointmentDialog) {
             var reset = "<table><thead><tr><td colspan='2'><h2>[TITLE]</h2></td></tr></thead><tbody><tr><td class='label'>Waar:</td><td>[LOCATION]</td></tr><tr><td class='label'>Tijdstip:</td><td>[TIME]</td></tr><tr><td class='label'>Omschrijving:</td><td>[DESCRIPTION]</td></tr></tbody><tfoot><tr><td colspan='2'><button data-remodal-action='confirm' class='remodal-confirm'>Oke</button></td></tr></tfoot></table>";
-
+         
             appointmentDialog.html(reset);
         }
 

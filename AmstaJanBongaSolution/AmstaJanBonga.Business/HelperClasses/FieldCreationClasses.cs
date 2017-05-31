@@ -32,15 +32,15 @@ namespace AmstaJanBonga.Business.HelperClasses
 		{
 			get { return (EntityField)EntityFieldFactory.Create(AgendaEventFieldIndex.Location);}
 		}
-		/// <summary>Creates a new AgendaEventEntity.PatientId field instance</summary>
-		public static EntityField PatientId
+		/// <summary>Creates a new AgendaEventEntity.TimeEnd field instance</summary>
+		public static EntityField TimeEnd
 		{
-			get { return (EntityField)EntityFieldFactory.Create(AgendaEventFieldIndex.PatientId);}
+			get { return (EntityField)EntityFieldFactory.Create(AgendaEventFieldIndex.TimeEnd);}
 		}
-		/// <summary>Creates a new AgendaEventEntity.Time field instance</summary>
-		public static EntityField Time
+		/// <summary>Creates a new AgendaEventEntity.TimeStart field instance</summary>
+		public static EntityField TimeStart
 		{
-			get { return (EntityField)EntityFieldFactory.Create(AgendaEventFieldIndex.Time);}
+			get { return (EntityField)EntityFieldFactory.Create(AgendaEventFieldIndex.TimeStart);}
 		}
 		/// <summary>Creates a new AgendaEventEntity.Title field instance</summary>
 		public static EntityField Title
@@ -61,6 +61,11 @@ namespace AmstaJanBonga.Business.HelperClasses
 		public static EntityField Id
 		{
 			get { return (EntityField)EntityFieldFactory.Create(AgendaEventMetaFieldIndex.Id);}
+		}
+		/// <summary>Creates a new AgendaEventMetaEntity.PatientId field instance</summary>
+		public static EntityField PatientId
+		{
+			get { return (EntityField)EntityFieldFactory.Create(AgendaEventMetaFieldIndex.PatientId);}
 		}
 		/// <summary>Creates a new AgendaEventMetaEntity.RepeatInterval field instance</summary>
 		public static EntityField RepeatInterval

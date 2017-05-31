@@ -163,7 +163,7 @@
             <tfoot>
                 <tr>
                     <td colspan="2">
-                        <button data-remodal-action="confirm" class="remodal-confirm">Oke</button>
+                        <button data-remodal-action="confirm" class="remodal-confirm">Sluiten</button>
                     </td>
                 </tr>
             </tfoot>

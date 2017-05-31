@@ -17,15 +17,15 @@ using SD.LLBLGen.Pro.ORMSupportClasses;
 
 namespace AmstaJanBonga.Business.RelationClasses
 {
-	/// <summary>Implements the relations factory for the entity: AgendaEventMeta. </summary>
-	public partial class AgendaEventMetaRelations
+	/// <summary>Implements the relations factory for the entity: AgendaEventMetum. </summary>
+	public partial class AgendaEventMetumRelations
 	{
 		/// <summary>CTor</summary>
-		public AgendaEventMetaRelations()
+		public AgendaEventMetumRelations()
 		{
 		}
 
-		/// <summary>Gets all relations of the AgendaEventMetaEntity as a list of IEntityRelation objects.</summary>
+		/// <summary>Gets all relations of the AgendaEventMetumEntity as a list of IEntityRelation objects.</summary>
 		/// <returns>a list of IEntityRelation objects</returns>
 		public virtual List<IEntityRelation> GetAllRelations()
 		{
@@ -39,31 +39,31 @@ namespace AmstaJanBonga.Business.RelationClasses
 
 
 
-		/// <summary>Returns a new IEntityRelation object, between AgendaEventMetaEntity and AgendaEventEntity over the m:1 relation they have, using the relation between the fields:
-		/// AgendaEventMeta.AgendaEventId - AgendaEvent.Id
+		/// <summary>Returns a new IEntityRelation object, between AgendaEventMetumEntity and AgendaEventEntity over the m:1 relation they have, using the relation between the fields:
+		/// AgendaEventMetum.AgendaEventId - AgendaEvent.Id
 		/// </summary>
 		public virtual IEntityRelation AgendaEventEntityUsingAgendaEventId
 		{
 			get
 			{
 				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne, "AgendaEvent", false);
-				relation.AddEntityFieldPair(AgendaEventFields.Id, AgendaEventMetaFields.AgendaEventId);
+				relation.AddEntityFieldPair(AgendaEventFields.Id, AgendaEventMetumFields.AgendaEventId);
 				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("AgendaEventEntity", false);
-				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("AgendaEventMetaEntity", true);
+				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("AgendaEventMetumEntity", true);
 				return relation;
 			}
 		}
-		/// <summary>Returns a new IEntityRelation object, between AgendaEventMetaEntity and PatientEntity over the m:1 relation they have, using the relation between the fields:
-		/// AgendaEventMeta.PatientId - Patient.Id
+		/// <summary>Returns a new IEntityRelation object, between AgendaEventMetumEntity and PatientEntity over the m:1 relation they have, using the relation between the fields:
+		/// AgendaEventMetum.PatientId - Patient.Id
 		/// </summary>
 		public virtual IEntityRelation PatientEntityUsingPatientId
 		{
 			get
 			{
 				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne, "Patient", false);
-				relation.AddEntityFieldPair(PatientFields.Id, AgendaEventMetaFields.PatientId);
+				relation.AddEntityFieldPair(PatientFields.Id, AgendaEventMetumFields.PatientId);
 				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("PatientEntity", false);
-				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("AgendaEventMetaEntity", true);
+				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("AgendaEventMetumEntity", true);
 				return relation;
 			}
 		}
@@ -79,13 +79,13 @@ namespace AmstaJanBonga.Business.RelationClasses
 	}
 	
 	/// <summary>Static class which is used for providing relationship instances which are re-used internally for syncing</summary>
-	internal static class StaticAgendaEventMetaRelations
+	internal static class StaticAgendaEventMetumRelations
 	{
-		internal static readonly IEntityRelation AgendaEventEntityUsingAgendaEventIdStatic = new AgendaEventMetaRelations().AgendaEventEntityUsingAgendaEventId;
-		internal static readonly IEntityRelation PatientEntityUsingPatientIdStatic = new AgendaEventMetaRelations().PatientEntityUsingPatientId;
+		internal static readonly IEntityRelation AgendaEventEntityUsingAgendaEventIdStatic = new AgendaEventMetumRelations().AgendaEventEntityUsingAgendaEventId;
+		internal static readonly IEntityRelation PatientEntityUsingPatientIdStatic = new AgendaEventMetumRelations().PatientEntityUsingPatientId;
 
 		/// <summary>CTor</summary>
-		static StaticAgendaEventMetaRelations()
+		static StaticAgendaEventMetumRelations()
 		{
 		}
 	}

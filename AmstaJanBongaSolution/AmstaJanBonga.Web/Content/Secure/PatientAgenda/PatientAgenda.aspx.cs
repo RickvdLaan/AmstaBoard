@@ -13,9 +13,17 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
     {
         #region Variables & Objects
 
+        private const int AGENDA_START_HOUR = 8;
+
         private PatientEntity _patient = null;
 
         private DataTable _agendaTime = new DataTable("AgendaTime");
+
+        private DataTable _agendaDay = new DataTable("AgendaDay");
+
+        private DataTable _agendaWeekDay = new DataTable("AgendaWeekDay");
+
+        private DataTable _agendaWeekAppointments = new DataTable("AgendaWeek");
 
         #endregion
 
@@ -66,8 +74,7 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
 
         #endregion
 
-        #region Methods
-
+        #region Databinding
 
         private void DatabindAgendaTime()
         {
@@ -88,7 +95,20 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
 
         private void DatabindAgendaDay()
         {
-            this._repAgendaDay.DataSource = null;
+            this._agendaDay.Columns.Add("Appointments");
+
+            var appointment = this._agendaDay.NewRow();
+
+            var appointments = AgendaEventMetaReader.GetAllEventsForTodayByPatientId(this.Patient.Id);
+
+            foreach (var app in appointments)
+            {
+                appointment[0] += this.GenerateAppointment(app.Title, app.Location, new Time(10, 00), new Time(12, 00), app.Description);
+            }
+
+            this._agendaDay.Rows.Add(appointment);
+
+            this._repAgendaDay.DataSource = this._agendaDay;
             this._repAgendaDay.DataBind();
         }
 
@@ -96,6 +116,39 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
         {
             this._repAgendaWeek.DataSource = null;
             this._repAgendaWeek.DataBind();
+        }
+
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// Generates an appointment and returns the generated html.
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="location"></param>
+        /// <param name="startTime"></param>
+        /// <param name="endTime"></param>
+        /// <param name="description"></param>
+        /// <returns></returns>
+        public string GenerateAppointment(string title, string location, Time startTime, Time endTime, string description)
+        {
+            // Generates a unique id.
+            var id = Guid.NewGuid();
+
+            // Todo: Calculate minutes in it.
+            var hourLength = (endTime.Hour - startTime.Hour);
+
+            // 58 and 59 are the default heights.
+            //                                                                           -2 because of the border on the bottom
+            var height = ((hourLength > 1 ? 59 : 58) * (hourLength)) + (hourLength > 1 ? (hourLength - 2) : 0);
+
+            // Start hour appointment - start hour of the agenda times the height (which includes the border).
+            var top = (60 * (startTime.Hour - AGENDA_START_HOUR));
+
+            // Html code.
+            return "<div id=\"{0}\" data-remodal-target=\"appointment-remodal\" class=\"appointment red-bg\" style=\"height: {1}px; top: {2}px;\"><dl><dt class=\"dialog-title\">{3}</dt><dd><p><span class=\"label\">Waar:</span><span class=\"dialog-location\">{4}</span></p></dd><dd><p><span class=\"label\">Tijdstip:</span><span class=\"dialog-time\">Van {5} tot {6} uur.</span></p></dd><dd><p><span class=\"label\">Omschrijving:</span><span class=\"dialog-description\">{7}</span></p></dd></dl></div>".FormatString(
+                id, height, top, title, location, startTime.ToString(), endTime.ToString(), description);
         }
 
         #endregion

@@ -110,6 +110,7 @@ namespace AmstaJanBonga.Business.FactoryClasses
 			
 			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewAgendaEventMeta
 			// __LLBLGENPRO_USER_CODE_REGION_END
+			
 			return toReturn;
 		}
 

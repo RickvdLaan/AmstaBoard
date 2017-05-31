@@ -20,10 +20,10 @@ namespace AmstaJanBonga.Business
 		Id,
 		///<summary>Location. </summary>
 		Location,
-		///<summary>PatientId. </summary>
-		PatientId,
-		///<summary>Time. </summary>
-		Time,
+		///<summary>TimeEnd. </summary>
+		TimeEnd,
+		///<summary>TimeStart. </summary>
+		TimeStart,
 		///<summary>Title. </summary>
 		Title,
 		/// <summary></summary>
@@ -36,6 +36,8 @@ namespace AmstaJanBonga.Business
 		AgendaEventId,
 		///<summary>Id. </summary>
 		Id,
+		///<summary>PatientId. </summary>
+		PatientId,
 		///<summary>RepeatInterval. </summary>
 		RepeatInterval,
 		///<summary>RepeatStart. </summary>

@@ -75,8 +75,8 @@ namespace AmstaJanBonga.Business.HelperClasses
 			this.AddElementFieldInfo("AgendaEventEntity", "Description", typeof(System.String), false, false, false, true,  (int)AgendaEventFieldIndex.Description, 500, 0, 0);
 			this.AddElementFieldInfo("AgendaEventEntity", "Id", typeof(System.Int32), true, false, true, false,  (int)AgendaEventFieldIndex.Id, 0, 0, 10);
 			this.AddElementFieldInfo("AgendaEventEntity", "Location", typeof(System.String), false, false, false, true,  (int)AgendaEventFieldIndex.Location, 50, 0, 0);
-			this.AddElementFieldInfo("AgendaEventEntity", "PatientId", typeof(System.Int32), false, true, false, false,  (int)AgendaEventFieldIndex.PatientId, 0, 0, 10);
-			this.AddElementFieldInfo("AgendaEventEntity", "Time", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)AgendaEventFieldIndex.Time, 0, 0, 0);
+			this.AddElementFieldInfo("AgendaEventEntity", "TimeEnd", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)AgendaEventFieldIndex.TimeEnd, 0, 0, 0);
+			this.AddElementFieldInfo("AgendaEventEntity", "TimeStart", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)AgendaEventFieldIndex.TimeStart, 0, 0, 0);
 			this.AddElementFieldInfo("AgendaEventEntity", "Title", typeof(System.String), false, false, false, true,  (int)AgendaEventFieldIndex.Title, 50, 0, 0);
 		}
 		/// <summary>Inits AgendaEventMetaEntity's FieldInfo objects</summary>
@@ -85,6 +85,7 @@ namespace AmstaJanBonga.Business.HelperClasses
 			this.AddFieldIndexEnumForElementName(typeof(AgendaEventMetaFieldIndex), "AgendaEventMetaEntity");
 			this.AddElementFieldInfo("AgendaEventMetaEntity", "AgendaEventId", typeof(System.Int32), false, true, false, false,  (int)AgendaEventMetaFieldIndex.AgendaEventId, 0, 0, 10);
 			this.AddElementFieldInfo("AgendaEventMetaEntity", "Id", typeof(System.Int32), true, false, true, false,  (int)AgendaEventMetaFieldIndex.Id, 0, 0, 10);
+			this.AddElementFieldInfo("AgendaEventMetaEntity", "PatientId", typeof(System.Int32), false, true, false, false,  (int)AgendaEventMetaFieldIndex.PatientId, 0, 0, 10);
 			this.AddElementFieldInfo("AgendaEventMetaEntity", "RepeatInterval", typeof(Nullable<System.Int32>), false, false, false, true,  (int)AgendaEventMetaFieldIndex.RepeatInterval, 0, 0, 10);
 			this.AddElementFieldInfo("AgendaEventMetaEntity", "RepeatStart", typeof(Nullable<System.Int32>), false, false, false, true,  (int)AgendaEventMetaFieldIndex.RepeatStart, 0, 0, 10);
 			this.AddElementFieldInfo("AgendaEventMetaEntity", "SingleEvent", typeof(Nullable<System.Int32>), false, false, false, true,  (int)AgendaEventMetaFieldIndex.SingleEvent, 0, 0, 10);

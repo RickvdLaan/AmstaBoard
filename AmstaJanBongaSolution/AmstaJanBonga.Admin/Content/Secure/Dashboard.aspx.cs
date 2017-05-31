@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AmstaJanBonga.Business.Database.Readers;
+using System;
 
 namespace AmstaJanBonga.Admin.Content.Secure
 {
@@ -6,7 +7,7 @@ namespace AmstaJanBonga.Admin.Content.Secure
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

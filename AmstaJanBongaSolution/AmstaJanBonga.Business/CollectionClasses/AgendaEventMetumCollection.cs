@@ -27,51 +27,52 @@ namespace AmstaJanBonga.Business.CollectionClasses
 	
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces
 	// __LLBLGENPRO_USER_CODE_REGION_END
+	
 
-	/// <summary>Collection class for storing and retrieving collections of AgendaEventMetaEntity objects. </summary>
+	/// <summary>Collection class for storing and retrieving collections of AgendaEventMetumEntity objects. </summary>
 	[Serializable]
-	public partial class AgendaEventMetaCollection : EntityCollectionBase<AgendaEventMetaEntity>
+	public partial class AgendaEventMetumCollection : EntityCollectionBase<AgendaEventMetumEntity>
 	{
 		/// <summary> CTor</summary>
-		public AgendaEventMetaCollection():base(new AgendaEventMetaEntityFactory())
+		public AgendaEventMetumCollection():base(new AgendaEventMetumEntityFactory())
 		{
 		}
 
 		/// <summary> CTor</summary>
 		/// <param name="initialContents">The initial contents of this collection.</param>
-		public AgendaEventMetaCollection(IEnumerable<AgendaEventMetaEntity> initialContents):base(new AgendaEventMetaEntityFactory())
+		public AgendaEventMetumCollection(IEnumerable<AgendaEventMetumEntity> initialContents):base(new AgendaEventMetumEntityFactory())
 		{
 			AddRange(initialContents);
 		}
 
 		/// <summary> CTor</summary>
 		/// <param name="entityFactoryToUse">The EntityFactory to use when creating entity objects during a GetMulti() call.</param>
-		public AgendaEventMetaCollection(IEntityFactory entityFactoryToUse):base(entityFactoryToUse)
+		public AgendaEventMetumCollection(IEntityFactory entityFactoryToUse):base(entityFactoryToUse)
 		{
 		}
 
 		/// <summary> Private CTor for deserialization</summary>
 		/// <param name="info"></param>
 		/// <param name="context"></param>
-		protected AgendaEventMetaCollection(SerializationInfo info, StreamingContext context) : base(info, context)
+		protected AgendaEventMetumCollection(SerializationInfo info, StreamingContext context) : base(info, context)
 		{
 		}
 
 
-		/// <summary> Retrieves in this AgendaEventMetaCollection object all AgendaEventMetaEntity objects which have data in common with the specified related Entities.
+		/// <summary> Retrieves in this AgendaEventMetumCollection object all AgendaEventMetumEntity objects which have data in common with the specified related Entities.
 		/// If one is omitted, that entity is not used as a filter. All current elements in the collection are removed from the collection.</summary>
-		/// <param name="agendaEventInstance">AgendaEventEntity instance to use as a filter for the AgendaEventMetaEntity objects to return</param>
-		/// <param name="patientInstance">PatientEntity instance to use as a filter for the AgendaEventMetaEntity objects to return</param>
+		/// <param name="agendaEventInstance">AgendaEventEntity instance to use as a filter for the AgendaEventMetumEntity objects to return</param>
+		/// <param name="patientInstance">PatientEntity instance to use as a filter for the AgendaEventMetumEntity objects to return</param>
 		/// <returns>true if succeeded, false otherwise</returns>
 		public bool GetMultiManyToOne(IEntity agendaEventInstance, IEntity patientInstance)
 		{
 			return GetMultiManyToOne(agendaEventInstance, patientInstance, this.MaxNumberOfItemsToReturn, this.SortClauses, null, 0, 0);
 		}
 
-		/// <summary> Retrieves in this AgendaEventMetaCollection object all AgendaEventMetaEntity objects which have data in common with the specified related Entities.
+		/// <summary> Retrieves in this AgendaEventMetumCollection object all AgendaEventMetumEntity objects which have data in common with the specified related Entities.
 		/// If one is omitted, that entity is not used as a filter. All current elements in the collection are removed from the collection.</summary>
-		/// <param name="agendaEventInstance">AgendaEventEntity instance to use as a filter for the AgendaEventMetaEntity objects to return</param>
-		/// <param name="patientInstance">PatientEntity instance to use as a filter for the AgendaEventMetaEntity objects to return</param>
+		/// <param name="agendaEventInstance">AgendaEventEntity instance to use as a filter for the AgendaEventMetumEntity objects to return</param>
+		/// <param name="patientInstance">PatientEntity instance to use as a filter for the AgendaEventMetumEntity objects to return</param>
 		/// <param name="filter">Extra filter to limit the resultset. Predicate expression can be null, in which case it will be ignored.</param>
 		/// <returns>true if succeeded, false otherwise</returns>
 		public bool GetMultiManyToOne(IEntity agendaEventInstance, IEntity patientInstance, IPredicateExpression filter)
@@ -79,10 +80,10 @@ namespace AmstaJanBonga.Business.CollectionClasses
 			return GetMultiManyToOne(agendaEventInstance, patientInstance, this.MaxNumberOfItemsToReturn, this.SortClauses, filter, 0, 0);
 		}
 
-		/// <summary> Retrieves in this AgendaEventMetaCollection object all AgendaEventMetaEntity objects which have data in common with the specified related Entities.
+		/// <summary> Retrieves in this AgendaEventMetumCollection object all AgendaEventMetumEntity objects which have data in common with the specified related Entities.
 		/// If one is omitted, that entity is not used as a filter. All current elements in the collection are removed from the collection.</summary>
-		/// <param name="agendaEventInstance">AgendaEventEntity instance to use as a filter for the AgendaEventMetaEntity objects to return</param>
-		/// <param name="patientInstance">PatientEntity instance to use as a filter for the AgendaEventMetaEntity objects to return</param>
+		/// <param name="agendaEventInstance">AgendaEventEntity instance to use as a filter for the AgendaEventMetumEntity objects to return</param>
+		/// <param name="patientInstance">PatientEntity instance to use as a filter for the AgendaEventMetumEntity objects to return</param>
 		/// <param name="maxNumberOfItemsToReturn"> The maximum number of items to return with this retrieval query.</param>
 		/// <param name="sortClauses">The order by specifications for the sorting of the resultset. When not specified, no sorting is applied.</param>
 		/// <param name="filter">Extra filter to limit the resultset. Predicate expression can be null, in which case it will be ignored.</param>
@@ -92,10 +93,10 @@ namespace AmstaJanBonga.Business.CollectionClasses
 			return GetMultiManyToOne(agendaEventInstance, patientInstance, maxNumberOfItemsToReturn, sortClauses, filter, 0, 0);
 		}
 
-		/// <summary> Retrieves in this AgendaEventMetaCollection object all AgendaEventMetaEntity objects which have data in common with the specified related Entities.
+		/// <summary> Retrieves in this AgendaEventMetumCollection object all AgendaEventMetumEntity objects which have data in common with the specified related Entities.
 		/// If one is omitted, that entity is not used as a filter. All current elements in the collection are removed from the collection.</summary>
-		/// <param name="agendaEventInstance">AgendaEventEntity instance to use as a filter for the AgendaEventMetaEntity objects to return</param>
-		/// <param name="patientInstance">PatientEntity instance to use as a filter for the AgendaEventMetaEntity objects to return</param>
+		/// <param name="agendaEventInstance">AgendaEventEntity instance to use as a filter for the AgendaEventMetumEntity objects to return</param>
+		/// <param name="patientInstance">PatientEntity instance to use as a filter for the AgendaEventMetumEntity objects to return</param>
 		/// <param name="maxNumberOfItemsToReturn"> The maximum number of items to return with this retrieval query.</param>
 		/// <param name="sortClauses">The order by specifications for the sorting of the resultset. When not specified, no sorting is applied.</param>
 		/// <param name="filter">Extra filter to limit the resultset. Predicate expression can be null, in which case it will be ignored.</param>
@@ -115,28 +116,28 @@ namespace AmstaJanBonga.Business.CollectionClasses
 			{
 				this.Clear();
 			}
-			return DAOFactory.CreateAgendaEventMetaDAO().GetMulti(this.Transaction, this, maxNumberOfItemsToReturn, sortClauses, this.EntityFactoryToUse, filter, agendaEventInstance, patientInstance, pageNumber, pageSize);
+			return DAOFactory.CreateAgendaEventMetumDAO().GetMulti(this.Transaction, this, maxNumberOfItemsToReturn, sortClauses, this.EntityFactoryToUse, filter, agendaEventInstance, patientInstance, pageNumber, pageSize);
 		}
 
-		/// <summary> Deletes from the persistent storage all AgendaEventMeta entities which have data in common with the specified related Entities. If one is omitted, that entity is not used as a filter.</summary>
+		/// <summary> Deletes from the persistent storage all AgendaEventMetum entities which have data in common with the specified related Entities. If one is omitted, that entity is not used as a filter.</summary>
 		/// <remarks>Runs directly on the persistent storage. It will not delete entity objects from the current collection.</remarks>
-		/// <param name="agendaEventInstance">AgendaEventEntity instance to use as a filter for the AgendaEventMetaEntity objects to return</param>
-		/// <param name="patientInstance">PatientEntity instance to use as a filter for the AgendaEventMetaEntity objects to return</param>
+		/// <param name="agendaEventInstance">AgendaEventEntity instance to use as a filter for the AgendaEventMetumEntity objects to return</param>
+		/// <param name="patientInstance">PatientEntity instance to use as a filter for the AgendaEventMetumEntity objects to return</param>
 		/// <returns>Amount of entities affected, if the used persistent storage has rowcounting enabled.</returns>
 		public int DeleteMultiManyToOne(IEntity agendaEventInstance, IEntity patientInstance)
 		{
-			return DAOFactory.CreateAgendaEventMetaDAO().DeleteMulti(this.Transaction, agendaEventInstance, patientInstance);
+			return DAOFactory.CreateAgendaEventMetumDAO().DeleteMulti(this.Transaction, agendaEventInstance, patientInstance);
 		}
 
-		/// <summary> Updates in the persistent storage all AgendaEventMeta entities which have data in common with the specified related Entities. If one is omitted, that entity is not used as a filter.
+		/// <summary> Updates in the persistent storage all AgendaEventMetum entities which have data in common with the specified related Entities. If one is omitted, that entity is not used as a filter.
 		/// Which fields are updated in those matching entities depends on which fields are <i>changed</i> in the passed in entity entityWithNewValues. The new values of these fields are read from entityWithNewValues. </summary>
-		/// <param name="entityWithNewValues">AgendaEventMetaEntity instance which holds the new values for the matching entities to update. Only changed fields are taken into account</param>
-		/// <param name="agendaEventInstance">AgendaEventEntity instance to use as a filter for the AgendaEventMetaEntity objects to return</param>
-		/// <param name="patientInstance">PatientEntity instance to use as a filter for the AgendaEventMetaEntity objects to return</param>
+		/// <param name="entityWithNewValues">AgendaEventMetumEntity instance which holds the new values for the matching entities to update. Only changed fields are taken into account</param>
+		/// <param name="agendaEventInstance">AgendaEventEntity instance to use as a filter for the AgendaEventMetumEntity objects to return</param>
+		/// <param name="patientInstance">PatientEntity instance to use as a filter for the AgendaEventMetumEntity objects to return</param>
 		/// <returns>Amount of entities affected, if the used persistent storage has rowcounting enabled.</returns>
-		public int UpdateMultiManyToOne(AgendaEventMetaEntity entityWithNewValues, IEntity agendaEventInstance, IEntity patientInstance)
+		public int UpdateMultiManyToOne(AgendaEventMetumEntity entityWithNewValues, IEntity agendaEventInstance, IEntity patientInstance)
 		{
-			return DAOFactory.CreateAgendaEventMetaDAO().UpdateMulti(entityWithNewValues, this.Transaction, agendaEventInstance, patientInstance);
+			return DAOFactory.CreateAgendaEventMetumDAO().UpdateMulti(entityWithNewValues, this.Transaction, agendaEventInstance, patientInstance);
 		}
 
 
@@ -171,7 +172,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <returns>DataTable with the rows requested.</returns>
 		public static DataTable GetMultiAsDataTable(IPredicate selectFilter, long maxNumberOfItemsToReturn, ISortExpression sortClauses, IRelationCollection relations, int pageNumber, int pageSize)
 		{
-			AgendaEventMetaDAO dao = DAOFactory.CreateAgendaEventMetaDAO();
+			AgendaEventMetumDAO dao = DAOFactory.CreateAgendaEventMetumDAO();
 			return dao.GetMultiAsDataTable(maxNumberOfItemsToReturn, sortClauses, selectFilter, relations, pageNumber, pageSize);
 		}
 
@@ -181,7 +182,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <param name="fieldIndex">Field index of field to which to apply the aggregate function and expression</param>
 		/// <param name="aggregateToApply">Aggregate function to apply. </param>
 		/// <returns>the scalar value requested</returns>
-		public object GetScalar(AgendaEventMetaFieldIndex fieldIndex, AggregateFunction aggregateToApply)
+		public object GetScalar(AgendaEventMetumFieldIndex fieldIndex, AggregateFunction aggregateToApply)
 		{
 			return GetScalar(fieldIndex, null, aggregateToApply, null, null, null);
 		}
@@ -191,7 +192,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <param name="expressionToExecute">The expression to execute. Can be null</param>
 		/// <param name="aggregateToApply">Aggregate function to apply. </param>
 		/// <returns>the scalar value requested</returns>
-		public object GetScalar(AgendaEventMetaFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply)
+		public object GetScalar(AgendaEventMetumFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply)
 		{
 			return GetScalar(fieldIndex, expressionToExecute, aggregateToApply, null, null, null);
 		}
@@ -202,7 +203,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <param name="aggregateToApply">Aggregate function to apply. </param>
 		/// <param name="filter">The filter to apply to retrieve the scalar</param>
 		/// <returns>the scalar value requested</returns>
-		public object GetScalar(AgendaEventMetaFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter)
+		public object GetScalar(AgendaEventMetumFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter)
 		{
 			return GetScalar(fieldIndex, expressionToExecute, aggregateToApply, filter, null, null);
 		}
@@ -214,7 +215,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <param name="filter">The filter to apply to retrieve the scalar</param>
 		/// <param name="groupByClause">The groupby clause to apply to retrieve the scalar</param>
 		/// <returns>the scalar value requested</returns>
-		public object GetScalar(AgendaEventMetaFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter, IGroupByCollection groupByClause)
+		public object GetScalar(AgendaEventMetumFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter, IGroupByCollection groupByClause)
 		{
 			return GetScalar(fieldIndex, expressionToExecute, aggregateToApply, filter, null, groupByClause);
 		}
@@ -227,7 +228,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		/// <param name="relations">The relations to walk</param>
 		/// <param name="groupByClause">The groupby clause to apply to retrieve the scalar</param>
 		/// <returns>the scalar value requested</returns>
-		public virtual object GetScalar(AgendaEventMetaFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter, IRelationCollection relations, IGroupByCollection groupByClause)
+		public virtual object GetScalar(AgendaEventMetumFieldIndex fieldIndex, IExpression expressionToExecute, AggregateFunction aggregateToApply, IPredicate filter, IRelationCollection relations, IGroupByCollection groupByClause)
 		{
 			EntityFields fields = new EntityFields(1);
 			fields[0] = EntityFieldFactory.Create(fieldIndex);
@@ -239,13 +240,13 @@ namespace AmstaJanBonga.Business.CollectionClasses
 			{
 				fields[0].AggregateFunctionToApply = aggregateToApply;
 			}
-			return DAOFactory.CreateAgendaEventMetaDAO().GetScalar(fields, this.Transaction, filter, relations, groupByClause);
+			return DAOFactory.CreateAgendaEventMetumDAO().GetScalar(fields, this.Transaction, filter, relations, groupByClause);
 		}
 		
 		/// <summary>Creats a new DAO instance so code which is in the base class can still use the proper DAO object.</summary>
 		protected override IDao CreateDAOInstance()
 		{
-			return DAOFactory.CreateAgendaEventMetaDAO();
+			return DAOFactory.CreateAgendaEventMetumDAO();
 		}
 		
 		/// <summary>Creates a new transaction object</summary>
@@ -260,6 +261,7 @@ namespace AmstaJanBonga.Business.CollectionClasses
 		
 		// __LLBLGENPRO_USER_CODE_REGION_START CustomEntityCollectionCode
 		// __LLBLGENPRO_USER_CODE_REGION_END
+		
 		#endregion
 		
 		#region Included Code

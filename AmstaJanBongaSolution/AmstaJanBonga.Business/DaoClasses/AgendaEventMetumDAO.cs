@@ -25,32 +25,33 @@ namespace AmstaJanBonga.Business.DaoClasses
 	
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces
 	// __LLBLGENPRO_USER_CODE_REGION_END
+	
 
-	/// <summary>General DAO class for the AgendaEventMeta Entity. It will perform database oriented actions for a entity of type 'AgendaEventMetaEntity'.</summary>
-	public partial class AgendaEventMetaDAO : CommonDaoBase
+	/// <summary>General DAO class for the AgendaEventMetum Entity. It will perform database oriented actions for a entity of type 'AgendaEventMetumEntity'.</summary>
+	public partial class AgendaEventMetumDAO : CommonDaoBase
 	{
 		/// <summary>CTor</summary>
-		public AgendaEventMetaDAO() : base(InheritanceHierarchyType.None, "AgendaEventMetaEntity", new AgendaEventMetaEntityFactory())
+		public AgendaEventMetumDAO() : base(InheritanceHierarchyType.None, "AgendaEventMetumEntity", new AgendaEventMetumEntityFactory())
 		{
 		}
 
 
 
-		/// <summary>Retrieves in the calling AgendaEventMetaCollection object all AgendaEventMetaEntity objects which have data in common with the specified related Entities. If one is omitted, that entity is not used as a filter. </summary>
+		/// <summary>Retrieves in the calling AgendaEventMetumCollection object all AgendaEventMetumEntity objects which have data in common with the specified related Entities. If one is omitted, that entity is not used as a filter. </summary>
 		/// <param name="containingTransaction">A containing transaction, if caller is added to a transaction, or null if not.</param>
 		/// <param name="collectionToFill">Collection to fill with the entity objects retrieved</param>
 		/// <param name="maxNumberOfItemsToReturn"> The maximum number of items to return with this retrieval query. When set to 0, no limitations are specified.</param>
 		/// <param name="sortClauses">The order by specifications for the sorting of the resultset. When not specified, no sorting is applied.</param>
 		/// <param name="entityFactoryToUse">The EntityFactory to use when creating entity objects during a GetMulti() call.</param>
 		/// <param name="filter">Extra filter to limit the resultset. Predicate expression can be null, in which case it will be ignored.</param>
-		/// <param name="agendaEventInstance">AgendaEventEntity instance to use as a filter for the AgendaEventMetaEntity objects to return</param>
-		/// <param name="patientInstance">PatientEntity instance to use as a filter for the AgendaEventMetaEntity objects to return</param>
+		/// <param name="agendaEventInstance">AgendaEventEntity instance to use as a filter for the AgendaEventMetumEntity objects to return</param>
+		/// <param name="patientInstance">PatientEntity instance to use as a filter for the AgendaEventMetumEntity objects to return</param>
 		/// <param name="pageNumber">The page number to retrieve.</param>
 		/// <param name="pageSize">The page size of the page to retrieve.</param>
 		public bool GetMulti(ITransaction containingTransaction, IEntityCollection collectionToFill, long maxNumberOfItemsToReturn, ISortExpression sortClauses, IEntityFactory entityFactoryToUse, IPredicateExpression filter, IEntity agendaEventInstance, IEntity patientInstance, int pageNumber, int pageSize)
 		{
 			this.EntityFactoryToUse = entityFactoryToUse;
-			IEntityFields fieldsToReturn = EntityFieldsFactory.CreateEntityFieldsObject(AmstaJanBonga.Business.EntityType.AgendaEventMetaEntity);
+			IEntityFields fieldsToReturn = EntityFieldsFactory.CreateEntityFieldsObject(AmstaJanBonga.Business.EntityType.AgendaEventMetumEntity);
 			IPredicateExpression selectFilter = CreateFilterUsingForeignKeys(agendaEventInstance, patientInstance, fieldsToReturn);
 			if(filter!=null)
 			{
@@ -62,14 +63,14 @@ namespace AmstaJanBonga.Business.DaoClasses
 
 
 
-		/// <summary>Deletes from the persistent storage all 'AgendaEventMeta' entities which have data in common with the specified related Entities. If one is omitted, that entity is not used as a filter.</summary>
+		/// <summary>Deletes from the persistent storage all 'AgendaEventMetum' entities which have data in common with the specified related Entities. If one is omitted, that entity is not used as a filter.</summary>
 		/// <param name="containingTransaction">A containing transaction, if caller is added to a transaction, or null if not.</param>
-		/// <param name="agendaEventInstance">AgendaEventEntity instance to use as a filter for the AgendaEventMetaEntity objects to delete</param>
-		/// <param name="patientInstance">PatientEntity instance to use as a filter for the AgendaEventMetaEntity objects to delete</param>
+		/// <param name="agendaEventInstance">AgendaEventEntity instance to use as a filter for the AgendaEventMetumEntity objects to delete</param>
+		/// <param name="patientInstance">PatientEntity instance to use as a filter for the AgendaEventMetumEntity objects to delete</param>
 		/// <returns>Amount of entities affected, if the used persistent storage has rowcounting enabled.</returns>
 		public int DeleteMulti(ITransaction containingTransaction, IEntity agendaEventInstance, IEntity patientInstance)
 		{
-			IEntityFields fields = EntityFieldsFactory.CreateEntityFieldsObject(AmstaJanBonga.Business.EntityType.AgendaEventMetaEntity);
+			IEntityFields fields = EntityFieldsFactory.CreateEntityFieldsObject(AmstaJanBonga.Business.EntityType.AgendaEventMetumEntity);
 			IPredicateExpression deleteFilter = CreateFilterUsingForeignKeys(agendaEventInstance, patientInstance, fields);
 			return this.DeleteMulti(containingTransaction, deleteFilter);
 		}
@@ -79,19 +80,19 @@ namespace AmstaJanBonga.Business.DaoClasses
 		/// of <i>entityWithNewValues</i> which are affected by the filterBucket's filter will thus also be updated.</summary>
 		/// <param name="entityWithNewValues">IEntity instance which holds the new values for the matching entities to update. Only changed fields are taken into account</param>
 		/// <param name="containingTransaction">A containing transaction, if caller is added to a transaction, or null if not.</param>
-		/// <param name="agendaEventInstance">AgendaEventEntity instance to use as a filter for the AgendaEventMetaEntity objects to update</param>
-		/// <param name="patientInstance">PatientEntity instance to use as a filter for the AgendaEventMetaEntity objects to update</param>
+		/// <param name="agendaEventInstance">AgendaEventEntity instance to use as a filter for the AgendaEventMetumEntity objects to update</param>
+		/// <param name="patientInstance">PatientEntity instance to use as a filter for the AgendaEventMetumEntity objects to update</param>
 		/// <returns>Amount of entities affected, if the used persistent storage has rowcounting enabled.</returns>
 		public int UpdateMulti(IEntity entityWithNewValues, ITransaction containingTransaction, IEntity agendaEventInstance, IEntity patientInstance)
 		{
-			IEntityFields fields = EntityFieldsFactory.CreateEntityFieldsObject(AmstaJanBonga.Business.EntityType.AgendaEventMetaEntity);
+			IEntityFields fields = EntityFieldsFactory.CreateEntityFieldsObject(AmstaJanBonga.Business.EntityType.AgendaEventMetumEntity);
 			IPredicateExpression updateFilter = CreateFilterUsingForeignKeys(agendaEventInstance, patientInstance, fields);
 			return this.UpdateMulti(entityWithNewValues, containingTransaction, updateFilter);
 		}
 
 		/// <summary>Creates a PredicateExpression which should be used as a filter when any combination of available foreign keys is specified.</summary>
-		/// <param name="agendaEventInstance">AgendaEventEntity instance to use as a filter for the AgendaEventMetaEntity objects</param>
-		/// <param name="patientInstance">PatientEntity instance to use as a filter for the AgendaEventMetaEntity objects</param>
+		/// <param name="agendaEventInstance">AgendaEventEntity instance to use as a filter for the AgendaEventMetumEntity objects</param>
+		/// <param name="patientInstance">PatientEntity instance to use as a filter for the AgendaEventMetumEntity objects</param>
 		/// <param name="fieldsToReturn">IEntityFields implementation which forms the definition of the fieldset of the target entity.</param>
 		/// <returns>A ready to use PredicateExpression based on the passed in foreign key value holders.</returns>
 		private IPredicateExpression CreateFilterUsingForeignKeys(IEntity agendaEventInstance, IEntity patientInstance, IEntityFields fieldsToReturn)
@@ -100,11 +101,11 @@ namespace AmstaJanBonga.Business.DaoClasses
 			
 			if(agendaEventInstance != null)
 			{
-				selectFilter.Add(new FieldCompareValuePredicate(fieldsToReturn[(int)AgendaEventMetaFieldIndex.AgendaEventId], ComparisonOperator.Equal, ((AgendaEventEntity)agendaEventInstance).Id));
+				selectFilter.Add(new FieldCompareValuePredicate(fieldsToReturn[(int)AgendaEventMetumFieldIndex.AgendaEventId], ComparisonOperator.Equal, ((AgendaEventEntity)agendaEventInstance).Id));
 			}
 			if(patientInstance != null)
 			{
-				selectFilter.Add(new FieldCompareValuePredicate(fieldsToReturn[(int)AgendaEventMetaFieldIndex.PatientId], ComparisonOperator.Equal, ((PatientEntity)patientInstance).Id));
+				selectFilter.Add(new FieldCompareValuePredicate(fieldsToReturn[(int)AgendaEventMetumFieldIndex.PatientId], ComparisonOperator.Equal, ((PatientEntity)patientInstance).Id));
 			}
 			return selectFilter;
 		}
@@ -113,6 +114,7 @@ namespace AmstaJanBonga.Business.DaoClasses
 		
 		// __LLBLGENPRO_USER_CODE_REGION_START CustomDAOCode
 		// __LLBLGENPRO_USER_CODE_REGION_END
+		
 		#endregion
 		
 		#region Included Code

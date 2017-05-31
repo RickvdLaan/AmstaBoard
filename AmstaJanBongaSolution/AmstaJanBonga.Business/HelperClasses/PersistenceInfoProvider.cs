@@ -70,20 +70,21 @@ namespace AmstaJanBonga.Business.HelperClasses
 			this.AddElementFieldMapping("AgendaEventEntity", "Description", "Description", true, "VarChar", 500, 0, 0, false, "", null, typeof(System.String), 0);
 			this.AddElementFieldMapping("AgendaEventEntity", "Id", "Id", false, "Int", 0, 10, 0, true, "SCOPE_IDENTITY()", null, typeof(System.Int32), 1);
 			this.AddElementFieldMapping("AgendaEventEntity", "Location", "Location", true, "VarChar", 50, 0, 0, false, "", null, typeof(System.String), 2);
-			this.AddElementFieldMapping("AgendaEventEntity", "PatientId", "PatientId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 3);
-			this.AddElementFieldMapping("AgendaEventEntity", "Time", "Time", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 4);
+			this.AddElementFieldMapping("AgendaEventEntity", "TimeEnd", "TimeEnd", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 3);
+			this.AddElementFieldMapping("AgendaEventEntity", "TimeStart", "TimeStart", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 4);
 			this.AddElementFieldMapping("AgendaEventEntity", "Title", "Title", true, "VarChar", 50, 0, 0, false, "", null, typeof(System.String), 5);
 		}
 
 		/// <summary>Inits AgendaEventMetaEntity's mappings</summary>
 		private void InitAgendaEventMetaEntityMappings()
 		{
-			this.AddElementMapping("AgendaEventMetaEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "AgendaEventMeta", 5, 0);
+			this.AddElementMapping("AgendaEventMetaEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "AgendaEventMeta", 6, 0);
 			this.AddElementFieldMapping("AgendaEventMetaEntity", "AgendaEventId", "AgendaEventId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 0);
 			this.AddElementFieldMapping("AgendaEventMetaEntity", "Id", "Id", false, "Int", 0, 10, 0, true, "SCOPE_IDENTITY()", null, typeof(System.Int32), 1);
-			this.AddElementFieldMapping("AgendaEventMetaEntity", "RepeatInterval", "RepeatInterval", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 2);
-			this.AddElementFieldMapping("AgendaEventMetaEntity", "RepeatStart", "RepeatStart", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 3);
-			this.AddElementFieldMapping("AgendaEventMetaEntity", "SingleEvent", "SingleEvent", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 4);
+			this.AddElementFieldMapping("AgendaEventMetaEntity", "PatientId", "PatientId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 2);
+			this.AddElementFieldMapping("AgendaEventMetaEntity", "RepeatInterval", "RepeatInterval", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 3);
+			this.AddElementFieldMapping("AgendaEventMetaEntity", "RepeatStart", "RepeatStart", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 4);
+			this.AddElementFieldMapping("AgendaEventMetaEntity", "SingleEvent", "SingleEvent", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 5);
 		}
 
 		/// <summary>Inits EmployeeEntity's mappings</summary>

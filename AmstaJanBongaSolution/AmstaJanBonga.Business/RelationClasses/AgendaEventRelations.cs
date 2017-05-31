@@ -31,7 +31,6 @@ namespace AmstaJanBonga.Business.RelationClasses
 		{
 			List<IEntityRelation> toReturn = new List<IEntityRelation>();
 			toReturn.Add(this.AgendaEventMetaEntityUsingAgendaEventId);
-			toReturn.Add(this.PatientEntityUsingPatientId);
 			return toReturn;
 		}
 
@@ -44,7 +43,7 @@ namespace AmstaJanBonga.Business.RelationClasses
 		{
 			get
 			{
-				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany, "AgendaEventMetas" , true);
+				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany, "AgendaEventMeta" , true);
 				relation.AddEntityFieldPair(AgendaEventFields.Id, AgendaEventMetaFields.AgendaEventId);
 				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("AgendaEventEntity", true);
 				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("AgendaEventMetaEntity", false);
@@ -53,20 +52,6 @@ namespace AmstaJanBonga.Business.RelationClasses
 		}
 
 
-		/// <summary>Returns a new IEntityRelation object, between AgendaEventEntity and PatientEntity over the m:1 relation they have, using the relation between the fields:
-		/// AgendaEvent.PatientId - Patient.Id
-		/// </summary>
-		public virtual IEntityRelation PatientEntityUsingPatientId
-		{
-			get
-			{
-				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne, "Patient", false);
-				relation.AddEntityFieldPair(PatientFields.Id, AgendaEventFields.PatientId);
-				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("PatientEntity", false);
-				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("AgendaEventEntity", true);
-				return relation;
-			}
-		}
 		/// <summary>stub, not used in this entity, only for TargetPerEntity entities.</summary>
 		public virtual IEntityRelation GetSubTypeRelation(string subTypeEntityName) { return null; }
 		/// <summary>stub, not used in this entity, only for TargetPerEntity entities.</summary>
@@ -82,7 +67,6 @@ namespace AmstaJanBonga.Business.RelationClasses
 	internal static class StaticAgendaEventRelations
 	{
 		internal static readonly IEntityRelation AgendaEventMetaEntityUsingAgendaEventIdStatic = new AgendaEventRelations().AgendaEventMetaEntityUsingAgendaEventId;
-		internal static readonly IEntityRelation PatientEntityUsingPatientIdStatic = new AgendaEventRelations().PatientEntityUsingPatientId;
 
 		/// <summary>CTor</summary>
 		static StaticAgendaEventRelations()

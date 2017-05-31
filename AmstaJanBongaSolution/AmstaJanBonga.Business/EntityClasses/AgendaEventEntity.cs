@@ -40,10 +40,8 @@ namespace AmstaJanBonga.Business.EntityClasses
 		// __LLBLGENPRO_USER_CODE_REGION_END	
 	{
 		#region Class Member Declarations
-		private AmstaJanBonga.Business.CollectionClasses.AgendaEventMetaCollection	_agendaEventMetas;
-		private bool	_alwaysFetchAgendaEventMetas, _alreadyFetchedAgendaEventMetas;
-		private PatientEntity _patient;
-		private bool	_alwaysFetchPatient, _alreadyFetchedPatient, _patientReturnsNewIfNotFound;
+		private AmstaJanBonga.Business.CollectionClasses.AgendaEventMetaCollection	_agendaEventMeta;
+		private bool	_alwaysFetchAgendaEventMeta, _alreadyFetchedAgendaEventMeta;
 
 		// __LLBLGENPRO_USER_CODE_REGION_START PrivateMembers
 		// __LLBLGENPRO_USER_CODE_REGION_END
@@ -56,10 +54,8 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <summary>All names of fields mapped onto a relation. Usable for in-memory filtering</summary>
 		public static partial class MemberNames
 		{
-			/// <summary>Member name Patient</summary>
-			public static readonly string Patient = "Patient";
-			/// <summary>Member name AgendaEventMetas</summary>
-			public static readonly string AgendaEventMetas = "AgendaEventMetas";
+			/// <summary>Member name AgendaEventMeta</summary>
+			public static readonly string AgendaEventMeta = "AgendaEventMeta";
 		}
 		#endregion
 		
@@ -103,44 +99,19 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <param name="context"></param>
 		protected AgendaEventEntity(SerializationInfo info, StreamingContext context) : base(info, context)
 		{
-			_agendaEventMetas = (AmstaJanBonga.Business.CollectionClasses.AgendaEventMetaCollection)info.GetValue("_agendaEventMetas", typeof(AmstaJanBonga.Business.CollectionClasses.AgendaEventMetaCollection));
-			_alwaysFetchAgendaEventMetas = info.GetBoolean("_alwaysFetchAgendaEventMetas");
-			_alreadyFetchedAgendaEventMetas = info.GetBoolean("_alreadyFetchedAgendaEventMetas");
-			_patient = (PatientEntity)info.GetValue("_patient", typeof(PatientEntity));
-			if(_patient!=null)
-			{
-				_patient.AfterSave+=new EventHandler(OnEntityAfterSave);
-			}
-			_patientReturnsNewIfNotFound = info.GetBoolean("_patientReturnsNewIfNotFound");
-			_alwaysFetchPatient = info.GetBoolean("_alwaysFetchPatient");
-			_alreadyFetchedPatient = info.GetBoolean("_alreadyFetchedPatient");
+			_agendaEventMeta = (AmstaJanBonga.Business.CollectionClasses.AgendaEventMetaCollection)info.GetValue("_agendaEventMeta", typeof(AmstaJanBonga.Business.CollectionClasses.AgendaEventMetaCollection));
+			_alwaysFetchAgendaEventMeta = info.GetBoolean("_alwaysFetchAgendaEventMeta");
+			_alreadyFetchedAgendaEventMeta = info.GetBoolean("_alreadyFetchedAgendaEventMeta");
 			this.FixupDeserialization(FieldInfoProviderSingleton.GetInstance(), PersistenceInfoProviderSingleton.GetInstance());
 			// __LLBLGENPRO_USER_CODE_REGION_START DeserializationConstructor
 			// __LLBLGENPRO_USER_CODE_REGION_END
 		}
 		
-		
-		/// <summary>Performs the desync setup when an FK field has been changed. The entity referenced based on the FK field will be dereferenced and sync info will be removed.</summary>
-		/// <param name="fieldIndex">The fieldindex.</param>
-		protected override void PerformDesyncSetupFKFieldChange(int fieldIndex)
-		{
-			switch((AgendaEventFieldIndex)fieldIndex)
-			{
-				case AgendaEventFieldIndex.PatientId:
-					DesetupSyncPatient(true, false);
-					_alreadyFetchedPatient = false;
-					break;
-				default:
-					base.PerformDesyncSetupFKFieldChange(fieldIndex);
-					break;
-			}
-		}
 
 		/// <summary> Will perform post-ReadXml actions</summary>
 		protected override void PerformPostReadXmlFixups()
 		{
-			_alreadyFetchedAgendaEventMetas = (_agendaEventMetas.Count > 0);
-			_alreadyFetchedPatient = (_patient != null);
+			_alreadyFetchedAgendaEventMeta = (_agendaEventMeta.Count > 0);
 		}
 				
 		/// <summary>Gets the relation objects which represent the relation the fieldName specified is mapped on. </summary>
@@ -159,10 +130,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 			RelationCollection toReturn = new RelationCollection();
 			switch(fieldName)
 			{
-				case "Patient":
-					toReturn.Add(Relations.PatientEntityUsingPatientId);
-					break;
-				case "AgendaEventMetas":
+				case "AgendaEventMeta":
 					toReturn.Add(Relations.AgendaEventMetaEntityUsingAgendaEventId);
 					break;
 				default:
@@ -179,13 +147,9 @@ namespace AmstaJanBonga.Business.EntityClasses
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		protected override void GetObjectData(SerializationInfo info, StreamingContext context)
 		{
-			info.AddValue("_agendaEventMetas", (!this.MarkedForDeletion?_agendaEventMetas:null));
-			info.AddValue("_alwaysFetchAgendaEventMetas", _alwaysFetchAgendaEventMetas);
-			info.AddValue("_alreadyFetchedAgendaEventMetas", _alreadyFetchedAgendaEventMetas);
-			info.AddValue("_patient", (!this.MarkedForDeletion?_patient:null));
-			info.AddValue("_patientReturnsNewIfNotFound", _patientReturnsNewIfNotFound);
-			info.AddValue("_alwaysFetchPatient", _alwaysFetchPatient);
-			info.AddValue("_alreadyFetchedPatient", _alreadyFetchedPatient);
+			info.AddValue("_agendaEventMeta", (!this.MarkedForDeletion?_agendaEventMeta:null));
+			info.AddValue("_alwaysFetchAgendaEventMeta", _alwaysFetchAgendaEventMeta);
+			info.AddValue("_alreadyFetchedAgendaEventMeta", _alreadyFetchedAgendaEventMeta);
 
 			// __LLBLGENPRO_USER_CODE_REGION_START GetObjectInfo
 			// __LLBLGENPRO_USER_CODE_REGION_END
@@ -201,15 +165,11 @@ namespace AmstaJanBonga.Business.EntityClasses
 		{
 			switch(propertyName)
 			{
-				case "Patient":
-					_alreadyFetchedPatient = true;
-					this.Patient = (PatientEntity)entity;
-					break;
-				case "AgendaEventMetas":
-					_alreadyFetchedAgendaEventMetas = true;
+				case "AgendaEventMeta":
+					_alreadyFetchedAgendaEventMeta = true;
 					if(entity!=null)
 					{
-						this.AgendaEventMetas.Add((AgendaEventMetaEntity)entity);
+						this.AgendaEventMeta.Add((AgendaEventMetaEntity)entity);
 					}
 					break;
 				default:
@@ -226,11 +186,8 @@ namespace AmstaJanBonga.Business.EntityClasses
 		{
 			switch(fieldName)
 			{
-				case "Patient":
-					SetupSyncPatient(relatedEntity);
-					break;
-				case "AgendaEventMetas":
-					_agendaEventMetas.Add((AgendaEventMetaEntity)relatedEntity);
+				case "AgendaEventMeta":
+					_agendaEventMeta.Add((AgendaEventMetaEntity)relatedEntity);
 					break;
 				default:
 					break;
@@ -246,11 +203,8 @@ namespace AmstaJanBonga.Business.EntityClasses
 		{
 			switch(fieldName)
 			{
-				case "Patient":
-					DesetupSyncPatient(false, true);
-					break;
-				case "AgendaEventMetas":
-					this.PerformRelatedEntityRemoval(_agendaEventMetas, relatedEntity, signalRelatedEntityManyToOne);
+				case "AgendaEventMeta":
+					this.PerformRelatedEntityRemoval(_agendaEventMeta, relatedEntity, signalRelatedEntityManyToOne);
 					break;
 				default:
 					break;
@@ -270,10 +224,6 @@ namespace AmstaJanBonga.Business.EntityClasses
 		protected override List<IEntity> GetDependentRelatedEntities()
 		{
 			List<IEntity> toReturn = new List<IEntity>();
-			if(_patient!=null)
-			{
-				toReturn.Add(_patient);
-			}
 			return toReturn;
 		}
 		
@@ -282,7 +232,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		protected override List<IEntityCollection> GetMemberEntityCollections()
 		{
 			List<IEntityCollection> toReturn = new List<IEntityCollection>();
-			toReturn.Add(_agendaEventMetas);
+			toReturn.Add(_agendaEventMeta);
 
 			return toReturn;
 		}
@@ -347,27 +297,27 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <summary> Retrieves all related entities of type 'AgendaEventMetaEntity' using a relation of type '1:n'.</summary>
 		/// <param name="forceFetch">if true, it will discard any changes currently in the collection and will rerun the complete query instead</param>
 		/// <returns>Filled collection with all related entities of type 'AgendaEventMetaEntity'</returns>
-		public AmstaJanBonga.Business.CollectionClasses.AgendaEventMetaCollection GetMultiAgendaEventMetas(bool forceFetch)
+		public AmstaJanBonga.Business.CollectionClasses.AgendaEventMetaCollection GetMultiAgendaEventMeta(bool forceFetch)
 		{
-			return GetMultiAgendaEventMetas(forceFetch, _agendaEventMetas.EntityFactoryToUse, null);
+			return GetMultiAgendaEventMeta(forceFetch, _agendaEventMeta.EntityFactoryToUse, null);
 		}
 
 		/// <summary> Retrieves all related entities of type 'AgendaEventMetaEntity' using a relation of type '1:n'.</summary>
 		/// <param name="forceFetch">if true, it will discard any changes currently in the collection and will rerun the complete query instead</param>
 		/// <param name="filter">Extra filter to limit the resultset.</param>
 		/// <returns>Filled collection with all related entities of type 'AgendaEventMetaEntity'</returns>
-		public AmstaJanBonga.Business.CollectionClasses.AgendaEventMetaCollection GetMultiAgendaEventMetas(bool forceFetch, IPredicateExpression filter)
+		public AmstaJanBonga.Business.CollectionClasses.AgendaEventMetaCollection GetMultiAgendaEventMeta(bool forceFetch, IPredicateExpression filter)
 		{
-			return GetMultiAgendaEventMetas(forceFetch, _agendaEventMetas.EntityFactoryToUse, filter);
+			return GetMultiAgendaEventMeta(forceFetch, _agendaEventMeta.EntityFactoryToUse, filter);
 		}
 
 		/// <summary> Retrieves all related entities of type 'AgendaEventMetaEntity' using a relation of type '1:n'.</summary>
 		/// <param name="forceFetch">if true, it will discard any changes currently in the collection and will rerun the complete query instead</param>
 		/// <param name="entityFactoryToUse">The entity factory to use for the GetMultiManyToOne() routine.</param>
 		/// <returns>Filled collection with all related entities of the type constructed by the passed in entity factory</returns>
-		public AmstaJanBonga.Business.CollectionClasses.AgendaEventMetaCollection GetMultiAgendaEventMetas(bool forceFetch, IEntityFactory entityFactoryToUse)
+		public AmstaJanBonga.Business.CollectionClasses.AgendaEventMetaCollection GetMultiAgendaEventMeta(bool forceFetch, IEntityFactory entityFactoryToUse)
 		{
-			return GetMultiAgendaEventMetas(forceFetch, entityFactoryToUse, null);
+			return GetMultiAgendaEventMeta(forceFetch, entityFactoryToUse, null);
 		}
 
 		/// <summary> Retrieves all related entities of type 'AgendaEventMetaEntity' using a relation of type '1:n'.</summary>
@@ -375,68 +325,28 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <param name="entityFactoryToUse">The entity factory to use for the GetMultiManyToOne() routine.</param>
 		/// <param name="filter">Extra filter to limit the resultset.</param>
 		/// <returns>Filled collection with all related entities of the type constructed by the passed in entity factory</returns>
-		public virtual AmstaJanBonga.Business.CollectionClasses.AgendaEventMetaCollection GetMultiAgendaEventMetas(bool forceFetch, IEntityFactory entityFactoryToUse, IPredicateExpression filter)
+		public virtual AmstaJanBonga.Business.CollectionClasses.AgendaEventMetaCollection GetMultiAgendaEventMeta(bool forceFetch, IEntityFactory entityFactoryToUse, IPredicateExpression filter)
 		{
- 			if( ( !_alreadyFetchedAgendaEventMetas || forceFetch || _alwaysFetchAgendaEventMetas) && !this.IsSerializing && !this.IsDeserializing && !this.InDesignMode)
+ 			if( ( !_alreadyFetchedAgendaEventMeta || forceFetch || _alwaysFetchAgendaEventMeta) && !this.IsSerializing && !this.IsDeserializing && !this.InDesignMode)
 			{
-				AddToTransactionIfNecessary(_agendaEventMetas);
-				_agendaEventMetas.SuppressClearInGetMulti=!forceFetch;
-				_agendaEventMetas.EntityFactoryToUse = entityFactoryToUse;
-				_agendaEventMetas.GetMultiManyToOne(this, filter);
-				_agendaEventMetas.SuppressClearInGetMulti=false;
-				_alreadyFetchedAgendaEventMetas = true;
+				AddToTransactionIfNecessary(_agendaEventMeta);
+				_agendaEventMeta.SuppressClearInGetMulti=!forceFetch;
+				_agendaEventMeta.EntityFactoryToUse = entityFactoryToUse;
+				_agendaEventMeta.GetMultiManyToOne(this, null, filter);
+				_agendaEventMeta.SuppressClearInGetMulti=false;
+				_alreadyFetchedAgendaEventMeta = true;
 			}
-			return _agendaEventMetas;
+			return _agendaEventMeta;
 		}
 
-		/// <summary> Sets the collection parameters for the collection for 'AgendaEventMetas'. These settings will be taken into account
-		/// when the property AgendaEventMetas is requested or GetMultiAgendaEventMetas is called.</summary>
+		/// <summary> Sets the collection parameters for the collection for 'AgendaEventMeta'. These settings will be taken into account
+		/// when the property AgendaEventMeta is requested or GetMultiAgendaEventMeta is called.</summary>
 		/// <param name="maxNumberOfItemsToReturn"> The maximum number of items to return. When set to 0, this parameter is ignored</param>
 		/// <param name="sortClauses">The order by specifications for the sorting of the resultset. When not specified (null), no sorting is applied.</param>
-		public virtual void SetCollectionParametersAgendaEventMetas(long maxNumberOfItemsToReturn, ISortExpression sortClauses)
+		public virtual void SetCollectionParametersAgendaEventMeta(long maxNumberOfItemsToReturn, ISortExpression sortClauses)
 		{
-			_agendaEventMetas.SortClauses=sortClauses;
-			_agendaEventMetas.MaxNumberOfItemsToReturn=maxNumberOfItemsToReturn;
-		}
-
-		/// <summary> Retrieves the related entity of type 'PatientEntity', using a relation of type 'n:1'</summary>
-		/// <returns>A fetched entity of type 'PatientEntity' which is related to this entity.</returns>
-		public PatientEntity GetSinglePatient()
-		{
-			return GetSinglePatient(false);
-		}
-
-		/// <summary> Retrieves the related entity of type 'PatientEntity', using a relation of type 'n:1'</summary>
-		/// <param name="forceFetch">if true, it will discard any changes currently in the currently loaded related entity and will refetch the entity from the persistent storage</param>
-		/// <returns>A fetched entity of type 'PatientEntity' which is related to this entity.</returns>
-		public virtual PatientEntity GetSinglePatient(bool forceFetch)
-		{
-			if( ( !_alreadyFetchedPatient || forceFetch || _alwaysFetchPatient) && !this.IsSerializing && !this.IsDeserializing  && !this.InDesignMode)			
-			{
-				bool performLazyLoading = this.CheckIfLazyLoadingShouldOccur(Relations.PatientEntityUsingPatientId);
-				PatientEntity newEntity = new PatientEntity();
-				bool fetchResult = false;
-				if(performLazyLoading)
-				{
-					AddToTransactionIfNecessary(newEntity);
-					fetchResult = newEntity.FetchUsingPK(this.PatientId);
-				}
-				if(fetchResult)
-				{
-					newEntity = (PatientEntity)GetFromActiveContext(newEntity);
-				}
-				else
-				{
-					if(!_patientReturnsNewIfNotFound)
-					{
-						RemoveFromTransactionIfNecessary(newEntity);
-						newEntity = null;
-					}
-				}
-				this.Patient = newEntity;
-				_alreadyFetchedPatient = fetchResult;
-			}
-			return _patient;
+			_agendaEventMeta.SortClauses=sortClauses;
+			_agendaEventMeta.MaxNumberOfItemsToReturn=maxNumberOfItemsToReturn;
 		}
 
 
@@ -445,8 +355,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		protected override Dictionary<string, object> GetRelatedData()
 		{
 			Dictionary<string, object> toReturn = new Dictionary<string, object>();
-			toReturn.Add("Patient", _patient);
-			toReturn.Add("AgendaEventMetas", _agendaEventMetas);
+			toReturn.Add("AgendaEventMeta", _agendaEventMeta);
 			return toReturn;
 		}
 	
@@ -487,9 +396,8 @@ namespace AmstaJanBonga.Business.EntityClasses
 		private void InitClassMembers()
 		{
 
-			_agendaEventMetas = new AmstaJanBonga.Business.CollectionClasses.AgendaEventMetaCollection();
-			_agendaEventMetas.SetContainingEntityInfo(this, "AgendaEvent");
-			_patientReturnsNewIfNotFound = false;
+			_agendaEventMeta = new AmstaJanBonga.Business.CollectionClasses.AgendaEventMetaCollection();
+			_agendaEventMeta.SetContainingEntityInfo(this, "AgendaEvent");
 			PerformDependencyInjection();
 
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassMembers
@@ -511,46 +419,13 @@ namespace AmstaJanBonga.Business.EntityClasses
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("Location", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("PatientId", fieldHashtable);
+			_fieldsCustomProperties.Add("TimeEnd", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("Time", fieldHashtable);
+			_fieldsCustomProperties.Add("TimeStart", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("Title", fieldHashtable);
 		}
 		#endregion
-
-		/// <summary> Removes the sync logic for member _patient</summary>
-		/// <param name="signalRelatedEntity">If set to true, it will call the related entity's UnsetRelatedEntity method</param>
-		/// <param name="resetFKFields">if set to true it will also reset the FK fields pointing to the related entity</param>
-		private void DesetupSyncPatient(bool signalRelatedEntity, bool resetFKFields)
-		{
-			this.PerformDesetupSyncRelatedEntity( _patient, new PropertyChangedEventHandler( OnPatientPropertyChanged ), "Patient", AmstaJanBonga.Business.RelationClasses.StaticAgendaEventRelations.PatientEntityUsingPatientIdStatic, true, signalRelatedEntity, "AgendaEvents", resetFKFields, new int[] { (int)AgendaEventFieldIndex.PatientId } );		
-			_patient = null;
-		}
-		
-		/// <summary> setups the sync logic for member _patient</summary>
-		/// <param name="relatedEntity">Instance to set as the related entity of type entityType</param>
-		private void SetupSyncPatient(IEntityCore relatedEntity)
-		{
-			if(_patient!=relatedEntity)
-			{		
-				DesetupSyncPatient(true, true);
-				_patient = (PatientEntity)relatedEntity;
-				this.PerformSetupSyncRelatedEntity( _patient, new PropertyChangedEventHandler( OnPatientPropertyChanged ), "Patient", AmstaJanBonga.Business.RelationClasses.StaticAgendaEventRelations.PatientEntityUsingPatientIdStatic, true, ref _alreadyFetchedPatient, new string[] {  } );
-			}
-		}
-
-		/// <summary>Handles property change events of properties in a related entity.</summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void OnPatientPropertyChanged( object sender, PropertyChangedEventArgs e )
-		{
-			switch( e.PropertyName )
-			{
-				default:
-					break;
-			}
-		}
 
 		/// <summary> Fetches the entity from the persistent storage. Fetch simply reads the entity into an EntityFields object. </summary>
 		/// <param name="id">PK value for AgendaEvent which data should be fetched into this AgendaEvent object</param>
@@ -605,16 +480,9 @@ namespace AmstaJanBonga.Business.EntityClasses
 
 		/// <summary> Creates a new PrefetchPathElement object which contains all the information to prefetch the related entities of type 'AgendaEventMeta' for this entity.</summary>
 		/// <returns>Ready to use IPrefetchPathElement implementation.</returns>
-		public static IPrefetchPathElement PrefetchPathAgendaEventMetas
+		public static IPrefetchPathElement PrefetchPathAgendaEventMeta
 		{
-			get { return new PrefetchPathElement(new AmstaJanBonga.Business.CollectionClasses.AgendaEventMetaCollection(), (IEntityRelation)GetRelationsForField("AgendaEventMetas")[0], (int)AmstaJanBonga.Business.EntityType.AgendaEventEntity, (int)AmstaJanBonga.Business.EntityType.AgendaEventMetaEntity, 0, null, null, null, "AgendaEventMetas", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany); }
-		}
-
-		/// <summary> Creates a new PrefetchPathElement object which contains all the information to prefetch the related entities of type 'Patient'  for this entity.</summary>
-		/// <returns>Ready to use IPrefetchPathElement implementation.</returns>
-		public static IPrefetchPathElement PrefetchPathPatient
-		{
-			get	{ return new PrefetchPathElement(new AmstaJanBonga.Business.CollectionClasses.PatientCollection(), (IEntityRelation)GetRelationsForField("Patient")[0], (int)AmstaJanBonga.Business.EntityType.AgendaEventEntity, (int)AmstaJanBonga.Business.EntityType.PatientEntity, 0, null, null, null, "Patient", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne); }
+			get { return new PrefetchPathElement(new AmstaJanBonga.Business.CollectionClasses.AgendaEventMetaCollection(), (IEntityRelation)GetRelationsForField("AgendaEventMeta")[0], (int)AmstaJanBonga.Business.EntityType.AgendaEventEntity, (int)AmstaJanBonga.Business.EntityType.AgendaEventMetaEntity, 0, null, null, null, "AgendaEventMeta", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany); }
 		}
 
 
@@ -671,24 +539,24 @@ namespace AmstaJanBonga.Business.EntityClasses
 			set	{ SetValue((int)AgendaEventFieldIndex.Location, value, true); }
 		}
 
-		/// <summary> The PatientId property of the Entity AgendaEvent<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "AgendaEvent"."PatientId"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
-		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
-		public virtual System.Int32 PatientId
-		{
-			get { return (System.Int32)GetValue((int)AgendaEventFieldIndex.PatientId, true); }
-			set	{ SetValue((int)AgendaEventFieldIndex.PatientId, value, true); }
-		}
-
-		/// <summary> The Time property of the Entity AgendaEvent<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "AgendaEvent"."Time"<br/>
+		/// <summary> The TimeEnd property of the Entity AgendaEvent<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "AgendaEvent"."TimeEnd"<br/>
 		/// Table field type characteristics (type, precision, scale, length): DateTime, 0, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
-		public virtual Nullable<System.DateTime> Time
+		public virtual Nullable<System.DateTime> TimeEnd
 		{
-			get { return (Nullable<System.DateTime>)GetValue((int)AgendaEventFieldIndex.Time, false); }
-			set	{ SetValue((int)AgendaEventFieldIndex.Time, value, true); }
+			get { return (Nullable<System.DateTime>)GetValue((int)AgendaEventFieldIndex.TimeEnd, false); }
+			set	{ SetValue((int)AgendaEventFieldIndex.TimeEnd, value, true); }
+		}
+
+		/// <summary> The TimeStart property of the Entity AgendaEvent<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "AgendaEvent"."TimeStart"<br/>
+		/// Table field type characteristics (type, precision, scale, length): DateTime, 0, 0, 0<br/>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
+		public virtual Nullable<System.DateTime> TimeStart
+		{
+			get { return (Nullable<System.DateTime>)GetValue((int)AgendaEventFieldIndex.TimeStart, false); }
+			set	{ SetValue((int)AgendaEventFieldIndex.TimeStart, value, true); }
 		}
 
 		/// <summary> The Title property of the Entity AgendaEvent<br/><br/></summary>
@@ -703,95 +571,36 @@ namespace AmstaJanBonga.Business.EntityClasses
 
 		/// <summary> Retrieves all related entities of type 'AgendaEventMetaEntity' using a relation of type '1:n'.<br/><br/>
 		/// </summary>
-		/// <remarks>This property is added for databinding conveniance, however it is recommeded to use the method 'GetMultiAgendaEventMetas()', because 
+		/// <remarks>This property is added for databinding conveniance, however it is recommeded to use the method 'GetMultiAgendaEventMeta()', because 
 		/// this property is rather expensive and a method tells the user to cache the result when it has to be used more than once in the same scope.</remarks>
-		public virtual AmstaJanBonga.Business.CollectionClasses.AgendaEventMetaCollection AgendaEventMetas
+		public virtual AmstaJanBonga.Business.CollectionClasses.AgendaEventMetaCollection AgendaEventMeta
 		{
-			get	{ return GetMultiAgendaEventMetas(false); }
+			get	{ return GetMultiAgendaEventMeta(false); }
 		}
 
-		/// <summary> Gets / sets the lazy loading flag for AgendaEventMetas. When set to true, AgendaEventMetas is always refetched from the 
-		/// persistent storage. When set to false, the data is only fetched the first time AgendaEventMetas is accessed. You can always execute/ a forced fetch by calling GetMultiAgendaEventMetas(true).</summary>
+		/// <summary> Gets / sets the lazy loading flag for AgendaEventMeta. When set to true, AgendaEventMeta is always refetched from the 
+		/// persistent storage. When set to false, the data is only fetched the first time AgendaEventMeta is accessed. You can always execute/ a forced fetch by calling GetMultiAgendaEventMeta(true).</summary>
 		[Browsable(false)]
-		public bool AlwaysFetchAgendaEventMetas
+		public bool AlwaysFetchAgendaEventMeta
 		{
-			get	{ return _alwaysFetchAgendaEventMetas; }
-			set	{ _alwaysFetchAgendaEventMetas = value; }	
+			get	{ return _alwaysFetchAgendaEventMeta; }
+			set	{ _alwaysFetchAgendaEventMeta = value; }	
 		}		
 				
-		/// <summary>Gets / Sets the lazy loading flag if the property AgendaEventMetas already has been fetched. Setting this property to false when AgendaEventMetas has been fetched
-		/// will clear the AgendaEventMetas collection well. Setting this property to true while AgendaEventMetas hasn't been fetched disables lazy loading for AgendaEventMetas</summary>
+		/// <summary>Gets / Sets the lazy loading flag if the property AgendaEventMeta already has been fetched. Setting this property to false when AgendaEventMeta has been fetched
+		/// will clear the AgendaEventMeta collection well. Setting this property to true while AgendaEventMeta hasn't been fetched disables lazy loading for AgendaEventMeta</summary>
 		[Browsable(false)]
-		public bool AlreadyFetchedAgendaEventMetas
+		public bool AlreadyFetchedAgendaEventMeta
 		{
-			get { return _alreadyFetchedAgendaEventMetas;}
+			get { return _alreadyFetchedAgendaEventMeta;}
 			set 
 			{
-				if(_alreadyFetchedAgendaEventMetas && !value && (_agendaEventMetas != null))
+				if(_alreadyFetchedAgendaEventMeta && !value && (_agendaEventMeta != null))
 				{
-					_agendaEventMetas.Clear();
+					_agendaEventMeta.Clear();
 				}
-				_alreadyFetchedAgendaEventMetas = value;
+				_alreadyFetchedAgendaEventMeta = value;
 			}
-		}
-
-		/// <summary> Gets / sets related entity of type 'PatientEntity'. This property is not visible in databound grids.
-		/// Setting this property to a new object will make the load-on-demand feature to stop fetching data from the database, until you set this
-		/// property to null. Setting this property to an entity will make sure that FK-PK relations are synchronized when appropriate.<br/><br/>
-		/// </summary>
-		/// <remarks>This property is added for conveniance, however it is recommeded to use the method 'GetSinglePatient()', because 
-		/// this property is rather expensive and a method tells the user to cache the result when it has to be used more than once in the
-		/// same scope. The property is marked non-browsable to make it hidden in bound controls, f.e. datagrids.</remarks>
-		[Browsable(false)]
-		public virtual PatientEntity Patient
-		{
-			get	{ return GetSinglePatient(false); }
-			set 
-			{ 
-				if(this.IsDeserializing)
-				{
-					SetupSyncPatient(value);
-				}
-				else
-				{
-					SetSingleRelatedEntityNavigator(value, "AgendaEvents", "Patient", _patient, true); 
-				}
-			}
-		}
-
-		/// <summary> Gets / sets the lazy loading flag for Patient. When set to true, Patient is always refetched from the 
-		/// persistent storage. When set to false, the data is only fetched the first time Patient is accessed. You can always execute a forced fetch by calling GetSinglePatient(true).</summary>
-		[Browsable(false)]
-		public bool AlwaysFetchPatient
-		{
-			get	{ return _alwaysFetchPatient; }
-			set	{ _alwaysFetchPatient = value; }	
-		}
-				
-		/// <summary>Gets / Sets the lazy loading flag if the property Patient already has been fetched. Setting this property to false when Patient has been fetched
-		/// will set Patient to null as well. Setting this property to true while Patient hasn't been fetched disables lazy loading for Patient</summary>
-		[Browsable(false)]
-		public bool AlreadyFetchedPatient
-		{
-			get { return _alreadyFetchedPatient;}
-			set 
-			{
-				if(_alreadyFetchedPatient && !value)
-				{
-					this.Patient = null;
-				}
-				_alreadyFetchedPatient = value;
-			}
-		}
-
-		/// <summary> Gets / sets the flag for what to do if the related entity available through the property Patient is not found
-		/// in the database. When set to true, Patient will return a new entity instance if the related entity is not found, otherwise 
-		/// null be returned if the related entity is not found. Default: false.</summary>
-		[Browsable(false)]
-		public bool PatientReturnsNewIfNotFound
-		{
-			get	{ return _patientReturnsNewIfNotFound; }
-			set { _patientReturnsNewIfNotFound = value; }	
 		}
 
 
