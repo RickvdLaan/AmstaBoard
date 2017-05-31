@@ -4,44 +4,40 @@ public sealed class Time
 {
     #region Variables & Objects
 
-    private int _hour, _minutes;
+    private int _minutes;
+
+    private const int MIN_MINUTES = 0;
+    private const int MAX_MINUTES = 1439;
 
     #endregion
 
     #region Properties
 
     /// <summary>
-    /// Gets or sets the hour in 24 hour format.
-    /// </summary>
-    public int Hour
-    {
-        get { return this._hour; }
-        set
-        {
-            if (value > 24)
-                this._hour = 24;
-            else if (value < 0)
-                this._hour = 0;
-
-            this._hour = value;
-        }
-    }
-
-    /// <summary>
     /// Gets or sets the minutes.
     /// </summary>
-    public int Minutes
+    public int TotalMinutes
     {
         get { return this._minutes; }
-        set
+        private set
         {
-            if (value > 60)
-                this._minutes = 60;
-            else if (value < 0)
-                this._minutes = 0;
+            if (value > MAX_MINUTES)
+                this._minutes = MAX_MINUTES;
+            else if (value < MIN_MINUTES)
+                this._minutes = MIN_MINUTES;
 
             this._minutes = value;
         }
+    }
+
+    public int Hour
+    {
+        get { return TotalMinutes / 60; }
+    }
+
+    public int Minutes
+    {
+        get { return TotalMinutes % 60; }
     }
 
     #endregion
@@ -51,12 +47,10 @@ public sealed class Time
     /// <summary>
     /// Constructor of the Time object, this class cannot be inherited.
     /// </summary>
-    /// <param name="hour">Provide the hour in 24 hour format.</param>
-    /// <param name="minutes">Provide the minutes.</param>
-    public Time(int hour, int minutes)
+    /// <param name="minutes">Provide the minutes after 00:00.</param>
+    public Time(int minutes)
     {
-        this.Hour = hour;
-        this.Minutes = minutes;
+        this.TotalMinutes = minutes;
     }
 
     #endregion
@@ -70,7 +64,7 @@ public sealed class Time
     public override string ToString()
     {
         var time = "{0}:{1}".FormatString(
-            this.Hour.ToString().Length == 1 ? "0" + this.Hour : this.Hour.ToString(),
+            this.Hour.ToString().Length    == 1 ? "0" + this.Hour    : this.Hour.ToString(),
             this.Minutes.ToString().Length == 1 ? "0" + this.Minutes : this.Minutes.ToString());
 
         return time;

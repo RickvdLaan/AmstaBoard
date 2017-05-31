@@ -70,9 +70,9 @@ namespace AmstaJanBonga.Business.HelperClasses
 			this.AddElementFieldMapping("AgendaEventEntity", "Description", "Description", true, "VarChar", 500, 0, 0, false, "", null, typeof(System.String), 0);
 			this.AddElementFieldMapping("AgendaEventEntity", "Id", "Id", false, "Int", 0, 10, 0, true, "SCOPE_IDENTITY()", null, typeof(System.Int32), 1);
 			this.AddElementFieldMapping("AgendaEventEntity", "Location", "Location", true, "VarChar", 50, 0, 0, false, "", null, typeof(System.String), 2);
-			this.AddElementFieldMapping("AgendaEventEntity", "TimeEnd", "TimeEnd", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 3);
-			this.AddElementFieldMapping("AgendaEventEntity", "TimeStart", "TimeStart", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 4);
-			this.AddElementFieldMapping("AgendaEventEntity", "Title", "Title", true, "VarChar", 50, 0, 0, false, "", null, typeof(System.String), 5);
+			this.AddElementFieldMapping("AgendaEventEntity", "TimeEnd", "TimeEnd", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 3);
+			this.AddElementFieldMapping("AgendaEventEntity", "TimeStart", "TimeStart", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 4);
+			this.AddElementFieldMapping("AgendaEventEntity", "Title", "Title", false, "VarChar", 50, 0, 0, false, "", null, typeof(System.String), 5);
 		}
 
 		/// <summary>Inits AgendaEventMetaEntity's mappings</summary>
@@ -204,7 +204,7 @@ namespace AmstaJanBonga.Business.HelperClasses
 			this.AddElementFieldMapping("UserEntity", "Id", "Id", false, "Int", 0, 10, 0, true, "SCOPE_IDENTITY()", null, typeof(System.Int32), 5);
 			this.AddElementFieldMapping("UserEntity", "IsMarkedAsDeleted", "IsMarkedAsDeleted", false, "Bit", 0, 0, 0, false, "", null, typeof(System.Boolean), 6);
 			this.AddElementFieldMapping("UserEntity", "Password", "Password", false, "VarChar", 250, 0, 0, false, "", null, typeof(System.String), 7);
-			this.AddElementFieldMapping("UserEntity", "RoleTypeEnum", "RoleTypeEnum", true, "TinyInt", 0, 3, 0, false, "", null, typeof(System.Byte), 8);
+			this.AddElementFieldMapping("UserEntity", "RoleTypeEnum", "RoleTypeEnum", false, "TinyInt", 0, 3, 0, false, "", null, typeof(System.Byte), 8);
 			this.AddElementFieldMapping("UserEntity", "Salt", "Salt", false, "VarChar", 250, 0, 0, false, "", null, typeof(System.String), 9);
 			this.AddElementFieldMapping("UserEntity", "Username", "Username", false, "VarChar", 50, 0, 0, false, "", null, typeof(System.String), 10);
 		}

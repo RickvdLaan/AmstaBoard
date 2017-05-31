@@ -103,7 +103,7 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
 
             foreach (var app in appointments)
             {
-                appointment[0] += this.GenerateAppointment(app.Title, app.Location, new Time(10, 00), new Time(12, 00), app.Description);
+                appointment[0] += this.GenerateAppointment(app.Title, app.Location, new Time(app.TimeStart), new Time(app.TimeEnd), app.Description);
             }
 
             this._agendaDay.Rows.Add(appointment);

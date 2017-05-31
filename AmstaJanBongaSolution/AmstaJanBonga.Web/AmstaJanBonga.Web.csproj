@@ -141,7 +141,6 @@
     <Content Include="Includes\remodal-1.1.1\dist\remodal-default-theme.css" />
     <Content Include="Includes\remodal-1.1.1\dist\remodal.css" />
     <Content Include="Includes\remodal-1.1.1\dist\remodal.js" />
-    <Content Include="Includes\remodal-1.1.1\dist\remodal.min.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

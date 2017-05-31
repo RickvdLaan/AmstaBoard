@@ -2,9 +2,34 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="_cphHead" runat="server">
     <script src="/Includes/Js/calendar-appointments.js"></script>
 
-    <link href="/Includes/remodal-1.1.1/dist/remodal-default-theme.css" rel="stylesheet" />
-    <link href="/Includes/remodal-1.1.1/dist/remodal.css" rel="stylesheet" />
-    <script src="/Includes/remodal-1.1.1/dist/remodal.js"></script>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function () {
+            // Redirects to the home page after 5 minutes of inactivty.
+
+            var t;
+            window.onload = resetTimer;
+            // DOM Events
+            document.onload = resetTimer;
+            document.onmousemove = resetTimer;
+            document.onmousedown = resetTimer; // touchscreen presses
+            document.ontouchstart = resetTimer;
+            document.onclick = resetTimer;     // touchpad clicks
+            document.onscroll = resetTimer;    // scrolling with arrow keys
+            document.onkeypress = resetTimer;
+
+            function redirect() {
+                location.href = '/'
+            }
+
+            function resetTimer() {
+                clearTimeout(t);
+                t = setTimeout(redirect, 300000)
+                // 1000 milisec = 1 sec
+                // 300000 = 5 minutes
+            }
+        });
+    </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="_cphContent" runat="server">
     <!-- The photo of the patient. -->

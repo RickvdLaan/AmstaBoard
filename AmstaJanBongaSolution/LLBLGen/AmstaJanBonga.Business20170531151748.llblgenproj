@@ -135,12 +135,12 @@
           <Field Name="Description" Type="string" IsOptional="true" MaxLength="500" />
           <Field Name="Id" Type="int" IsReadOnly="true" Precision="10" IsPrimaryKey="true" />
           <Field Name="Location" Type="string" IsOptional="true" MaxLength="50" />
-          <Field Name="TimeEnd" Type="int" />
-          <Field Name="TimeStart" Type="int" />
-          <Field Name="Title" Type="string" MaxLength="50" />
+          <Field Name="TimeEnd" Type="datetime" IsOptional="true" />
+          <Field Name="TimeStart" Type="datetime" IsOptional="true" />
+          <Field Name="Title" Type="string" IsOptional="true" MaxLength="50" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="AgendaEventMeta" GroupName="Vanderlaan" ObjectID="91fab9ef-5ad3-4d41-a51b-fe4cc84563f2">
+      <EntityDefinition Name="AgendaEventMetum" GroupName="Vanderlaan" ObjectID="91fab9ef-5ad3-4d41-a51b-fe4cc84563f2">
         <Fields>
           <Field Name="AgendaEventId" Type="int" Precision="10" />
           <Field Name="Id" Type="int" IsReadOnly="true" Precision="10" IsPrimaryKey="true" />
@@ -249,7 +249,7 @@
           <Field Name="Id" Type="int" IsReadOnly="true" Precision="10" IsPrimaryKey="true" />
           <Field Name="IsMarkedAsDeleted" Type="bool" />
           <Field Name="Password" Type="string" MaxLength="250" />
-          <Field Name="RoleTypeEnum" Type="byte" Precision="3" />
+          <Field Name="RoleTypeEnum" Type="byte" IsOptional="true" Precision="3" />
           <Field Name="Salt" Type="string" MaxLength="250" />
           <Field Name="Username" Type="string" MaxLength="50" />
         </Fields>
@@ -284,12 +284,12 @@
       </EntityDefinition>
     </EntityDefinitions>
     <Relationships>
-      <NormalRelationship Name="Vanderlaan.AgendaEventMeta.AgendaEvent-Vanderlaan.AgendaEvent.AgendaEventMeta" Start="Vanderlaan:AgendaEventMeta" End="Vanderlaan:AgendaEvent" StartNavigator="AgendaEvent" EndNavigator="AgendaEventMeta" Type="4">
+      <NormalRelationship Name="Vanderlaan.AgendaEventMetum.AgendaEvent-Vanderlaan.AgendaEvent.AgendaEventMeta" Start="Vanderlaan:AgendaEventMetum" End="Vanderlaan:AgendaEvent" StartNavigator="AgendaEvent" EndNavigator="AgendaEventMeta" Type="4">
         <FieldRelationships>
           <FieldFieldRelationship FkField="AgendaEventId" PkField="Id" />
         </FieldRelationships>
       </NormalRelationship>
-      <NormalRelationship Name="Vanderlaan.AgendaEventMeta.Patient-Vanderlaan.Patient.AgendaEventMeta" Start="Vanderlaan:AgendaEventMeta" End="Vanderlaan:Patient" StartNavigator="Patient" EndNavigator="AgendaEventMeta" Type="4">
+      <NormalRelationship Name="Vanderlaan.AgendaEventMetum.Patient-Vanderlaan.Patient.AgendaEventMeta" Start="Vanderlaan:AgendaEventMetum" End="Vanderlaan:Patient" StartNavigator="Patient" EndNavigator="AgendaEventMeta" Type="4">
         <FieldRelationships>
           <FieldFieldRelationship FkField="PatientId" PkField="Id" />
         </FieldRelationships>
@@ -339,7 +339,7 @@
           <FieldFieldRelationship FkField="LivingRoomId" PkField="Id" />
         </FieldRelationships>
       </NormalRelationship>
-      <NormalRelationship Name="Vanderlaan.User.UserRole-Vanderlaan.UserRole.Users" Start="Vanderlaan:User" End="Vanderlaan:UserRole" StartNavigator="UserRole" EndNavigator="Users" Type="4">
+      <NormalRelationship Name="Vanderlaan.User.UserRole-Vanderlaan.UserRole.Users" Start="Vanderlaan:User" End="Vanderlaan:UserRole" StartNavigator="UserRole" EndNavigator="Users" Type="4" EndIsOptional="true">
         <FieldRelationships>
           <FieldFieldRelationship FkField="RoleTypeEnum" PkField="RoleTypeEnum" />
         </FieldRelationships>
@@ -372,7 +372,7 @@
       <Catalogs>
         <Catalog Name="Vanderlaan_jouwsoftware_janbonga_development">
           <Schemas>
-            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-05-31T13:17:57.3630918Z">
+            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-05-31T08:54:48.0639955Z">
               <StoredProcedures>
                 <StoredProcedure Name="sp_alterdiagram">
                   <Parameters>
@@ -440,16 +440,16 @@
                 </StoredProcedure>
               </StoredProcedures>
             </Schema>
-            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-05-31T13:17:57.4120946Z">
+            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-05-31T08:54:48.1860025Z">
               <Tables>
                 <Table Name="AgendaEvent">
                   <PkConstraintName Name="PK_AgendaEvent" />
                   <Fields>
                     <Field Name="Id" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
-                    <Field Name="Title" Ordinal="2" DbType="24" Length="50" />
+                    <Field Name="Title" Ordinal="2" IsOptional="true" DbType="24" Length="50" />
                     <Field Name="Location" Ordinal="3" IsOptional="true" DbType="24" Length="50" />
-                    <Field Name="TimeStart" Ordinal="4" DbType="8" Precision="10" />
-                    <Field Name="TimeEnd" Ordinal="5" DbType="8" Precision="10" />
+                    <Field Name="TimeStart" Ordinal="4" IsOptional="true" DbType="4" />
+                    <Field Name="TimeEnd" Ordinal="5" IsOptional="true" DbType="4" />
                     <Field Name="Description" Ordinal="6" IsOptional="true" DbType="24" Length="500" />
                   </Fields>
                 </Table>
@@ -565,7 +565,7 @@
                   <PkConstraintName Name="PK_User" />
                   <Fields>
                     <Field Name="Id" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
-                    <Field Name="RoleTypeEnum" Ordinal="2" DbType="22" Precision="3" />
+                    <Field Name="RoleTypeEnum" Ordinal="2" IsOptional="true" DbType="22" Precision="3" />
                     <Field Name="Username" Ordinal="3" DbType="24" Length="50" />
                     <Field Name="Password" Ordinal="4" DbType="24" Length="250" />
                     <Field Name="Salt" Ordinal="5" DbType="24" Length="250" />
@@ -700,7 +700,7 @@
             <FieldMapping FieldName="Title" TargetFieldName="Title" />
           </FieldMappings>
         </EntityMapping>
-        <EntityMapping EntityName="Vanderlaan:AgendaEventMeta" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:AgendaEventMeta">
+        <EntityMapping EntityName="Vanderlaan:AgendaEventMetum" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:AgendaEventMeta">
           <FieldMappings>
             <FieldMapping FieldName="AgendaEventId" TargetFieldName="AgendaEventId" />
             <FieldMapping FieldName="Id" TargetFieldName="Id" SequenceToUse="SCOPE_IDENTITY()" />

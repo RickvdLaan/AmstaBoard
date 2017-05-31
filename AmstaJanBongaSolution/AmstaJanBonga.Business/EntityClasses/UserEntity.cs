@@ -472,7 +472,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 				if(performLazyLoading)
 				{
 					AddToTransactionIfNecessary(newEntity);
-					fetchResult = newEntity.FetchUsingPK(this.RoleTypeEnum.GetValueOrDefault());
+					fetchResult = newEntity.FetchUsingPK(this.RoleTypeEnum);
 				}
 				if(fetchResult)
 				{
@@ -787,10 +787,10 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <summary> The RoleTypeEnum property of the Entity User<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "User"."RoleTypeEnum"<br/>
 		/// Table field type characteristics (type, precision, scale, length): TinyInt, 3, 0, 0<br/>
-		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
-		public virtual Nullable<System.Byte> RoleTypeEnum
+		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		public virtual System.Byte RoleTypeEnum
 		{
-			get { return (Nullable<System.Byte>)GetValue((int)UserFieldIndex.RoleTypeEnum, false); }
+			get { return (System.Byte)GetValue((int)UserFieldIndex.RoleTypeEnum, true); }
 			set	{ SetValue((int)UserFieldIndex.RoleTypeEnum, value, true); }
 		}
 

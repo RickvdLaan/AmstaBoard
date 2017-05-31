@@ -250,11 +250,12 @@ section.content {
 .calendar {
     position: relative;
     margin-left: 250px;
-    height: Calc(100% - 38px);
+    height: Calc(100% - 58px);
     overflow: hidden;
     overflow-y: scroll;
     margin-top: 148.5px;
     margin-right: 20px;
+    margin-bottom: 20px;
 }
 
 .calendar table {
@@ -769,7 +770,6 @@ section .image-chores {
 }
 
 /* Employee overview */
-
 .employee-overview {
     display: table;
     border-spacing: 1em;

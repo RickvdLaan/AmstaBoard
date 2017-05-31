@@ -33,7 +33,7 @@
         <!-- All CSS addons for plugins, libraries ect. -->
         <link href="/Includes/remodal-1.1.1/dist/remodal-default-theme.css" rel="stylesheet" />
         <link href="/Includes/remodal-1.1.1/dist/remodal.css" rel="stylesheet" />
-        <script src="/Includes/remodal-1.1.1/dist/remodal.min.js"></script>
+        <script src="/Includes/remodal-1.1.1/dist/remodal.js"></script>
 
         <link href="~/Includes/Css/Addons.css?build=26052017v1" rel="stylesheet" />
 
@@ -65,7 +65,7 @@
                             </div>
 
                             <div>
-                                <asp:LinkButton runat="server" ID="_lbTime" style="display: block; font-size: 2.085vw; height: 100%;" data-remodal-target="menu-remodal">
+                                <asp:LinkButton runat="server" style="display: block; font-size: 2.085vw; height: 100%;" data-remodal-target="menu-remodal">
                                     <asp:Literal runat="server" ID="_litTime"></asp:Literal>
                                 </asp:LinkButton>
                             </div>                 

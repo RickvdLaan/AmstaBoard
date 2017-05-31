@@ -541,28 +541,28 @@ namespace AmstaJanBonga.Business.EntityClasses
 
 		/// <summary> The TimeEnd property of the Entity AgendaEvent<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "AgendaEvent"."TimeEnd"<br/>
-		/// Table field type characteristics (type, precision, scale, length): DateTime, 0, 0, 0<br/>
-		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
-		public virtual Nullable<System.DateTime> TimeEnd
+		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		public virtual System.Int32 TimeEnd
 		{
-			get { return (Nullable<System.DateTime>)GetValue((int)AgendaEventFieldIndex.TimeEnd, false); }
+			get { return (System.Int32)GetValue((int)AgendaEventFieldIndex.TimeEnd, true); }
 			set	{ SetValue((int)AgendaEventFieldIndex.TimeEnd, value, true); }
 		}
 
 		/// <summary> The TimeStart property of the Entity AgendaEvent<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "AgendaEvent"."TimeStart"<br/>
-		/// Table field type characteristics (type, precision, scale, length): DateTime, 0, 0, 0<br/>
-		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
-		public virtual Nullable<System.DateTime> TimeStart
+		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		public virtual System.Int32 TimeStart
 		{
-			get { return (Nullable<System.DateTime>)GetValue((int)AgendaEventFieldIndex.TimeStart, false); }
+			get { return (System.Int32)GetValue((int)AgendaEventFieldIndex.TimeStart, true); }
 			set	{ SetValue((int)AgendaEventFieldIndex.TimeStart, value, true); }
 		}
 
 		/// <summary> The Title property of the Entity AgendaEvent<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "AgendaEvent"."Title"<br/>
 		/// Table field type characteristics (type, precision, scale, length): VarChar, 0, 0, 50<br/>
-		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
 		public virtual System.String Title
 		{
 			get { return (System.String)GetValue((int)AgendaEventFieldIndex.Title, true); }
