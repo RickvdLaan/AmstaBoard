@@ -30,7 +30,7 @@ namespace AmstaJanBonga.Business.RelationClasses
 		public virtual List<IEntityRelation> GetAllRelations()
 		{
 			List<IEntityRelation> toReturn = new List<IEntityRelation>();
-			toReturn.Add(this.LivingRoomGeneralEntityUsingLivingRoomId);
+			toReturn.Add(this.LivingRoomEntityUsingLivingRoomId);
 			return toReturn;
 		}
 
@@ -38,16 +38,16 @@ namespace AmstaJanBonga.Business.RelationClasses
 
 
 
-		/// <summary>Returns a new IEntityRelation object, between LivingRoomGeneralEventEntity and LivingRoomGeneralEntity over the m:1 relation they have, using the relation between the fields:
-		/// LivingRoomGeneralEvent.LivingRoomId - LivingRoomGeneral.LivingRoomId
+		/// <summary>Returns a new IEntityRelation object, between LivingRoomGeneralEventEntity and LivingRoomEntity over the m:1 relation they have, using the relation between the fields:
+		/// LivingRoomGeneralEvent.LivingRoomId - LivingRoom.Id
 		/// </summary>
-		public virtual IEntityRelation LivingRoomGeneralEntityUsingLivingRoomId
+		public virtual IEntityRelation LivingRoomEntityUsingLivingRoomId
 		{
 			get
 			{
-				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne, "LivingRoomGeneral", false);
-				relation.AddEntityFieldPair(LivingRoomGeneralFields.LivingRoomId, LivingRoomGeneralEventFields.LivingRoomId);
-				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("LivingRoomGeneralEntity", false);
+				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne, "LivingRoom", false);
+				relation.AddEntityFieldPair(LivingRoomFields.Id, LivingRoomGeneralEventFields.LivingRoomId);
+				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("LivingRoomEntity", false);
 				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("LivingRoomGeneralEventEntity", true);
 				return relation;
 			}
@@ -66,7 +66,7 @@ namespace AmstaJanBonga.Business.RelationClasses
 	/// <summary>Static class which is used for providing relationship instances which are re-used internally for syncing</summary>
 	internal static class StaticLivingRoomGeneralEventRelations
 	{
-		internal static readonly IEntityRelation LivingRoomGeneralEntityUsingLivingRoomIdStatic = new LivingRoomGeneralEventRelations().LivingRoomGeneralEntityUsingLivingRoomId;
+		internal static readonly IEntityRelation LivingRoomEntityUsingLivingRoomIdStatic = new LivingRoomGeneralEventRelations().LivingRoomEntityUsingLivingRoomId;
 
 		/// <summary>CTor</summary>
 		static StaticLivingRoomGeneralEventRelations()

@@ -6,7 +6,6 @@
     <head runat="server">
         <title>Applicatie - Login</title>
 
-        <link href="~/Includes/Css/StyleSheet.css?build=26052017v1" rel="stylesheet" />
         <link href="~/Includes/Css/Login.css?build=26052017v1" rel="stylesheet" />
 
         <meta charset="UTF-8" />

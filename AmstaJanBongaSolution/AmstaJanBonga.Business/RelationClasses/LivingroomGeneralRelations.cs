@@ -30,27 +30,12 @@ namespace AmstaJanBonga.Business.RelationClasses
 		public virtual List<IEntityRelation> GetAllRelations()
 		{
 			List<IEntityRelation> toReturn = new List<IEntityRelation>();
-			toReturn.Add(this.LivingRoomGeneralEventEntityUsingLivingRoomId);
 			toReturn.Add(this.LivingRoomEntityUsingLivingRoomId);
 			return toReturn;
 		}
 
 		#region Class Property Declarations
 
-		/// <summary>Returns a new IEntityRelation object, between LivingRoomGeneralEntity and LivingRoomGeneralEventEntity over the 1:n relation they have, using the relation between the fields:
-		/// LivingRoomGeneral.LivingRoomId - LivingRoomGeneralEvent.LivingRoomId
-		/// </summary>
-		public virtual IEntityRelation LivingRoomGeneralEventEntityUsingLivingRoomId
-		{
-			get
-			{
-				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany, "LivingRoomGeneralEvents" , true);
-				relation.AddEntityFieldPair(LivingRoomGeneralFields.LivingRoomId, LivingRoomGeneralEventFields.LivingRoomId);
-				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("LivingRoomGeneralEntity", true);
-				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("LivingRoomGeneralEventEntity", false);
-				return relation;
-			}
-		}
 
 		/// <summary>Returns a new IEntityRelation object, between LivingRoomGeneralEntity and LivingRoomEntity over the 1:1 relation they have, using the relation between the fields:
 		/// LivingRoomGeneral.LivingRoomId - LivingRoom.Id
@@ -85,7 +70,6 @@ namespace AmstaJanBonga.Business.RelationClasses
 	/// <summary>Static class which is used for providing relationship instances which are re-used internally for syncing</summary>
 	internal static class StaticLivingRoomGeneralRelations
 	{
-		internal static readonly IEntityRelation LivingRoomGeneralEventEntityUsingLivingRoomIdStatic = new LivingRoomGeneralRelations().LivingRoomGeneralEventEntityUsingLivingRoomId;
 		internal static readonly IEntityRelation LivingRoomEntityUsingLivingRoomIdStatic = new LivingRoomGeneralRelations().LivingRoomEntityUsingLivingRoomId;
 
 		/// <summary>CTor</summary>

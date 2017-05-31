@@ -318,9 +318,9 @@
           <FieldFieldRelationship FkField="LivingRoomId" PkField="Id" />
         </FieldRelationships>
       </NormalRelationship>
-      <NormalRelationship Name="Vanderlaan.LivingRoomGeneralEvent.LivingRoom-Vanderlaan.LivingRoom.LivingRoomGeneralEvents" Start="Vanderlaan:LivingRoomGeneralEvent" End="Vanderlaan:LivingRoom" StartNavigator="LivingRoom" EndNavigator="LivingRoomGeneralEvents" Type="4">
+      <NormalRelationship Name="Vanderlaan.LivingRoomGeneralEvent.LivingRoomGeneral-Vanderlaan.LivingRoomGeneral.LivingRoomGeneralEvents" Start="Vanderlaan:LivingRoomGeneralEvent" End="Vanderlaan:LivingRoomGeneral" StartNavigator="LivingRoomGeneral" EndNavigator="LivingRoomGeneralEvents" Type="4">
         <FieldRelationships>
-          <FieldFieldRelationship FkField="LivingRoomId" PkField="Id" />
+          <FieldFieldRelationship FkField="LivingRoomId" PkField="LivingRoomId" />
         </FieldRelationships>
       </NormalRelationship>
       <NormalRelationship Name="Vanderlaan.LivingRoomShiftEvent.Employee-Vanderlaan.Employee.LivingRoomShiftEvents" Start="Vanderlaan:LivingRoomShiftEvent" End="Vanderlaan:Employee" StartNavigator="Employee" EndNavigator="LivingRoomShiftEvents" Type="4">
@@ -371,7 +371,7 @@
       <Catalogs>
         <Catalog Name="Vanderlaan_jouwsoftware_janbonga_development">
           <Schemas>
-            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-05-29T07:42:28.1285494Z">
+            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-05-26T09:13:05.7515719Z">
               <StoredProcedures>
                 <StoredProcedure Name="sp_alterdiagram">
                   <Parameters>
@@ -439,7 +439,7 @@
                 </StoredProcedure>
               </StoredProcedures>
             </Schema>
-            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-05-29T07:42:28.2195546Z">
+            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-05-26T09:13:05.8545778Z">
               <Tables>
                 <Table Name="AgendaEvent">
                   <PkConstraintName Name="PK_AgendaEvent" />
@@ -645,9 +645,9 @@
                 <FieldPair PkField="Vanderlaan:LivingRoom:Id" FkField="Vanderlaan:LivingRoomGeneral:LivingRoomId" />
               </FieldPairs>
             </ForeignKeyConstraint>
-            <ForeignKeyConstraint Name="Vanderlaan:LivingRoomGeneralEvent:FK_LivingRoomGeneralEvent_LivingRoom">
+            <ForeignKeyConstraint Name="Vanderlaan:LivingRoomGeneralEvent:FK_GeneralInformation_General">
               <FieldPairs>
-                <FieldPair PkField="Vanderlaan:LivingRoom:Id" FkField="Vanderlaan:LivingRoomGeneralEvent:LivingRoomId" />
+                <FieldPair PkField="Vanderlaan:LivingRoomGeneral:LivingRoomId" FkField="Vanderlaan:LivingRoomGeneralEvent:LivingRoomId" />
               </FieldPairs>
             </ForeignKeyConstraint>
             <ForeignKeyConstraint Name="Vanderlaan:LivingRoomShiftEvent:FK_LivingroomShiftEvent_Employee">

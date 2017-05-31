@@ -26,7 +26,7 @@ namespace AmstaJanBonga.Business.Database.Readers
             // Adds the JOIN clause from the relation collection.
             var relations = new RelationCollection
             {
-                LivingRoomGeneralEventEntity.Relations.LivingRoomGeneralEntityUsingLivingRoomId,
+                LivingRoomGeneralEventEntity.Relations.LivingRoomEntityUsingLivingRoomId,
                 LivingRoomGeneralEntity.Relations.LivingRoomEntityUsingLivingRoomId
             };
 
@@ -79,7 +79,7 @@ namespace AmstaJanBonga.Business.Database.Readers
             var livingRoomGeneralEvent = new LivingRoomGeneralEventEntity(date, livingRoomId);
 
             if (throwExceptionWhenNotFound && livingRoomGeneralEvent.IsNew)
-                throw new Exception("Nothing found for livin groom {0} and date {1}.".FormatString(livingRoomId, date));
+                throw new Exception("Nothing found for living room {0} and date {1}.".FormatString(livingRoomId, date));
             else if (livingRoomGeneralEvent.IsNew)
                 return null;
 

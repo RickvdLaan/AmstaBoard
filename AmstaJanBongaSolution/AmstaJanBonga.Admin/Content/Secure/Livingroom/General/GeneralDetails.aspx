@@ -14,17 +14,17 @@
         <h2 class="display-inline">
             Bekijken
         </h2>
-
-        <div class="return right">
-            <asp:HyperLink runat="server" ID="_hlReturn" CssClass="return fa fa-reply display-inline" ToolTip="Terug naar informatie overzicht"></asp:HyperLink>
-        </div>
-
-        <div class="clear"></div>
         
         <div class="shortcut">
             <asp:HyperLink runat="server" ID="_hlEdit" CssClass="edit fa fa-pencil">
                 Informatie bewerken
             </asp:HyperLink>
+
+            <div class="return right">
+                <asp:HyperLink runat="server" ID="_hlReturn" CssClass="return fa fa-reply display-inline" ToolTip="Terug naar informatie overzicht"></asp:HyperLink>
+            </div>
+
+            <div class="clear"></div>
         </div>
 
         <table class="table-add-edit">

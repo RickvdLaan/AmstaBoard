@@ -368,6 +368,14 @@ a {
    font-family: 'FontAwesome';
 }
 
+.shortcut a {
+    margin-left: 5px;
+}
+
+.shortcut a:first-of-type {
+    margin-left: 0;
+}
+
 .shortcut a:hover:before {
     color: #1cb94e;
 }
@@ -610,6 +618,10 @@ a {
 
 #content .gridview .fa-calendar {
     color: #07bf62;
+}
+
+#content .gridview .fa-lock {
+    color: #c9c20b;
 }
 
 #content .gridview a {

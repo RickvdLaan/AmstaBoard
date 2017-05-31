@@ -18,6 +18,12 @@
 
         <div class="shortcut">
             <asp:HyperLink runat="server" ID="_hlAddEditGeneral" CssClass="fa fa-plus-circle" Text="Gegevens Toevoegen"></asp:HyperLink>
+
+            <div class="return right">
+                <asp:HyperLink runat="server" CssClass="return fa fa-reply display-inline" ToolTip="Terug naar woonkameroverzicht" NavigateUrl="~/Content/Secure/Livingroom/LivingroomOverview.aspx"></asp:HyperLink>
+            </div>
+
+            <div class="clear"></div>
         </div>
        
         <div class="gridview">
@@ -25,7 +31,7 @@
                 <Columns>    
                     <asp:TemplateField>
                         <HeaderTemplate>
-                            Woonkamer
+                            Datum
                         </HeaderTemplate>
 
                         <ItemTemplate>
@@ -44,7 +50,7 @@
                         </HeaderTemplate>
 
                         <ItemTemplate>
-                                <%# Eval("LivingRoomGeneral.LivingRoom.Name").ToString().CapitalizeFirstLetter() %>
+                                <%# Eval("LivingRoom.Name").ToString().CapitalizeFirstLetter() %>
                         </ItemTemplate>
                     </asp:TemplateField>
 

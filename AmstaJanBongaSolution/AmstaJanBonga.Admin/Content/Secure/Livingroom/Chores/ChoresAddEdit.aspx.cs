@@ -49,7 +49,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
             {
                 if (this._livingroom == null && this.HasLivingRoomId)
                     this._livingroom = LivingRoomReader.GetLivingRoomById(Url.QueryStringParser.GetInt("LivingRoomId"), true);
-
+                
                 return this._livingroom;
             }
         }

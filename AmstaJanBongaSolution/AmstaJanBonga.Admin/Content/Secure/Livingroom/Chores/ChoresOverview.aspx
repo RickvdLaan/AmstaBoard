@@ -19,6 +19,12 @@
 
         <div class="shortcut">
             <asp:HyperLink runat="server" ID="_hlAddEditChores" CssClass="fa fa-plus-circle" Text="Corvee Toevoegen"></asp:HyperLink>
+
+            <div class="return right">
+                <asp:HyperLink runat="server" CssClass="return fa fa-reply display-inline" ToolTip="Terug naar woonkameroverzicht" NavigateUrl="~/Content/Secure/Livingroom/LivingroomOverview.aspx"></asp:HyperLink>
+            </div>
+
+            <div class="clear"></div>
         </div>
        
         <div class="gridview">

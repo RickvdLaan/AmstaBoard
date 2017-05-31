@@ -90,9 +90,9 @@ namespace AmstaJanBonga.Web.Content
 
             if (generalEvent != null)
             {
-                if (!string.IsNullOrWhiteSpace(generalEvent.LivingRoomGeneral.Description))
+                if (!string.IsNullOrWhiteSpace(generalEvent.LivingRoom.LivingRoomGeneral.Description))
                 {
-                    this._litGeneral.Text += generalEvent.LivingRoomGeneral.Description;
+                    this._litGeneral.Text += generalEvent.LivingRoom.LivingRoomGeneral.Description;
                     this._litGeneral.Text += "<br /><br />";
                 }
 

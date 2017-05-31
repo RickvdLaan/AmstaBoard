@@ -83,8 +83,6 @@
     background-color: none;
 }
 
-
-
 /* Warning */
 
 .warning {
@@ -96,4 +94,34 @@
     background-color: #feefb3;
     background-image: url("warning.png");
     color: #9f6000;
+}
+
+select {
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    color: #555555;
+    height: 26px;
+    line-height: 26px;
+    vertical-align: middle;
+    padding: 3px 6px;
+    min-width: 200px;
+}
+
+select option {
+    padding: 3px 6px;
+}
+
+.textbox {
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    color: #555555;
+    height: 26px;
+    line-height: 26px;
+    vertical-align: middle;
+    padding: 3px 6px;
+    min-width: 188px;
+}
+
+table .aspNetDisabled {
+    min-width: 200px;
 }

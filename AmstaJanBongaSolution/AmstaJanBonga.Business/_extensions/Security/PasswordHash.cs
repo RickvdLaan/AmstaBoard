@@ -7,7 +7,7 @@ namespace AmstaJanBonga.Business.Security
     {
         #region Constants
 
-        private const int HASH_BYTE_SIZE = 24;         // To match the size of the PBKDF2-HMAC-SHA-1 hash 
+        private const int HASH_BYTE_SIZE = 24;         // To match the size of the PBKDF2-HMAC-SHA-1 hash  (192-bit)
 
         //@Fix-me: Add to the database. 
         private const int PBKDF2_ITERATIONS_V1 = 10000;
@@ -45,6 +45,7 @@ namespace AmstaJanBonga.Business.Security
 
         private static bool SlowEquals(byte[] a, byte[] b)
         {
+            // Length constant verification - prevents timing attack
             var diff = (uint)a.Length ^ (uint)b.Length;
 
             for (int i = 0; i < a.Length && i < b.Length; i++)

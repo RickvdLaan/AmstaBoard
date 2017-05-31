@@ -12,7 +12,7 @@
 <asp:Content ID="Content5" ContentPlaceHolderID="_cphContent" runat="server">
     <div class="box">
         <h2 class="display-inline">
-             Gebruiker <%= Helper.SubTitleAddEdit %>
+             Medewerker <%= Helper.SubTitleAddEdit %>
         </h2>
 
         <div class="return right">

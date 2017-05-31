@@ -19,6 +19,12 @@
 
         <div class="shortcut">
             <asp:HyperLink runat="server" ID="_hlAddEditShifts" CssClass="fa fa-plus-circle" Text="Dienst Toevoegen"></asp:HyperLink>
+
+            <div class="return right">
+                <asp:HyperLink runat="server" CssClass="return fa fa-reply display-inline" ToolTip="Terug naar woonkameroverzicht" NavigateUrl="~/Content/Secure/Livingroom/LivingroomOverview.aspx"></asp:HyperLink>
+            </div>
+
+            <div class="clear"></div>
         </div>
        
         <div class="gridview">
@@ -30,10 +36,12 @@
                         </HeaderTemplate>
 
                         <ItemTemplate>
-                            <%# "{0} {1} {2}".FormatString(
+                             <asp:HyperLink runat="server" NavigateUrl='<%# "~/Content/Secure/Livingroom/Shifts/ShiftsDetails.aspx?LivingRoomId={0}&Date={1}".FormatString(DataBinder.Eval(Container.DataItem, "LivingRoomId"), DataBinder.Eval(Container.DataItem, "Date")) %>'>
+                                <%# "{0} {1} {2}".FormatString(
                                 new System.Globalization.CultureInfo("nl-NL").DateTimeFormat.GetDayName(Convert.ToDateTime(Eval("Date")).DayOfWeek), 
                                 Convert.ToDateTime(Eval("Date")).Day, 
                                 new System.Globalization.CultureInfo("nl-NL").DateTimeFormat.GetMonthName(Convert.ToDateTime(Eval("Date")).Month)) %>
+                            </asp:HyperLink>
                         </ItemTemplate>
                     </asp:TemplateField>
 
@@ -42,10 +50,8 @@
                             Woonkamer
                         </HeaderTemplate>
 
-                        <ItemTemplate>
-                            <asp:HyperLink runat="server" NavigateUrl='<%# "~/Content/Secure/Livingroom/Shifts/ShiftsDetails.aspx?LivingRoomId={0}&Date={1}".FormatString(DataBinder.Eval(Container.DataItem, "LivingRoomId"), DataBinder.Eval(Container.DataItem, "Date")) %>'>
+                        <ItemTemplate>                     
                                 <%# Eval("Name").ToString().CapitalizeFirstLetter() %>
-                            </asp:HyperLink>
                         </ItemTemplate>
                     </asp:TemplateField>
 

@@ -1,5 +1,9 @@
 ﻿/* Default */
 
+* {
+    font-family: "Lato", "Open Sans", sans-serif;
+}
+
 h1, h2 {
     color: inherit;
     font-family: inherit;

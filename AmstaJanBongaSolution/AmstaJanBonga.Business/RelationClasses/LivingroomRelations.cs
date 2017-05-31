@@ -32,6 +32,7 @@ namespace AmstaJanBonga.Business.RelationClasses
 			List<IEntityRelation> toReturn = new List<IEntityRelation>();
 			toReturn.Add(this.EmployeeEntityUsingLivingRoomId);
 			toReturn.Add(this.LivingRoomChoreEventEntityUsingLivingRoomId);
+			toReturn.Add(this.LivingRoomGeneralEventEntityUsingLivingRoomId);
 			toReturn.Add(this.LivingRoomShiftEventEntityUsingLivingRoomId);
 			toReturn.Add(this.PatientEntityUsingLivingRoomId);
 			toReturn.Add(this.LivingRoomGeneralEntityUsingLivingRoomId);
@@ -66,6 +67,21 @@ namespace AmstaJanBonga.Business.RelationClasses
 				relation.AddEntityFieldPair(LivingRoomFields.Id, LivingRoomChoreEventFields.LivingRoomId);
 				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("LivingRoomEntity", true);
 				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("LivingRoomChoreEventEntity", false);
+				return relation;
+			}
+		}
+
+		/// <summary>Returns a new IEntityRelation object, between LivingRoomEntity and LivingRoomGeneralEventEntity over the 1:n relation they have, using the relation between the fields:
+		/// LivingRoom.Id - LivingRoomGeneralEvent.LivingRoomId
+		/// </summary>
+		public virtual IEntityRelation LivingRoomGeneralEventEntityUsingLivingRoomId
+		{
+			get
+			{
+				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany, "LivingRoomGeneralEvents" , true);
+				relation.AddEntityFieldPair(LivingRoomFields.Id, LivingRoomGeneralEventFields.LivingRoomId);
+				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("LivingRoomEntity", true);
+				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("LivingRoomGeneralEventEntity", false);
 				return relation;
 			}
 		}
@@ -135,6 +151,7 @@ namespace AmstaJanBonga.Business.RelationClasses
 	{
 		internal static readonly IEntityRelation EmployeeEntityUsingLivingRoomIdStatic = new LivingRoomRelations().EmployeeEntityUsingLivingRoomId;
 		internal static readonly IEntityRelation LivingRoomChoreEventEntityUsingLivingRoomIdStatic = new LivingRoomRelations().LivingRoomChoreEventEntityUsingLivingRoomId;
+		internal static readonly IEntityRelation LivingRoomGeneralEventEntityUsingLivingRoomIdStatic = new LivingRoomRelations().LivingRoomGeneralEventEntityUsingLivingRoomId;
 		internal static readonly IEntityRelation LivingRoomShiftEventEntityUsingLivingRoomIdStatic = new LivingRoomRelations().LivingRoomShiftEventEntityUsingLivingRoomId;
 		internal static readonly IEntityRelation PatientEntityUsingLivingRoomIdStatic = new LivingRoomRelations().PatientEntityUsingLivingRoomId;
 		internal static readonly IEntityRelation LivingRoomGeneralEntityUsingLivingRoomIdStatic = new LivingRoomRelations().LivingRoomGeneralEntityUsingLivingRoomId;

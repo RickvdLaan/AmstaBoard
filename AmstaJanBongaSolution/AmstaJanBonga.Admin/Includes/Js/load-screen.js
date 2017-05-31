@@ -1,6 +1,6 @@
 ﻿$(function () {
-	var isCtrlPressed = false;	
-	
+    var isCtrlPressed = false;	
+
 	// Detecting whether the ctrl button was pressed.
 	$(document).keydown(function(event) {
 		if(event.which == "17") {
@@ -16,7 +16,7 @@
 	});
 	
 	// Shows a loading screen.
-    function ShowProgress() {
+    function ShowProgress(link) {
         setTimeout(function () {
             var modal = $('<div />');
             modal.addClass("modal");
@@ -26,6 +26,13 @@
             var top = Math.max($(window).height() / 2 - loading[0].offsetHeight / 2, 0);
             var left = Math.max($(window).width() / 2 - loading[0].offsetWidth / 2, 0);
             loading.css({ top: top, left: left });
+            
+            setTimeout(function () {
+                // Prevention for a bug in some versions of IE when double clicking.
+                if (link != null) {
+                    window.location.replace(link); 
+                }
+            }, 5000);
         }, 200);
     }
 		
@@ -35,20 +42,20 @@
            return;
 		}
 		
-        ShowProgress();
+        ShowProgress(null);
     });
 	
-	// Anchor tags
-    $("a").click(function () {		
+    // Anchor tags
+    $("a").click(function () {	
         var href = $(this).attr('href');
-		
-		if (!isCtrlPressed) {
-			// Ignoring all the anchors in controls which do postbacks, or update panels, etc.
-			if (($(this).hasClass("js-listbox-button")) || (href.indexOf("ExtendedCalendar") != -1)) {
-				return;
-			}
-			
-			ShowProgress();
-		}
+
+        if (!isCtrlPressed) {
+            // Ignoring all the anchors in controls which do postbacks, or update panels, etc.
+            if (($(this).hasClass("js-listbox-button")) || (href.indexOf("ExtendedCalendar") != -1)) {
+                return;
+            }
+
+            ShowProgress(href);
+        }
     });
 }); 
