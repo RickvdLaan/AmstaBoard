@@ -49,7 +49,7 @@ namespace AmstaJanBonga.Business.HelperClasses
 		/// <summary>Method which initializes the internal datastores.</summary>
 		private void Init()
 		{
-			this.InitClass( (14 + 0));
+			this.InitClass( (14 + 1));
 			InitAgendaEventEntityInfos();
 			InitAgendaEventMetaEntityInfos();
 			InitEmployeeEntityInfos();
@@ -64,7 +64,7 @@ namespace AmstaJanBonga.Business.HelperClasses
 			InitUserActivityEntityInfos();
 			InitUserRoleEntityInfos();
 			InitUserRoleActivityEntityInfos();
-
+			InitGetAllEventsForTodayByPatientIdResultTypedViewInfos();
 			this.ConstructElementFieldStructures(InheritanceInfoProviderSingleton.GetInstance());
 		}
 
@@ -229,7 +229,18 @@ namespace AmstaJanBonga.Business.HelperClasses
 			this.AddElementFieldInfo("UserRoleActivityEntity", "RoleTypeEnum", typeof(System.Byte), true, true, false, false,  (int)UserRoleActivityFieldIndex.RoleTypeEnum, 0, 0, 3);
 			this.AddElementFieldInfo("UserRoleActivityEntity", "UserActivityName", typeof(System.String), true, true, false, false,  (int)UserRoleActivityFieldIndex.UserActivityName, 50, 0, 0);
 		}
-		
+
+		/// <summary>Inits View's FieldInfo objects</summary>
+		private void InitGetAllEventsForTodayByPatientIdResultTypedViewInfos()
+		{
+			this.AddFieldIndexEnumForElementName(typeof(GetAllEventsForTodayByPatientIdResultFieldIndex), "GetAllEventsForTodayByPatientIdResultTypedView");
+			this.AddElementFieldInfo("GetAllEventsForTodayByPatientIdResultTypedView", "Id", typeof(Nullable<System.Int32>), false, false, true, false, (int)GetAllEventsForTodayByPatientIdResultFieldIndex.Id, 0, 0, 10);
+			this.AddElementFieldInfo("GetAllEventsForTodayByPatientIdResultTypedView", "Title", typeof(System.String), false, false, true, false, (int)GetAllEventsForTodayByPatientIdResultFieldIndex.Title, 50, 0, 0);
+			this.AddElementFieldInfo("GetAllEventsForTodayByPatientIdResultTypedView", "Location", typeof(System.String), false, false, true, false, (int)GetAllEventsForTodayByPatientIdResultFieldIndex.Location, 50, 0, 0);
+			this.AddElementFieldInfo("GetAllEventsForTodayByPatientIdResultTypedView", "TimeStart", typeof(Nullable<System.Int32>), false, false, true, false, (int)GetAllEventsForTodayByPatientIdResultFieldIndex.TimeStart, 0, 0, 10);
+			this.AddElementFieldInfo("GetAllEventsForTodayByPatientIdResultTypedView", "TimeEnd", typeof(Nullable<System.Int32>), false, false, true, false, (int)GetAllEventsForTodayByPatientIdResultFieldIndex.TimeEnd, 0, 0, 10);
+			this.AddElementFieldInfo("GetAllEventsForTodayByPatientIdResultTypedView", "Description", typeof(System.String), false, false, true, false, (int)GetAllEventsForTodayByPatientIdResultFieldIndex.Description, 500, 0, 0);
+		}		
 	}
 }
 

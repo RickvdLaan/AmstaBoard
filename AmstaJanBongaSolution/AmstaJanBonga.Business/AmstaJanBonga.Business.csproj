@@ -76,6 +76,7 @@
     <Compile Include="_Extensions\Database\Managers\PatientManager.cs" />
     <Compile Include="_Extensions\Database\Managers\UserManager.cs" />
     <Compile Include="_Extensions\Database\Readers\AgendaEventMetaReader.cs" />
+    <Compile Include="_Extensions\Database\Readers\AgendaEventReader.cs" />
     <Compile Include="_Extensions\Database\Readers\IpReader.cs" />
     <Compile Include="_Extensions\Database\Readers\LivingroomChoreEventReader.cs" />
     <Compile Include="_Extensions\Database\Readers\EmployeeReader.cs" />
@@ -329,6 +330,9 @@
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
     <Compile Include="StoredProcedureCallerClasses\RetrievalProcedures.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
+    <Compile Include="TypedViewClasses\GetAllEventsForTodayByPatientIdResultTypedView.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
   </ItemGroup>

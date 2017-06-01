@@ -99,11 +99,16 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
 
             var appointment = this._agendaDay.NewRow();
 
-            var appointments = AgendaEventMetaReader.GetAllEventsForTodayByPatientId(this.Patient.Id);
+            var appointments = AgendaEventReader.GetAllEventsForTodayByPatientId(this.Patient.Id);
 
-            foreach (var app in appointments)
+            for (int i = 0; i < appointments.Count; i++)
             {
-                appointment[0] += this.GenerateAppointment(app.Title, app.Location, new Time(app.TimeStart), new Time(app.TimeEnd), app.Description);
+                appointment[0] += this.GenerateAppointment(
+                    appointments[i].Title,
+                    appointments[i].Location, 
+                    new Time(appointments[i].TimeStart), 
+                    new Time(appointments[i].TimeEnd),
+                    appointments[i].Description);
             }
 
             this._agendaDay.Rows.Add(appointment);
@@ -114,7 +119,17 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
 
         private void DatabindAgendaWeek()
         {
-            this._repAgendaWeek.DataSource = null;
+            this._agendaWeekDay.Columns.Add("Days");
+
+            for (int i = 0; i < 7; i++)
+            {
+                this._agendaWeekDay.Rows.Add(this._agendaWeekDay.NewRow());
+            }
+
+            // _repAgendaWeek_ItemDataBound gets called 7 times.
+            // Getting all the appointments for the week should only be called once.
+
+            this._repAgendaWeek.DataSource = this._agendaWeekDay;
             this._repAgendaWeek.DataBind();
         }
 
@@ -179,15 +194,21 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
 
             if (args.Item.ItemType == ListItemType.Item || args.Item.ItemType == ListItemType.AlternatingItem)
             {
-                //if (!this._agendaWeekAppointments.Columns.Contains("Appointments"))
-                //    this._agendaWeekAppointments.Columns.Add("Appointments");
+                if (!this._agendaWeekAppointments.Columns.Contains("Appointments"))
+                    this._agendaWeekAppointments.Columns.Add("Appointments");
 
-                Repeater childRepeater = (Repeater)args.Item.FindControl("_repAgendaWeekChild");
-                childRepeater.DataSource = null;
+                var appointment = this._agendaWeekAppointments.NewRow();
+
+                appointment[0] += this.GenerateAppointment("Afspraak fysio", "Ruimte A", new Time(480), new Time(600), "Een omschrijving.");
+
+                this._agendaWeekAppointments.Rows.Add(appointment);
+
+                var childRepeater = (Repeater)args.Item.FindControl("_repAgendaWeekChild");
+                childRepeater.DataSource = this._agendaWeekAppointments;
                 childRepeater.DataBind();
 
-                //this._agendaWeekAppointments.Clear();
-           }
+                this._agendaWeekAppointments.Clear();
+            }
         }
 
         protected void _upAgenda_PreRender(object sender, EventArgs e)

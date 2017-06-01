@@ -46,7 +46,7 @@ namespace AmstaJanBonga.Business.HelperClasses
 		/// <summary>Method which initializes the internal datastores with the structure of hierarchical types.</summary>
 		private void Init()
 		{
-			this.InitClass(14);
+			this.InitClass(15);
 			InitAgendaEventEntityMappings();
 			InitAgendaEventMetaEntityMappings();
 			InitEmployeeEntityMappings();
@@ -61,6 +61,7 @@ namespace AmstaJanBonga.Business.HelperClasses
 			InitUserActivityEntityMappings();
 			InitUserRoleEntityMappings();
 			InitUserRoleActivityEntityMappings();
+			InitGetAllEventsForTodayByPatientIdResultTypedViewMappings();
 		}
 
 		/// <summary>Inits AgendaEventEntity's mappings</summary>
@@ -236,6 +237,19 @@ namespace AmstaJanBonga.Business.HelperClasses
 			this.AddElementMapping("UserRoleActivityEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "UserRoleActivity", 2, 0);
 			this.AddElementFieldMapping("UserRoleActivityEntity", "RoleTypeEnum", "RoleTypeEnum", false, "TinyInt", 0, 3, 0, false, "", null, typeof(System.Byte), 0);
 			this.AddElementFieldMapping("UserRoleActivityEntity", "UserActivityName", "UserActivityName", false, "VarChar", 50, 0, 0, false, "", null, typeof(System.String), 1);
+		}
+
+
+		/// <summary>Inits GetAllEventsForTodayByPatientIdResultView's mappings</summary>
+		private void InitGetAllEventsForTodayByPatientIdResultTypedViewMappings()
+		{
+			this.AddElementMapping("GetAllEventsForTodayByPatientIdResultTypedView", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "Resultset1", 6);
+			this.AddElementFieldMapping("GetAllEventsForTodayByPatientIdResultTypedView", "Id", "Id", false, "Int", 0, 10, 0, false, string.Empty, null, typeof(System.Int32), 0);
+			this.AddElementFieldMapping("GetAllEventsForTodayByPatientIdResultTypedView", "Title", "Title", false, "VarChar", 50, 0, 0, false, string.Empty, null, typeof(System.String), 1);
+			this.AddElementFieldMapping("GetAllEventsForTodayByPatientIdResultTypedView", "Location", "Location", false, "VarChar", 50, 0, 0, false, string.Empty, null, typeof(System.String), 2);
+			this.AddElementFieldMapping("GetAllEventsForTodayByPatientIdResultTypedView", "TimeStart", "TimeStart", false, "Int", 0, 10, 0, false, string.Empty, null, typeof(System.Int32), 3);
+			this.AddElementFieldMapping("GetAllEventsForTodayByPatientIdResultTypedView", "TimeEnd", "TimeEnd", false, "Int", 0, 10, 0, false, string.Empty, null, typeof(System.Int32), 4);
+			this.AddElementFieldMapping("GetAllEventsForTodayByPatientIdResultTypedView", "Description", "Description", false, "VarChar", 500, 0, 0, false, string.Empty, null, typeof(System.String), 5);
 		}
 
 	}

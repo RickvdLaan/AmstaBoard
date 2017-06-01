@@ -278,6 +278,24 @@ namespace AmstaJanBonga.Business
 		AmountOfFields
 	}
 
+	/// <summary>Index enum to fast-access Typed View EntityFields in the IEntityFields collection for the typed view : GetAllEventsForTodayByPatientIdResult.</summary>
+	public enum GetAllEventsForTodayByPatientIdResultFieldIndex
+	{
+		///<summary>Id</summary>
+		Id,
+		///<summary>Title</summary>
+		Title,
+		///<summary>Location</summary>
+		Location,
+		///<summary>TimeStart</summary>
+		TimeStart,
+		///<summary>TimeEnd</summary>
+		TimeEnd,
+		///<summary>Description</summary>
+		Description,
+		/// <summary></summary>
+		AmountOfFields
+	}
 
 
 	/// <summary>Enum definition for all the entity types defined in this namespace. Used by the entityfields factory.</summary>
@@ -313,6 +331,12 @@ namespace AmstaJanBonga.Business
 		UserRoleActivityEntity
 	}
 
+	/// <summary>Enum definition for all the typed view types defined in this namespace. Used by the entityfields factory.</summary>
+	public enum TypedViewType
+	{
+		///<summary>GetAllEventsForTodayByPatientIdResult</summary>
+		GetAllEventsForTodayByPatientIdResultTypedView
+	}
 
 	#region Custom ConstantsEnums Code
 	

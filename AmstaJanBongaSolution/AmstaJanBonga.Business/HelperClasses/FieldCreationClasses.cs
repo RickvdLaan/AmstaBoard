@@ -540,4 +540,43 @@ namespace AmstaJanBonga.Business.HelperClasses
 	}
 	
 
+	/// <summary>Field Creation Class for typedview GetAllEventsForTodayByPatientIdResultTypedView</summary>
+	public partial class GetAllEventsForTodayByPatientIdResultFields
+	{
+		/// <summary>Creates a new GetAllEventsForTodayByPatientIdResultTypedView.Id field instance</summary>
+		public static EntityField Id
+		{
+			get { return (EntityField)EntityFieldFactory.Create(GetAllEventsForTodayByPatientIdResultFieldIndex.Id);}
+		}
+
+		/// <summary>Creates a new GetAllEventsForTodayByPatientIdResultTypedView.Title field instance</summary>
+		public static EntityField Title
+		{
+			get { return (EntityField)EntityFieldFactory.Create(GetAllEventsForTodayByPatientIdResultFieldIndex.Title);}
+		}
+
+		/// <summary>Creates a new GetAllEventsForTodayByPatientIdResultTypedView.Location field instance</summary>
+		public static EntityField Location
+		{
+			get { return (EntityField)EntityFieldFactory.Create(GetAllEventsForTodayByPatientIdResultFieldIndex.Location);}
+		}
+
+		/// <summary>Creates a new GetAllEventsForTodayByPatientIdResultTypedView.TimeStart field instance</summary>
+		public static EntityField TimeStart
+		{
+			get { return (EntityField)EntityFieldFactory.Create(GetAllEventsForTodayByPatientIdResultFieldIndex.TimeStart);}
+		}
+
+		/// <summary>Creates a new GetAllEventsForTodayByPatientIdResultTypedView.TimeEnd field instance</summary>
+		public static EntityField TimeEnd
+		{
+			get { return (EntityField)EntityFieldFactory.Create(GetAllEventsForTodayByPatientIdResultFieldIndex.TimeEnd);}
+		}
+
+		/// <summary>Creates a new GetAllEventsForTodayByPatientIdResultTypedView.Description field instance</summary>
+		public static EntityField Description
+		{
+			get { return (EntityField)EntityFieldFactory.Create(GetAllEventsForTodayByPatientIdResultFieldIndex.Description);}
+		}
+	}
 }
