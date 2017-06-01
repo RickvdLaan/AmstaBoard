@@ -97,7 +97,10 @@
     <Compile Include="_Extensions\Security\RNGCSP.cs" />
     <Compile Include="_Extensions\Security\PasswordHash.cs" />
     <AppDesigner Include="Properties\" />
+    <Compile Include="_Extensions\Utilities\Extensions.cs" />
     <Compile Include="_Extensions\Utilities\Helper.cs" />
+    <Compile Include="_Extensions\Utilities\Time.cs" />
+    <Compile Include="_Extensions\Utilities\UnixTime.cs" />
     <None Include="App.config">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </None>

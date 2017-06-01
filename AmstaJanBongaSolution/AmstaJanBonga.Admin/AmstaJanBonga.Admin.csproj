@@ -225,7 +225,6 @@
     <Compile Include="Code\Utilities\DefaultPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Code\Utilities\Extensions.cs" />
     <Compile Include="Code\Utilities\SecurePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

@@ -29,19 +29,6 @@ public abstract class Helper
 
     #endregion
 
-    public class UnixTime
-    {
-        public static int Today
-        {
-            get
-            {
-                var dtNow = DateTime.Now;
-
-                return (Int32)(dtNow.Subtract(new DateTime(1970, 1, 1) + dtNow.TimeOfDay)).TotalSeconds;
-            }
-        }
-    }
-
     public abstract class FileManager
     {
         /// <summary>

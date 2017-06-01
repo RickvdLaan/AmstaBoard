@@ -18,7 +18,7 @@
     </h1>
 
     <p>
-        Uw account heeft niet de juiste bevoegdheden om deze actie uit te voeren. Indien dit incorrect is moet u contact opnemen met de beheerder van de applicatie.
+        Uw account heeft niet de juiste bevoegdheden om deze actie uit te voeren. Indien dit incorrect is dient u contact opnemen met de beheerder van de applicatie.
         Druk <asp:HyperLink runat="server" NavigateUrl="~/Dashboard">hier</asp:HyperLink> om terug te gaan naar het hoofdscherm.
     </p>
     </div> 

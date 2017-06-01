@@ -3,11 +3,21 @@ using AmstaJanBonga.Business.EntityClasses;
 using AmstaJanBonga.Business.StoredProcedureCallerClasses;
 using Rlaan.Toolkit.Extensions;
 using System;
+using System.Collections.Generic;
 
 namespace AmstaJanBonga.Business.Database.Readers
 {
     public abstract class AgendaEventReader
     {
+        public static List<List<AgendaEventCollection>> GetAllEventsForWeekByPatientId(int patientId)
+        {
+            //get unix times of monday & sunday of the current bweek based on the current day.
+
+
+
+            return null;
+        }
+
         public static AgendaEventCollection GetAllEventsForTodayByPatientId(int patientId)
         {
             // Hopefully temp code, need to figure out a way to create this where clause:
@@ -15,7 +25,7 @@ namespace AmstaJanBonga.Business.Database.Readers
             // with the low level api of llblgen, but for now it'll be done through a
             // stored procedure. 
 
-            using (var dataSet = RetrievalProcedures.GetAllEventsForTodayByPatientId(Helper.UnixTime.Today, patientId))
+            using (var dataSet = RetrievalProcedures.GetAllEventsForTodayByPatientId(Time.UnixTime.Today, patientId))
             {
                 var collection = new AgendaEventCollection();
 
