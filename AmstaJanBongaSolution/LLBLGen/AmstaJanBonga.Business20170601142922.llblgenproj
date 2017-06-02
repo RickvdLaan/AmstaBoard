@@ -355,7 +355,7 @@
     <InheritanceHierarchies />
   </EntityModel>
   <TypedViewDefinitions>
-    <TypedViewDefinition Name="GetAllEventsByDateAndByPatientIdResult" GroupName="Vanderlaan" ObjectID="ae777d2f-af6a-46fa-add4-ddf2c1761d9c">
+    <TypedViewDefinition Name="GetAllEventsForTodayByPatientIdResult" GroupName="Vanderlaan" ObjectID="ee9e262c-5d87-461d-88d4-027777b1bb6f">
       <Fields>
         <Field Name="Description" Type="string" IsOptional="true" MaxLength="500" />
         <Field Name="Id" Type="int" IsOptional="true" Precision="10" />
@@ -367,7 +367,7 @@
     </TypedViewDefinition>
   </TypedViewDefinitions>
   <SPCallDefinitions>
-    <SPCallDefinition Name="GetAllEventsByDateAndByPatientId" GroupName="Vanderlaan" ObjectID="ae8e6e06-43dc-4e6e-961c-3055f3ff383d">
+    <SPCallDefinition Name="GetAllEventsForTodayByPatientId" GroupName="Vanderlaan" ObjectID="2c88f919-c202-44f3-8f68-b9280d27fc23">
       <Parameters>
         <Parameter Name="PatientId" Type="int" Precision="10" />
         <Parameter Name="Unix" Type="int" Precision="10" />
@@ -389,7 +389,7 @@
       <Catalogs>
         <Catalog Name="Vanderlaan_jouwsoftware_janbonga_development">
           <Schemas>
-            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-06-01T12:33:58.9276687Z">
+            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-06-01T12:01:19.7896124Z">
               <StoredProcedures>
                 <StoredProcedure Name="sp_alterdiagram">
                   <Parameters>
@@ -457,7 +457,7 @@
                 </StoredProcedure>
               </StoredProcedures>
             </Schema>
-            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-06-01T12:33:59.0076733Z">
+            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-06-01T12:01:19.8496159Z">
               <Tables>
                 <Table Name="AgendaEvent">
                   <PkConstraintName Name="PK_AgendaEvent" />
@@ -624,7 +624,7 @@
                 </Table>
               </Tables>
               <StoredProcedures>
-                <StoredProcedure Name="GetAllEventsByDateAndByPatientId" NumberOfResultsets="1">
+                <StoredProcedure Name="GetAllEventsForTodayByPatientId" NumberOfResultsets="1">
                   <Parameters>
                     <Parameter Name="@Unix" Direction="1" Ordinal="1" DbType="8" Precision="10" />
                     <Parameter Name="@PatientId" Direction="1" Ordinal="2" DbType="8" Precision="10" />
@@ -870,7 +870,7 @@
         </EntityMapping>
       </EntityMappings>
       <TypedViewMappings>
-        <TypedViewMapping TypedViewName="Vanderlaan:GetAllEventsByDateAndByPatientIdResult" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:GetAllEventsByDateAndByPatientId:Resultset1">
+        <TypedViewMapping TypedViewName="Vanderlaan:GetAllEventsForTodayByPatientIdResult" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:GetAllEventsForTodayByPatientId:Resultset1">
           <FieldMappings>
             <FieldMapping FieldName="Description" TargetFieldName="Description" />
             <FieldMapping FieldName="Id" TargetFieldName="Id" />
@@ -882,7 +882,7 @@
         </TypedViewMapping>
       </TypedViewMappings>
       <SPCallMappings>
-        <SPCallMapping SPCallName="Vanderlaan:GetAllEventsByDateAndByPatientId" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:GetAllEventsByDateAndByPatientId">
+        <SPCallMapping SPCallName="Vanderlaan:GetAllEventsForTodayByPatientId" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:GetAllEventsForTodayByPatientId">
           <FieldMappings>
             <FieldMapping FieldName="PatientId" TargetFieldName="@PatientId" />
             <FieldMapping FieldName="Unix" TargetFieldName="@Unix" />

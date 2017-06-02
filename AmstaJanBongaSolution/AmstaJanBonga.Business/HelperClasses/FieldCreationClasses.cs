@@ -57,6 +57,11 @@ namespace AmstaJanBonga.Business.HelperClasses
 		{
 			get { return (EntityField)EntityFieldFactory.Create(AgendaEventMetaFieldIndex.AgendaEventId);}
 		}
+		/// <summary>Creates a new AgendaEventMetaEntity.EventUnixTimeStamp field instance</summary>
+		public static EntityField EventUnixTimeStamp
+		{
+			get { return (EntityField)EntityFieldFactory.Create(AgendaEventMetaFieldIndex.EventUnixTimeStamp);}
+		}
 		/// <summary>Creates a new AgendaEventMetaEntity.Id field instance</summary>
 		public static EntityField Id
 		{
@@ -71,16 +76,6 @@ namespace AmstaJanBonga.Business.HelperClasses
 		public static EntityField RepeatInterval
 		{
 			get { return (EntityField)EntityFieldFactory.Create(AgendaEventMetaFieldIndex.RepeatInterval);}
-		}
-		/// <summary>Creates a new AgendaEventMetaEntity.RepeatStart field instance</summary>
-		public static EntityField RepeatStart
-		{
-			get { return (EntityField)EntityFieldFactory.Create(AgendaEventMetaFieldIndex.RepeatStart);}
-		}
-		/// <summary>Creates a new AgendaEventMetaEntity.SingleEvent field instance</summary>
-		public static EntityField SingleEvent
-		{
-			get { return (EntityField)EntityFieldFactory.Create(AgendaEventMetaFieldIndex.SingleEvent);}
 		}
 	}
 
@@ -477,16 +472,6 @@ namespace AmstaJanBonga.Business.HelperClasses
 		{
 			get { return (EntityField)EntityFieldFactory.Create(UserActivityFieldIndex.DateCreated);}
 		}
-		/// <summary>Creates a new UserActivityEntity.DateLastModified field instance</summary>
-		public static EntityField DateLastModified
-		{
-			get { return (EntityField)EntityFieldFactory.Create(UserActivityFieldIndex.DateLastModified);}
-		}
-		/// <summary>Creates a new UserActivityEntity.DateLastModifiedByUserId field instance</summary>
-		public static EntityField DateLastModifiedByUserId
-		{
-			get { return (EntityField)EntityFieldFactory.Create(UserActivityFieldIndex.DateLastModifiedByUserId);}
-		}
 		/// <summary>Creates a new UserActivityEntity.Name field instance</summary>
 		public static EntityField Name
 		{
@@ -540,43 +525,43 @@ namespace AmstaJanBonga.Business.HelperClasses
 	}
 	
 
-	/// <summary>Field Creation Class for typedview GetAllEventsForTodayByPatientIdResultTypedView</summary>
-	public partial class GetAllEventsForTodayByPatientIdResultFields
+	/// <summary>Field Creation Class for typedview GetAllEventsByDateAndByPatientIdResultTypedView</summary>
+	public partial class GetAllEventsByDateAndByPatientIdResultFields
 	{
-		/// <summary>Creates a new GetAllEventsForTodayByPatientIdResultTypedView.Id field instance</summary>
+		/// <summary>Creates a new GetAllEventsByDateAndByPatientIdResultTypedView.Id field instance</summary>
 		public static EntityField Id
 		{
-			get { return (EntityField)EntityFieldFactory.Create(GetAllEventsForTodayByPatientIdResultFieldIndex.Id);}
+			get { return (EntityField)EntityFieldFactory.Create(GetAllEventsByDateAndByPatientIdResultFieldIndex.Id);}
 		}
 
-		/// <summary>Creates a new GetAllEventsForTodayByPatientIdResultTypedView.Title field instance</summary>
+		/// <summary>Creates a new GetAllEventsByDateAndByPatientIdResultTypedView.Title field instance</summary>
 		public static EntityField Title
 		{
-			get { return (EntityField)EntityFieldFactory.Create(GetAllEventsForTodayByPatientIdResultFieldIndex.Title);}
+			get { return (EntityField)EntityFieldFactory.Create(GetAllEventsByDateAndByPatientIdResultFieldIndex.Title);}
 		}
 
-		/// <summary>Creates a new GetAllEventsForTodayByPatientIdResultTypedView.Location field instance</summary>
+		/// <summary>Creates a new GetAllEventsByDateAndByPatientIdResultTypedView.Location field instance</summary>
 		public static EntityField Location
 		{
-			get { return (EntityField)EntityFieldFactory.Create(GetAllEventsForTodayByPatientIdResultFieldIndex.Location);}
+			get { return (EntityField)EntityFieldFactory.Create(GetAllEventsByDateAndByPatientIdResultFieldIndex.Location);}
 		}
 
-		/// <summary>Creates a new GetAllEventsForTodayByPatientIdResultTypedView.TimeStart field instance</summary>
+		/// <summary>Creates a new GetAllEventsByDateAndByPatientIdResultTypedView.TimeStart field instance</summary>
 		public static EntityField TimeStart
 		{
-			get { return (EntityField)EntityFieldFactory.Create(GetAllEventsForTodayByPatientIdResultFieldIndex.TimeStart);}
+			get { return (EntityField)EntityFieldFactory.Create(GetAllEventsByDateAndByPatientIdResultFieldIndex.TimeStart);}
 		}
 
-		/// <summary>Creates a new GetAllEventsForTodayByPatientIdResultTypedView.TimeEnd field instance</summary>
+		/// <summary>Creates a new GetAllEventsByDateAndByPatientIdResultTypedView.TimeEnd field instance</summary>
 		public static EntityField TimeEnd
 		{
-			get { return (EntityField)EntityFieldFactory.Create(GetAllEventsForTodayByPatientIdResultFieldIndex.TimeEnd);}
+			get { return (EntityField)EntityFieldFactory.Create(GetAllEventsByDateAndByPatientIdResultFieldIndex.TimeEnd);}
 		}
 
-		/// <summary>Creates a new GetAllEventsForTodayByPatientIdResultTypedView.Description field instance</summary>
+		/// <summary>Creates a new GetAllEventsByDateAndByPatientIdResultTypedView.Description field instance</summary>
 		public static EntityField Description
 		{
-			get { return (EntityField)EntityFieldFactory.Create(GetAllEventsForTodayByPatientIdResultFieldIndex.Description);}
+			get { return (EntityField)EntityFieldFactory.Create(GetAllEventsByDateAndByPatientIdResultFieldIndex.Description);}
 		}
 	}
 }

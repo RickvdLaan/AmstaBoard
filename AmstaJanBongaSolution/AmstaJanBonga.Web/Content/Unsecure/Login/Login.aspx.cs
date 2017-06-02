@@ -30,7 +30,9 @@ namespace AmstaJanBonga.Web.Content.Unsecure.Login
         {
             // Checks if the software is updating.
             if (WebConfig.GetSetting("Application.IsUpdating").ToBoolean())
+            {
                 Response.Redirect("~/Updating");
+            }
 
             base.OnPreInit(e);
         }
@@ -38,7 +40,9 @@ namespace AmstaJanBonga.Web.Content.Unsecure.Login
         protected override void OnInit(EventArgs e)
         {
             if (Authentication.IsAuthenticated)
+            {
                 Response.Redirect("~/Livingroom");
+            }
         }
 
         #endregion
@@ -96,7 +100,9 @@ namespace AmstaJanBonga.Web.Content.Unsecure.Login
 
             // Looks if a return url is present.
             if (Helper.ReturnUrl != null)
+            {
                 Response.Redirect(Helper.ReturnUrl);
+            }
 
             // There was no return url present, so we assume that the user came from the login page.
             Response.Redirect("~/Livingroom");

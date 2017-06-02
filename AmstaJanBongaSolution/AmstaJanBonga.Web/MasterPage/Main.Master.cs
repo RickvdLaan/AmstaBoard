@@ -27,7 +27,9 @@ namespace AmstaJanBonga.Web.MasterPage
         {
             // Checks if the software is updating.
             if (WebConfig.GetSetting("Application.IsUpdating").ToBoolean())
+            {
                 Response.Redirect("~/Updating");
+            }
 
             // Were one of these exceptions ever to occur on the live environment then give the developer a punch in the head for not testing his work!
             if (Project.Environment.IsDevelopEnvironment || Project.Environment.IsStagingEnvironment || Project.Environment.IsLiveEnvironment)
@@ -61,7 +63,9 @@ namespace AmstaJanBonga.Web.MasterPage
         {
             // Checks if the software is updating.
             if (WebConfig.GetSetting("Application.IsUpdating").ToBoolean())
+            {
                 Response.Redirect("~/Updating");
+            }
 
             var culture = new CultureInfo("nl-NL");
             var day = culture.DateTimeFormat.GetDayName(DateTime.Today.DayOfWeek);
@@ -160,7 +164,7 @@ namespace AmstaJanBonga.Web.MasterPage
 
         protected void _lbHome_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Livingroom");
+            Response.Redirect("~/Livingroom", false);
         }
 
         protected void _SignOut_Click(object sender, EventArgs e)

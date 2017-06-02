@@ -4,8 +4,6 @@
 <%@ Import namespace="AmstaJanBonga.Business.Enums" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="_cphHead" runat="server">
-
-    <!-- Sets the width of the staff images based on the amount of staff members -->
     <script>
         function HiddenFieldPatient(patientId, timeOfDay) {
             var hiddenFieldPatient = document.getElementById('<%= _hfPatient.ClientID %>');
@@ -23,7 +21,6 @@
             }
         }
     </script>
-
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="_cphContent" runat="server">

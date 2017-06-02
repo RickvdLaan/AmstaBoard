@@ -54,21 +54,21 @@ namespace AmstaJanBonga.Business.FactoryClasses
 			IEntityFields fieldsToReturn=null;
 			switch(relatedTypedViewType)
 			{
-				case TypedViewType.GetAllEventsForTodayByPatientIdResultTypedView:
-					fieldsToReturn = CreateGetAllEventsForTodayByPatientIdResultTypedViewEntityFields();
+				case TypedViewType.GetAllEventsByDateAndByPatientIdResultTypedView:
+					fieldsToReturn = CreateGetAllEventsByDateAndByPatientIdResultTypedViewEntityFields();
 					break;
 			}
 			return fieldsToReturn;
 		}
 
-		/// <summary>Creates a complete EntityFields instance for the GetAllEventsForTodayByPatientIdResultEntity.</summary>
+		/// <summary>Creates a complete EntityFields instance for the GetAllEventsByDateAndByPatientIdResultEntity.</summary>
 		/// <returns></returns>
-		private static IEntityFields CreateGetAllEventsForTodayByPatientIdResultTypedViewEntityFields()
+		private static IEntityFields CreateGetAllEventsByDateAndByPatientIdResultTypedViewEntityFields()
 		{
-			IEntityFields fieldsToReturn = new EntityFields((int)GetAllEventsForTodayByPatientIdResultFieldIndex.AmountOfFields, null, FieldInfoProviderSingleton.GetInstance().GetFieldIndexes("GetAllEventsForTodayByPatientIdResultTypedView"));
-			for(int i=0;i<(int)GetAllEventsForTodayByPatientIdResultFieldIndex.AmountOfFields;i++)
+			IEntityFields fieldsToReturn = new EntityFields((int)GetAllEventsByDateAndByPatientIdResultFieldIndex.AmountOfFields, null, FieldInfoProviderSingleton.GetInstance().GetFieldIndexes("GetAllEventsByDateAndByPatientIdResultTypedView"));
+			for(int i=0;i<(int)GetAllEventsByDateAndByPatientIdResultFieldIndex.AmountOfFields;i++)
 			{
-				fieldsToReturn[i] = EntityFieldFactory.Create((GetAllEventsForTodayByPatientIdResultFieldIndex)i);
+				fieldsToReturn[i] = EntityFieldFactory.Create((GetAllEventsByDateAndByPatientIdResultFieldIndex)i);
 			}
 			return fieldsToReturn;
 		}

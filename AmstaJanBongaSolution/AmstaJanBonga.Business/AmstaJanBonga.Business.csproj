@@ -335,7 +335,7 @@
     <Compile Include="StoredProcedureCallerClasses\RetrievalProcedures.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
-    <Compile Include="TypedViewClasses\GetAllEventsForTodayByPatientIdResultTypedView.cs">
+    <Compile Include="TypedViewClasses\GetAllEventsByDateAndByPatientIdResultTypedView.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
   </ItemGroup>

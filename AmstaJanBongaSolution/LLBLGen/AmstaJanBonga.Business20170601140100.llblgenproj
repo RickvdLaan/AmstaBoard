@@ -130,26 +130,27 @@
   <EntityModel>
     <ValueTypeDefinitions />
     <EntityDefinitions>
-      <EntityDefinition Name="AgendaEvent" GroupName="Vanderlaan" ObjectID="b3084d04-e45e-4cdf-bee9-11862ad2f7b3">
+      <EntityDefinition Name="AgendaEvent" GroupName="Vanderlaan" ObjectID="dc3add2c-a04f-4445-a9fe-0365e79cf6f8">
         <Fields>
           <Field Name="Description" Type="string" IsOptional="true" MaxLength="500" />
           <Field Name="Id" Type="int" IsReadOnly="true" Precision="10" IsPrimaryKey="true" />
           <Field Name="Location" Type="string" IsOptional="true" MaxLength="50" />
-          <Field Name="TimeEnd" Type="int" Precision="10" />
-          <Field Name="TimeStart" Type="int" Precision="10" />
+          <Field Name="TimeEnd" Type="int" />
+          <Field Name="TimeStart" Type="int" />
           <Field Name="Title" Type="string" MaxLength="50" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="AgendaEventMeta" GroupName="Vanderlaan" ObjectID="741877ed-932f-4220-a1cf-7c31f3ae1635">
+      <EntityDefinition Name="AgendaEventMeta" GroupName="Vanderlaan" ObjectID="91fab9ef-5ad3-4d41-a51b-fe4cc84563f2">
         <Fields>
           <Field Name="AgendaEventId" Type="int" Precision="10" />
-          <Field Name="EventUnixTimeStamp" Type="int" Precision="10" />
           <Field Name="Id" Type="int" IsReadOnly="true" Precision="10" IsPrimaryKey="true" />
           <Field Name="PatientId" Type="int" Precision="10" />
           <Field Name="RepeatInterval" Type="int" IsOptional="true" Precision="10" />
+          <Field Name="RepeatStart" Type="int" IsOptional="true" Precision="10" />
+          <Field Name="SingleEvent" Type="int" IsOptional="true" Precision="10" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="Employee" GroupName="Vanderlaan" ObjectID="73775cf1-f31f-4e0c-b2a0-b8908eaf618f">
+      <EntityDefinition Name="Employee" GroupName="Vanderlaan" ObjectID="153237cf-1419-42b1-92ca-9437b2993f5f">
         <Fields>
           <Field Name="DateCreated" Type="datetime" />
           <Field Name="DateDeleted" Type="datetime" IsOptional="true" />
@@ -163,7 +164,7 @@
           <Field Name="UserId" Type="int" IsOptional="true" Precision="10" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="Ip" GroupName="Vanderlaan" ObjectID="be7dbc00-a60b-4aae-8b61-163164b8d0e6">
+      <EntityDefinition Name="Ip" GroupName="Vanderlaan" ObjectID="987c0843-a8b3-4151-9b11-57f0adb1c5d2">
         <Fields>
           <Field Name="DateCreated" Type="datetime" />
           <Field Name="DateLastModified" Type="datetime" IsOptional="true" />
@@ -172,7 +173,7 @@
           <Field Name="Ipaddress" Type="string" MaxLength="20" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="LivingRoom" GroupName="Vanderlaan" ObjectID="c7097603-c4aa-468e-ba08-6225a2ef5c60">
+      <EntityDefinition Name="LivingRoom" GroupName="Vanderlaan" ObjectID="ee84777c-6d8b-494b-969d-c699b44b0bb8">
         <Fields>
           <Field Name="ColourTypeEnum" Type="byte" Precision="3" />
           <Field Name="DateCreated" Type="datetime" />
@@ -184,7 +185,7 @@
           <Field Name="Name" Type="string" MaxLength="50" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="LivingRoomChoreEvent" GroupName="Vanderlaan" ObjectID="4f973238-ae5e-468e-b0c9-ebdb9219d204">
+      <EntityDefinition Name="LivingRoomChoreEvent" GroupName="Vanderlaan" ObjectID="cd8507ff-1390-42b1-80e1-530b95fd569a">
         <Fields>
           <Field Name="Date" Type="datetime" IsPrimaryKey="true" />
           <Field Name="DateCreated" Type="datetime" />
@@ -195,7 +196,7 @@
           <Field Name="TimeOfDayTypeEnum" Type="byte" Precision="3" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="LivingRoomGeneral" GroupName="Vanderlaan" ObjectID="c1fef4c4-c87a-4a6e-a49e-4beee8bd116c">
+      <EntityDefinition Name="LivingRoomGeneral" GroupName="Vanderlaan" ObjectID="755f84d3-7f92-473c-a7b5-60800cadac87">
         <Fields>
           <Field Name="DateCreated" Type="datetime" />
           <Field Name="DateLastModified" Type="datetime" IsOptional="true" />
@@ -204,7 +205,7 @@
           <Field Name="LivingRoomId" Type="int" Precision="10" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="LivingRoomGeneralEvent" GroupName="Vanderlaan" ObjectID="ecef83dd-a22a-4107-8098-f323afe3f535">
+      <EntityDefinition Name="LivingRoomGeneralEvent" GroupName="Vanderlaan" ObjectID="90ef82bd-fd32-475d-9bdf-01f0643b3685">
         <Fields>
           <Field Name="Date" Type="datetime" IsPrimaryKey="true" />
           <Field Name="DateCreated" Type="datetime" />
@@ -214,7 +215,7 @@
           <Field Name="LivingRoomId" Type="int" Precision="10" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="LivingRoomShiftEvent" GroupName="Vanderlaan" ObjectID="92c88a67-78d5-4b47-82ff-3205e58ca191">
+      <EntityDefinition Name="LivingRoomShiftEvent" GroupName="Vanderlaan" ObjectID="9d0fd197-2334-48bf-a4cb-96cdfddd1bb7">
         <Fields>
           <Field Name="Date" Type="datetime" IsPrimaryKey="true" />
           <Field Name="DateCreated" Type="datetime" />
@@ -225,7 +226,7 @@
           <Field Name="ShiftTypeEnum" Type="byte" Precision="3" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="Patient" GroupName="Vanderlaan" ObjectID="ec463ac5-28d1-452c-b7b9-fdb054bf7d42">
+      <EntityDefinition Name="Patient" GroupName="Vanderlaan" ObjectID="b74762b8-8e2d-4bd1-8889-b27209c33890">
         <Fields>
           <Field Name="DateCreated" Type="datetime" />
           <Field Name="DateDeleted" Type="datetime" IsOptional="true" />
@@ -238,7 +239,7 @@
           <Field Name="LivingRoomId" Type="int" Precision="10" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="User" GroupName="Vanderlaan" ObjectID="1e8b0c98-19be-43be-8e2d-64c4d1125aec">
+      <EntityDefinition Name="User" GroupName="Vanderlaan" ObjectID="cf4aa805-4604-404b-927c-67ce071c55d9">
         <Fields>
           <Field Name="DateCreated" Type="datetime" />
           <Field Name="DateDeleted" Type="datetime" IsOptional="true" />
@@ -258,13 +259,15 @@
           </UniqueConstraint>
         </UniqueConstraints>
       </EntityDefinition>
-      <EntityDefinition Name="UserActivity" GroupName="Vanderlaan" ObjectID="2d503222-6deb-47c9-bcfe-d11c3ef883b2">
+      <EntityDefinition Name="UserActivity" GroupName="Vanderlaan" ObjectID="879ea988-8aea-4ca4-aed9-941d8df15eb5">
         <Fields>
           <Field Name="DateCreated" Type="datetime" />
+          <Field Name="DateLastModified" Type="datetime" IsOptional="true" />
+          <Field Name="DateLastModifiedByUserId" Type="int" IsOptional="true" Precision="10" />
           <Field Name="Name" Type="string" MaxLength="50" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="UserRole" GroupName="Vanderlaan" ObjectID="6f063fec-b9cb-4d39-8d85-1ca7f9a48cf1">
+      <EntityDefinition Name="UserRole" GroupName="Vanderlaan" ObjectID="75a9c19e-0eee-40f3-8619-bd0cbd10e761">
         <Fields>
           <Field Name="DateCreated" Type="datetime" />
           <Field Name="DateLastModified" Type="datetime" IsOptional="true" />
@@ -273,7 +276,7 @@
           <Field Name="RoleTypeEnum" Type="byte" Precision="3" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="UserRoleActivity" GroupName="Vanderlaan" ObjectID="5a366989-beff-4549-a957-e32de3233ff4">
+      <EntityDefinition Name="UserRoleActivity" GroupName="Vanderlaan" ObjectID="0a8e1041-a230-4748-ae00-9d2931e86e00">
         <Fields>
           <Field Name="RoleTypeEnum" Type="byte" Precision="3" IsPrimaryKey="true" />
           <Field Name="UserActivityName" Type="string" MaxLength="50" IsPrimaryKey="true" />
@@ -281,12 +284,12 @@
       </EntityDefinition>
     </EntityDefinitions>
     <Relationships>
-      <NormalRelationship Name="Vanderlaan.AgendaEventMeta.AgendaEvent-Vanderlaan.AgendaEvent.AgendaEventMetas" Start="Vanderlaan:AgendaEventMeta" End="Vanderlaan:AgendaEvent" StartNavigator="AgendaEvent" EndNavigator="AgendaEventMetas" Type="4">
+      <NormalRelationship Name="Vanderlaan.AgendaEventMeta.AgendaEvent-Vanderlaan.AgendaEvent.AgendaEventMeta" Start="Vanderlaan:AgendaEventMeta" End="Vanderlaan:AgendaEvent" StartNavigator="AgendaEvent" EndNavigator="AgendaEventMeta" Type="4">
         <FieldRelationships>
           <FieldFieldRelationship FkField="AgendaEventId" PkField="Id" />
         </FieldRelationships>
       </NormalRelationship>
-      <NormalRelationship Name="Vanderlaan.AgendaEventMeta.Patient-Vanderlaan.Patient.AgendaEventMetas" Start="Vanderlaan:AgendaEventMeta" End="Vanderlaan:Patient" StartNavigator="Patient" EndNavigator="AgendaEventMetas" Type="4">
+      <NormalRelationship Name="Vanderlaan.AgendaEventMeta.Patient-Vanderlaan.Patient.AgendaEventMeta" Start="Vanderlaan:AgendaEventMeta" End="Vanderlaan:Patient" StartNavigator="Patient" EndNavigator="AgendaEventMeta" Type="4">
         <FieldRelationships>
           <FieldFieldRelationship FkField="PatientId" PkField="Id" />
         </FieldRelationships>
@@ -355,7 +358,7 @@
     <InheritanceHierarchies />
   </EntityModel>
   <TypedViewDefinitions>
-    <TypedViewDefinition Name="GetAllEventsByDateAndByPatientIdResult" GroupName="Vanderlaan" ObjectID="ae777d2f-af6a-46fa-add4-ddf2c1761d9c">
+    <TypedViewDefinition Name="GetAllEventsForTodayByPatientIdResult" GroupName="Vanderlaan" ObjectID="ee9e262c-5d87-461d-88d4-027777b1bb6f">
       <Fields>
         <Field Name="Description" Type="string" IsOptional="true" MaxLength="500" />
         <Field Name="Id" Type="int" IsOptional="true" Precision="10" />
@@ -367,7 +370,7 @@
     </TypedViewDefinition>
   </TypedViewDefinitions>
   <SPCallDefinitions>
-    <SPCallDefinition Name="GetAllEventsByDateAndByPatientId" GroupName="Vanderlaan" ObjectID="ae8e6e06-43dc-4e6e-961c-3055f3ff383d">
+    <SPCallDefinition Name="GetAllEventsForTodayByPatientId" GroupName="Vanderlaan" ObjectID="65c0c734-5da9-48f3-9896-e344ea5665e8">
       <Parameters>
         <Parameter Name="PatientId" Type="int" Precision="10" />
         <Parameter Name="Unix" Type="int" Precision="10" />
@@ -389,7 +392,7 @@
       <Catalogs>
         <Catalog Name="Vanderlaan_jouwsoftware_janbonga_development">
           <Schemas>
-            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-06-01T12:33:58.9276687Z">
+            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-06-01T08:33:59.4548041Z">
               <StoredProcedures>
                 <StoredProcedure Name="sp_alterdiagram">
                   <Parameters>
@@ -457,7 +460,7 @@
                 </StoredProcedure>
               </StoredProcedures>
             </Schema>
-            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-06-01T12:33:59.0076733Z">
+            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-06-01T08:33:59.5952044Z">
               <Tables>
                 <Table Name="AgendaEvent">
                   <PkConstraintName Name="PK_AgendaEvent" />
@@ -476,8 +479,9 @@
                     <Field Name="Id" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
                     <Field Name="AgendaEventId" Ordinal="2" DbType="8" Precision="10" />
                     <Field Name="PatientId" Ordinal="3" DbType="8" Precision="10" />
-                    <Field Name="EventUnixTimeStamp" Ordinal="4" DbType="8" Precision="10" />
-                    <Field Name="RepeatInterval" Ordinal="5" IsOptional="true" DbType="8" Precision="10" />
+                    <Field Name="SingleEvent" Ordinal="4" IsOptional="true" DbType="8" Precision="10" />
+                    <Field Name="RepeatStart" Ordinal="5" IsOptional="true" DbType="8" Precision="10" />
+                    <Field Name="RepeatInterval" Ordinal="6" IsOptional="true" DbType="8" Precision="10" />
                   </Fields>
                 </Table>
                 <Table Name="Employee">
@@ -603,6 +607,8 @@
                   <Fields>
                     <Field Name="Name" Ordinal="1" IsPrimaryKey="true" DbType="24" Length="50" />
                     <Field Name="DateCreated" Ordinal="2" DbType="4" />
+                    <Field Name="DateLastModified" Ordinal="3" IsOptional="true" DbType="4" />
+                    <Field Name="DateLastModifiedByUserId" Ordinal="4" IsOptional="true" DbType="8" Precision="10" />
                   </Fields>
                 </Table>
                 <Table Name="UserRole">
@@ -624,7 +630,7 @@
                 </Table>
               </Tables>
               <StoredProcedures>
-                <StoredProcedure Name="GetAllEventsByDateAndByPatientId" NumberOfResultsets="1">
+                <StoredProcedure Name="GetAllEventsForTodayByPatientId" NumberOfResultsets="1">
                   <Parameters>
                     <Parameter Name="@Unix" Direction="1" Ordinal="1" DbType="8" Precision="10" />
                     <Parameter Name="@PatientId" Direction="1" Ordinal="2" DbType="8" Precision="10" />
@@ -737,10 +743,11 @@
         <EntityMapping EntityName="Vanderlaan:AgendaEventMeta" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:AgendaEventMeta">
           <FieldMappings>
             <FieldMapping FieldName="AgendaEventId" TargetFieldName="AgendaEventId" />
-            <FieldMapping FieldName="EventUnixTimeStamp" TargetFieldName="EventUnixTimeStamp" />
             <FieldMapping FieldName="Id" TargetFieldName="Id" SequenceToUse="SCOPE_IDENTITY()" />
             <FieldMapping FieldName="PatientId" TargetFieldName="PatientId" />
             <FieldMapping FieldName="RepeatInterval" TargetFieldName="RepeatInterval" />
+            <FieldMapping FieldName="RepeatStart" TargetFieldName="RepeatStart" />
+            <FieldMapping FieldName="SingleEvent" TargetFieldName="SingleEvent" />
           </FieldMappings>
         </EntityMapping>
         <EntityMapping EntityName="Vanderlaan:Employee" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:Employee">
@@ -850,6 +857,8 @@
         <EntityMapping EntityName="Vanderlaan:UserActivity" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:UserActivity">
           <FieldMappings>
             <FieldMapping FieldName="DateCreated" TargetFieldName="DateCreated" />
+            <FieldMapping FieldName="DateLastModified" TargetFieldName="DateLastModified" />
+            <FieldMapping FieldName="DateLastModifiedByUserId" TargetFieldName="DateLastModifiedByUserId" />
             <FieldMapping FieldName="Name" TargetFieldName="Name" />
           </FieldMappings>
         </EntityMapping>
@@ -870,7 +879,7 @@
         </EntityMapping>
       </EntityMappings>
       <TypedViewMappings>
-        <TypedViewMapping TypedViewName="Vanderlaan:GetAllEventsByDateAndByPatientIdResult" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:GetAllEventsByDateAndByPatientId:Resultset1">
+        <TypedViewMapping TypedViewName="Vanderlaan:GetAllEventsForTodayByPatientIdResult" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:GetAllEventsForTodayByPatientId:Resultset1">
           <FieldMappings>
             <FieldMapping FieldName="Description" TargetFieldName="Description" />
             <FieldMapping FieldName="Id" TargetFieldName="Id" />
@@ -882,7 +891,7 @@
         </TypedViewMapping>
       </TypedViewMappings>
       <SPCallMappings>
-        <SPCallMapping SPCallName="Vanderlaan:GetAllEventsByDateAndByPatientId" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:GetAllEventsByDateAndByPatientId">
+        <SPCallMapping SPCallName="Vanderlaan:GetAllEventsForTodayByPatientId" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:GetAllEventsForTodayByPatientId">
           <FieldMappings>
             <FieldMapping FieldName="PatientId" TargetFieldName="@PatientId" />
             <FieldMapping FieldName="Unix" TargetFieldName="@Unix" />

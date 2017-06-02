@@ -176,7 +176,7 @@ namespace AmstaJanBonga.Web.Content
         {
             var linkButton = (LinkButton)sender;
 
-            Response.Redirect("~/Content/Secure/PatientAgenda/PatientAgenda.aspx?PatientId={0}".FormatString(linkButton.CommandArgument.ToInt()));
+            Response.Redirect("~/Content/Secure/PatientAgenda/PatientAgenda.aspx?PatientId={0}".FormatString(linkButton.CommandArgument.ToInt()), false);
         }
 
         #endregion

@@ -1,7 +1,9 @@
 ﻿using AmstaJanBonga.Business.Database.Readers;
 using AmstaJanBonga.Business.EntityClasses;
 using AmstaJanBonga.Business.Security;
+using Rlaan.Toolkit.Extensions;
 using System;
+using System.Web;
 
 namespace AmstaJanBonga.Web
 {
@@ -38,7 +40,27 @@ namespace AmstaJanBonga.Web
             get
             {
                 if (this._livingRoomId == -1)
-                    this._livingRoomId = EmployeeReader.GetEmployeeByUserId(Authentication.AuthenticatedUser.Id, true).LivingRoomId;
+                {
+                    if (Request.Cookies["LivingRoomId"] == null)
+                    {
+                        var livingRoomId = EmployeeReader.GetEmployeeByUserId(Authentication.AuthenticatedUser.Id, true).LivingRoomId;
+
+                        // Creates a cookie which has an expire time of the current session..
+                        var cookie = new HttpCookie("LivingRoomId")
+                        {
+                            Value = livingRoomId.ToString(),
+                            Expires = DateTime.MinValue
+                        };
+
+                        Response.Cookies.Add(cookie);
+
+                        this._livingRoomId = livingRoomId;
+                    }
+                    else
+                    {
+                        this._livingRoomId = Request.Cookies["LivingRoomId"].Value.ToInt();
+                    }
+                }
 
                 return this._livingRoomId;
             }

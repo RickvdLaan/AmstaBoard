@@ -78,7 +78,7 @@
                 </asp:UpdatePanel>
                 
                 <!-- Update Timer -->
-                <asp:Timer runat="server" ID="_timer" Interval="15000" OnTick="_timer_Tick"></asp:Timer>
+                <asp:Timer runat="server" ID="_timer" Interval="60000" OnTick="_timer_Tick" Enabled="true"></asp:Timer>
 
                 <!-- Content -->
                 <section runat="server" id="_sectionContent" class="content">

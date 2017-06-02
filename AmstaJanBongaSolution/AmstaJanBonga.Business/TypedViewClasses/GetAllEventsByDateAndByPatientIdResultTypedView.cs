@@ -23,13 +23,15 @@ namespace AmstaJanBonga.Business.TypedViewClasses
 {
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces 
 	// __LLBLGENPRO_USER_CODE_REGION_END 
-	/// <summary>Typed datatable for the view 'GetAllEventsForTodayByPatientIdResult'.</summary>
+
+	/// <summary>Typed datatable for the view 'GetAllEventsByDateAndByPatientIdResult'.</summary>
 	[Serializable, System.ComponentModel.DesignerCategory("Code")]
 	[ToolboxItem(true)]
 	[DesignTimeVisible(true)]
-	public partial class GetAllEventsForTodayByPatientIdResultTypedView : TypedViewBase<GetAllEventsForTodayByPatientIdResultRow>
+	public partial class GetAllEventsByDateAndByPatientIdResultTypedView : TypedViewBase<GetAllEventsByDateAndByPatientIdResultRow>
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalInterfacesView 
 	// __LLBLGENPRO_USER_CODE_REGION_END 
+
 	{
 		#region Class Member Declarations
 		private DataColumn _columnId;
@@ -40,6 +42,7 @@ namespace AmstaJanBonga.Business.TypedViewClasses
 		private DataColumn _columnDescription;
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalMembers 
 	// __LLBLGENPRO_USER_CODE_REGION_END 
+
 		private static Hashtable	_customProperties;
 		private static Hashtable	_fieldsCustomProperties;
 		#endregion
@@ -49,13 +52,13 @@ namespace AmstaJanBonga.Business.TypedViewClasses
 		#endregion
 
 		/// <summary>Static CTor for setting up custom property hashtables.</summary>
-		static GetAllEventsForTodayByPatientIdResultTypedView()
+		static GetAllEventsByDateAndByPatientIdResultTypedView()
 		{
 			SetupCustomPropertyHashtables();
 		}
 
 		/// <summary>CTor</summary>
-		public GetAllEventsForTodayByPatientIdResultTypedView():base("GetAllEventsForTodayByPatientIdResult")
+		public GetAllEventsByDateAndByPatientIdResultTypedView():base("GetAllEventsByDateAndByPatientIdResult")
 		{
 			InitClass();
 		}
@@ -63,7 +66,7 @@ namespace AmstaJanBonga.Business.TypedViewClasses
 		/// <summary>Protected constructor for deserialization.</summary>
 		/// <param name="info"></param>
 		/// <param name="context"></param>
-		protected GetAllEventsForTodayByPatientIdResultTypedView(SerializationInfo info, StreamingContext context):base(info, context)
+		protected GetAllEventsByDateAndByPatientIdResultTypedView(SerializationInfo info, StreamingContext context):base(info, context)
 		{
 			InitMembers();
 		}
@@ -73,14 +76,14 @@ namespace AmstaJanBonga.Business.TypedViewClasses
 		/// <returns>true if fill succeeded, false otherwise</returns>
 		public bool Fill(ITransaction transactionToUse, System.Int32 unix, System.Int32 patientId)
 		{
-			return RetrievalProcedures.FetchGetAllEventsForTodayByPatientIdResultTypedView(transactionToUse, GetFields(), this, unix, patientId);
+			return RetrievalProcedures.FetchGetAllEventsByDateAndByPatientIdResultTypedView(transactionToUse, GetFields(), this, unix, patientId);
 		}
 
 		/// <summary>Gets the fields of this typed view</summary>
 		/// <returns>IEntityFields object</returns>
 		public virtual IEntityFields GetFields()
 		{
-			return EntityFieldsFactory.CreateTypedViewEntityFieldsObject(TypedViewType.GetAllEventsForTodayByPatientIdResultTypedView);
+			return EntityFieldsFactory.CreateTypedViewEntityFieldsObject(TypedViewType.GetAllEventsByDateAndByPatientIdResultTypedView);
 		}
 
 		/// <summary>Creates a new typed row during the build of the datatable during a Fill session by a dataadapter.</summary>
@@ -88,7 +91,7 @@ namespace AmstaJanBonga.Business.TypedViewClasses
 		/// <returns>the new typed datarow</returns>
 		protected override DataRow NewRowFromBuilder(DataRowBuilder rowBuilder) 
 		{
-			return new GetAllEventsForTodayByPatientIdResultRow(rowBuilder);
+			return new GetAllEventsByDateAndByPatientIdResultRow(rowBuilder);
 		}
 
 		/// <summary>Initializes the hashtables for the typed view type and typed view field custom properties. </summary>
@@ -114,7 +117,7 @@ namespace AmstaJanBonga.Business.TypedViewClasses
 		/// <summary>Initialize the datastructures.</summary>
 		protected override void InitClass()
 		{
-			TableName = "GetAllEventsForTodayByPatientIdResult";
+			TableName = "GetAllEventsByDateAndByPatientIdResult";
 			_columnId = GeneralUtils.CreateTypedDataTableColumn("Id", @"Id", typeof(System.Int32), this.Columns);
 			_columnTitle = GeneralUtils.CreateTypedDataTableColumn("Title", @"Title", typeof(System.String), this.Columns);
 			_columnLocation = GeneralUtils.CreateTypedDataTableColumn("Location", @"Location", typeof(System.String), this.Columns);
@@ -123,6 +126,7 @@ namespace AmstaJanBonga.Business.TypedViewClasses
 			_columnDescription = GeneralUtils.CreateTypedDataTableColumn("Description", @"Description", typeof(System.String), this.Columns);
 	// __LLBLGENPRO_USER_CODE_REGION_START InitClass 
 	// __LLBLGENPRO_USER_CODE_REGION_END 
+
 			OnInitialized();
 		}
 
@@ -137,13 +141,14 @@ namespace AmstaJanBonga.Business.TypedViewClasses
 			_columnDescription = this.Columns["Description"];
 	// __LLBLGENPRO_USER_CODE_REGION_START InitMembers 
 	// __LLBLGENPRO_USER_CODE_REGION_END 
+
 		}
 
 		/// <summary>Clones this instance.</summary>
 		/// <returns>A clone of this instance</returns>
 		public override DataTable Clone() 
 		{
-			GetAllEventsForTodayByPatientIdResultTypedView cloneToReturn = ((GetAllEventsForTodayByPatientIdResultTypedView)(base.Clone()));
+			GetAllEventsByDateAndByPatientIdResultTypedView cloneToReturn = ((GetAllEventsByDateAndByPatientIdResultTypedView)(base.Clone()));
 			cloneToReturn.InitMembers();
 			return cloneToReturn;
 		}
@@ -152,7 +157,7 @@ namespace AmstaJanBonga.Business.TypedViewClasses
 		/// <returns>a new instance of a datatable with this schema.</returns>
 		protected override DataTable CreateInstance() 
 		{
-			return new GetAllEventsForTodayByPatientIdResultTypedView();
+			return new GetAllEventsByDateAndByPatientIdResultTypedView();
 		}
 
 		#region Class Property Declarations
@@ -168,7 +173,7 @@ namespace AmstaJanBonga.Business.TypedViewClasses
 		[System.ComponentModel.Browsable(false)]
 		public virtual Hashtable CustomPropertiesOfType
 		{
-			get { return GetAllEventsForTodayByPatientIdResultTypedView.CustomProperties;}
+			get { return GetAllEventsByDateAndByPatientIdResultTypedView.CustomProperties;}
 		}
 
 		/// <summary>The custom properties for the fields of this TypedView type. The returned Hashtable contains per fieldname a hashtable of name-value pairs. </summary>
@@ -183,7 +188,7 @@ namespace AmstaJanBonga.Business.TypedViewClasses
 		[System.ComponentModel.Browsable(false)]
 		public virtual Hashtable FieldsCustomPropertiesOfType
 		{
-			get { return GetAllEventsForTodayByPatientIdResultTypedView.FieldsCustomProperties;}
+			get { return GetAllEventsByDateAndByPatientIdResultTypedView.FieldsCustomProperties;}
 		}
 		
 		/// <summary>Returns the column object belonging to the TypedView field 'Id'</summary>
@@ -218,11 +223,13 @@ namespace AmstaJanBonga.Business.TypedViewClasses
 		}
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalColumnProperties 
 	// __LLBLGENPRO_USER_CODE_REGION_END 
+
  		#endregion
 		
 		#region Custom Typed View code
 	// __LLBLGENPRO_USER_CODE_REGION_START CustomTypedViewCode 
 	// __LLBLGENPRO_USER_CODE_REGION_END 
+
 		#endregion
 
 		#region Included Code
@@ -231,20 +238,21 @@ namespace AmstaJanBonga.Business.TypedViewClasses
 	}
 
 
-	/// <summary>Typed datarow for the typed datatable GetAllEventsForTodayByPatientIdResult</summary>
-	public partial class GetAllEventsForTodayByPatientIdResultRow : DataRow
+	/// <summary>Typed datarow for the typed datatable GetAllEventsByDateAndByPatientIdResult</summary>
+	public partial class GetAllEventsByDateAndByPatientIdResultRow : DataRow
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalInterfacesRow 
 	// __LLBLGENPRO_USER_CODE_REGION_END 
+
 	{
 		#region Class Member Declarations
-		private GetAllEventsForTodayByPatientIdResultTypedView	_parent;
+		private GetAllEventsByDateAndByPatientIdResultTypedView	_parent;
 		#endregion
 
 		/// <summary>CTor</summary>
 		/// <param name="rowBuilder">Row builder object to use when building this row</param>
-		protected internal GetAllEventsForTodayByPatientIdResultRow(DataRowBuilder rowBuilder) : base(rowBuilder) 
+		protected internal GetAllEventsByDateAndByPatientIdResultRow(DataRowBuilder rowBuilder) : base(rowBuilder) 
 		{
-			_parent = ((GetAllEventsForTodayByPatientIdResultTypedView)(this.Table));
+			_parent = ((GetAllEventsByDateAndByPatientIdResultTypedView)(this.Table));
 		}
 
 		#region Class Property Declarations
@@ -379,6 +387,7 @@ namespace AmstaJanBonga.Business.TypedViewClasses
 		#region Custom Typed View Row Code
 	// __LLBLGENPRO_USER_CODE_REGION_START CustomTypedViewRowCode 
 	// __LLBLGENPRO_USER_CODE_REGION_END 
+
 		#endregion
 		
 		#region Included Row Code

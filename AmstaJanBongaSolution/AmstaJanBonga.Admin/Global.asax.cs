@@ -5,6 +5,7 @@ using Rlaan.Toolkit.Configuration;
 using Rlaan.Toolkit.Extensions;
 using Rlaan.Toolkit.Web;
 using System;
+using System.Diagnostics;
 using System.Threading;
 using System.Web;
 using System.Web.Routing;
@@ -26,16 +27,7 @@ namespace AmstaJanBonga.Admin
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-            //// Checking whether the environment is live or staging.
-            //if (Project.Environment.IsLiveEnvironment || Project.Environment.IsStagingEnvironment)
-            //{
-            //    // Checking if the connect is secure and if it's not a local connection.
-            //    if (HttpContext.Current.Request.IsSecureConnection.Equals(false) && HttpContext.Current.Request.IsLocal.Equals(false))
-            //    {
-            //        // The connection wasn't secure and it wasn't a local connection, redirecting to a secure connection.
-            //        Response.Redirect("https://{0}{1}".FormatString(Request.ServerVariables["HTTP_HOST"], HttpContext.Current.Request.RawUrl));
-            //    }
-            //}
+
         }
 
         /// <summary>
@@ -51,6 +43,8 @@ namespace AmstaJanBonga.Admin
         /// </summary>
         protected void Application_OnPostAuthenticateRequest(object sender, EventArgs e)
         {
+            Debug.WriteLine("Application_OnPostAuthenticateRequest entered.");
+
             // Gets the security information for the current HTTP request, returns an IPrincipal.
             var principal = HttpContext.Current.User;
 

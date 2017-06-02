@@ -1,7 +1,9 @@
 ﻿using AmstaJanBonga.Business.CollectionClasses;
 using AmstaJanBonga.Business.EntityClasses;
+using AmstaJanBonga.Business.HelperClasses;
 using AmstaJanBonga.Business.StoredProcedureCallerClasses;
 using Rlaan.Toolkit.Extensions;
+using SD.LLBLGen.Pro.ORMSupportClasses;
 using System;
 using System.Collections.Generic;
 
@@ -9,23 +11,85 @@ namespace AmstaJanBonga.Business.Database.Readers
 {
     public abstract class AgendaEventReader
     {
-        public static List<List<AgendaEventCollection>> GetAllEventsForWeekByPatientId(int patientId)
+        /// <summary>
+        /// Returns a list of AgendaEventCollections with a size of 7, set up from Monday to Sunday.
+        /// </summary>
+        /// <param name="patientId">Provide the patients id.</param>
+        /// <returns></returns>
+        public static List<AgendaEventCollection> GetAllEventsForWeekByPatientId(int patientId)
         {
-            //get unix times of monday & sunday of the current bweek based on the current day.
+            var appointments = new List<AgendaEventCollection>(7)
+            {
+                // Monday
+                GetAllEventsByDateAndPatientId(Time.UnixTime.FirstDayOfWeek + (Time.UnixTime.UNIX_TIMESTAMP_DAY * 0), patientId),
 
+                // Tuesday
+                GetAllEventsByDateAndPatientId(Time.UnixTime.FirstDayOfWeek + (Time.UnixTime.UNIX_TIMESTAMP_DAY * 1), patientId),
 
+                // Wednesday
+                GetAllEventsByDateAndPatientId(Time.UnixTime.FirstDayOfWeek + (Time.UnixTime.UNIX_TIMESTAMP_DAY * 2), patientId),
 
-            return null;
+                // Thursday
+                GetAllEventsByDateAndPatientId(Time.UnixTime.FirstDayOfWeek + (Time.UnixTime.UNIX_TIMESTAMP_DAY * 3), patientId),
+
+                // Friday
+                GetAllEventsByDateAndPatientId(Time.UnixTime.FirstDayOfWeek + (Time.UnixTime.UNIX_TIMESTAMP_DAY * 4), patientId),
+
+                // Saturday
+                GetAllEventsByDateAndPatientId(Time.UnixTime.FirstDayOfWeek + (Time.UnixTime.UNIX_TIMESTAMP_DAY * 5), patientId),
+
+                // Sunday
+                GetAllEventsByDateAndPatientId(Time.UnixTime.FirstDayOfWeek + (Time.UnixTime.UNIX_TIMESTAMP_DAY * 6), patientId)
+            };
+
+            return appointments;
         }
 
+        /// <summary>
+        /// Returns a collection of agenda events for the current day based on the provided patient id.
+        /// </summary>
+        /// <param name="patientId">Provide the patients id.</param>
+        /// <returns></returns>
         public static AgendaEventCollection GetAllEventsForTodayByPatientId(int patientId)
         {
-            // Hopefully temp code, need to figure out a way to create this where clause:
-            // WHERE  (( @Unix - RepeatStart) % RepeatInterval = 0 ) AND AEM.PatientId = @PatientId;
-            // with the low level api of llblgen, but for now it'll be done through a
-            // stored procedure. 
+            return GetAllEventsByDateAndPatientId(Time.UnixTime.Today, patientId);
+        }
 
-            using (var dataSet = RetrievalProcedures.GetAllEventsForTodayByPatientId(Time.UnixTime.Today, patientId))
+        /// <summary>
+        /// Returns a collection of agenda events.
+        /// </summary>
+        /// <param name="unixTimeStamp">Provide the unix timestamp for a specific date with time set on 00:00:00.</param>
+        /// <param name="patientId">Provide the patients id.</param>
+        /// <returns></returns>
+        public static AgendaEventCollection GetAllEventsByDateAndPatientId(int unixTimeStamp, int patientId)
+        {
+            var subExpression = new Expression(unixTimeStamp, ExOp.Sub, AgendaEventMetaFields.EventUnixTimeStamp);
+            var modExpression = new Expression(subExpression, ExOp.Mod, AgendaEventMetaFields.RepeatInterval);
+
+            var filter = new PredicateExpression();
+            filter.Add(AgendaEventMetaFields.Id.SetExpression(modExpression) == 0); 
+            filter.AddWithAnd(AgendaEventMetaFields.PatientId == patientId);
+            filter.AddWithOr(AgendaEventMetaFields.Id.SetExpression(subExpression) == 0);
+            filter.AddWithAnd(AgendaEventMetaFields.PatientId == patientId);
+
+            var relations = new RelationCollection();
+            relations.Add(AgendaEventMetaEntity.Relations.AgendaEventEntityUsingAgendaEventId);
+
+            var agendaEventCollection = new AgendaEventCollection();
+            agendaEventCollection.GetMulti(filter, 0, null, relations);
+
+            return agendaEventCollection;
+        }
+
+        /// <summary>
+        /// Returns a collection of agenda events.
+        /// </summary>
+        /// <param name="unixTimeStamp">Provide the unix timestamp for a specific date with time set on 00:00:00.</param>
+        /// <param name="patientId">Provide the patients id.</param>
+        /// <returns></returns>
+        public static AgendaEventCollection GetAllEventsByDateAndPatientIdWithStoredProcedure(int unixTimeStamp, int patientId)
+        {
+            using (var dataSet = RetrievalProcedures.GetAllEventsByDateAndByPatientId(unixTimeStamp, patientId))
             {
                 var collection = new AgendaEventCollection();
 

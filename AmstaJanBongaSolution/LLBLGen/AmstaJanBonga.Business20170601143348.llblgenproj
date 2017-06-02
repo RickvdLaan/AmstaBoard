@@ -354,18 +354,6 @@
     </Relationships>
     <InheritanceHierarchies />
   </EntityModel>
-  <TypedViewDefinitions>
-    <TypedViewDefinition Name="GetAllEventsByDateAndByPatientIdResult" GroupName="Vanderlaan" ObjectID="ae777d2f-af6a-46fa-add4-ddf2c1761d9c">
-      <Fields>
-        <Field Name="Description" Type="string" IsOptional="true" MaxLength="500" />
-        <Field Name="Id" Type="int" IsOptional="true" Precision="10" />
-        <Field Name="Location" Type="string" IsOptional="true" MaxLength="50" />
-        <Field Name="TimeEnd" Type="int" IsOptional="true" Precision="10" />
-        <Field Name="TimeStart" Type="int" IsOptional="true" Precision="10" />
-        <Field Name="Title" Type="string" IsOptional="true" MaxLength="50" />
-      </Fields>
-    </TypedViewDefinition>
-  </TypedViewDefinitions>
   <SPCallDefinitions>
     <SPCallDefinition Name="GetAllEventsByDateAndByPatientId" GroupName="Vanderlaan" ObjectID="ae8e6e06-43dc-4e6e-961c-3055f3ff383d">
       <Parameters>
@@ -389,7 +377,7 @@
       <Catalogs>
         <Catalog Name="Vanderlaan_jouwsoftware_janbonga_development">
           <Schemas>
-            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-06-01T12:33:58.9276687Z">
+            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-06-01T12:29:30.5613191Z">
               <StoredProcedures>
                 <StoredProcedure Name="sp_alterdiagram">
                   <Parameters>
@@ -457,7 +445,7 @@
                 </StoredProcedure>
               </StoredProcedures>
             </Schema>
-            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-06-01T12:33:59.0076733Z">
+            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-06-01T12:29:30.5903207Z">
               <Tables>
                 <Table Name="AgendaEvent">
                   <PkConstraintName Name="PK_AgendaEvent" />
@@ -624,23 +612,11 @@
                 </Table>
               </Tables>
               <StoredProcedures>
-                <StoredProcedure Name="GetAllEventsByDateAndByPatientId" NumberOfResultsets="1">
+                <StoredProcedure Name="GetAllEventsByDateAndByPatientId">
                   <Parameters>
                     <Parameter Name="@Unix" Direction="1" Ordinal="1" DbType="8" Precision="10" />
                     <Parameter Name="@PatientId" Direction="1" Ordinal="2" DbType="8" Precision="10" />
                   </Parameters>
-                  <Resultsets>
-                    <Resultset Name="Resultset1">
-                      <Fields>
-                        <Field Name="Id" Ordinal="1" IsOptional="true" DbType="8" Precision="10" />
-                        <Field Name="Title" Ordinal="2" IsOptional="true" DbType="24" Length="50" />
-                        <Field Name="Location" Ordinal="3" IsOptional="true" DbType="24" Length="50" />
-                        <Field Name="TimeStart" Ordinal="4" IsOptional="true" DbType="8" Precision="10" />
-                        <Field Name="TimeEnd" Ordinal="5" IsOptional="true" DbType="8" Precision="10" />
-                        <Field Name="Description" Ordinal="6" IsOptional="true" DbType="24" Length="500" />
-                      </Fields>
-                    </Resultset>
-                  </Resultsets>
                 </StoredProcedure>
               </StoredProcedures>
             </Schema>
@@ -869,18 +845,7 @@
           </FieldMappings>
         </EntityMapping>
       </EntityMappings>
-      <TypedViewMappings>
-        <TypedViewMapping TypedViewName="Vanderlaan:GetAllEventsByDateAndByPatientIdResult" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:GetAllEventsByDateAndByPatientId:Resultset1">
-          <FieldMappings>
-            <FieldMapping FieldName="Description" TargetFieldName="Description" />
-            <FieldMapping FieldName="Id" TargetFieldName="Id" />
-            <FieldMapping FieldName="Location" TargetFieldName="Location" />
-            <FieldMapping FieldName="TimeEnd" TargetFieldName="TimeEnd" />
-            <FieldMapping FieldName="TimeStart" TargetFieldName="TimeStart" />
-            <FieldMapping FieldName="Title" TargetFieldName="Title" />
-          </FieldMappings>
-        </TypedViewMapping>
-      </TypedViewMappings>
+      <TypedViewMappings />
       <SPCallMappings>
         <SPCallMapping SPCallName="Vanderlaan:GetAllEventsByDateAndByPatientId" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:GetAllEventsByDateAndByPatientId">
           <FieldMappings>

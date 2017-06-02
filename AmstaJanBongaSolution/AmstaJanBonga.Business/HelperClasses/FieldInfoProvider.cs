@@ -64,7 +64,7 @@ namespace AmstaJanBonga.Business.HelperClasses
 			InitUserActivityEntityInfos();
 			InitUserRoleEntityInfos();
 			InitUserRoleActivityEntityInfos();
-			InitGetAllEventsForTodayByPatientIdResultTypedViewInfos();
+			InitGetAllEventsByDateAndByPatientIdResultTypedViewInfos();
 			this.ConstructElementFieldStructures(InheritanceInfoProviderSingleton.GetInstance());
 		}
 
@@ -84,11 +84,10 @@ namespace AmstaJanBonga.Business.HelperClasses
 		{
 			this.AddFieldIndexEnumForElementName(typeof(AgendaEventMetaFieldIndex), "AgendaEventMetaEntity");
 			this.AddElementFieldInfo("AgendaEventMetaEntity", "AgendaEventId", typeof(System.Int32), false, true, false, false,  (int)AgendaEventMetaFieldIndex.AgendaEventId, 0, 0, 10);
+			this.AddElementFieldInfo("AgendaEventMetaEntity", "EventUnixTimeStamp", typeof(System.Int32), false, false, false, false,  (int)AgendaEventMetaFieldIndex.EventUnixTimeStamp, 0, 0, 10);
 			this.AddElementFieldInfo("AgendaEventMetaEntity", "Id", typeof(System.Int32), true, false, true, false,  (int)AgendaEventMetaFieldIndex.Id, 0, 0, 10);
 			this.AddElementFieldInfo("AgendaEventMetaEntity", "PatientId", typeof(System.Int32), false, true, false, false,  (int)AgendaEventMetaFieldIndex.PatientId, 0, 0, 10);
 			this.AddElementFieldInfo("AgendaEventMetaEntity", "RepeatInterval", typeof(Nullable<System.Int32>), false, false, false, true,  (int)AgendaEventMetaFieldIndex.RepeatInterval, 0, 0, 10);
-			this.AddElementFieldInfo("AgendaEventMetaEntity", "RepeatStart", typeof(Nullable<System.Int32>), false, false, false, true,  (int)AgendaEventMetaFieldIndex.RepeatStart, 0, 0, 10);
-			this.AddElementFieldInfo("AgendaEventMetaEntity", "SingleEvent", typeof(Nullable<System.Int32>), false, false, false, true,  (int)AgendaEventMetaFieldIndex.SingleEvent, 0, 0, 10);
 		}
 		/// <summary>Inits EmployeeEntity's FieldInfo objects</summary>
 		private void InitEmployeeEntityInfos()
@@ -208,8 +207,6 @@ namespace AmstaJanBonga.Business.HelperClasses
 		{
 			this.AddFieldIndexEnumForElementName(typeof(UserActivityFieldIndex), "UserActivityEntity");
 			this.AddElementFieldInfo("UserActivityEntity", "DateCreated", typeof(System.DateTime), false, false, false, false,  (int)UserActivityFieldIndex.DateCreated, 0, 0, 0);
-			this.AddElementFieldInfo("UserActivityEntity", "DateLastModified", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)UserActivityFieldIndex.DateLastModified, 0, 0, 0);
-			this.AddElementFieldInfo("UserActivityEntity", "DateLastModifiedByUserId", typeof(Nullable<System.Int32>), false, false, false, true,  (int)UserActivityFieldIndex.DateLastModifiedByUserId, 0, 0, 10);
 			this.AddElementFieldInfo("UserActivityEntity", "Name", typeof(System.String), true, false, false, false,  (int)UserActivityFieldIndex.Name, 50, 0, 0);
 		}
 		/// <summary>Inits UserRoleEntity's FieldInfo objects</summary>
@@ -231,15 +228,15 @@ namespace AmstaJanBonga.Business.HelperClasses
 		}
 
 		/// <summary>Inits View's FieldInfo objects</summary>
-		private void InitGetAllEventsForTodayByPatientIdResultTypedViewInfos()
+		private void InitGetAllEventsByDateAndByPatientIdResultTypedViewInfos()
 		{
-			this.AddFieldIndexEnumForElementName(typeof(GetAllEventsForTodayByPatientIdResultFieldIndex), "GetAllEventsForTodayByPatientIdResultTypedView");
-			this.AddElementFieldInfo("GetAllEventsForTodayByPatientIdResultTypedView", "Id", typeof(Nullable<System.Int32>), false, false, true, false, (int)GetAllEventsForTodayByPatientIdResultFieldIndex.Id, 0, 0, 10);
-			this.AddElementFieldInfo("GetAllEventsForTodayByPatientIdResultTypedView", "Title", typeof(System.String), false, false, true, false, (int)GetAllEventsForTodayByPatientIdResultFieldIndex.Title, 50, 0, 0);
-			this.AddElementFieldInfo("GetAllEventsForTodayByPatientIdResultTypedView", "Location", typeof(System.String), false, false, true, false, (int)GetAllEventsForTodayByPatientIdResultFieldIndex.Location, 50, 0, 0);
-			this.AddElementFieldInfo("GetAllEventsForTodayByPatientIdResultTypedView", "TimeStart", typeof(Nullable<System.Int32>), false, false, true, false, (int)GetAllEventsForTodayByPatientIdResultFieldIndex.TimeStart, 0, 0, 10);
-			this.AddElementFieldInfo("GetAllEventsForTodayByPatientIdResultTypedView", "TimeEnd", typeof(Nullable<System.Int32>), false, false, true, false, (int)GetAllEventsForTodayByPatientIdResultFieldIndex.TimeEnd, 0, 0, 10);
-			this.AddElementFieldInfo("GetAllEventsForTodayByPatientIdResultTypedView", "Description", typeof(System.String), false, false, true, false, (int)GetAllEventsForTodayByPatientIdResultFieldIndex.Description, 500, 0, 0);
+			this.AddFieldIndexEnumForElementName(typeof(GetAllEventsByDateAndByPatientIdResultFieldIndex), "GetAllEventsByDateAndByPatientIdResultTypedView");
+			this.AddElementFieldInfo("GetAllEventsByDateAndByPatientIdResultTypedView", "Id", typeof(Nullable<System.Int32>), false, false, true, false, (int)GetAllEventsByDateAndByPatientIdResultFieldIndex.Id, 0, 0, 10);
+			this.AddElementFieldInfo("GetAllEventsByDateAndByPatientIdResultTypedView", "Title", typeof(System.String), false, false, true, false, (int)GetAllEventsByDateAndByPatientIdResultFieldIndex.Title, 50, 0, 0);
+			this.AddElementFieldInfo("GetAllEventsByDateAndByPatientIdResultTypedView", "Location", typeof(System.String), false, false, true, false, (int)GetAllEventsByDateAndByPatientIdResultFieldIndex.Location, 50, 0, 0);
+			this.AddElementFieldInfo("GetAllEventsByDateAndByPatientIdResultTypedView", "TimeStart", typeof(Nullable<System.Int32>), false, false, true, false, (int)GetAllEventsByDateAndByPatientIdResultFieldIndex.TimeStart, 0, 0, 10);
+			this.AddElementFieldInfo("GetAllEventsByDateAndByPatientIdResultTypedView", "TimeEnd", typeof(Nullable<System.Int32>), false, false, true, false, (int)GetAllEventsByDateAndByPatientIdResultFieldIndex.TimeEnd, 0, 0, 10);
+			this.AddElementFieldInfo("GetAllEventsByDateAndByPatientIdResultTypedView", "Description", typeof(System.String), false, false, true, false, (int)GetAllEventsByDateAndByPatientIdResultFieldIndex.Description, 500, 0, 0);
 		}		
 	}
 }

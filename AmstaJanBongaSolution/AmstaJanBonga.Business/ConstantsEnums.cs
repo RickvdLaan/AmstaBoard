@@ -34,16 +34,14 @@ namespace AmstaJanBonga.Business
 	{
 		///<summary>AgendaEventId. </summary>
 		AgendaEventId,
+		///<summary>EventUnixTimeStamp. </summary>
+		EventUnixTimeStamp,
 		///<summary>Id. </summary>
 		Id,
 		///<summary>PatientId. </summary>
 		PatientId,
 		///<summary>RepeatInterval. </summary>
 		RepeatInterval,
-		///<summary>RepeatStart. </summary>
-		RepeatStart,
-		///<summary>SingleEvent. </summary>
-		SingleEvent,
 		/// <summary></summary>
 		AmountOfFields
 	}
@@ -242,10 +240,6 @@ namespace AmstaJanBonga.Business
 	{
 		///<summary>DateCreated. </summary>
 		DateCreated,
-		///<summary>DateLastModified. </summary>
-		DateLastModified,
-		///<summary>DateLastModifiedByUserId. </summary>
-		DateLastModifiedByUserId,
 		///<summary>Name. </summary>
 		Name,
 		/// <summary></summary>
@@ -278,8 +272,8 @@ namespace AmstaJanBonga.Business
 		AmountOfFields
 	}
 
-	/// <summary>Index enum to fast-access Typed View EntityFields in the IEntityFields collection for the typed view : GetAllEventsForTodayByPatientIdResult.</summary>
-	public enum GetAllEventsForTodayByPatientIdResultFieldIndex
+	/// <summary>Index enum to fast-access Typed View EntityFields in the IEntityFields collection for the typed view : GetAllEventsByDateAndByPatientIdResult.</summary>
+	public enum GetAllEventsByDateAndByPatientIdResultFieldIndex
 	{
 		///<summary>Id</summary>
 		Id,
@@ -334,8 +328,8 @@ namespace AmstaJanBonga.Business
 	/// <summary>Enum definition for all the typed view types defined in this namespace. Used by the entityfields factory.</summary>
 	public enum TypedViewType
 	{
-		///<summary>GetAllEventsForTodayByPatientIdResult</summary>
-		GetAllEventsForTodayByPatientIdResultTypedView
+		///<summary>GetAllEventsByDateAndByPatientIdResult</summary>
+		GetAllEventsByDateAndByPatientIdResultTypedView
 	}
 
 	#region Custom ConstantsEnums Code

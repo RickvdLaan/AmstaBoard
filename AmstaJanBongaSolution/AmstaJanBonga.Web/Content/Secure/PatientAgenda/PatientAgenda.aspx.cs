@@ -1,8 +1,10 @@
-﻿using AmstaJanBonga.Business.Database.Readers;
+﻿using AmstaJanBonga.Business.CollectionClasses;
+using AmstaJanBonga.Business.Database.Readers;
 using AmstaJanBonga.Business.EntityClasses;
 using Rlaan.Toolkit.Extensions;
 using Rlaan.Toolkit.Web;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -24,6 +26,10 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
         private DataTable _agendaWeekDay = new DataTable("AgendaWeekDay");
 
         private DataTable _agendaWeekAppointments = new DataTable("AgendaWeek");
+
+        private List<AgendaEventCollection> _agendaEventCollection = null;
+
+        private int _agendaDayIndex = 0;
 
         #endregion
 
@@ -119,6 +125,8 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
 
         private void DatabindAgendaWeek()
         {
+            this._agendaEventCollection =  AgendaEventReader.GetAllEventsForWeekByPatientId(this.Patient.Id);
+
             this._agendaWeekDay.Columns.Add("Days");
 
             for (int i = 0; i < 7; i++)
@@ -199,7 +207,12 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
 
                 var appointment = this._agendaWeekAppointments.NewRow();
 
-                appointment[0] += this.GenerateAppointment("Afspraak fysio", "Ruimte A", new Time(480), new Time(600), "Een omschrijving.");
+                foreach (var app in this._agendaEventCollection[this._agendaDayIndex])
+                {
+                    appointment[0] += this.GenerateAppointment(app.Title, app.Location, new Time(app.TimeStart), new Time(app.TimeEnd), app.Description);
+                }
+
+                this._agendaDayIndex++;
 
                 this._agendaWeekAppointments.Rows.Add(appointment);
 

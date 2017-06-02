@@ -503,15 +503,13 @@ namespace AmstaJanBonga.Business.EntityClasses
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("AgendaEventId", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
+			_fieldsCustomProperties.Add("EventUnixTimeStamp", fieldHashtable);
+			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("Id", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("PatientId", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("RepeatInterval", fieldHashtable);
-			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("RepeatStart", fieldHashtable);
-			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("SingleEvent", fieldHashtable);
 		}
 		#endregion
 
@@ -520,7 +518,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <param name="resetFKFields">if set to true it will also reset the FK fields pointing to the related entity</param>
 		private void DesetupSyncAgendaEvent(bool signalRelatedEntity, bool resetFKFields)
 		{
-			this.PerformDesetupSyncRelatedEntity( _agendaEvent, new PropertyChangedEventHandler( OnAgendaEventPropertyChanged ), "AgendaEvent", AmstaJanBonga.Business.RelationClasses.StaticAgendaEventMetaRelations.AgendaEventEntityUsingAgendaEventIdStatic, true, signalRelatedEntity, "AgendaEventMeta", resetFKFields, new int[] { (int)AgendaEventMetaFieldIndex.AgendaEventId } );		
+			this.PerformDesetupSyncRelatedEntity( _agendaEvent, new PropertyChangedEventHandler( OnAgendaEventPropertyChanged ), "AgendaEvent", AmstaJanBonga.Business.RelationClasses.StaticAgendaEventMetaRelations.AgendaEventEntityUsingAgendaEventIdStatic, true, signalRelatedEntity, "AgendaEventMetas", resetFKFields, new int[] { (int)AgendaEventMetaFieldIndex.AgendaEventId } );		
 			_agendaEvent = null;
 		}
 		
@@ -553,7 +551,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 		/// <param name="resetFKFields">if set to true it will also reset the FK fields pointing to the related entity</param>
 		private void DesetupSyncPatient(bool signalRelatedEntity, bool resetFKFields)
 		{
-			this.PerformDesetupSyncRelatedEntity( _patient, new PropertyChangedEventHandler( OnPatientPropertyChanged ), "Patient", AmstaJanBonga.Business.RelationClasses.StaticAgendaEventMetaRelations.PatientEntityUsingPatientIdStatic, true, signalRelatedEntity, "AgendaEventMeta", resetFKFields, new int[] { (int)AgendaEventMetaFieldIndex.PatientId } );		
+			this.PerformDesetupSyncRelatedEntity( _patient, new PropertyChangedEventHandler( OnPatientPropertyChanged ), "Patient", AmstaJanBonga.Business.RelationClasses.StaticAgendaEventMetaRelations.PatientEntityUsingPatientIdStatic, true, signalRelatedEntity, "AgendaEventMetas", resetFKFields, new int[] { (int)AgendaEventMetaFieldIndex.PatientId } );		
 			_patient = null;
 		}
 		
@@ -680,6 +678,16 @@ namespace AmstaJanBonga.Business.EntityClasses
 			set	{ SetValue((int)AgendaEventMetaFieldIndex.AgendaEventId, value, true); }
 		}
 
+		/// <summary> The EventUnixTimeStamp property of the Entity AgendaEventMeta<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "AgendaEventMeta"."EventUnixTimeStamp"<br/>
+		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		public virtual System.Int32 EventUnixTimeStamp
+		{
+			get { return (System.Int32)GetValue((int)AgendaEventMetaFieldIndex.EventUnixTimeStamp, true); }
+			set	{ SetValue((int)AgendaEventMetaFieldIndex.EventUnixTimeStamp, value, true); }
+		}
+
 		/// <summary> The Id property of the Entity AgendaEventMeta<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "AgendaEventMeta"."Id"<br/>
 		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
@@ -710,26 +718,6 @@ namespace AmstaJanBonga.Business.EntityClasses
 			set	{ SetValue((int)AgendaEventMetaFieldIndex.RepeatInterval, value, true); }
 		}
 
-		/// <summary> The RepeatStart property of the Entity AgendaEventMeta<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "AgendaEventMeta"."RepeatStart"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
-		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
-		public virtual Nullable<System.Int32> RepeatStart
-		{
-			get { return (Nullable<System.Int32>)GetValue((int)AgendaEventMetaFieldIndex.RepeatStart, false); }
-			set	{ SetValue((int)AgendaEventMetaFieldIndex.RepeatStart, value, true); }
-		}
-
-		/// <summary> The SingleEvent property of the Entity AgendaEventMeta<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "AgendaEventMeta"."SingleEvent"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
-		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
-		public virtual Nullable<System.Int32> SingleEvent
-		{
-			get { return (Nullable<System.Int32>)GetValue((int)AgendaEventMetaFieldIndex.SingleEvent, false); }
-			set	{ SetValue((int)AgendaEventMetaFieldIndex.SingleEvent, value, true); }
-		}
-
 
 		/// <summary> Gets / sets related entity of type 'AgendaEventEntity'. This property is not visible in databound grids.
 		/// Setting this property to a new object will make the load-on-demand feature to stop fetching data from the database, until you set this
@@ -750,7 +738,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 				}
 				else
 				{
-					SetSingleRelatedEntityNavigator(value, "AgendaEventMeta", "AgendaEvent", _agendaEvent, true); 
+					SetSingleRelatedEntityNavigator(value, "AgendaEventMetas", "AgendaEvent", _agendaEvent, true); 
 				}
 			}
 		}
@@ -809,7 +797,7 @@ namespace AmstaJanBonga.Business.EntityClasses
 				}
 				else
 				{
-					SetSingleRelatedEntityNavigator(value, "AgendaEventMeta", "Patient", _patient, true); 
+					SetSingleRelatedEntityNavigator(value, "AgendaEventMetas", "Patient", _patient, true); 
 				}
 			}
 		}

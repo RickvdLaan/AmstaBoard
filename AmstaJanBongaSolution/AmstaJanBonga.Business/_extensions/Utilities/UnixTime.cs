@@ -4,6 +4,15 @@ public partial class Time
 {
     public class UnixTime
     {
+        // Timestamp is written as TimeStamp to improve readability.
+
+        #region Variables & Objects
+
+        public const int UNIX_TIMESTAMP_DAY = 86400;
+        public const int UNIX_TIMESTAMP_WEEK = 604800;
+
+        #endregion
+
         #region Properties
 
         /// <summary>

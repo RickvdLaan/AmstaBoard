@@ -14,7 +14,9 @@ namespace AmstaJanBonga.Web.Content.Unsecure.Updating
         protected void _timer_Tick(object sender, EventArgs e)
         {
             if (!WebConfig.GetSetting("Application.IsUpdating").ToBoolean())
+            {
                 Response.Redirect("~/Livingroom");
+            }
         }
     }
 }

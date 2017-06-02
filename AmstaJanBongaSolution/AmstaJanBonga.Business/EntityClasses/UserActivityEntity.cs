@@ -415,10 +415,6 @@ namespace AmstaJanBonga.Business.EntityClasses
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("DateCreated", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("DateLastModified", fieldHashtable);
-			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("DateLastModifiedByUserId", fieldHashtable);
-			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("Name", fieldHashtable);
 		}
 		#endregion
@@ -513,26 +509,6 @@ namespace AmstaJanBonga.Business.EntityClasses
 		{
 			get { return (System.DateTime)GetValue((int)UserActivityFieldIndex.DateCreated, true); }
 			set	{ SetValue((int)UserActivityFieldIndex.DateCreated, value, true); }
-		}
-
-		/// <summary> The DateLastModified property of the Entity UserActivity<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "UserActivity"."DateLastModified"<br/>
-		/// Table field type characteristics (type, precision, scale, length): DateTime, 0, 0, 0<br/>
-		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
-		public virtual Nullable<System.DateTime> DateLastModified
-		{
-			get { return (Nullable<System.DateTime>)GetValue((int)UserActivityFieldIndex.DateLastModified, false); }
-			set	{ SetValue((int)UserActivityFieldIndex.DateLastModified, value, true); }
-		}
-
-		/// <summary> The DateLastModifiedByUserId property of the Entity UserActivity<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "UserActivity"."DateLastModifiedByUserId"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
-		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
-		public virtual Nullable<System.Int32> DateLastModifiedByUserId
-		{
-			get { return (Nullable<System.Int32>)GetValue((int)UserActivityFieldIndex.DateLastModifiedByUserId, false); }
-			set	{ SetValue((int)UserActivityFieldIndex.DateLastModifiedByUserId, value, true); }
 		}
 
 		/// <summary> The Name property of the Entity UserActivity<br/><br/></summary>

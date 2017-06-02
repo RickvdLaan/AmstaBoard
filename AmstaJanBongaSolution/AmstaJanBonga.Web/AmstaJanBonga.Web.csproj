@@ -266,7 +266,6 @@
     <Compile Include="Code\Utilities\DefaultPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Code\Time\Time.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_GlobalResources\Resource.resx">

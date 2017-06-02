@@ -5,6 +5,7 @@ using Rlaan.Toolkit.Configuration;
 using Rlaan.Toolkit.Extensions;
 using Rlaan.Toolkit.Web;
 using System;
+using System.Diagnostics;
 using System.Threading;
 using System.Web;
 using System.Web.Routing;
@@ -47,6 +48,8 @@ namespace AmstaJanBonga.Web
         /// </summary>
         protected void Application_OnPostAuthenticateRequest(object sender, EventArgs e)
         {
+            Debug.WriteLine("Application_OnPostAuthenticateRequest entered.");
+
             // Gets the security information for the current HTTP request, returns an IPrincipal.
             var principal = HttpContext.Current.User;
 
@@ -86,7 +89,7 @@ namespace AmstaJanBonga.Web
                         Authentication.Utility.SignOut();
 
                     // Logging the event to the developer.
-                    Log.Object(user, "Web: No RoleTypeEnum found by value {0}, it was either not implemented or does not exist and wasn't caught by the login screen.".FormatString());
+                    Log.Object(user, "Web: No RoleTypeEnum found by value {0}, it was either not implemented or does not exist and wasn't caught by the login screen.".FormatString(user.UserRole.RoleTypeEnum));
                 }
             }
         }
@@ -98,6 +101,8 @@ namespace AmstaJanBonga.Web
                 try
                 {
                     Log.Exception(Server.GetLastError());
+
+                    Server.ClearError();
                 }
                 catch { }
             }
