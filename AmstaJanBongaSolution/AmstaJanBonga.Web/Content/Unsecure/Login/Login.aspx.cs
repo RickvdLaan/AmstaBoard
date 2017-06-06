@@ -41,7 +41,7 @@ namespace AmstaJanBonga.Web.Content.Unsecure.Login
         {
             if (Authentication.IsAuthenticated)
             {
-                Response.Redirect("~/Livingroom");
+                Response.Redirect("~/LivingRoom");
             }
         }
 
@@ -105,7 +105,7 @@ namespace AmstaJanBonga.Web.Content.Unsecure.Login
             }
 
             // There was no return url present, so we assume that the user came from the login page.
-            Response.Redirect("~/Livingroom");
+            Response.Redirect("~/LivingRoom");
         }
 
         #endregion

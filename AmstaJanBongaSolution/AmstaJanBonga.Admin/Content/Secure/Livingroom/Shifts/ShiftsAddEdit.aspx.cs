@@ -71,7 +71,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Shifts
             {
                 if (this._shifts == null && this.HasLivingRoomId && this.HasDate)
                 {
-                    // Gets all shifts for a specific livingroom and date.
+                    // Gets all shifts for a specific living room and date.
                     this._shifts = LivingRoomShiftEventReader.GetAllShiftsFilteredByLivingroomAndDate(this.Livingroom.Id, this.QueryStringDate.Date);
                 }
 
@@ -91,7 +91,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Shifts
             {
                 this.PreFill();
 
-                this._hlReturn.NavigateUrl = "~/Content/Secure/Livingroom/Shifts/ShiftsOverview.aspx?LivingRoomId={0}".FormatString(this.Livingroom.Id);
+                this._hlReturn.NavigateUrl = "~/Content/Secure/LivingRoom/Shifts/ShiftsOverview.aspx?LivingRoomId={0}".FormatString(this.Livingroom.Id);
             }
         }
 
@@ -101,7 +101,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Shifts
         {
             if (this.HasLivingRoomId)
             {
-                // Gets all the employees for a specific livingroom.
+                // Gets all the employees for a specific living room.
                 var employees = EmployeeReader.GetAllEmployeesByLivingRoomId(this.Livingroom.Id);
 
                 // Edit
@@ -115,7 +115,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Shifts
                     this._txtDate.Text = this.ExtendedCalendar.SelectedDate.Date.ToString("dd-MM-yyyy");
                     this._txtDate.Visible = true;
 
-                    // Sets the livingroom name.
+                    // Sets the living room name.
                     this._txtLivingroom.Text = this.Livingroom.Name;
 
                     // Fills the list boxes.
@@ -235,13 +235,13 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Shifts
             {
                 this.Save();
 
-                Response.Redirect("~/Content/Secure/Livingroom/Shifts/ShiftsOverview.aspx?LivingRoomId={0}".FormatString(this.Livingroom.Id));
+                Response.Redirect("~/Content/Secure/LivingRoom/Shifts/ShiftsOverview.aspx?LivingRoomId={0}".FormatString(this.Livingroom.Id));
             }
         }
 
         protected void _btnCancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Content/Secure/Livingroom/Shifts/ShiftsOverview.aspx?LivingRoomId={0}".FormatString(this.Livingroom.Id));
+            Response.Redirect("~/Content/Secure/LivingRoom/Shifts/ShiftsOverview.aspx?LivingRoomId={0}".FormatString(this.Livingroom.Id));
         }
 
         #endregion

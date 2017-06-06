@@ -66,7 +66,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
             {
                 this.PreFill();
 
-                this._hlReturn.NavigateUrl = "~/Content/Secure/Livingroom/General/GeneralOverview.aspx?LivingRoomId={0}".FormatString(this.LivingRoomId);
+                this._hlReturn.NavigateUrl = "~/Content/Secure/LivingRoom/General/GeneralOverview.aspx?LivingRoomId={0}".FormatString(this.LivingRoomId);
             }
         }
 
@@ -151,13 +151,13 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
             {
                 this.Save();
 
-                Response.Redirect("~/Content/Secure/Livingroom/General/GeneralOverview.aspx?LivingRoomId={0}".FormatString(this.LivingRoomId));
+                Response.Redirect("~/Content/Secure/LivingRoom/General/GeneralOverview.aspx?LivingRoomId={0}".FormatString(this.LivingRoomId));
             }
         }
 
         protected void _btnCancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Content/Secure/Livingroom/General/GeneralOverview.aspx?LivingRoomId={0}".FormatString(this.LivingRoomId));
+            Response.Redirect("~/Content/Secure/LivingRoom/General/GeneralOverview.aspx?LivingRoomId={0}".FormatString(this.LivingRoomId));
         }
 
         #endregion

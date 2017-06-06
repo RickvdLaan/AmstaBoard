@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Main.Master" AutoEventWireup="true" CodeBehind="LivingroomDetails.aspx.cs" Inherits="AmstaJanBonga.Admin.Content.Secure.Livingroom.LivingroomDetails" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Main.Master" AutoEventWireup="true" CodeBehind="LivingRoomDetails.aspx.cs" Inherits="AmstaJanBonga.Admin.Content.Secure.LivingRoom.LivingRoomDetails" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="_cphHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="_cphMainTitle" runat="server">

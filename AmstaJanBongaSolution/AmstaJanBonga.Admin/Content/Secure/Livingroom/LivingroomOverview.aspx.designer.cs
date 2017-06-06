@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AmstaJanBonga.Admin.Content.Secure.Livingroom {
+namespace AmstaJanBonga.Admin.Content.Secure.LivingRoom {
     
     
-    public partial class LivingroomOverview {
+    public partial class LivingRoomOverview {
         
         /// <summary>
         /// _gvLivingrooms control.

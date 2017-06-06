@@ -83,7 +83,7 @@ namespace AmstaJanBonga.Business.Database.Readers
         }
 
         /// <summary>
-        /// Returns a collection of all the patients joined with the livingroom relation.
+        /// Returns a collection of all the patients joined with the living room relation.
         /// </summary>
         /// <returns></returns>
         public static DataTable GetAllPatientsJoinedWithLivingroom()

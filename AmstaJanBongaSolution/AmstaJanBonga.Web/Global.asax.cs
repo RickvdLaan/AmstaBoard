@@ -164,7 +164,7 @@ namespace AmstaJanBonga.Web
             routes.Ignore("App_GlobalResources/");
 
             routes.MapPageRoute("Login", "Login", "~/Content/Unsecure/Login/Login.aspx");
-            routes.MapPageRoute("Livingroom", "Livingroom", "~/Content/Secure/Livingroom/Livingroom.aspx");
+            routes.MapPageRoute("LivingRoom", "LivingRoom", "~/Content/Secure/LivingRoom/LivingRoom.aspx");
             routes.MapPageRoute("Erro500", "Error500", "~/Content/Unsecure/Error/Error500.aspx");
             routes.MapPageRoute("Erro404", "Error404", "~/Content/Unsecure/Error/Error404.aspx");
             routes.MapPageRoute("Updating", "Updating", "~/Content/Unsecure/Updating/Updating.aspx");

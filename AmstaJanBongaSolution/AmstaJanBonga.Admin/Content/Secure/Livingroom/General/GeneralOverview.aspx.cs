@@ -40,8 +40,8 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
         {
             if (!this.IsPostBack)
             {
-                this._hlAddEditGeneral.NavigateUrl = "~/Content/Secure/Livingroom/General/GeneralAddEdit.aspx?LivingRoomId={0}".FormatString(this.LivingRoomId);
-                this._hlAddEditGeneralEvent.NavigateUrl = "~/Content/Secure/Livingroom/General/GeneralEventAddEdit.aspx?LivingRoomId={0}".FormatString(this.LivingRoomId);
+                this._hlAddEditGeneral.NavigateUrl = "~/Content/Secure/LivingRoom/General/GeneralAddEdit.aspx?LivingRoomId={0}".FormatString(this.LivingRoomId);
+                this._hlAddEditGeneralEvent.NavigateUrl = "~/Content/Secure/LivingRoom/General/GeneralEventAddEdit.aspx?LivingRoomId={0}".FormatString(this.LivingRoomId);
             }
         }
 

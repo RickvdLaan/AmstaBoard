@@ -71,7 +71,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
             {
                 if (this._chores == null && this.HasLivingRoomId && this.HasDate)
                 {
-                    // Gets all chores for a specific livingroom and date.
+                    // Gets all chores for a specific living room and date.
                     this._chores = LivingRoomChoreEventReader.GetAllChoresFilteredByLivingroomAndDate(this.Livingroom.Id, this.QueryStringDate.Date);
                 }
 
@@ -91,7 +91,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
             {
                 this.PreFill();
 
-                this._hlReturn.NavigateUrl = "~/Content/Secure/Livingroom/Chores/ChoresOverview.aspx?LivingRoomId={0}".FormatString(this.Livingroom.Id);
+                this._hlReturn.NavigateUrl = "~/Content/Secure/LivingRoom/Chores/ChoresOverview.aspx?LivingRoomId={0}".FormatString(this.Livingroom.Id);
             }
         }
 
@@ -101,7 +101,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
         {
             if (this.HasLivingRoomId)
             {
-                // Gets all the patients for a specific livingroom.
+                // Gets all the patients for a specific living room.
                 var patients = PatientReader.GetAllPatientsByLivingRoomId(this.Livingroom.Id);
 
                 // Edit
@@ -115,7 +115,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
                     this._txtDate.Text = this.ExtendedCalendar.SelectedDate.Date.ToString("dd-MM-yyyy");
                     this._txtDate.Visible = true;
 
-                    // Sets the livingroom name.
+                    // Sets the living room name.
                     this._txtLivingroom.Text = this.Livingroom.Name;
 
                     // Fills the list boxes.
@@ -246,13 +246,13 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
             {
                 this.Save();
 
-                Response.Redirect("~/Content/Secure/Livingroom/Chores/ChoresOverview.aspx?LivingRoomId={0}".FormatString(this.Livingroom.Id));
+                Response.Redirect("~/Content/Secure/LivingRoom/Chores/ChoresOverview.aspx?LivingRoomId={0}".FormatString(this.Livingroom.Id));
             }
         }
 
         protected void _btnCancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Content/Secure/Livingroom/Chores/ChoresOverview.aspx?LivingRoomId={0}".FormatString(this.Livingroom.Id));
+            Response.Redirect("~/Content/Secure/LivingRoom/Chores/ChoresOverview.aspx?LivingRoomId={0}".FormatString(this.Livingroom.Id));
         }
 
         #endregion

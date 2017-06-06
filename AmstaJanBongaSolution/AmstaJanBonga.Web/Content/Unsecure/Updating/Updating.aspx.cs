@@ -15,7 +15,7 @@ namespace AmstaJanBonga.Web.Content.Unsecure.Updating
         {
             if (!WebConfig.GetSetting("Application.IsUpdating").ToBoolean())
             {
-                Response.Redirect("~/Livingroom");
+                Response.Redirect("~/LivingRoom");
             }
         }
     }

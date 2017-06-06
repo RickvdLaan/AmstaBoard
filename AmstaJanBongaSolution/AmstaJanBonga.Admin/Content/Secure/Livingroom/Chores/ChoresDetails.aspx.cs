@@ -76,9 +76,9 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
                 if (this.HasLivingRoomId)
                 {
                     if (this.HasDate)
-                        this._hlEdit.NavigateUrl = "~/Content/Secure/Livingroom/Chores/ChoresAddEdit.aspx?LivingRoomId={0}&Date={1}".FormatString(this.LivingRoom.Id, this.QueryStringDate.Date);
+                        this._hlEdit.NavigateUrl = "~/Content/Secure/LivingRoom/Chores/ChoresAddEdit.aspx?LivingRoomId={0}&Date={1}".FormatString(this.LivingRoom.Id, this.QueryStringDate.Date);
 
-                    this._hlReturn.NavigateUrl = "~/Content/Secure/Livingroom/Chores/ChoresOverview.aspx?LivingRoomId={0}".FormatString(this.LivingRoom.Id);
+                    this._hlReturn.NavigateUrl = "~/Content/Secure/LivingRoom/Chores/ChoresOverview.aspx?LivingRoomId={0}".FormatString(this.LivingRoom.Id);
                 }
             }
         }

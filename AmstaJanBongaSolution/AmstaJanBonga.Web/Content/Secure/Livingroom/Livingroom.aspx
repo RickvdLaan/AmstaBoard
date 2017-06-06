@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Main.Master" AutoEventWireup="true" CodeBehind="Livingroom.aspx.cs" Inherits="AmstaJanBonga.Web.Content.Home" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Main.Master" AutoEventWireup="true" CodeBehind="LivingRoom.aspx.cs" Inherits="AmstaJanBonga.Web.Content.Home" %>
 
 <%@ Import namespace="Rlaan.Toolkit.Extensions" %>
 <%@ Import namespace="AmstaJanBonga.Business.Enums" %>

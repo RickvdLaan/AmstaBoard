@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AmstaJanBonga.Admin.Content.Secure.Livingroom {
+namespace AmstaJanBonga.Admin.Content.Secure.LivingRoom {
     
     
-    public partial class LivingroomDetails {
+    public partial class LivingRoomDetails {
         
         /// <summary>
         /// _hlReturn control.

@@ -17,7 +17,7 @@
         <h2>Wat nu?</h2>
 
         <p>
-            1. Druk <asp:HyperLink runat="server" NavigateUrl="~/Livingroom">hier</asp:HyperLink>
+            1. Druk <asp:HyperLink runat="server" NavigateUrl="~/LivingRoom">hier</asp:HyperLink>
             of op het <i class="fa fa-th-large" aria-hidden="true"></i> icoontje linksboven om terug te gaan naar het hoofdscherm.
         </p>
         <p>

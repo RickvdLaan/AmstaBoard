@@ -74,9 +74,9 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
                 if (this.HasLivingRoomId)
                 {
                     if (this.HasDate)
-                        this._hlEdit.NavigateUrl = "~/Content/Secure/Livingroom/General/GeneralEventAddEdit.aspx?LivingRoomId={0}&Date={1}".FormatString(this.Livingroom.Id, this.QueryStringDate.Date);
+                        this._hlEdit.NavigateUrl = "~/Content/Secure/LivingRoom/General/GeneralEventAddEdit.aspx?LivingRoomId={0}&Date={1}".FormatString(this.Livingroom.Id, this.QueryStringDate.Date);
 
-                    this._hlReturn.NavigateUrl = "~/Content/Secure/Livingroom/General/GeneralOverview.aspx?LivingRoomId={0}".FormatString(this.Livingroom.Id);
+                    this._hlReturn.NavigateUrl = "~/Content/Secure/LivingRoom/General/GeneralOverview.aspx?LivingRoomId={0}".FormatString(this.Livingroom.Id);
                 }
             }
         }

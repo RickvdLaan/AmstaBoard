@@ -49,7 +49,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Shifts
         {
             if (!this.IsPostBack)
             {
-                this._hlAddEditShifts.NavigateUrl = "~/Content/Secure/Livingroom/Shifts/ShiftsAddEdit.aspx?LivingRoomId={0}".FormatString(this.LivingRoomId);
+                this._hlAddEditShifts.NavigateUrl = "~/Content/Secure/LivingRoom/Shifts/ShiftsAddEdit.aspx?LivingRoomId={0}".FormatString(this.LivingRoomId);
             }
         }
 

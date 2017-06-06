@@ -26,7 +26,7 @@ namespace AmstaJanBonga.Business.Database.Readers
         }
 
         /// <summary>
-        /// Gets the livingroom with the corresponding livingroom id or null.
+        /// Gets the living room with the corresponding living room id or null.
         /// </summary>
         /// <param name="LivingRoomId">The living rooms unique id.</param>
         /// <param name="name">The name of the living room.</param>
@@ -35,12 +35,12 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static LivingRoomEntity GetLivingRoomById(int LivingRoomId, bool throwExceptionWhenNotFound)
         {
-            var livingroom = GetLivingRoomById(LivingRoomId);
+            var livingRoom = GetLivingRoomById(LivingRoomId);
 
-            if (livingroom.IsNew && throwExceptionWhenNotFound)
+            if (livingRoom.IsNew && throwExceptionWhenNotFound)
                 throw new Exception("Living room not found by id {0}.".FormatString(LivingRoomId));
 
-            return livingroom;
+            return livingRoom;
         }
 
         #endregion

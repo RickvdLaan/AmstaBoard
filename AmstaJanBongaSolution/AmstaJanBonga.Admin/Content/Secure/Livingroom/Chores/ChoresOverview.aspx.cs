@@ -49,7 +49,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
         {
             if (!this.IsPostBack)
             {
-                this._hlAddEditChores.NavigateUrl = "~/Content/Secure/Livingroom/Chores/ChoresAddEdit.aspx?LivingRoomId={0}".FormatString(this.LivingRoomId);
+                this._hlAddEditChores.NavigateUrl = "~/Content/Secure/LivingRoom/Chores/ChoresAddEdit.aspx?LivingRoomId={0}".FormatString(this.LivingRoomId);
             }
         }
 

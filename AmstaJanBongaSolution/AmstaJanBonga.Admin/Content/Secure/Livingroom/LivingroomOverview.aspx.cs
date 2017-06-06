@@ -1,15 +1,11 @@
 ﻿using AmstaJanBonga.Business.CollectionClasses;
 using AmstaJanBonga.Business.Database.Readers;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace AmstaJanBonga.Admin.Content.Secure.Livingroom
+namespace AmstaJanBonga.Admin.Content.Secure.LivingRoom
 {
-    public partial class LivingroomOverview : SecurePage
+    public partial class LivingRoomOverview : SecurePage
     {
         #region Properties
 

@@ -122,19 +122,19 @@
     <Content Include="Content\Controls\JsListBox\JsListBox.ascx" />
     <Content Include="Content\Secure\Dashboard.aspx" />
     <Content Include="Content\Secure\InsufficientPrivileges\InsufficientPrivileges.aspx" />
-    <Content Include="Content\Secure\Livingroom\Chores\ChoresAddEdit.aspx" />
-    <Content Include="Content\Secure\Livingroom\Chores\ChoresDetails.aspx" />
-    <Content Include="Content\Secure\Livingroom\Chores\ChoresOverview.aspx" />
-    <Content Include="Content\Secure\Livingroom\General\GeneralAddEdit.aspx" />
-    <Content Include="Content\Secure\Livingroom\General\GeneralEventAddEdit.aspx" />
-    <Content Include="Content\Secure\Livingroom\General\GeneralDetails.aspx" />
-    <Content Include="Content\Secure\Livingroom\General\GeneralOverview.aspx" />
-    <Content Include="Content\Secure\Livingroom\LivingroomAddEdit.aspx" />
-    <Content Include="Content\Secure\Livingroom\LivingroomDetails.aspx" />
-    <Content Include="Content\Secure\Livingroom\LivingroomOverview.aspx" />
-    <Content Include="Content\Secure\Livingroom\Shifts\ShiftsAddEdit.aspx" />
-    <Content Include="Content\Secure\Livingroom\Shifts\ShiftsDetails.aspx" />
-    <Content Include="Content\Secure\Livingroom\Shifts\ShiftsOverview.aspx" />
+    <Content Include="Content\Secure\LivingRoom\Chores\ChoresAddEdit.aspx" />
+    <Content Include="Content\Secure\LivingRoom\Chores\ChoresDetails.aspx" />
+    <Content Include="Content\Secure\LivingRoom\Chores\ChoresOverview.aspx" />
+    <Content Include="Content\Secure\LivingRoom\General\GeneralAddEdit.aspx" />
+    <Content Include="Content\Secure\LivingRoom\General\GeneralEventAddEdit.aspx" />
+    <Content Include="Content\Secure\LivingRoom\General\GeneralDetails.aspx" />
+    <Content Include="Content\Secure\LivingRoom\General\GeneralOverview.aspx" />
+    <Content Include="Content\Secure\LivingRoom\LivingRoomAddEdit.aspx" />
+    <Content Include="Content\Secure\LivingRoom\LivingRoomDetails.aspx" />
+    <Content Include="Content\Secure\LivingRoom\LivingRoomOverview.aspx" />
+    <Content Include="Content\Secure\LivingRoom\Shifts\ShiftsAddEdit.aspx" />
+    <Content Include="Content\Secure\LivingRoom\Shifts\ShiftsDetails.aspx" />
+    <Content Include="Content\Secure\LivingRoom\Shifts\ShiftsOverview.aspx" />
     <Content Include="Content\Secure\Patient\PatientAddEdit.aspx" />
     <Content Include="Content\Secure\Patient\PatientDetails.aspx" />
     <Content Include="Content\Secure\Patient\PatientOverview.aspx" />
@@ -270,95 +270,95 @@
     <Compile Include="Content\Secure\InsufficientPrivileges\InsufficientPrivileges.aspx.designer.cs">
       <DependentUpon>InsufficientPrivileges.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Content\Secure\Livingroom\Chores\ChoresAddEdit.aspx.cs">
+    <Compile Include="Content\Secure\LivingRoom\Chores\ChoresAddEdit.aspx.cs">
       <DependentUpon>ChoresAddEdit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Content\Secure\Livingroom\Chores\ChoresAddEdit.aspx.designer.cs">
+    <Compile Include="Content\Secure\LivingRoom\Chores\ChoresAddEdit.aspx.designer.cs">
       <DependentUpon>ChoresAddEdit.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Content\Secure\Livingroom\Chores\ChoresDetails.aspx.cs">
+    <Compile Include="Content\Secure\LivingRoom\Chores\ChoresDetails.aspx.cs">
       <DependentUpon>ChoresDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Content\Secure\Livingroom\Chores\ChoresDetails.aspx.designer.cs">
+    <Compile Include="Content\Secure\LivingRoom\Chores\ChoresDetails.aspx.designer.cs">
       <DependentUpon>ChoresDetails.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Content\Secure\Livingroom\Chores\ChoresOverview.aspx.cs">
+    <Compile Include="Content\Secure\LivingRoom\Chores\ChoresOverview.aspx.cs">
       <DependentUpon>ChoresOverview.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Content\Secure\Livingroom\Chores\ChoresOverview.aspx.designer.cs">
+    <Compile Include="Content\Secure\LivingRoom\Chores\ChoresOverview.aspx.designer.cs">
       <DependentUpon>ChoresOverview.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Content\Secure\Livingroom\General\GeneralAddEdit.aspx.cs">
+    <Compile Include="Content\Secure\LivingRoom\General\GeneralAddEdit.aspx.cs">
       <DependentUpon>GeneralAddEdit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Content\Secure\Livingroom\General\GeneralAddEdit.aspx.designer.cs">
+    <Compile Include="Content\Secure\LivingRoom\General\GeneralAddEdit.aspx.designer.cs">
       <DependentUpon>GeneralAddEdit.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Content\Secure\Livingroom\General\GeneralEventAddEdit.aspx.cs">
+    <Compile Include="Content\Secure\LivingRoom\General\GeneralEventAddEdit.aspx.cs">
       <DependentUpon>GeneralEventAddEdit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Content\Secure\Livingroom\General\GeneralEventAddEdit.aspx.designer.cs">
+    <Compile Include="Content\Secure\LivingRoom\General\GeneralEventAddEdit.aspx.designer.cs">
       <DependentUpon>GeneralEventAddEdit.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Content\Secure\Livingroom\General\GeneralDetails.aspx.cs">
+    <Compile Include="Content\Secure\LivingRoom\General\GeneralDetails.aspx.cs">
       <DependentUpon>GeneralDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Content\Secure\Livingroom\General\GeneralDetails.aspx.designer.cs">
+    <Compile Include="Content\Secure\LivingRoom\General\GeneralDetails.aspx.designer.cs">
       <DependentUpon>GeneralDetails.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Content\Secure\Livingroom\General\GeneralOverview.aspx.cs">
+    <Compile Include="Content\Secure\LivingRoom\General\GeneralOverview.aspx.cs">
       <DependentUpon>GeneralOverview.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Content\Secure\Livingroom\General\GeneralOverview.aspx.designer.cs">
+    <Compile Include="Content\Secure\LivingRoom\General\GeneralOverview.aspx.designer.cs">
       <DependentUpon>GeneralOverview.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Content\Secure\Livingroom\LivingroomAddEdit.aspx.cs">
-      <DependentUpon>LivingroomAddEdit.aspx</DependentUpon>
+    <Compile Include="Content\Secure\LivingRoom\LivingRoomAddEdit.aspx.cs">
+      <DependentUpon>LivingRoomAddEdit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Content\Secure\Livingroom\LivingroomAddEdit.aspx.designer.cs">
-      <DependentUpon>LivingroomAddEdit.aspx</DependentUpon>
+    <Compile Include="Content\Secure\LivingRoom\LivingRoomAddEdit.aspx.designer.cs">
+      <DependentUpon>LivingRoomAddEdit.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Content\Secure\Livingroom\LivingroomDetails.aspx.cs">
-      <DependentUpon>LivingroomDetails.aspx</DependentUpon>
+    <Compile Include="Content\Secure\LivingRoom\LivingRoomDetails.aspx.cs">
+      <DependentUpon>LivingRoomDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Content\Secure\Livingroom\LivingroomDetails.aspx.designer.cs">
-      <DependentUpon>LivingroomDetails.aspx</DependentUpon>
+    <Compile Include="Content\Secure\LivingRoom\LivingRoomDetails.aspx.designer.cs">
+      <DependentUpon>LivingRoomDetails.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Content\Secure\Livingroom\LivingroomOverview.aspx.cs">
-      <DependentUpon>LivingroomOverview.aspx</DependentUpon>
+    <Compile Include="Content\Secure\LivingRoom\LivingRoomOverview.aspx.cs">
+      <DependentUpon>LivingRoomOverview.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Content\Secure\Livingroom\LivingroomOverview.aspx.designer.cs">
-      <DependentUpon>LivingroomOverview.aspx</DependentUpon>
+    <Compile Include="Content\Secure\LivingRoom\LivingRoomOverview.aspx.designer.cs">
+      <DependentUpon>LivingRoomOverview.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Content\Secure\Livingroom\Shifts\ShiftsAddEdit.aspx.cs">
+    <Compile Include="Content\Secure\LivingRoom\Shifts\ShiftsAddEdit.aspx.cs">
       <DependentUpon>ShiftsAddEdit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Content\Secure\Livingroom\Shifts\ShiftsAddEdit.aspx.designer.cs">
+    <Compile Include="Content\Secure\LivingRoom\Shifts\ShiftsAddEdit.aspx.designer.cs">
       <DependentUpon>ShiftsAddEdit.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Content\Secure\Livingroom\Shifts\ShiftsDetails.aspx.cs">
+    <Compile Include="Content\Secure\LivingRoom\Shifts\ShiftsDetails.aspx.cs">
       <DependentUpon>ShiftsDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Content\Secure\Livingroom\Shifts\ShiftsDetails.aspx.designer.cs">
+    <Compile Include="Content\Secure\LivingRoom\Shifts\ShiftsDetails.aspx.designer.cs">
       <DependentUpon>ShiftsDetails.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Content\Secure\Livingroom\Shifts\ShiftsOverview.aspx.cs">
+    <Compile Include="Content\Secure\LivingRoom\Shifts\ShiftsOverview.aspx.cs">
       <DependentUpon>ShiftsOverview.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Content\Secure\Livingroom\Shifts\ShiftsOverview.aspx.designer.cs">
+    <Compile Include="Content\Secure\LivingRoom\Shifts\ShiftsOverview.aspx.designer.cs">
       <DependentUpon>ShiftsOverview.aspx</DependentUpon>
     </Compile>
     <Compile Include="Content\Secure\Patient\PatientAddEdit.aspx.cs">

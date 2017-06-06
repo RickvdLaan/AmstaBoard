@@ -5,9 +5,9 @@ using Rlaan.Toolkit.Extensions;
 using Rlaan.Toolkit.Web;
 using System;
 
-namespace AmstaJanBonga.Admin.Content.Secure.Livingroom
+namespace AmstaJanBonga.Admin.Content.Secure.LivingRoom
 {
-    public partial class LivingroomDetails : SecurePage
+    public partial class LivingRoomDetails : SecurePage
     {
         #region Variables & Objects
 
@@ -43,8 +43,8 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom
 
                 if (this.HasLivingRoomId)
                 {
-                    this._hlEdit.NavigateUrl = "~/Content/Secure/Livingroom/LivingroomAddEdit.aspx?LivingRoomId={0}".FormatString(this.LivingRoom.Id);
-                    this._hlReturn.NavigateUrl = "~/Content/Secure/Livingroom/LivingroomOverview.aspx?LivingRoomId={0}".FormatString(this.LivingRoom.Id);
+                    this._hlEdit.NavigateUrl = "~/Content/Secure/LivingRoom/LivingroomAddEdit.aspx?LivingRoomId={0}".FormatString(this.LivingRoom.Id);
+                    this._hlReturn.NavigateUrl = "~/Content/Secure/LivingRoom/LivingroomOverview.aspx?LivingRoomId={0}".FormatString(this.LivingRoom.Id);
                 }
             }
         }

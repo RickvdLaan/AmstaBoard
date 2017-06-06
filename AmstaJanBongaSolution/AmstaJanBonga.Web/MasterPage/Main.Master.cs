@@ -164,7 +164,7 @@ namespace AmstaJanBonga.Web.MasterPage
 
         protected void _lbHome_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Livingroom", false);
+            Response.Redirect("~/LivingRoom", false);
         }
 
         protected void _SignOut_Click(object sender, EventArgs e)

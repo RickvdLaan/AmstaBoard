@@ -68,7 +68,7 @@
                         </li>
 
                         <li runat="server" id="_liLivingRoom" class="nav-menu">
-                            <asp:HyperLink runat="server" NavigateUrl="~/Content/Secure/Livingroom/LivingroomOverview.aspx"> 
+                            <asp:HyperLink runat="server" NavigateUrl="~/Content/Secure/LivingRoom/LivingRoomOverview.aspx"> 
                                 <i class="fa fa-home" aria-hidden="true"></i>
                                 Woonkamers
                             </asp:HyperLink>

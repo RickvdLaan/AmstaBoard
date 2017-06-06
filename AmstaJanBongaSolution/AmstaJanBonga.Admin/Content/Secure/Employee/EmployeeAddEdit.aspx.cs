@@ -44,7 +44,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Employee
             if (!this.IsPostBack)
             {
                 this.PreFillForm();
-                this.PreFillLivingrooms();
+                this.PreFillLivingRooms();
                 this.PreFillUnlinkedUsers();
             }
         }
@@ -61,7 +61,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Employee
             }
         }
 
-        private void PreFillLivingrooms()
+        private void PreFillLivingRooms()
         {
             var livingrooms = LivingRoomReader.GetAllLivingRooms();
 

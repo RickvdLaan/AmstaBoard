@@ -76,9 +76,9 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Shifts
                 if (this.HasLivingRoomId)
                 {
                     if (this.HasDate)
-                        this._hlEdit.NavigateUrl = "~/Content/Secure/Livingroom/Shifts/ShiftsAddEdit.aspx?LivingRoomId={0}&Date={1}".FormatString(this.LivingRoom.Id, this.QueryStringDate.Date);
+                        this._hlEdit.NavigateUrl = "~/Content/Secure/LivingRoom/Shifts/ShiftsAddEdit.aspx?LivingRoomId={0}&Date={1}".FormatString(this.LivingRoom.Id, this.QueryStringDate.Date);
 
-                    this._hlReturn.NavigateUrl = "~/Content/Secure/Livingroom/Shifts/ShiftsOverview.aspx?LivingRoomId={0}".FormatString(this.LivingRoom.Id);
+                    this._hlReturn.NavigateUrl = "~/Content/Secure/LivingRoom/Shifts/ShiftsOverview.aspx?LivingRoomId={0}".FormatString(this.LivingRoom.Id);
                 }
             }
         }

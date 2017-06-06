@@ -72,6 +72,7 @@
     <Compile Include="_Extensions\Database\Managers\LivingroomChoreEventManager.cs" />
     <Compile Include="_Extensions\Database\Managers\LivingroomGeneralEventManager.cs" />
     <Compile Include="_Extensions\Database\Managers\LivingroomGeneralManager.cs" />
+    <Compile Include="_Extensions\Database\Managers\LivingRoomManager.cs" />
     <Compile Include="_Extensions\Database\Managers\LivingroomShiftEventManager.cs" />
     <Compile Include="_Extensions\Database\Managers\PatientManager.cs" />
     <Compile Include="_Extensions\Database\Managers\UserManager.cs" />
