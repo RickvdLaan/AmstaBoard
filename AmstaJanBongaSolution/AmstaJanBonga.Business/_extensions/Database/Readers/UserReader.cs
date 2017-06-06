@@ -51,6 +51,19 @@ namespace AmstaJanBonga.Business.Database.Readers
         }
 
         /// <summary>
+        /// Gets the user from the corresponding employee based on the provided user id or returns null.
+        /// </summary>
+        /// <param name="userId">The users unique id.</param>
+        /// <param name="throwExceptionWhenNotFound"></param>
+        /// <returns></returns>
+        public static UserEntity GetUserByIdFromEmployee(int userId, bool throwExceptionWhenNotFound)
+        {
+            var employee = EmployeeReader.GetEmployeeByUserId(userId, throwExceptionWhenNotFound);
+
+            return employee?.User;
+        }
+
+        /// <summary>
         /// Gets the user which corresponds with the provided username and password.
         /// </summary>
         /// <param name="username">Provide the username.</param>

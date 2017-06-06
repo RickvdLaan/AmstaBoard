@@ -13,6 +13,15 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General {
     public partial class GeneralOverview {
         
         /// <summary>
+        /// _hlAddEditGeneralEvent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink _hlAddEditGeneralEvent;
+        
+        /// <summary>
         /// _hlAddEditGeneral control.
         /// </summary>
         /// <remarks>

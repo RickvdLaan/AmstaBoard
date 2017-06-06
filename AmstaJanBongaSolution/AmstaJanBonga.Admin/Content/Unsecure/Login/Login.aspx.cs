@@ -2,8 +2,6 @@
 using AmstaJanBonga.Business.Enums;
 using AmstaJanBonga.Business.Security;
 using Resources;
-using Rlaan.Toolkit.Configuration;
-using Rlaan.Toolkit.Web;
 using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;

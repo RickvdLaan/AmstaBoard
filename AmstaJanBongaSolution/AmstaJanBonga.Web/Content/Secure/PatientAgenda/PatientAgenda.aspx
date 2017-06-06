@@ -33,7 +33,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="_cphContent" runat="server">
     <!-- The photo of the patient. -->
-    <asp:Image runat="server" ID="_imagePatient" CssClass="agenda-image" />
+    <div runat="server" id="_imagePatient" class="agenda-image"></div>
 
     <asp:UpdatePanel runat="server" ID="_upAgenda" UpdateMode="Conditional" style="height: Calc(100% - 170px);" OnPreRender="_upAgenda_PreRender">
         <Triggers>

@@ -17,7 +17,8 @@
         <h2>Algemeen</h2>
 
         <div class="shortcut">
-            <asp:HyperLink runat="server" ID="_hlAddEditGeneral" CssClass="fa fa-plus-circle" Text="Gegevens Toevoegen"></asp:HyperLink>
+            <asp:HyperLink runat="server" ID="_hlAddEditGeneralEvent" CssClass="fa fa-plus-circle" Text="Gegevens Toevoegen"></asp:HyperLink>
+            <asp:HyperLink runat="server" ID="_hlAddEditGeneral" CssClass="fa fa-pencil" Text="Algemeen bericht bewerken"></asp:HyperLink>
 
             <div class="return right">
                 <asp:HyperLink runat="server" CssClass="return fa fa-reply display-inline" ToolTip="Terug naar woonkameroverzicht" NavigateUrl="~/Content/Secure/Livingroom/LivingroomOverview.aspx"></asp:HyperLink>

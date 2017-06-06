@@ -145,7 +145,7 @@
     <value>Uw gebruikersnaam en/of wachtwoord zijn onjuist.</value>
   </data>
   <data name="NotBoundToLivingRoom" xml:space="preserve">
-    <value>Uw account is niet gekoppeld aan een woonkamer.</value>
+    <value>Uw account is niet gekoppeld aan een medewerker.</value>
   </data>
   <data name="NotificationDeleted" xml:space="preserve">
     <value>De gegevens zijn succesvol verwijdert.</value>

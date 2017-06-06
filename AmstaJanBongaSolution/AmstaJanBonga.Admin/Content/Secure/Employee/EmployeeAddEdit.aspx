@@ -16,7 +16,7 @@
         </h2>
 
         <div class="return right">
-            <asp:HyperLink runat="server" CssClass="return fa fa-reply display-inline" ToolTip="Terug naar gebruikersoverzicht" NavigateUrl="~/Content/Secure/Patient/PatientOverview.aspx"></asp:HyperLink>
+            <asp:HyperLink runat="server" CssClass="return fa fa-reply display-inline" ToolTip="Terug naar gebruikersoverzicht" NavigateUrl="~/Content/Secure/Employee/EmployeeOverview.aspx"></asp:HyperLink>
         </div>
 
         <div class="clear"></div>

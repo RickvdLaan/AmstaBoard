@@ -95,10 +95,16 @@ namespace AmstaJanBonga.Business.Database.Managers
 
             if (userId.HasValue)
             {
-                // Multiple people might be working in the CMS at the same time, attempting to connect the same user.
-                if (EmployeeReader.GetEmployeeByUserId(userId.Value, false) != null)
+                if (employee.UserId.HasValue)
                 {
-                    throw new Exception("There already exists a user with userId: {0}.".FormatString(userId.Value));
+                    if (employee.UserId.Value != userId.Value)
+                    {
+                        // Multiple people might be working in the CMS at the same time, attempting to connect the same user.
+                        if (EmployeeReader.GetEmployeeByUserId(userId.Value, false) != null)
+                        {
+                            throw new Exception("There already exists a user with userId: {0}.".FormatString(userId.Value));
+                        }
+                    }
                 }
             }
 
@@ -137,7 +143,7 @@ namespace AmstaJanBonga.Business.Database.Managers
         {
             Authentication.AuthenticateActivity("DeleteEmployee");
 
-            if (employee.IsNew || !string.IsNullOrEmpty(employee.ImagePath))
+            if (employee.IsNew || string.IsNullOrEmpty(employee.ImagePath))
                 return;
 
             DeleteImage(employee);

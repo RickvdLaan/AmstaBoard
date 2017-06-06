@@ -136,6 +136,8 @@ namespace AmstaJanBonga.Admin.Content.Secure.Employee
         protected void _btnDeleteExistingPicture_Click(object sender, EventArgs e)
         {
             EmployeeManager.DeleteEmployeeImage(this.Employee);
+
+            Response.Redirect("~/Content/Secure/Employee/EmployeeOverview.aspx");
         }
 
         protected void _btnSave_Click(object sender, EventArgs e)

@@ -2,15 +2,19 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="_cphHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="_cphMainTitle" runat="server">
+    Algemeen Bericht
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="_cphSubTitle" runat="server">
+    Bewerken
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="_cphExplanation" runat="server">
+    Op deze pagina kunt u het algemene bericht bewerken die u iedere dag op het scherm weergegeven wilt hebben.
+    Voorbeeld: "De koffietijden zijn om 11:00 en 15:00 uur".
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="_cphContent" runat="server">
     <div class="box">
         <h2 class="display-inline">
-             Algemene informatie bewerken
+             Algemeen bericht bewerken
         </h2>
         
         <div class="return right">
@@ -26,7 +30,7 @@
                         Bericht
                     </td>
                     <td colspan="2">
-                        <asp:TextBox runat="server" ID="_txtGeneral" TextMode="MultiLine" MaxLength="50"></asp:TextBox>
+                        <asp:TextBox runat="server" CssClass="no-resize" ID="_txtGeneral" TextMode="MultiLine" MaxLength="50"></asp:TextBox>
                     </td>
                 </tr>
             </tbody>

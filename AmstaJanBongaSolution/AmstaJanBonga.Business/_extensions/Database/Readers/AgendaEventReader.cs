@@ -72,8 +72,10 @@ namespace AmstaJanBonga.Business.Database.Readers
             filter.AddWithOr(AgendaEventMetaFields.Id.SetExpression(subExpression) == 0);
             filter.AddWithAnd(AgendaEventMetaFields.PatientId == patientId);
 
-            var relations = new RelationCollection();
-            relations.Add(AgendaEventMetaEntity.Relations.AgendaEventEntityUsingAgendaEventId);
+            var relations = new RelationCollection
+            {
+                AgendaEventMetaEntity.Relations.AgendaEventEntityUsingAgendaEventId
+            };
 
             var agendaEventCollection = new AgendaEventCollection();
             agendaEventCollection.GetMulti(filter, 0, null, relations);

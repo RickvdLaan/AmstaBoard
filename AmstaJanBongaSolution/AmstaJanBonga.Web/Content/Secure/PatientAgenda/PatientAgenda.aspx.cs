@@ -72,10 +72,12 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
         {
             this.MasterPage.AddClassToContent("grey-bg");
             this.MasterPage.AddClassToContent("overflow-auto");
-
+            
             base.OnPreRender(e);
 
-            this._imagePatient.ImageUrl = this.Patient.ImagePath.Replace('\\', '/');
+            this._imagePatient.Style.Add("background-image", string.Format("url('{0}?build={1}')",
+                this.Patient.ImagePath.Replace('\\', '/'),
+                this.Patient.DateLastModified.HasValue ? this.Patient.DateLastModified.Value.ToString().Replace(' ', '.') : this.Patient.DateCreated.ToString().Replace(' ', '.')));
         }
 
         #endregion
@@ -133,9 +135,6 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
             {
                 this._agendaWeekDay.Rows.Add(this._agendaWeekDay.NewRow());
             }
-
-            // _repAgendaWeek_ItemDataBound gets called 7 times.
-            // Getting all the appointments for the week should only be called once.
 
             this._repAgendaWeek.DataSource = this._agendaWeekDay;
             this._repAgendaWeek.DataBind();

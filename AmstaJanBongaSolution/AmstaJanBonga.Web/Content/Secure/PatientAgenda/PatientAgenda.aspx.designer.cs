@@ -19,7 +19,7 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image _imagePatient;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl _imagePatient;
         
         /// <summary>
         /// _upAgenda control.
