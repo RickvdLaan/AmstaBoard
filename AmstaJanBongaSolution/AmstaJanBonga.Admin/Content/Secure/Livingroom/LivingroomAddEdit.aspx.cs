@@ -71,7 +71,14 @@ namespace AmstaJanBonga.Admin.Content.Secure.LivingRoom
             }
 
             this._ddlLivingRoomColours.ClearSelection();
-            this._ddlLivingRoomColours.Items.FindByText(ColourTypeEnum.Default.Description()).Selected = true;
+
+            if (this.HasLivingRoomId)
+            {
+                this._ddlLivingRoomColours
+                    .Items
+                        .FindByText(((ColourTypeEnum)Enum.Parse(typeof(ColourTypeEnum), this.LivingRoom.ColourTypeEnum.ToString())).Description())
+                            .Selected = true;
+            }
         }
 
         #endregion
@@ -83,12 +90,16 @@ namespace AmstaJanBonga.Admin.Content.Secure.LivingRoom
             // Edit
             if (this.HasLivingRoomId)
             {
-                LivingRoomManager.UpdateLivingRoom();
+                LivingRoomManager.UpdateLivingRoom(
+                    this.LivingRoom.Id, 
+                    this._txtLivingRoomName.Text, 
+                    (ColourTypeEnum)Enum.Parse(typeof(ColourTypeEnum), this._ddlLivingRoomColours.SelectedItem.Value));
             }
             // Add
             else
             {
-                LivingRoomManager.InsertLivingRoom();
+                LivingRoomManager.InsertLivingRoom(this._txtLivingRoomName.Text,
+                    (ColourTypeEnum)Enum.Parse(typeof(ColourTypeEnum), this._ddlLivingRoomColours.SelectedItem.Value));
             }
         }
 
