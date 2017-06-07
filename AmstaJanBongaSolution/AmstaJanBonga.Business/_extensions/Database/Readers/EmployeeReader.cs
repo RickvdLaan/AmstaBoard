@@ -7,6 +7,7 @@ using Rlaan.Toolkit.Extensions;
 using SD.LLBLGen.Pro.ORMSupportClasses;
 using System;
 using System.Data;
+using System.Web;
 
 namespace AmstaJanBonga.Business.Database.Readers
 {
@@ -100,7 +101,7 @@ namespace AmstaJanBonga.Business.Database.Readers
             return employees;
         }
 
-        public static EmployeeCollection GetAllEmployeesByLivingRoomId(int livingroomId)
+        public static EmployeeCollection GetAllEmployeesByLivingRoomId(int livingRoomId)
         {
             Authentication.AuthenticateActivity("ReadEmployee");
 
@@ -108,20 +109,12 @@ namespace AmstaJanBonga.Business.Database.Readers
             var employees = new EmployeeCollection();
 
             // Predicate
-            var predicate = new PredicateExpression
-            {
-                EmployeeFields.LivingRoomId == livingroomId,
-                EmployeeFields.IsMarkedAsDeleted == false
-            };
-
-            // Sorting
-            var sorter = new SortExpression
-            {
-                EmployeeFields.FirstName | SortOperator.Ascending
-            };
+            var predicate = new PredicateExpression();
+            predicate.Add(EmployeeFields.LivingRoomId == livingRoomId);
+            predicate.Add(EmployeeFields.IsMarkedAsDeleted == false);
 
             // Get
-            employees.GetMulti(predicate, 0, sorter);
+            employees.GetMulti(predicate, 0);
 
             // Return
             return employees;

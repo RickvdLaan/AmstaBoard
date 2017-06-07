@@ -2,6 +2,7 @@
 using AmstaJanBonga.Business.Enums;
 using AmstaJanBonga.Business.Security;
 using Rlaan.Toolkit.Configuration;
+using Rlaan.Toolkit.Extensions;
 using Rlaan.Toolkit.Web;
 using System;
 using System.Diagnostics;
@@ -29,35 +30,15 @@ namespace AmstaJanBonga.Web
             // Checking whether the environment is live or staging.
             if (Project.Environment.IsLiveEnvironment || Project.Environment.IsStagingEnvironment)
             {
-                if (!IpReader.IsIpAllowed(GetUserIPAddress()))
+                if (!IpReader.IsIpAllowed(Helper.GetUserIPAddress()))
                 {
                     if (Authentication.IsAuthenticated)
                         Authentication.Utility.SignOut();
 
-                    // Redirect to the access denied page of the tld.
+                    // Redirect to the access denied page of the main domain.
                     Response.Redirect("https://www.jouwsoftware.nl/access_denied/index.html", false);
                 }
             }
-        }
-
-        /// <summary>
-        /// Get current user ip address.
-        /// </summary>
-        /// <returns>The IP Address</returns>
-        public static string GetUserIPAddress()
-        {
-            var context = HttpContext.Current;
-            string ip = String.Empty;
-
-            if (context.Request.ServerVariables["HTTP_X_FORWARDED_FOR"] != null)
-                ip = context.Request.ServerVariables["HTTP_X_FORWARDED_FOR"].ToString();
-            else if (!String.IsNullOrWhiteSpace(context.Request.UserHostAddress))
-                ip = context.Request.UserHostAddress;
-
-            if (ip == "::1")
-                ip = "127.0.0.1";
-
-            return ip;
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)
@@ -66,11 +47,21 @@ namespace AmstaJanBonga.Web
         }
 
         /// <summary>
-        /// When the IPrincipal is changed.
+        /// When the IPrincipal is changed or a new PostBack is requested.
         /// </summary>
         protected void Application_OnPostAuthenticateRequest(object sender, EventArgs e)
         {
-            Debug.WriteLine("Application_OnPostAuthenticateRequest entered.");
+            if (Project.Environment.IsDevelopEnvironment)
+                Debug.WriteLine("Application_OnPostAuthenticateRequest entered.{0}{1}".FormatString(Environment.NewLine, HttpContext.Current.Request.Url));
+
+            //////////////////////////////////////////////////////////////////////////////////////
+            //    Returns true if any of the provided requests is found in the requested url    //
+            //                                                                                  //
+            //  1. Script Resource manager of the .NET pipeline                                 //
+            //  2. Web Resource manager of the .NET pipeline                                    //
+            //  3. Caching of files within the project.                                         //
+            if (Helper.IgnoreAuthenticateRequest("ScriptResource.axd", "WebResource.axd", "build="))
+                return;
 
             // Gets the security information for the current HTTP request, returns an IPrincipal.
             var principal = HttpContext.Current.User;
@@ -106,7 +97,7 @@ namespace AmstaJanBonga.Web
                 }
                 else
                 {
-                    // User is not allowed to log in, and it was missed in the login screen.
+                    // User is not allowed to log in (anymore), or something weird and unknowns happened.
                     if (Authentication.IsAuthenticated)
                         Authentication.Utility.SignOut();
                 }

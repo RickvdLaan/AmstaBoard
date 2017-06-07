@@ -70,6 +70,7 @@ namespace AmstaJanBonga.Business.Database.Readers
             // Predicate
             var predicate = new PredicateExpression();
             predicate.Add(PatientFields.LivingRoomId == livingroomId);
+            predicate.Add(PatientFields.IsMarkedAsDeleted == false);
 
             // Sorting
             var sorter = new SortExpression();

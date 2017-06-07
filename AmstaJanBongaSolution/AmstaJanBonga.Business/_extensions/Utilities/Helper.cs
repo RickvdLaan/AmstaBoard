@@ -4,6 +4,7 @@ using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Linq;
 using System.Web;
 using System.Web.UI.WebControls;
 
@@ -27,7 +28,40 @@ public abstract class Helper
         get { return Url.QueryStringParser.HasParameter("ReturnUrl") ? Url.QueryStringParser.GetString("ReturnUrl") : null; }
     }
 
+
+    /// <summary>
+    /// Get current user ip address.
+    /// </summary>
+    /// <returns>The IP Address</returns>
+    public static string GetUserIPAddress()
+    {
+        var context = HttpContext.Current;
+        var ip = string.Empty;
+
+        if (context.Request.ServerVariables["HTTP_X_FORWARDED_FOR"] != null)
+            ip = context.Request.ServerVariables["HTTP_X_FORWARDED_FOR"].ToString();
+        else if (!string.IsNullOrWhiteSpace(context.Request.UserHostAddress))
+            ip = context.Request.UserHostAddress;
+
+        if (ip == "::1")
+            ip = "127.0.0.1";
+
+        return ip;
+    }
+
     #endregion
+
+    /// <summary>
+    /// Returns true if any of the provided requests is found in the requested url.
+    /// </summary>
+    /// <param name="request"></param>
+    /// <returns></returns>
+    public static bool IgnoreAuthenticateRequest(params string[] request)
+    {
+        var url = HttpContext.Current.Request.Url.ToString();
+
+        return request.Any(r => url.Contains(r));
+    }
 
     public abstract class FileManager
     {
