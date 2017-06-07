@@ -43,7 +43,17 @@ namespace AmstaJanBonga.Admin
         /// </summary>
         protected void Application_OnPostAuthenticateRequest(object sender, EventArgs e)
         {
-            Debug.WriteLine("Application_OnPostAuthenticateRequest entered.");
+            if (Project.Environment.IsDevelopEnvironment)
+                Debug.WriteLine("Application_OnPostAuthenticateRequest entered.{0}{1}".FormatString(Environment.NewLine, HttpContext.Current.Request.Url));
+
+            //////////////////////////////////////////////////////////////////////////////////////
+            //    Returns true if any of the provided requests is found in the requested url    //
+            //                                                                                  //
+            //  1. Script Resource manager of the .NET pipeline                                 //
+            //  2. Web Resource manager of the .NET pipeline                                    //
+            //  3. Caching of files within the project.                                         //
+            if (Helper.IgnoreAuthenticateRequest("ScriptResource.axd", "WebResource.axd", "build="))
+                return;
 
             // Gets the security information for the current HTTP request, returns an IPrincipal.
             var principal = HttpContext.Current.User;
