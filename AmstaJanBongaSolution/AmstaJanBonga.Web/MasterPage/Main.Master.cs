@@ -78,7 +78,8 @@ namespace AmstaJanBonga.Web.MasterPage
             this._litTime.Text = "{0}".FormatString(DateTime.Now.ToString("HH:mm"));
 
             // Weather
-            this._litWeather.Text = "Het weer: {0} °C".FormatString(this.GetTemperature());
+            var temperature = this.GetTemperature();
+            this._litWeather.Text = string.IsNullOrWhiteSpace(temperature) ? "Het weer kan niet worden weergegeven." : "Het weer: {0} °C".FormatString(temperature);
 
             // Gets the current date and see's if it's different from the stored date.
             this.GetDate();
@@ -101,14 +102,18 @@ namespace AmstaJanBonga.Web.MasterPage
 
                 using (var client = new WebClient())
                 {
-                    var xdoc = XDocument.Parse(client.DownloadString(apiCall));
+                    try
+                    {
+                        var xdoc = XDocument.Parse(client.DownloadString(apiCall));
 
-                    temperature = Math.Round(
-                                    Convert.ToDecimal(
-                                        (from doc in xdoc.Descendants("temperature") select (string)doc.Attribute("value")).ToList()[0]
-                                            .Replace('.', ',')), 1)
-                                                .ToString()
-                                                    .Replace(',', '.');
+                        temperature = Math.Round(
+                                        Convert.ToDecimal(
+                                            (from doc in xdoc.Descendants("temperature") select (string)doc.Attribute("value")).ToList()[0]
+                                                .Replace('.', ',')), 1)
+                                                    .ToString()
+                                                        .Replace(',', '.');
+                    }
+                    catch { }
                 }
 
                 // Creates a cookie which has an expire time of 60 minutes.

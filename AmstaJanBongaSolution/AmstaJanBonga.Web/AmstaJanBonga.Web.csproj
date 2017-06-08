@@ -126,6 +126,7 @@
     <Content Include="Content\Secure\PatientAgenda\PatientAgenda.aspx" />
     <Content Include="Content\Unsecure\Error\Error404.aspx" />
     <Content Include="Content\Unsecure\Error\Error500.aspx" />
+    <Content Include="Content\Unsecure\Error\ErrorNetwork.aspx" />
     <Content Include="Content\Unsecure\Login\Login.aspx" />
     <Content Include="Content\Unsecure\Updating\Updating.aspx" />
     <Content Include="Includes\Css\Addons.css" />
@@ -237,6 +238,13 @@
     </Compile>
     <Compile Include="Content\Unsecure\Error\Error500.aspx.designer.cs">
       <DependentUpon>Error500.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Content\Unsecure\Error\ErrorNetwork.aspx.cs">
+      <DependentUpon>ErrorNetwork.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\Unsecure\Error\ErrorNetwork.aspx.designer.cs">
+      <DependentUpon>ErrorNetwork.aspx</DependentUpon>
     </Compile>
     <Compile Include="Content\Unsecure\Login\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

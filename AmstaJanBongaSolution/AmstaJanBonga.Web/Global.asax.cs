@@ -5,6 +5,7 @@ using Rlaan.Toolkit.Configuration;
 using Rlaan.Toolkit.Extensions;
 using Rlaan.Toolkit.Web;
 using System;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Threading;
 using System.Web;
@@ -55,12 +56,16 @@ namespace AmstaJanBonga.Web
                 Debug.WriteLine("Application_OnPostAuthenticateRequest entered.{0}{1}".FormatString(Environment.NewLine, HttpContext.Current.Request.Url));
 
             //////////////////////////////////////////////////////////////////////////////////////
-            //    Returns true if any of the provided requests is found in the requested url    //
+            //    Returns true if any of the provided requests are found in the requested url   //
             //                                                                                  //
             //  1. Script Resource manager of the .NET pipeline                                 //
             //  2. Web Resource manager of the .NET pipeline                                    //
             //  3. Caching of files within the project.                                         //
-            if (Helper.IgnoreAuthenticateRequest("ScriptResource.axd", "WebResource.axd", "build="))
+            //  4. ErrorNetwork is called when a transport-level error has occurred when        //
+            //     receiving results from the server. For this reason there shouldn't be done   //
+            //     any authentication checks since it requires a valid connection.              //
+            //     Note: No useful information can be received on this page.                    //
+            if (Helper.IgnoreAuthenticateRequest("ScriptResource.axd", "WebResource.axd", "build=", "ErrorNetwork"))
                 return;
 
             // Gets the security information for the current HTTP request, returns an IPrincipal.
@@ -110,7 +115,17 @@ namespace AmstaJanBonga.Web
             {
                 try
                 {
-                    Log.Exception(Server.GetLastError());
+                    // Transport-level error occured, the specified network name is no longer available. 
+                    if ((Server.GetLastError() as SqlException).Number == 64)
+                    {
+                        Helper.Log.Message(
+                            "Application_Error_Log_SqlException_64",
+                            "A transport-level error has occurred when receiving results from the server.");
+
+                        Response.Redirect("ErrorNetwork");
+                    }
+                    else
+                        Log.Exception(Server.GetLastError());
 
                     Server.ClearError();
                 }
@@ -159,6 +174,7 @@ namespace AmstaJanBonga.Web
             routes.MapPageRoute("Erro500", "Error500", "~/Content/Unsecure/Error/Error500.aspx");
             routes.MapPageRoute("Erro404", "Error404", "~/Content/Unsecure/Error/Error404.aspx");
             routes.MapPageRoute("Updating", "Updating", "~/Content/Unsecure/Updating/Updating.aspx");
+            routes.MapPageRoute("ErrorNetwork", "ErrorNetwork", "~/Content/Unsecure/Error/ErrorNetwork.aspx");
         }
     }
 }

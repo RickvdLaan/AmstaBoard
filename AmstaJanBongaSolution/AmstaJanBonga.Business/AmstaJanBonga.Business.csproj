@@ -100,6 +100,7 @@
     <AppDesigner Include="Properties\" />
     <Compile Include="_Extensions\Utilities\Extensions.cs" />
     <Compile Include="_Extensions\Utilities\Helper.cs" />
+    <Compile Include="_Extensions\Utilities\Log.cs" />
     <Compile Include="_Extensions\Utilities\Time.cs" />
     <Compile Include="_Extensions\Utilities\UnixTime.cs" />
     <None Include="App.config">

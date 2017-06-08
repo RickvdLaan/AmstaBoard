@@ -8,7 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI.WebControls;
 
-public abstract class Helper
+public abstract partial class Helper
 {
     #region Properties
 
