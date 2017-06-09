@@ -81,6 +81,13 @@
                             </asp:HyperLink>
                         </li>
 
+                        <li runat="server" id="_liSettings" class="nav-menu">
+                            <asp:HyperLink runat="server" NavigateUrl="~/Content/Secure/Settings/SettingsOverview.aspx">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                                Instellingen
+                            </asp:HyperLink>
+                        </li>
+
                         <li class="nav-menu">
                             <asp:LinkButton runat="server" ID="_lbSignOut" OnClick="_lbSignOut_Click">
                         <i class="fa fa-sign-out" aria-hidden="true"></i>

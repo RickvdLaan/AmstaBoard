@@ -104,19 +104,17 @@ div.remodal table {
     text-align: center;
 }
 
-.remodal table tfoot tr td button {
-    width: auto;
-    margin-top: 15px;
-    font-size: 1vw;
-    padding-left: 50px;
-    padding-right: 50px;
-}
+    .remodal table tfoot tr td button,
+    table tbody tr td .button {
+        margin-top: 15px;
+        font-size: 1vw;
+        width: 40%;
+    }
 
 .button {
     display: block;
     font-size: 1vw;
     margin: auto;
-    width: 194px;
     border: 0 none;
     cursor: pointer;
     font: "Open Sans",sans-serif;

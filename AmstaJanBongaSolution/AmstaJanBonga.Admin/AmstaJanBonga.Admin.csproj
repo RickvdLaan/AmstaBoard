@@ -450,7 +450,9 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Content\Secure\Settings\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AmstaJanBonga.Business\AmstaJanBonga.Business.csproj">
       <Project>{7c0ffdae-4473-4897-8e2a-e073f721f0ae}</Project>

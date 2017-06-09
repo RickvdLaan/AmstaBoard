@@ -1,9 +1,11 @@
-﻿using AmstaJanBonga.Business.Security;
+﻿using AmstaJanBonga.Business.EntityClasses;
+using AmstaJanBonga.Business.Enums;
+using AmstaJanBonga.Business.Security;
 using Rlaan.Toolkit.Configuration;
 using Rlaan.Toolkit.Web;
 using System;
 using System.Web;
-using System.Web.UI.WebControls;
+using Rlaan.Toolkit.Extensions;
 
 namespace AmstaJanBonga.Admin.MasterPage
 {
@@ -12,17 +14,17 @@ namespace AmstaJanBonga.Admin.MasterPage
         #region Properties
 
         /// <summary>
-        /// Contains the username of the authenticated user.
+        /// Gets the current authenticated user.
         /// </summary>
-        protected string Username { get; private set; }
+        protected UserEntity CurrentUser
+        {
+            get; private set;
+        }
 
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!this.Page.IsPostBack && Authentication.IsAuthenticated)
-                this.Username = Authentication.AuthenticatedUser.Username ?? string.Empty;
-
             if (Url.GetFullUrl.Contains("Dashboard"))
                 this._liDashboard.Attributes.Add("class", "nav-menu-active");
             else if (Url.GetFullUrl.Contains("User"))
@@ -33,6 +35,11 @@ namespace AmstaJanBonga.Admin.MasterPage
                 this._liEmployee.Attributes.Add("class", "nav-menu-active");
             else if (Url.GetFullUrl.Contains("LivingRoom"))
                 this._liLivingRoom.Attributes.Add("class", "nav-menu-active");
+            else if (Url.GetFullUrl.Contains("Settings"))
+            {
+                if (this.CurrentUser.RoleTypeEnum == (byte)RoleTypeEnum.Root)
+                    this._liLivingRoom.Attributes.Add("class", "nav-menu-active");
+            }
         }
 
         #region Overrides
@@ -52,6 +59,8 @@ namespace AmstaJanBonga.Admin.MasterPage
                 if (HttpContext.Current.Request.Url.AbsolutePath.Contains("Content/Secure") && !this.Page.GetType().IsSubclassOf(typeof(SecurePage)))
                     throw new SecurePageNotImplementedException("The current page was placed in the secure folder but does not implemented the SecurePage class.");
             }
+
+            this._liSettings.Visible = Authentication.AuthenticatedUser.RoleTypeEnum == (byte)RoleTypeEnum.Root;
 
             base.OnInit(e);
         }
