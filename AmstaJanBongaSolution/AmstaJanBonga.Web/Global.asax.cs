@@ -65,7 +65,8 @@ namespace AmstaJanBonga.Web
             //     receiving results from the server. For this reason there shouldn't be done   //
             //     any authentication checks since it requires a valid connection.              //
             //     Note: No useful information can be received on this page.                    //
-            if (Helper.IgnoreAuthenticateRequest("ScriptResource.axd", "WebResource.axd", "build=", "ErrorNetwork"))
+            //  5. A channel between your Visual Studio IDE and any open browser.               //
+            if (Helper.IgnoreAuthenticateRequest("ScriptResource.axd", "WebResource.axd", "build=", "ErrorNetwork", "__browserLink/requestData"))
                 return;
 
             // Gets the security information for the current HTTP request, returns an IPrincipal.

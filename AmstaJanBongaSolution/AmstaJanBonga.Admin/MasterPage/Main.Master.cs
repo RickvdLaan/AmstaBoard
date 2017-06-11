@@ -1,28 +1,14 @@
-﻿using AmstaJanBonga.Business.EntityClasses;
-using AmstaJanBonga.Business.Enums;
+﻿using AmstaJanBonga.Business.Enums;
 using AmstaJanBonga.Business.Security;
 using Rlaan.Toolkit.Configuration;
 using Rlaan.Toolkit.Web;
 using System;
 using System.Web;
-using Rlaan.Toolkit.Extensions;
 
 namespace AmstaJanBonga.Admin.MasterPage
 {
     public partial class Main : System.Web.UI.MasterPage
     {
-        #region Properties
-
-        /// <summary>
-        /// Gets the current authenticated user.
-        /// </summary>
-        protected UserEntity CurrentUser
-        {
-            get; private set;
-        }
-
-        #endregion
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Url.GetFullUrl.Contains("Dashboard"))
@@ -36,10 +22,8 @@ namespace AmstaJanBonga.Admin.MasterPage
             else if (Url.GetFullUrl.Contains("LivingRoom"))
                 this._liLivingRoom.Attributes.Add("class", "nav-menu-active");
             else if (Url.GetFullUrl.Contains("Settings"))
-            {
-                if (this.CurrentUser.RoleTypeEnum == (byte)RoleTypeEnum.Root)
-                    this._liLivingRoom.Attributes.Add("class", "nav-menu-active");
-            }
+                if (Authentication.AuthenticatedUser.RoleTypeEnum == (byte)RoleTypeEnum.Root)
+                    this._liSettings.Attributes.Add("class", "nav-menu-active");
         }
 
         #region Overrides
