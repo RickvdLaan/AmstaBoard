@@ -68,6 +68,8 @@
     <Compile Include="_Extensions\Database\EntityClasses\LivingRoomGeneralEventEntity.cs" />
     <Compile Include="_Extensions\Database\EntityClasses\PatientEntity.cs" />
     <Compile Include="_Extensions\Database\EntityClasses\UserEntity.cs" />
+    <Compile Include="_Extensions\Database\Managers\AgendaEventManager.cs" />
+    <Compile Include="_Extensions\Database\Managers\AgendaEventMetaManager.cs" />
     <Compile Include="_Extensions\Database\Managers\EmployeeManager.cs" />
     <Compile Include="_Extensions\Database\Managers\LivingroomChoreEventManager.cs" />
     <Compile Include="_Extensions\Database\Managers\LivingroomGeneralEventManager.cs" />

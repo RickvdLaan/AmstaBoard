@@ -18,7 +18,7 @@
 <asp:Content ID="Content5" ContentPlaceHolderID="_cphContent" runat="server">
      <div class="box">
         <h2>Bewoners</h2>
-
+            
         <div class="shortcut">
             <asp:HyperLink runat="server" CssClass="fa fa-plus-circle" Text="Bewoner Toevoegen" NavigateUrl="~/Content/Secure/Patient/PatientAddEdit.aspx"></asp:HyperLink>
         </div>
@@ -54,7 +54,7 @@
                         </HeaderTemplate>
 
                         <ItemTemplate>
-                            <asp:HyperLink runat="server" ToolTip="Agenda" CssClass="calendar fa fa-calendar"></asp:HyperLink>
+                            <asp:HyperLink runat="server" ToolTip="Agenda" CssClass="calendar fa fa-calendar" NavigateUrl='<%# Eval("Id","~/Content/Secure/Patient/Agenda/AgendaAddEdit.aspx?PatientId={0}") %>'></asp:HyperLink>
                             <asp:HyperLink runat="server" ToolTip="Bekijken" CssClass="details fa fa-search" NavigateUrl='<%# Eval("Id","~/Content/Secure/Patient/PatientDetails.aspx?PatientId={0}") %>'></asp:HyperLink>
                             <asp:HyperLink runat="server" ToolTip="Wijzigen" CssClass="edit fa fa-pencil" NavigateUrl='<%# Eval("Id","~/Content/Secure/Patient/PatientAddEdit.aspx?PatientId={0}") %>'></asp:HyperLink>
                             <asp:HyperLink runat="server" ToolTip="Verwijderen" CssClass="delete fa fa-times"></asp:HyperLink>

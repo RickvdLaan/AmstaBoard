@@ -135,6 +135,7 @@
     <Content Include="Content\Secure\LivingRoom\Shifts\ShiftsAddEdit.aspx" />
     <Content Include="Content\Secure\LivingRoom\Shifts\ShiftsDetails.aspx" />
     <Content Include="Content\Secure\LivingRoom\Shifts\ShiftsOverview.aspx" />
+    <Content Include="Content\Secure\Patient\Agenda\AgendaAddEdit.aspx" />
     <Content Include="Content\Secure\Patient\PatientAddEdit.aspx" />
     <Content Include="Content\Secure\Patient\PatientDetails.aspx" />
     <Content Include="Content\Secure\Patient\PatientOverview.aspx" />
@@ -154,6 +155,9 @@
     <Content Include="Includes\font-awesome-4.7.0\css\font-awesome.min.css" />
     <Content Include="Includes\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
     <Content Include="Includes\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="Includes\jquery.datetimepicker.css" />
+    <Content Include="Includes\jquery.datetimepicker.full.js" />
+    <Content Include="Includes\jquery.datetimepicker.min.css" />
     <Content Include="Includes\Js\load-screen.js" />
     <Content Include="Includes\Js\mobile-navigation.js" />
     <Content Include="Includes\Js\remodal-1.1.1\dist\remodal-default-theme.css" />
@@ -361,6 +365,13 @@
     </Compile>
     <Compile Include="Content\Secure\LivingRoom\Shifts\ShiftsOverview.aspx.designer.cs">
       <DependentUpon>ShiftsOverview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Content\Secure\Patient\Agenda\AgendaAddEdit.aspx.cs">
+      <DependentUpon>AgendaAddEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\Secure\Patient\Agenda\AgendaAddEdit.aspx.designer.cs">
+      <DependentUpon>AgendaAddEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Content\Secure\Patient\PatientAddEdit.aspx.cs">
       <DependentUpon>PatientAddEdit.aspx</DependentUpon>
