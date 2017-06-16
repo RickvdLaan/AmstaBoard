@@ -1,6 +1,7 @@
 ﻿using AmstaJanBonga.Business.CollectionClasses;
 using AmstaJanBonga.Business.EntityClasses;
 using AmstaJanBonga.Business.HelperClasses;
+using AmstaJanBonga.Business.Security;
 using AmstaJanBonga.Business.StoredProcedureCallerClasses;
 using Rlaan.Toolkit.Extensions;
 using SD.LLBLGen.Pro.ORMSupportClasses;
@@ -18,6 +19,11 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static List<AgendaEventCollection> GetAllEventsForWeekByPatientId(int patientId)
         {
+            // @Fixme: Quick & dirty, get all unix timestamps between FirstDayOfWeek and LastDayOfWeek and resolve 
+            // everything on server side to prevent excessive bandwidth usage?
+            //
+            // IMPORTANT: Requires its own Authentication.AuthenticateActivity when GetAllEventsByDateAndPatientId is removed!
+            //
             var appointments = new List<AgendaEventCollection>(7)
             {
                 // Monday
@@ -52,6 +58,8 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static AgendaEventCollection GetAllEventsForTodayByPatientId(int patientId)
         {
+            // Users the Authentication.AuthenticateActivity from GetAllEventsByDateAndPatientId.
+
             return GetAllEventsByDateAndPatientId(Time.UnixTime.Today, patientId);
         }
 
@@ -63,6 +71,9 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static AgendaEventCollection GetAllEventsByDateAndPatientId(int unixTimeStamp, int patientId)
         {
+            Authentication.AuthenticateActivity("ReadAgendaEvent");
+            Authentication.AuthenticateActivity("ReadAgendaEventMeta");
+
             var subExpression = new Expression(unixTimeStamp, ExOp.Sub, AgendaEventMetaFields.EventUnixTimeStamp);
             var modExpression = new Expression(subExpression, ExOp.Mod, AgendaEventMetaFields.RepeatInterval);
 
@@ -91,6 +102,9 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static AgendaEventCollection GetAllEventsByDateAndPatientIdWithStoredProcedure(int unixTimeStamp, int patientId)
         {
+            Authentication.AuthenticateActivity("ReadAgendaEvent");
+            Authentication.AuthenticateActivity("ReadAgendaEventMeta");
+
             using (var dataSet = RetrievalProcedures.GetAllEventsByDateAndByPatientId(unixTimeStamp, patientId))
             {
                 var collection = new AgendaEventCollection();

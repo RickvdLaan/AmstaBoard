@@ -1,9 +1,5 @@
 ﻿using AmstaJanBonga.Business.EntityClasses;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using AmstaJanBonga.Business.Security;
 
 namespace AmstaJanBonga.Business.Database.Managers
 {
@@ -11,6 +7,8 @@ namespace AmstaJanBonga.Business.Database.Managers
     {
         public static void InsertAgendaEventMeta(int agendaEventId, int patientId, int unixTimeStamp, int repeatInterval)
         {
+            Authentication.AuthenticateActivity("CreateAgendaEventMeta");
+
             var agendaEventMeta = new AgendaEventMetaEntity()
             {
                 AgendaEventId = agendaEventId,

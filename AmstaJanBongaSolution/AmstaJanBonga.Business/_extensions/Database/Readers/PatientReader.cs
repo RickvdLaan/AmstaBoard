@@ -34,6 +34,8 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static PatientEntity GetPatientById(int patientId, bool throwExceptionWhenNotFound)
         {
+            // Uses the Authentication.AuthenticateActivity from GetPatientById.
+
             var patient = GetPatientById(patientId);
 
             if (patient.IsNew && throwExceptionWhenNotFound)
@@ -68,9 +70,11 @@ namespace AmstaJanBonga.Business.Database.Readers
             var patients = new PatientCollection();
 
             // Predicate
-            var predicate = new PredicateExpression();
-            predicate.Add(PatientFields.LivingRoomId == livingroomId);
-            predicate.Add(PatientFields.IsMarkedAsDeleted == false);
+            var predicate = new PredicateExpression
+            {
+                PatientFields.LivingRoomId == livingroomId,
+                PatientFields.IsMarkedAsDeleted == false
+            };
 
             // Sorting
             var sorter = new SortExpression();

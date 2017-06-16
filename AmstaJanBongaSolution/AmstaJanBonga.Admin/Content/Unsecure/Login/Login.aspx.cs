@@ -3,11 +3,6 @@ using AmstaJanBonga.Business.Enums;
 using AmstaJanBonga.Business.Security;
 using Resources;
 using System;
-using System.Linq;
-using System.Net;
-using System.Net.NetworkInformation;
-using System.Net.Sockets;
-using System.Text;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 

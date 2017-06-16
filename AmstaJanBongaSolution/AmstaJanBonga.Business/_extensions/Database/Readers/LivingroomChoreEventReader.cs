@@ -23,6 +23,7 @@ namespace AmstaJanBonga.Business.Database.Readers
             // The hidden field is set to -1 if a '+' was clicked.
             if (patientId != -1 && chore.IsNew && throwExceptionWhenNotFound)
             {
+                // Can occur if the application did not refresh after midnight? For example, the first minute after midnight.
                 throw new Exception("Chore not found by PatientId: {0}, LivingRoomId: {1}, Date: {2} and TimeOfDay: {3}.".FormatString(patientId, livingroomId, date, timeOfDay));
             }
             else if (chore.IsNew)

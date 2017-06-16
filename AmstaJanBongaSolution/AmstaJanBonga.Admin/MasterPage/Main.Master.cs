@@ -44,7 +44,7 @@ namespace AmstaJanBonga.Admin.MasterPage
                     throw new SecurePageNotImplementedException("The current page was placed in the secure folder but does not implemented the SecurePage class.");
             }
 
-            this._liSettings.Visible = Authentication.AuthenticatedUser.RoleTypeEnum == (byte)RoleTypeEnum.Root;
+            this._liSettings.Visible = (Authentication.AuthenticatedUser.RoleTypeEnum == (byte)RoleTypeEnum.Root);
 
             base.OnInit(e);
         }

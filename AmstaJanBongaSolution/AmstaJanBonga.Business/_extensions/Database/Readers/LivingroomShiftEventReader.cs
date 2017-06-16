@@ -23,6 +23,7 @@ namespace AmstaJanBonga.Business.Database.Readers
             // The hidden field is set to -1 if a '+' was clicked.
             if (employeeId != -1 && shift.IsNew && throwExceptionWhenNotFound)
             {
+                // Can occur if the application did not refresh after midnight? For example, the first minute after midnight.
                 throw new Exception("Shift not found by EmployeeId: {0}, LivingRoomId: {1}, Date: {2} and ShiftTypeEnum: {3}.".FormatString(employeeId, livingRoomId, date, shiftType));
             }
             else if (shift.IsNew)

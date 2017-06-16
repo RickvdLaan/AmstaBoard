@@ -6,7 +6,6 @@ using AmstaJanBonga.Business.Security;
 using Rlaan.Toolkit.Extensions;
 using SD.LLBLGen.Pro.ORMSupportClasses;
 using System;
-using System.Diagnostics;
 using System.Linq;
 
 namespace AmstaJanBonga.Business.Database.Readers
@@ -29,7 +28,7 @@ namespace AmstaJanBonga.Business.Database.Readers
             // Reason being is that the user needs to be checked when 
             // logging in.
             if (Authentication.IsAuthenticated)
-                Authentication.AuthenticateActivity("UserRead");
+                Authentication.AuthenticateActivity("ReadUser");
 
             return new UserEntity(userId);
         }
@@ -42,6 +41,8 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static UserEntity GetUserById(int userId, bool throwExceptionWhenNotFound)
         {
+            // Uses the Authentication.AuthenticateActivity from GetUserById.
+
             var user = GetUserById(userId);
 
             if (user.IsNew && throwExceptionWhenNotFound)
@@ -58,6 +59,8 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static UserEntity GetUserByIdFromEmployee(int userId, bool throwExceptionWhenNotFound)
         {
+            // Uses the Authentication.AuthenticateActivity from GetEmployeeByUserId.
+
             var employee = EmployeeReader.GetEmployeeByUserId(userId, throwExceptionWhenNotFound);
 
             return employee?.User;
@@ -93,7 +96,7 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static UserCollection GetAllUsers()
         {
-            Authentication.AuthenticateActivity("UserRead");
+            Authentication.AuthenticateActivity("ReadUser");
 
             var users = new UserCollection();
             users.GetMulti(null, 0);
@@ -103,7 +106,7 @@ namespace AmstaJanBonga.Business.Database.Readers
 
         public static UserCollection GetAllUnlinkedUsers()
         {
-            Authentication.AuthenticateActivity("UserRead");
+            Authentication.AuthenticateActivity("ReadUser");
 
             var users = new UserCollection();
             var bucket = new RelationPredicateBucket() as IRelationPredicateBucket;
@@ -128,7 +131,7 @@ namespace AmstaJanBonga.Business.Database.Readers
 
         public static UserCollection GetAllUnlinkedUsers(int? includeUserId)
         {
-            Authentication.AuthenticateActivity("UserRead");
+            Authentication.AuthenticateActivity("ReadUser");
 
             if (!includeUserId.HasValue)
                 return GetAllUnlinkedUsers();
@@ -164,7 +167,7 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static int GetAllUsersDBCount()
         {
-            Authentication.AuthenticateActivity("UserRead");
+            Authentication.AuthenticateActivity("ReadUser");
 
             return new UserCollection().GetDbCount();
         }
@@ -176,7 +179,7 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static bool IsAvailableUsername(string username)
         {
-            Authentication.AuthenticateActivity("UserRead");
+            Authentication.AuthenticateActivity("ReadUser");
 
             // Attempts to fetch the user based on the provided username.
             return !(new UserEntity().FetchUsingUCUsername(username));

@@ -1,6 +1,4 @@
-﻿using AmstaJanBonga.Business.Database.Readers;
-using System;
-using System.Linq;
+﻿using System;
 
 namespace AmstaJanBonga.Admin.Content.Secure
 {

@@ -1,8 +1,4 @@
-﻿using Resources;
-using Rlaan.Toolkit.Extensions;
-using Rlaan.Toolkit.Web;
-using System;
-using System.Web.UI;
+﻿using System;
 
 namespace AmstaJanBonga.Admin
 {
@@ -22,9 +18,6 @@ namespace AmstaJanBonga.Admin
         protected override void OnPreInit(EventArgs e)
         {
             base.OnPreInit(e);
-
-            OutputCacheParameters d = new OutputCacheParameters();
-            
 
             // Stop Caching in IE
             Response.Cache.SetCacheability(System.Web.HttpCacheability.NoCache);
