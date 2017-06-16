@@ -1,4 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Main.Master" AutoEventWireup="true" CodeBehind="Settings.aspx.cs" Inherits="AmstaJanBonga.Admin.Content.Secure.Settings.Settings" %>
+
+<%@ Register Src="~/Content/Controls/JsListBox/JsListBox.ascx" TagPrefix="uc1" TagName="JsListBox" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="_cphHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="_cphMainTitle" runat="server">
@@ -10,23 +13,31 @@
 <asp:Content ID="Content5" ContentPlaceHolderID="_cphContent" runat="server">
      <div class="box">
         <h2 class="display-inline">
-             Rechten
+             Permissions
         </h2>
 
-        <h3>Creëren</h3>
+         <asp:UpdatePanel runat="server" UpdateMode="Conditional">
+             <ContentTemplate>
+                <asp:DropDownList runat="server" ID="_ddlRoles" OnSelectedIndexChanged="_ddlRoles_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
 
-         <asp:Table runat="server">
-             <asp:TableRow runat="server">
-                 test
-             </asp:TableRow>
-         </asp:Table>
+                <h3>Create</h3>
 
-        <h3>Lezen</h3>
-        <h3>Bijwerken</h3>
-        <h3>Verwijderen</h3>
+                <uc1:JsListBox runat="server" ID="_lbCreate" />
 
-        <asp:Label runat="server" ID="_lblError" CssClass="error"></asp:Label>
+                <h3>Read</h3>
 
+                <uc1:JsListBox runat="server" ID="_lbRead" />
+
+                <h3>Update</h3>
+
+                <uc1:JsListBox runat="server" ID="_lbUpdate" />
+
+                <h3>Delete</h3>
+
+                <uc1:JsListBox runat="server" ID="_lbDelete" />
+             </ContentTemplate>
+         </asp:UpdatePanel>
+       
         <asp:Button runat="server" ID="_btnSave" CssClass="button button-save green-bg" Text="Opslaan" OnClick="_btnSave_Click" ValidateRequestMode="Enabled" ValidationGroup="Validate" CausesValidation="true" />
     </div>
 </asp:Content>

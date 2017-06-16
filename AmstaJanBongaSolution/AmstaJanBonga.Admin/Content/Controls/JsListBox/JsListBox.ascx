@@ -5,8 +5,7 @@
         <div class="js-listbox-container">
             <div class="js-listbox-wrapper">            
                 <div class="js-listbox-source">
-                   <%-- <small>Selecteerbaar</small>--%>
-
+                    <%--<small>Selecteerbaar</small>--%>
                     <asp:ListBox runat="server" ID="_lbSource" CssClass="js-listbox" SelectionMode="Multiple"></asp:ListBox>
                 </div>
 

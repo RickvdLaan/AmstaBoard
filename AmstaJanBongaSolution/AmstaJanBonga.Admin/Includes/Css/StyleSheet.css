@@ -627,6 +627,7 @@ a {
     background-color: #ededed;
     padding: 30px;
     min-width: 347px;
+    max-width: 347px;
     border-color: #f08a00 #e5e2df #e5e2df;
     border-radius: 3px;
     border-style: solid;

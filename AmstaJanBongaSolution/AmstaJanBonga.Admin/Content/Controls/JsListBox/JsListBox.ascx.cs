@@ -89,6 +89,12 @@ namespace AmstaJanBonga.Admin.Content.Controls.JsListBox
 
         #region Methods
 
+        public void Clear()
+        {
+            this._lbSource.Items.Clear();
+            this._lbDestination.Items.Clear();
+        }
+
         private void MoveListBoxItems(ListBox source, ListBox destination)
         {
             foreach (var item in source.Items.GetSelectedItems().ToList())

@@ -105,6 +105,7 @@ select {
     vertical-align: middle;
     padding: 3px 6px;
     min-width: 200px;
+    width: 0;
 }
 
 select option {
@@ -124,4 +125,11 @@ select option {
 
 table .aspNetDisabled {
     min-width: 200px;
+}
+
+.js-listbox-source > small,
+.js-listbox-destination > small {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 5px;
 }

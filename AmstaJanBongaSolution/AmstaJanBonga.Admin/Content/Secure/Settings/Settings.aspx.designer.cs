@@ -13,13 +13,49 @@ namespace AmstaJanBonga.Admin.Content.Secure.Settings {
     public partial class Settings {
         
         /// <summary>
-        /// _lblError control.
+        /// _ddlRoles control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label _lblError;
+        protected global::System.Web.UI.WebControls.DropDownList _ddlRoles;
+        
+        /// <summary>
+        /// _lbCreate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AmstaJanBonga.Admin.Content.Controls.JsListBox.JsListBox _lbCreate;
+        
+        /// <summary>
+        /// _lbRead control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AmstaJanBonga.Admin.Content.Controls.JsListBox.JsListBox _lbRead;
+        
+        /// <summary>
+        /// _lbUpdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AmstaJanBonga.Admin.Content.Controls.JsListBox.JsListBox _lbUpdate;
+        
+        /// <summary>
+        /// _lbDelete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AmstaJanBonga.Admin.Content.Controls.JsListBox.JsListBox _lbDelete;
         
         /// <summary>
         /// _btnSave control.
