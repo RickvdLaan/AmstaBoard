@@ -1,5 +1,6 @@
 ﻿using AmstaJanBonga.Business.Database.Readers;
 using System;
+using System.Linq;
 
 namespace AmstaJanBonga.Admin.Content.Secure
 {
@@ -7,7 +8,7 @@ namespace AmstaJanBonga.Admin.Content.Secure
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            AgendaEventReader.GetAllEventsByDateAndPatientId(Time.UnixTime.Today, 16);
+
         }
     }
 }

@@ -142,7 +142,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Uw account is niet gekoppeld aan een medewerker..
+        ///   Looks up a localized string similar to Uw account is niet gekoppeld aan een medewerker van een woonkamer..
         /// </summary>
         internal static string NotBoundToLivingRoom {
             get {

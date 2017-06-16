@@ -37,7 +37,7 @@ html, body, form {
     background-color: #ffffff;
 }
 
-h1, h2, h3, h4, h5, h6, a, p, span {
+h1, h2, h3, h4, h5, h6, a, p {
     font-weight: 400;
     letter-spacing: 1px;
 }
@@ -66,7 +66,7 @@ h6 {
     font-size: 19px;
 }
 
-a, p, span {
+a, p {
     font-size: 16px;
 }
 
@@ -379,12 +379,6 @@ a {
 .shortcut a:hover:before {
     color: #1cb94e;
 }
-
-
-
-
-
-
 
 
 /* Sidebar - Navigation */
@@ -760,10 +754,6 @@ a {
     border-right: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
 }
-
-    .calendar .calendar-selected-day a {
-    
-    }
 
 .calendar-unavailable {
     border-bottom: 1px solid #ddd;

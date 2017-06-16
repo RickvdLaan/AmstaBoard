@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.UI.WebControls;
 
@@ -28,6 +29,7 @@ public abstract partial class Helper
         get { return Url.QueryStringParser.HasParameter("ReturnUrl") ? Url.QueryStringParser.GetString("ReturnUrl") : null; }
     }
 
+    #endregion
 
     /// <summary>
     /// Get current user ip address.
@@ -49,7 +51,40 @@ public abstract partial class Helper
         return ip;
     }
 
-    #endregion
+    /// <summary>
+    /// Validates whether the source IP-address is equal or in range of the accepted IP-address.
+    /// </summary>
+    /// <param name="acceptedIP">The accepted IP-address or range of addresses, for exanmple: "143.24.20.36" or "143.24.20.36/29".</param>
+    /// <param name="sourceIP">The provided IP-address to check.</param>
+    /// <returns></returns>
+    public static bool IsIpInRangeOrEqual(string acceptedIP, string sourceIP)
+    {
+        var IP = acceptedIP.ToString();
+        var parts = IP.Split('.', '/');
+
+        var ipnum = (Convert.ToUInt32(parts[0]) << 24) |
+            (Convert.ToUInt32(parts[1]) << 16) |
+            (Convert.ToUInt32(parts[2]) << 8) |
+            Convert.ToUInt32(parts[3]);
+
+        var mask = 0xffffffff;
+        var maskbits = 0;
+
+        if (acceptedIP.Contains('/'))
+            maskbits = Convert.ToInt32(parts[4]);
+
+        mask <<= (32 - maskbits);
+
+        var ipstart = ToIPAddress(ipnum & mask);
+        var ipend = ToIPAddress(ipnum | (mask ^ 0xffffffff));
+
+        return IPAddress.Parse(sourceIP).IsInRange(ipstart, ipend);
+    }
+
+    private static IPAddress ToIPAddress(uint ip)
+    {
+        return IPAddress.Parse("{0}.{1}.{2}.{3}".FormatString(ip >> 24, (ip >> 16) & 0xff, (ip >> 8) & 0xff, ip & 0xff));
+    }
 
     /// <summary>
     /// Returns true if any of the provided requests is found in the requested url.

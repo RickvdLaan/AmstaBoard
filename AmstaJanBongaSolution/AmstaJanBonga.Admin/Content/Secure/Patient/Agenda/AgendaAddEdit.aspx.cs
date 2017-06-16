@@ -1,9 +1,7 @@
 ﻿using AmstaJanBonga.Business.Database.Managers;
-using AmstaJanBonga.Business.Database.Readers;
 using Rlaan.Toolkit.Web;
 using System;
 using System.Globalization;
-using System.Web.UI.WebControls;
 
 namespace AmstaJanBonga.Admin.Content.Secure.Patient.Agenda
 {
@@ -22,16 +20,6 @@ namespace AmstaJanBonga.Admin.Content.Secure.Patient.Agenda
         {
             var timeStart = DateTime.ParseExact(_hfStart.Value.Substring(0, 24), "ddd MMM d yyyy HH:mm:ss", CultureInfo.InvariantCulture);
             var timeEnd   = DateTime.ParseExact(_hfEnd.Value.Substring(0, 24), "ddd MMM d yyyy HH:mm:ss", CultureInfo.InvariantCulture);
-
-
-
-            // Title
-            // Starting time
-            // Ending time
-            // Location or null
-            // Description or null
-            // UnixTimeStamp
-            // UnixInteral or null
 
             var agendaEventId = AgendaEventManager.InsertAgendaEvent(
                 this._txtTitle.Text,
@@ -56,6 +44,8 @@ namespace AmstaJanBonga.Admin.Content.Secure.Patient.Agenda
             if (this.Page.IsValid)
             {
                 this.Save();
+
+                Url.Refresh();
             }
         }
 

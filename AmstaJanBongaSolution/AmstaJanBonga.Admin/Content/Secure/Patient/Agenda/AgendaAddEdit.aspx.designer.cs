@@ -40,6 +40,24 @@ namespace AmstaJanBonga.Admin.Content.Secure.Patient.Agenda {
         protected global::System.Web.UI.WebControls.TextBox _txtTitle;
         
         /// <summary>
+        /// _txtStart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox _txtStart;
+        
+        /// <summary>
+        /// _txtEnd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox _txtEnd;
+        
+        /// <summary>
         /// _txtLocation control.
         /// </summary>
         /// <remarks>

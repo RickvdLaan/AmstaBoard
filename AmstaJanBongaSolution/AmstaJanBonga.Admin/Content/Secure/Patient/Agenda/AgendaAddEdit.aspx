@@ -1,11 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Main.Master" AutoEventWireup="true" CodeBehind="AgendaAddEdit.aspx.cs" Inherits="AmstaJanBonga.Admin.Content.Secure.Patient.Agenda.AgendaAddEdit" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="_cphHead" runat="server">
 
+<asp:Content ID="Content1" ContentPlaceHolderID="_cphHead" runat="server">
     <link href="../../../../Includes/jquery.datetimepicker.min.css" rel="stylesheet" />
     <script src="../../../../Includes/jquery.datetimepicker.full.js"></script>
-
-    
-
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="_cphMainTitle" runat="server">
     Afspraak
@@ -46,7 +43,7 @@
                         Datum & Begintijd
                     </td>
                     <td>
-                        <input id="_inputStart" type="text" class="textbox" placeholder="Start datum en tijd" />
+                        <asp:TextBox runat="server" ID="_txtStart" CssClass="textbox" ReadOnly="true" placeholder="Start datum en tijd"></asp:TextBox>
                     </td>
                 </tr>
 
@@ -55,7 +52,7 @@
                         Eindtijd
                     </td>
                     <td>
-                        <input id="_inputEnd" type="text" class="textbox" placeholder="Eindtijd" />
+                        <asp:TextBox runat="server" ID="_txtEnd" CssClass="textbox" ReadOnly="true" placeholder="Eindtijd"></asp:TextBox>
                     </td>
                 </tr>
 
@@ -125,7 +122,16 @@
         <script>
             jQuery.datetimepicker.setLocale('nl');
 
-            $('#_inputStart').datetimepicker({
+            $('#<%= _txtStart.ClientID %>').datetimepicker({
+                onGenerate: function (ct, $input) {
+                    $input.prop('readonly', true);
+                    var $this = $(this);
+                    $this.find('.xdsoft_date').removeClass('xdsoft_disabled');
+                    $this.find('.xdsoft_time').removeClass('xdsoft_disabled');
+                }
+            });
+
+            $('#<%= _txtStart.ClientID %>').datetimepicker({
                 inline: false,
                 datepicker: true,
                 lang: 'nl',
@@ -159,7 +165,16 @@
             ]
             });
 
-            $('#_inputEnd').datetimepicker({
+            $('#<%= _txtEnd.ClientID %>').datetimepicker({
+                onGenerate: function (ct, $input) {
+                    $input.prop('readonly', true);
+                    var $this = $(this);
+                    $this.find('.xdsoft_date').removeClass('xdsoft_disabled');
+                    $this.find('.xdsoft_time').removeClass('xdsoft_disabled');
+                }
+            });
+
+            $('#<%= _txtEnd.ClientID %>').datetimepicker({
                 datepicker: false,
                 step: 15,
                 allowTimes: [

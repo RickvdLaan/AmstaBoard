@@ -27,7 +27,7 @@ namespace AmstaJanBonga.Admin
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-
+         
         }
 
         /// <summary>

@@ -7,6 +7,7 @@ using Rlaan.Toolkit.Web;
 using System;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading;
 using System.Web;
 using System.Web.Routing;
@@ -31,7 +32,8 @@ namespace AmstaJanBonga.Web
             // Checking whether the environment is live or staging.
             if (Project.Environment.IsLiveEnvironment || Project.Environment.IsStagingEnvironment)
             {
-                if (!IpReader.IsIpAllowed(Helper.GetUserIPAddress()))
+                // Checking if the the users IP address is allowed.
+                if (!IpReader.GetAllIps().Any(ip => Helper.IsIpInRangeOrEqual(ip.Ipaddress, Helper.GetUserIPAddress())))
                 {
                     if (Authentication.IsAuthenticated)
                         Authentication.Utility.SignOut();
