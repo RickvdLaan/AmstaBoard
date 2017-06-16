@@ -8,5 +8,10 @@ namespace AmstaJanBonga.Admin.Content.Secure.Settings
         {
 
         }
+
+        protected void _btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

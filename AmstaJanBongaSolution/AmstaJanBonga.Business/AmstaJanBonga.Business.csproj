@@ -78,7 +78,6 @@
     <Compile Include="_Extensions\Database\Managers\LivingroomShiftEventManager.cs" />
     <Compile Include="_Extensions\Database\Managers\PatientManager.cs" />
     <Compile Include="_Extensions\Database\Managers\UserManager.cs" />
-    <Compile Include="_Extensions\Database\Readers\AgendaEventMetaReader.cs" />
     <Compile Include="_Extensions\Database\Readers\AgendaEventReader.cs" />
     <Compile Include="_Extensions\Database\Readers\IpReader.cs" />
     <Compile Include="_Extensions\Database\Readers\LivingroomChoreEventReader.cs" />
