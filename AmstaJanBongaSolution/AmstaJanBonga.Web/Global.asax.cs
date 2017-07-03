@@ -1,9 +1,11 @@
 ﻿using AmstaJanBonga.Business.Database.Readers;
 using AmstaJanBonga.Business.Enums;
 using AmstaJanBonga.Business.Security;
+
 using Rlaan.Toolkit.Configuration;
 using Rlaan.Toolkit.Extensions;
 using Rlaan.Toolkit.Web;
+
 using System;
 using System.Data.SqlClient;
 using System.Diagnostics;
@@ -33,7 +35,7 @@ namespace AmstaJanBonga.Web
             if (Project.Environment.IsLiveEnvironment || Project.Environment.IsStagingEnvironment)
             {
                 // Checking if the the users IP address is allowed.
-                if (!IpReader.GetAllIps().Any(ip => Helper.IsIpInRangeOrEqual(ip.Ipaddress, Helper.GetUserIPAddress())))
+                if (!IpReader.GetAllIps().Any(ip => Helper.IsIpInRangeOrEqualTo(ip.Ipaddress, Helper.GetUserIPAddress())))
                 {
                     if (Authentication.IsAuthenticated)
                         Authentication.Utility.SignOut();
@@ -105,7 +107,7 @@ namespace AmstaJanBonga.Web
                 }
                 else
                 {
-                    // User is not allowed to log in (anymore), or something weird and unknowns happened.
+                    // User is not allowed to log in (anymore), or something weird and unknown happened.
                     if (Authentication.IsAuthenticated)
                         Authentication.Utility.SignOut();
                 }

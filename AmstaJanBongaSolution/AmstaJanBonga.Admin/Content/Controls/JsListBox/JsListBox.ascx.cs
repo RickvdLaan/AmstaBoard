@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SD.LLBLGen.Pro.ORMSupportClasses;
+using System;
 using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -12,23 +13,33 @@ namespace AmstaJanBonga.Admin.Content.Controls.JsListBox
 
         private string _dataTextField, _dataValueField;
 
-        private object _dataSource = null, _dataDestination = null;
+        private IEntityCollection _dataSource = null, _dataDestination = null;
 
         #endregion
 
         #region Properties
 
-        public object DataSource
+        // Collections
+
+        public IEntityCollection DataSource
         {
             get { return this._dataSource; }
-            set { this._dataSource = value; }
+            set
+            {
+                this._dataSource = value;
+            }
         }
 
-        public object DataDestination
+        public IEntityCollection DataDestination
         {
             get { return this._dataDestination; }
-            set { this._dataDestination = value; }
+            set
+            {
+                this._dataDestination = value;
+            }
         }
+
+        // Fields
 
         public string DataTextField
         {
@@ -40,6 +51,13 @@ namespace AmstaJanBonga.Admin.Content.Controls.JsListBox
         {
             get { return this._dataValueField; }
             set { this._dataValueField = value; }
+        }
+
+        // Listboxes
+        
+        public ListBox ListBoxSource
+        {
+            get { return this._lbSource; }
         }
 
         public ListBox ListBoxDestination

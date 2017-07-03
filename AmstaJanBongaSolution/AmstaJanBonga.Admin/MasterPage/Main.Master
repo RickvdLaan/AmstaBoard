@@ -83,7 +83,7 @@
 
                         <li runat="server" id="_liSettings" class="nav-menu">
                             <asp:HyperLink runat="server" NavigateUrl="~/Content/Secure/Settings/Settings.aspx">
-                                <i class="fa fa-user" aria-hidden="true"></i>
+                                <i class="fa fa-wrench" aria-hidden="true"></i>
                                 Instellingen
                             </asp:HyperLink>
                         </li>

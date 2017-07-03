@@ -7,7 +7,6 @@ using AmstaJanBonga.Business.Enums;
 using Rlaan.Toolkit.Extensions;
 using Rlaan.Toolkit.Web;
 using System;
-using System.Collections.Generic;
 
 namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Shifts
 {

@@ -54,10 +54,10 @@ public abstract partial class Helper
     /// <summary>
     /// Validates whether the source IP-address is equal or in range of the accepted IP-address.
     /// </summary>
-    /// <param name="acceptedIP">The accepted IP-address or range of addresses, for exanmple: "143.24.20.36" or "143.24.20.36/29".</param>
+    /// <param name="acceptedIP">The accepted IP-address or range of addresses with the CIDR format. Exanmple: "143.24.20.36" or "143.24.20.36/29".</param>
     /// <param name="sourceIP">The provided IP-address to check.</param>
     /// <returns></returns>
-    public static bool IsIpInRangeOrEqual(string acceptedIP, string sourceIP)
+    public static bool IsIpInRangeOrEqualTo(string acceptedIP, string sourceIP)
     {
         var IP = acceptedIP.ToString();
         var parts = IP.Split('.', '/');

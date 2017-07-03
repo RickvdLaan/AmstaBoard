@@ -1,5 +1,8 @@
-﻿using AmstaJanBonga.Business.Database.Readers;
+﻿using AmstaJanBonga.Business.CollectionClasses;
+using AmstaJanBonga.Business.Database.Managers;
+using AmstaJanBonga.Business.Database.Readers;
 using AmstaJanBonga.Business.Enums;
+using Rlaan.Toolkit.Web;
 using System;
 using System.Web.UI.WebControls;
 
@@ -24,7 +27,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Settings
             this._ddlRoles.DataValueField = "RoleTypeEnum";
             this._ddlRoles.DataBind();
 
-            this._ddlRoles.Items.Insert(0, new ListItem("Select Role Type", string.Empty));
+            this._ddlRoles.Items.Insert(0, new ListItem("Selecteer rol", string.Empty));
         }
 
         private void DateBindCreate(RoleTypeEnum roleType)
@@ -73,16 +76,51 @@ namespace AmstaJanBonga.Admin.Content.Secure.Settings
 
             // Binds the data.
             this._lbDelete.DataBind();
-
         }
 
         #endregion
 
-        #region Save
+        #region Methods
 
         private void Save()
         {
-            
+            var roleType = (RoleTypeEnum)Enum.Parse(typeof(RoleTypeEnum), this._ddlRoles.SelectedValue);
+
+            // @Cleanup @Simplify @Optimize: Certain data could be cached to prevent extra round trips to the database.
+            // Maybe cache it in the current session, and use lazy loading? Furthermore, the code could be simplified
+            // to increase its readability, if someone has to work with this code in the future it will be a pain
+            // to understand and see all the steps that are taken! 
+            // -R Laan, van der, 3 juli 2017
+            UserRoleActivityManager.UpdateMulti(
+                UserRoleActivityReader.CreateUserRoleActivityEntityCollection(roleType,
+                    UserActivityReader.GetAllActivitiesByCrudAndByRole(CrudTypeEnum.Create, roleType, true),
+                    UserActivityReader.GetAllActivitiesByCrudAndByRole(CrudTypeEnum.Read, roleType, true),
+                    UserActivityReader.GetAllActivitiesByCrudAndByRole(CrudTypeEnum.Update, roleType, true),
+                    UserActivityReader.GetAllActivitiesByCrudAndByRole(CrudTypeEnum.Delete, roleType, true)), 
+                this.GetSelectedUserRoleActivities(roleType));
+        }
+
+        private UserRoleActivityCollection GetSelectedUserRoleActivities(RoleTypeEnum roleType)
+        {
+            var activities = new UserRoleActivityCollection();
+
+            // Create
+            for (int i = 0; i < this._lbCreate.ListBoxDestination.Items.Count; i++)
+                activities.Add(UserRoleActivityReader.CreateUserRoleActivityEntity(roleType, this._lbCreate.ListBoxDestination.Items[i].Value));
+
+            // Read
+            for (int i = 0; i < this._lbRead.ListBoxDestination.Items.Count; i++)
+                activities.Add(UserRoleActivityReader.CreateUserRoleActivityEntity(roleType, this._lbRead.ListBoxDestination.Items[i].Value));
+
+            // Update
+            for (int i = 0; i < this._lbUpdate.ListBoxDestination.Items.Count; i++)
+                activities.Add(UserRoleActivityReader.CreateUserRoleActivityEntity(roleType, this._lbUpdate.ListBoxDestination.Items[i].Value));
+
+            // Delete
+            for (int i = 0; i < this._lbDelete.ListBoxDestination.Items.Count; i++)
+                activities.Add(UserRoleActivityReader.CreateUserRoleActivityEntity(roleType, this._lbDelete.ListBoxDestination.Items[i].Value));
+
+            return activities;
         }
 
         #endregion
@@ -91,7 +129,9 @@ namespace AmstaJanBonga.Admin.Content.Secure.Settings
 
         protected void _btnSave_Click(object sender, EventArgs e)
         {
+            Save();
 
+            Url.Refresh();
         }
 
         protected void _ddlRoles_SelectedIndexChanged(object sender, EventArgs e)

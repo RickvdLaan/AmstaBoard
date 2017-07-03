@@ -110,13 +110,17 @@ namespace AmstaJanBonga.Business.Database.Readers
             var employees = new EmployeeCollection();
 
             // Predicate
-            var predicate = new PredicateExpression();
-            predicate.Add(EmployeeFields.LivingRoomId == livingRoomId);
-            predicate.Add(EmployeeFields.IsMarkedAsDeleted == false);
+            var predicate = new PredicateExpression
+            {
+                EmployeeFields.LivingRoomId == livingRoomId,
+                EmployeeFields.IsMarkedAsDeleted == false
+            };
 
             // Sorting
-            var sorter = new SortExpression();
-            sorter.Add(PatientFields.FirstName | SortOperator.Ascending);
+            var sorter = new SortExpression
+            {
+                EmployeeFields.FirstName | SortOperator.Ascending
+            };
 
             // Get
             employees.GetMulti(predicate, 0, sorter);

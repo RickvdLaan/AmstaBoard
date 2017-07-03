@@ -11,6 +11,34 @@ namespace AmstaJanBonga.Business.Database.Readers
 {
     public abstract class UserActivityReader
     {
+        #region Entities
+
+        public static UserActivityEntity CreateUserActivityEntity(string name)
+        {
+            // Doesn't require a permission because it only creates an entity.
+
+            var activity = new UserActivityEntity()
+            {
+                Name = name,
+                DateCreated = DateTime.Now
+            };
+
+            return activity;
+        }
+
+        #endregion
+
+        #region Collection
+
+        public static UserActivityCollection GetAllUserActivities()
+        {
+            var userActivities = new UserActivityCollection();
+
+            userActivities.GetMulti(null, 0);
+
+            return userActivities;
+        }
+
         public static UserActivityCollection GetAllActivitiesByCrud(CrudTypeEnum crudType)
         {
             Authentication.AuthenticateActivity("ReadUserActivity");
@@ -67,7 +95,7 @@ namespace AmstaJanBonga.Business.Database.Readers
 
             var bucket = new RelationPredicateBucket();
             var relation = bucket.Relations.Add(UserRoleActivityEntity.Relations.UserActivityEntityUsingUserActivityName, JoinHint.Right);
-            relation.CustomFilter = filter;       
+            relation.CustomFilter = filter;
 
             if (isNotNull)
                 bucket.PredicateExpression.Add(new PredicateExpression(UserRoleActivityFields.UserActivityName != DBNull.Value));
@@ -80,5 +108,7 @@ namespace AmstaJanBonga.Business.Database.Readers
 
             return userActivities;
         }
+
+        #endregion
     }
 }

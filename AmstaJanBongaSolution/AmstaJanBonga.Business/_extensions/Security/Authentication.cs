@@ -64,6 +64,8 @@ namespace AmstaJanBonga.Business.Security
             // Validating whether the current user is authenticated.
             if (IsAuthenticated)
             {
+                // @Maybe cache all activities and check if the provided activity exists on the development environment?
+
                 foreach (var roleActivity in AuthenticatedUser.UserRole.UserRoleActivities)
                 {
                     // Checking whether the current user is allowed to access the provided activity.
