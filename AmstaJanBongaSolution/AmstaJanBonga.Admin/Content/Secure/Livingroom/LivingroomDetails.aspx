@@ -11,21 +11,18 @@
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="_cphContent" runat="server">
     <div class="box">
+        <h2 class="display-inline">Bekijken</h2>
 
-     <h2 class="display-inline">
-            Bekijken
-        </h2>
-
-        <div class="return right">
-            <asp:HyperLink runat="server" ID="_hlReturn" CssClass="return fa fa-reply display-inline" ToolTip="Terug naar woonkamer overzicht"></asp:HyperLink>
-        </div>
-
-        <div class="clear"></div>
-        
         <div class="shortcut">
+            <div class="return right">
+                <asp:HyperLink runat="server" ID="_hlReturn" CssClass="return fa fa-reply display-inline" ToolTip="Terug naar woonkamer overzicht"></asp:HyperLink>
+            </div>
+
             <asp:HyperLink runat="server" ID="_hlEdit" CssClass="edit fa fa-pencil">
                 Woonkamer bewerken
             </asp:HyperLink>
+
+            <div class="clear"></div>
         </div>
 
         <table class="table-add-edit">

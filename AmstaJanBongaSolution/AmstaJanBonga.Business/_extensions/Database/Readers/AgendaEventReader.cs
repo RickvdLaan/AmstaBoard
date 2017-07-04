@@ -12,6 +12,29 @@ namespace AmstaJanBonga.Business.Database.Readers
 {
     public abstract class AgendaEventReader
     {
+        public static AgendaEventCollection GetAllEventsByPatientId(int patientId)
+        {
+            var agendaEventCollection = new AgendaEventCollection();
+
+            var filter = new PredicateExpression
+            {
+                AgendaEventMetaFields.PatientId == patientId,
+            };
+
+            filter.AddWithAnd(AgendaEventMetaFields.RepeatInterval != DBNull.Value);
+            filter.AddWithOr(AgendaEventMetaFields.EventUnixTimeStamp >= Time.UnixTime.Today);
+            filter.AddWithAnd(AgendaEventMetaFields.RepeatInterval == DBNull.Value);
+
+            var relations = new RelationCollection
+            {
+                AgendaEventEntity.Relations.AgendaEventMetaEntityUsingAgendaEventId
+            };
+
+            agendaEventCollection.GetMulti(filter, 0, null, relations);
+
+            return agendaEventCollection;
+        }
+
         /// <summary>
         /// Returns a list of AgendaEventCollections with a size of 7, set up from Monday to Sunday.
         /// </summary>
@@ -19,11 +42,10 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static List<AgendaEventCollection> GetAllEventsForWeekByPatientId(int patientId)
         {
-            // @Fixme: Quick & dirty, get all unix timestamps between FirstDayOfWeek and LastDayOfWeek and resolve 
+            // @cleanup @incomplete: Get all unix timestamps between FirstDayOfWeek and LastDayOfWeek and resolve 
             // everything on server side to prevent excessive bandwidth usage?
             //
             // IMPORTANT: Requires its own Authentication.AuthenticateActivity when GetAllEventsByDateAndPatientId is removed!
-            //
             var appointments = new List<AgendaEventCollection>(7)
             {
                 // Monday
@@ -77,8 +99,11 @@ namespace AmstaJanBonga.Business.Database.Readers
             var subExpression = new Expression(unixTimeStamp, ExOp.Sub, AgendaEventMetaFields.EventUnixTimeStamp);
             var modExpression = new Expression(subExpression, ExOp.Mod, AgendaEventMetaFields.RepeatInterval);
 
-            var filter = new PredicateExpression();
-            filter.Add(AgendaEventMetaFields.Id.SetExpression(modExpression) == 0); 
+            var filter = new PredicateExpression
+            {
+                AgendaEventMetaFields.Id.SetExpression(modExpression) == 0
+            };
+
             filter.AddWithAnd(AgendaEventMetaFields.PatientId == patientId);
             filter.AddWithOr(AgendaEventMetaFields.Id.SetExpression(subExpression) == 0);
             filter.AddWithAnd(AgendaEventMetaFields.PatientId == patientId);

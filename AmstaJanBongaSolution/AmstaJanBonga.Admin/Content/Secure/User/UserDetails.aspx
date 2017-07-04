@@ -16,6 +16,10 @@
         </h2>
         
         <div class="shortcut">
+            <div class="return right">
+                <asp:HyperLink runat="server" CssClass="return fa fa-reply display-inline" ToolTip="Terug naar gebruikersoverzicht" NavigateUrl="~/Content/Secure/User/UserOverview.aspx"></asp:HyperLink>
+            </div>
+
             <asp:HyperLink runat="server" ID="_hlEdit" CssClass="edit fa fa-pencil">
                 Gebruiker Bewerken
             </asp:HyperLink>
@@ -23,10 +27,6 @@
             <asp:HyperLink runat="server" ID="_hlChangePassword" CssClass="edit fa fa-lock">
                 Wachtwoord Wijzigen
             </asp:HyperLink>
-
-            <div class="return right">
-                <asp:HyperLink runat="server" CssClass="return fa fa-reply display-inline" ToolTip="Terug naar gebruikersoverzicht" NavigateUrl="~/Content/Secure/User/UserOverview.aspx"></asp:HyperLink>
-            </div>
 
             <div class="clear"></div>
         </div>

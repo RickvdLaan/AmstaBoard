@@ -54,7 +54,7 @@
                         </HeaderTemplate>
 
                         <ItemTemplate>
-                            <asp:HyperLink runat="server" ToolTip="Agenda" CssClass="calendar fa fa-calendar" NavigateUrl='<%# Eval("Id","~/Content/Secure/Patient/Agenda/AgendaAddEdit.aspx?PatientId={0}") %>'></asp:HyperLink>
+                            <asp:HyperLink runat="server" ToolTip="Agenda" CssClass="calendar fa fa-calendar" NavigateUrl='<%# Eval("Id","~/Content/Secure/Patient/Agenda/AgendaOverview.aspx?PatientId={0}") %>'></asp:HyperLink>
                             <asp:HyperLink runat="server" ToolTip="Bekijken" CssClass="details fa fa-search" NavigateUrl='<%# Eval("Id","~/Content/Secure/Patient/PatientDetails.aspx?PatientId={0}") %>'></asp:HyperLink>
                             <asp:HyperLink runat="server" ToolTip="Wijzigen" CssClass="edit fa fa-pencil" NavigateUrl='<%# Eval("Id","~/Content/Secure/Patient/PatientAddEdit.aspx?PatientId={0}") %>'></asp:HyperLink>
                             <asp:HyperLink runat="server" ToolTip="Verwijderen" CssClass="delete fa fa-times"></asp:HyperLink>

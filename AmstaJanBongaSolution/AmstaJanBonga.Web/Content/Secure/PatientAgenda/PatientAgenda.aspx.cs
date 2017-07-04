@@ -155,6 +155,10 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
         /// <returns></returns>
         public string GenerateAppointment(string title, string location, Time startTime, Time endTime, string description)
         {
+            // @incomplete: Minutes aren't being used from the Time object. Use minutes
+            // so appointments that last less than one hour also show up on the agenda.
+            // -R Laan, van der, 4 juli 2017.
+
             // Generates a unique id.
             var id = Guid.NewGuid();
 

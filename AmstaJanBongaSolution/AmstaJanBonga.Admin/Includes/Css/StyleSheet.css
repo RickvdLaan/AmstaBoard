@@ -144,6 +144,15 @@ a {
     overflow: auto;
     padding: 15px 20px 20px;
 }
+
+    .box h3:first-of-type {
+        padding-top: 0;
+    }
+
+    .box h3 {
+        padding: 10px 0;
+    }
+
 * {
     font-family: "Lato","Open Sans",sans-serif;
     margin: 0;

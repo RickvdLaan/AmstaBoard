@@ -16,13 +16,13 @@
         </h2>
         
         <div class="shortcut">
-            <asp:HyperLink runat="server" ID="_hlEdit" CssClass="edit fa fa-pencil">
-                Corvee bewerken
-            </asp:HyperLink>
-
             <div class="return right">
                 <asp:HyperLink runat="server" ID="_hlReturn" CssClass="return fa fa-reply display-inline" ToolTip="Terug naar corvee overzicht"></asp:HyperLink>
             </div>
+
+            <asp:HyperLink runat="server" ID="_hlEdit" CssClass="edit fa fa-pencil">
+                Corvee bewerken
+            </asp:HyperLink>
 
             <div class="clear"></div>
         </div>
