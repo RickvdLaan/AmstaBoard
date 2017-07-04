@@ -40,7 +40,7 @@
                 </tr>
                 <tr>
                     <td class="label required">
-                        Datum & Begintijd
+                        Datum & starttijd
                     </td>
                     <td>
                         <asp:TextBox runat="server" ID="_txtStart" CssClass="textbox" ReadOnly="true" placeholder="Start datum en tijd"></asp:TextBox>

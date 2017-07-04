@@ -9,7 +9,7 @@ namespace AmstaJanBonga.Business.Security
 
         private const int HASH_BYTE_SIZE = 24;         // To match the size of the PBKDF2-HMAC-SHA-1 hash  (192-bit)
 
-        //@Fix-me: Add to the database. 
+        // @incomplete: Add this to the database. 
         private const int PBKDF2_ITERATIONS_V1 = 10000;
 
         #endregion

@@ -19,5 +19,17 @@ namespace AmstaJanBonga.Business.Database.Managers
 
             agendaEventMeta.Save();
         }
+
+        public static void UpdateAgendaEventMeta(int id, int unixTimeStamp)
+        {
+            Authentication.AuthenticateActivity("UpdateAgendaEventMeta");
+
+            var agendaEventMeta = new AgendaEventMetaEntity(id)
+            {
+                EventUnixTimeStamp = unixTimeStamp
+            };
+
+            agendaEventMeta.Save();
+        }
     }
 }

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Rlaan.Toolkit.Extensions;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Web.UI.WebControls;
@@ -72,7 +74,7 @@ public static class Extensions
         // Checking IP addresses that start with 127.x.y.z
         if (ignoreIsLoopback)
         {
-            return (IpInUint(source.ToString().Split(new char[] { '.' })) >= IpInUint(start.ToString().Split(new char[] { '.' })) && 
+            return (IpInUint(source.ToString().Split(new char[] { '.' })) >= IpInUint(start.ToString().Split(new char[] { '.' })) &&
                     IpInUint(source.ToString().Split(new char[] { '.' })) <= IpInUint(end.ToString().Split(new char[] { '.' })));
         }
         else
@@ -88,5 +90,28 @@ public static class Extensions
     private static UInt32 IpInUint(string[] s)
     {
         return (Convert.ToUInt32(s[0]) << 24) | (Convert.ToUInt32(s[1]) << 16) | (Convert.ToUInt32(s[2]) << 8) | (Convert.ToUInt32(s[3]));
+    }
+
+    public static DateTime ConvertDotNetDateTime_Or_JavaScriptDateTime_To_DotNetDateTime_Hack(this string dateTime)
+    {        
+        // @hack: used for the different formats between C# .NET and JavaScript.
+        // It's @#$%, but hey, it works.
+        //
+        // DO NOT use this, unless you know what you're using it for and that it's correct
+        // for the current use case! There are almost no use cases to ever use this!
+
+        var dt = new DateTime();
+
+        if ((dateTime.Length >= 24) && DateTime.TryParseExact(dateTime.Substring(0, 24), "ddd MMM d yyyy HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out dt))
+        {
+            return dt;
+        }
+        else if (DateTime.TryParse(dateTime, out dt))
+        {
+            return dt;
+        }
+
+        // Hack used in an incorrect way.
+        throw new Exception("Failed to convert {0} to a valid DateTime object.".FormatString(dateTime));
     }
 }

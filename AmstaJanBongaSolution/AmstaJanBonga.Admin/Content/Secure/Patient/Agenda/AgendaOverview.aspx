@@ -21,7 +21,7 @@
                 <asp:HyperLink runat="server" CssClass="return fa fa-reply display-inline" ToolTip="Terug naar bewoneroverzicht" NavigateUrl="~/Content/Secure/Patient/PatientOverview.aspx"></asp:HyperLink>
             </div>
 
-            <asp:HyperLink runat="server" CssClass="fa fa-plus-circle" Text="Afspraak Toevoegen" ></asp:HyperLink>
+            <asp:HyperLink runat="server" ID="_hlAddEvent" CssClass="fa fa-plus-circle" Text="Afspraak Toevoegen"></asp:HyperLink>
             <%--<asp:HyperLink runat="server" CssClass="fa fa-plus-circle" Text="Bericht Toevoegen"></asp:HyperLink>--%>
             
             <div class="clear"></div>
@@ -80,8 +80,8 @@
                         </HeaderTemplate>
 
                         <ItemTemplate>
-                            <asp:HyperLink runat="server" ToolTip="Bekijken" CssClass="details fa fa-search" NavigateUrl='<%# Eval("Id","") %>'></asp:HyperLink>
-                            <asp:HyperLink runat="server" ToolTip="Wijzigen" CssClass="edit fa fa-pencil" NavigateUrl='<%# Eval("Id","") %>'></asp:HyperLink>
+                            <asp:HyperLink runat="server" ToolTip="Bekijken" CssClass="details fa fa-search" NavigateUrl='<%# Eval("Id","~/Content/Secure/Patient/Agenda/AgendaDetails.aspx?AgendaEventMetaId={0}") %>'></asp:HyperLink>
+                            <asp:HyperLink runat="server" ToolTip="Wijzigen" CssClass="edit fa fa-pencil" NavigateUrl='<%# "~/Content/Secure/Patient/Agenda/AgendaAddEdit.aspx?AgendaEventMetaId={0}&PatientId={1}".FormatString(Eval("Id"), Eval("PatientId")) %>'></asp:HyperLink>
                             <asp:HyperLink runat="server" ToolTip="Verwijderen" CssClass="delete fa fa-times"></asp:HyperLink>
                         </ItemTemplate>
                     </asp:TemplateField>

@@ -13,6 +13,15 @@ namespace AmstaJanBonga.Admin.Content.Secure.Patient.Agenda {
     public partial class AgendaOverview {
         
         /// <summary>
+        /// _hlAddEvent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink _hlAddEvent;
+        
+        /// <summary>
         /// _gvPatientAgendaRepeat control.
         /// </summary>
         /// <remarks>

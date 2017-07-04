@@ -22,5 +22,20 @@ namespace AmstaJanBonga.Business.Database.Managers
 
             return agendaEvent.Id;
         }
+
+        public static void UpdateAgendaEvent(int id, string title, int timeStart, int timeEnd, string location, string description)
+        {
+            Authentication.AuthenticateActivity("UpdateAgendaEvent");
+
+            var agendaEvent = new AgendaEventEntity(id);
+
+            agendaEvent.Title = title;
+            agendaEvent.TimeStart = timeStart;
+            agendaEvent.TimeEnd = timeEnd;
+            agendaEvent.Location = location;
+            agendaEvent.Description = description;
+
+            agendaEvent.Save();
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using AmstaJanBonga.Business.CollectionClasses;
 using AmstaJanBonga.Business.Database.Readers;
 using AmstaJanBonga.Business.EntityClasses;
+using Rlaan.Toolkit.Extensions;
 using Rlaan.Toolkit.Web;
 using System;
 using System.Web.UI.WebControls;
@@ -52,6 +53,9 @@ namespace AmstaJanBonga.Admin.Content.Secure.Patient.Agenda
         {
             if (!IsPostBack)
             {
+                if (this.HasPatientId)
+                    this._hlAddEvent.NavigateUrl = "~/Content/Secure/Patient/Agenda/AgendaAddEdit.aspx?PatientId={0}".FormatString(Url.QueryStringParser.GetInt("PatientId"));
+
                 this.DataBindAgendaEvents();
             }
         }
