@@ -136,6 +136,7 @@
     <Content Include="Content\Secure\LivingRoom\Shifts\ShiftsDetails.aspx" />
     <Content Include="Content\Secure\LivingRoom\Shifts\ShiftsOverview.aspx" />
     <Content Include="Content\Secure\Patient\Agenda\AgendaAddEdit.aspx" />
+    <Content Include="Content\Secure\Patient\Agenda\AgendaDetails.aspx" />
     <Content Include="Content\Secure\Patient\Agenda\AgendaOverview.aspx" />
     <Content Include="Content\Secure\Patient\PatientAddEdit.aspx" />
     <Content Include="Content\Secure\Patient\PatientDetails.aspx" />
@@ -373,6 +374,13 @@
     </Compile>
     <Compile Include="Content\Secure\Patient\Agenda\AgendaAddEdit.aspx.designer.cs">
       <DependentUpon>AgendaAddEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Content\Secure\Patient\Agenda\AgendaDetails.aspx.cs">
+      <DependentUpon>AgendaDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\Secure\Patient\Agenda\AgendaDetails.aspx.designer.cs">
+      <DependentUpon>AgendaDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Content\Secure\Patient\Agenda\AgendaOverview.aspx.cs">
       <DependentUpon>AgendaOverview.aspx</DependentUpon>

@@ -4,16 +4,17 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head runat="server">
-        <title></title>
+        <title>AmstaBoard - CMS</title>
 
-        <link href="~/Includes/Css/StyleSheet.css?build=26052017v1" rel="stylesheet" />
-        <link href="~/Includes/Css/Addons.css?build=26052017v1" rel="stylesheet" />
+        <link href="~/Includes/Css/StyleSheet.css?build=05072017v1" rel="stylesheet" />
+        <link href="~/Includes/Css/Addons.css?build=05072017v1" rel="stylesheet" />
         <link href="~/Includes/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 
         <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,400italic,600' rel='stylesheet' type='text/css' />
 
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
         <script type="text/javascript" src="https://adminjanbonga.jouwsoftware.nl/Includes/js/load-screen.js"></script>
+        <script type="text/javascript" src="https://adminjanbonga.jouwsoftware.nl/Includes/js/mobile-navigation.js"></script>
 
         <asp:ContentPlaceHolder ID="_cphHead" runat="server"></asp:ContentPlaceHolder>
 
@@ -37,10 +38,10 @@
                 <div id="navigation-container">
                     <div id="mobile-menu">
                         <div id="slicknav_menu">
-                            <%--<span class="slicknav_icon-bar"></span>
                             <span class="slicknav_icon-bar"></span>
                             <span class="slicknav_icon-bar"></span>
-                            <i class="fa fa-bars" aria-hidden="true"></i>--%>
+                            <span class="slicknav_icon-bar"></span>
+       
                         </div>
                     </div>
 

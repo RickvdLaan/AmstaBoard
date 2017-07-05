@@ -38,7 +38,9 @@
                         </HeaderTemplate>
 
                         <ItemTemplate>
-                            <%# Eval("AgendaEvent.Title") %>
+                            <asp:HyperLink runat="server" NavigateUrl='<%# Eval("Id","~/Content/Secure/Patient/Agenda/AgendaDetails.aspx?AgendaEventMetaId={0}") %>'>
+                                <%# Eval("AgendaEvent.Title") %>
+                            </asp:HyperLink>
                         </ItemTemplate>
                     </asp:TemplateField>
 

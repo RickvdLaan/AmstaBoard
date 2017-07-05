@@ -75,6 +75,7 @@ a {
     background-image: url("Images/logo.svg");
     height: 83px;
     margin-bottom: 50px;
+    background-repeat: no-repeat;
 }
 
 .button { 
@@ -106,4 +107,11 @@ a {
     color: #e37070;
     display: block;
     margin-top: 15px;
+}
+
+
+@media screen and (max-width: 48em) {
+    .logo {
+        margin-bottom: 30px;
+    }
 }

@@ -6,7 +6,7 @@
     <head runat="server">
         <title>CMS - Login</title>
 
-        <link href="~/Includes/Css/Login.css?build=26052017v1" rel="stylesheet" />
+        <link href="~/Includes/Css/Login.css?build=05072017v1" rel="stylesheet" />
 
         <meta charset="UTF-8" />
         <meta name="robots" content="noindex, nofollow" />

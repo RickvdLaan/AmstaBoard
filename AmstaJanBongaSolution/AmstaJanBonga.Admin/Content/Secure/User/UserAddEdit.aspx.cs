@@ -62,7 +62,17 @@ namespace AmstaJanBonga.Admin.Content.Secure.User
 
                 this._txtUsername.Text = this.User.Username;
 
-                this._ddlRoles.SelectedItem.Value = this.User.UserRole.RoleTypeEnum.ToString();
+                if (CurrentUser.RoleTypeEnum != (byte)RoleTypeEnum.Root && this.User.RoleTypeEnum == (byte)RoleTypeEnum.Root)
+                {
+                    this._ddlRoles.Enabled = false;
+
+                    this._btnSave.Enabled = false;
+
+                    return;
+                }
+
+                this._ddlRoles.Items.FindByText(((RoleTypeEnum)Enum.Parse(typeof(RoleTypeEnum), this.User.RoleTypeEnum.ToString())).Description())
+                    .Selected = true;
             }
         }
 
@@ -83,7 +93,11 @@ namespace AmstaJanBonga.Admin.Content.Secure.User
             }
 
             this._ddlRoles.ClearSelection();
-            this._ddlRoles.Items.FindByText(RoleTypeEnum.Employee.Description()).Selected = true;
+
+
+            //
+
+            this._ddlRoles.Items.Insert(0, new ListItem("Selecteer functie", null));
         }
 
         #endregion

@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head runat="server">
-        <title>Amsta - Woonkamer Stimuleren</title>
+        <title>AmstaBoard</title>
         
         <link href="~/Includes/Css/StyleSheet.css?build=06062017v1" rel="stylesheet" />
         <script src="/Includes/Js/disable-right-click.js"></script>
