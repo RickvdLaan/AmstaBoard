@@ -1,5 +1,7 @@
 ﻿using AmstaJanBonga.Business.CollectionClasses;
+using AmstaJanBonga.Business.Database.Managers;
 using AmstaJanBonga.Business.Database.Readers;
+using AmstaJanBonga.Business.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,6 +49,16 @@ namespace AmstaJanBonga.Admin.Content.Secure.User
                 if (this._gvUsers.BottomPagerRow != null)
                     this._gvUsers.BottomPagerRow.TableSection = TableRowSection.TableFooter;
             }
+        }
+
+        protected void _lbDelete_Click(object sender, EventArgs e)
+        {
+            // Get command argument
+            var linkButton = (LinkButton)sender;
+            var userId = Convert.ToInt32(linkButton.CommandArgument);
+
+            // Mark user as deleted.
+            UserManager.MarkUserAsDeleted(userId);
         }
 
         #endregion

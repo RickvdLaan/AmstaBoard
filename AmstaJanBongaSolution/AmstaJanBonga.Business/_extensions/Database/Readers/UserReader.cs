@@ -29,8 +29,13 @@ namespace AmstaJanBonga.Business.Database.Readers
             // logging in.
             if (Authentication.IsAuthenticated)
                 Authentication.AuthenticateActivity("ReadUser");
+            
+            var user = new UserEntity(userId);
 
-            return new UserEntity(userId);
+            if (user.IsMarkedAsDeleted)
+                return null;
+
+            return user;
         }
 
         /// <summary>
@@ -47,6 +52,9 @@ namespace AmstaJanBonga.Business.Database.Readers
 
             if (user.IsNew && throwExceptionWhenNotFound)
                 throw new Exception("User not found for id {0}.".FormatString(userId));
+
+            if (user.IsMarkedAsDeleted)
+                return null;
 
             return user;
         }
@@ -99,7 +107,14 @@ namespace AmstaJanBonga.Business.Database.Readers
             Authentication.AuthenticateActivity("ReadUser");
 
             var users = new UserCollection();
-            users.GetMulti(null, 0);
+
+            var filter = new PredicateExpression
+            {
+                UserFields.RoleTypeEnum != (byte)RoleTypeEnum.Root,
+                UserFields.IsMarkedAsDeleted == false
+            };
+
+            users.GetMulti(filter, 0);
 
             return users;
         }
@@ -117,6 +132,7 @@ namespace AmstaJanBonga.Business.Database.Readers
 
             // Predicate
             bucket.PredicateExpression.Add(EmployeeFields.UserId == DBNull.Value);
+            bucket.PredicateExpression.Add(UserFields.IsMarkedAsDeleted == false);
 
             // Sorting
             var sorter = new SortExpression

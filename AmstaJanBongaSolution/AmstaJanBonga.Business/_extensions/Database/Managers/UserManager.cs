@@ -1,4 +1,5 @@
-﻿using AmstaJanBonga.Business.EntityClasses;
+﻿using AmstaJanBonga.Business.Database.Readers;
+using AmstaJanBonga.Business.EntityClasses;
 using AmstaJanBonga.Business.Enums;
 using AmstaJanBonga.Business.Security;
 using System;
@@ -62,12 +63,33 @@ namespace AmstaJanBonga.Business.Database.Managers
             user.Save();
         }
 
-        public static void MarkUserAsDeleted()
+        public static void MarkUserAsDeleted(UserEntity user)
         {
             Authentication.AuthenticateActivity("DeleteUser");
+            Authentication.AuthenticateActivity("DeleteEmployee");
 
-            // Won't be implemented untill the entire database is done.
-            throw new NotImplementedException();
+            user.IsMarkedAsDeleted = true;
+            user.DateDeleted = DateTime.Now;
+
+            EmployeeReader.GetEmployeeByUserId(user.Id, false)?.DeleteUserFromEmployee();
+
+            user.Save();
+        }
+
+        public static void MarkUserAsDeleted(int userId)
+        {
+            Authentication.AuthenticateActivity("DeleteUser");
+            Authentication.AuthenticateActivity("DeleteEmployee");
+
+            var user = new UserEntity(userId)
+            {
+                IsMarkedAsDeleted = true,
+                DateDeleted = DateTime.Now
+            };
+
+            EmployeeReader.GetEmployeeByUserId(user.Id, false)?.DeleteUserFromEmployee();
+
+            user.Save();
         }
     }
 }

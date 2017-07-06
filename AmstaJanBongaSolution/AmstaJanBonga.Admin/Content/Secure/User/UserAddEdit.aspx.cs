@@ -65,7 +65,6 @@ namespace AmstaJanBonga.Admin.Content.Secure.User
                 if (CurrentUser.RoleTypeEnum != (byte)RoleTypeEnum.Root && this.User.RoleTypeEnum == (byte)RoleTypeEnum.Root)
                 {
                     this._ddlRoles.Enabled = false;
-
                     this._btnSave.Enabled = false;
 
                     return;
@@ -93,10 +92,6 @@ namespace AmstaJanBonga.Admin.Content.Secure.User
             }
 
             this._ddlRoles.ClearSelection();
-
-
-            //
-
             this._ddlRoles.Items.Insert(0, new ListItem("Selecteer functie", null));
         }
 

@@ -26,7 +26,7 @@
             var top = Math.max($(window).height() / 2 - loading[0].offsetHeight / 2, 0);
             var left = Math.max($(window).width() / 2 - loading[0].offsetWidth / 2, 0);
             loading.css({ top: top, left: left });
-            
+
             setTimeout(function () {
                 // Prevention for a bug in some versions of IE when double clicking.
                 if (link != null) {
@@ -51,7 +51,7 @@
 
         if (!isCtrlPressed) {
             // Ignoring all the anchors in controls which do postbacks, or update panels, etc.
-            if (($(this).hasClass("js-listbox-button")) || (href.indexOf("ExtendedCalendar") != -1)) {
+            if (($(this).hasClass("js-listbox-button")) || (href.indexOf("ExtendedCalendar") != -1) || $(this).hasClass("delete")) {
                 return;
             }
 

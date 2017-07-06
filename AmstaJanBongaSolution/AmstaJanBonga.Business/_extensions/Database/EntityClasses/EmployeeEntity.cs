@@ -5,6 +5,12 @@ namespace AmstaJanBonga.Business.EntityClasses
 {
     public partial class EmployeeEntity
     {
+        public void DeleteUserFromEmployee()
+        {
+            this.UserId = null;
+            this.Save();
+        }
+
         #region Overrides
 
         protected override void OnSave()
