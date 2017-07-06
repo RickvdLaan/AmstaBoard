@@ -1,4 +1,5 @@
-﻿using AmstaJanBonga.Business.Database.Readers;
+﻿using AmstaJanBonga.Business.Database.Managers;
+using AmstaJanBonga.Business.Database.Readers;
 using System;
 using System.Data;
 using System.Web.UI.WebControls;
@@ -27,7 +28,9 @@ namespace AmstaJanBonga.Admin.Content.Secure.Employee
 
         protected void _gvEmployee_PreRender(object sender, EventArgs e)
         {
-            this.Employees = EmployeeReader.GetAllEmployeesJoinedWithLivingroom();
+            // LivingRoom is a required field when you add an employee, so this 
+            // method can be called.
+            this.Employees = EmployeeReader.GetAllEmployeesJoinedWithLivingRoom();
 
             this._gvEmployee.DataSource = this.Employees;
             this._gvEmployee.DataBind();
@@ -43,6 +46,16 @@ namespace AmstaJanBonga.Admin.Content.Secure.Employee
                 if (this._gvEmployee.BottomPagerRow != null)
                     this._gvEmployee.BottomPagerRow.TableSection = TableRowSection.TableFooter;
             }
+        }
+
+        protected void _lbDelete_Click(object sender, EventArgs e)
+        {
+            // Get command argument
+            var linkButton = (LinkButton)sender;
+            var employeeId = Convert.ToInt32(linkButton.CommandArgument);
+
+            // Mark employee as deleted.
+            EmployeeManager.MarkEmployeeAsDeleted(employeeId);
         }
 
         #endregion

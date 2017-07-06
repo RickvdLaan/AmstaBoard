@@ -29,13 +29,8 @@ namespace AmstaJanBonga.Business.Database.Readers
             // logging in.
             if (Authentication.IsAuthenticated)
                 Authentication.AuthenticateActivity("ReadUser");
-            
-            var user = new UserEntity(userId);
 
-            if (user.IsMarkedAsDeleted)
-                return null;
-
-            return user;
+            return new UserEntity(userId);
         }
 
         /// <summary>
@@ -50,8 +45,8 @@ namespace AmstaJanBonga.Business.Database.Readers
 
             var user = GetUserById(userId);
 
-            if (user.IsNew && throwExceptionWhenNotFound)
-                throw new Exception("User not found for id {0}.".FormatString(userId));
+            if (user.IsNew && throwExceptionWhenNotFound || user.IsMarkedAsDeleted && throwExceptionWhenNotFound)
+                throw new Exception("User not found by id {0} or has been removed.".FormatString(userId));
 
             if (user.IsMarkedAsDeleted)
                 return null;
@@ -159,8 +154,10 @@ namespace AmstaJanBonga.Business.Database.Readers
             bucket.Relations.Add(EmployeeEntity.Relations.UserEntityUsingUserId, JoinHint.Right);
 
             // Predicate
-            bucket.PredicateExpression.Add(EmployeeFields.UserId == DBNull.Value);
-            bucket.PredicateExpression.AddWithOr(EmployeeFields.UserId == includeUserId.Value);
+            bucket.PredicateExpression.Add(EmployeeFields.IsMarkedAsDeleted == false);
+            bucket.PredicateExpression.AddWithAnd(EmployeeFields.UserId == DBNull.Value);
+            bucket.PredicateExpression.AddWithOr(EmployeeFields.IsMarkedAsDeleted == false);
+            bucket.PredicateExpression.AddWithAnd(EmployeeFields.UserId == includeUserId.Value);
 
             // Sorting
             var sorter = new SortExpression

@@ -38,12 +38,12 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static EmployeeEntity GetEmployeeById(int employeeId, bool throwExceptionWhenNotFound)
         {
-            // Uses the Authentication.AuthenticateActivity from GetEmployeeById.
+            Authentication.AuthenticateActivity("ReadEmployee");
 
             var employee = GetEmployeeById(employeeId);
 
-            if (employee.IsNew && throwExceptionWhenNotFound)
-                throw new Exception("Employee not found by id {0}.".FormatString(employeeId));
+            if (employee.IsNew && throwExceptionWhenNotFound || employee.IsMarkedAsDeleted && throwExceptionWhenNotFound)
+                throw new Exception("Employee not found by id {0} or has been removed.".FormatString(employeeId));
 
             return employee;
         }
@@ -130,10 +130,10 @@ namespace AmstaJanBonga.Business.Database.Readers
         }
 
         /// <summary>
-        /// Returns a collection of all the patients joined with the living room relation.
+        /// Returns a collection of all employees joined with a living room.
         /// </summary>
         /// <returns></returns>
-        public static DataTable GetAllEmployeesJoinedWithLivingroom()
+        public static DataTable GetAllEmployeesJoinedWithLivingRoom()
         {
             Authentication.AuthenticateActivity("ReadEmployee");
 
@@ -158,7 +158,7 @@ namespace AmstaJanBonga.Business.Database.Readers
             // Create the DataTable, DAO and fill the DataTable with the above query definition/parameters.
             var dt = new DataTable();
             var dao = new TypedListDAO();
-            dao.GetMultiAsDataTable(fields, dt, 0, null, null, relations, false, null, null, 0, 0);
+            dao.GetMultiAsDataTable(fields, dt, 0, null, predicate, relations, false, null, null, 0, 0);
 
             // Returns the dataset.
             return dt;

@@ -172,5 +172,34 @@ namespace AmstaJanBonga.Business.Database.Managers
             if (File.Exists(path))
                 File.Delete(path);
         }
+
+        public static void MarkEmployeeAsDeleted(EmployeeEntity employee)
+        {
+            Authentication.AuthenticateActivity("DeleteEmployee");
+
+            employee.UserId = null;
+            employee.IsMarkedAsDeleted = true;
+            employee.DateDeleted = DateTime.Now;
+
+            DeleteEmployeeImage(employee);
+
+            employee.Save();
+        }
+
+        public static void MarkEmployeeAsDeleted(int employeeId)
+        {
+            Authentication.AuthenticateActivity("DeleteEmployee");
+
+            var employee = new EmployeeEntity(employeeId)
+            {
+                UserId = null,
+                IsMarkedAsDeleted = true,
+                DateDeleted = DateTime.Now
+            };
+
+            DeleteEmployeeImage(employeeId, false);
+
+            employee.Save();
+        }
     }
 }
