@@ -132,13 +132,8 @@
     <EntityDefinitions>
       <EntityDefinition Name="AgendaEvent" GroupName="Vanderlaan" ObjectID="b3084d04-e45e-4cdf-bee9-11862ad2f7b3">
         <Fields>
-          <Field Name="DateCreated" Type="datetime" />
-          <Field Name="DateDeleted" Type="datetime" IsOptional="true" />
-          <Field Name="DateLastModified" Type="datetime" IsOptional="true" />
-          <Field Name="DateLastModifiedByUserId" Type="int" IsOptional="true" Precision="10" />
           <Field Name="Description" Type="string" IsOptional="true" MaxLength="500" />
           <Field Name="Id" Type="int" IsReadOnly="true" Precision="10" IsPrimaryKey="true" />
-          <Field Name="IsMarkedAsDeleted" Type="bool" />
           <Field Name="Location" Type="string" IsOptional="true" MaxLength="50" />
           <Field Name="TimeEnd" Type="int" Precision="10" />
           <Field Name="TimeStart" Type="int" Precision="10" />
@@ -148,13 +143,8 @@
       <EntityDefinition Name="AgendaEventMeta" GroupName="Vanderlaan" ObjectID="741877ed-932f-4220-a1cf-7c31f3ae1635">
         <Fields>
           <Field Name="AgendaEventId" Type="int" Precision="10" />
-          <Field Name="DateCreated" Type="datetime" />
-          <Field Name="DateDeleted" Type="datetime" IsOptional="true" />
-          <Field Name="DateLastModified" Type="datetime" IsOptional="true" />
-          <Field Name="DateLastModifiedByUserId" Type="int" IsOptional="true" Precision="10" />
           <Field Name="EventUnixTimeStamp" Type="int" Precision="10" />
           <Field Name="Id" Type="int" IsReadOnly="true" Precision="10" IsPrimaryKey="true" />
-          <Field Name="IsMarkedAsDeleted" Type="bool" />
           <Field Name="PatientId" Type="int" Precision="10" />
           <Field Name="RepeatInterval" Type="int" IsOptional="true" Precision="10" />
         </Fields>
@@ -182,7 +172,7 @@
           <Field Name="Ipaddress" Type="string" MaxLength="20" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="LivingRoom" GroupName="Vanderlaan" ObjectID="85af59f5-4956-4961-965d-dff9600e2211">
+      <EntityDefinition Name="LivingRoom" GroupName="Vanderlaan" ObjectID="c7097603-c4aa-468e-ba08-6225a2ef5c60">
         <Fields>
           <Field Name="ColourTypeEnum" Type="byte" Precision="3" />
           <Field Name="DateCreated" Type="datetime" />
@@ -194,7 +184,7 @@
           <Field Name="Name" Type="string" MaxLength="50" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="LivingRoomChoreEvent" GroupName="Vanderlaan" ObjectID="5ff77e05-878b-47b7-b2bb-87a51e2866ac">
+      <EntityDefinition Name="LivingRoomChoreEvent" GroupName="Vanderlaan" ObjectID="4f973238-ae5e-468e-b0c9-ebdb9219d204">
         <Fields>
           <Field Name="Date" Type="datetime" IsPrimaryKey="true" />
           <Field Name="DateCreated" Type="datetime" />
@@ -205,7 +195,7 @@
           <Field Name="TimeOfDayTypeEnum" Type="byte" Precision="3" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="LivingRoomGeneral" GroupName="Vanderlaan" ObjectID="7edabe03-b854-4073-82ef-3a9571f27010">
+      <EntityDefinition Name="LivingRoomGeneral" GroupName="Vanderlaan" ObjectID="c1fef4c4-c87a-4a6e-a49e-4beee8bd116c">
         <Fields>
           <Field Name="DateCreated" Type="datetime" />
           <Field Name="DateLastModified" Type="datetime" IsOptional="true" />
@@ -214,7 +204,7 @@
           <Field Name="LivingRoomId" Type="int" Precision="10" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="LivingRoomGeneralEvent" GroupName="Vanderlaan" ObjectID="21cceafa-b24b-42fe-bc58-7828f2f63182">
+      <EntityDefinition Name="LivingRoomGeneralEvent" GroupName="Vanderlaan" ObjectID="ecef83dd-a22a-4107-8098-f323afe3f535">
         <Fields>
           <Field Name="Date" Type="datetime" IsPrimaryKey="true" />
           <Field Name="DateCreated" Type="datetime" />
@@ -224,7 +214,7 @@
           <Field Name="LivingRoomId" Type="int" Precision="10" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="LivingRoomShiftEvent" GroupName="Vanderlaan" ObjectID="3fc63c4b-c5a0-4e4c-96e5-60162368726b">
+      <EntityDefinition Name="LivingRoomShiftEvent" GroupName="Vanderlaan" ObjectID="92c88a67-78d5-4b47-82ff-3205e58ca191">
         <Fields>
           <Field Name="Date" Type="datetime" IsPrimaryKey="true" />
           <Field Name="DateCreated" Type="datetime" />
@@ -367,13 +357,8 @@
   <TypedViewDefinitions>
     <TypedViewDefinition Name="GetAllEventsByDateAndByPatientIdResult" GroupName="Vanderlaan" ObjectID="ae777d2f-af6a-46fa-add4-ddf2c1761d9c">
       <Fields>
-        <Field Name="DateCreated" Type="datetime" IsOptional="true" />
-        <Field Name="DateDeleted" Type="datetime" IsOptional="true" />
-        <Field Name="DateLastModified" Type="datetime" IsOptional="true" />
-        <Field Name="DateLastModifiedByUserId" Type="int" IsOptional="true" Precision="10" />
         <Field Name="Description" Type="string" IsOptional="true" MaxLength="500" />
         <Field Name="Id" Type="int" IsOptional="true" Precision="10" />
-        <Field Name="IsMarkedAsDeleted" Type="bool" IsOptional="true" />
         <Field Name="Location" Type="string" IsOptional="true" MaxLength="50" />
         <Field Name="TimeEnd" Type="int" IsOptional="true" Precision="10" />
         <Field Name="TimeStart" Type="int" IsOptional="true" Precision="10" />
@@ -404,7 +389,7 @@
       <Catalogs>
         <Catalog Name="Vanderlaan_jouwsoftware_janbonga_development">
           <Schemas>
-            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-07-07T13:00:55.3585377Z">
+            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-06-01T12:33:58.9276687Z">
               <StoredProcedures>
                 <StoredProcedure Name="sp_alterdiagram">
                   <Parameters>
@@ -472,7 +457,7 @@
                 </StoredProcedure>
               </StoredProcedures>
             </Schema>
-            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-07-07T13:00:55.39854Z">
+            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-06-01T12:33:59.0076733Z">
               <Tables>
                 <Table Name="AgendaEvent">
                   <PkConstraintName Name="PK_AgendaEvent" />
@@ -483,11 +468,6 @@
                     <Field Name="TimeStart" Ordinal="4" DbType="8" Precision="10" />
                     <Field Name="TimeEnd" Ordinal="5" DbType="8" Precision="10" />
                     <Field Name="Description" Ordinal="6" IsOptional="true" DbType="24" Length="500" />
-                    <Field Name="IsMarkedAsDeleted" Ordinal="7" HasDefaultValue="true" DefaultValue="(0)" DbType="2" />
-                    <Field Name="DateCreated" Ordinal="8" DbType="4" />
-                    <Field Name="DateLastModified" Ordinal="9" IsOptional="true" DbType="4" />
-                    <Field Name="DateLastModifiedByUserId" Ordinal="10" IsOptional="true" DbType="8" Precision="10" />
-                    <Field Name="DateDeleted" Ordinal="11" IsOptional="true" DbType="4" />
                   </Fields>
                 </Table>
                 <Table Name="AgendaEventMeta">
@@ -498,11 +478,6 @@
                     <Field Name="PatientId" Ordinal="3" DbType="8" Precision="10" />
                     <Field Name="EventUnixTimeStamp" Ordinal="4" DbType="8" Precision="10" />
                     <Field Name="RepeatInterval" Ordinal="5" IsOptional="true" DbType="8" Precision="10" />
-                    <Field Name="IsMarkedAsDeleted" Ordinal="6" HasDefaultValue="true" DefaultValue="(0)" DbType="2" />
-                    <Field Name="DateCreated" Ordinal="7" DbType="4" />
-                    <Field Name="DateLastModified" Ordinal="8" IsOptional="true" DbType="4" />
-                    <Field Name="DateLastModifiedByUserId" Ordinal="9" IsOptional="true" DbType="8" Precision="10" />
-                    <Field Name="DateDeleted" Ordinal="10" IsOptional="true" DbType="4" />
                   </Fields>
                 </Table>
                 <Table Name="Employee">
@@ -663,11 +638,6 @@
                         <Field Name="TimeStart" Ordinal="4" IsOptional="true" DbType="8" Precision="10" />
                         <Field Name="TimeEnd" Ordinal="5" IsOptional="true" DbType="8" Precision="10" />
                         <Field Name="Description" Ordinal="6" IsOptional="true" DbType="24" Length="500" />
-                        <Field Name="IsMarkedAsDeleted" Ordinal="7" IsOptional="true" DbType="2" />
-                        <Field Name="DateCreated" Ordinal="8" IsOptional="true" DbType="4" />
-                        <Field Name="DateLastModified" Ordinal="9" IsOptional="true" DbType="4" />
-                        <Field Name="DateLastModifiedByUserId" Ordinal="10" IsOptional="true" DbType="8" Precision="10" />
-                        <Field Name="DateDeleted" Ordinal="11" IsOptional="true" DbType="4" />
                       </Fields>
                     </Resultset>
                   </Resultsets>
@@ -756,13 +726,8 @@
       <EntityMappings>
         <EntityMapping EntityName="Vanderlaan:AgendaEvent" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:AgendaEvent">
           <FieldMappings>
-            <FieldMapping FieldName="DateCreated" TargetFieldName="DateCreated" />
-            <FieldMapping FieldName="DateDeleted" TargetFieldName="DateDeleted" />
-            <FieldMapping FieldName="DateLastModified" TargetFieldName="DateLastModified" />
-            <FieldMapping FieldName="DateLastModifiedByUserId" TargetFieldName="DateLastModifiedByUserId" />
             <FieldMapping FieldName="Description" TargetFieldName="Description" />
             <FieldMapping FieldName="Id" TargetFieldName="Id" SequenceToUse="SCOPE_IDENTITY()" />
-            <FieldMapping FieldName="IsMarkedAsDeleted" TargetFieldName="IsMarkedAsDeleted" />
             <FieldMapping FieldName="Location" TargetFieldName="Location" />
             <FieldMapping FieldName="TimeEnd" TargetFieldName="TimeEnd" />
             <FieldMapping FieldName="TimeStart" TargetFieldName="TimeStart" />
@@ -772,13 +737,8 @@
         <EntityMapping EntityName="Vanderlaan:AgendaEventMeta" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:AgendaEventMeta">
           <FieldMappings>
             <FieldMapping FieldName="AgendaEventId" TargetFieldName="AgendaEventId" />
-            <FieldMapping FieldName="DateCreated" TargetFieldName="DateCreated" />
-            <FieldMapping FieldName="DateDeleted" TargetFieldName="DateDeleted" />
-            <FieldMapping FieldName="DateLastModified" TargetFieldName="DateLastModified" />
-            <FieldMapping FieldName="DateLastModifiedByUserId" TargetFieldName="DateLastModifiedByUserId" />
             <FieldMapping FieldName="EventUnixTimeStamp" TargetFieldName="EventUnixTimeStamp" />
             <FieldMapping FieldName="Id" TargetFieldName="Id" SequenceToUse="SCOPE_IDENTITY()" />
-            <FieldMapping FieldName="IsMarkedAsDeleted" TargetFieldName="IsMarkedAsDeleted" />
             <FieldMapping FieldName="PatientId" TargetFieldName="PatientId" />
             <FieldMapping FieldName="RepeatInterval" TargetFieldName="RepeatInterval" />
           </FieldMappings>
@@ -912,13 +872,8 @@
       <TypedViewMappings>
         <TypedViewMapping TypedViewName="Vanderlaan:GetAllEventsByDateAndByPatientIdResult" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:GetAllEventsByDateAndByPatientId:Resultset1">
           <FieldMappings>
-            <FieldMapping FieldName="DateCreated" TargetFieldName="DateCreated" />
-            <FieldMapping FieldName="DateDeleted" TargetFieldName="DateDeleted" />
-            <FieldMapping FieldName="DateLastModified" TargetFieldName="DateLastModified" />
-            <FieldMapping FieldName="DateLastModifiedByUserId" TargetFieldName="DateLastModifiedByUserId" />
             <FieldMapping FieldName="Description" TargetFieldName="Description" />
             <FieldMapping FieldName="Id" TargetFieldName="Id" />
-            <FieldMapping FieldName="IsMarkedAsDeleted" TargetFieldName="IsMarkedAsDeleted" />
             <FieldMapping FieldName="Location" TargetFieldName="Location" />
             <FieldMapping FieldName="TimeEnd" TargetFieldName="TimeEnd" />
             <FieldMapping FieldName="TimeStart" TargetFieldName="TimeStart" />

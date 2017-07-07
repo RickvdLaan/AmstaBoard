@@ -31,5 +31,28 @@ namespace AmstaJanBonga.Business.Database.Managers
 
             livingRoom.Save();
         }
+
+        public static void MarkLivingRoomAsDeleted(LivingRoomEntity livingRoom)
+        {
+            Authentication.AuthenticateActivity("DeleteLivingRoom");
+
+            livingRoom.IsMarkedAsDeleted = true;
+            livingRoom.DateDeleted = DateTime.Now;
+
+            livingRoom.Save();
+        }
+
+        public static void MarkLivingRoomAsDeleted(int livingRoomId)
+        {
+            Authentication.AuthenticateActivity("DeleteLivingRoom");
+
+            var livingRoom = new LivingRoomEntity(livingRoomId)
+            {
+                IsMarkedAsDeleted = true,
+                DateDeleted = DateTime.Now
+            };
+
+            livingRoom.Save();
+        }
     }
 }

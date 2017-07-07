@@ -18,23 +18,37 @@ namespace AmstaJanBonga.Admin.Content.Secure.User
         private UserCollection _users = null;
         public UserCollection Users
         {
-            get { return this._users; }
-            set { this._users = value; }
+            get
+            {
+                if (this._users == null)
+                    this._users = UserReader.GetAllUsers();
+
+                return this._users;
+            }
         }
 
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!this.IsPostBack)
+                this.DataBindUsers();
         }
+
+        #region DataBinding
+
+        private void DataBindUsers()
+        {
+            this._gvUsers.DataSource = this.Users;
+            this._gvUsers.DataBind();
+        }
+
+        #endregion
 
         #region Events
 
         protected void _gvUsers_PreRender(object sender, EventArgs e)
         {
-            this.Users = UserReader.GetAllUsers();
-
             this._gvUsers.DataSource = this.Users;
             this._gvUsers.DataBind();
 
@@ -49,6 +63,13 @@ namespace AmstaJanBonga.Admin.Content.Secure.User
                 if (this._gvUsers.BottomPagerRow != null)
                     this._gvUsers.BottomPagerRow.TableSection = TableRowSection.TableFooter;
             }
+        }
+
+        protected void _gvUsers_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            this._gvUsers.PageIndex = e.NewPageIndex;
+
+            this.DataBindUsers();
         }
 
         protected void _lbDelete_Click(object sender, EventArgs e)

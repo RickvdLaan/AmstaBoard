@@ -39,8 +39,13 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Shifts
 
         public DataTable Shifts
         {
-            get { return this._shifts; }
-            set { this._shifts = value; }
+            get
+            {
+                if (this._shifts == null)
+                    this._shifts = LivingRoomShiftEventReader.GetAllShiftsDistinctByLivingRoomId(this.LivingRoomId);
+
+                return this._shifts;
+            }
         }
 
         #endregion
@@ -50,20 +55,27 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Shifts
             if (!this.IsPostBack)
             {
                 this._hlAddEditShifts.NavigateUrl = "~/Content/Secure/LivingRoom/Shifts/ShiftsAddEdit.aspx?LivingRoomId={0}".FormatString(this.LivingRoomId);
+
+                this.DataBindShifts();
             }
         }
 
-        #region PreRender
+        #region DataBinding
+
+        private void DataBindShifts()
+        {
+            this._gvShifts.DataSource = this.Shifts;
+            this._gvShifts.DataBind();
+        }
+
+        #endregion
+
+        #region Events
 
         protected void _gvShifts_PreRender(object sender, EventArgs e)
         {
             if (this.HasLivingRoomId)
             {
-                this.Shifts = LivingRoomShiftEventReader.GetAllShiftsDistinctByLivingRoomId(this.LivingRoomId);
-
-                this._gvShifts.DataSource = this.Shifts;
-                this._gvShifts.DataBind();
-
                 this._gvShifts.UseAccessibleHeader = true;
                 this._gvShifts.HeaderRow.TableSection = TableRowSection.TableHeader;
 
@@ -76,6 +88,13 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Shifts
                         this._gvShifts.BottomPagerRow.TableSection = TableRowSection.TableFooter;
                 }
             }
+        }
+
+        protected void _gvShifts_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            this._gvShifts.PageIndex = e.NewPageIndex;
+
+            this.DataBindShifts();
         }
 
         #endregion

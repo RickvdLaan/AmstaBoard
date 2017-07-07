@@ -1,4 +1,5 @@
-﻿using AmstaJanBonga.Business.EntityClasses;
+﻿using AmstaJanBonga.Business.Database.Readers;
+using AmstaJanBonga.Business.EntityClasses;
 using AmstaJanBonga.Business.Security;
 using Rlaan.Toolkit.Configuration;
 using System;
@@ -108,12 +109,65 @@ namespace AmstaJanBonga.Business.Database.Managers
             return patient;
         }
 
-        public static void MarkUserAsDeleted()
+        public static void DeletePatientImage(PatientEntity patient)
         {
             Authentication.AuthenticateActivity("DeletePatient");
 
-            // Won't be implemented untill the entire database is done.
-            throw new NotImplementedException();
+            if (patient.IsNew || string.IsNullOrEmpty(patient.ImagePath))
+                return;
+
+            DeleteImage(patient);
+
+            patient.ImagePath = null;
+            patient.Save();
+        }
+
+        public static void DeletePatientImage(int patientId, bool throwExceptionIfNotFound)
+        {
+            Authentication.AuthenticateActivity("DeletePatient");
+
+            var patient = PatientReader.GetPatientById(patientId, throwExceptionIfNotFound);
+
+            DeletePatientImage(patient);
+        }
+
+        private static void DeleteImage(PatientEntity patient)
+        {
+            // The path without the filename
+            var path = HttpContext.Current.Server.MapPath(
+                   string.Format("{0}{1}",
+                   HttpContext.Current.Request.ApplicationPath,
+                   patient.ImagePath));
+
+            if (File.Exists(path))
+                File.Delete(path);
+        }
+
+        public static void MarkPatientAsDeleted(PatientEntity patient)
+        {
+            Authentication.AuthenticateActivity("DeletePatient");
+
+            patient.IsMarkedAsDeleted = true;
+            patient.DateDeleted = DateTime.Now;
+
+            DeletePatientImage(patient);
+
+            patient.Save();
+        }
+
+        public static void MarkPatientAsDeleted(int patientId)
+        {
+            Authentication.AuthenticateActivity("DeletePatient");
+
+            var employee = new PatientEntity(patientId)
+            {
+                IsMarkedAsDeleted = true,
+                DateDeleted = DateTime.Now
+            };
+
+            DeletePatientImage(patientId, false);
+
+            employee.Save();
         }
     }
 }

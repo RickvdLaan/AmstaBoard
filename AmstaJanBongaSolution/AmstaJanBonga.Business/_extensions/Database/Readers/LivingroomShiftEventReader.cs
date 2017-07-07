@@ -14,6 +14,19 @@ namespace AmstaJanBonga.Business.Database.Readers
 {
     public abstract class LivingRoomShiftEventReader
     {
+        public static LivingRoomShiftEventCollection GetAllFutureShiftsByEmployeeId(int employeeId)
+        {
+            var livingRoomShifts = new LivingRoomShiftEventCollection();
+
+            var filter = new PredicateExpression();
+            filter.Add(LivingRoomShiftEventFields.EmployeeId == employeeId);
+            filter.AddWithAnd(LivingRoomShiftEventFields.Date >= DateTime.Now.Date);
+
+            livingRoomShifts.GetMulti(filter, 0);
+
+            return livingRoomShifts;
+        }
+
         public static LivingRoomShiftEventEntity GetShiftByIds(int employeeId, int livingRoomId, DateTime date, ShiftTypeEnum shiftType, bool throwExceptionWhenNotFound)
         {
             Authentication.AuthenticateActivity("ReadLivingRoomShiftEvent");

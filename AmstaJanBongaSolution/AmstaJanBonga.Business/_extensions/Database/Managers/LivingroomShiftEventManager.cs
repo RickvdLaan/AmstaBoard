@@ -1,7 +1,9 @@
 ﻿using AmstaJanBonga.Business.CollectionClasses;
 using AmstaJanBonga.Business.EntityClasses;
 using AmstaJanBonga.Business.Enums;
+using AmstaJanBonga.Business.HelperClasses;
 using AmstaJanBonga.Business.Security;
+using SD.LLBLGen.Pro.ORMSupportClasses;
 using System;
 
 namespace AmstaJanBonga.Business.Database.Managers
@@ -12,10 +14,10 @@ namespace AmstaJanBonga.Business.Database.Managers
         {
             Authentication.AuthenticateActivity("UpdateLivingRoomShiftEvent");
 
-            if  (oldShift.EmployeeId    == newShift.EmployeeId   &&
-                oldShift.LivingRoomId  == newShift.LivingRoomId  &&
+            if (oldShift.EmployeeId == newShift.EmployeeId &&
+                oldShift.LivingRoomId == newShift.LivingRoomId &&
                 oldShift.ShiftTypeEnum == newShift.ShiftTypeEnum &&
-                oldShift.Date          == newShift.Date          ||
+                oldShift.Date == newShift.Date ||
                 !newShift.IsNew)
             {
                 return;
@@ -74,6 +76,24 @@ namespace AmstaJanBonga.Business.Database.Managers
             originalCollection.RemovedEntitiesTracker.DeleteMulti();
 
             newCollection.SaveMulti();
+        }
+
+        public static void DeleteShiftByLivingRoomIdAndDate(int livingRoomid, DateTime date)
+        {
+            Authentication.AuthenticateActivity("DeleteLivingRoomShiftEvent");
+
+            var livingRoomShiftEventCollection = new LivingRoomShiftEventCollection();
+
+            var filter = new PredicateExpression
+            {
+                LivingRoomChoreEventFields.LivingRoomId == livingRoomid
+            };
+
+            filter.AddWithAnd(LivingRoomChoreEventFields.Date == date.Date);
+
+            livingRoomShiftEventCollection.GetMulti(filter, 0);
+            
+            livingRoomShiftEventCollection.DeleteMulti();
         }
     }
 }

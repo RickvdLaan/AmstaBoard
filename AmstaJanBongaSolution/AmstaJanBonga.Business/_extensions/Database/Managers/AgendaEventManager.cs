@@ -1,5 +1,7 @@
-﻿using AmstaJanBonga.Business.EntityClasses;
+﻿using AmstaJanBonga.Business.Database.Readers;
+using AmstaJanBonga.Business.EntityClasses;
 using AmstaJanBonga.Business.Security;
+using System;
 
 namespace AmstaJanBonga.Business.Database.Managers
 {
@@ -34,6 +36,16 @@ namespace AmstaJanBonga.Business.Database.Managers
             agendaEvent.TimeEnd = timeEnd;
             agendaEvent.Location = location;
             agendaEvent.Description = description;
+
+            agendaEvent.Save();
+        }
+
+        public static void MarkAgendaEventAsDeleted(int id)
+        {
+            var agendaEvent = AgendaEventReader.GetAgendaEventById(id, true);
+
+            agendaEvent.IsMarkedAsDeleted = true;
+            agendaEvent.DateDeleted = DateTime.Now;
 
             agendaEvent.Save();
         }

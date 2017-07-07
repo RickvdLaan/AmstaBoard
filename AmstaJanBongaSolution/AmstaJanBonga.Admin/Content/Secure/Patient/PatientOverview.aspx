@@ -24,7 +24,7 @@
         </div>
        
         <div class="gridview">
-            <asp:GridView runat="server" ID="_gvPatients" OnPreRender="_gvPatients_PreRender" ShowHeaderWhenEmpty="true" AlternatingRowStyle-CssClass="alt" AllowPaging="true" PageSize="10" AllowSorting="false" AutoGenerateColumns="false" OnPageIndexChanging="_gvPatients_PageIndexChanging">
+            <asp:GridView runat="server" ID="_gvPatients" OnPreRender="_gvPatients_PreRender" PagerStyle-CssClass="paging" ShowHeaderWhenEmpty="true" AlternatingRowStyle-CssClass="alt" AllowPaging="true" PageSize="10" AllowSorting="false" AutoGenerateColumns="false" OnPageIndexChanging="_gvPatients_PageIndexChanging">
                 <Columns>
                     <asp:TemplateField>
                     <HeaderTemplate>
@@ -57,7 +57,7 @@
                             <asp:HyperLink runat="server" ToolTip="Agenda" CssClass="calendar fa fa-calendar" NavigateUrl='<%# Eval("Id","~/Content/Secure/Patient/Agenda/AgendaOverview.aspx?PatientId={0}") %>'></asp:HyperLink>
                             <asp:HyperLink runat="server" ToolTip="Bekijken" CssClass="details fa fa-search" NavigateUrl='<%# Eval("Id","~/Content/Secure/Patient/PatientDetails.aspx?PatientId={0}") %>'></asp:HyperLink>
                             <asp:HyperLink runat="server" ToolTip="Wijzigen" CssClass="edit fa fa-pencil" NavigateUrl='<%# Eval("Id","~/Content/Secure/Patient/PatientAddEdit.aspx?PatientId={0}") %>'></asp:HyperLink>
-                            <asp:HyperLink runat="server" ToolTip="Verwijderen" CssClass="delete fa fa-times"></asp:HyperLink>
+                            <asp:LinkButton runat="server" ToolTip="Verwijderen" CssClass="delete fa fa-times" OnClick="_lbDelete_Click" OnClientClick="return confirm('U staat op het punt om deze bewoner te verwijderen. Weet u het zeker?');" CommandArgument='<%# Eval("Id") %>'></asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

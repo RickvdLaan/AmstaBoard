@@ -12,8 +12,30 @@ namespace AmstaJanBonga.Business.Database.Readers
 {
     public abstract class AgendaEventReader
     {
+        public static AgendaEventEntity GetAgendaEventById(int id)
+        {
+            Authentication.AuthenticateActivity("ReadAgendaEvent");
+            
+            return new AgendaEventEntity(id);
+        }
+
+        public static AgendaEventEntity GetAgendaEventById(int id, bool throwExceptionWhenNotFound)
+        {
+            // Uses the Authentication.AuthenticateActivity from GetAgendaEventById.
+
+            var agendaEvent = GetAgendaEventById(id);
+
+            if (agendaEvent.IsNew && throwExceptionWhenNotFound)
+                throw new Exception("Agenda event not found for id {0} or has been removed.".FormatString(id));
+
+            return agendaEvent;
+        }
+
         public static AgendaEventCollection GetAllEventsByPatientId(int patientId)
         {
+            Authentication.AuthenticateActivity("ReadAgendaEvent");
+            Authentication.AuthenticateActivity("ReadAgendaEventMeta");
+
             var agendaEventCollection = new AgendaEventCollection();
 
             var filter = new PredicateExpression

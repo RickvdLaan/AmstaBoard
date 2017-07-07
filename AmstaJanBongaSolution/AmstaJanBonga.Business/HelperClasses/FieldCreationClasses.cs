@@ -17,6 +17,26 @@ namespace AmstaJanBonga.Business.HelperClasses
 	/// <summary>Field Creation Class for entity AgendaEventEntity</summary>
 	public partial class AgendaEventFields
 	{
+		/// <summary>Creates a new AgendaEventEntity.DateCreated field instance</summary>
+		public static EntityField DateCreated
+		{
+			get { return (EntityField)EntityFieldFactory.Create(AgendaEventFieldIndex.DateCreated);}
+		}
+		/// <summary>Creates a new AgendaEventEntity.DateDeleted field instance</summary>
+		public static EntityField DateDeleted
+		{
+			get { return (EntityField)EntityFieldFactory.Create(AgendaEventFieldIndex.DateDeleted);}
+		}
+		/// <summary>Creates a new AgendaEventEntity.DateLastModified field instance</summary>
+		public static EntityField DateLastModified
+		{
+			get { return (EntityField)EntityFieldFactory.Create(AgendaEventFieldIndex.DateLastModified);}
+		}
+		/// <summary>Creates a new AgendaEventEntity.DateLastModifiedByUserId field instance</summary>
+		public static EntityField DateLastModifiedByUserId
+		{
+			get { return (EntityField)EntityFieldFactory.Create(AgendaEventFieldIndex.DateLastModifiedByUserId);}
+		}
 		/// <summary>Creates a new AgendaEventEntity.Description field instance</summary>
 		public static EntityField Description
 		{
@@ -26,6 +46,11 @@ namespace AmstaJanBonga.Business.HelperClasses
 		public static EntityField Id
 		{
 			get { return (EntityField)EntityFieldFactory.Create(AgendaEventFieldIndex.Id);}
+		}
+		/// <summary>Creates a new AgendaEventEntity.IsMarkedAsDeleted field instance</summary>
+		public static EntityField IsMarkedAsDeleted
+		{
+			get { return (EntityField)EntityFieldFactory.Create(AgendaEventFieldIndex.IsMarkedAsDeleted);}
 		}
 		/// <summary>Creates a new AgendaEventEntity.Location field instance</summary>
 		public static EntityField Location
@@ -57,6 +82,26 @@ namespace AmstaJanBonga.Business.HelperClasses
 		{
 			get { return (EntityField)EntityFieldFactory.Create(AgendaEventMetaFieldIndex.AgendaEventId);}
 		}
+		/// <summary>Creates a new AgendaEventMetaEntity.DateCreated field instance</summary>
+		public static EntityField DateCreated
+		{
+			get { return (EntityField)EntityFieldFactory.Create(AgendaEventMetaFieldIndex.DateCreated);}
+		}
+		/// <summary>Creates a new AgendaEventMetaEntity.DateDeleted field instance</summary>
+		public static EntityField DateDeleted
+		{
+			get { return (EntityField)EntityFieldFactory.Create(AgendaEventMetaFieldIndex.DateDeleted);}
+		}
+		/// <summary>Creates a new AgendaEventMetaEntity.DateLastModified field instance</summary>
+		public static EntityField DateLastModified
+		{
+			get { return (EntityField)EntityFieldFactory.Create(AgendaEventMetaFieldIndex.DateLastModified);}
+		}
+		/// <summary>Creates a new AgendaEventMetaEntity.DateLastModifiedByUserId field instance</summary>
+		public static EntityField DateLastModifiedByUserId
+		{
+			get { return (EntityField)EntityFieldFactory.Create(AgendaEventMetaFieldIndex.DateLastModifiedByUserId);}
+		}
 		/// <summary>Creates a new AgendaEventMetaEntity.EventUnixTimeStamp field instance</summary>
 		public static EntityField EventUnixTimeStamp
 		{
@@ -66,6 +111,11 @@ namespace AmstaJanBonga.Business.HelperClasses
 		public static EntityField Id
 		{
 			get { return (EntityField)EntityFieldFactory.Create(AgendaEventMetaFieldIndex.Id);}
+		}
+		/// <summary>Creates a new AgendaEventMetaEntity.IsMarkedAsDeleted field instance</summary>
+		public static EntityField IsMarkedAsDeleted
+		{
+			get { return (EntityField)EntityFieldFactory.Create(AgendaEventMetaFieldIndex.IsMarkedAsDeleted);}
 		}
 		/// <summary>Creates a new AgendaEventMetaEntity.PatientId field instance</summary>
 		public static EntityField PatientId
@@ -562,6 +612,36 @@ namespace AmstaJanBonga.Business.HelperClasses
 		public static EntityField Description
 		{
 			get { return (EntityField)EntityFieldFactory.Create(GetAllEventsByDateAndByPatientIdResultFieldIndex.Description);}
+		}
+
+		/// <summary>Creates a new GetAllEventsByDateAndByPatientIdResultTypedView.IsMarkedAsDeleted field instance</summary>
+		public static EntityField IsMarkedAsDeleted
+		{
+			get { return (EntityField)EntityFieldFactory.Create(GetAllEventsByDateAndByPatientIdResultFieldIndex.IsMarkedAsDeleted);}
+		}
+
+		/// <summary>Creates a new GetAllEventsByDateAndByPatientIdResultTypedView.DateCreated field instance</summary>
+		public static EntityField DateCreated
+		{
+			get { return (EntityField)EntityFieldFactory.Create(GetAllEventsByDateAndByPatientIdResultFieldIndex.DateCreated);}
+		}
+
+		/// <summary>Creates a new GetAllEventsByDateAndByPatientIdResultTypedView.DateLastModified field instance</summary>
+		public static EntityField DateLastModified
+		{
+			get { return (EntityField)EntityFieldFactory.Create(GetAllEventsByDateAndByPatientIdResultFieldIndex.DateLastModified);}
+		}
+
+		/// <summary>Creates a new GetAllEventsByDateAndByPatientIdResultTypedView.DateLastModifiedByUserId field instance</summary>
+		public static EntityField DateLastModifiedByUserId
+		{
+			get { return (EntityField)EntityFieldFactory.Create(GetAllEventsByDateAndByPatientIdResultFieldIndex.DateLastModifiedByUserId);}
+		}
+
+		/// <summary>Creates a new GetAllEventsByDateAndByPatientIdResultTypedView.DateDeleted field instance</summary>
+		public static EntityField DateDeleted
+		{
+			get { return (EntityField)EntityFieldFactory.Create(GetAllEventsByDateAndByPatientIdResultFieldIndex.DateDeleted);}
 		}
 	}
 }

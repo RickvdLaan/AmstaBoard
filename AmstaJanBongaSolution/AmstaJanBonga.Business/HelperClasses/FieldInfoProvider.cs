@@ -72,8 +72,13 @@ namespace AmstaJanBonga.Business.HelperClasses
 		private void InitAgendaEventEntityInfos()
 		{
 			this.AddFieldIndexEnumForElementName(typeof(AgendaEventFieldIndex), "AgendaEventEntity");
+			this.AddElementFieldInfo("AgendaEventEntity", "DateCreated", typeof(System.DateTime), false, false, false, false,  (int)AgendaEventFieldIndex.DateCreated, 0, 0, 0);
+			this.AddElementFieldInfo("AgendaEventEntity", "DateDeleted", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)AgendaEventFieldIndex.DateDeleted, 0, 0, 0);
+			this.AddElementFieldInfo("AgendaEventEntity", "DateLastModified", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)AgendaEventFieldIndex.DateLastModified, 0, 0, 0);
+			this.AddElementFieldInfo("AgendaEventEntity", "DateLastModifiedByUserId", typeof(Nullable<System.Int32>), false, false, false, true,  (int)AgendaEventFieldIndex.DateLastModifiedByUserId, 0, 0, 10);
 			this.AddElementFieldInfo("AgendaEventEntity", "Description", typeof(System.String), false, false, false, true,  (int)AgendaEventFieldIndex.Description, 500, 0, 0);
 			this.AddElementFieldInfo("AgendaEventEntity", "Id", typeof(System.Int32), true, false, true, false,  (int)AgendaEventFieldIndex.Id, 0, 0, 10);
+			this.AddElementFieldInfo("AgendaEventEntity", "IsMarkedAsDeleted", typeof(System.Boolean), false, false, false, false,  (int)AgendaEventFieldIndex.IsMarkedAsDeleted, 0, 0, 0);
 			this.AddElementFieldInfo("AgendaEventEntity", "Location", typeof(System.String), false, false, false, true,  (int)AgendaEventFieldIndex.Location, 50, 0, 0);
 			this.AddElementFieldInfo("AgendaEventEntity", "TimeEnd", typeof(System.Int32), false, false, false, false,  (int)AgendaEventFieldIndex.TimeEnd, 0, 0, 10);
 			this.AddElementFieldInfo("AgendaEventEntity", "TimeStart", typeof(System.Int32), false, false, false, false,  (int)AgendaEventFieldIndex.TimeStart, 0, 0, 10);
@@ -84,8 +89,13 @@ namespace AmstaJanBonga.Business.HelperClasses
 		{
 			this.AddFieldIndexEnumForElementName(typeof(AgendaEventMetaFieldIndex), "AgendaEventMetaEntity");
 			this.AddElementFieldInfo("AgendaEventMetaEntity", "AgendaEventId", typeof(System.Int32), false, true, false, false,  (int)AgendaEventMetaFieldIndex.AgendaEventId, 0, 0, 10);
+			this.AddElementFieldInfo("AgendaEventMetaEntity", "DateCreated", typeof(System.DateTime), false, false, false, false,  (int)AgendaEventMetaFieldIndex.DateCreated, 0, 0, 0);
+			this.AddElementFieldInfo("AgendaEventMetaEntity", "DateDeleted", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)AgendaEventMetaFieldIndex.DateDeleted, 0, 0, 0);
+			this.AddElementFieldInfo("AgendaEventMetaEntity", "DateLastModified", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)AgendaEventMetaFieldIndex.DateLastModified, 0, 0, 0);
+			this.AddElementFieldInfo("AgendaEventMetaEntity", "DateLastModifiedByUserId", typeof(Nullable<System.Int32>), false, false, false, true,  (int)AgendaEventMetaFieldIndex.DateLastModifiedByUserId, 0, 0, 10);
 			this.AddElementFieldInfo("AgendaEventMetaEntity", "EventUnixTimeStamp", typeof(System.Int32), false, false, false, false,  (int)AgendaEventMetaFieldIndex.EventUnixTimeStamp, 0, 0, 10);
 			this.AddElementFieldInfo("AgendaEventMetaEntity", "Id", typeof(System.Int32), true, false, true, false,  (int)AgendaEventMetaFieldIndex.Id, 0, 0, 10);
+			this.AddElementFieldInfo("AgendaEventMetaEntity", "IsMarkedAsDeleted", typeof(System.Boolean), false, false, false, false,  (int)AgendaEventMetaFieldIndex.IsMarkedAsDeleted, 0, 0, 0);
 			this.AddElementFieldInfo("AgendaEventMetaEntity", "PatientId", typeof(System.Int32), false, true, false, false,  (int)AgendaEventMetaFieldIndex.PatientId, 0, 0, 10);
 			this.AddElementFieldInfo("AgendaEventMetaEntity", "RepeatInterval", typeof(Nullable<System.Int32>), false, false, false, true,  (int)AgendaEventMetaFieldIndex.RepeatInterval, 0, 0, 10);
 		}
@@ -237,6 +247,11 @@ namespace AmstaJanBonga.Business.HelperClasses
 			this.AddElementFieldInfo("GetAllEventsByDateAndByPatientIdResultTypedView", "TimeStart", typeof(Nullable<System.Int32>), false, false, true, false, (int)GetAllEventsByDateAndByPatientIdResultFieldIndex.TimeStart, 0, 0, 10);
 			this.AddElementFieldInfo("GetAllEventsByDateAndByPatientIdResultTypedView", "TimeEnd", typeof(Nullable<System.Int32>), false, false, true, false, (int)GetAllEventsByDateAndByPatientIdResultFieldIndex.TimeEnd, 0, 0, 10);
 			this.AddElementFieldInfo("GetAllEventsByDateAndByPatientIdResultTypedView", "Description", typeof(System.String), false, false, true, false, (int)GetAllEventsByDateAndByPatientIdResultFieldIndex.Description, 500, 0, 0);
+			this.AddElementFieldInfo("GetAllEventsByDateAndByPatientIdResultTypedView", "IsMarkedAsDeleted", typeof(Nullable<System.Boolean>), false, false, true, false, (int)GetAllEventsByDateAndByPatientIdResultFieldIndex.IsMarkedAsDeleted, 0, 0, 0);
+			this.AddElementFieldInfo("GetAllEventsByDateAndByPatientIdResultTypedView", "DateCreated", typeof(Nullable<System.DateTime>), false, false, true, false, (int)GetAllEventsByDateAndByPatientIdResultFieldIndex.DateCreated, 0, 0, 0);
+			this.AddElementFieldInfo("GetAllEventsByDateAndByPatientIdResultTypedView", "DateLastModified", typeof(Nullable<System.DateTime>), false, false, true, false, (int)GetAllEventsByDateAndByPatientIdResultFieldIndex.DateLastModified, 0, 0, 0);
+			this.AddElementFieldInfo("GetAllEventsByDateAndByPatientIdResultTypedView", "DateLastModifiedByUserId", typeof(Nullable<System.Int32>), false, false, true, false, (int)GetAllEventsByDateAndByPatientIdResultFieldIndex.DateLastModifiedByUserId, 0, 0, 10);
+			this.AddElementFieldInfo("GetAllEventsByDateAndByPatientIdResultTypedView", "DateDeleted", typeof(Nullable<System.DateTime>), false, false, true, false, (int)GetAllEventsByDateAndByPatientIdResultFieldIndex.DateDeleted, 0, 0, 0);
 		}		
 	}
 }

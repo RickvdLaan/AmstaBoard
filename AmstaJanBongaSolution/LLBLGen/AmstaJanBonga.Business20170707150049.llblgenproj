@@ -182,7 +182,7 @@
           <Field Name="Ipaddress" Type="string" MaxLength="20" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="LivingRoom" GroupName="Vanderlaan" ObjectID="85af59f5-4956-4961-965d-dff9600e2211">
+      <EntityDefinition Name="LivingRoom" GroupName="Vanderlaan" ObjectID="c7097603-c4aa-468e-ba08-6225a2ef5c60">
         <Fields>
           <Field Name="ColourTypeEnum" Type="byte" Precision="3" />
           <Field Name="DateCreated" Type="datetime" />
@@ -194,43 +194,51 @@
           <Field Name="Name" Type="string" MaxLength="50" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="LivingRoomChoreEvent" GroupName="Vanderlaan" ObjectID="5ff77e05-878b-47b7-b2bb-87a51e2866ac">
+      <EntityDefinition Name="LivingRoomChoreEvent" GroupName="Vanderlaan" ObjectID="4f973238-ae5e-468e-b0c9-ebdb9219d204">
         <Fields>
           <Field Name="Date" Type="datetime" IsPrimaryKey="true" />
           <Field Name="DateCreated" Type="datetime" />
+          <Field Name="DateDeleted" Type="datetime" IsOptional="true" />
           <Field Name="DateLastModified" Type="datetime" IsOptional="true" />
           <Field Name="DateLastModifiedByUserId" Type="int" IsOptional="true" Precision="10" />
+          <Field Name="IsMarkedAsDeleted" Type="bool" />
           <Field Name="LivingRoomId" Type="int" Precision="10" IsPrimaryKey="true" />
           <Field Name="PatientId" Type="int" Precision="10" IsPrimaryKey="true" />
           <Field Name="TimeOfDayTypeEnum" Type="byte" Precision="3" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="LivingRoomGeneral" GroupName="Vanderlaan" ObjectID="7edabe03-b854-4073-82ef-3a9571f27010">
+      <EntityDefinition Name="LivingRoomGeneral" GroupName="Vanderlaan" ObjectID="c1fef4c4-c87a-4a6e-a49e-4beee8bd116c">
         <Fields>
           <Field Name="DateCreated" Type="datetime" />
+          <Field Name="DateDeleted" Type="datetime" IsOptional="true" />
           <Field Name="DateLastModified" Type="datetime" IsOptional="true" />
           <Field Name="DateLastModifiedByUserId" Type="int" IsOptional="true" Precision="10" />
           <Field Name="Description" Type="string" IsOptional="true" MaxLength="50" />
+          <Field Name="IsMarkedAsDeleted" Type="bool" />
           <Field Name="LivingRoomId" Type="int" Precision="10" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="LivingRoomGeneralEvent" GroupName="Vanderlaan" ObjectID="21cceafa-b24b-42fe-bc58-7828f2f63182">
+      <EntityDefinition Name="LivingRoomGeneralEvent" GroupName="Vanderlaan" ObjectID="ecef83dd-a22a-4107-8098-f323afe3f535">
         <Fields>
           <Field Name="Date" Type="datetime" IsPrimaryKey="true" />
           <Field Name="DateCreated" Type="datetime" />
+          <Field Name="DateDeleted" Type="datetime" IsOptional="true" />
           <Field Name="DateLastModified" Type="datetime" IsOptional="true" />
           <Field Name="DateLastModifiedByUserId" Type="int" IsOptional="true" Precision="10" />
           <Field Name="Description" Type="string" MaxLength="250" />
+          <Field Name="IsMarkedAsDeleted" Type="bool" />
           <Field Name="LivingRoomId" Type="int" Precision="10" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="LivingRoomShiftEvent" GroupName="Vanderlaan" ObjectID="3fc63c4b-c5a0-4e4c-96e5-60162368726b">
+      <EntityDefinition Name="LivingRoomShiftEvent" GroupName="Vanderlaan" ObjectID="92c88a67-78d5-4b47-82ff-3205e58ca191">
         <Fields>
           <Field Name="Date" Type="datetime" IsPrimaryKey="true" />
           <Field Name="DateCreated" Type="datetime" />
+          <Field Name="DateDeleted" Type="datetime" IsOptional="true" />
           <Field Name="DateLastModified" Type="datetime" IsOptional="true" />
           <Field Name="DateLastModifiedByUserId" Type="int" IsOptional="true" Precision="10" />
           <Field Name="EmployeeId" Type="int" Precision="10" IsPrimaryKey="true" />
+          <Field Name="IsMarkedAsDeleted" Type="bool" />
           <Field Name="LivingRoomId" Type="int" Precision="10" IsPrimaryKey="true" />
           <Field Name="ShiftTypeEnum" Type="byte" Precision="3" IsPrimaryKey="true" />
         </Fields>
@@ -404,7 +412,7 @@
       <Catalogs>
         <Catalog Name="Vanderlaan_jouwsoftware_janbonga_development">
           <Schemas>
-            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-07-07T13:00:55.3585377Z">
+            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-07-07T10:57:23.7226164Z">
               <StoredProcedures>
                 <StoredProcedure Name="sp_alterdiagram">
                   <Parameters>
@@ -472,7 +480,7 @@
                 </StoredProcedure>
               </StoredProcedures>
             </Schema>
-            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-07-07T13:00:55.39854Z">
+            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-07-07T10:57:23.8236222Z">
               <Tables>
                 <Table Name="AgendaEvent">
                   <PkConstraintName Name="PK_AgendaEvent" />
@@ -550,9 +558,11 @@
                     <Field Name="LivingRoomId" Ordinal="2" IsPrimaryKey="true" DbType="8" Precision="10" />
                     <Field Name="Date" Ordinal="3" IsPrimaryKey="true" DbType="28" />
                     <Field Name="TimeOfDayTypeEnum" Ordinal="4" IsPrimaryKey="true" DbType="22" Precision="3" />
-                    <Field Name="DateCreated" Ordinal="5" DbType="4" />
-                    <Field Name="DateLastModified" Ordinal="6" IsOptional="true" DbType="4" />
-                    <Field Name="DateLastModifiedByUserId" Ordinal="7" IsOptional="true" DbType="8" Precision="10" />
+                    <Field Name="IsMarkedAsDeleted" Ordinal="5" HasDefaultValue="true" DefaultValue="(0)" DbType="2" />
+                    <Field Name="DateCreated" Ordinal="6" DbType="4" />
+                    <Field Name="DateLastModified" Ordinal="7" IsOptional="true" DbType="4" />
+                    <Field Name="DateLastModifiedByUserId" Ordinal="8" IsOptional="true" DbType="8" Precision="10" />
+                    <Field Name="DateDeleted" Ordinal="9" IsOptional="true" DbType="4" />
                   </Fields>
                 </Table>
                 <Table Name="LivingRoomGeneral">
@@ -560,9 +570,11 @@
                   <Fields>
                     <Field Name="LivingRoomId" Ordinal="1" IsPrimaryKey="true" DbType="8" Precision="10" />
                     <Field Name="Description" Ordinal="2" IsOptional="true" DbType="24" Length="50" />
-                    <Field Name="DateCreated" Ordinal="3" DbType="4" />
-                    <Field Name="DateLastModified" Ordinal="4" IsOptional="true" DbType="4" />
-                    <Field Name="DateLastModifiedByUserId" Ordinal="5" IsOptional="true" DbType="8" Precision="10" />
+                    <Field Name="IsMarkedAsDeleted" Ordinal="3" HasDefaultValue="true" DefaultValue="(0)" DbType="2" />
+                    <Field Name="DateCreated" Ordinal="4" DbType="4" />
+                    <Field Name="DateLastModified" Ordinal="5" IsOptional="true" DbType="4" />
+                    <Field Name="DateLastModifiedByUserId" Ordinal="6" IsOptional="true" DbType="8" Precision="10" />
+                    <Field Name="DateDeleted" Ordinal="7" IsOptional="true" DbType="4" />
                   </Fields>
                 </Table>
                 <Table Name="LivingRoomGeneralEvent">
@@ -571,9 +583,11 @@
                     <Field Name="LivingRoomId" Ordinal="1" IsPrimaryKey="true" DbType="8" Precision="10" />
                     <Field Name="Date" Ordinal="2" IsPrimaryKey="true" DbType="28" />
                     <Field Name="Description" Ordinal="3" DbType="24" Length="250" />
-                    <Field Name="DateCreated" Ordinal="4" DbType="4" />
-                    <Field Name="DateLastModified" Ordinal="5" IsOptional="true" DbType="4" />
-                    <Field Name="DateLastModifiedByUserId" Ordinal="6" IsOptional="true" DbType="8" Precision="10" />
+                    <Field Name="IsMarkedAsDeleted" Ordinal="4" HasDefaultValue="true" DefaultValue="(0)" DbType="2" />
+                    <Field Name="DateCreated" Ordinal="5" DbType="4" />
+                    <Field Name="DateLastModified" Ordinal="6" IsOptional="true" DbType="4" />
+                    <Field Name="DateLastModifiedByUserId" Ordinal="7" IsOptional="true" DbType="8" Precision="10" />
+                    <Field Name="DateDeleted" Ordinal="8" IsOptional="true" DbType="4" />
                   </Fields>
                 </Table>
                 <Table Name="LivingRoomShiftEvent">
@@ -583,9 +597,11 @@
                     <Field Name="LivingRoomId" Ordinal="2" IsPrimaryKey="true" DbType="8" Precision="10" />
                     <Field Name="Date" Ordinal="3" IsPrimaryKey="true" DbType="28" />
                     <Field Name="ShiftTypeEnum" Ordinal="4" IsPrimaryKey="true" DbType="22" Precision="3" />
-                    <Field Name="DateCreated" Ordinal="5" DbType="4" />
-                    <Field Name="DateLastModified" Ordinal="6" IsOptional="true" DbType="4" />
-                    <Field Name="DateLastModifiedByUserId" Ordinal="7" IsOptional="true" DbType="8" Precision="10" />
+                    <Field Name="IsMarkedAsDeleted" Ordinal="5" HasDefaultValue="true" DefaultValue="(0)" DbType="2" />
+                    <Field Name="DateCreated" Ordinal="6" DbType="4" />
+                    <Field Name="DateLastModified" Ordinal="7" IsOptional="true" DbType="4" />
+                    <Field Name="DateLastModifiedByUserId" Ordinal="8" IsOptional="true" DbType="8" Precision="10" />
+                    <Field Name="DateDeleted" Ordinal="9" IsOptional="true" DbType="4" />
                   </Fields>
                 </Table>
                 <Table Name="Patient">
@@ -822,8 +838,10 @@
           <FieldMappings>
             <FieldMapping FieldName="Date" TargetFieldName="Date" />
             <FieldMapping FieldName="DateCreated" TargetFieldName="DateCreated" />
+            <FieldMapping FieldName="DateDeleted" TargetFieldName="DateDeleted" />
             <FieldMapping FieldName="DateLastModified" TargetFieldName="DateLastModified" />
             <FieldMapping FieldName="DateLastModifiedByUserId" TargetFieldName="DateLastModifiedByUserId" />
+            <FieldMapping FieldName="IsMarkedAsDeleted" TargetFieldName="IsMarkedAsDeleted" />
             <FieldMapping FieldName="LivingRoomId" TargetFieldName="LivingRoomId" />
             <FieldMapping FieldName="PatientId" TargetFieldName="PatientId" />
             <FieldMapping FieldName="TimeOfDayTypeEnum" TargetFieldName="TimeOfDayTypeEnum" />
@@ -832,9 +850,11 @@
         <EntityMapping EntityName="Vanderlaan:LivingRoomGeneral" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:LivingRoomGeneral">
           <FieldMappings>
             <FieldMapping FieldName="DateCreated" TargetFieldName="DateCreated" />
+            <FieldMapping FieldName="DateDeleted" TargetFieldName="DateDeleted" />
             <FieldMapping FieldName="DateLastModified" TargetFieldName="DateLastModified" />
             <FieldMapping FieldName="DateLastModifiedByUserId" TargetFieldName="DateLastModifiedByUserId" />
             <FieldMapping FieldName="Description" TargetFieldName="Description" />
+            <FieldMapping FieldName="IsMarkedAsDeleted" TargetFieldName="IsMarkedAsDeleted" />
             <FieldMapping FieldName="LivingRoomId" TargetFieldName="LivingRoomId" />
           </FieldMappings>
         </EntityMapping>
@@ -842,9 +862,11 @@
           <FieldMappings>
             <FieldMapping FieldName="Date" TargetFieldName="Date" />
             <FieldMapping FieldName="DateCreated" TargetFieldName="DateCreated" />
+            <FieldMapping FieldName="DateDeleted" TargetFieldName="DateDeleted" />
             <FieldMapping FieldName="DateLastModified" TargetFieldName="DateLastModified" />
             <FieldMapping FieldName="DateLastModifiedByUserId" TargetFieldName="DateLastModifiedByUserId" />
             <FieldMapping FieldName="Description" TargetFieldName="Description" />
+            <FieldMapping FieldName="IsMarkedAsDeleted" TargetFieldName="IsMarkedAsDeleted" />
             <FieldMapping FieldName="LivingRoomId" TargetFieldName="LivingRoomId" />
           </FieldMappings>
         </EntityMapping>
@@ -852,9 +874,11 @@
           <FieldMappings>
             <FieldMapping FieldName="Date" TargetFieldName="Date" />
             <FieldMapping FieldName="DateCreated" TargetFieldName="DateCreated" />
+            <FieldMapping FieldName="DateDeleted" TargetFieldName="DateDeleted" />
             <FieldMapping FieldName="DateLastModified" TargetFieldName="DateLastModified" />
             <FieldMapping FieldName="DateLastModifiedByUserId" TargetFieldName="DateLastModifiedByUserId" />
             <FieldMapping FieldName="EmployeeId" TargetFieldName="EmployeeId" />
+            <FieldMapping FieldName="IsMarkedAsDeleted" TargetFieldName="IsMarkedAsDeleted" />
             <FieldMapping FieldName="LivingRoomId" TargetFieldName="LivingRoomId" />
             <FieldMapping FieldName="ShiftTypeEnum" TargetFieldName="ShiftTypeEnum" />
           </FieldMappings>

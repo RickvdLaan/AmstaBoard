@@ -28,7 +28,7 @@
         </div>
        
         <div class="gridview">
-            <asp:GridView runat="server" ID="_gvShifts" OnPreRender="_gvShifts_PreRender" ShowHeaderWhenEmpty="true" AlternatingRowStyle-CssClass="alt" AllowPaging="false" AllowSorting="false" AutoGenerateColumns="false">
+            <asp:GridView runat="server" ID="_gvShifts" OnPreRender="_gvShifts_PreRender" OnPageIndexChanging="_gvShifts_PageIndexChanging" PagerStyle-CssClass="paging" ShowHeaderWhenEmpty="true" AlternatingRowStyle-CssClass="alt" AllowPaging="true" PageSize="10" AllowSorting="false" AutoGenerateColumns="false">
                 <Columns>    
                     <asp:TemplateField>
                         <HeaderTemplate>

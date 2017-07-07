@@ -1,9 +1,10 @@
-﻿using AmstaJanBonga.Business.Security;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using AmstaJanBonga.Business.Security;
 
 namespace AmstaJanBonga.Business.EntityClasses
 {
-    public partial class LivingRoomGeneralEventEntity
+    public partial class AgendaEventMetaEntity
     {
         #region Overrides
 

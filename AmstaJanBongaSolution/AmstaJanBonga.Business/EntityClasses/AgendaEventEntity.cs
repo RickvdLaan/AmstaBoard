@@ -413,9 +413,19 @@ namespace AmstaJanBonga.Business.EntityClasses
 			_fieldsCustomProperties = new Dictionary<string, Dictionary<string, string>>();
 			Dictionary<string, string> fieldHashtable;
 			fieldHashtable = new Dictionary<string, string>();
+			_fieldsCustomProperties.Add("DateCreated", fieldHashtable);
+			fieldHashtable = new Dictionary<string, string>();
+			_fieldsCustomProperties.Add("DateDeleted", fieldHashtable);
+			fieldHashtable = new Dictionary<string, string>();
+			_fieldsCustomProperties.Add("DateLastModified", fieldHashtable);
+			fieldHashtable = new Dictionary<string, string>();
+			_fieldsCustomProperties.Add("DateLastModifiedByUserId", fieldHashtable);
+			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("Description", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("Id", fieldHashtable);
+			fieldHashtable = new Dictionary<string, string>();
+			_fieldsCustomProperties.Add("IsMarkedAsDeleted", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("Location", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
@@ -509,6 +519,46 @@ namespace AmstaJanBonga.Business.EntityClasses
 			get { return FieldsCustomProperties;}
 		}
 
+		/// <summary> The DateCreated property of the Entity AgendaEvent<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "AgendaEvent"."DateCreated"<br/>
+		/// Table field type characteristics (type, precision, scale, length): DateTime, 0, 0, 0<br/>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		public virtual System.DateTime DateCreated
+		{
+			get { return (System.DateTime)GetValue((int)AgendaEventFieldIndex.DateCreated, true); }
+			set	{ SetValue((int)AgendaEventFieldIndex.DateCreated, value, true); }
+		}
+
+		/// <summary> The DateDeleted property of the Entity AgendaEvent<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "AgendaEvent"."DateDeleted"<br/>
+		/// Table field type characteristics (type, precision, scale, length): DateTime, 0, 0, 0<br/>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
+		public virtual Nullable<System.DateTime> DateDeleted
+		{
+			get { return (Nullable<System.DateTime>)GetValue((int)AgendaEventFieldIndex.DateDeleted, false); }
+			set	{ SetValue((int)AgendaEventFieldIndex.DateDeleted, value, true); }
+		}
+
+		/// <summary> The DateLastModified property of the Entity AgendaEvent<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "AgendaEvent"."DateLastModified"<br/>
+		/// Table field type characteristics (type, precision, scale, length): DateTime, 0, 0, 0<br/>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
+		public virtual Nullable<System.DateTime> DateLastModified
+		{
+			get { return (Nullable<System.DateTime>)GetValue((int)AgendaEventFieldIndex.DateLastModified, false); }
+			set	{ SetValue((int)AgendaEventFieldIndex.DateLastModified, value, true); }
+		}
+
+		/// <summary> The DateLastModifiedByUserId property of the Entity AgendaEvent<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "AgendaEvent"."DateLastModifiedByUserId"<br/>
+		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
+		public virtual Nullable<System.Int32> DateLastModifiedByUserId
+		{
+			get { return (Nullable<System.Int32>)GetValue((int)AgendaEventFieldIndex.DateLastModifiedByUserId, false); }
+			set	{ SetValue((int)AgendaEventFieldIndex.DateLastModifiedByUserId, value, true); }
+		}
+
 		/// <summary> The Description property of the Entity AgendaEvent<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "AgendaEvent"."Description"<br/>
 		/// Table field type characteristics (type, precision, scale, length): VarChar, 0, 0, 500<br/>
@@ -527,6 +577,16 @@ namespace AmstaJanBonga.Business.EntityClasses
 		{
 			get { return (System.Int32)GetValue((int)AgendaEventFieldIndex.Id, true); }
 			set	{ SetValue((int)AgendaEventFieldIndex.Id, value, true); }
+		}
+
+		/// <summary> The IsMarkedAsDeleted property of the Entity AgendaEvent<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "AgendaEvent"."IsMarkedAsDeleted"<br/>
+		/// Table field type characteristics (type, precision, scale, length): Bit, 0, 0, 0<br/>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		public virtual System.Boolean IsMarkedAsDeleted
+		{
+			get { return (System.Boolean)GetValue((int)AgendaEventFieldIndex.IsMarkedAsDeleted, true); }
+			set	{ SetValue((int)AgendaEventFieldIndex.IsMarkedAsDeleted, value, true); }
 		}
 
 		/// <summary> The Location property of the Entity AgendaEvent<br/><br/></summary>

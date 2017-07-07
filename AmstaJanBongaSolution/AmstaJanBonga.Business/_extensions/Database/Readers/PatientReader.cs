@@ -38,8 +38,8 @@ namespace AmstaJanBonga.Business.Database.Readers
 
             var patient = GetPatientById(patientId);
 
-            if (patient.IsNew && throwExceptionWhenNotFound)
-                throw new Exception("Patient not found for id {0}.".FormatString(patientId));
+            if (patient.IsNew && throwExceptionWhenNotFound || patient.IsMarkedAsDeleted && throwExceptionWhenNotFound)
+                throw new Exception("Patient not found for id {0} or has been removed.".FormatString(patientId));
 
             return patient;
         }
@@ -107,10 +107,17 @@ namespace AmstaJanBonga.Business.Database.Readers
                 PatientEntity.Relations.LivingRoomEntityUsingLivingRoomId
             };
 
+            // Filter
+            var predicate = new PredicateExpression()
+            {
+                PatientFields.IsMarkedAsDeleted == false,
+                LivingRoomFields.IsMarkedAsDeleted == false
+            };
+
             // Create the DataTable, DAO and fill the DataTable with the above query definition/parameters.
             var dt = new DataTable();
             var dao = new TypedListDAO();
-            dao.GetMultiAsDataTable(fields, dt, 0, null, null, relations, false, null, null, 0, 0);
+            dao.GetMultiAsDataTable(fields, dt, 0, null, predicate, relations, false, null, null, 0, 0);
             
             // Returns the dataset.
             return dt;

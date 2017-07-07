@@ -8,33 +8,49 @@ namespace AmstaJanBonga.Admin.Content.Secure.Employee
 {
     public partial class EmployeeOverview : SecurePage
     {
-        #region Properties
+        #region Variables & Objects
 
         private DataTable _employees = null;
+
+        #endregion
+
+        #region Properties
+
         public DataTable Employees
         {
-            get { return this._employees; }
-            set { this._employees = value; }
+            get
+            {
+                if (this._employees == null)
+                    // LivingRoom is a required field when you add an employee, so this 
+                    // method can be called.
+                    this._employees = EmployeeReader.GetAllEmployeesJoinedWithLivingRoom();
+
+                return this._employees;
+            }
         }
 
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!this.IsPostBack)
+                this.DataBindEmployees();
         }
+
+        #region DataBinding
+
+        private void DataBindEmployees()
+        {
+            this._gvEmployee.DataSource = this.Employees;
+            this._gvEmployee.DataBind();
+        }
+
+        #endregion
 
         #region Events
 
         protected void _gvEmployee_PreRender(object sender, EventArgs e)
         {
-            // LivingRoom is a required field when you add an employee, so this 
-            // method can be called.
-            this.Employees = EmployeeReader.GetAllEmployeesJoinedWithLivingRoom();
-
-            this._gvEmployee.DataSource = this.Employees;
-            this._gvEmployee.DataBind();
-
             this._gvEmployee.UseAccessibleHeader = true;
             this._gvEmployee.HeaderRow.TableSection = TableRowSection.TableHeader;
 
@@ -56,6 +72,15 @@ namespace AmstaJanBonga.Admin.Content.Secure.Employee
 
             // Mark employee as deleted.
             EmployeeManager.MarkEmployeeAsDeleted(employeeId);
+
+            this.DataBindEmployees();
+        }
+
+        protected void _gvEmployee_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            this._gvEmployee.PageIndex = e.NewPageIndex;
+
+            this.DataBindEmployees();
         }
 
         #endregion

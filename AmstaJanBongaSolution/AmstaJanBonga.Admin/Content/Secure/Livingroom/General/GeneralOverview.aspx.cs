@@ -1,4 +1,5 @@
-﻿using AmstaJanBonga.Business.Database.Readers;
+﻿using AmstaJanBonga.Business.CollectionClasses;
+using AmstaJanBonga.Business.Database.Readers;
 using Rlaan.Toolkit.Extensions;
 using Rlaan.Toolkit.Web;
 using System;
@@ -11,6 +12,8 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
         #region Variables & Objects
 
         private int _livingroomId = -1;
+
+        private LivingRoomGeneralEventCollection _livingRoomGeneralEvent = null;
 
         #endregion
 
@@ -34,6 +37,17 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
             }
         }
 
+        private LivingRoomGeneralEventCollection LivingRoomGeneralEventCollection
+        {
+            get
+            {
+                if (this._livingRoomGeneralEvent == null)
+                    this._livingRoomGeneralEvent = LivingRoomGeneralEventReader.GetAllLivingRoomGeneralEventsByLivingRoomId(this.LivingRoomId);
+
+                return this._livingRoomGeneralEvent;
+            }
+        }
+
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
@@ -42,18 +56,27 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
             {
                 this._hlAddEditGeneral.NavigateUrl = "~/Content/Secure/LivingRoom/General/GeneralAddEdit.aspx?LivingRoomId={0}".FormatString(this.LivingRoomId);
                 this._hlAddEditGeneralEvent.NavigateUrl = "~/Content/Secure/LivingRoom/General/GeneralEventAddEdit.aspx?LivingRoomId={0}".FormatString(this.LivingRoomId);
+
+                this.DataBindGeneral();
             }
         }
 
-        #region PreRender
+        #region DataBinding
+
+        private void DataBindGeneral()
+        {
+            this._gvGeneral.DataSource = this.LivingRoomGeneralEventCollection;
+            this._gvGeneral.DataBind();
+        }
+
+        #endregion
+
+        #region Events
 
         protected void _gvGeneral_PreRender(object sender, EventArgs e)
         {
             if (this.HasLivingRoomId)
             {
-                this._gvGeneral.DataSource = LivingRoomGeneralEventReader.GetAllLivingRoomGeneralEventsByLivingRoomId(this.LivingRoomId);
-                this._gvGeneral.DataBind();
-
                 this._gvGeneral.UseAccessibleHeader = true;
                 this._gvGeneral.HeaderRow.TableSection = TableRowSection.TableHeader;
 
@@ -66,6 +89,13 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
                         this._gvGeneral.BottomPagerRow.TableSection = TableRowSection.TableFooter;
                 }
             }
+        }
+
+        protected void _gvGeneral_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            this._gvGeneral.PageIndex = e.NewPageIndex;
+
+            this.DataBindGeneral();
         }
 
         #endregion

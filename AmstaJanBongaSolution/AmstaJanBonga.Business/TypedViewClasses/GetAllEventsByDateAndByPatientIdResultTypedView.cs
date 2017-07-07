@@ -23,7 +23,6 @@ namespace AmstaJanBonga.Business.TypedViewClasses
 {
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces 
 	// __LLBLGENPRO_USER_CODE_REGION_END 
-
 	/// <summary>Typed datatable for the view 'GetAllEventsByDateAndByPatientIdResult'.</summary>
 	[Serializable, System.ComponentModel.DesignerCategory("Code")]
 	[ToolboxItem(true)]
@@ -31,7 +30,6 @@ namespace AmstaJanBonga.Business.TypedViewClasses
 	public partial class GetAllEventsByDateAndByPatientIdResultTypedView : TypedViewBase<GetAllEventsByDateAndByPatientIdResultRow>
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalInterfacesView 
 	// __LLBLGENPRO_USER_CODE_REGION_END 
-
 	{
 		#region Class Member Declarations
 		private DataColumn _columnId;
@@ -40,15 +38,19 @@ namespace AmstaJanBonga.Business.TypedViewClasses
 		private DataColumn _columnTimeStart;
 		private DataColumn _columnTimeEnd;
 		private DataColumn _columnDescription;
+		private DataColumn _columnIsMarkedAsDeleted;
+		private DataColumn _columnDateCreated;
+		private DataColumn _columnDateLastModified;
+		private DataColumn _columnDateLastModifiedByUserId;
+		private DataColumn _columnDateDeleted;
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalMembers 
 	// __LLBLGENPRO_USER_CODE_REGION_END 
-
 		private static Hashtable	_customProperties;
 		private static Hashtable	_fieldsCustomProperties;
 		#endregion
 
 		#region Class Constants
-		private const int AmountOfFields = 6;
+		private const int AmountOfFields = 11;
 		#endregion
 
 		/// <summary>Static CTor for setting up custom property hashtables.</summary>
@@ -112,6 +114,16 @@ namespace AmstaJanBonga.Business.TypedViewClasses
 			_fieldsCustomProperties.Add("TimeEnd", fieldHashtable);
 			fieldHashtable = new Hashtable();
 			_fieldsCustomProperties.Add("Description", fieldHashtable);
+			fieldHashtable = new Hashtable();
+			_fieldsCustomProperties.Add("IsMarkedAsDeleted", fieldHashtable);
+			fieldHashtable = new Hashtable();
+			_fieldsCustomProperties.Add("DateCreated", fieldHashtable);
+			fieldHashtable = new Hashtable();
+			_fieldsCustomProperties.Add("DateLastModified", fieldHashtable);
+			fieldHashtable = new Hashtable();
+			_fieldsCustomProperties.Add("DateLastModifiedByUserId", fieldHashtable);
+			fieldHashtable = new Hashtable();
+			_fieldsCustomProperties.Add("DateDeleted", fieldHashtable);
 		}
 
 		/// <summary>Initialize the datastructures.</summary>
@@ -124,9 +136,13 @@ namespace AmstaJanBonga.Business.TypedViewClasses
 			_columnTimeStart = GeneralUtils.CreateTypedDataTableColumn("TimeStart", @"TimeStart", typeof(System.Int32), this.Columns);
 			_columnTimeEnd = GeneralUtils.CreateTypedDataTableColumn("TimeEnd", @"TimeEnd", typeof(System.Int32), this.Columns);
 			_columnDescription = GeneralUtils.CreateTypedDataTableColumn("Description", @"Description", typeof(System.String), this.Columns);
+			_columnIsMarkedAsDeleted = GeneralUtils.CreateTypedDataTableColumn("IsMarkedAsDeleted", @"IsMarkedAsDeleted", typeof(System.Boolean), this.Columns);
+			_columnDateCreated = GeneralUtils.CreateTypedDataTableColumn("DateCreated", @"DateCreated", typeof(System.DateTime), this.Columns);
+			_columnDateLastModified = GeneralUtils.CreateTypedDataTableColumn("DateLastModified", @"DateLastModified", typeof(System.DateTime), this.Columns);
+			_columnDateLastModifiedByUserId = GeneralUtils.CreateTypedDataTableColumn("DateLastModifiedByUserId", @"DateLastModifiedByUserId", typeof(System.Int32), this.Columns);
+			_columnDateDeleted = GeneralUtils.CreateTypedDataTableColumn("DateDeleted", @"DateDeleted", typeof(System.DateTime), this.Columns);
 	// __LLBLGENPRO_USER_CODE_REGION_START InitClass 
 	// __LLBLGENPRO_USER_CODE_REGION_END 
-
 			OnInitialized();
 		}
 
@@ -139,9 +155,13 @@ namespace AmstaJanBonga.Business.TypedViewClasses
 			_columnTimeStart = this.Columns["TimeStart"];
 			_columnTimeEnd = this.Columns["TimeEnd"];
 			_columnDescription = this.Columns["Description"];
+			_columnIsMarkedAsDeleted = this.Columns["IsMarkedAsDeleted"];
+			_columnDateCreated = this.Columns["DateCreated"];
+			_columnDateLastModified = this.Columns["DateLastModified"];
+			_columnDateLastModifiedByUserId = this.Columns["DateLastModifiedByUserId"];
+			_columnDateDeleted = this.Columns["DateDeleted"];
 	// __LLBLGENPRO_USER_CODE_REGION_START InitMembers 
 	// __LLBLGENPRO_USER_CODE_REGION_END 
-
 		}
 
 		/// <summary>Clones this instance.</summary>
@@ -221,15 +241,38 @@ namespace AmstaJanBonga.Business.TypedViewClasses
 		{
 			get { return _columnDescription; }
 		}
+		/// <summary>Returns the column object belonging to the TypedView field 'IsMarkedAsDeleted'</summary>
+		internal DataColumn IsMarkedAsDeletedColumn 
+		{
+			get { return _columnIsMarkedAsDeleted; }
+		}
+		/// <summary>Returns the column object belonging to the TypedView field 'DateCreated'</summary>
+		internal DataColumn DateCreatedColumn 
+		{
+			get { return _columnDateCreated; }
+		}
+		/// <summary>Returns the column object belonging to the TypedView field 'DateLastModified'</summary>
+		internal DataColumn DateLastModifiedColumn 
+		{
+			get { return _columnDateLastModified; }
+		}
+		/// <summary>Returns the column object belonging to the TypedView field 'DateLastModifiedByUserId'</summary>
+		internal DataColumn DateLastModifiedByUserIdColumn 
+		{
+			get { return _columnDateLastModifiedByUserId; }
+		}
+		/// <summary>Returns the column object belonging to the TypedView field 'DateDeleted'</summary>
+		internal DataColumn DateDeletedColumn 
+		{
+			get { return _columnDateDeleted; }
+		}
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalColumnProperties 
 	// __LLBLGENPRO_USER_CODE_REGION_END 
-
  		#endregion
 		
 		#region Custom Typed View code
 	// __LLBLGENPRO_USER_CODE_REGION_START CustomTypedViewCode 
 	// __LLBLGENPRO_USER_CODE_REGION_END 
-
 		#endregion
 
 		#region Included Code
@@ -242,7 +285,6 @@ namespace AmstaJanBonga.Business.TypedViewClasses
 	public partial class GetAllEventsByDateAndByPatientIdResultRow : DataRow
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalInterfacesRow 
 	// __LLBLGENPRO_USER_CODE_REGION_END 
-
 	{
 		#region Class Member Declarations
 		private GetAllEventsByDateAndByPatientIdResultTypedView	_parent;
@@ -382,12 +424,116 @@ namespace AmstaJanBonga.Business.TypedViewClasses
 			this[_parent.DescriptionColumn] = System.Convert.DBNull;
 		}
 		
+		/// <summary>Gets / sets the value of the TypedView field IsMarkedAsDeleted</summary>
+		/// <remarks>Mapped on view field: "Resultset1"."IsMarkedAsDeleted"<br/>
+		/// View field characteristics (type, precision, scale, length): Bit, 0, 0, 0</remarks>
+		public System.Boolean IsMarkedAsDeleted
+		{
+			get { return IsIsMarkedAsDeletedNull() ? (System.Boolean)TypeDefaultValue.GetDefaultValue(typeof(System.Boolean)) : (System.Boolean)this[_parent.IsMarkedAsDeletedColumn]; }
+			set { this[_parent.IsMarkedAsDeletedColumn] = value; }
+		}
+
+		/// <summary>Returns true if the TypedView field IsMarkedAsDeleted is NULL, false otherwise.</summary>
+		public bool IsIsMarkedAsDeletedNull() 
+		{
+			return IsNull(_parent.IsMarkedAsDeletedColumn);
+		}
+
+		/// <summary>Sets the TypedView field IsMarkedAsDeleted to NULL. Not recommended; a typed list should be used as a readonly object.</summary>
+    	public void SetIsMarkedAsDeletedNull() 
+		{
+			this[_parent.IsMarkedAsDeletedColumn] = System.Convert.DBNull;
+		}
+		
+		/// <summary>Gets / sets the value of the TypedView field DateCreated</summary>
+		/// <remarks>Mapped on view field: "Resultset1"."DateCreated"<br/>
+		/// View field characteristics (type, precision, scale, length): DateTime, 0, 0, 0</remarks>
+		public System.DateTime DateCreated
+		{
+			get { return IsDateCreatedNull() ? (System.DateTime)TypeDefaultValue.GetDefaultValue(typeof(System.DateTime)) : (System.DateTime)this[_parent.DateCreatedColumn]; }
+			set { this[_parent.DateCreatedColumn] = value; }
+		}
+
+		/// <summary>Returns true if the TypedView field DateCreated is NULL, false otherwise.</summary>
+		public bool IsDateCreatedNull() 
+		{
+			return IsNull(_parent.DateCreatedColumn);
+		}
+
+		/// <summary>Sets the TypedView field DateCreated to NULL. Not recommended; a typed list should be used as a readonly object.</summary>
+    	public void SetDateCreatedNull() 
+		{
+			this[_parent.DateCreatedColumn] = System.Convert.DBNull;
+		}
+		
+		/// <summary>Gets / sets the value of the TypedView field DateLastModified</summary>
+		/// <remarks>Mapped on view field: "Resultset1"."DateLastModified"<br/>
+		/// View field characteristics (type, precision, scale, length): DateTime, 0, 0, 0</remarks>
+		public System.DateTime DateLastModified
+		{
+			get { return IsDateLastModifiedNull() ? (System.DateTime)TypeDefaultValue.GetDefaultValue(typeof(System.DateTime)) : (System.DateTime)this[_parent.DateLastModifiedColumn]; }
+			set { this[_parent.DateLastModifiedColumn] = value; }
+		}
+
+		/// <summary>Returns true if the TypedView field DateLastModified is NULL, false otherwise.</summary>
+		public bool IsDateLastModifiedNull() 
+		{
+			return IsNull(_parent.DateLastModifiedColumn);
+		}
+
+		/// <summary>Sets the TypedView field DateLastModified to NULL. Not recommended; a typed list should be used as a readonly object.</summary>
+    	public void SetDateLastModifiedNull() 
+		{
+			this[_parent.DateLastModifiedColumn] = System.Convert.DBNull;
+		}
+		
+		/// <summary>Gets / sets the value of the TypedView field DateLastModifiedByUserId</summary>
+		/// <remarks>Mapped on view field: "Resultset1"."DateLastModifiedByUserId"<br/>
+		/// View field characteristics (type, precision, scale, length): Int, 10, 0, 0</remarks>
+		public System.Int32 DateLastModifiedByUserId
+		{
+			get { return IsDateLastModifiedByUserIdNull() ? (System.Int32)TypeDefaultValue.GetDefaultValue(typeof(System.Int32)) : (System.Int32)this[_parent.DateLastModifiedByUserIdColumn]; }
+			set { this[_parent.DateLastModifiedByUserIdColumn] = value; }
+		}
+
+		/// <summary>Returns true if the TypedView field DateLastModifiedByUserId is NULL, false otherwise.</summary>
+		public bool IsDateLastModifiedByUserIdNull() 
+		{
+			return IsNull(_parent.DateLastModifiedByUserIdColumn);
+		}
+
+		/// <summary>Sets the TypedView field DateLastModifiedByUserId to NULL. Not recommended; a typed list should be used as a readonly object.</summary>
+    	public void SetDateLastModifiedByUserIdNull() 
+		{
+			this[_parent.DateLastModifiedByUserIdColumn] = System.Convert.DBNull;
+		}
+		
+		/// <summary>Gets / sets the value of the TypedView field DateDeleted</summary>
+		/// <remarks>Mapped on view field: "Resultset1"."DateDeleted"<br/>
+		/// View field characteristics (type, precision, scale, length): DateTime, 0, 0, 0</remarks>
+		public System.DateTime DateDeleted
+		{
+			get { return IsDateDeletedNull() ? (System.DateTime)TypeDefaultValue.GetDefaultValue(typeof(System.DateTime)) : (System.DateTime)this[_parent.DateDeletedColumn]; }
+			set { this[_parent.DateDeletedColumn] = value; }
+		}
+
+		/// <summary>Returns true if the TypedView field DateDeleted is NULL, false otherwise.</summary>
+		public bool IsDateDeletedNull() 
+		{
+			return IsNull(_parent.DateDeletedColumn);
+		}
+
+		/// <summary>Sets the TypedView field DateDeleted to NULL. Not recommended; a typed list should be used as a readonly object.</summary>
+    	public void SetDateDeletedNull() 
+		{
+			this[_parent.DateDeletedColumn] = System.Convert.DBNull;
+		}
+		
 		#endregion
 		
 		#region Custom Typed View Row Code
 	// __LLBLGENPRO_USER_CODE_REGION_START CustomTypedViewRowCode 
 	// __LLBLGENPRO_USER_CODE_REGION_END 
-
 		#endregion
 		
 		#region Included Row Code

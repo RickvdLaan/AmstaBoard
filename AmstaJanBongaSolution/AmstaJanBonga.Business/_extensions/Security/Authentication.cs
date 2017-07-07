@@ -57,6 +57,9 @@ namespace AmstaJanBonga.Business.Security
         /// <param name="activity"></param>
         public static void AuthenticateActivity(string activity)
         {
+            // @note: Delete is called even when data isn't actually deleted, if it's marked as deleted it will
+            // count as a delete activity.
+
             // Validating whether the provided activity isn't null. empty or consists only of white-space characters.
             if (string.IsNullOrWhiteSpace(activity))
                 throw new InvalidOperationException("Provided activity is empty.");
@@ -64,7 +67,8 @@ namespace AmstaJanBonga.Business.Security
             // Validating whether the current user is authenticated.
             if (IsAuthenticated)
             {
-                // @Maybe cache all activities and check if the provided activity exists on the development environment?
+                // @idea: Cache all activities and check if the provided activity exists on the development environment?
+                // To make sure all methodes are actually correctly implemented? Typos might exist now, or it's used incorrectly.
 
                 foreach (var roleActivity in AuthenticatedUser.UserRole.UserRoleActivities)
                 {
@@ -72,6 +76,8 @@ namespace AmstaJanBonga.Business.Security
                     if (roleActivity.UserActivityName == activity)
                         return;
                 }
+
+                // @incomplete: 
 
                 // User doesn't have the right privileges. 
                 HttpContext.Current.Response.Redirect("~/InsufficientPrivileges");

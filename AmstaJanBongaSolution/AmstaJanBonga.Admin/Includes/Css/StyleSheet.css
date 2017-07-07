@@ -582,6 +582,15 @@ a {
     #content .gridview table tbody .alt {
         background-color: #ebebeb;
     }
+    
+    tr.paging td table tbody tr td span {
+    color: #ffffff !important;
+    background-color: #596878;
+    padding: 3px 5px;
+    border-radius: 20%;
+    font-size: 16px;
+    font-weight: 600;
+}
 
 /* Options and icons */
 

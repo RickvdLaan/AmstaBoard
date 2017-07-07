@@ -7,31 +7,47 @@ namespace AmstaJanBonga.Admin.Content.Secure.LivingRoom
 {
     public partial class LivingRoomOverview : SecurePage
     {
-        #region Properties
+        #region Variables & Objects
 
         private LivingRoomCollection _livingrooms = null;
+
+        #endregion
+
+        #region Properties
+
         public LivingRoomCollection Livingrooms
         {
-            get { return this._livingrooms; }
-            set { this._livingrooms = value; }
+            get
+            {
+                if (this._livingrooms == null)
+                    this._livingrooms = LivingRoomReader.GetAllLivingRooms();
+
+                return this._livingrooms;
+            }
         }
 
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!this.IsPostBack)
+                this.DataBindLivingRooms();
         }
+
+        #region DataBinding
+
+        private void DataBindLivingRooms()
+        {
+            this._gvLivingrooms.DataSource = this.Livingrooms;
+            this._gvLivingrooms.DataBind();
+        }
+
+        #endregion
 
         #region Events
 
         protected void _gvLivingrooms_PreRender(object sender, EventArgs e)
         {
-            this.Livingrooms = LivingRoomReader.GetAllLivingRooms();
-
-            this._gvLivingrooms.DataSource = this.Livingrooms;
-            this._gvLivingrooms.DataBind();
-
             this._gvLivingrooms.UseAccessibleHeader = true;
             this._gvLivingrooms.HeaderRow.TableSection = TableRowSection.TableHeader;
 
@@ -45,19 +61,13 @@ namespace AmstaJanBonga.Admin.Content.Secure.LivingRoom
             }
         }
 
+        protected void _gvLivingrooms_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            this._gvLivingrooms.PageIndex = e.NewPageIndex;
+
+            this.DataBindLivingRooms();
+        }
+
         #endregion
     }
 }
-
-
-//private void PreFillRoles()
-//{
-//    var colourValues = (ColourTypeEnum[])Enum.GetValues(typeof(ColourTypeEnum));
-
-//    for (int i = 0; i < colourValues.Length; i++)
-//    {
-//        this._ddlLivingrooms.Items.Add(new ListItem(colourValues[i].Description(), colourValues[i].ToString()));
-//    }
-
-//    this._ddlLivingrooms.Items.Insert(0, new ListItem("Selecteer woonkamer", string.Empty));
-//}

@@ -503,9 +503,19 @@ namespace AmstaJanBonga.Business.EntityClasses
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("AgendaEventId", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
+			_fieldsCustomProperties.Add("DateCreated", fieldHashtable);
+			fieldHashtable = new Dictionary<string, string>();
+			_fieldsCustomProperties.Add("DateDeleted", fieldHashtable);
+			fieldHashtable = new Dictionary<string, string>();
+			_fieldsCustomProperties.Add("DateLastModified", fieldHashtable);
+			fieldHashtable = new Dictionary<string, string>();
+			_fieldsCustomProperties.Add("DateLastModifiedByUserId", fieldHashtable);
+			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("EventUnixTimeStamp", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("Id", fieldHashtable);
+			fieldHashtable = new Dictionary<string, string>();
+			_fieldsCustomProperties.Add("IsMarkedAsDeleted", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("PatientId", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
@@ -678,6 +688,46 @@ namespace AmstaJanBonga.Business.EntityClasses
 			set	{ SetValue((int)AgendaEventMetaFieldIndex.AgendaEventId, value, true); }
 		}
 
+		/// <summary> The DateCreated property of the Entity AgendaEventMeta<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "AgendaEventMeta"."DateCreated"<br/>
+		/// Table field type characteristics (type, precision, scale, length): DateTime, 0, 0, 0<br/>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		public virtual System.DateTime DateCreated
+		{
+			get { return (System.DateTime)GetValue((int)AgendaEventMetaFieldIndex.DateCreated, true); }
+			set	{ SetValue((int)AgendaEventMetaFieldIndex.DateCreated, value, true); }
+		}
+
+		/// <summary> The DateDeleted property of the Entity AgendaEventMeta<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "AgendaEventMeta"."DateDeleted"<br/>
+		/// Table field type characteristics (type, precision, scale, length): DateTime, 0, 0, 0<br/>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
+		public virtual Nullable<System.DateTime> DateDeleted
+		{
+			get { return (Nullable<System.DateTime>)GetValue((int)AgendaEventMetaFieldIndex.DateDeleted, false); }
+			set	{ SetValue((int)AgendaEventMetaFieldIndex.DateDeleted, value, true); }
+		}
+
+		/// <summary> The DateLastModified property of the Entity AgendaEventMeta<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "AgendaEventMeta"."DateLastModified"<br/>
+		/// Table field type characteristics (type, precision, scale, length): DateTime, 0, 0, 0<br/>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
+		public virtual Nullable<System.DateTime> DateLastModified
+		{
+			get { return (Nullable<System.DateTime>)GetValue((int)AgendaEventMetaFieldIndex.DateLastModified, false); }
+			set	{ SetValue((int)AgendaEventMetaFieldIndex.DateLastModified, value, true); }
+		}
+
+		/// <summary> The DateLastModifiedByUserId property of the Entity AgendaEventMeta<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "AgendaEventMeta"."DateLastModifiedByUserId"<br/>
+		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
+		public virtual Nullable<System.Int32> DateLastModifiedByUserId
+		{
+			get { return (Nullable<System.Int32>)GetValue((int)AgendaEventMetaFieldIndex.DateLastModifiedByUserId, false); }
+			set	{ SetValue((int)AgendaEventMetaFieldIndex.DateLastModifiedByUserId, value, true); }
+		}
+
 		/// <summary> The EventUnixTimeStamp property of the Entity AgendaEventMeta<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "AgendaEventMeta"."EventUnixTimeStamp"<br/>
 		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
@@ -696,6 +746,16 @@ namespace AmstaJanBonga.Business.EntityClasses
 		{
 			get { return (System.Int32)GetValue((int)AgendaEventMetaFieldIndex.Id, true); }
 			set	{ SetValue((int)AgendaEventMetaFieldIndex.Id, value, true); }
+		}
+
+		/// <summary> The IsMarkedAsDeleted property of the Entity AgendaEventMeta<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "AgendaEventMeta"."IsMarkedAsDeleted"<br/>
+		/// Table field type characteristics (type, precision, scale, length): Bit, 0, 0, 0<br/>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		public virtual System.Boolean IsMarkedAsDeleted
+		{
+			get { return (System.Boolean)GetValue((int)AgendaEventMetaFieldIndex.IsMarkedAsDeleted, true); }
+			set	{ SetValue((int)AgendaEventMetaFieldIndex.IsMarkedAsDeleted, value, true); }
 		}
 
 		/// <summary> The PatientId property of the Entity AgendaEventMeta<br/><br/></summary>

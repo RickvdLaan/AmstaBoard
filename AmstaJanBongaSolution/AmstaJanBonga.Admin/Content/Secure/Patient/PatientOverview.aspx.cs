@@ -1,4 +1,5 @@
-﻿using AmstaJanBonga.Business.Database.Readers;
+﻿using AmstaJanBonga.Business.Database.Managers;
+using AmstaJanBonga.Business.Database.Readers;
 using System;
 using System.Data;
 using System.Web.UI.WebControls;
@@ -25,10 +26,11 @@ namespace AmstaJanBonga.Admin.Content.Secure.Patient
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!this.IsPostBack)
+                this.DataBindPatients();
         }
 
-        #region Methods
+        #region DataBinding
 
         private void DataBindPatients()
         {
@@ -42,8 +44,6 @@ namespace AmstaJanBonga.Admin.Content.Secure.Patient
 
         protected void _gvPatients_PreRender(object sender, EventArgs e)
         {
-            this.DataBindPatients();
-
             this._gvPatients.UseAccessibleHeader = true;
             this._gvPatients.HeaderRow.TableSection = TableRowSection.TableHeader;
 
@@ -57,13 +57,25 @@ namespace AmstaJanBonga.Admin.Content.Secure.Patient
             }
         }
 
-        #endregion
-
         protected void _gvPatients_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             this._gvPatients.PageIndex = e.NewPageIndex;
 
             this.DataBindPatients();
         }
+
+        protected void _lbDelete_Click(object sender, EventArgs e)
+        {
+            // Get command argument
+            var linkButton = (LinkButton)sender;
+            var patientId = Convert.ToInt32(linkButton.CommandArgument);
+
+            // Mark patient as deleted.
+            PatientManager.MarkPatientAsDeleted(patientId);
+
+            this.DataBindPatients();
+        }
+
+        #endregion
     }
 }

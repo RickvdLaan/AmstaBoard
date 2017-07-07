@@ -1,4 +1,5 @@
 ﻿using AmstaJanBonga.Business.CollectionClasses;
+using AmstaJanBonga.Business.Database.Managers;
 using AmstaJanBonga.Business.Database.Readers;
 using AmstaJanBonga.Business.EntityClasses;
 using Rlaan.Toolkit.Extensions;
@@ -60,7 +61,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Patient.Agenda
             }
         }
 
-        #region Methods
+        #region DataBinding
 
         private void DataBindAgendaEvents()
         {
@@ -132,6 +133,20 @@ namespace AmstaJanBonga.Admin.Content.Secure.Patient.Agenda
         protected void _gvPatientAgenda_PageIndexChanging(object sender, System.Web.UI.WebControls.GridViewPageEventArgs e)
         {
             this._gvPatientAgenda.PageIndex = e.NewPageIndex;
+        }
+
+        // Delete
+
+        protected void _lbDelete_Click(object sender, EventArgs e)
+        {
+            // Get command argument
+            var linkButton = (LinkButton)sender;
+            var agendaEventMetaId = Convert.ToInt32(linkButton.CommandArgument);
+
+            // Mark patient as deleted.
+            AgendaEventMetaManager.MarkAgendaEventMetaAsDeleted(agendaEventMetaId);
+
+            Url.Refresh();
         }
 
         #endregion

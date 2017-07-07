@@ -14,10 +14,20 @@ namespace AmstaJanBonga.Business
 	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: AgendaEvent.</summary>
 	public enum AgendaEventFieldIndex
 	{
+		///<summary>DateCreated. </summary>
+		DateCreated,
+		///<summary>DateDeleted. </summary>
+		DateDeleted,
+		///<summary>DateLastModified. </summary>
+		DateLastModified,
+		///<summary>DateLastModifiedByUserId. </summary>
+		DateLastModifiedByUserId,
 		///<summary>Description. </summary>
 		Description,
 		///<summary>Id. </summary>
 		Id,
+		///<summary>IsMarkedAsDeleted. </summary>
+		IsMarkedAsDeleted,
 		///<summary>Location. </summary>
 		Location,
 		///<summary>TimeEnd. </summary>
@@ -34,10 +44,20 @@ namespace AmstaJanBonga.Business
 	{
 		///<summary>AgendaEventId. </summary>
 		AgendaEventId,
+		///<summary>DateCreated. </summary>
+		DateCreated,
+		///<summary>DateDeleted. </summary>
+		DateDeleted,
+		///<summary>DateLastModified. </summary>
+		DateLastModified,
+		///<summary>DateLastModifiedByUserId. </summary>
+		DateLastModifiedByUserId,
 		///<summary>EventUnixTimeStamp. </summary>
 		EventUnixTimeStamp,
 		///<summary>Id. </summary>
 		Id,
+		///<summary>IsMarkedAsDeleted. </summary>
+		IsMarkedAsDeleted,
 		///<summary>PatientId. </summary>
 		PatientId,
 		///<summary>RepeatInterval. </summary>
@@ -287,6 +307,16 @@ namespace AmstaJanBonga.Business
 		TimeEnd,
 		///<summary>Description</summary>
 		Description,
+		///<summary>IsMarkedAsDeleted</summary>
+		IsMarkedAsDeleted,
+		///<summary>DateCreated</summary>
+		DateCreated,
+		///<summary>DateLastModified</summary>
+		DateLastModified,
+		///<summary>DateLastModifiedByUserId</summary>
+		DateLastModifiedByUserId,
+		///<summary>DateDeleted</summary>
+		DateDeleted,
 		/// <summary></summary>
 		AmountOfFields
 	}

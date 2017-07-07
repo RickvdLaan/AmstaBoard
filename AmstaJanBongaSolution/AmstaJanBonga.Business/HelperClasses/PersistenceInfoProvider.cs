@@ -67,24 +67,34 @@ namespace AmstaJanBonga.Business.HelperClasses
 		/// <summary>Inits AgendaEventEntity's mappings</summary>
 		private void InitAgendaEventEntityMappings()
 		{
-			this.AddElementMapping("AgendaEventEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "AgendaEvent", 6, 0);
-			this.AddElementFieldMapping("AgendaEventEntity", "Description", "Description", true, "VarChar", 500, 0, 0, false, "", null, typeof(System.String), 0);
-			this.AddElementFieldMapping("AgendaEventEntity", "Id", "Id", false, "Int", 0, 10, 0, true, "SCOPE_IDENTITY()", null, typeof(System.Int32), 1);
-			this.AddElementFieldMapping("AgendaEventEntity", "Location", "Location", true, "VarChar", 50, 0, 0, false, "", null, typeof(System.String), 2);
-			this.AddElementFieldMapping("AgendaEventEntity", "TimeEnd", "TimeEnd", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 3);
-			this.AddElementFieldMapping("AgendaEventEntity", "TimeStart", "TimeStart", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 4);
-			this.AddElementFieldMapping("AgendaEventEntity", "Title", "Title", false, "VarChar", 50, 0, 0, false, "", null, typeof(System.String), 5);
+			this.AddElementMapping("AgendaEventEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "AgendaEvent", 11, 0);
+			this.AddElementFieldMapping("AgendaEventEntity", "DateCreated", "DateCreated", false, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 0);
+			this.AddElementFieldMapping("AgendaEventEntity", "DateDeleted", "DateDeleted", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 1);
+			this.AddElementFieldMapping("AgendaEventEntity", "DateLastModified", "DateLastModified", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 2);
+			this.AddElementFieldMapping("AgendaEventEntity", "DateLastModifiedByUserId", "DateLastModifiedByUserId", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 3);
+			this.AddElementFieldMapping("AgendaEventEntity", "Description", "Description", true, "VarChar", 500, 0, 0, false, "", null, typeof(System.String), 4);
+			this.AddElementFieldMapping("AgendaEventEntity", "Id", "Id", false, "Int", 0, 10, 0, true, "SCOPE_IDENTITY()", null, typeof(System.Int32), 5);
+			this.AddElementFieldMapping("AgendaEventEntity", "IsMarkedAsDeleted", "IsMarkedAsDeleted", false, "Bit", 0, 0, 0, false, "", null, typeof(System.Boolean), 6);
+			this.AddElementFieldMapping("AgendaEventEntity", "Location", "Location", true, "VarChar", 50, 0, 0, false, "", null, typeof(System.String), 7);
+			this.AddElementFieldMapping("AgendaEventEntity", "TimeEnd", "TimeEnd", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 8);
+			this.AddElementFieldMapping("AgendaEventEntity", "TimeStart", "TimeStart", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 9);
+			this.AddElementFieldMapping("AgendaEventEntity", "Title", "Title", false, "VarChar", 50, 0, 0, false, "", null, typeof(System.String), 10);
 		}
 
 		/// <summary>Inits AgendaEventMetaEntity's mappings</summary>
 		private void InitAgendaEventMetaEntityMappings()
 		{
-			this.AddElementMapping("AgendaEventMetaEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "AgendaEventMeta", 5, 0);
+			this.AddElementMapping("AgendaEventMetaEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "AgendaEventMeta", 10, 0);
 			this.AddElementFieldMapping("AgendaEventMetaEntity", "AgendaEventId", "AgendaEventId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 0);
-			this.AddElementFieldMapping("AgendaEventMetaEntity", "EventUnixTimeStamp", "EventUnixTimeStamp", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 1);
-			this.AddElementFieldMapping("AgendaEventMetaEntity", "Id", "Id", false, "Int", 0, 10, 0, true, "SCOPE_IDENTITY()", null, typeof(System.Int32), 2);
-			this.AddElementFieldMapping("AgendaEventMetaEntity", "PatientId", "PatientId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 3);
-			this.AddElementFieldMapping("AgendaEventMetaEntity", "RepeatInterval", "RepeatInterval", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 4);
+			this.AddElementFieldMapping("AgendaEventMetaEntity", "DateCreated", "DateCreated", false, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 1);
+			this.AddElementFieldMapping("AgendaEventMetaEntity", "DateDeleted", "DateDeleted", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 2);
+			this.AddElementFieldMapping("AgendaEventMetaEntity", "DateLastModified", "DateLastModified", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 3);
+			this.AddElementFieldMapping("AgendaEventMetaEntity", "DateLastModifiedByUserId", "DateLastModifiedByUserId", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 4);
+			this.AddElementFieldMapping("AgendaEventMetaEntity", "EventUnixTimeStamp", "EventUnixTimeStamp", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 5);
+			this.AddElementFieldMapping("AgendaEventMetaEntity", "Id", "Id", false, "Int", 0, 10, 0, true, "SCOPE_IDENTITY()", null, typeof(System.Int32), 6);
+			this.AddElementFieldMapping("AgendaEventMetaEntity", "IsMarkedAsDeleted", "IsMarkedAsDeleted", false, "Bit", 0, 0, 0, false, "", null, typeof(System.Boolean), 7);
+			this.AddElementFieldMapping("AgendaEventMetaEntity", "PatientId", "PatientId", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 8);
+			this.AddElementFieldMapping("AgendaEventMetaEntity", "RepeatInterval", "RepeatInterval", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 9);
 		}
 
 		/// <summary>Inits EmployeeEntity's mappings</summary>
@@ -240,13 +250,18 @@ namespace AmstaJanBonga.Business.HelperClasses
 		/// <summary>Inits GetAllEventsByDateAndByPatientIdResultView's mappings</summary>
 		private void InitGetAllEventsByDateAndByPatientIdResultTypedViewMappings()
 		{
-			this.AddElementMapping("GetAllEventsByDateAndByPatientIdResultTypedView", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "Resultset1", 6);
+			this.AddElementMapping("GetAllEventsByDateAndByPatientIdResultTypedView", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "Resultset1", 11);
 			this.AddElementFieldMapping("GetAllEventsByDateAndByPatientIdResultTypedView", "Id", "Id", false, "Int", 0, 10, 0, false, string.Empty, null, typeof(System.Int32), 0);
 			this.AddElementFieldMapping("GetAllEventsByDateAndByPatientIdResultTypedView", "Title", "Title", false, "VarChar", 50, 0, 0, false, string.Empty, null, typeof(System.String), 1);
 			this.AddElementFieldMapping("GetAllEventsByDateAndByPatientIdResultTypedView", "Location", "Location", false, "VarChar", 50, 0, 0, false, string.Empty, null, typeof(System.String), 2);
 			this.AddElementFieldMapping("GetAllEventsByDateAndByPatientIdResultTypedView", "TimeStart", "TimeStart", false, "Int", 0, 10, 0, false, string.Empty, null, typeof(System.Int32), 3);
 			this.AddElementFieldMapping("GetAllEventsByDateAndByPatientIdResultTypedView", "TimeEnd", "TimeEnd", false, "Int", 0, 10, 0, false, string.Empty, null, typeof(System.Int32), 4);
 			this.AddElementFieldMapping("GetAllEventsByDateAndByPatientIdResultTypedView", "Description", "Description", false, "VarChar", 500, 0, 0, false, string.Empty, null, typeof(System.String), 5);
+			this.AddElementFieldMapping("GetAllEventsByDateAndByPatientIdResultTypedView", "IsMarkedAsDeleted", "IsMarkedAsDeleted", false, "Bit", 0, 0, 0, false, string.Empty, null, typeof(System.Boolean), 6);
+			this.AddElementFieldMapping("GetAllEventsByDateAndByPatientIdResultTypedView", "DateCreated", "DateCreated", false, "DateTime", 0, 0, 0, false, string.Empty, null, typeof(System.DateTime), 7);
+			this.AddElementFieldMapping("GetAllEventsByDateAndByPatientIdResultTypedView", "DateLastModified", "DateLastModified", false, "DateTime", 0, 0, 0, false, string.Empty, null, typeof(System.DateTime), 8);
+			this.AddElementFieldMapping("GetAllEventsByDateAndByPatientIdResultTypedView", "DateLastModifiedByUserId", "DateLastModifiedByUserId", false, "Int", 0, 10, 0, false, string.Empty, null, typeof(System.Int32), 9);
+			this.AddElementFieldMapping("GetAllEventsByDateAndByPatientIdResultTypedView", "DateDeleted", "DateDeleted", false, "DateTime", 0, 0, 0, false, string.Empty, null, typeof(System.DateTime), 10);
 		}
 
 	}

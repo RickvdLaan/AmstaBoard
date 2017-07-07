@@ -181,8 +181,16 @@ namespace AmstaJanBonga.Business.Database.Managers
             employee.IsMarkedAsDeleted = true;
             employee.DateDeleted = DateTime.Now;
 
+            // Deleting the employees image.
             DeleteEmployeeImage(employee);
 
+            // Deleting the shifts of the employee that are today and in the future, but not in the past.
+            // The reason the future records are being deleted, is so it can't get any conflicts or end up with
+            // corrupted data in the future. In the cleanup for deleting all records permenantly older than an x
+            // amount of time all other records, including the old ones from this table will be deleted.
+            LivingRoomShiftEventReader.GetAllFutureShiftsByEmployeeId(employee.Id).DeleteMulti();
+
+            // Marking the employee as deleted, may be deleted permenantly in the future, but can be recovered.
             employee.Save();
         }
 
@@ -197,8 +205,16 @@ namespace AmstaJanBonga.Business.Database.Managers
                 DateDeleted = DateTime.Now
             };
 
+            // Deleting the employees image.
             DeleteEmployeeImage(employeeId, false);
 
+            // Deleting the shifts of the employee that are today and in the future, but not in the past.
+            // The reason the future records are being deleted, is so it can't get any conflicts or end up with
+            // corrupted data in the future. In the cleanup for deleting all records permenantly older than an x
+            // amount of time all other records, including the old ones from this table will be deleted.
+            LivingRoomShiftEventReader.GetAllFutureShiftsByEmployeeId(employee.Id).DeleteMulti();
+
+            // Marking the employee as deleted, may be deleted permenantly in the future, but can be recovered.
             employee.Save();
         }
     }
