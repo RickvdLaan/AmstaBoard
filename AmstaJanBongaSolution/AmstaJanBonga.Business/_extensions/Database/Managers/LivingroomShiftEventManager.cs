@@ -78,7 +78,7 @@ namespace AmstaJanBonga.Business.Database.Managers
             newCollection.SaveMulti();
         }
 
-        public static void DeleteShiftByLivingRoomIdAndDate(int livingRoomid, DateTime date)
+        public static void DeleteLivingRoomShiftEvent(int livingRoomId, DateTime date)
         {
             Authentication.AuthenticateActivity("DeleteLivingRoomShiftEvent");
 
@@ -86,10 +86,10 @@ namespace AmstaJanBonga.Business.Database.Managers
 
             var filter = new PredicateExpression
             {
-                LivingRoomChoreEventFields.LivingRoomId == livingRoomid
+                LivingRoomShiftEventFields.LivingRoomId == livingRoomId
             };
 
-            filter.AddWithAnd(LivingRoomChoreEventFields.Date == date.Date);
+            filter.AddWithAnd(LivingRoomShiftEventFields.Date == date.Date);
 
             livingRoomShiftEventCollection.GetMulti(filter, 0);
             

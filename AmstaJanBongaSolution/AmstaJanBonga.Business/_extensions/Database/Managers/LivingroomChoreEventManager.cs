@@ -1,7 +1,9 @@
 ﻿using AmstaJanBonga.Business.CollectionClasses;
 using AmstaJanBonga.Business.EntityClasses;
 using AmstaJanBonga.Business.Enums;
+using AmstaJanBonga.Business.HelperClasses;
 using AmstaJanBonga.Business.Security;
+using SD.LLBLGen.Pro.ORMSupportClasses;
 using System;
 
 namespace AmstaJanBonga.Business.Database.Managers
@@ -12,10 +14,10 @@ namespace AmstaJanBonga.Business.Database.Managers
         {
             Authentication.AuthenticateActivity("UpdateLivingRoomChoreEvent");
 
-            if (oldChore.PatientId         == newChore.PatientId         &&
-                oldChore.LivingRoomId      == newChore.LivingRoomId      &&
+            if (oldChore.PatientId == newChore.PatientId &&
+                oldChore.LivingRoomId == newChore.LivingRoomId &&
                 oldChore.TimeOfDayTypeEnum == newChore.TimeOfDayTypeEnum &&
-                oldChore.Date              == newChore.Date              ||
+                oldChore.Date == newChore.Date ||
                 !newChore.IsNew)
             {
                 return;
@@ -76,27 +78,22 @@ namespace AmstaJanBonga.Business.Database.Managers
             newCollection.SaveMulti();
         }
 
-        public static void MarkLivingRoomChoreAsDeleted(LivingRoomEntity livingRoom)
+        private void DeleteLivingRoomChoreEvent(int livingRoomId, DateTime date)
         {
-            Authentication.AuthenticateActivity("DeleteLivingRoom");
+            Authentication.AuthenticateActivity("DeleteLivingRoomChoreEvent");
 
-            livingRoom.IsMarkedAsDeleted = true;
-            livingRoom.DateDeleted = DateTime.Now;
+            var livingRoomChoreEvent = new LivingRoomChoreEventCollection();
 
-            livingRoom.Save();
-        }
-
-        public static void MarkLivingRoomAsDeleted(int livingRoomId)
-        {
-            Authentication.AuthenticateActivity("DeleteLivingRoom");
-
-            var livingRoom = new LivingRoomEntity(livingRoomId)
+            var filter = new PredicateExpression
             {
-                IsMarkedAsDeleted = true,
-                DateDeleted = DateTime.Now
+                LivingRoomChoreEventFields.LivingRoomId == livingRoomId
             };
 
-            livingRoom.Save();
+            filter.AddWithAnd(LivingRoomChoreEventFields.Date == date.Date);
+
+            livingRoomChoreEvent.GetMulti(filter, 0);
+
+            livingRoomChoreEvent.DeleteMulti();
         }
     }
 }

@@ -1,6 +1,9 @@
-﻿using AmstaJanBonga.Business.Database.Readers;
+﻿using AmstaJanBonga.Business.CollectionClasses;
+using AmstaJanBonga.Business.Database.Readers;
 using AmstaJanBonga.Business.EntityClasses;
+using AmstaJanBonga.Business.HelperClasses;
 using AmstaJanBonga.Business.Security;
+using SD.LLBLGen.Pro.ORMSupportClasses;
 using System;
 
 namespace AmstaJanBonga.Business.Database.Managers
@@ -30,6 +33,24 @@ namespace AmstaJanBonga.Business.Database.Managers
 
             livingRoomGeneralEvent.Description = description;
             livingRoomGeneralEvent.Save();
+        }
+
+        public static void DeleteGeneralEvent(int livingRoomId, DateTime date)
+        {
+            Authentication.AuthenticateActivity("DeleteLivingRoomGeneralEvent");
+
+            var livingRoomGeneralEvent = new LivingRoomGeneralEventCollection();
+
+            var filter = new PredicateExpression
+            {
+                LivingRoomGeneralEventFields.LivingRoomId == livingRoomId
+            };
+
+            filter.AddWithAnd(LivingRoomGeneralEventFields.Date == date.Date);
+
+            livingRoomGeneralEvent.GetMulti(filter, 0);
+
+            livingRoomGeneralEvent.DeleteMulti();
         }
     }
 }
