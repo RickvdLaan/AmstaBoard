@@ -15,15 +15,15 @@
                 </td>
 
                 <td>
-                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    <i class="fa fa-clock-o" aria-hidden="true" title="Diensten"></i>
                 </td>
 
                 <td>
-                    <i class="fa fa-coffee" aria-hidden="true"></i>
+                    <i class="fa fa-coffee" aria-hidden="true" title="Algemene informatie"></i>
                 </td>
 
                 <td>
-                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                    <i class="fa fa-trash-o" aria-hidden="true" title="Corvee"></i>
                 </td>
             </tr>
         </thead>

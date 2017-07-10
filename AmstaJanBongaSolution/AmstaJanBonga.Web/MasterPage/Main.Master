@@ -7,6 +7,8 @@
         <title>AmstaBoard</title>
         
         <link href="~/Includes/Css/StyleSheet.css?build=06062017v1" rel="stylesheet" />
+        <link rel="shortcut icon" type="image/x-icon" href="~/Includes/Css/Images/favicon.png" />
+
         <script src="/Includes/Js/disable-right-click.js"></script>
 
         <!-- 17kb -->

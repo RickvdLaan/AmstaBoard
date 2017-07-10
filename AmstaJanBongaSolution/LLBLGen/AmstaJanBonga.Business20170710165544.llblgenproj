@@ -409,7 +409,7 @@
       <Catalogs>
         <Catalog Name="Vanderlaan_jouwsoftware_janbonga_development">
           <Schemas>
-            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-07-10T14:56:00.8687594Z">
+            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-07-10T13:16:13.9403267Z">
               <StoredProcedures>
                 <StoredProcedure Name="sp_alterdiagram">
                   <Parameters>
@@ -477,7 +477,7 @@
                 </StoredProcedure>
               </StoredProcedures>
             </Schema>
-            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-07-10T14:56:00.9627648Z">
+            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-07-10T13:16:13.9793289Z">
               <Tables>
                 <Table Name="AgendaEvent">
                   <PkConstraintName Name="PK_AgendaEvent" />

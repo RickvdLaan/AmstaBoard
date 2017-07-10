@@ -120,6 +120,7 @@
     <Content Include="Content\Controls\ExtendedCalendar\General\ExtendedCalendar.ascx" />
     <Content Include="Content\Controls\ExtendedCalendar\Shifts\ExtendedCalendar.ascx" />
     <Content Include="Content\Controls\JsListBox\JsListBox.ascx" />
+    <Content Include="Content\Controls\LegendaWidget\LegendaWidget.ascx" />
     <Content Include="Content\Controls\LivingRoomWidget\LivingRoomWidget.ascx" />
     <Content Include="Content\Secure\Dashboard.aspx" />
     <Content Include="Content\Secure\InsufficientPrivileges\InsufficientPrivileges.aspx" />
@@ -153,6 +154,7 @@
     <Content Include="Content\Unsecure\Login\Login.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Includes\Css\Addons.css" />
+    <Content Include="Includes\Css\Images\favicon.png" />
     <Content Include="Includes\Css\Images\logo.svg" />
     <Content Include="Includes\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="Includes\font-awesome-4.7.0\css\font-awesome.min.css" />
@@ -263,6 +265,13 @@
     </Compile>
     <Compile Include="Content\Controls\JsListBox\JsListBox.ascx.designer.cs">
       <DependentUpon>JsListBox.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Content\Controls\LegendaWidget\LegendaWidget.ascx.cs">
+      <DependentUpon>LegendaWidget.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\Controls\LegendaWidget\LegendaWidget.ascx.designer.cs">
+      <DependentUpon>LegendaWidget.ascx</DependentUpon>
     </Compile>
     <Compile Include="Content\Controls\LivingRoomWidget\LivingRoomWidget.ascx.cs">
       <DependentUpon>LivingRoomWidget.ascx</DependentUpon>

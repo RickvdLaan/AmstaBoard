@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Main.Master" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="AmstaJanBonga.Admin.Content.Secure.Dashboard" %>
 
 <%@ Register Src="~/Content/Controls/LivingRoomWidget/LivingRoomWidget.ascx" TagPrefix="uc1" TagName="LivingRoomWidget" %>
+<%@ Register Src="~/Content/Controls/LegendaWidget/LegendaWidget.ascx" TagPrefix="uc1" TagName="LegendaWidget" %>
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="_cphHead" runat="server">
 </asp:Content>
@@ -26,6 +28,7 @@
     </div>
 
     <div class="widget-container">
+        <uc1:LegendaWidget runat="server" id="LegendaWidget" />
         <uc1:LivingRoomWidget runat="server" id="LivingRoomWidget" />
     </div>
     
