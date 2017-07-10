@@ -78,7 +78,7 @@ namespace AmstaJanBonga.Business.Database.Managers
             newCollection.SaveMulti();
         }
 
-        private void DeleteLivingRoomChoreEvent(int livingRoomId, DateTime date)
+        public static void DeleteLivingRoomChoreEvent(int livingRoomId, DateTime date)
         {
             Authentication.AuthenticateActivity("DeleteLivingRoomChoreEvent");
 
@@ -91,9 +91,7 @@ namespace AmstaJanBonga.Business.Database.Managers
 
             filter.AddWithAnd(LivingRoomChoreEventFields.Date == date.Date);
 
-            livingRoomChoreEvent.GetMulti(filter, 0);
-
-            livingRoomChoreEvent.DeleteMulti();
+            livingRoomChoreEvent.DeleteMulti(filter);
         }
     }
 }

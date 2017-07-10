@@ -100,13 +100,40 @@
          <div class="gridview">
             <asp:GridView runat="server" ID="_gvPatientAgenda" OnPreRender="_gvPatientAgenda_PreRender" ShowHeaderWhenEmpty="true" AlternatingRowStyle-CssClass="alt" AllowPaging="true" PageSize="10" AllowSorting="false" AutoGenerateColumns="false" OnPageIndexChanging="_gvPatientAgenda_PageIndexChanging">
                 <Columns>
-                   <asp:TemplateField>
+                    <asp:TemplateField>
                         <HeaderTemplate>
                             Titel
                         </HeaderTemplate>
 
                         <ItemTemplate>
-                            
+                            <asp:HyperLink runat="server" NavigateUrl='<%# Eval("Id","~/Content/Secure/Patient/Agenda/AgendaDetails.aspx?AgendaEventMetaId={0}") %>'>
+                                <%# Eval("AgendaEvent.Title") %>
+                            </asp:HyperLink>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+            
+                    <asp:TemplateField>
+                        <HeaderTemplate>
+                            Dag
+                        </HeaderTemplate>
+
+                        <ItemTemplate>
+
+                              <%# "{0} {1} {2}".FormatString(
+                                new System.Globalization.CultureInfo("nl-NL").DateTimeFormat.GetDayName(Time.UnixTime.UnixTimeStampToDateTime(Eval("EventUnixTimeStamp").ToString().ToInt()).DayOfWeek), 
+                                Time.UnixTime.UnixTimeStampToDateTime(Eval("EventUnixTimeStamp").ToString().ToInt()).Day, 
+                                new System.Globalization.CultureInfo("nl-NL").DateTimeFormat.GetMonthName(Time.UnixTime.UnixTimeStampToDateTime(Eval("EventUnixTimeStamp").ToString().ToInt()).Month)) %>
+
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField>
+                        <HeaderTemplate>
+                            Tijd
+                        </HeaderTemplate>
+
+                        <ItemTemplate>
+                            <%# new Time(Eval("AgendaEvent.TimeStart").ToString().ToInt()).ToString() %> -  <%# new Time(Eval("AgendaEvent.TimeEnd").ToString().ToInt()).ToString()  %>
                         </ItemTemplate>
                     </asp:TemplateField>
 
@@ -116,8 +143,8 @@
                         </HeaderTemplate>
 
                         <ItemTemplate>
-                            <asp:HyperLink runat="server" ToolTip="Bekijken" CssClass="details fa fa-search" NavigateUrl='<%# Eval("Id","") %>'></asp:HyperLink>
-                            <asp:HyperLink runat="server" ToolTip="Wijzigen" CssClass="edit fa fa-pencil" NavigateUrl='<%# Eval("Id","") %>'></asp:HyperLink>
+                            <asp:HyperLink runat="server" ToolTip="Bekijken" CssClass="details fa fa-search" NavigateUrl='<%# Eval("Id","~/Content/Secure/Patient/Agenda/AgendaDetails.aspx?AgendaEventMetaId={0}") %>'></asp:HyperLink>
+                            <asp:HyperLink runat="server" ToolTip="Wijzigen" CssClass="edit fa fa-pencil" NavigateUrl='<%# "~/Content/Secure/Patient/Agenda/AgendaAddEdit.aspx?AgendaEventMetaId={0}&PatientId={1}".FormatString(Eval("Id"), Eval("PatientId")) %>'></asp:HyperLink>
                             <asp:LinkButton runat="server" ToolTip="Verwijderen" CssClass="delete fa fa-times" OnClick="_lbDelete_Click" OnClientClick="return confirm('U staat op het punt om deze afspraak te verwijderen. Weet u het zeker?');" CommandArgument='<%# Eval("Id") %>'></asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>

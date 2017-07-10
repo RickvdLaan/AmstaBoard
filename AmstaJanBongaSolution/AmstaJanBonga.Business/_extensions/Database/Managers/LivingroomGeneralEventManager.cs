@@ -48,9 +48,7 @@ namespace AmstaJanBonga.Business.Database.Managers
 
             filter.AddWithAnd(LivingRoomGeneralEventFields.Date == date.Date);
 
-            livingRoomGeneralEvent.GetMulti(filter, 0);
-
-            livingRoomGeneralEvent.DeleteMulti();
+            livingRoomGeneralEvent.DeleteMulti(filter);
         }
     }
 }

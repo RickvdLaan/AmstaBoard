@@ -16,7 +16,8 @@ namespace AmstaJanBonga.Business.Database.Managers
                 AgendaEventId = agendaEventId,
                 PatientId = patientId,
                 EventUnixTimeStamp = unixTimeStamp,
-                RepeatInterval = repeatInterval == -1 ? null : (int?)repeatInterval
+                RepeatInterval = repeatInterval == -1 ? null : (int?)repeatInterval,
+                DateCreated = DateTime.Now
             };
 
             agendaEventMeta.Save();

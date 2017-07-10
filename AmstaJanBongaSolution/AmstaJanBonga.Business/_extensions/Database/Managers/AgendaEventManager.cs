@@ -17,7 +17,8 @@ namespace AmstaJanBonga.Business.Database.Managers
                 TimeStart = timeStart,
                 TimeEnd = timeEnd,
                 Location = location,
-                Description = description
+                Description = description,
+                DateCreated = DateTime.Now
             };
 
             agendaEvent.Save();

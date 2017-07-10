@@ -1,4 +1,5 @@
 ﻿using AmstaJanBonga.Business.CollectionClasses;
+using AmstaJanBonga.Business.Database.Managers;
 using AmstaJanBonga.Business.Database.Readers;
 using Rlaan.Toolkit.Extensions;
 using Rlaan.Toolkit.Web;
@@ -94,6 +95,20 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
         protected void _gvGeneral_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             this._gvGeneral.PageIndex = e.NewPageIndex;
+
+            this.DataBindGeneral();
+        }
+
+        protected void _lbDelete_Click(object sender, EventArgs e)
+        {
+            // Get command argument
+            var linkButton = (LinkButton)sender;
+            var ids = linkButton.CommandArgument.Split('_');
+
+            var livingRoomId = ids[0];
+            var date = ids[1];
+
+            LivingRoomGeneralEventManager.DeleteGeneralEvent(livingRoomId.ToInt(), Convert.ToDateTime(date));
 
             this.DataBindGeneral();
         }

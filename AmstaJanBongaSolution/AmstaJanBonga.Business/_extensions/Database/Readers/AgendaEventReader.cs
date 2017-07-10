@@ -40,11 +40,15 @@ namespace AmstaJanBonga.Business.Database.Readers
 
             var filter = new PredicateExpression
             {
-                AgendaEventMetaFields.PatientId == patientId,
+                AgendaEventMetaFields.PatientId == patientId
             };
 
+            filter.AddWithAnd(AgendaEventMetaFields.IsMarkedAsDeleted == false);
+            filter.AddWithAnd(AgendaEventFields.IsMarkedAsDeleted == false);
             filter.AddWithAnd(AgendaEventMetaFields.RepeatInterval != DBNull.Value);
             filter.AddWithOr(AgendaEventMetaFields.EventUnixTimeStamp >= Time.UnixTime.Today);
+            filter.AddWithAnd(AgendaEventMetaFields.IsMarkedAsDeleted == false);
+            filter.AddWithAnd(AgendaEventFields.IsMarkedAsDeleted == false);
             filter.AddWithAnd(AgendaEventMetaFields.RepeatInterval == DBNull.Value);
 
             var relations = new RelationCollection

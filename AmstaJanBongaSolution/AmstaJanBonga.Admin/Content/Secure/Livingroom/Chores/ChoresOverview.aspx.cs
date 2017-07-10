@@ -1,4 +1,5 @@
-﻿using AmstaJanBonga.Business.Database.Readers;
+﻿using AmstaJanBonga.Business.Database.Managers;
+using AmstaJanBonga.Business.Database.Readers;
 using Rlaan.Toolkit.Extensions;
 using Rlaan.Toolkit.Web;
 using System;
@@ -93,6 +94,20 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
         protected void _gvChores_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             this._gvChores.PageIndex = e.NewPageIndex;
+
+            this.DataBindChores();
+        }
+
+        protected void _lbDelete_Click(object sender, EventArgs e)
+        {
+            // Get command argument
+            var linkButton = (LinkButton)sender;
+            var ids = linkButton.CommandArgument.Split('_');
+
+            var livingRoomId = ids[0];
+            var date = ids[1];
+
+            LivingRoomChoreEventManager.DeleteLivingRoomChoreEvent(livingRoomId.ToInt(), Convert.ToDateTime(date));
 
             this.DataBindChores();
         }

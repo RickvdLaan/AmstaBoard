@@ -57,7 +57,7 @@
                             <asp:HyperLink runat="server" ToolTip="Corvee" CssClass="fa fa-trash-o" aria-hidden="true" NavigateUrl='<%# Eval("Id","~/Content/Secure/LivingRoom/Chores/ChoresOverview.aspx?LivingRoomId={0}") %>'></asp:HyperLink>
                             <asp:HyperLink runat="server" ToolTip="Bekijken" CssClass="details fa fa-search" NavigateUrl='<%# Eval("Id","~/Content/Secure/LivingRoom/LivingRoomDetails.aspx?LivingRoomId={0}") %>'></asp:HyperLink>
                             <asp:HyperLink runat="server" ToolTip="Wijzigen" CssClass="edit fa fa-pencil" NavigateUrl='<%# Eval("Id","~/Content/Secure/LivingRoom/LivingRoomAddEdit.aspx?LivingRoomId={0}") %>'></asp:HyperLink>
-                            <asp:HyperLink runat="server" ToolTip="Verwijderen" CssClass="delete fa fa-times"></asp:HyperLink>
+                            <%--<asp:HyperLink runat="server" ToolTip="Verwijderen" CssClass="delete fa fa-times"></asp:HyperLink>--%>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
