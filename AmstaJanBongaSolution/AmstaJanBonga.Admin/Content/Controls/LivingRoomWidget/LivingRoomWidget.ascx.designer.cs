@@ -7,18 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AmstaJanBonga.Admin.Content.Secure {
+namespace AmstaJanBonga.Admin.Content.Controls.LivingRoomWidget {
     
     
-    public partial class Dashboard {
+    public partial class LivingRoomWidget {
         
         /// <summary>
-        /// LivingRoomWidget control.
+        /// _divWidget control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AmstaJanBonga.Admin.Content.Controls.LivingRoomWidget.LivingRoomWidget LivingRoomWidget;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl _divWidget;
+        
+        /// <summary>
+        /// _repLivingRooms control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater _repLivingRooms;
     }
 }

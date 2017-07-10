@@ -490,22 +490,11 @@ a {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* GridView */
+
+#content .gridview {
+    overflow: auto;
+}
 
 #content .gridview table {
     border-collapse: collapse;
@@ -597,6 +586,7 @@ a {
 .options {
     text-align: center;
     width: 175px;
+    min-width: 175px;
 }
 
     .options a {
@@ -916,48 +906,111 @@ td.error span {
         margin-bottom: 10px;
     }
 
+/* Widget container */
+.widget-container:first-of-type {
+    margin-top: 0;
+}
+
+.widget-container {
+    margin-top: 20px;
+}
+
+    .widget-container h3:first-of-type {
+        padding-top: 0;
+    }
+
+    .widget-container h3 {
+        padding: 10px 0;
+    }
+
+.widget {
+    width: 30%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    min-height: 250px;
+    padding: 20px;
+    display: inline-block;
+    margin-right: 5%;
+    border-color: #f08a00 #e5e2df #e5e2df;
+    background-color: #fff;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 4px 1px 1px;
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.08);
+    padding: 15px;
+    overflow: auto;
+    font-size: 17px;
+}
+
+.widget:last-of-type {
+    margin-right: 0;
+}
+
+.widget i {
+    font-size: 30px;
+}
+.widget p{
+    margin: 10px 0;
+}
+    .widget .fa-coffee {
+        color: #f08a00;
+    }
+
+    .widget .fa-trash-o {
+        color: #00aaff;
+    }
+
+    .widget .fa-clock-o {
+        color: #7a5195;
+    }
+    .widget table thead tr td,
+    .widget table tbody tr td {
+        padding: 5px 0;
+    }
+    
+    .widget table thead tr td:nth-of-type(1n+2),
+    .widget table tbody tr td:nth-of-type(1n+2) {
+        width: 100px;
+        text-align: center;
+    }
+
+ .widget table tbody tr td i { font-size: 21px; }
+    .widget table tbody tr td i.fa-check {
+        color: #139b49;
+    }
+    .widget table tbody tr td i.fa-times {
+        color: #fa010f;
+    }
+
 /* responsive */
 @media screen and (max-width: 48em) {
-    #sidebar-container {
-        border-right: none;
-        position: relative;
-        width: 100%;
-    }
+    #sidebar-container { border-right: none; position: relative; width: 100%; }
 
-    #header, 
-    #content, 
-    #footer {
-        margin-left: 0;
-    }
+    #header, #content, #footer { margin-left: 0; }
 
-    #header-container {
-        display: block;
-        position: unset;
-        width: 100%;
-    }
+    #header-container { display: block; position: unset; width: 100%; }
 
-    #content {margin-top: 0;}
+    #content { margin-top: 0; }
 
     #header #user { display: none; }
     #sidebar-container ul li a { padding-left: 20px; }
     #sidebar-container #nav { display: none; }
-    #sidebar-container #mobile-menu {
-        background: rgba(0, 0, 0, 0) linear-gradient(135deg, #596878 0%, #3c454f 100%) repeat scroll 0 0;
-        border-bottom: 1px solid #313540;
-        border-top: 1px solid #313540;
-        cursor: pointer;
-        display: block;
-        height: auto;
-        padding: 15px 20px;
-    }
+    #sidebar-container #mobile-menu { background: rgba(0, 0, 0, 0) linear-gradient(135deg, #596878 0%, #3c454f 100%) repeat scroll 0 0; border-bottom: 1px solid #313540; border-top: 1px solid #313540; cursor: pointer; display: block; height: auto; padding: 15px 20px; }
     #sidebar-container #mobile-menu .slicknav_icon { display: block; }
     #sidebar-container #mobile-menu .slicknav_icon-bar + .slicknav_icon-bar { margin-top: 0.188em; }
     #sidebar-container #mobile-menu #slicknav_menu .slicknav_icon-bar { background-color: #dadada; }
     #sidebar-container #mobile-menu #slicknav_menu .slicknav_icon-bar { border-radius: 1px; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25); display: block; height: 0.125em; width: 1.125em; }
-    #sidebar-container #navigation-container ul li {width: auto;
-    }
+    #sidebar-container #navigation-container ul li { width: auto; }
     .textbox { width: auto; }
     .label { min-width: 125px; }
 
     .centerDiv { width: 250px; margin-left: -135px; }
+
+    .shortcut a { display: block; padding: 5px 0; margin-left: 0; }
+
+    .widget {
+        display: block;
+        width: 100%;
+    }
 }

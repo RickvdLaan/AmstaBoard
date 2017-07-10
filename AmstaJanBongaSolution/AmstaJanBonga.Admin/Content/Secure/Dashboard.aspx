@@ -1,4 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Main.Master" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="AmstaJanBonga.Admin.Content.Secure.Dashboard" %>
+
+<%@ Register Src="~/Content/Controls/LivingRoomWidget/LivingRoomWidget.ascx" TagPrefix="uc1" TagName="LivingRoomWidget" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="_cphHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="_cphMainTitle" runat="server">
@@ -16,7 +19,14 @@
             Snelkoppelingen
         </h2>
         <div class="shortcut">
-            
+            <asp:HyperLink runat="server" CssClass="fa fa-plus-circle" Text="Gebruiker Toevoegen" NavigateUrl="~/Content/Secure/User/UserAddEdit.aspx"></asp:HyperLink>
+            <asp:HyperLink runat="server" CssClass="fa fa-plus-circle" Text="Werknemer Toevoegen" NavigateUrl="~/Content/Secure/Employee/EmployeeAddEdit.aspx"></asp:HyperLink>
+            <asp:HyperLink runat="server" CssClass="fa fa-plus-circle" Text="Bewoner Toevoegen" NavigateUrl="~/Content/Secure/Patient/PatientAddEdit.aspx"></asp:HyperLink>
         </div>
     </div>
+
+    <div class="widget-container">
+        <uc1:LivingRoomWidget runat="server" id="LivingRoomWidget" />
+    </div>
+    
 </asp:Content>

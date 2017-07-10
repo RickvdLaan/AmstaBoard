@@ -365,7 +365,7 @@
     <InheritanceHierarchies />
   </EntityModel>
   <TypedViewDefinitions>
-    <TypedViewDefinition Name="GetAllEventsByDateAndByPatientIdResult" GroupName="Vanderlaan" ObjectID="6d2d310e-b809-4d54-bb31-5f3255514f7b">
+    <TypedViewDefinition Name="GetAllEventsByDateAndByPatientIdResult" GroupName="Vanderlaan" ObjectID="ae777d2f-af6a-46fa-add4-ddf2c1761d9c">
       <Fields>
         <Field Name="DateCreated" Type="datetime" IsOptional="true" />
         <Field Name="DateDeleted" Type="datetime" IsOptional="true" />
@@ -388,11 +388,6 @@
         <Parameter Name="Unix" Type="int" Precision="10" />
       </Parameters>
     </SPCallDefinition>
-    <SPCallDefinition Name="GetAllLivingRoomStatisticsByDate" GroupName="Vanderlaan" ObjectID="73637880-2ecd-4ab7-9a27-b38adf2690df">
-      <Parameters>
-        <Parameter Name="P1" Type="datetime" />
-      </Parameters>
-    </SPCallDefinition>
   </SPCallDefinitions>
   <TargetDatabases>
     <TargetDatabase Type="2D18D138-1DD2-467E-86CC-4838250611AE" SyncSource="2">
@@ -409,7 +404,7 @@
       <Catalogs>
         <Catalog Name="Vanderlaan_jouwsoftware_janbonga_development">
           <Schemas>
-            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-07-10T13:16:13.9403267Z">
+            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-07-07T13:00:55.3585377Z">
               <StoredProcedures>
                 <StoredProcedure Name="sp_alterdiagram">
                   <Parameters>
@@ -477,7 +472,7 @@
                 </StoredProcedure>
               </StoredProcedures>
             </Schema>
-            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-07-10T13:16:13.9793289Z">
+            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-07-07T13:00:55.39854Z">
               <Tables>
                 <Table Name="AgendaEvent">
                   <PkConstraintName Name="PK_AgendaEvent" />
@@ -673,21 +668,6 @@
                         <Field Name="DateLastModified" Ordinal="9" IsOptional="true" DbType="4" />
                         <Field Name="DateLastModifiedByUserId" Ordinal="10" IsOptional="true" DbType="8" Precision="10" />
                         <Field Name="DateDeleted" Ordinal="11" IsOptional="true" DbType="4" />
-                      </Fields>
-                    </Resultset>
-                  </Resultsets>
-                </StoredProcedure>
-                <StoredProcedure Name="GetAllLivingRoomStatisticsByDate" NumberOfResultsets="1">
-                  <Parameters>
-                    <Parameter Name="@p1" Direction="1" Ordinal="1" DbType="28" />
-                  </Parameters>
-                  <Resultsets>
-                    <Resultset Name="Resultset1">
-                      <Fields>
-                        <Field Name="Name" Ordinal="1" DbType="24" Length="50" />
-                        <Field Name="ChoreCount" Ordinal="2" IsOptional="true" DbType="8" Precision="10" />
-                        <Field Name="ShiftCount" Ordinal="3" IsOptional="true" DbType="8" Precision="10" />
-                        <Field Name="GeneralCount" Ordinal="4" IsOptional="true" DbType="8" Precision="10" />
                       </Fields>
                     </Resultset>
                   </Resultsets>
@@ -951,11 +931,6 @@
           <FieldMappings>
             <FieldMapping FieldName="PatientId" TargetFieldName="@PatientId" />
             <FieldMapping FieldName="Unix" TargetFieldName="@Unix" />
-          </FieldMappings>
-        </SPCallMapping>
-        <SPCallMapping SPCallName="Vanderlaan:GetAllLivingRoomStatisticsByDate" TargetName="Vanderlaan_jouwsoftware_janbonga_development:Vanderlaan:GetAllLivingRoomStatisticsByDate">
-          <FieldMappings>
-            <FieldMapping FieldName="P1" TargetFieldName="@p1" />
           </FieldMappings>
         </SPCallMapping>
       </SPCallMappings>

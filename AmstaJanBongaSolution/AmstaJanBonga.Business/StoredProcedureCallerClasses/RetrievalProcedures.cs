@@ -83,6 +83,35 @@ namespace AmstaJanBonga.Business.StoredProcedureCallerClasses
 			return CreateGetAllEventsByDateAndByPatientIdCall(new DataAccessCoreImpl(new CommonDaoBase(), null), unix, patientId).ToRetrievalQuery();
 		}
 
+		/// <summary>Calls stored procedure 'GetAllLivingRoomStatisticsByDate'.<br/><br/></summary>
+		/// <param name="p1">Input parameter of stored procedure. </param>
+		/// <returns>Filled DataTable with resultset(s) of stored procedure</returns>
+		public static DataTable GetAllLivingRoomStatisticsByDate(System.DateTime p1)
+		{
+			return GetAllLivingRoomStatisticsByDate(p1, null);
+		}
+
+		/// <summary>Calls stored procedure 'GetAllLivingRoomStatisticsByDate'.<br/><br/></summary>
+		/// <param name="p1">Input parameter of stored procedure. </param>
+		/// <param name="transactionToUse">the transaction to use, or null if no transaction is available.</param>
+		/// <returns>Filled DataTable with resultset(s) of stored procedure</returns>
+		public static DataTable GetAllLivingRoomStatisticsByDate(System.DateTime p1,  ITransaction transactionToUse)
+		{
+			using(StoredProcedureCall call = CreateGetAllLivingRoomStatisticsByDateCall(new DataAccessCoreImpl(new CommonDaoBase(), transactionToUse), p1))
+			{
+				DataTable toReturn = call.FillDataTable();
+				return toReturn;
+			}
+		}
+		
+		/// <summary>Creates an IRetrievalQuery object for a call to the procedure 'GetAllLivingRoomStatisticsByDate'.</summary>
+		/// <param name="p1">Input parameter of stored procedure</param>
+		/// <returns>IRetrievalQuery object which is ready to use for datafetching</returns>
+		public static IRetrievalQuery GetGetAllLivingRoomStatisticsByDateCallAsQuery( System.DateTime p1 )
+		{
+			return CreateGetAllLivingRoomStatisticsByDateCall(new DataAccessCoreImpl(new CommonDaoBase(), null), p1).ToRetrievalQuery();
+		}
+
 		/// <summary>Creates the call object for the call 'GetAllEventsByDateAndByPatientId' to stored procedure 'GetAllEventsByDateAndByPatientId'.</summary>
 		/// <param name="dataAccessProvider">The data access provider.</param>
 		/// <param name="unix">Input parameter</param>
@@ -93,6 +122,16 @@ namespace AmstaJanBonga.Business.StoredProcedureCallerClasses
 			return new StoredProcedureCall(dataAccessProvider, @"[Vanderlaan_jouwsoftware_janbonga_development].[Vanderlaan].[GetAllEventsByDateAndByPatientId]", "GetAllEventsByDateAndByPatientId")
 							.AddParameter("@Unix", "Int", 0, ParameterDirection.Input, true, 10, 0, unix)
 							.AddParameter("@PatientId", "Int", 0, ParameterDirection.Input, true, 10, 0, patientId);
+		}
+
+		/// <summary>Creates the call object for the call 'GetAllLivingRoomStatisticsByDate' to stored procedure 'GetAllLivingRoomStatisticsByDate'.</summary>
+		/// <param name="dataAccessProvider">The data access provider.</param>
+		/// <param name="p1">Input parameter</param>
+		/// <returns>Ready to use StoredProcedureCall object</returns>
+		private static StoredProcedureCall CreateGetAllLivingRoomStatisticsByDateCall(IDataAccessCore dataAccessProvider, System.DateTime p1)
+		{
+			return new StoredProcedureCall(dataAccessProvider, @"[Vanderlaan_jouwsoftware_janbonga_development].[Vanderlaan].[GetAllLivingRoomStatisticsByDate]", "GetAllLivingRoomStatisticsByDate")
+							.AddParameter("@p1", "Date", 0, ParameterDirection.Input, true, 0, 0, p1);
 		}
 
 

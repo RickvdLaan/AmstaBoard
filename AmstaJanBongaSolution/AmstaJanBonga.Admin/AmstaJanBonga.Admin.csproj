@@ -120,6 +120,7 @@
     <Content Include="Content\Controls\ExtendedCalendar\General\ExtendedCalendar.ascx" />
     <Content Include="Content\Controls\ExtendedCalendar\Shifts\ExtendedCalendar.ascx" />
     <Content Include="Content\Controls\JsListBox\JsListBox.ascx" />
+    <Content Include="Content\Controls\LivingRoomWidget\LivingRoomWidget.ascx" />
     <Content Include="Content\Secure\Dashboard.aspx" />
     <Content Include="Content\Secure\InsufficientPrivileges\InsufficientPrivileges.aspx" />
     <Content Include="Content\Secure\LivingRoom\Chores\ChoresAddEdit.aspx" />
@@ -262,6 +263,13 @@
     </Compile>
     <Compile Include="Content\Controls\JsListBox\JsListBox.ascx.designer.cs">
       <DependentUpon>JsListBox.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Content\Controls\LivingRoomWidget\LivingRoomWidget.ascx.cs">
+      <DependentUpon>LivingRoomWidget.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\Controls\LivingRoomWidget\LivingRoomWidget.ascx.designer.cs">
+      <DependentUpon>LivingRoomWidget.ascx</DependentUpon>
     </Compile>
     <Compile Include="Content\Secure\Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
