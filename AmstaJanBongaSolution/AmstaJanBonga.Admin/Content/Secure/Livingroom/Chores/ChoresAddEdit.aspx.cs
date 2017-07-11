@@ -240,6 +240,16 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
 
         protected void _btnSave_Click(object sender, EventArgs e)
         {
+            if (this._jlbMorning.ListBoxDestination.Items.Count == 0 &&
+                this._jlbAfternoon.ListBoxDestination.Items.Count == 0 &&
+                this._jlbEvening.ListBoxDestination.Items.Count == 0)
+            {
+                this._lblError.Text = "Er moet minimaal één bewoner geselecteerd worden.";
+                this._lblError.Visible = true;
+
+                return;
+            }
+
             this.Page.Validate("Validate");
 
             if (this.Page.IsValid)

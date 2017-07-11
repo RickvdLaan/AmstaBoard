@@ -53,44 +53,43 @@
                 </tr>
 
                 <tr>
-                    <td class="label required">
+                    <td class="label">
                         Ochtend
                     </td>
                     <td>
                         <CustomControl:JsListBox runat="server" id="_jlbMorning" />
                     </td>
                     <td class="error">
-                        <asp:RequiredFieldValidator runat="server" ValidateRequestMode="Enabled" CssClass="error" InitialValue="" ErrorMessage="Selecteer minimaal één, of maximaal twee bewoners." Display="Dynamic" ControlToValidate="_jlbMorning" ValidationGroup="Validate"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator runat="server" Enabled="false" ValidateRequestMode="Enabled" CssClass="error" InitialValue="" ErrorMessage="Selecteer minimaal één, of maximaal twee bewoners." Display="Dynamic" ControlToValidate="_jlbMorning" ValidationGroup="Validate"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="label required">
+                    <td class="label">
                         Middag
                     </td>
                     <td>
                         <CustomControl:JsListBox runat="server" id="_jlbAfternoon" />
                     </td>
                     <td class="error">
-                        <asp:RequiredFieldValidator runat="server" ValidateRequestMode="Enabled" CssClass="error" InitialValue="" ErrorMessage="Selecteer minimaal één, of maximaal twee bewoners." Display="Dynamic" ControlToValidate="_jlbAfternoon" ValidationGroup="Validate"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator runat="server" Enabled="false" ValidateRequestMode="Enabled" CssClass="error" InitialValue="" ErrorMessage="Selecteer minimaal één, of maximaal twee bewoners." Display="Dynamic" ControlToValidate="_jlbAfternoon" ValidationGroup="Validate"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="label required">
+                    <td class="label">
                         Avond
                     </td>
                     <td>
                         <CustomControl:JsListBox runat="server" id="_jlbEvening" />                     
                     </td>
                     <td class="error">
-                         <asp:RequiredFieldValidator runat="server" ValidateRequestMode="Enabled" CssClass="error" InitialValue="" ErrorMessage="Selecteer minimaal één, of maximaal twee bewoners." Display="Dynamic" ControlToValidate="_jlbEvening" ValidationGroup="Validate"></asp:RequiredFieldValidator>
+                         <asp:RequiredFieldValidator runat="server" Enabled="false" ValidateRequestMode="Enabled" CssClass="error" InitialValue="" ErrorMessage="Selecteer minimaal één, of maximaal twee bewoners." Display="Dynamic" ControlToValidate="_jlbEvening" ValidationGroup="Validate"></asp:RequiredFieldValidator>
+                        <asp:Label runat="server" Visible="false" ID="_lblError" CssClass="error"></asp:Label>
                     </td>
                 </tr>
             </tbody>
         </table>
-
-        <asp:Label runat="server" ID="_lblError" CssClass="error"></asp:Label>
     </div>
 
     <div class="box">

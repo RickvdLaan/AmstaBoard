@@ -861,7 +861,7 @@ td.required::after {
     font-size: 20px;
 }
 
-td.error span {
+span.error {
     color: #fa010f !important;
     margin-left: 15px;
     background-color: #ffd8d8;

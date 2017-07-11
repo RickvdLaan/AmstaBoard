@@ -53,32 +53,31 @@
                 </tr>
 
                 <tr>
-                    <td class="label required">
+                    <td class="label">
                         Dag
                     </td>
                     <td>
                         <CustomControl:JsListBox runat="server" id="_jlbDay" />
                     </td>
                     <td class="error">
-                        <asp:RequiredFieldValidator runat="server" ValidateRequestMode="Enabled" CssClass="error" InitialValue="" ErrorMessage="Selecteer minimaal één, of maximaal twee medewerkers." Display="Dynamic" ControlToValidate="_jlbDay" ValidationGroup="Validate"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator runat="server" Enabled="false" ValidateRequestMode="Enabled" CssClass="error" InitialValue="" ErrorMessage="Selecteer minimaal één, of maximaal twee medewerkers." Display="Dynamic" ControlToValidate="_jlbDay" ValidationGroup="Validate"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
 
                 <tr>
-                    <td class="label required">
+                    <td class="label">
                         Avond
                     </td>
                     <td>
                         <CustomControl:JsListBox runat="server" id="_jlbEvening" />                     
                     </td>
                     <td class="error">
-                         <asp:RequiredFieldValidator runat="server" ValidateRequestMode="Enabled" CssClass="error" InitialValue="" ErrorMessage="Selecteer één medewerker." Display="Dynamic" ControlToValidate="_jlbEvening" ValidationGroup="Validate"></asp:RequiredFieldValidator>
+                         <asp:RequiredFieldValidator runat="server" Enabled="false" ValidateRequestMode="Enabled" CssClass="error" InitialValue="" ErrorMessage="Selecteer één medewerker." Display="Dynamic" ControlToValidate="_jlbEvening" ValidationGroup="Validate"></asp:RequiredFieldValidator>
+                         <asp:Label runat="server" ID="_lblError" CssClass="error" Visible="false"></asp:Label>
                     </td>
                 </tr>
             </tbody>
         </table>
-
-        <asp:Label runat="server" ID="_lblError" CssClass="error"></asp:Label>
     </div>
 
     <div class="box">

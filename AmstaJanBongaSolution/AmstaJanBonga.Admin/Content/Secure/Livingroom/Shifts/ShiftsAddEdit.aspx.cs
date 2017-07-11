@@ -228,6 +228,15 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Shifts
 
         protected void _btnSave_Click(object sender, EventArgs e)
         {
+            if (this._jlbDay.ListBoxDestination.Items.Count == 0 &&
+                this._jlbEvening.ListBoxDestination.Items.Count == 0)
+            {
+                this._lblError.Text = "Er moet minimaal één medewerker geselecteerd worden.";
+                this._lblError.Visible = true;
+
+                return;
+            }
+
             this.Page.Validate("Validate");
 
             if (this.Page.IsValid)
