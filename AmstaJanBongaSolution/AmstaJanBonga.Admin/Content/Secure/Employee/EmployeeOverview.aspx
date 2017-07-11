@@ -54,7 +54,7 @@
                         <ItemTemplate>
                             <asp:HyperLink runat="server" ToolTip="Bekijken" CssClass="details fa fa-search" NavigateUrl='<%# Eval("Id","~/Content/Secure/Employee/EmployeeDetails.aspx?EmployeeId={0}") %>'></asp:HyperLink>
                             <asp:HyperLink runat="server" ToolTip="Wijzigen" CssClass="edit fa fa-pencil" NavigateUrl='<%# Eval("Id","~/Content/Secure/Employee/EmployeeAddEdit.aspx?EmployeeId={0}") %>'></asp:HyperLink>
-                            <asp:LinkButton runat="server" ToolTip="Verwijderen" CssClass="delete fa fa-times" OnClick="_lbDelete_Click" OnClientClick="return confirm('U staat op het punt om deze medewerker te verwijderen. Weet u het zeker?');" CommandArgument='<%# Eval("Id") %>'></asp:LinkButton>
+                            <asp:LinkButton runat="server" ToolTip="Verwijderen" CssClass="delete fa fa-trash" OnClick="_lbDelete_Click" OnClientClick="return confirm('U staat op het punt om deze medewerker te verwijderen. Weet u het zeker?');" CommandArgument='<%# Eval("Id") %>'></asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

@@ -940,6 +940,7 @@ td.error span {
     box-shadow: 0 2px 1px rgba(0, 0, 0, 0.08);
     padding: 15px;
     overflow: auto;
+    vertical-align: top;
     font-size: 17px;
 }
 
@@ -968,20 +969,83 @@ td.error span {
     .widget table tbody tr td {
         padding: 5px 0;
     }
-    
-    .widget table thead tr td:nth-of-type(1n+2),
-    .widget table tbody tr td:nth-of-type(1n+2) {
+
+    .widget table.living-room-statistics thead tr td:nth-of-type(1n+2),
+    .widget table.living-room-statistics tbody tr td:nth-of-type(1n+2) {
         width: 100px;
         text-align: center;
     }
 
- .widget table tbody tr td i { font-size: 21px; }
-    .widget table tbody tr td i.fa-check {
+ .widget table tbody tr td i { 
+     font-size: 21px; 
+ }
+    .widget table.living-room-statistics tbody tr td i.fa-check {
         color: #139b49;
     }
-    .widget table tbody tr td i.fa-times {
+    .widget table.living-room-statistics tbody tr td i.fa-times {
         color: #fa010f;
     }
+
+    /* Legenda */
+    .widget table.legenda {
+        width: 100%;
+    }
+
+    .widget table.legenda tbody tr {
+        width: 100%;
+    }
+
+        .widget table.legenda tbody tr td {
+            width: 50%;
+            text-align: left;
+            vertical-align: middle;
+        }
+
+            .widget table.legenda tbody tr td i.fa-plus-circle,
+            .widget table.legenda tbody tr td i.fa-reply {
+                color: #139b49;
+            }
+
+            .widget table.legenda tbody tr td i.fa-times, 
+            .widget table.legenda tbody tr td i.fa-trash {
+                color: #fa010f;
+            }
+
+            .widget table.legenda tbody tr td i.fa-coffee {
+                color: #f08a00;
+            }
+
+            .widget table.legenda tbody tr td i.fa-trash-o {
+                color: #00aaff;
+            }
+
+            .widget table.legenda tbody tr td i.fa-clock-o {
+                color: #7a5195;
+            }
+
+            .widget table.legenda tbody tr td i.fa-pencil {
+                color: #dc8b14;
+            }
+
+            .widget table.legenda tbody tr td i.fa-search {
+                color: #007cff;
+            }
+
+            .widget table.legenda tbody tr td i.fa-calendar {
+                color: #07bf62;
+            }
+
+            .widget table.legenda tbody tr td i.fa-lock {
+                color: #c9c20b;
+            }
+
+            .widget table.legenda tbody tr td i {
+                text-align: center;
+                width: 30px;
+            }
+
+            .widget table.legenda tbody tr td i span { font-size: 17px; }
+
 
 /* responsive */
 @media screen and (max-width: 48em) {
@@ -1012,5 +1076,8 @@ td.error span {
     .widget {
         display: block;
         width: 100%;
+        margin-bottom: 20px;
     }
+
+    .widget:last-of-type { margin-bottom: 0; }
 }
