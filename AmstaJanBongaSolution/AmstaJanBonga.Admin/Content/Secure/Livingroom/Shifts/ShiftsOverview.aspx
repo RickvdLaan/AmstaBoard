@@ -12,6 +12,7 @@
     Overzicht
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="_cphExplanation" runat="server">
+    Dit is het overzicht van alle diensten van het personeel, vanuit hier kunnen alle diensten worden beheerd.
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="_cphContent" runat="server">
     <div class="box">

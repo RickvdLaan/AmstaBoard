@@ -8,6 +8,7 @@
     Onvoldoende rechten
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="_cphExplanation" runat="server">
+    Deze pagina komt naar voren omdat een actie is uitgevoerd waartoe u niet bevoegd bent. 
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="_cphContent" runat="server">
     <div class="box">

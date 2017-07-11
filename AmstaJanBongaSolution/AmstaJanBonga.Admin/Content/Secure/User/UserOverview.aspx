@@ -12,6 +12,7 @@
     Overzicht
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="_cphExplanation" runat="server">
+    Dit is het gebruikersoverzicht, vanuit hier kunnen alle gebruikers worden beheerd.
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="_cphContent" runat="server">
      <div class="box">

@@ -11,6 +11,7 @@
     Overzicht
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="_cphExplanation" runat="server">
+    Dit is het overzicht van de algemene informatie, vanuit hier kunnen deze gegevens worden beheerd.
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="_cphContent" runat="server">
      <div class="box">
@@ -63,7 +64,7 @@
                         <ItemTemplate>
                             <asp:HyperLink runat="server" ID="_hlDetails" NavigateUrl='<%# "~/Content/Secure/LivingRoom/General/GeneralDetails.aspx?LivingRoomId={0}&Date={1}".FormatString(DataBinder.Eval(Container.DataItem, "LivingRoomId"), DataBinder.Eval(Container.DataItem, "Date")) %>' ToolTip="Bekijken" CssClass="details fa fa-search"></asp:HyperLink>
                             <asp:HyperLink runat="server" ID="_hlEdit" NavigateUrl='<%# "~/Content/Secure/LivingRoom/General/GeneralEventAddEdit.aspx?LivingRoomId={0}&Date={1}".FormatString(DataBinder.Eval(Container.DataItem, "LivingRoomId"), DataBinder.Eval(Container.DataItem, "Date")) %>' ToolTip="Wijzigen" CssClass="edit fa fa-pencil"></asp:HyperLink>
-                            <asp:LinkButton runat="server" ToolTip="Verwijderen" CssClass="delete fa fa-times"  OnClick="_lbDelete_Click" OnClientClick="return confirm('U staat op het punt om deze gegevens te verwijderen. Weet u het zeker?');" CommandArgument='<%# "{0}_{1}".FormatString(Eval("LivingRoomId"), Eval("Date")) %>'></asp:LinkButton>
+                            <asp:LinkButton runat="server" ToolTip="Verwijderen" CssClass="delete fa fa-trash"  OnClick="_lbDelete_Click" OnClientClick="return confirm('U staat op het punt om deze gegevens te verwijderen. Weet u het zeker?');" CommandArgument='<%# "{0}_{1}".FormatString(Eval("LivingRoomId"), Eval("Date")) %>'></asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

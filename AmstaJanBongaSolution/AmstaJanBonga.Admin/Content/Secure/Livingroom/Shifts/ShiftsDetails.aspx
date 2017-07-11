@@ -8,6 +8,7 @@
     Bekijken
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="_cphExplanation" runat="server">
+    Vanuit hier kan de geselecteerde dienst worden bekeken of worden gewijzigd.
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="_cphContent" runat="server">
     <div class="box">

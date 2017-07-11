@@ -78,6 +78,7 @@ namespace AmstaJanBonga.Business.Database.Managers
             newCollection.SaveMulti();
         }
 
+
         public static void DeleteLivingRoomChoreEvent(int livingRoomId, DateTime date)
         {
             Authentication.AuthenticateActivity("DeleteLivingRoomChoreEvent");

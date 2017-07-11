@@ -595,7 +595,7 @@ a {
         padding: 10px 2px;
     }
 
-#content .gridview a.delete {
+#content .gridview a.delete, fa-exclamation-circle {
     color: #fa010f;
 }
 

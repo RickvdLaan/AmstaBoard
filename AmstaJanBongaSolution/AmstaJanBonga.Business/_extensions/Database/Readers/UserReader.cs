@@ -128,6 +128,7 @@ namespace AmstaJanBonga.Business.Database.Readers
             // Predicate
             bucket.PredicateExpression.Add(EmployeeFields.UserId == DBNull.Value);
             bucket.PredicateExpression.Add(UserFields.IsMarkedAsDeleted == false);
+            bucket.PredicateExpression.Add(UserFields.RoleTypeEnum != (byte)RoleTypeEnum.Root);
 
             // Sorting
             var sorter = new SortExpression

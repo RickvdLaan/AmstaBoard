@@ -11,6 +11,8 @@
     Overzicht
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="_cphExplanation" runat="server">
+    Dit is het overzicht van de agenda, vanuit hier is het mogelijk om afspraken toe te voegen, te bekijken, wijzigen en verwijderen. Let op, het verwijderen
+    van deze gegevens is permanent en kan niet worden teruggedraaid.
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="_cphContent" runat="server">
     <div class="box">

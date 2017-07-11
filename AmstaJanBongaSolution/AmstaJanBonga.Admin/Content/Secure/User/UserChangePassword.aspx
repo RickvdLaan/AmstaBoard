@@ -8,7 +8,7 @@
     Wachtwoord Wijzigen
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="_cphExplanation" runat="server">
-    Hier kunt u uw wahctwoord veranderen.
+    Hier kan het wachtwoord van een gebruiker worden gewijzigd.
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="_cphContent" runat="server">
     <div class="box">

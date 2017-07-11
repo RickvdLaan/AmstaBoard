@@ -11,6 +11,7 @@
     <%= Helper.SubTitleAddEdit %>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="_cphExplanation" runat="server">
+    Vanuit hier kan een afspraak worden toegevoegd of een bestaande afspraak worden gewijzigd.
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="_cphContent" runat="server">
     <asp:HiddenField runat="server" ID="_hfStart" />

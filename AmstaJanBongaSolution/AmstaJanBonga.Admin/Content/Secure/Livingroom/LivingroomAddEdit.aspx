@@ -8,6 +8,7 @@
       <%= Helper.SubTitleAddEdit %>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="_cphExplanation" runat="server">
+    Vanuit hier kan een woonkamer worden toegevoegd of worden gewijzigd. 
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="_cphContent" runat="server">
       <div class="box">

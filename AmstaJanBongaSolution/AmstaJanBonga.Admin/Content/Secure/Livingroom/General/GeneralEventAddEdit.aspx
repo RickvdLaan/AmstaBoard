@@ -12,6 +12,7 @@
     <%= this.SubTitleAddEdit %>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="_cphExplanation" runat="server">
+    Vanuit hier kan informatie worden toegevoegd of worden gewijzigd.
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="_cphContent" runat="server">
       <div class="box">
