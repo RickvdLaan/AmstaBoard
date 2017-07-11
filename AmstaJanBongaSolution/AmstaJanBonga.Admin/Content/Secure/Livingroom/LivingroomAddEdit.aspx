@@ -29,7 +29,7 @@
                         Woonkamer
                     </td>
                     <td>
-                        <asp:TextBox runat="server" ID="_txtLivingRoomName" CssClass="textbox" placeholder="Voornaam" MaxLength="20"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="_txtLivingRoomName" CssClass="textbox" placeholder="Voornaam" MaxLength="50"></asp:TextBox>
                         <asp:RequiredFieldValidator runat="server" ValidateRequestMode="Enabled" CssClass="error" ErrorMessage="Verplichte velden kunnen niet leeg blijven." Display="Dynamic" ControlToValidate="_txtLivingRoomName" ValidationGroup="Validate"></asp:RequiredFieldValidator>
                     </td>
                 </tr>

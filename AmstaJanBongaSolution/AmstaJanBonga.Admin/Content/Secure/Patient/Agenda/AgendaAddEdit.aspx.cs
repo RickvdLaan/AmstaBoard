@@ -136,6 +136,8 @@ namespace AmstaJanBonga.Admin.Content.Secure.Patient.Agenda
 
         #endregion
 
+        #region Events
+
         protected void _btnSave_Click(object sender, EventArgs e)
         {
             this.Page.Validate("Validate");
@@ -152,5 +154,41 @@ namespace AmstaJanBonga.Admin.Content.Secure.Patient.Agenda
         {
             Response.Redirect("~/Content/Secure/Patient/Agenda/AgendaOverview.aspx?PatientId={0}".FormatString(Url.QueryStringParser.GetInt("PatientId")));
         }
+
+        #endregion
+
+        #region Custom Validators
+
+        protected void _cvEndTime_ServerValidate(object source, System.Web.UI.WebControls.ServerValidateEventArgs args)
+        {
+            // Add
+            if (!this.HasAgendaEventMetaId)
+            {
+                var timeStart = DateTime.ParseExact(this._hfStart.Value.Substring(0, 24), "ddd MMM d yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+                var timeEnd = DateTime.ParseExact(this._hfEnd.Value.Substring(0, 24), "ddd MMM d yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+
+                if (timeEnd.TimeOfDay <= timeStart.TimeOfDay)
+                {
+                    args.IsValid = false;
+                    return;
+                }
+            }
+            // Edit
+            else if (this.HasAgendaEventMetaId)
+            {
+                var timeStart = this._hfStart.Value.ConvertDotNetDateTime_Or_JavaScriptDateTime_To_DotNetDateTime_Hack();
+                var timeEnd = this._hfEnd.Value.ConvertDotNetDateTime_Or_JavaScriptDateTime_To_DotNetDateTime_Hack();
+
+                if (timeEnd.TimeOfDay <= timeStart.TimeOfDay)
+                {
+                    args.IsValid = false;
+                    return;
+                }
+            }
+
+            args.IsValid = true;
+        }
+
+        #endregion
     }
 }

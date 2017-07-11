@@ -29,7 +29,7 @@
                         Gebruikersnaam
                     </td>
                     <td>
-                        <asp:TextBox runat="server" ID="_txtUsername" CssClass="textbox" MaxLength="20"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="_txtUsername" CssClass="textbox" MaxLength="50"></asp:TextBox>
                         <asp:RegularExpressionValidator runat="server" ValidateRequestMode="Enabled" CssClass="error" ErrorMessage="Alleen letters mogen worden gebruikt." Display="Dynamic" ControlToValidate="_txtUsername" ValidationGroup="Validate" ValidationExpression="^[a-z\.?A-Z]+\.?[a-zA-Z]+$"></asp:RegularExpressionValidator>
                         <asp:RequiredFieldValidator runat="server" ValidateRequestMode="Enabled" CssClass="error" ErrorMessage="Verplichte velden kunnen niet leeg blijven." Display="Dynamic" ControlToValidate="_txtUsername" ValidationGroup="Validate"></asp:RequiredFieldValidator>
                         <asp:CustomValidator runat="server" ID="_cvUsername" CssClass="error" ErrorMessage="Gebruikersnaam is al in gebruik." ControlToValidate="_txtUsername" ValidationGroup="Validate" Display="Dynamic" OnServerValidate="_cvUsername_ServerValidate"></asp:CustomValidator>

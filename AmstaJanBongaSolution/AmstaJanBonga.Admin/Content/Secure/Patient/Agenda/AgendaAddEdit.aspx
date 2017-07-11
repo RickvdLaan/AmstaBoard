@@ -35,7 +35,7 @@
                         Titel
                     </td>
                     <td>
-                        <asp:TextBox runat="server" ID="_txtTitle" CssClass="textbox" placeholder="Titel" MaxLength="20"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="_txtTitle" CssClass="textbox" placeholder="Titel" MaxLength="50"></asp:TextBox>
                         <asp:RequiredFieldValidator runat="server" ValidateRequestMode="Enabled" CssClass="error" ErrorMessage="Verplichte velden kunnen niet leeg blijven." Display="Dynamic" ControlToValidate="_txtTitle" ValidationGroup="Validate"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
@@ -54,6 +54,7 @@
                     </td>
                     <td>
                         <asp:TextBox runat="server" ID="_txtEnd" CssClass="textbox" ReadOnly="true" placeholder="Eindtijd"></asp:TextBox>
+                        <asp:CustomValidator ID="_cvEndTime" runat="server" ValidateRequestMode="Enabled" CssClass="error" ErrorMessage="De eindtijd kan niet eerder, of gelijk zijn aan de starttijd." Display="Dynamic" ValidationGroup="Validate" OnServerValidate="_cvEndTime_ServerValidate"></asp:CustomValidator>
                     </td>
                 </tr>
 
@@ -62,7 +63,7 @@
                         Locatie
                     </td>
                     <td>
-                        <asp:TextBox runat="server" ID="_txtLocation" CssClass="textbox" placeholder="Locatie" MaxLength="20"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="_txtLocation" CssClass="textbox" placeholder="Locatie" MaxLength="50"></asp:TextBox>
                     </td>
                 </tr>
 
@@ -71,7 +72,7 @@
                         Omschrijving
                     </td>
                     <td>
-                        <asp:TextBox runat="server" ID="_txtDescription" CssClass="textbox" Height="150" placeholder="Omschrijving" MaxLength="255" TextMode="MultiLine"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="_txtDescription" CssClass="textbox" Height="150" placeholder="Omschrijving" MaxLength="500" TextMode="MultiLine"></asp:TextBox>
                     </td>
                 </tr>
 
