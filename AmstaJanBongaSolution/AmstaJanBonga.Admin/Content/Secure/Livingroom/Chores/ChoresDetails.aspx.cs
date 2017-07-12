@@ -96,20 +96,36 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Chores
                 {
                     if (chore.TimeOfDayTypeEnum == (byte)TimeOfDayTypeEnum.Morning)
                     {
+                        if (!string.IsNullOrWhiteSpace(this._lblMorning.Text))
+                            this._lblMorning.Text += ", ";
+
                         this._lblMorning.Text += chore.Patient.FirstName;
                     }
                     else if (chore.TimeOfDayTypeEnum == (byte)TimeOfDayTypeEnum.Afternoon)
                     {
+                        if (!string.IsNullOrWhiteSpace(this._lblAfternoon.Text))
+                            this._lblAfternoon.Text += ", ";
+
                         this._lblAfternoon.Text += chore.Patient.FirstName;
                     }
                     else if (chore.TimeOfDayTypeEnum == (byte)TimeOfDayTypeEnum.Evening)
                     {
+                        if (!string.IsNullOrWhiteSpace(this._lblEvening.Text))
+                            this._lblEvening.Text += ", ";
+
                         this._lblEvening.Text += chore.Patient.FirstName;
                     }
                     else
                         throw new NotImplementedException("TimeOfDayTypeEnum with value {0} was not implemented, or does not exist.".FormatString(chore.TimeOfDayTypeEnum));
                 }
             }
+
+            if (!string.IsNullOrWhiteSpace(this._lblMorning.Text))
+                this._lblMorning.Text += ".";
+            if (!string.IsNullOrWhiteSpace(this._lblAfternoon.Text))
+                this._lblAfternoon.Text += ".";
+            if (!string.IsNullOrWhiteSpace(this._lblEvening.Text))
+                this._lblEvening.Text += ".";
         }
 
         #endregion

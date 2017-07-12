@@ -94,12 +94,12 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
                     this._txtDate.Visible = true;
 
                     // Sets the descriptions.
-                    this._txtGeneral.Text = livingroomGeneral.Description.Replace("<br />", Environment.NewLine);
-                    this._txtGeneralEvent.Text = livingroomGeneralEvent.Description.Replace("<br />", Environment.NewLine);
+                    this._txtGeneral.Text = Server.HtmlDecode(livingroomGeneral.Description).Replace("<br />", Environment.NewLine);
+                    this._txtGeneralEvent.Text = Server.HtmlDecode(livingroomGeneralEvent.Description).Replace("<br />", Environment.NewLine);
                 }
                 // Add
                 if (livingroomGeneral != null)
-                    this._txtGeneral.Text = livingroomGeneral.Description.Replace("<br />", Environment.NewLine);
+                    this._txtGeneral.Text = Server.HtmlDecode(livingroomGeneral.Description).Replace("<br />", Environment.NewLine);
             }
         }
 

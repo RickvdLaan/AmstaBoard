@@ -572,6 +572,8 @@ namespace AmstaJanBonga.Business.EntityClasses
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("IsMarkedAsDeleted", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
+			_fieldsCustomProperties.Add("Iterations", fieldHashtable);
+			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("Password", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("RoleTypeEnum", fieldHashtable);
@@ -772,6 +774,16 @@ namespace AmstaJanBonga.Business.EntityClasses
 		{
 			get { return (System.Boolean)GetValue((int)UserFieldIndex.IsMarkedAsDeleted, true); }
 			set	{ SetValue((int)UserFieldIndex.IsMarkedAsDeleted, value, true); }
+		}
+
+		/// <summary> The Iterations property of the Entity User<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "User"."Iterations"<br/>
+		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		public virtual System.Int32 Iterations
+		{
+			get { return (System.Int32)GetValue((int)UserFieldIndex.Iterations, true); }
+			set	{ SetValue((int)UserFieldIndex.Iterations, value, true); }
 		}
 
 		/// <summary> The Password property of the Entity User<br/><br/></summary>

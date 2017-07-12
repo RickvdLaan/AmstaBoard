@@ -244,6 +244,8 @@ namespace AmstaJanBonga.Business
 		Id,
 		///<summary>IsMarkedAsDeleted. </summary>
 		IsMarkedAsDeleted,
+		///<summary>Iterations. </summary>
+		Iterations,
 		///<summary>Password. </summary>
 		Password,
 		///<summary>RoleTypeEnum. </summary>

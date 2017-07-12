@@ -131,8 +131,14 @@ namespace AmstaJanBonga.Business.Database.Readers
             };
 
             filter.AddWithAnd(AgendaEventMetaFields.PatientId == patientId);
+            filter.AddWithAnd(AgendaEventMetaFields.IsMarkedAsDeleted == false);
+            filter.AddWithAnd(AgendaEventFields.IsMarkedAsDeleted == false);
+            filter.AddWithAnd(AgendaEventMetaFields.RepeatInterval != DBNull.Value);
             filter.AddWithOr(AgendaEventMetaFields.Id.SetExpression(subExpression) == 0);
             filter.AddWithAnd(AgendaEventMetaFields.PatientId == patientId);
+            filter.AddWithAnd(AgendaEventMetaFields.IsMarkedAsDeleted == false);
+            filter.AddWithAnd(AgendaEventFields.IsMarkedAsDeleted == false);
+            filter.AddWithAnd(AgendaEventMetaFields.RepeatInterval == DBNull.Value);
 
             var relations = new RelationCollection
             {

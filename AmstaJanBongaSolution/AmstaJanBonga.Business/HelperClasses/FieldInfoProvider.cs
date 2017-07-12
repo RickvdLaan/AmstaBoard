@@ -207,6 +207,7 @@ namespace AmstaJanBonga.Business.HelperClasses
 			this.AddElementFieldInfo("UserEntity", "DateLastModifiedByUserId", typeof(Nullable<System.Int32>), false, false, false, true,  (int)UserFieldIndex.DateLastModifiedByUserId, 0, 0, 10);
 			this.AddElementFieldInfo("UserEntity", "Id", typeof(System.Int32), true, false, true, false,  (int)UserFieldIndex.Id, 0, 0, 10);
 			this.AddElementFieldInfo("UserEntity", "IsMarkedAsDeleted", typeof(System.Boolean), false, false, false, false,  (int)UserFieldIndex.IsMarkedAsDeleted, 0, 0, 0);
+			this.AddElementFieldInfo("UserEntity", "Iterations", typeof(System.Int32), false, false, false, false,  (int)UserFieldIndex.Iterations, 0, 0, 10);
 			this.AddElementFieldInfo("UserEntity", "Password", typeof(System.String), false, false, false, false,  (int)UserFieldIndex.Password, 250, 0, 0);
 			this.AddElementFieldInfo("UserEntity", "RoleTypeEnum", typeof(System.Byte), false, true, false, false,  (int)UserFieldIndex.RoleTypeEnum, 0, 0, 3);
 			this.AddElementFieldInfo("UserEntity", "Salt", typeof(System.String), false, false, false, false,  (int)UserFieldIndex.Salt, 250, 0, 0);

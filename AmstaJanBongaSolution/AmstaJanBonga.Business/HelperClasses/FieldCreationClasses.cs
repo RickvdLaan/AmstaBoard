@@ -492,6 +492,11 @@ namespace AmstaJanBonga.Business.HelperClasses
 		{
 			get { return (EntityField)EntityFieldFactory.Create(UserFieldIndex.IsMarkedAsDeleted);}
 		}
+		/// <summary>Creates a new UserEntity.Iterations field instance</summary>
+		public static EntityField Iterations
+		{
+			get { return (EntityField)EntityFieldFactory.Create(UserFieldIndex.Iterations);}
+		}
 		/// <summary>Creates a new UserEntity.Password field instance</summary>
 		public static EntityField Password
 		{

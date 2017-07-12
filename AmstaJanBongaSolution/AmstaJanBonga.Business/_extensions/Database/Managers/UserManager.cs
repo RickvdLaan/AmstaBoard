@@ -20,13 +20,15 @@ namespace AmstaJanBonga.Business.Database.Managers
             Authentication.AuthenticateActivity("CreateUser");
 
             var salt = RNGCSP.GenerateRandomSalt();
+            const int ITERATIONS = 10000;
 
             var user = new UserEntity()
             {
                 RoleTypeEnum = (byte)roleType,
                 Username = username,
-                Password = PasswordHash.HashPassword(password, salt),
+                Password = PasswordHash.HashPassword(password, salt, ITERATIONS),
                 Salt = Convert.ToBase64String(salt),
+                Iterations = ITERATIONS,
                 IsMarkedAsDeleted = false,
                 DateCreated = DateTime.Now
             };
@@ -58,7 +60,7 @@ namespace AmstaJanBonga.Business.Database.Managers
 
         public static void UpdatePassword(UserEntity user, string password)
         {
-            user.Password = PasswordHash.HashPassword(password, Convert.FromBase64String(user.Salt));
+            user.Password = PasswordHash.HashPassword(password, Convert.FromBase64String(user.Salt), user.Iterations);
 
             user.Save();
         }

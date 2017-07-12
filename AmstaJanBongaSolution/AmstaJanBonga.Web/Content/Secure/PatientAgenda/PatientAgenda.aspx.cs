@@ -112,11 +112,11 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
             for (int i = 0; i < appointments.Count; i++)
             {
                 appointment[0] += this.GenerateAppointment(
-                    appointments[i].Title,
-                    appointments[i].Location, 
+                    Server.HtmlDecode(appointments[i].Title),
+                    Server.HtmlDecode(appointments[i].Location), 
                     new Time(appointments[i].TimeStart), 
                     new Time(appointments[i].TimeEnd),
-                    appointments[i].Description);
+                    Server.HtmlDecode(appointments[i].Description));
             }
 
             this._agendaDay.Rows.Add(appointment);
@@ -155,10 +155,6 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
         /// <returns></returns>
         public string GenerateAppointment(string title, string location, Time startTime, Time endTime, string description)
         {
-            // @incomplete: Minutes aren't being used from the Time object. Use minutes
-            // so appointments that last less than one hour also show up on the agenda.
-            // -R Laan, van der, 4 juli 2017.
-
             // Generates a unique id.
             var id = Guid.NewGuid();
 
@@ -168,12 +164,13 @@ namespace AmstaJanBonga.Web.Content.PatientAgenda
             // 58 and 59 are the default heights.
             //                                                                           -2 because of the border on the bottom
             var height = ((hourLength > 1 ? 59 : 58) * (hourLength)) + (hourLength > 1 ? (hourLength - 2) : 0);
-
+            height += endTime.Minutes - startTime.Minutes;
+        
             // Start hour appointment - start hour of the agenda times the height (which includes the border).
-            var top = (60 * (startTime.Hour - AGENDA_START_HOUR));
+            var top = (60 * (startTime.Hour - AGENDA_START_HOUR)) + startTime.Minutes;
 
             // Html code.
-            return "<div id=\"{0}\" data-remodal-target=\"appointment-remodal\" class=\"appointment red-bg\" style=\"height: {1}px; top: {2}px;\"><dl><dt class=\"dialog-title\">{3}</dt><dd><p><span class=\"label\">Waar:</span><span class=\"dialog-location\">{4}</span></p></dd><dd><p><span class=\"label\">Tijdstip:</span><span class=\"dialog-time\">Van {5} tot {6} uur.</span></p></dd><dd><p><span class=\"label\">Omschrijving:</span><span class=\"dialog-description\">{7}</span></p></dd></dl></div>".FormatString(
+            return "<div id=\"{0}\" data-remodal-target=\"appointment-remodal\" class=\"appointment purple-bg\" style=\"height: {1}px; top: {2}px;\"><dl><dt class=\"dialog-title\">{3}</dt><dd><p><span class=\"label\">Waar:</span><span class=\"dialog-location\">{4}</span></p></dd><dd><p><span class=\"label\">Tijdstip:</span><span class=\"dialog-time\">Van {5} tot {6} uur.</span></p></dd><dd><p><span class=\"label\">Omschrijving:</span><span class=\"dialog-description\">{7}</span></p></dd></dl></div>".FormatString(
                 id, height, top, title, location, startTime.ToString(), endTime.ToString(), description);
         }
 

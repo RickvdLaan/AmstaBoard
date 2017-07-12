@@ -63,7 +63,7 @@
             </tbody>
         </table>
 
-        <asp:Label runat="server" ID="_lblError" CssClass="error"></asp:Label>
+        <asp:Label runat="server" Visible="false" ID="_lblError" CssClass="error"></asp:Label>
     </div>
 
     <div class="buttons">

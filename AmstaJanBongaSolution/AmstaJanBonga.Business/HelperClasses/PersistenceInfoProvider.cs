@@ -205,7 +205,7 @@ namespace AmstaJanBonga.Business.HelperClasses
 		/// <summary>Inits UserEntity's mappings</summary>
 		private void InitUserEntityMappings()
 		{
-			this.AddElementMapping("UserEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "User", 11, 0);
+			this.AddElementMapping("UserEntity", @"Vanderlaan_jouwsoftware_janbonga_development", @"Vanderlaan", "User", 12, 0);
 			this.AddElementFieldMapping("UserEntity", "DateCreated", "DateCreated", false, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 0);
 			this.AddElementFieldMapping("UserEntity", "DateDeleted", "DateDeleted", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 1);
 			this.AddElementFieldMapping("UserEntity", "DateLastLogin", "DateLastLogin", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 2);
@@ -213,10 +213,11 @@ namespace AmstaJanBonga.Business.HelperClasses
 			this.AddElementFieldMapping("UserEntity", "DateLastModifiedByUserId", "DateLastModifiedByUserId", true, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 4);
 			this.AddElementFieldMapping("UserEntity", "Id", "Id", false, "Int", 0, 10, 0, true, "SCOPE_IDENTITY()", null, typeof(System.Int32), 5);
 			this.AddElementFieldMapping("UserEntity", "IsMarkedAsDeleted", "IsMarkedAsDeleted", false, "Bit", 0, 0, 0, false, "", null, typeof(System.Boolean), 6);
-			this.AddElementFieldMapping("UserEntity", "Password", "Password", false, "VarChar", 250, 0, 0, false, "", null, typeof(System.String), 7);
-			this.AddElementFieldMapping("UserEntity", "RoleTypeEnum", "RoleTypeEnum", false, "TinyInt", 0, 3, 0, false, "", null, typeof(System.Byte), 8);
-			this.AddElementFieldMapping("UserEntity", "Salt", "Salt", false, "VarChar", 250, 0, 0, false, "", null, typeof(System.String), 9);
-			this.AddElementFieldMapping("UserEntity", "Username", "Username", false, "VarChar", 50, 0, 0, false, "", null, typeof(System.String), 10);
+			this.AddElementFieldMapping("UserEntity", "Iterations", "Iterations", false, "Int", 0, 10, 0, false, "", null, typeof(System.Int32), 7);
+			this.AddElementFieldMapping("UserEntity", "Password", "Password", false, "VarChar", 250, 0, 0, false, "", null, typeof(System.String), 8);
+			this.AddElementFieldMapping("UserEntity", "RoleTypeEnum", "RoleTypeEnum", false, "TinyInt", 0, 3, 0, false, "", null, typeof(System.Byte), 9);
+			this.AddElementFieldMapping("UserEntity", "Salt", "Salt", false, "VarChar", 250, 0, 0, false, "", null, typeof(System.String), 10);
+			this.AddElementFieldMapping("UserEntity", "Username", "Username", false, "VarChar", 50, 0, 0, false, "", null, typeof(System.String), 11);
 		}
 
 		/// <summary>Inits UserActivityEntity's mappings</summary>

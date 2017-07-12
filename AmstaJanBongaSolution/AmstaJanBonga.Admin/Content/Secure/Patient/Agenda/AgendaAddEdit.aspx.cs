@@ -94,9 +94,6 @@ namespace AmstaJanBonga.Admin.Content.Secure.Patient.Agenda
                 var timeStart = DateTime.ParseExact(this._hfStart.Value.Substring(0, 24), "ddd MMM d yyyy HH:mm:ss", CultureInfo.InvariantCulture);
                 var timeEnd = DateTime.ParseExact(this._hfEnd.Value.Substring(0, 24), "ddd MMM d yyyy HH:mm:ss", CultureInfo.InvariantCulture);
 
-                // @incomplete: Requires a CustomFieldValidator to check the starting and ending time.
-                // R Laan, van der, 4 juli 2017
-
                 // Inserts the agenda event data.
                 var agendaEventId = AgendaEventManager.InsertAgendaEvent(
                     this._txtTitle.Text,                                    // The titel of the appointment

@@ -9,9 +9,6 @@ namespace AmstaJanBonga.Business.Security
 
         private const int HASH_BYTE_SIZE = 24;         // To match the size of the PBKDF2-HMAC-SHA-1 hash  (192-bit)
 
-        // @incomplete: Add this to the database. 
-        private const int PBKDF2_ITERATIONS_V1 = 10000;
-
         #endregion
 
         #region Methods
@@ -22,9 +19,9 @@ namespace AmstaJanBonga.Business.Security
         /// <param name="password">Provide the password in plain text.</param>
         /// <param name="salt">Provide a RNGCryptoServiceProvider generated salt.</param>
         /// <returns>The hash value.</returns>
-        public static string HashPassword(string password, byte[] salt)
+        public static string HashPassword(string password, byte[] salt, int iterations)
         {
-            var hash = GetPbkdf2Bytes(password, salt, PBKDF2_ITERATIONS_V1, HASH_BYTE_SIZE);
+            var hash = GetPbkdf2Bytes(password, salt, iterations, HASH_BYTE_SIZE);
 
             return Convert.ToBase64String(hash);
         }
@@ -36,9 +33,9 @@ namespace AmstaJanBonga.Business.Security
         /// <param name="salt"></param>
         /// <param name="storedHash"></param>
         /// <returns></returns>
-        public static bool ValidatePassword(string password, string salt, string storedHash)
+        public static bool ValidatePassword(string password, string salt, string storedHash, int iterations)
         {
-            var hash = GetPbkdf2Bytes(password, Convert.FromBase64String(salt), PBKDF2_ITERATIONS_V1, HASH_BYTE_SIZE);
+            var hash = GetPbkdf2Bytes(password, Convert.FromBase64String(salt), iterations, HASH_BYTE_SIZE);
 
             return SlowEquals(Convert.FromBase64String(storedHash), hash);
         }

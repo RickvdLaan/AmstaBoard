@@ -70,7 +70,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
             if (this.HasLivingRoomId)
             {
                 // Sets the descriptions.
-                this._txtGeneral.Text = LivingRoomGeneral.Description.Replace("<br />", Environment.NewLine);
+                this._txtGeneral.Text = Server.HtmlDecode(LivingRoomGeneral.Description).Replace("<br />", Environment.NewLine);
             }
         }
 
@@ -91,7 +91,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
 
         protected void _btnSave_Click(object sender, EventArgs e)
         {
-            if (this.LivingRoomGeneral.Description != this._txtGeneral.Text)
+            if (Server.HtmlDecode(this.LivingRoomGeneral.Description) != Server.HtmlEncode(this._txtGeneral.Text))
             {
                 this.Save();
             }

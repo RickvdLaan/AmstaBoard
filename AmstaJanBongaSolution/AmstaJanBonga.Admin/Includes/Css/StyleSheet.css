@@ -838,7 +838,8 @@ a {
 
 table.table-add-edit tbody tr td input,
 table.table-add-edit tbody tr td .calendar-wrapper,
-table.table-add-edit tbody tr td .js-listbox-container {
+table.table-add-edit tbody tr td .js-listbox-container,
+table.table-add-edit  tbody tr td select {
     margin-bottom: 30px;
 }
 
@@ -867,6 +868,7 @@ span.error {
     background-color: #ffd8d8;
     padding: 10px;
     border: 1px solid #fa010f;
+    vertical-align: top;
 }
 
 /* Loading screen */
@@ -1073,11 +1075,11 @@ span.error {
 
     .shortcut a { display: block; padding: 5px 0; margin-left: 0; }
 
-    .widget {
-        display: block;
-        width: 100%;
-        margin-bottom: 20px;
-    }
+    .widget { display: block; width: 100%; margin-bottom: 20px; }
+
+    span.error { margin-bottom: 15px; display: inline-block !important; margin-left: 0; margin-right: 15px; }
+    
+    table.table-add-edit tbody tr td input, table.table-add-edit tbody tr td .calendar-wrapper, table.table-add-edit tbody tr td .js-listbox-container, table.table-add-edit tbody tr td select { margin-bottom: 15px; }
 
     .widget:last-of-type { margin-bottom: 0; }
 }

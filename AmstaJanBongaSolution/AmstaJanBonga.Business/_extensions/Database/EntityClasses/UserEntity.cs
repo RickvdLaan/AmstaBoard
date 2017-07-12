@@ -43,7 +43,7 @@ namespace AmstaJanBonga.Business.EntityClasses
         /// <returns></returns>
         public bool IsValidPassword(string password)
         {
-            return PasswordHash.ValidatePassword(password, this.Salt, this.Password);
+            return PasswordHash.ValidatePassword(password, this.Salt, this.Password, this.Iterations);
         }
 
         #endregion

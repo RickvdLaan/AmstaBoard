@@ -75,7 +75,7 @@ namespace AmstaJanBonga.Business.Database.Managers
             originalCollection.AddRange(newCollection);
             originalCollection.RemovedEntitiesTracker.DeleteMulti();
 
-            newCollection.SaveMulti();
+            originalCollection.SaveMulti();
         }
 
         public static void DeleteLivingRoomShiftEvent(int livingRoomId, DateTime date)

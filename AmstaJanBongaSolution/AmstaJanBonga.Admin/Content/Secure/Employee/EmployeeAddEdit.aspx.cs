@@ -56,7 +56,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Employee
             // Edit
             if (this.HasEmployeeId)
             {
-                this._txtFirstName.Text = this.Employee.FirstName;
+                this._txtFirstName.Text = Server.HtmlDecode(this.Employee.FirstName);
                 this._btnDeleteExistingPicture.Enabled = !string.IsNullOrEmpty(this.Employee.ImagePath);
             }
         }

@@ -257,7 +257,6 @@
           <Field Name="DateLastModifiedByUserId" Type="int" IsOptional="true" Precision="10" />
           <Field Name="Id" Type="int" IsReadOnly="true" Precision="10" IsPrimaryKey="true" />
           <Field Name="IsMarkedAsDeleted" Type="bool" />
-          <Field Name="Iterations" Type="int" Precision="10" />
           <Field Name="Password" Type="string" MaxLength="250" />
           <Field Name="RoleTypeEnum" Type="byte" Precision="3" />
           <Field Name="Salt" Type="string" MaxLength="250" />
@@ -410,7 +409,7 @@
       <Catalogs>
         <Catalog Name="Vanderlaan_jouwsoftware_janbonga_development">
           <Schemas>
-            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-07-12T10:44:27.4909658Z">
+            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-07-10T14:56:00.8687594Z">
               <StoredProcedures>
                 <StoredProcedure Name="sp_alterdiagram">
                   <Parameters>
@@ -478,7 +477,7 @@
                 </StoredProcedure>
               </StoredProcedures>
             </Schema>
-            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-07-12T10:44:27.5499692Z">
+            <Schema Name="Vanderlaan" SyncSource="2" LastSyncWithDatabase="2017-07-10T14:56:00.9627648Z">
               <Tables>
                 <Table Name="AgendaEvent">
                   <PkConstraintName Name="PK_AgendaEvent" />
@@ -616,13 +615,12 @@
                     <Field Name="Username" Ordinal="3" DbType="24" Length="50" />
                     <Field Name="Password" Ordinal="4" DbType="24" Length="250" />
                     <Field Name="Salt" Ordinal="5" DbType="24" Length="250" />
-                    <Field Name="Iterations" Ordinal="6" DbType="8" Precision="10" />
-                    <Field Name="IsMarkedAsDeleted" Ordinal="7" HasDefaultValue="true" DefaultValue="(0)" DbType="2" />
-                    <Field Name="DateCreated" Ordinal="8" DbType="4" />
-                    <Field Name="DateLastLogin" Ordinal="9" IsOptional="true" DbType="4" />
-                    <Field Name="DateLastModified" Ordinal="10" IsOptional="true" DbType="4" />
-                    <Field Name="DateLastModifiedByUserId" Ordinal="11" IsOptional="true" DbType="8" Precision="10" />
-                    <Field Name="DateDeleted" Ordinal="12" IsOptional="true" DbType="4" />
+                    <Field Name="IsMarkedAsDeleted" Ordinal="6" HasDefaultValue="true" DefaultValue="(0)" DbType="2" />
+                    <Field Name="DateCreated" Ordinal="7" DbType="4" />
+                    <Field Name="DateLastLogin" Ordinal="8" IsOptional="true" DbType="4" />
+                    <Field Name="DateLastModified" Ordinal="9" IsOptional="true" DbType="4" />
+                    <Field Name="DateLastModifiedByUserId" Ordinal="10" IsOptional="true" DbType="8" Precision="10" />
+                    <Field Name="DateDeleted" Ordinal="11" IsOptional="true" DbType="4" />
                   </Fields>
                   <UniqueConstraints>
                     <UniqueConstraint Name="UC_Username">
@@ -687,10 +685,9 @@
                     <Resultset Name="Resultset1">
                       <Fields>
                         <Field Name="Name" Ordinal="1" DbType="24" Length="50" />
-                        <Field Name="Id" Ordinal="2" DbType="8" Precision="10" />
-                        <Field Name="ChoreCount" Ordinal="3" IsOptional="true" DbType="8" Precision="10" />
-                        <Field Name="ShiftCount" Ordinal="4" IsOptional="true" DbType="8" Precision="10" />
-                        <Field Name="GeneralCount" Ordinal="5" IsOptional="true" DbType="8" Precision="10" />
+                        <Field Name="ChoreCount" Ordinal="2" IsOptional="true" DbType="8" Precision="10" />
+                        <Field Name="ShiftCount" Ordinal="3" IsOptional="true" DbType="8" Precision="10" />
+                        <Field Name="GeneralCount" Ordinal="4" IsOptional="true" DbType="8" Precision="10" />
                       </Fields>
                     </Resultset>
                   </Resultsets>
@@ -904,7 +901,6 @@
             <FieldMapping FieldName="DateLastModifiedByUserId" TargetFieldName="DateLastModifiedByUserId" />
             <FieldMapping FieldName="Id" TargetFieldName="Id" SequenceToUse="SCOPE_IDENTITY()" />
             <FieldMapping FieldName="IsMarkedAsDeleted" TargetFieldName="IsMarkedAsDeleted" />
-            <FieldMapping FieldName="Iterations" TargetFieldName="Iterations" />
             <FieldMapping FieldName="Password" TargetFieldName="Password" />
             <FieldMapping FieldName="RoleTypeEnum" TargetFieldName="RoleTypeEnum" />
             <FieldMapping FieldName="Salt" TargetFieldName="Salt" />

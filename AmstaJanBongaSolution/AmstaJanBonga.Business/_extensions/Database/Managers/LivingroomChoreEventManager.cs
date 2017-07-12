@@ -39,7 +39,7 @@ namespace AmstaJanBonga.Business.Database.Managers
         /// <returns></returns>
         public static LivingRoomChoreEventEntity CreateLivingRoomChoreEventEntity(int patientId, int livingRoomId, DateTime date, TimeOfDayTypeEnum timeOfDay)
         {
-            Authentication.AuthenticateActivity("CreateLivingRoomChoreEvent");
+            // Doesn't require a permission because it only creates an entity.
 
             var chore = new LivingRoomChoreEventEntity()
             {
@@ -54,7 +54,7 @@ namespace AmstaJanBonga.Business.Database.Managers
         }
 
         /// <summary>
-        /// Inserts multiple 
+        /// Inserts multiple chores.
         /// </summary>
         /// <param name="chore"></param>
         public static void InsertMulti(LivingRoomChoreEventCollection chores)
@@ -73,9 +73,16 @@ namespace AmstaJanBonga.Business.Database.Managers
 
             originalCollection.RemovedEntitiesTracker.AddRange(originalCollection);
             originalCollection.AddRange(newCollection);
-            originalCollection.RemovedEntitiesTracker.DeleteMulti();
 
-            newCollection.SaveMulti();
+            // @bug: for some reason DeleteMulti doesn't work here? It does work everywhere else,
+            // but can't find a difference anywhere in how the data is being used.
+            // single deletes do work, maybe this is enough for the future?
+            foreach (var chore in originalCollection.RemovedEntitiesTracker)
+            {
+                (chore as LivingRoomChoreEventEntity).Delete();
+            }
+
+            originalCollection.SaveMulti();
         }
 
 

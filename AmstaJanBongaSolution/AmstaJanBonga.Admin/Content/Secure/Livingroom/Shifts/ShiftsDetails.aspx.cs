@@ -96,16 +96,27 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.Shifts
                 {
                     if (shift.ShiftTypeEnum == (byte)ShiftTypeEnum.Day)
                     {
+                        if (!string.IsNullOrWhiteSpace(this._lblDay.Text))
+                            this._lblDay.Text += ", ";
+
                         this._lblDay.Text += shift.Employee.FirstName;
                     }
                     else if (shift.ShiftTypeEnum == (byte)ShiftTypeEnum.Evening)
                     {
+                        if (!string.IsNullOrWhiteSpace(this._lblEvening.Text))
+                            this._lblEvening.Text += ", ";
+
                         this._lblEvening.Text += shift.Employee.FirstName;
                     }
                     else
                         throw new NotImplementedException("ShiftTypeEnum with value {0} was not implemented, or does not exist.".FormatString(shift.ShiftTypeEnum));
                 }
             }
+
+            if (!string.IsNullOrWhiteSpace(this._lblDay.Text))
+                this._lblDay.Text += ".";
+            if (!string.IsNullOrWhiteSpace(this._lblEvening.Text))
+                this._lblEvening.Text += ".";
         }
 
         #endregion

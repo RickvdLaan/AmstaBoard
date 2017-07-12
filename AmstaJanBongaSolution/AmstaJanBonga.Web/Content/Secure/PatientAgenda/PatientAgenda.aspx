@@ -143,7 +143,7 @@
     </asp:UpdatePanel>
     
     <!-- Dialog -->
-    <div id="appointment-dialog" class="remodal red-bg no-select" data-remodal-id="appointment-remodal" data-remodal-options="hashTracking: false">
+    <div id="appointment-dialog" class="remodal purple-bg no-select" data-remodal-id="appointment-remodal" data-remodal-options="hashTracking: false">
         <table>
             <thead>
                 <tr>

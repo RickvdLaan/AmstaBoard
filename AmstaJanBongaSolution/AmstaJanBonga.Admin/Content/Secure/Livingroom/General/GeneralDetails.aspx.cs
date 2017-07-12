@@ -89,7 +89,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
             {
                 this._lblDate.Text = this.QueryStringDate.ToString("dd-MM-yyyy");
                 this._lblLivingroom.Text = this.Livingroom.Name;
-                this._lblDescription.Text = this.LivingRoomGeneralEvent.Description;
+                this._lblDescription.Text = Server.HtmlDecode(this.LivingRoomGeneralEvent.Description);
             }
         }
 

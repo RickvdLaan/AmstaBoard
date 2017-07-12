@@ -77,7 +77,7 @@ namespace AmstaJanBonga.Business.Security
                         return;
                 }
 
-                // @incomplete: 
+                // @incomplete: maybe official http error?
 
                 // User doesn't have the right privileges. 
                 HttpContext.Current.Response.Redirect("~/InsufficientPrivileges");

@@ -90,21 +90,21 @@ namespace AmstaJanBonga.Web.Content
 
             if (generalEvent != null)
             {
-                if (!string.IsNullOrWhiteSpace(generalEvent.LivingRoom.LivingRoomGeneral.Description))
+                if (!string.IsNullOrWhiteSpace(Server.HtmlDecode(generalEvent.LivingRoom.LivingRoomGeneral.Description)))
                 {
-                    this._litGeneral.Text += generalEvent.LivingRoom.LivingRoomGeneral.Description;
+                    this._litGeneral.Text += Server.HtmlDecode( generalEvent.LivingRoom.LivingRoomGeneral.Description);
                     this._litGeneral.Text += "<br /><br />";
                 }
 
-                this._litGeneral.Text += generalEvent.Description;
+                this._litGeneral.Text += Server.HtmlDecode(generalEvent.Description);
             }
             // No date was added, so trying again.
             else
             {
                 var general = LivingRoomGeneralReader.GetLivingRoomGeneralById(this.CurrentLivingRoomId, false);
 
-                if (general != null && !string.IsNullOrWhiteSpace(general.Description))
-                    this._litGeneral.Text += general.Description;
+                if (general != null && !string.IsNullOrWhiteSpace(Server.HtmlDecode(general.Description)))
+                    this._litGeneral.Text += Server.HtmlDecode(general.Description);
             }
         }
 

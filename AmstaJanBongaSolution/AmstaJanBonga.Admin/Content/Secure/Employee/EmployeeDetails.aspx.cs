@@ -54,7 +54,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Employee
         {
             if (this.HasEmployeeId)
             {
-                this._lblFirstName.Text = this.Employee.FirstName.CapitalizeFirstLetter();
+                this._lblFirstName.Text = Server.HtmlDecode(this.Employee.FirstName).CapitalizeFirstLetter();
                 this._lblLivingroom.Text = this.Employee.LivingRoom.Name;
                 this._imgEmployee.ImageUrl = this.Employee.ImagePath;
                 this._lblUsername.Text = this.Employee.UserId.HasValue ? this.Employee.User.Username : "Geen account gekoppeld.";
