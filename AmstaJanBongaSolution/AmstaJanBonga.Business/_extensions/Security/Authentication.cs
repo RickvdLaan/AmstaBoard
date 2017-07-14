@@ -85,10 +85,13 @@ namespace AmstaJanBonga.Business.Security
             // The user is not logged in, redirecting!
             else
             {
+
                 // Logging the current event for investigation.
                 if (Project.Environment.IsStagingEnvironment || Project.Environment.IsLiveEnvironment)
-                    Log.Object(AuthenticatedUser, "The AuthenticatedUser wasn't logged in on the AuthenticateActivity check.");
-
+                {
+                    // @bug: "Unable to read data from the transport connection: net_io_connectionclosed.".
+                    //Log.Object(AuthenticatedUser, "The AuthenticatedUser wasn't logged in on the AuthenticateActivity check.");
+                }
                 // Redirecting to the login page.
                 HttpContext.Current.Response.Redirect(FormsAuthentication.LoginUrl);
             }

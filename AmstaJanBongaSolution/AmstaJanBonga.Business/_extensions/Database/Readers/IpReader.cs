@@ -11,7 +11,9 @@ namespace AmstaJanBonga.Business.Database.Readers
         /// <returns></returns>
         public static IpCollection GetAllIps()
         {
-            Authentication.AuthenticateActivity("ReadIP");
+            // Login page on AmstaBord uses it before a user is authenticated.
+            if (Authentication.IsAuthenticated)
+                Authentication.AuthenticateActivity("ReadIP");
 
             var ips = new IpCollection();
             ips.GetMulti(null, -1);

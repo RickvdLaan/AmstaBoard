@@ -99,8 +99,10 @@ namespace AmstaJanBonga.Admin.Content.Secure.Patient.Agenda
                     this._txtTitle.Text,                                    // The titel of the appointment
                     (timeStart.Hour * 60) + timeStart.TimeOfDay.Minutes,    // The starting time
                     (timeEnd.Hour * 60) + timeEnd.TimeOfDay.Minutes,        // The ending time
-                    this._txtLocation.Text,                                 // The location of the appointment
-                    this._txtDescription.Text);                             // The description of  the appointment
+                    string.IsNullOrWhiteSpace(this._txtLocation.Text)
+                    ? null : this._txtDescription.Text,                     // The location of the appointment
+                    string.IsNullOrWhiteSpace(this._txtDescription.Text) 
+                    ? null  : this._txtDescription.Text);                   // The description of  the appointment
 
                 // Inserts the agenda event meta data.
                 AgendaEventMetaManager.InsertAgendaEventMeta(
@@ -121,8 +123,10 @@ namespace AmstaJanBonga.Admin.Content.Secure.Patient.Agenda
                     this._txtTitle.Text,                                    // The titel of the appointment
                     (timeStart.Hour * 60) + timeStart.TimeOfDay.Minutes,    // The starting time
                     (timeEnd.Hour * 60) + timeEnd.TimeOfDay.Minutes,        // The ending time
-                    this._txtLocation.Text,                                 // The location of the appointment
-                    this._txtDescription.Text);                             // The description of  the appointment
+                    string.IsNullOrWhiteSpace(this._txtLocation.Text)
+                    ? null : this._txtDescription.Text,                     // The location of the appointment
+                    string.IsNullOrWhiteSpace(this._txtDescription.Text)
+                    ? null : this._txtDescription.Text);                   // The description of  the appointment
 
                 // Updates the agenda event meta data.
                 AgendaEventMetaManager.UpdateAgendaEventMeta(

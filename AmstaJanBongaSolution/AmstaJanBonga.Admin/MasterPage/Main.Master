@@ -6,9 +6,13 @@
     <head runat="server">
         <title>AmstaBoard - CMS</title>
 
-        <link href="~/Includes/Css/StyleSheet.css?build=05072017v1" rel="stylesheet" />
-        <link href="~/Includes/Css/Addons.css?build=05072017v1" rel="stylesheet" />
+        <link href="~/Includes/Css/StyleSheet.css?build=04072017" rel="stylesheet" />
+        <link href="~/Includes/Css/Addons.css?build=04072017" rel="stylesheet" />
+        
         <link href="~/Includes/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+        <link href="~/Includes/elusive-icons-2.0.0/css/elusive-icons.css" rel="stylesheet" />
+
+
         <link rel="shortcut icon" type="image/x-icon" href="~/Includes/Css/Images/favicon.png" />
 
         <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,400italic,600' rel='stylesheet' type='text/css' />

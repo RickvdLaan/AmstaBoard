@@ -9,7 +9,7 @@ namespace AmstaJanBonga.Business.Database.Managers
     {
         public static void InsertLivingRoom(string name, ColourTypeEnum colourType)
         {
-            Authentication.AuthenticateActivity("InsertLivingRoom");
+            Authentication.AuthenticateActivity("CreateLivingRoom");
 
             var livingRoom = new LivingRoomEntity()
             {

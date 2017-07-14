@@ -357,7 +357,7 @@ a {
 }
 
 .shortcut {
-    background-color: #ededed;
+    background-color: rgba(255,146,0, 0.05);
     border-radius: 3px;
     line-height: 1.8em;
     margin-bottom: 20px;
@@ -603,7 +603,7 @@ a {
     color: #f08a00;
 }
 
-#content .gridview .fa-trash-o {
+#content .gridview .el-broom {
     color: #00aaff;
 }
 
@@ -944,6 +944,7 @@ span.error {
     overflow: auto;
     vertical-align: top;
     font-size: 17px;
+    background-color: rgba(255,146,0, 0.05);
 }
 
 .widget:last-of-type {
@@ -960,7 +961,7 @@ span.error {
         color: #f08a00;
     }
 
-    .widget .fa-trash-o {
+    .widget .el-broom {
         color: #00aaff;
     }
 
@@ -1077,7 +1078,7 @@ span.error {
 
     .widget { display: block; width: 100%; margin-bottom: 20px; }
 
-    span.error { margin-bottom: 15px; display: inline-block !important; margin-left: 0; margin-right: 15px; }
+    span.error[style*="inline"] { margin-bottom: 15px; display: inline-block !important; margin-left: 0; margin-right: 15px; }
     
     table.table-add-edit tbody tr td input, table.table-add-edit tbody tr td .calendar-wrapper, table.table-add-edit tbody tr td .js-listbox-container, table.table-add-edit tbody tr td select { margin-bottom: 15px; }
 

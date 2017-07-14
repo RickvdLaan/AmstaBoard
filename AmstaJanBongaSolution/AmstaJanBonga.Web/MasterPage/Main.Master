@@ -4,9 +4,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head runat="server">
-        <title>AmstaBoard</title>
+        <title>AmstaBord</title>
         
-        <link href="~/Includes/Css/StyleSheet.css?build=06062017v1" rel="stylesheet" />
+        <link href="~/Includes/Css/StyleSheet.css?build=04072017" rel="stylesheet" />
         <link rel="shortcut icon" type="image/x-icon" href="~/Includes/Css/Images/favicon.png" />
 
         <script src="/Includes/Js/disable-right-click.js"></script>
@@ -17,7 +17,7 @@
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>  
        
         <!-- Loading FontAwesome before rendering the page -->
-        <script type="text/javascript"> 
+        <%--<script type="text/javascript"> 
             (function () {
                 var css = document.createElement('link');
                 css.href = '/Includes/font-awesome-4.7.0/css/font-awesome.min.css';
@@ -26,7 +26,10 @@
 
                 document.getElementsByTagName('head')[0].appendChild(css);
             })(); 
-        </script>
+        </script>--%>
+
+        <link href="~/Includes/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+        <link href="~/Includes/elusive-icons-2.0.0/css/elusive-icons.css" rel="stylesheet" />
 
         <!-- ContentPlaceHolder Head -->
         <asp:ContentPlaceHolder ID="_cphHead" runat="server">

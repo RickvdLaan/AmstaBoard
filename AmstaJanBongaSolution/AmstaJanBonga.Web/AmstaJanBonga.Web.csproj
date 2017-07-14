@@ -134,6 +134,8 @@
     <Content Include="Includes\Css\Images\favicon.png" />
     <Content Include="Includes\Css\Images\logo.svg" />
     <Content Include="Includes\Css\Login.css" />
+    <Content Include="Includes\elusive-icons-2.0.0\css\elusive-icons.css" />
+    <Content Include="Includes\elusive-icons-2.0.0\fonts\elusiveicons-webfont.svg" />
     <Content Include="Includes\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="Includes\font-awesome-4.7.0\css\font-awesome.min.css" />
     <Content Include="Includes\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
@@ -182,6 +184,9 @@
     <Content Include="Includes\font-awesome-4.7.0\scss\_screen-reader.scss" />
     <Content Include="Includes\font-awesome-4.7.0\scss\_stacked.scss" />
     <Content Include="Includes\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="Includes\elusive-icons-2.0.0\fonts\elusiveicons-webfont.eot" />
+    <Content Include="Includes\elusive-icons-2.0.0\fonts\elusiveicons-webfont.ttf" />
+    <Content Include="Includes\elusive-icons-2.0.0\fonts\elusiveicons-webfont.woff" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

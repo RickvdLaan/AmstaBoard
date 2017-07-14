@@ -156,13 +156,17 @@
     <Content Include="Includes\Css\Addons.css" />
     <Content Include="Includes\Css\Images\favicon.png" />
     <Content Include="Includes\Css\Images\logo.svg" />
+    <Content Include="Includes\elusive-icons-2.0.0\css\elusive-icons.css" />
+    <Content Include="Includes\elusive-icons-2.0.0\fonts\elusiveicons-webfont.svg" />
     <Content Include="Includes\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="Includes\font-awesome-4.7.0\css\font-awesome.min.css" />
     <Content Include="Includes\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
     <Content Include="Includes\font-awesome-4.7.0\HELP-US-OUT.txt" />
-    <Content Include="Includes\jquery.datetimepicker.css" />
-    <Content Include="Includes\jquery.datetimepicker.full.js" />
-    <Content Include="Includes\jquery.datetimepicker.min.css" />
+    <Content Include="Includes\Js\datepicker\jquery.datetimepicker.css" />
+    <Content Include="Includes\Js\datepicker\jquery.datetimepicker.full.js" />
+    <Content Include="Includes\Js\datepicker\jquery.datetimepicker.full.min.js" />
+    <Content Include="Includes\Js\datepicker\jquery.datetimepicker.min.css" />
+    <Content Include="Includes\Js\datepicker\jquery.datetimepicker.min.js" />
     <Content Include="Includes\Js\load-screen.js" />
     <Content Include="Includes\Js\mobile-navigation.js" />
     <Content Include="Includes\Js\remodal-1.1.1\dist\remodal-default-theme.css" />
@@ -208,6 +212,9 @@
     <Content Include="Includes\font-awesome-4.7.0\scss\_screen-reader.scss" />
     <Content Include="Includes\font-awesome-4.7.0\scss\_stacked.scss" />
     <Content Include="Includes\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="Includes\elusive-icons-2.0.0\fonts\elusiveicons-webfont.eot" />
+    <Content Include="Includes\elusive-icons-2.0.0\fonts\elusiveicons-webfont.ttf" />
+    <Content Include="Includes\elusive-icons-2.0.0\fonts\elusiveicons-webfont.woff" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

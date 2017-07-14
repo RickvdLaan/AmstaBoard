@@ -1,8 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Main.Master" AutoEventWireup="true" CodeBehind="AgendaAddEdit.aspx.cs" Inherits="AmstaJanBonga.Admin.Content.Secure.Patient.Agenda.AgendaAddEdit" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="_cphHead" runat="server">
-    <link href="../../../../Includes/jquery.datetimepicker.min.css" rel="stylesheet" />
-    <script src="../../../../Includes/jquery.datetimepicker.full.js"></script>
+    <link href="../../../../Includes/js/datepicker/jquery.datetimepicker.min.css" rel="stylesheet" />
+    <script src="../../../../Includes/js/datepicker/jquery.datetimepicker.full.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="_cphMainTitle" runat="server">
     Afspraak
@@ -45,6 +45,7 @@
                     </td>
                     <td>
                         <asp:TextBox runat="server" ID="_txtStart" CssClass="textbox" ReadOnly="true" placeholder="Start datum en tijd"></asp:TextBox>
+                        <asp:RequiredFieldValidator runat="server" Enabled="false" ValidateRequestMode="Enabled" CssClass="error" ErrorMessage="Verplichte velden kunnen niet leeg blijven." Display="Dynamic" ControlToValidate="_txtStart" ValidationGroup="Validate"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
 
@@ -54,6 +55,7 @@
                     </td>
                     <td>
                         <asp:TextBox runat="server" ID="_txtEnd" CssClass="textbox" ReadOnly="true" placeholder="Eindtijd"></asp:TextBox>
+                        <asp:RequiredFieldValidator runat="server" Enabled="false" ValidateRequestMode="Enabled" CssClass="error" ErrorMessage="Verplichte velden kunnen niet leeg blijven." Display="Dynamic" ControlToValidate="_txtEnd" ValidationGroup="Validate"></asp:RequiredFieldValidator>
                         <asp:CustomValidator ID="_cvEndTime" runat="server" ValidateRequestMode="Enabled" CssClass="error" ErrorMessage="De eindtijd kan niet eerder, of gelijk zijn aan de starttijd." Display="Dynamic" ValidationGroup="Validate" OnServerValidate="_cvEndTime_ServerValidate"></asp:CustomValidator>
                     </td>
                 </tr>
@@ -96,32 +98,7 @@
         <asp:Button runat="server" ID="_btnCancel" CssClass="button button-cancel red-bg" Text="Annuleren" OnClick="_btnCancel_Click" />
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <script>
+    <script>
             jQuery.datetimepicker.setLocale('nl');
 
             $('#<%= _txtStart.ClientID %>').datetimepicker({

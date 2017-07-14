@@ -111,6 +111,8 @@ namespace AmstaJanBonga.Admin.Content.Secure.Patient.Agenda
         protected void _gvPatientAgendaRepeat_PageIndexChanging(object sender, System.Web.UI.WebControls.GridViewPageEventArgs e)
         {
             this._gvPatientAgendaRepeat.PageIndex = e.NewPageIndex;
+
+            this.DataBindAgendaEvents();
         }
         
         // Single
@@ -133,6 +135,8 @@ namespace AmstaJanBonga.Admin.Content.Secure.Patient.Agenda
         protected void _gvPatientAgenda_PageIndexChanging(object sender, System.Web.UI.WebControls.GridViewPageEventArgs e)
         {
             this._gvPatientAgenda.PageIndex = e.NewPageIndex;
+
+            this.DataBindAgendaEvents();
         }
 
         // Delete
@@ -146,7 +150,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Patient.Agenda
             // Mark patient as deleted.
             AgendaEventMetaManager.MarkAgendaEventMetaAsDeleted(agendaEventMetaId);
 
-            Url.Refresh();
+            this.DataBindAgendaEvents();
         }
 
         #endregion

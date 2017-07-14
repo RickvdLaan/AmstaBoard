@@ -73,6 +73,8 @@
         <!-- 33kb -->
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>  
        
+        <link rel="shortcut icon" type="image/x-icon" href="~/Includes/Css/Images/favicon.png" />
+
         <!-- Loading FontAwesome before rendering the page -->
         <script type="text/javascript"> 
             (function () {

@@ -4,9 +4,11 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head runat="server">
-        <title>CMS - Login</title>
+        <title>AmstaBord CMS - Login</title>
 
-        <link href="~/Includes/Css/Login.css?build=05072017v1" rel="stylesheet" />
+        <link href="~/Includes/Css/Login.css?build=04072017" rel="stylesheet" />
+        
+        <link rel="shortcut icon" type="image/x-icon" href="~/Includes/Css/Images/favicon.png" />
 
         <meta charset="UTF-8" />
         <meta name="robots" content="noindex, nofollow" />

@@ -98,7 +98,7 @@
     <div class="tile chores">
         <h2>
             Corvee
-            <i class="fa fa-trash-o" aria-hidden="true"></i>
+            <i class="el el-broom" aria-hidden="true"></i>
         </h2>
 
         <asp:HiddenField runat="server" ID="_hfPatient" />

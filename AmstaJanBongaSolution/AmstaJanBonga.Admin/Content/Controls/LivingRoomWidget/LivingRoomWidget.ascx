@@ -23,7 +23,7 @@
                 </td>
 
                 <td>
-                    <i class="fa fa-trash-o" aria-hidden="true" title="Corvee"></i>
+                    <i class="el el-broom" aria-hidden="true" title="Corvee"></i>
                 </td>
             </tr>
         </thead>

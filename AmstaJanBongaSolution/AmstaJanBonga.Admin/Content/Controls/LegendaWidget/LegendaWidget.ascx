@@ -44,7 +44,7 @@
                     <span>Bewerken</span>
                 </td>
                 <td>
-                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                    <i class="el el-broom" aria-hidden="true"></i>
                     <span>Corvee</span>
                 </td>
             </tr>
