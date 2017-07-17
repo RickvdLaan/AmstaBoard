@@ -11,11 +11,6 @@
     3 Content
         - 3.1 Information bar
         - 3.2 Livingroom
-    4. Keyframes
-        - 4.1 Animation Classes
-        - 4.2 Keyframes
-    5. Responsive
-        - Use the same Table of Contents markup for all @media sections.
 */
 
 /*
@@ -847,34 +842,3 @@ section .image-chores {
     .error-div h2 {
         margin-bottom: 15px;
     }
-
-/* 
-    4. Keyframes
-
-    4.1 Animation Classes
-*/
-
-/*
-    4.2 Keyframes
-*/
-
-/* 
-    5. Responsive 
-*/
-
-
-
-
-
-@media (max-width: 1920) {
-  #form {
-    display: none;
-  }
-}
-
-
-@media (max-height: 1080) {
-  #form {
-    display: none;
-  }
-}

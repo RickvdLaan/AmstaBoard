@@ -49,6 +49,10 @@
     $("a").click(function () {	
         var href = $(this).attr('href');
 
+        // Ignoring the # hrefs.
+        if (href.indexOf("#") != -1)
+            return;
+
         if (!isCtrlPressed) {
             // Ignoring all the anchors in controls which do postbacks, or update panels, etc.
             if (($(this).hasClass("js-listbox-button")) || (href.indexOf("ExtendedCalendar") != -1) || $(this).hasClass("delete")) {

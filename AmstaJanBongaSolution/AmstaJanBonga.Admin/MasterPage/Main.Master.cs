@@ -22,8 +22,12 @@ namespace AmstaJanBonga.Admin.MasterPage
             else if (Url.GetFullUrl.Contains("LivingRoom"))
                 this._liLivingRoom.Attributes.Add("class", "nav-menu-active");
             else if (Url.GetFullUrl.Contains("Settings"))
+            {
                 if (Authentication.AuthenticatedUser.RoleTypeEnum == (byte)RoleTypeEnum.Root)
                     this._liSettings.Attributes.Add("class", "nav-menu-active");
+            }
+            else if (Url.GetFullUrl.Contains("Help"))
+                this._liHelp.Attributes.Add("class", "nav-menu-active");
         }
 
         #region Overrides

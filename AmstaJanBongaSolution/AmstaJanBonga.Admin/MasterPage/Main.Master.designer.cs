@@ -103,6 +103,15 @@ namespace AmstaJanBonga.Admin.MasterPage {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl _liSettings;
         
         /// <summary>
+        /// _liHelp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl _liHelp;
+        
+        /// <summary>
         /// _lbSignOut control.
         /// </summary>
         /// <remarks>

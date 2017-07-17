@@ -123,6 +123,7 @@
     <Content Include="Content\Controls\LegendaWidget\LegendaWidget.ascx" />
     <Content Include="Content\Controls\LivingRoomWidget\LivingRoomWidget.ascx" />
     <Content Include="Content\Secure\Dashboard.aspx" />
+    <Content Include="Content\Secure\Help\Help.aspx" />
     <Content Include="Content\Secure\InsufficientPrivileges\InsufficientPrivileges.aspx" />
     <Content Include="Content\Secure\LivingRoom\Chores\ChoresAddEdit.aspx" />
     <Content Include="Content\Secure\LivingRoom\Chores\ChoresDetails.aspx" />
@@ -293,6 +294,13 @@
     </Compile>
     <Compile Include="Content\Secure\Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Content\Secure\Help\Help.aspx.cs">
+      <DependentUpon>Help.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\Secure\Help\Help.aspx.designer.cs">
+      <DependentUpon>Help.aspx</DependentUpon>
     </Compile>
     <Compile Include="Content\Secure\InsufficientPrivileges\InsufficientPrivileges.aspx.cs">
       <DependentUpon>InsufficientPrivileges.aspx</DependentUpon>

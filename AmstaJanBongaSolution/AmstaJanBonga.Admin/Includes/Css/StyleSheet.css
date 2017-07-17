@@ -1049,6 +1049,33 @@ span.error {
 
             .widget table.legenda tbody tr td i span { font-size: 17px; }
 
+/* Table of Contents */
+
+.table-of-contents > ul li {
+    list-style: none;
+
+}
+
+    .table-of-contents > ul li a:hover {
+        text-decoration: underline;
+    }
+
+.table-of-contents ul li {
+    padding-top: 1px;
+}
+
+.table-of-contents ul ul {
+    margin-left: 1.5em;
+}
+
+.shortcut .fa-file-pdf-o {
+    color: #fa010f;
+}
+
+.manual {
+    max-width: 920px;
+    margin-top: 20px;
+}
 
 /* responsive */
 @media screen and (max-width: 48em) {
