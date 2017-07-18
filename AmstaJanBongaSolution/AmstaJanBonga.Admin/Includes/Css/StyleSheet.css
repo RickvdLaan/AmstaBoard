@@ -1149,4 +1149,6 @@ span.error {
     table.table-add-edit tbody tr td input, table.table-add-edit tbody tr td .calendar-wrapper, table.table-add-edit tbody tr td .js-listbox-container, table.table-add-edit tbody tr td select { margin-bottom: 15px; }
 
     .widget:last-of-type { margin-bottom: 0; }
+
+    .manual img { max-width: 100%; }
 }
