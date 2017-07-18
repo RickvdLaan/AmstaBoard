@@ -83,7 +83,21 @@ namespace AmstaJanBonga.Admin.Content.Controls.JsListBox
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (!this.IsPostBack)
+            {
+                // Registering double click events.
+                this._lbSource.Attributes.Add("ondblclick", Page.ClientScript.GetPostBackEventReference(this._lbSource, "lstdbclick_source"));
+                this._lbDestination.Attributes.Add("ondblclick", Page.ClientScript.GetPostBackEventReference(this._lbSource, "lstdbclick_destination"));
+            }
+
+            // Transfering data when a double click event is fired.
+            if (Request["__EVENTARGUMENT"] != null)
+            {
+                if (Request["__EVENTARGUMENT"] == "lstdbclick_source")
+                    MoveListBoxItems(this._lbSource, this._lbDestination);
+                else if (Request["__EVENTARGUMENT"] == "lstdbclick_destination")
+                    MoveListBoxItems(this._lbDestination, this._lbSource);
+            }
         }
 
         #region Overrides

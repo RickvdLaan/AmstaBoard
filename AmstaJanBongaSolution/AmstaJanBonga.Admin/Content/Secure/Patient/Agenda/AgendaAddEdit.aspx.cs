@@ -77,8 +77,9 @@ namespace AmstaJanBonga.Admin.Content.Secure.Patient.Agenda
                 // Description
                 this._txtDescription.Text = this.AgendaEventMeta.AgendaEvent.Description;
                 // Repeat
-                this._cbRepeat.Checked = this.AgendaEventMeta.RepeatInterval.HasValue;
-                this._cbRepeat.Enabled = false;
+                this._ddlRepeat.SelectedValue = this.AgendaEventMeta.RepeatInterval.HasValue ? 
+                    ((this.AgendaEventMeta.RepeatInterval.Value / Time.UnixTime.UNIX_TIMESTAMP_DAY) / 7).ToString(): 
+                    string.Empty;
             }
         }
 
@@ -109,7 +110,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Patient.Agenda
                     agendaEventId,
                     Url.QueryStringParser.GetInt("PatientId"),
                     Time.UnixTime.DateTimeToUnixTimeStamp(timeStart.Date),
-                    this._cbRepeat.Checked ? Time.UnixTime.UNIX_TIMESTAMP_WEEK : -1);
+                    string.IsNullOrEmpty(this._ddlRepeat.SelectedValue) ? null : (int?)this._ddlRepeat.SelectedValue.ToInt());
             }
             // Edit
             else if (this.HasAgendaEventMetaId)
@@ -126,12 +127,13 @@ namespace AmstaJanBonga.Admin.Content.Secure.Patient.Agenda
                     string.IsNullOrWhiteSpace(this._txtLocation.Text)
                     ? null : this._txtDescription.Text,                     // The location of the appointment
                     string.IsNullOrWhiteSpace(this._txtDescription.Text)
-                    ? null : this._txtDescription.Text);                   // The description of  the appointment
+                    ? null : this._txtDescription.Text);                    // The description of  the appointment
 
                 // Updates the agenda event meta data.
                 AgendaEventMetaManager.UpdateAgendaEventMeta(
                     AgendaEventMeta.Id,
-                    Time.UnixTime.DateTimeToUnixTimeStamp(timeStart.Date));
+                    Time.UnixTime.DateTimeToUnixTimeStamp(timeStart.Date),
+                    string.IsNullOrEmpty(this._ddlRepeat.SelectedValue) ? null : (int?)this._ddlRepeat.SelectedValue.ToInt());
             }
         }
 

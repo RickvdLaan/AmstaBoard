@@ -37,6 +37,11 @@ html, body, form {
     background-color: #ffffff;
 }
 
+figcaption {
+    padding-left: 5px;
+    padding-bottom: 10px;
+}
+
 h1, h2, h3, h4, h5, h6, a, p {
     font-weight: 400;
     letter-spacing: 1px;
@@ -595,35 +600,56 @@ a {
         padding: 10px 2px;
     }
 
-#content .gridview a.delete, fa-exclamation-circle {
+#content .gridview a.delete, fa-exclamation-circle,
+.fa-exclamation-circle {
     color: #fa010f;
 }
 
-#content .gridview .fa-coffee {
+#content .gridview .fa-coffee,
+.fa-coffee {
     color: #f08a00;
 }
 
-#content .gridview .el-broom {
+#content .gridview .el-broom,
+.el-broom {
     color: #00aaff;
 }
 
-#content .gridview .fa-clock-o {
+.fa-times {
+    color: #fa010f;
+}
+
+.fa-check {
+    color: #139b49;
+}
+
+#content .gridview .fa-clock-o,
+.fa-clock-o {
     color: #7a5195;
 }
 
-#content .gridview .fa-pencil {
+#content .gridview .fa-pencil,
+.fa-pencil{
     color: #dc8b14;
 }
 
-#content .gridview .fa-search {
+#content .gridview .fa-plus-circle,
+.fa-plus-circle {
+    color: #139b49;
+}
+
+#content .gridview .fa-search,
+.fa-search {
     color: #007cff;
 }
 
-#content .gridview .fa-calendar {
+#content .gridview .fa-calendar,
+.fa-calendar {
     color: #07bf62;
 }
 
-#content .gridview .fa-lock {
+#content .gridview .fa-lock,
+.fa-lock {
     color: #c9c20b;
 }
 
@@ -839,7 +865,8 @@ a {
 table.table-add-edit tbody tr td input,
 table.table-add-edit tbody tr td .calendar-wrapper,
 table.table-add-edit tbody tr td .js-listbox-container,
-table.table-add-edit  tbody tr td select {
+table.table-add-edit tbody tr td select,
+table.table-add-edit tbody tr td textarea {
     margin-bottom: 30px;
 }
 
@@ -915,6 +942,7 @@ span.error {
 
 .widget-container {
     margin-top: 20px;
+    font-size: 0; /* to remove the white-space between divs so %'s work out correctly. */
 }
 
     .widget-container h3:first-of-type {
@@ -1073,9 +1101,19 @@ span.error {
 }
 
 .manual {
-    max-width: 920px;
     margin-top: 20px;
 }
+
+    .manual p,
+    .manual h2,
+    .manual h3,
+    .manual h4,
+    .manual h5 {
+        max-width: 760px;
+        margin-bottom: 10px;
+        letter-spacing: 1.1px;
+        line-height: 23px;
+    }
 
 /* responsive */
 @media screen and (max-width: 48em) {
@@ -1096,6 +1134,7 @@ span.error {
     #sidebar-container #mobile-menu #slicknav_menu .slicknav_icon-bar { background-color: #dadada; }
     #sidebar-container #mobile-menu #slicknav_menu .slicknav_icon-bar { border-radius: 1px; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25); display: block; height: 0.125em; width: 1.125em; }
     #sidebar-container #navigation-container ul li { width: auto; }
+
     .textbox { width: auto; }
     .label { min-width: 125px; }
 

@@ -7,7 +7,7 @@ namespace AmstaJanBonga.Business.Database.Managers
 {
     public abstract class AgendaEventMetaManager
     {
-        public static void InsertAgendaEventMeta(int agendaEventId, int patientId, int unixTimeStamp, int repeatInterval)
+        public static void InsertAgendaEventMeta(int agendaEventId, int patientId, int unixTimeStamp, int? repeatInterval)
         {
             Authentication.AuthenticateActivity("CreateAgendaEventMeta");
 
@@ -16,20 +16,21 @@ namespace AmstaJanBonga.Business.Database.Managers
                 AgendaEventId = agendaEventId,
                 PatientId = patientId,
                 EventUnixTimeStamp = unixTimeStamp,
-                RepeatInterval = repeatInterval == -1 ? null : (int?)repeatInterval,
+                RepeatInterval = repeatInterval.HasValue ? (int?)repeatInterval.Value * Time.UnixTime.UNIX_TIMESTAMP_WEEK : null,
                 DateCreated = DateTime.Now
             };
 
             agendaEventMeta.Save();
         }
 
-        public static void UpdateAgendaEventMeta(int id, int unixTimeStamp)
+        public static void UpdateAgendaEventMeta(int id, int unixTimeStamp, int? repeatInterval)
         {
             Authentication.AuthenticateActivity("UpdateAgendaEventMeta");
 
             var agendaEventMeta = new AgendaEventMetaEntity(id)
             {
-                EventUnixTimeStamp = unixTimeStamp
+                EventUnixTimeStamp = unixTimeStamp,
+                RepeatInterval = repeatInterval.HasValue ? (int?)repeatInterval.Value * Time.UnixTime.UNIX_TIMESTAMP_WEEK : null
             };
 
             agendaEventMeta.Save();

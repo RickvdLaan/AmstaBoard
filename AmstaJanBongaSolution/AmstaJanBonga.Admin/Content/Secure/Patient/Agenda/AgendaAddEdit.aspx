@@ -81,10 +81,16 @@
                 
                 <tr>
                     <td class="label">
-                        Wekelijks herhalen
+                        Herhaal om de
                     </td>
                     <td>
-                        <asp:CheckBox runat="server" ID="_cbRepeat" />
+                        <asp:DropDownList runat="server" ID="_ddlRepeat">
+                            <asp:ListItem Value="">Eenmalige afspraak</asp:ListItem>
+                            <asp:ListItem Value="1">Week</asp:ListItem>
+                            <asp:ListItem Value="2">Twee weken</asp:ListItem>
+                            <asp:ListItem Value="3">Drie weken</asp:ListItem>
+                            <asp:ListItem Value="4">Vier weken</asp:ListItem>
+                        </asp:DropDownList>
                     </td>
                 </tr>
             </tbody>

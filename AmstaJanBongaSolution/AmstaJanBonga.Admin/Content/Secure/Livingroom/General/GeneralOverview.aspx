@@ -22,8 +22,8 @@
                 <asp:HyperLink runat="server" CssClass="return fa fa-reply display-inline" ToolTip="Terug naar woonkameroverzicht" NavigateUrl="~/Content/Secure/LivingRoom/LivingRoomOverview.aspx"></asp:HyperLink>
             </div>
 
-            <asp:HyperLink runat="server" ID="_hlAddEditGeneralEvent" CssClass="fa fa-plus-circle" Text="Gegevens Toevoegen"></asp:HyperLink>
-            <asp:HyperLink runat="server" ID="_hlAddEditGeneral" CssClass="fa fa-pencil" Text="Algemeen bericht bewerken"></asp:HyperLink>
+            <asp:HyperLink runat="server" ID="_hlAddEditGeneralEvent" CssClass="fa fa-plus-circle" Text="Bericht Toevoegen"></asp:HyperLink>
+            <asp:HyperLink runat="server" ID="_hlAddEditGeneral" CssClass="fa fa-pencil" Text="Herhalend Bericht Bewerken"></asp:HyperLink>
 
             <div class="clear"></div>
         </div>
@@ -70,7 +70,7 @@
                 </Columns>
 
                 <EmptyDataTemplate>
-                    Er zijn nog geen gegevens ingevoerd.
+                    Er zijn nog geen berichten ingevoerd.
                 </EmptyDataTemplate>
             </asp:GridView>
         </div>

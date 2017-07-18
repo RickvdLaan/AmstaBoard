@@ -42,18 +42,18 @@
                     </td>
                 </tr>
 
-                <tr>
+                <%--<tr>
                     <td class="label">
                         Herhalend
                     </td>
                     <td colspan="2">
                         <asp:TextBox runat="server" ID="_txtGeneral" CssClass="no-resize" TextMode="MultiLine" MaxLength="50" Width="320" Height="50"></asp:TextBox>
                     </td>
-                </tr>
+                </tr>--%>
 
                 <tr>
                     <td class="label required">
-                        Toevoeging
+                        Bericht
                     </td>
                     <td colspan="2">
                         <asp:TextBox runat="server" ID="_txtGeneralEvent" CssClass="no-resize" TextMode="MultiLine" MaxLength="250" Width="320" Height="85"></asp:TextBox>

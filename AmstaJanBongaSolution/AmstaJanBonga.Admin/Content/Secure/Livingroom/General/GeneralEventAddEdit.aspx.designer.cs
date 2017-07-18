@@ -40,15 +40,6 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General {
         protected global::System.Web.UI.WebControls.TextBox _txtDate;
         
         /// <summary>
-        /// _txtGeneral control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox _txtGeneral;
-        
-        /// <summary>
         /// _txtGeneralEvent control.
         /// </summary>
         /// <remarks>

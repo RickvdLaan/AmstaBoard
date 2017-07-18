@@ -94,12 +94,12 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
                     this._txtDate.Visible = true;
 
                     // Sets the descriptions.
-                    this._txtGeneral.Text = Server.HtmlDecode(livingroomGeneral.Description).Replace("<br />", Environment.NewLine);
+                    //this._txtGeneral.Text = Server.HtmlDecode(livingroomGeneral.Description).Replace("<br />", Environment.NewLine);
                     this._txtGeneralEvent.Text = Server.HtmlDecode(livingroomGeneralEvent.Description).Replace("<br />", Environment.NewLine);
                 }
                 // Add
-                if (livingroomGeneral != null)
-                    this._txtGeneral.Text = Server.HtmlDecode(livingroomGeneral.Description).Replace("<br />", Environment.NewLine);
+                //if (livingroomGeneral != null)
+                //    this._txtGeneral.Text = Server.HtmlDecode(livingroomGeneral.Description).Replace("<br />", Environment.NewLine);
             }
         }
 
@@ -111,7 +111,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
         {
             if (this.HasLivingRoomId)
             {
-                var general = Server.HtmlEncode(this._txtGeneral.Text).Replace(Environment.NewLine, "<br />");
+                //var general = Server.HtmlEncode(this._txtGeneral.Text).Replace(Environment.NewLine, "<br />");
                 var generalEvent = Server.HtmlEncode(this._txtGeneralEvent.Text).Replace(Environment.NewLine, "<br />");
 
                 // Edit (Update)
@@ -126,7 +126,7 @@ namespace AmstaJanBonga.Admin.Content.Secure.Livingroom.General
                 }
 
                 // This one needs to be updated/inserted regardless.
-                LivingRoomGeneralManager.InsertOrUpdate(this.LivingRoomId, string.IsNullOrWhiteSpace(general) ? null : general);
+                //LivingRoomGeneralManager.InsertOrUpdate(this.LivingRoomId, string.IsNullOrWhiteSpace(general) ? null : general);
             }
         }
 

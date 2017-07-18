@@ -5,15 +5,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="_cphHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="_cphMainTitle" runat="server">
+    Settings
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="_cphSubTitle" runat="server">
+    Overview
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="_cphExplanation" runat="server">
+    Een overzicht van alle instellingen die kunnen worden aangepast.
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="_cphContent" runat="server">
      <div class="box">
         <h2 class="display-inline">
-             Permissions
+             Permissies
         </h2>
 
          <asp:UpdatePanel runat="server" UpdateMode="Conditional">
