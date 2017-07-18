@@ -40,6 +40,8 @@ html, body, form {
 figcaption {
     padding-left: 5px;
     padding-bottom: 10px;
+    font-size: 75%;
+    font-style: italic;
 }
 
 h1, h2, h3, h4, h5, h6, a, p {
@@ -452,9 +454,10 @@ a {
 }
 
     #sidebar-container #navigation-container ul#nav li i {
-        width: 20px;
         font-size: 21px;
         padding-right: 10px;
+        text-align: center;
+        width: 25px;
     }
 
  #sidebar-container #navigation-container .nav-menu:hover {
@@ -1109,10 +1112,18 @@ span.error {
     .manual h3,
     .manual h4,
     .manual h5 {
-        max-width: 760px;
         margin-bottom: 10px;
         letter-spacing: 1.1px;
         line-height: 23px;
+    }
+
+.manual .box > div {
+    max-width: 760px;
+}
+
+    .manual .box figure {
+        float: right;
+        margin: 5px 0 0 5px;
     }
 
 /* responsive */

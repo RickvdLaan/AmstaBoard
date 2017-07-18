@@ -30,26 +30,26 @@
                     2. <a href="#toc_users">Gebruikers</a>
 
                     <ul>
-                        <li>2.1. <a href="#toc_users_add_edit">Toevoegen en wijzigen</a></li>
+                        <li>2.1. <a href="#toc_users_add_edit">Gebruikers toevoegen of wijzigen</a></li>
                     </ul>
                 </li>
                 <li>
                     3. <a href="#toc_employees">Medewerkers</a>
 
                     <ul>
-                        <li>3.1. <a href="#toc_employees_add_edit">Toevoegen en wijzigen</a></li>
+                        <li>3.1. <a href="#toc_employees_add_edit">Medewerkers toevoegen of wijzigen</a></li>
                     </ul>
                 </li>
                 <li>
                     4. <a href="#toc_living_rooms">Woonkamers</a>
 
                     <ul>
-                        <li>4.1. <a href="#toc_living_room_add_edit">Toevoegen en wijzigen</a></li>
+                        <li>4.1. <a href="#toc_living_room_add_edit">Woonkamers toevoegen of wijzigen</a></li>
                         <li>
                             4.2. <a href="#toc_living_room_shifts">Diensten</a>
 
                             <ul>
-                                <li>4.2.1. <a href="#toc_living_room_shifts_add_edit">Toevoegen en wijzigen</a></li>
+                                <li>4.2.1. <a href="#toc_living_room_shifts_add_edit">Diensten toevoegen of wijzigen</a></li>
                             </ul>
                         </li>
                         <li>
@@ -64,7 +64,7 @@
                             4.4. <a href="#toc_living_room_chores">Corvee</a>
 
                             <ul>
-                                <li>4.4.1. <a href="#toc_living_room_chores_add_edit">Toevoegen en wijzigen</a></li>
+                                <li>4.4.1. <a href="#toc_living_room_chores_add_edit">Corvee toevoegen of wijzigen</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -73,7 +73,7 @@
                     5. <a href="#toc_patients">Bewoners</a>
 
                     <ul>
-                        <li>5.1. <a href="#toc_patients_add_edit">Toevoegen en wijzigen</a></li>
+                        <li>5.1. <a href="#toc_patients_add_edit">Bewoners toevoegen of wijzigen</a></li>
                         <li>
                             5.2. <a href="#toc_patients_agenda">Agenda</a>
 
@@ -93,10 +93,10 @@
 
         <div class="widget">
             <h2>Algemene Informatie</h2>
-            Het AmstaBord kan worden benaderd met de volgende link:<br />
+            Het AmstaBord kan worden benaderd met de volgende link:
             <a href="https://www.jouwsoftware.nl/AmstaBord">jouwsoftware.nl/AmstaBord</a>
             <br /><br />
-            Het beheersysteem van AmstaBord kan worden benaderd worden met de volgende link:<br />
+            Het beheersysteem van AmstaBord kan worden benaderd worden met de volgende link:
             <a href="https://www.jouwsoftware.nl/AmstaBordCMS">jouwsoftware.nl/AmstaBordCMS</a>
         </div>
     </div>
@@ -143,7 +143,7 @@
                 </p>
 
                 <h3 id="toc_users_add_edit">
-                    2.1. Toevoegen en wijzigen
+                    2.1. Gebruikers toevoegen of wijzigen
                 </h3>
 
                 <p>
@@ -157,6 +157,10 @@
                 <p>
                     Om uw wachtwoord te veranderen kunt u vanaf het gebruikersoverzicht op het slotje <i class="fa fa-lock" aria-hidden="true"></i> drukken, waarna het huidige wachtwoord en het nieuwe wachtwoord kan worden ingevuld.
                 </p>
+
+                <p>
+                    Bent u uw wachtwoord vergeten? Neem dan contact op met de applicatiebeheerder.
+                </p>
             </div>
             <!-- Employees -->
             <div>
@@ -169,7 +173,7 @@
                 </p>
 
                 <h3 id="toc_employees_add_edit">
-                    3.1. Toevoegen en wijzigen
+                    3.1. Medewerkers toevoegen of wijzigen
                 </h3>
 
                 <p>
@@ -187,7 +191,7 @@
                 </p>
 
                 <h3 id="toc_living_room_add_edit">
-                    4.1. Toevoegen en wijzigen
+                    4.1. Woonkamers toevoegen of wijzigen
                 </h3>
 
                 <p>
@@ -203,7 +207,7 @@
                 </p>
 
                 <h4 id="toc_living_room_shifts_add_edit">
-                    4.2.1. Toevoegen en wijzigen
+                    4.2.1. Diensten toevoegen of wijzigen
                 </h4>
 
                 <p>
@@ -243,7 +247,7 @@
                 </p>
 
                 <h4 id="toc_living_room_chores_add_edit">
-                    4.4.1. Toevoegen en wijzigen
+                    4.4.1. Corvee toevoegen of wijzigen
                 </h4>
 
                 <p>
@@ -261,7 +265,7 @@
                 </p>
 
                 <h3 id="toc_patients_add_edit">
-                    5.1. Toevoegen en wijzigen
+                    5.1. Bewoners toevoegen of wijzigen
                 </h3>
 
                 <p>

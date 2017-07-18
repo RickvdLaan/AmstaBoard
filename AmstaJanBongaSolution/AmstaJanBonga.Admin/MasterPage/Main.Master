@@ -82,7 +82,7 @@
 
                         <li runat="server" id="_liPatient" class="nav-menu">
                             <asp:HyperLink runat="server" NavigateUrl="~/Content/Secure/Patient/PatientOverview.aspx">           
-                                <i class="fa fa-user" aria-hidden="true"></i>
+                                <i class="fa fa-users" aria-hidden="true"></i>
                                 Bewoners
                             </asp:HyperLink>
                         </li>
