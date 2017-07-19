@@ -1162,4 +1162,6 @@ span.error {
     .widget:last-of-type { margin-bottom: 0; }
 
     .manual img { max-width: 100%; }
+
+    .manual .box figure { margin: 0 auto; float: none; }
 }

@@ -109,12 +109,12 @@
                 </h2>
 
                 <p>
-                    Het dashboard biedt een simpel overzicht van het beheersysteem, er zijn verschillende snelkoppelingen, er is een legenda (zoals hierboven weergegeven) voor alle icoontjes binnen het beheersysteem en er is een overzicht te zien van alle woonkamers (zie figuur 1. Woonkameroverzicht) om snel te kunnen zien welke gegevens wel, of niet zijn ingevoerd. 
+                    Het dashboard biedt een simpel overzicht van het beheersysteem, er zijn verschillende snelkoppelingen, er is een legenda (zoals hierboven weergegeven) voor alle icoontjes binnen het beheersysteem en er is een overzicht te zien van alle woonkamers (zie figuur 1. Woonkamer overzicht) om snel te kunnen zien welke gegevens wel, of niet zijn ingevoerd. 
                 </p>    
                 
                 <figure>
                     <img src="https://adminjanbonga.jouwsoftware.nl/_uploads/Images/JanBongaManual/living_room_overview.PNG" />
-                    <figcaption>Figuur 1. Woonkameroverzicht</figcaption>
+                    <figcaption>Figuur 1. Woonkamer overzicht</figcaption>
                 </figure>
 
                 <p>
@@ -147,11 +147,11 @@
                 </h3>
 
                 <p>
-                    Voor het toevoegen van gebruikers kunt u drukken op "<i class="fa fa-plus-circle" aria-hidden="true"></i> Gebruiker Toevoegen" op het gebruikersoverzicht. Hier voert u een unieke gebruikersnaam en het wachtwoord in. Tot slot geeft u aan welke functie deze gebruiker heeft binnen Amsta en slaat vervolgens de gebruiker op.
+                    Voor het toevoegen van gebruikers kunt u drukken op "<i class="fa fa-plus-circle" aria-hidden="true"></i> Gebruiker Toevoegen" op het gebruikersoverzicht. Hier voert u een unieke gebruikersnaam in en vervolgens het wachtwoord. Tot slot geeft u aan welke functie of rol deze gebruiker heeft binnen Amsta en slaat vervolgens de gebruiker op.
                 </p>
 
                 <p>
-                    Om de gebruiker te wijzigen kan er op het potloodje <i class="fa fa-pencil" aria-hidden="true"></i> worden gedrukt. Het wijzigen van de gebruikersnaam is niet mogelijk, maar de functie (rol) binnen Amsta of het systeem kan wel worden aangepast. 
+                    Om de gebruiker te wijzigen kunt u vanaf het gebruikersoverzicht op het potloodje <i class="fa fa-pencil" aria-hidden="true"></i> drukken. Het wijzigen van de gebruikersnaam is niet mogelijk, maar de functie (rol) binnen het beheersysteem kan wel worden aangepast, om zo meer of minder rechten toe te kennen. 
                 </p>
 
                 <p>
@@ -169,7 +169,7 @@
                 </h2>
 
                 <p>
-
+                    De medewerkers zijn iedereen die op de woonkamers werken. Medewerkers worden gekoppeld aan één van de woonkamers en kunnen vervolgens worden geselecteert voor de diensten op de woonkamer. Door te drukken op "<i class="fa fa-user-md" aria-hidden="true"></i> Medewerkers" in het menu (zie figuur 2. Menu) komt u op het medewerkersoverzicht.
                 </p>
 
                 <h3 id="toc_employees_add_edit">
@@ -177,7 +177,11 @@
                 </h3>
 
                 <p>
+                    Voor het toevoegen van medewerkers kunt u drukken op "<i class="fa fa-plus-circle" aria-hidden="true"></i> Medewerker Toevoegen" op het medewerkersoverzicht. Hier voert u de voornaam in van de medewerker (let op, als u hier ook de achternaam invoert, komt deze ook op het scherm te staan). Vervolgens kunt u een foto toevoegen (optioneel), zo kunnen uw collega's en bewoners u eenvoudig herkennen op het scherm. Verder is er de mogelijkheid om de medewerker aan een gebruiker te koppelen zodat hij of zij ook kan inloggen op de woonkamer waaraan deze gekoppeld wordt, maar dit kan ook op een later moment gebeuren. Tot slot selecteerd u op welke woonkamer deze medewerker werkt en drukt u op opslaan.
+                </p>
 
+                <p>
+                    Om de medewerker te wijzigen kunt u vanaf het medewerkersoverzicht op het potloodje <i class="fa fa-pencil" aria-hidden="true"></i> drukken. Hier kunt u de naam wijzigen, een andere foto selecteren of de bestaande foto verwijderen. Een gebruiker koppelen aan de medewerker of een andere woonkamer selecteren.
                 </p>
             </div>
             <!-- Living rooms -->
