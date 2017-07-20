@@ -28,6 +28,8 @@
                 <tr>
                     <td class="label">
                         Bericht
+                        <br />
+                        <small>Het bericht dat iedere dag weergegeven wordt op de woonkamer.</small>
                     </td>
                     <td colspan="2">
                         <asp:TextBox runat="server" CssClass="no-resize" ID="_txtGeneral" TextMode="MultiLine" MaxLength="50"></asp:TextBox>

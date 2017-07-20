@@ -96,7 +96,7 @@
             Het AmstaBord kan worden benaderd met de volgende link:
             <a href="https://www.jouwsoftware.nl/AmstaBord">jouwsoftware.nl/AmstaBord</a>
             <br /><br />
-            Het beheersysteem van AmstaBord kan worden benaderd worden met de volgende link:
+            Het beheersysteem van AmstaBord kan worden benaderd met de volgende link:
             <a href="https://www.jouwsoftware.nl/AmstaBordCMS">jouwsoftware.nl/AmstaBordCMS</a>
         </div>
     </div>
@@ -169,7 +169,7 @@
                 </h2>
 
                 <p>
-                    De medewerkers zijn iedereen die op de woonkamers werken. Medewerkers worden gekoppeld aan één van de woonkamers en kunnen vervolgens worden geselecteert voor de diensten op de woonkamer. Door te drukken op "<i class="fa fa-user-md" aria-hidden="true"></i> Medewerkers" in het menu (zie figuur 2. Menu) komt u op het medewerkersoverzicht.
+                    De medewerkers zijn iedereen die op de woonkamers werken. Medewerkers worden gekoppeld aan één van de woonkamers en kunnen vervolgens worden geselecteerd voor de diensten op de woonkamer. Door te drukken op "<i class="fa fa-user-md" aria-hidden="true"></i> Medewerkers" in het menu (zie figuur 2. Menu) komt u op het medewerkersoverzicht.
                 </p>
 
                 <h3 id="toc_employees_add_edit">
@@ -177,7 +177,7 @@
                 </h3>
 
                 <p>
-                    Voor het toevoegen van medewerkers kunt u drukken op "<i class="fa fa-plus-circle" aria-hidden="true"></i> Medewerker Toevoegen" op het medewerkersoverzicht. Hier voert u de voornaam in van de medewerker (let op, als u hier ook de achternaam invoert, komt deze ook op het scherm te staan). Vervolgens kunt u een foto toevoegen (optioneel), zo kunnen uw collega's en bewoners u eenvoudig herkennen op het scherm. Verder is er de mogelijkheid om de medewerker aan een gebruiker te koppelen zodat hij of zij ook kan inloggen op de woonkamer waaraan deze gekoppeld wordt, maar dit kan ook op een later moment gebeuren. Tot slot selecteerd u op welke woonkamer deze medewerker werkt en drukt u op opslaan.
+                    Voor het toevoegen van medewerkers kunt u drukken op "<i class="fa fa-plus-circle" aria-hidden="true"></i> Medewerker Toevoegen" op het medewerkersoverzicht. Hier voert u de voornaam in van de medewerker (let op, als u hier ook de achternaam invoert, komt dit ook op het scherm te staan). Vervolgens kunt u een foto toevoegen (optioneel), zo kunnen uw collega's en bewoners u eenvoudig herkennen op het scherm. Verder is er de mogelijkheid om de medewerker aan een gebruiker te koppelen zodat hij of zij ook kan inloggen op de woonkamer waaraan deze gekoppeld wordt, maar dit kan ook op een later moment gebeuren. Tot slot selecteert u op welke woonkamer deze medewerker werkt en drukt u op opslaan.
                 </p>
 
                 <p>
@@ -191,7 +191,11 @@
                 </h2>
 
                 <p>
+                    Vanuit het overzicht van alle woonkamers ziet u welke woonkamers zijn toegevoegd aan het beheersysteem. Door te drukken op "<i class="fa fa-home" aria-hidden="true"></i> Woonkamers" in het menu (zie figuur 2. Menu) komt u op het overzicht van de woonkamers.
+                </p>
 
+                <p>
+                    Verder kunt u vanuit het overzicht drukken op diensten <i class="fa fa-clock-o" aria-hidden="true"></i> om de diensten van die woonkamer in te kunnen zien, algemene informatie <i class="fa fa-coffee" aria-hidden="true"></i> voor het informatieoverzicht of corvee <i class="el el-broom" aria-hidden="true"></i> om de corveediensten te zien voor de geselecteerde woonkamer.
                 </p>
 
                 <h3 id="toc_living_room_add_edit">
@@ -199,7 +203,15 @@
                 </h3>
 
                 <p>
+                    Om een woonkamer toe te voegen aan het systeem kunt u drukken op "<i class="fa fa-plus-circle" aria-hidden="true"></i> Woonkamer Toevoegen" op het overzicht van de woonkamers. Hier voert u de naam van de woonkamer in en kunt u een kleur toewijzen aan de woonkamer, druk vervolgens op opslaan om de woonkamer toe te voegen aan het systeem.
+                </p>
 
+                <p>
+                    Om een woonkamer te wijzigen kunt u vanaf het overzicht van de woonkamers op het potloodje <i class="fa fa-pencil" aria-hidden="true"></i> drukken. Hier kunt u de naam en kleur wijzigen van de woonkamer.
+                </p>
+
+                <p>
+                    Voor het verwijderen van een woonkamer dient een verzoek ingediend te worden bij de applicatiebeheerder.
                 </p>
 
                 <h3 id="toc_living_room_shifts">
@@ -207,7 +219,7 @@
                 </h3>
 
                 <p>
-
+                    Het dienstenoverzicht weergeeft alle diensten van het personeel voor de geselecteerde woonkamer. Door te drukken op het icoontje van de diensten <i class="fa fa-clock-o" aria-hidden="true"></i> vanuit het overzicht van de woonkamers komt u op het dienstenoverzicht.
                 </p>
 
                 <h4 id="toc_living_room_shifts_add_edit">
@@ -215,7 +227,11 @@
                 </h4>
 
                 <p>
+                    Om een dienst toe te voegen drukt u op "<i class="fa fa-plus-circle" aria-hidden="true"></i> Dienst Toevoegen" op het dienstenoverzicht. Vervolgens selecteert u een datum, wie er dag- en avonddienst hebben en drukt u op opslaan.
+                </p>
 
+                <p>
+                    Om een dienst te wijzigen kunt u vanaf het dienstenoverzicht op het potloodje <i class="fa fa-pencil" aria-hidden="true"></i> drukken. Vanuit hier kunt u vervolgens andere medewerkers selecteren voor de dienst.
                 </p>
 
                 <h3 id="toc_living_room_general">
@@ -223,7 +239,7 @@
                 </h3>
 
                 <p>
-
+                    Het overzicht van de algemene informatie weergeeft voor welke dagen een bericht is geplaatst op het AmstaBord. Dit kunnen maaltijden zijn, verjaardagen of andere bijzonderheden. Door te drukken op het icoontje van de algemene informatie <i class="fa fa-coffee" aria-hidden="true"></i> vanuit het overzicht van de woonkamers komt u op het overzicht van de algemene informatie.
                 </p>
 
                 <h4 id="toc_living_room_general_single">
@@ -231,7 +247,7 @@
                 </h4>
 
                 <p>
-
+                    Het algemene bericht dat geplaatst kan worden op het AmstaBord kan alles zijn, een voorbeeld is om hier de maaltijden neer te zetten of eventuele bijzonderheden. Om een algemeen bericht toe te voegen drukt u op "<i class="fa fa-plus-circle" aria-hidden="true"></i> Bericht Toevoegen", hier kunt u een datum selecteren en vervolgens het bericht invoeren, druk vervolgens op opslaan en het bericht is opgeslagen.
                 </p>
 
                 <h4 id="toc_living_room_general_repeat">
@@ -239,7 +255,7 @@
                 </h4>
 
                 <p>
-
+                    Het herhalende bericht is een bericht dat iedere dag weergegeven zal worden op het AmstaBord. Hier kan bijvoorbeeld neergezet worden wanneer de koffietijden zijn. Om een herhalend bericht toe te voegen of te bewerken drukt u op "<i class="fa fa-pencil" aria-hidden="true"></i> Herhalend Bericht Bewerken". Als u geen herhalend bericht wilt op het AmstaBord, kunt u het veld leeg laten en vervolgens op opslaan drukken.
                 </p>
 
                 <h3 id="toc_living_room_chores">
@@ -247,7 +263,7 @@
                 </h3>
 
                 <p>
-               
+                    Het overzicht van de corveediensten weergeeft voor welke dagen corveediensten zijn ingevuld. Door te drukken op het icoontje van de corveedienst <i class="el el-broom" aria-hidden="true"></i> vanuit het overzicht van de woonkamers komt u op het overzicht van de corveediensten.
                 </p>
 
                 <h4 id="toc_living_room_chores_add_edit">
@@ -255,17 +271,25 @@
                 </h4>
 
                 <p>
+                    Om een corveedienst toe te voegen drukt u op "<i class="fa fa-plus-circle" aria-hidden="true"></i> Corvee Toevoegen" vanuit het overzicht van de corveediensten. Vervolgens selecteert u een datum en welke bewoners er 's ochtends, 's middags of 's avonds corvee hebben.
+                </p>
 
+                <p>
+                    Om een corveedienst te wijzigen kunt u vanuit het overzicht op het potloodje <i class="fa fa-pencil" aria-hidden="true"></i> drukken. Vanuit hier kunt u vervolgens andere bewoners selecteren voor de corveedienst.
                 </p>
             </div>
             <!-- Patients -->
             <div>
                 <h2 id="toc_patients">
-                    5. Bewooners
+                    5. Bewoners
                 </h2>
 
                 <p>
+                    De bewoners kunnen worden toegevoegd aan het systeem als zij, of hun begeleider(s) toestemming geven tot het opslaan van zijn of haar persoonlijke gegevens, zoals dit beschreven staat in de wet bescherming persoonsgegevens (WBP).
+                </p>
 
+                <p>
+                    Door te drukken op "<i class="fa fa-users" aria-hidden="true"></i> Bewoners" in het menu (zie figuur 2. Menu) komt u terecht op het overzicht van alle bewoners die zijn toegevoegd aan het systeem. 
                 </p>
 
                 <h3 id="toc_patients_add_edit">
@@ -273,7 +297,11 @@
                 </h3>
 
                 <p>
+                    Voor het toevoegen van bewoners kunt u drukken op "<i class="fa fa-plus-circle" aria-hidden="true"></i> Bewoner Toevoegen" op het overzicht van alle bewoners. Hier voert u de voornaam in van de bewoner (let op, als u hier ook de achternaam invoert, komt dit ook op het scherm te staan). Vervolgens selecteert u een foto van de bewoner, op welke woonkamer deze bewoner is geplaatst en drukt u op opslaan.
+                </p>
 
+                <p>
+                    Om een bewoner te wijzigen, kunt u vanaf het overzicht van de bewoners op het potloodje <i class="fa fa-pencil" aria-hidden="true"></i> drukken. Hier kunt u de naam wijzigen, een andere foto selecteren of de bewoner aan een andere woonkamer koppelen.
                 </p>
 
                 <h3 id="toc_patients_agenda">
@@ -281,7 +309,7 @@
                 </h3>
 
                 <p>
-
+                    De agenda van de bewoners geeft de bewoners de mogelijkheid om hun persoonlijke agenda in te zien op het AmstaBord. De agenda kan worden benaderd door op het icoontje van de agenda <i class="fa fa-calendar" aria-hidden="true"></i> te drukken vanuit het overzicht van de bewoners.
                 </p>
 
                 <h4 id="toc_patients_appointment_repeat">
@@ -289,7 +317,7 @@
                 </h4>
 
                 <p>
-
+                    Om een herhalende afspraak in de agenda te zetten drukt u op "<i class="fa fa-plus-circle" aria-hidden="true"></i> Afspraak Toevoegen" op het overzicht van de agenda. Vanuit hier kunt u een titel, datum en starttijd, eindtijd, locatie en omschrijving toevoegen. Tot slot kunt u selecteren om de afspraak eenmalig te herhalen. 
                 </p>
 
                 <h4 id="toc_patients_appointment_single">
@@ -297,7 +325,7 @@
                 </h4>
 
                 <p>
-
+                    Om een herhalende afspraak in de agenda te zetten drukt u op "<i class="fa fa-plus-circle" aria-hidden="true"></i> Afspraak Toevoegen" op het overzicht van de agenda. Vanuit hier kunt u een titel, datum en starttijd, eindtijd, locatie en omschrijving toevoegen. Tot slot kunt u selecteren of u de afspraak wilt herhalen om de week, twee, drie of vier weken.
                 </p>
             </div>
             <!-- Deletion -->
@@ -307,7 +335,11 @@
                 </h2>
 
                 <p>
+                    Op het overzicht van de pagina's staat onder opties een rood prullenbak <i class="fa fa-trash" aria-hidden="true"></i> icoontje. Wanneer u hierop drukt, krijgt u een bevestigingsbericht of u het geselecteerde item wilt verwijderen. Indien u op "Ja" drukt, wordt het verwijderd. Maar let op, niet alle gegevens worden permanent verwijderd. Het is dan ook mogelijk om in sommige gevallen gegevens te herstellen als het verkeerde is verwijderd, indien dit het geval is, dient u contact op te nemen met de applicatiebeheerder.
+                </p>
 
+                <p>
+                    Komt een bewoner te overlijden? Dan kunt u een verzoek indienen bij de applicatiebeheerder om de gegevens van de bewoner permanent te verwijderen uit het systeem.
                 </p>
             </div>
             <!-- Settings -->
@@ -317,7 +349,11 @@
                 </h2>
 
                 <p>
+                    In het systeem zijn verschillende rechten per functie, zo kan een stagiair alleen gegevens toevoegen aan een woonkamer en de agenda van de bewoners en deze aanpassen, maar kan verder geen mensen toevoegen een het systeem of verwijderen. Terwijl een medewerker dit wel kan, indien er een wens is, dat een bepaalde functie binnen het systeem iets juist wel, of niet moet kunnen uitvoeren kan hiertoe een verzoek ingediend worden bij de applicatiebeheerder.
+                </p>
 
+                <p>
+                    Wanneer u inlogt op het systeem, wordt u om veiligheidsredenen automatisch weer uitgelogd als u langer dan tien minuten niets uitvoert op het systeem. Dit kan op basis van een verzoek bij de applicatiebeheerder worden aangepast, met een minimum van vijf en een maximum van dertig minuten.
                 </p>
             </div>
         </div>

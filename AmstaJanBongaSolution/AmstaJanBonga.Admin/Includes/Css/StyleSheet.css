@@ -626,6 +626,10 @@ a {
     color: #139b49;
 }
 
+.fa-trash {
+    color: #fa010f;
+}
+
 #content .gridview .fa-clock-o,
 .fa-clock-o {
     color: #7a5195;

@@ -6,7 +6,7 @@
     <head runat="server">
         <title>AmstaBord CMS - Login</title>
 
-        <link href="~/Includes/Css/Login.css?build=04072017" rel="stylesheet" />
+        <link href="~/Includes/Css/Login.css?build=20072017" rel="stylesheet" />
         
         <link rel="shortcut icon" type="image/x-icon" href="~/Includes/Css/Images/favicon.png" />
 

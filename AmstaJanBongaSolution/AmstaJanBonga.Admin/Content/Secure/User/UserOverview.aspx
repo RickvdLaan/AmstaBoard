@@ -39,7 +39,7 @@
 
                     <asp:TemplateField>
                         <HeaderTemplate>
-                            Account Type
+                            Functie
                         </HeaderTemplate>
 
                         <ItemTemplate>

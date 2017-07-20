@@ -70,6 +70,16 @@
 
                     <asp:TemplateField>
                         <HeaderTemplate>
+                            Locatie
+                        </HeaderTemplate>
+
+                        <ItemTemplate>
+                            <%# string.IsNullOrWhiteSpace(Eval("AgendaEvent.Location").ToString()) ?  "Geen locatie opgegeven" :  Eval("AgendaEvent.Location") %>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField>
+                        <HeaderTemplate>
                             Herhalend om
                         </HeaderTemplate>
 
@@ -136,6 +146,16 @@
 
                         <ItemTemplate>
                             <%# new Time(Eval("AgendaEvent.TimeStart").ToString().ToInt()).ToString() %> -  <%# new Time(Eval("AgendaEvent.TimeEnd").ToString().ToInt()).ToString()  %>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField>
+                        <HeaderTemplate>
+                            Locatie
+                        </HeaderTemplate>
+
+                        <ItemTemplate>
+                            <%# string.IsNullOrWhiteSpace(Eval("AgendaEvent.Location").ToString()) ?  "Geen locatie opgegeven" :  Eval("AgendaEvent.Location") %>
                         </ItemTemplate>
                     </asp:TemplateField>
 

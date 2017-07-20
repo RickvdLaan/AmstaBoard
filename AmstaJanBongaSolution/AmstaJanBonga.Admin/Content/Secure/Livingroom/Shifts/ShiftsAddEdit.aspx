@@ -22,7 +22,7 @@
         </h2>
 
         <div class="return right">
-            <asp:HyperLink runat="server" ID="_hlReturn" CssClass="return fa fa-reply display-inline" ToolTip="Terug naar corvee overzicht"></asp:HyperLink>
+            <asp:HyperLink runat="server" ID="_hlReturn" CssClass="return fa fa-reply display-inline" ToolTip="Terug naar dienstoverzicht"></asp:HyperLink>
         </div>
 
         <div class="clear"></div>
