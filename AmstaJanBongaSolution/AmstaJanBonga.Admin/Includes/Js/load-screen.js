@@ -46,11 +46,15 @@
     });
 	
     // Anchor tags
-    $("a").click(function () {	
+    $("a").click(function () {
         var href = $(this).attr('href');
 
         // Ignoring the # hrefs.
         if (href.indexOf("#") != -1)
+            return;
+
+        // Ignoring downloads folder clicks.
+        if (href.indexOf("downloads") != -1)
             return;
 
         if (!isCtrlPressed) {

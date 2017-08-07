@@ -13,13 +13,13 @@ namespace AmstaJanBonga.Admin.Content.Secure {
     public partial class Dashboard {
         
         /// <summary>
-        /// LegendaWidget control.
+        /// GeneralWidget control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AmstaJanBonga.Admin.Content.Controls.LegendaWidget.LegendaWidget LegendaWidget;
+        protected global::AmstaJanBonga.Admin.Content.Controls.GeneralWidget.GeneralWidget GeneralWidget;
         
         /// <summary>
         /// LivingRoomWidget control.
@@ -29,5 +29,14 @@ namespace AmstaJanBonga.Admin.Content.Secure {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AmstaJanBonga.Admin.Content.Controls.LivingRoomWidget.LivingRoomWidget LivingRoomWidget;
+        
+        /// <summary>
+        /// LegendaWidget control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AmstaJanBonga.Admin.Content.Controls.LegendaWidget.LegendaWidget LegendaWidget;
     }
 }

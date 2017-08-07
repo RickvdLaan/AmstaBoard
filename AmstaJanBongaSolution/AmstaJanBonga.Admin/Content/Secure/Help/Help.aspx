@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Main.Master" AutoEventWireup="true" CodeBehind="Help.aspx.cs" Inherits="AmstaJanBonga.Admin.Content.Secure.Help.Help" %>
 
 <%@ Register Src="~/Content/Controls/LegendaWidget/LegendaWidget.ascx" TagPrefix="uc1" TagName="LegendaWidget" %>
+<%@ Register Src="~/Content/Controls/GeneralWidget/GeneralWidget.ascx" TagPrefix="uc1" TagName="GeneralWidget" %>
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="_cphHead" runat="server">
 </asp:Content>
@@ -16,7 +18,7 @@
 <asp:Content ID="Content5" ContentPlaceHolderID="_cphContent" runat="server">
     
     <div class="shortcut">
-        <a href="#" target="_blank">
+        <a href="https://adminjanbonga.jouwsoftware.nl/_uploads/downloads/AmstaBord-CMS-Handleiding-v1.pdf" download="amstabord-cms-handleiding.pdf" target="_blank">
             <small>Download handleiding als <i class="fa fa-file-pdf-o" aria-hidden="true" title="pdf"></i>.</small>
         </a>
     </div>
@@ -91,14 +93,7 @@
 
         <uc1:LegendaWidget runat="server" ID="LegendaWidget" />
 
-        <div class="widget">
-            <h2>Algemene Informatie</h2>
-            Het AmstaBord kan worden benaderd met de volgende link:
-            <a href="https://www.jouwsoftware.nl/AmstaBord">jouwsoftware.nl/AmstaBord</a>
-            <br /><br />
-            Het beheersysteem van AmstaBord kan worden benaderd met de volgende link:
-            <a href="https://www.jouwsoftware.nl/AmstaBordCMS">jouwsoftware.nl/AmstaBordCMS</a>
-        </div>
+        <uc1:GeneralWidget runat="server" id="GeneralWidget" />
     </div>
     <div class="manual">
         <div class="box">
@@ -313,15 +308,15 @@
                 </p>
 
                 <h4 id="toc_patients_appointment_repeat">
-                    5.2.1. Herhalende afspraken
+                    5.2.1. Eenmalige afspraken
                 </h4>
 
                 <p>
-                    Om een herhalende afspraak in de agenda te zetten drukt u op "<i class="fa fa-plus-circle" aria-hidden="true"></i> Afspraak Toevoegen" op het overzicht van de agenda. Vanuit hier kunt u een titel, datum en starttijd, eindtijd, locatie en omschrijving toevoegen. Tot slot kunt u selecteren om de afspraak eenmalig te herhalen. 
+                    Om een eenmalige afspraak in de agenda te zetten drukt u op "<i class="fa fa-plus-circle" aria-hidden="true"></i> Afspraak Toevoegen" op het overzicht van de agenda. Vanuit hier kunt u een titel, datum en starttijd, eindtijd, locatie en omschrijving toevoegen. Tot slot kunt u selecteren om de afspraak eenmalig te herhalen. 
                 </p>
 
                 <h4 id="toc_patients_appointment_single">
-                    5.2.2. Eenmalige afspraken
+                    5.2.2. Herhalende afspraken
                 </h4>
 
                 <p>

@@ -8,7 +8,6 @@ using Rlaan.Toolkit.Web;
 
 using System;
 using System.Data.SqlClient;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Web;
@@ -57,7 +56,7 @@ namespace AmstaJanBonga.Web
         protected void Application_OnPostAuthenticateRequest(object sender, EventArgs e)
         {
             if (Project.Environment.IsDevelopEnvironment)
-                Debug.WriteLine("Application_OnPostAuthenticateRequest entered.{0}{1}".FormatString(Environment.NewLine, HttpContext.Current.Request.Url));
+                System.Diagnostics.Debug.WriteLine("Application_OnPostAuthenticateRequest entered.{0}{1}".FormatString(Environment.NewLine, HttpContext.Current.Request.Url));
 
             //////////////////////////////////////////////////////////////////////////////////////
             //    Returns true if any of the provided requests are found in the requested url   //
@@ -120,14 +119,11 @@ namespace AmstaJanBonga.Web
             {
                 try
                 {
-                    // Transport-level error occured, the specified network name is no longer available. 
-                    if ((Server.GetLastError() as SqlException).Number == 64)
+                    if ((Server.GetLastError() is SqlException))
                     {
-                        Helper.Log.Message(
-                            "Application_Error_Log_SqlException_64",
-                            "A transport-level error has occurred when receiving results from the server.");
-
-                        Response.Redirect("ErrorNetwork");
+                        // Transport-level error occured, the specified network name is no longer available. 
+                        if ((Server.GetLastError() as SqlException).Number == 64)
+                            Response.Redirect("ErrorNetwork");
                     }
                     else
                         Log.Exception(Server.GetLastError());

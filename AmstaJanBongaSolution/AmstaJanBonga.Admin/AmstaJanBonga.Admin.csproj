@@ -119,6 +119,7 @@
     <Content Include="Content\Controls\ExtendedCalendar\Chores\ExtendedCalendar.ascx" />
     <Content Include="Content\Controls\ExtendedCalendar\General\ExtendedCalendar.ascx" />
     <Content Include="Content\Controls\ExtendedCalendar\Shifts\ExtendedCalendar.ascx" />
+    <Content Include="Content\Controls\GeneralWidget\GeneralWidget.ascx" />
     <Content Include="Content\Controls\JsListBox\JsListBox.ascx" />
     <Content Include="Content\Controls\LegendaWidget\LegendaWidget.ascx" />
     <Content Include="Content\Controls\LivingRoomWidget\LivingRoomWidget.ascx" />
@@ -266,6 +267,13 @@
     </Compile>
     <Compile Include="Content\Controls\ExtendedCalendar\Shifts\ExtendedCalendar.ascx.designer.cs">
       <DependentUpon>ExtendedCalendar.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Content\Controls\GeneralWidget\GeneralWidget.ascx.cs">
+      <DependentUpon>GeneralWidget.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\Controls\GeneralWidget\GeneralWidget.ascx.designer.cs">
+      <DependentUpon>GeneralWidget.ascx</DependentUpon>
     </Compile>
     <Compile Include="Content\Controls\JsListBox\JsListBox.ascx.cs">
       <DependentUpon>JsListBox.ascx</DependentUpon>

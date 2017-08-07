@@ -514,6 +514,7 @@ td.times div:first-of-type {
 .information-bar div:nth-child(2) {
     width: 36%;
     text-align: left;
+    white-space: nowrap;
 }
 
 .information-bar div:nth-child(3) {

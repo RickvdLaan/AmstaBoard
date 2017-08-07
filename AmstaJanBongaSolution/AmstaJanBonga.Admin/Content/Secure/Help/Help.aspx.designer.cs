@@ -20,5 +20,14 @@ namespace AmstaJanBonga.Admin.Content.Secure.Help {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AmstaJanBonga.Admin.Content.Controls.LegendaWidget.LegendaWidget LegendaWidget;
+        
+        /// <summary>
+        /// GeneralWidget control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AmstaJanBonga.Admin.Content.Controls.GeneralWidget.GeneralWidget GeneralWidget;
     }
 }

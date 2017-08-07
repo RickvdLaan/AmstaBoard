@@ -2,7 +2,7 @@
 
 <%@ Register Src="~/Content/Controls/LivingRoomWidget/LivingRoomWidget.ascx" TagPrefix="uc1" TagName="LivingRoomWidget" %>
 <%@ Register Src="~/Content/Controls/LegendaWidget/LegendaWidget.ascx" TagPrefix="uc1" TagName="LegendaWidget" %>
-
+<%@ Register Src="~/Content/Controls/GeneralWidget/GeneralWidget.ascx" TagPrefix="uc1" TagName="GeneralWidget" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="_cphHead" runat="server">
 </asp:Content>
@@ -28,8 +28,8 @@
     </div>
 
     <div class="widget-container">
-        <uc1:LegendaWidget runat="server" id="LegendaWidget" />
+        <uc1:GeneralWidget runat="server" id="GeneralWidget" />
         <uc1:LivingRoomWidget runat="server" id="LivingRoomWidget" />
-    </div>
-    
+        <uc1:LegendaWidget runat="server" id="LegendaWidget" />
+    </div>  
 </asp:Content>

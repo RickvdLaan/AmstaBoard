@@ -5,7 +5,6 @@ using Rlaan.Toolkit.Configuration;
 using Rlaan.Toolkit.Extensions;
 using Rlaan.Toolkit.Web;
 using System;
-using System.Diagnostics;
 using System.Threading;
 using System.Web;
 using System.Web.Routing;
@@ -44,7 +43,7 @@ namespace AmstaJanBonga.Admin
         protected void Application_OnPostAuthenticateRequest(object sender, EventArgs e)
         {
             if (Project.Environment.IsDevelopEnvironment)
-                Debug.WriteLine("Application_OnPostAuthenticateRequest entered.{0}{1}".FormatString(Environment.NewLine, HttpContext.Current.Request.Url));
+                System.Diagnostics.Debug.WriteLine("Application_OnPostAuthenticateRequest entered.{0}{1}".FormatString(Environment.NewLine, HttpContext.Current.Request.Url));
 
             //////////////////////////////////////////////////////////////////////////////////////
             //    Returns true if any of the provided requests is found in the requested url    //
@@ -107,6 +106,8 @@ namespace AmstaJanBonga.Admin
                 try
                 {
                     Log.Exception(Server.GetLastError());
+
+                    Server.ClearError();
                 }
                 catch { }
             }
